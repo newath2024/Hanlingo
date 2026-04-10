@@ -1624,6 +1624,373 @@ function reviewLessons(
   return [review1, review2];
 }
 
+function introLesson16(source: SourceUnit, lookups: Lookups, totalLessons: number) {
+  const bus = pickFrom(source.textbook.vocab, "v-bus");
+  const subway = pickFrom(source.textbook.vocab, "v-subway");
+  const station = pickFrom(source.textbook.vocab, "v-station");
+  const busStop = pickFrom(source.textbook.vocab, "v-bus-stop");
+  const titleQuestion = pickFrom(source.textbook.dialogue, "d-title-question");
+
+  return lesson(
+    "unit-16-lesson-1",
+    "intro",
+    text("Mo bai di duong", "Open the directions topic"),
+    text(
+      "Lam quen voi phuong tien giao thong cot loi va cau hoi trung tam cua bai 16.",
+      "Start Unit 16 with the core transport words and its central directions question.",
+    ),
+    ["버스", "지하철", "역", "정류장"],
+    [
+      "wb16-write-transport",
+      "wb16-match-bus",
+      "wb16-match-subway",
+      "wb16-match-station",
+      "wb16-match-bus-stop",
+    ],
+    ["transport", "vocab", "directions", "intro"],
+    [
+      wm(
+        "u16-l1-bus",
+        bus.korean,
+        bus.translations,
+        lookups.choicePool,
+        "textbook",
+        text("Bat dau bang phuong tien quen thuoc nhat.", "Start with the most familiar vehicle."),
+      ),
+      wm(
+        "u16-l1-subway",
+        subway.korean,
+        subway.translations,
+        lookups.choicePool,
+        "textbook",
+        text("Tau dien ngam se lap lai nhieu trong phan hoi duong.", "The subway repeats often in directions."),
+      ),
+      wm(
+        "u16-l1-station",
+        station.korean,
+        station.translations,
+        lookups.choicePool,
+        "workbook",
+        text("Danh tu dia diem nay la moc neo cua unit.", "This place noun anchors the whole unit."),
+      ),
+      wm(
+        "u16-l1-bus-stop",
+        busStop.korean,
+        busStop.translations,
+        lookups.choicePool,
+        "workbook",
+        text("Nho tu nay de doc duoc huong dan di xe buyt.", "Know this word to follow bus directions."),
+      ),
+      tr(
+        "u16-l1-title-meaning",
+        "ko_to_meaning",
+        titleQuestion.translations,
+        titleQuestion.korean,
+        "textbook",
+        "recall",
+        [],
+        text(
+          "Hieu cau hoi duong di truoc khi bat dau ghep lo trinh.",
+          "Understand the route question before building the route itself.",
+        ),
+      ),
+      fill(
+        "u16-l1-fill-stop",
+        "저기 ___에서 100번 버스를 타십시오.",
+        ["정류장"],
+        "textbook",
+        [],
+        text(
+          "Dien dia diem len xe buyt vao cau huong dan.",
+          "Fill in the place where you board the bus.",
+        ),
+        busStop.translations,
+        {
+          choices: ["정류장", "역", "터미널"],
+        },
+      ),
+      arr(
+        "u16-l1-arrange-title",
+        titleQuestion.translations,
+        splitWords(titleQuestion.korean),
+        splitWords(titleQuestion.korean).reverse(),
+        "blended",
+        [],
+        text(
+          "Sap xep lai cau hoi duong di trung tam cua bai.",
+          "Rebuild the central directions question of the unit.",
+        ),
+      ),
+      speak(
+        "u16-l1-speak-title",
+        titleQuestion.korean,
+        "textbook",
+        text(
+          "Ket lesson bang cau hoi duong di cot loi.",
+          "Close the lesson with the core directions question.",
+        ),
+      ),
+    ],
+    1,
+    totalLessons,
+  );
+}
+
+function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: number) {
+  const homeSchool = pickFrom(source.textbook.examples, "ex-home-school-time");
+  const thirtyMinutes = pickFrom(source.textbook.examples, "ex-thirty-minutes");
+
+  return lesson(
+    "unit-16-lesson-2",
+    "grammar",
+    text("Tap trung 에서, 까지", "Focus on 에서, 까지"),
+    text(
+      "Khoa mau chi diem bat dau va diem ket thuc, dong thoi giu duoc cau hoi thoi gian di lai.",
+      "Lock in start-point and endpoint marking while keeping the travel-time question active.",
+    ),
+    ["에서, 까지", "집에서", "학교까지", "얼마나"],
+    [
+      "wb16-library-from",
+      "wb16-restaurant-to",
+      "wb16-subway-from",
+      "wb16-agency-to",
+      "wb16-company-from",
+      "wb16-park-to",
+    ],
+    ["grammar", "from-to", "route", "distance"],
+    [
+      tr(
+        "u16-l2-route-question",
+        "ko_to_meaning",
+        homeSchool.translations,
+        homeSchool.korean,
+        "textbook",
+        "recall",
+        ["에서, 까지"],
+        text(
+          "Bat dau bang cau hoi thoi gian di lai quen thuoc.",
+          "Start from the familiar route-time question.",
+        ),
+      ),
+      tr(
+        "u16-l2-thirty-minutes",
+        "meaning_to_ko",
+        thirtyMinutes.translations,
+        thirtyMinutes.korean,
+        "textbook",
+        "construction",
+        ["에서, 까지"],
+        text(
+          "Doi y nghia sang cau tra loi ngan va tu nhien.",
+          "Convert the meaning into a short natural answer.",
+        ),
+      ),
+      gram(
+        "u16-l2-from",
+        "도서관___ 식당까지 버스를 타고 가요.",
+        "에서",
+        "workbook",
+        text(
+          "Chon tro tu chi diem bat dau cua lo trinh.",
+          "Choose the particle that marks the starting point of the route.",
+        ),
+        ["에서, 까지"],
+        ["에서", "까지"],
+        text("tu thu vien den nha hang", "from the library to the restaurant"),
+      ),
+      gram(
+        "u16-l2-to",
+        "도서관에서 식당___ 버스를 타고 가요.",
+        "까지",
+        "workbook",
+        text(
+          "Chon tro tu chi diem ket thuc cua lo trinh.",
+          "Choose the particle that marks the destination.",
+        ),
+        ["에서, 까지"],
+        ["에서", "까지"],
+        text("den nha hang", "to the restaurant"),
+      ),
+      fill(
+        "u16-l2-subway-from",
+        "지하철역___ 여행사까지 걸어가요.",
+        ["에서"],
+        "workbook",
+        ["에서, 까지"],
+        text(
+          "Dien tro tu cho phan diem xuat phat.",
+          "Fill in the particle for the departure point.",
+        ),
+        text("tu ga tau dien ngam", "from the subway station"),
+        {
+          choices: ["에서", "까지"],
+        },
+      ),
+      fill(
+        "u16-l2-agency-to",
+        "지하철역에서 여행사___ 걸어가요.",
+        ["까지"],
+        "workbook",
+        ["에서, 까지"],
+        text(
+          "Dien tro tu cho diem den cua cau.",
+          "Fill in the particle for the destination.",
+        ),
+        text("den cong ty du lich", "to the travel agency"),
+        {
+          choices: ["에서", "까지"],
+        },
+      ),
+      arr(
+        "u16-l2-arrange-route",
+        text(
+          "Tu thu vien den nha hang di xe buyt.",
+          "Go by bus from the library to the restaurant.",
+        ),
+        ["도서관에서", "식당까지", "버스를", "타고", "가요"],
+        ["가요", "타고", "버스를", "식당까지", "도서관에서"],
+        "workbook",
+        ["에서, 까지"],
+        text(
+          "Sap xep lai mot cau lo trinh day du voi ca diem di va diem den.",
+          "Rebuild a full route sentence with both start and end points.",
+        ),
+      ),
+      speak(
+        "u16-l2-speak-route-question",
+        homeSchool.korean,
+        "textbook",
+        text(
+          "Noi tron cau hoi thoi gian de tao phan xa nhanh.",
+          "Say the route-time question aloud to build quick recall.",
+        ),
+        ["에서, 까지"],
+      ),
+    ],
+    2,
+    totalLessons,
+  );
+}
+
+function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: number) {
+  const titleQuestion = pickFrom(source.textbook.dialogue, "d-title-question");
+  const instruction = pickFrom(source.textbook.dialogue, "d-bus-stop-instruction");
+  const route = pickFrom(source.textbook.dialogue, "d-bus-route");
+  const bankPaper = pickFrom(source.textbook.dialogue, "d-bank-paper");
+  const bankFinish = pickFrom(source.textbook.dialogue, "d-bank-finish");
+
+  return lesson(
+    "unit-16-lesson-3",
+    "dialogue",
+    text("Hoi duong va huong dan", "Ask directions and give instructions"),
+    text(
+      "Ghep lai hoi duong, loi chi duong, va cac menh lenh lich su bang -으십시오/-십시오.",
+      "Rebuild direction questions, route instructions, and polite commands with -으십시오/-십시오.",
+    ),
+    ["dialogue", "directions", "-으십시오/-십시오", "정류장"],
+    [
+      "wb16-command-wash",
+      "wb16-command-walk-museum",
+      "wb16-command-listen",
+      "wb16-command-lie-down",
+    ],
+    ["dialogue", "directions", "commands", "route"],
+    [
+      tr(
+        "u16-l3-instruction-meaning",
+        "ko_to_meaning",
+        instruction.translations,
+        instruction.korean,
+        "textbook",
+        "recall",
+        ["-으십시오/-십시오"],
+        text(
+          "Hieu dung cau chi duong lich su truoc khi tu ghep lai.",
+          "Understand the polite direction first before rebuilding it.",
+        ),
+      ),
+      dial(
+        "u16-l3-title-question",
+        titleQuestion,
+        "textbook",
+        text(
+          "Ghep lai cau hoi duong di mo dau cuoc hoi thoai.",
+          "Rebuild the question that opens the directions dialogue.",
+        ),
+      ),
+      dial(
+        "u16-l3-instruction",
+        instruction,
+        "textbook",
+        text(
+          "Ghep lai cau len xe buyt co menh lenh lich su.",
+          "Rebuild the polite instruction for taking the bus.",
+        ),
+      ),
+      dial(
+        "u16-l3-route",
+        route,
+        "textbook",
+        text(
+          "Ghep lai cau noi xe buyt se di den dau.",
+          "Rebuild the line that states where the bus goes.",
+        ),
+      ),
+      dial(
+        "u16-l3-bank-paper",
+        bankPaper,
+        "blended",
+        text(
+          "Ghep lai chuoi huong dan ngan trong ngan hang.",
+          "Rebuild the short bank instruction sequence.",
+        ),
+      ),
+      fill(
+        "u16-l3-wash",
+        "먼저 야채들을 ___.",
+        ["씻으십시오"],
+        "workbook",
+        ["-으십시오/-십시오"],
+        text(
+          "Dien menh lenh lich su cho buoc dau tien trong cong viec nau an.",
+          "Fill the polite command for the first step in cooking.",
+        ),
+        text("hay rua rau truoc", "wash the vegetables first"),
+        {
+          choices: ["씻으십시오", "들으십시오", "누우십시오"],
+        },
+      ),
+      fill(
+        "u16-l3-listen",
+        "그럼 한국 노래를 많이 ___.",
+        ["들으십시오"],
+        "workbook",
+        ["-으십시오/-십시오"],
+        text(
+          "Dien loi khuyen lich su cho nguoi hoc tieng Han.",
+          "Fill the polite suggestion for someone studying Korean.",
+        ),
+        text("hay nghe nhieu bai hat Han Quoc", "listen to a lot of Korean songs"),
+        {
+          choices: ["들으십시오", "씻으십시오", "오십시오"],
+        },
+      ),
+      speak(
+        "u16-l3-speak-finish",
+        bankFinish.korean,
+        "textbook",
+        text(
+          "Ket lesson bang mot cau ket thuc lich su va tu nhien.",
+          "Close the lesson with a natural polite closing line.",
+        ),
+        ["-으십시오/-십시오"],
+      ),
+    ],
+    3,
+    totalLessons,
+  );
+}
+
 function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: number) {
   const housewarming = pickFrom(source.textbook.vocab, "v-housewarming");
   const invitationCard = pickFrom(source.textbook.vocab, "v-invitation-card");
@@ -2170,6 +2537,150 @@ export function buildRuntimeUnit(source: SourceUnit): RuntimeUnit {
   };
 }
 
+function reviewLessons16(
+  source: SourceUnit,
+  lookups: Lookups,
+  startOrder: number,
+  totalLessons: number,
+  audioAssetsById: Map<string, SourceAudioAsset>,
+) {
+  const qrIds = [
+    "wb16-qr-traffic-jam",
+    "wb16-qr-seoul-bus-number",
+    "wb16-qr-seoul-distance",
+    "wb16-qr-destination",
+  ];
+  const reviewBIds = [
+    "wb16-reading-train",
+    "wb16-reading-time",
+    "wb16-reading-gyeongju-bus",
+    "wb16-extension-line3",
+    "wb16-extension-find-hotel",
+  ];
+  const qrExercises = qrIds
+    .map((id) => pickFrom(source.workbook.exercises, id))
+    .filter(
+      (exercise) =>
+        !exercise.needsReview &&
+        (!exercise.audioAssetId || isReadyAudioAsset(audioAssetsById.get(exercise.audioAssetId))),
+    );
+  const reviewBExercises = reviewBIds.map((id) => pickFrom(source.workbook.exercises, id));
+  const routeQuestion = pickFrom(source.textbook.examples, "ex-home-school-time");
+  const thirtyMinutes = pickFrom(source.textbook.examples, "ex-thirty-minutes");
+  const titleQuestion = pickFrom(source.textbook.dialogue, "d-title-question");
+  const instruction = pickFrom(source.textbook.dialogue, "d-bus-stop-instruction");
+
+  const review1 = lesson(
+    `unit-16-lesson-${startOrder}`,
+    "review",
+    text("On nghe va chi duong", "Listening and route review"),
+    text(
+      "Gom lai cac bai nghe QR va cac cau hoi duong di cot loi cua bai 16.",
+      "Pull together the QR listening tasks and the core route prompts from Unit 16.",
+    ),
+    ["review", "qr-listening", "directions", "transport"],
+    qrIds,
+    Array.from(new Set(qrExercises.flatMap((exercise) => exercise.coverageTags))),
+    [
+      ...qrExercises.flatMap((exercise) =>
+        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+      ),
+      tr(
+        "u16-review-a-route-question",
+        "meaning_to_ko",
+        routeQuestion.translations,
+        routeQuestion.korean,
+        "textbook",
+        "construction",
+        ["에서, 까지"],
+        text(
+          "Viet lai cau hoi hoan chinh de xin thong tin ve lo trinh.",
+          "Rewrite the full question used to ask about a route.",
+        ),
+      ),
+      tr(
+        "u16-review-a-thirty-minutes",
+        "meaning_to_ko",
+        thirtyMinutes.translations,
+        thirtyMinutes.korean,
+        "textbook",
+        "construction",
+        ["에서, 까지"],
+        text(
+          "Viet lai cau tra loi ngan ve thoi gian di chuyen.",
+          "Rewrite the short answer about travel time.",
+        ),
+      ),
+      arr(
+        "u16-review-a-arrange-title",
+        titleQuestion.translations,
+        splitWords(titleQuestion.korean),
+        splitWords(titleQuestion.korean).reverse(),
+        "blended",
+        [],
+        text(
+          "Ghep lai cau hoi duong di mot lan nua truoc khi sang phan tong hop.",
+          "Rebuild the directions question once more before the cumulative section.",
+        ),
+      ),
+      speak(
+        "u16-review-a-speak-instruction",
+        instruction.korean,
+        "textbook",
+        text(
+          "Noi lai cau chi duong co menh lenh lich su.",
+          "Say the polite route instruction aloud again.",
+        ),
+        ["-으십시오/-십시오"],
+      ),
+    ],
+    startOrder,
+    totalLessons,
+  );
+
+  const review2 = lesson(
+    `unit-16-lesson-${startOrder + 1}`,
+    "review",
+    text("On doc va san sinh", "Reading and production review"),
+    text(
+      "Khoa bai 16 bang bai doc du lich, cau hoan thanh thong tin, va cac loi khuyen co khung.",
+      "Close Unit 16 with travel reading, information completion, and scaffolded advice prompts.",
+    ),
+    ["review", "reading", "travel", "commands"],
+    reviewBIds,
+    Array.from(new Set(reviewBExercises.flatMap((exercise) => exercise.coverageTags))),
+    reviewBExercises.flatMap((exercise) =>
+      exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+    ),
+    startOrder + 1,
+    totalLessons,
+  );
+
+  return [review1, review2];
+}
+
+export function buildRuntimeUnit16(source: SourceUnit): RuntimeUnit {
+  const { lookups, audioAssetsById, workbookGroups, totalLessons } = buildRuntimeContext(source);
+
+  return {
+    unitId: source.unitId,
+    unitNumber: source.unitNumber,
+    title: source.title,
+    subtitle: text(
+      "Mo bai bang tu vung giao thong, khoa lai 에서/까지 va -으십시오/-십시오, roi on bang nghe duong di va bai doc du lich.",
+      "Open with transport vocabulary, lock in 에서/까지 and -으십시오/-십시오, then review with route listening and travel reading.",
+    ),
+    reviewWords: reviewWords(source),
+    lessons: [
+      introLesson16(source, lookups, totalLessons),
+      grammarLesson16(source, lookups, totalLessons),
+      dialogueLesson16(source, lookups, totalLessons),
+      ...workbookLessons(source, workbookGroups, totalLessons),
+      ...reviewLessons16(source, lookups, workbookGroups.length + 4, totalLessons, audioAssetsById),
+    ],
+  };
+}
+
 export function buildRuntimeUnit17(source: SourceUnit): RuntimeUnit {
   const { lookups, audioAssetsById, workbookGroups, totalLessons } = buildRuntimeContext(source);
 
@@ -2202,7 +2713,12 @@ export async function generateRuntimeUnit(options: GenerateOptions) {
     );
   }
 
-  let runtimeUnit = source.unitId === "17" ? buildRuntimeUnit17(source) : buildRuntimeUnit(source);
+  let runtimeUnit =
+    source.unitId === "17"
+      ? buildRuntimeUnit17(source)
+      : source.unitId === "16"
+        ? buildRuntimeUnit16(source)
+        : buildRuntimeUnit(source);
   runtimeUnit = await maybeEnhanceRuntimeUnitWithOpenAI(runtimeUnit, {
     localOnly: options.localOnly ?? false,
   });

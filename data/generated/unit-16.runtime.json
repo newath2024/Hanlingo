@@ -1,0 +1,4078 @@
+{
+  "unitId": "16",
+  "unitNumber": 16,
+  "title": {
+    "vi": "Tu day den ga Seoul bang cach nao?",
+    "en": "How do I get to Seoul Station from here?"
+  },
+  "subtitle": {
+    "vi": "Mo bai bang tu vung giao thong, khoa lai 에서/까지 va -으십시오/-십시오, roi on bang nghe duong di va bai doc du lich.",
+    "en": "Open with transport vocabulary, lock in 에서/까지 and -으십시오/-십시오, then review with route listening and travel reading."
+  },
+  "reviewWords": [
+    "버스",
+    "지하철",
+    "기차",
+    "비행기",
+    "배",
+    "역",
+    "정류장",
+    "터미널",
+    "타다",
+    "걸어가다",
+    "갈아타다",
+    "거리",
+    "멀다",
+    "가깝다",
+    "얼마나",
+    "길이 막히다",
+    "(시간이) 걸리다",
+    "집에서 학교까지 시간이 얼마나 걸려요?",
+    "30분 걸려요.",
+    "공항 셔틀을 타십시오.",
+    "잠시만 기다리십시오.",
+    "내일 다시 오십시오.",
+    "서울역에서 기차를 탔습니다.",
+    "서면역에서 한 번 갈아탔습니다."
+  ],
+  "lessons": [
+    {
+      "lessonId": "unit-16-lesson-1",
+      "lessonRole": "intro",
+      "title": {
+        "vi": "Mo bai di duong",
+        "en": "Open the directions topic"
+      },
+      "summary": {
+        "vi": "Lam quen voi phuong tien giao thong cot loi va cau hoi trung tam cua bai 16.",
+        "en": "Start Unit 16 with the core transport words and its central directions question."
+      },
+      "difficulty": {
+        "vi": "Nhan dien va lam quen",
+        "en": "Recognition and warm-up"
+      },
+      "focusConcepts": [
+        "버스",
+        "지하철",
+        "역",
+        "정류장"
+      ],
+      "sourceExerciseIds": [
+        "wb16-write-transport",
+        "wb16-match-bus",
+        "wb16-match-subway",
+        "wb16-match-station",
+        "wb16-match-bus-stop"
+      ],
+      "coverageTags": [
+        "transport",
+        "vocab",
+        "directions",
+        "intro"
+      ],
+      "tasks": [
+        {
+          "id": "u16-l1-bus",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang phuong tien quen thuoc nhat.",
+            "en": "Start with the most familiar vehicle."
+          },
+          "source": "textbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "u16-l1-bus.word-match",
+          "type": "word_match",
+          "koreanText": "버스",
+          "choices": [
+            {
+              "id": "u16-l1-bus-correct",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "u16-l1-bus-d1",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "u16-l1-bus-d2",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            },
+            {
+              "id": "u16-l1-bus-d3",
+              "text": {
+                "vi": "may bay",
+                "en": "airplane"
+              }
+            }
+          ],
+          "answer": "u16-l1-bus-correct"
+        },
+        {
+          "id": "u16-l1-subway",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Tau dien ngam se lap lai nhieu trong phan hoi duong.",
+            "en": "The subway repeats often in directions."
+          },
+          "source": "textbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "u16-l1-subway.word-match",
+          "type": "word_match",
+          "koreanText": "지하철",
+          "choices": [
+            {
+              "id": "u16-l1-subway-correct",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "u16-l1-subway-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "u16-l1-subway-d2",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            },
+            {
+              "id": "u16-l1-subway-d3",
+              "text": {
+                "vi": "may bay",
+                "en": "airplane"
+              }
+            }
+          ],
+          "answer": "u16-l1-subway-correct"
+        },
+        {
+          "id": "u16-l1-station",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Danh tu dia diem nay la moc neo cua unit.",
+            "en": "This place noun anchors the whole unit."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "u16-l1-station.word-match",
+          "type": "word_match",
+          "koreanText": "역",
+          "choices": [
+            {
+              "id": "u16-l1-station-correct",
+              "text": {
+                "vi": "ga",
+                "en": "station"
+              }
+            },
+            {
+              "id": "u16-l1-station-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "u16-l1-station-d2",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "u16-l1-station-d3",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            }
+          ],
+          "answer": "u16-l1-station-correct"
+        },
+        {
+          "id": "u16-l1-bus-stop",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Nho tu nay de doc duoc huong dan di xe buyt.",
+            "en": "Know this word to follow bus directions."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "u16-l1-bus-stop.word-match",
+          "type": "word_match",
+          "koreanText": "정류장",
+          "choices": [
+            {
+              "id": "u16-l1-bus-stop-correct",
+              "text": {
+                "vi": "tram xe buyt",
+                "en": "bus stop"
+              }
+            },
+            {
+              "id": "u16-l1-bus-stop-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "u16-l1-bus-stop-d2",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "u16-l1-bus-stop-d3",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            }
+          ],
+          "answer": "u16-l1-bus-stop-correct"
+        },
+        {
+          "id": "u16-l1-title-meaning",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Hieu cau hoi duong di truoc khi bat dau ghep lo trinh.",
+            "en": "Understand the route question before building the route itself."
+          },
+          "source": "textbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "u16-l1-title-meaning.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "Tu day den ga Seoul bang cach nao?",
+            "en": "How do I get to Seoul Station from here?"
+          },
+          "koreanText": "여기에서 서울역까지 어떻게 가요?",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "u16-l1-fill-stop",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien dia diem len xe buyt vao cau huong dan.",
+            "en": "Fill in the place where you board the bus."
+          },
+          "source": "textbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-l1-fill-stop.fill",
+          "type": "fill_blank",
+          "koreanText": "저기 ___에서 100번 버스를 타십시오.",
+          "acceptedAnswers": [
+            "정류장"
+          ],
+          "choices": [
+            "정류장",
+            "역",
+            "터미널"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "tram xe buyt",
+            "en": "bus stop"
+          }
+        },
+        {
+          "id": "u16-l1-arrange-title",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Sap xep lai cau hoi duong di trung tam cua bai.",
+            "en": "Rebuild the central directions question of the unit."
+          },
+          "source": "blended",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "u16-l1-arrange-title.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Tu day den ga Seoul bang cach nao?",
+            "en": "How do I get to Seoul Station from here?"
+          },
+          "wordBank": [
+            "가요?",
+            "어떻게",
+            "서울역까지",
+            "여기에서"
+          ],
+          "answer": [
+            "여기에서",
+            "서울역까지",
+            "어떻게",
+            "가요?"
+          ]
+        },
+        {
+          "id": "u16-l1-speak-title",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Ket lesson bang cau hoi duong di cot loi.",
+            "en": "Close the lesson with the core directions question."
+          },
+          "source": "textbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "u16-l1-speak-title.speaking",
+          "type": "speaking",
+          "koreanText": "여기에서 서울역까지 어떻게 가요?",
+          "expectedSpeech": "여기에서 서울역까지 어떻게 가요?"
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-16-lesson-2",
+      "lessonRole": "grammar",
+      "title": {
+        "vi": "Tap trung 에서, 까지",
+        "en": "Focus on 에서, 까지"
+      },
+      "summary": {
+        "vi": "Khoa mau chi diem bat dau va diem ket thuc, dong thoi giu duoc cau hoi thoi gian di lai.",
+        "en": "Lock in start-point and endpoint marking while keeping the travel-time question active."
+      },
+      "difficulty": {
+        "vi": "Nhan dien va lam quen",
+        "en": "Recognition and warm-up"
+      },
+      "focusConcepts": [
+        "에서, 까지",
+        "집에서",
+        "학교까지",
+        "얼마나"
+      ],
+      "sourceExerciseIds": [
+        "wb16-library-from",
+        "wb16-restaurant-to",
+        "wb16-subway-from",
+        "wb16-agency-to",
+        "wb16-company-from",
+        "wb16-park-to"
+      ],
+      "coverageTags": [
+        "grammar",
+        "from-to",
+        "route",
+        "distance"
+      ],
+      "tasks": [
+        {
+          "id": "u16-l2-route-question",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang cau hoi thoi gian di lai quen thuoc.",
+            "en": "Start from the familiar route-time question."
+          },
+          "source": "textbook",
+          "stage": "recall",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "u16-l2-route-question.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "Tu nha den truong mat bao lau?",
+            "en": "How long does it take from home to school?"
+          },
+          "koreanText": "집에서 학교까지 시간이 얼마나 걸려요?",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "u16-l2-from",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon tro tu chi diem bat dau cua lo trinh.",
+            "en": "Choose the particle that marks the starting point of the route."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "u16-l2-from.grammar",
+          "supportText": {
+            "vi": "tu thu vien den nha hang",
+            "en": "from the library to the restaurant"
+          },
+          "type": "grammar_select",
+          "koreanText": "도서관___ 식당까지 버스를 타고 가요.",
+          "choices": [
+            "에서",
+            "까지"
+          ],
+          "answer": "에서"
+        },
+        {
+          "id": "u16-l2-to",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon tro tu chi diem ket thuc cua lo trinh.",
+            "en": "Choose the particle that marks the destination."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "u16-l2-to.grammar",
+          "supportText": {
+            "vi": "den nha hang",
+            "en": "to the restaurant"
+          },
+          "type": "grammar_select",
+          "koreanText": "도서관에서 식당___ 버스를 타고 가요.",
+          "choices": [
+            "에서",
+            "까지"
+          ],
+          "answer": "까지"
+        },
+        {
+          "id": "u16-l2-thirty-minutes",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Doi y nghia sang cau tra loi ngan va tu nhien.",
+            "en": "Convert the meaning into a short natural answer."
+          },
+          "source": "textbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "u16-l2-thirty-minutes.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Mat 30 phut.",
+            "en": "It takes 30 minutes."
+          },
+          "acceptedAnswers": [
+            "30분 걸려요."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "u16-l2-subway-from",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien tro tu cho phan diem xuat phat.",
+            "en": "Fill in the particle for the departure point."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-l2-subway-from.fill",
+          "type": "fill_blank",
+          "koreanText": "지하철역___ 여행사까지 걸어가요.",
+          "acceptedAnswers": [
+            "에서"
+          ],
+          "choices": [
+            "에서",
+            "까지"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "tu ga tau dien ngam",
+            "en": "from the subway station"
+          }
+        },
+        {
+          "id": "u16-l2-agency-to",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien tro tu cho diem den cua cau.",
+            "en": "Fill in the particle for the destination."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-l2-agency-to.fill",
+          "type": "fill_blank",
+          "koreanText": "지하철역에서 여행사___ 걸어가요.",
+          "acceptedAnswers": [
+            "까지"
+          ],
+          "choices": [
+            "에서",
+            "까지"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "den cong ty du lich",
+            "en": "to the travel agency"
+          }
+        },
+        {
+          "id": "u16-l2-arrange-route",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Sap xep lai mot cau lo trinh day du voi ca diem di va diem den.",
+            "en": "Rebuild a full route sentence with both start and end points."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "u16-l2-arrange-route.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Tu thu vien den nha hang di xe buyt.",
+            "en": "Go by bus from the library to the restaurant."
+          },
+          "wordBank": [
+            "가요",
+            "타고",
+            "버스를",
+            "식당까지",
+            "도서관에서"
+          ],
+          "answer": [
+            "도서관에서",
+            "식당까지",
+            "버스를",
+            "타고",
+            "가요"
+          ]
+        },
+        {
+          "id": "u16-l2-speak-route-question",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi tron cau hoi thoi gian de tao phan xa nhanh.",
+            "en": "Say the route-time question aloud to build quick recall."
+          },
+          "source": "textbook",
+          "stage": "production",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "u16-l2-speak-route-question.speaking",
+          "type": "speaking",
+          "koreanText": "집에서 학교까지 시간이 얼마나 걸려요?",
+          "expectedSpeech": "집에서 학교까지 시간이 얼마나 걸려요?"
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-16-lesson-3",
+      "lessonRole": "dialogue",
+      "title": {
+        "vi": "Hoi duong va huong dan",
+        "en": "Ask directions and give instructions"
+      },
+      "summary": {
+        "vi": "Ghep lai hoi duong, loi chi duong, va cac menh lenh lich su bang -으십시오/-십시오.",
+        "en": "Rebuild direction questions, route instructions, and polite commands with -으십시오/-십시오."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "dialogue",
+        "directions",
+        "-으십시오/-십시오",
+        "정류장"
+      ],
+      "sourceExerciseIds": [
+        "wb16-command-wash",
+        "wb16-command-walk-museum",
+        "wb16-command-listen",
+        "wb16-command-lie-down"
+      ],
+      "coverageTags": [
+        "dialogue",
+        "directions",
+        "commands",
+        "route"
+      ],
+      "tasks": [
+        {
+          "id": "u16-l3-instruction-meaning",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Hieu dung cau chi duong lich su truoc khi tu ghep lai.",
+            "en": "Understand the polite direction first before rebuilding it."
+          },
+          "source": "textbook",
+          "stage": "recall",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "u16-l3-instruction-meaning.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "Hay di den tram xe buyt dang kia va len xe buyt so 100.",
+            "en": "Take bus 100 at that bus stop over there."
+          },
+          "koreanText": "저기 정류장에서 100번 버스를 타십시오.",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "u16-l3-title-question",
+          "prompt": {
+            "vi": "Ghep lai cau hoi thoai.",
+            "en": "Rebuild the dialogue line."
+          },
+          "explanation": {
+            "vi": "Ghep lai cau hoi duong di mo dau cuoc hoi thoai.",
+            "en": "Rebuild the question that opens the directions dialogue."
+          },
+          "source": "textbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.8,
+          "errorPatternKey": "u16-l3-title-question.dialogue",
+          "type": "dialogue_reconstruct",
+          "speaker": "Lisa",
+          "translation": {
+            "vi": "Tu day den ga Seoul bang cach nao?",
+            "en": "How do I get to Seoul Station from here?"
+          },
+          "wordBank": [
+            "여기에서",
+            "서울역까지",
+            "어떻게",
+            "가요?"
+          ],
+          "answer": [
+            "여기에서",
+            "서울역까지",
+            "어떻게",
+            "가요?"
+          ]
+        },
+        {
+          "id": "u16-l3-instruction",
+          "prompt": {
+            "vi": "Ghep lai cau hoi thoai.",
+            "en": "Rebuild the dialogue line."
+          },
+          "explanation": {
+            "vi": "Ghep lai cau len xe buyt co menh lenh lich su.",
+            "en": "Rebuild the polite instruction for taking the bus."
+          },
+          "source": "textbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.8,
+          "errorPatternKey": "u16-l3-instruction.dialogue",
+          "type": "dialogue_reconstruct",
+          "speaker": "Man",
+          "translation": {
+            "vi": "Hay di den tram xe buyt dang kia va len xe buyt so 100.",
+            "en": "Take bus 100 at that bus stop over there."
+          },
+          "wordBank": [
+            "저기",
+            "정류장에서",
+            "100번",
+            "버스를",
+            "타십시오."
+          ],
+          "answer": [
+            "저기",
+            "정류장에서",
+            "100번",
+            "버스를",
+            "타십시오."
+          ]
+        },
+        {
+          "id": "u16-l3-route",
+          "prompt": {
+            "vi": "Ghep lai cau hoi thoai.",
+            "en": "Rebuild the dialogue line."
+          },
+          "explanation": {
+            "vi": "Ghep lai cau noi xe buyt se di den dau.",
+            "en": "Rebuild the line that states where the bus goes."
+          },
+          "source": "textbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.8,
+          "errorPatternKey": "u16-l3-route.dialogue",
+          "type": "dialogue_reconstruct",
+          "speaker": "Man",
+          "translation": {
+            "vi": "Chiec xe buyt do di den tan ga Seoul.",
+            "en": "That bus goes all the way to Seoul Station."
+          },
+          "wordBank": [
+            "그",
+            "버스가",
+            "서울역까지",
+            "갑니다."
+          ],
+          "answer": [
+            "그",
+            "버스가",
+            "서울역까지",
+            "갑니다."
+          ]
+        },
+        {
+          "id": "u16-l3-bank-paper",
+          "prompt": {
+            "vi": "Ghep lai cau hoi thoai.",
+            "en": "Rebuild the dialogue line."
+          },
+          "explanation": {
+            "vi": "Ghep lai chuoi huong dan ngan trong ngan hang.",
+            "en": "Rebuild the short bank instruction sequence."
+          },
+          "source": "blended",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.8,
+          "errorPatternKey": "u16-l3-bank-paper.dialogue",
+          "type": "dialogue_reconstruct",
+          "speaker": "Clerk",
+          "translation": {
+            "vi": "Hay viet vao to giay nay, roi viet lai y nhu vay o day.",
+            "en": "Fill out this paper, and then write the same thing here."
+          },
+          "wordBank": [
+            "이",
+            "종이를",
+            "쓰십시오.",
+            "그리고",
+            "여기에",
+            "똑같이",
+            "쓰십시오."
+          ],
+          "answer": [
+            "이",
+            "종이를",
+            "쓰십시오.",
+            "그리고",
+            "여기에",
+            "똑같이",
+            "쓰십시오."
+          ]
+        },
+        {
+          "id": "u16-l3-wash",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien menh lenh lich su cho buoc dau tien trong cong viec nau an.",
+            "en": "Fill the polite command for the first step in cooking."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-l3-wash.fill",
+          "type": "fill_blank",
+          "koreanText": "먼저 야채들을 ___.",
+          "acceptedAnswers": [
+            "씻으십시오"
+          ],
+          "choices": [
+            "씻으십시오",
+            "들으십시오",
+            "누우십시오"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "hay rua rau truoc",
+            "en": "wash the vegetables first"
+          }
+        },
+        {
+          "id": "u16-l3-listen",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien loi khuyen lich su cho nguoi hoc tieng Han.",
+            "en": "Fill the polite suggestion for someone studying Korean."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-l3-listen.fill",
+          "type": "fill_blank",
+          "koreanText": "그럼 한국 노래를 많이 ___.",
+          "acceptedAnswers": [
+            "들으십시오"
+          ],
+          "choices": [
+            "들으십시오",
+            "씻으십시오",
+            "오십시오"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "hay nghe nhieu bai hat Han Quoc",
+            "en": "listen to a lot of Korean songs"
+          }
+        },
+        {
+          "id": "u16-l3-speak-finish",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Ket lesson bang mot cau ket thuc lich su va tu nhien.",
+            "en": "Close the lesson with a natural polite closing line."
+          },
+          "source": "textbook",
+          "stage": "production",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "u16-l3-speak-finish.speaking",
+          "type": "speaking",
+          "koreanText": "여기 통장입니다. 받으십시오.",
+          "expectedSpeech": "여기 통장입니다. 받으십시오."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-16-lesson-4",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 1: review",
+        "en": "Workbook practice 1: review"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "review",
+        "transport",
+        "category",
+        "vocab"
+      ],
+      "sourceExerciseIds": [
+        "wb16-write-transport",
+        "wb16-write-transport-use",
+        "wb16-match-bus",
+        "wb16-match-train",
+        "wb16-match-subway"
+      ],
+      "coverageTags": [
+        "review",
+        "transport",
+        "category",
+        "vocab",
+        "bus",
+        "train",
+        "subway"
+      ],
+      "tasks": [
+        {
+          "id": "wb16-match-bus-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb16-match-bus-1.word-match",
+          "type": "word_match",
+          "koreanText": "버스",
+          "choices": [
+            {
+              "id": "wb16-match-bus-1-correct",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-bus-1-d1",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-bus-1-d2",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            },
+            {
+              "id": "wb16-match-bus-1-d3",
+              "text": {
+                "vi": "may bay",
+                "en": "airplane"
+              }
+            }
+          ],
+          "answer": "wb16-match-bus-1-correct"
+        },
+        {
+          "id": "wb16-match-bus-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-match-bus-2.listen",
+          "audioText": "버스",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-match-bus-2-correct",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-bus-2-d1",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-bus-2-d2",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            },
+            {
+              "id": "wb16-match-bus-2-d3",
+              "text": {
+                "vi": "may bay",
+                "en": "airplane"
+              }
+            }
+          ],
+          "answer": "wb16-match-bus-2-correct"
+        },
+        {
+          "id": "wb16-match-train-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb16-match-train-1.word-match",
+          "type": "word_match",
+          "koreanText": "기차",
+          "choices": [
+            {
+              "id": "wb16-match-train-1-correct",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            },
+            {
+              "id": "wb16-match-train-1-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-train-1-d2",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-train-1-d3",
+              "text": {
+                "vi": "may bay",
+                "en": "airplane"
+              }
+            }
+          ],
+          "answer": "wb16-match-train-1-correct"
+        },
+        {
+          "id": "wb16-match-train-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-match-train-2.listen",
+          "audioText": "기차",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-match-train-2-correct",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            },
+            {
+              "id": "wb16-match-train-2-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-train-2-d2",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-train-2-d3",
+              "text": {
+                "vi": "may bay",
+                "en": "airplane"
+              }
+            }
+          ],
+          "answer": "wb16-match-train-2-correct"
+        },
+        {
+          "id": "wb16-match-subway-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb16-match-subway-1.word-match",
+          "type": "word_match",
+          "koreanText": "지하철",
+          "choices": [
+            {
+              "id": "wb16-match-subway-1-correct",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-subway-1-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-subway-1-d2",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            },
+            {
+              "id": "wb16-match-subway-1-d3",
+              "text": {
+                "vi": "may bay",
+                "en": "airplane"
+              }
+            }
+          ],
+          "answer": "wb16-match-subway-1-correct"
+        },
+        {
+          "id": "wb16-match-subway-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-match-subway-2.listen",
+          "audioText": "지하철",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-match-subway-2-correct",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-subway-2-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-subway-2-d2",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            },
+            {
+              "id": "wb16-match-subway-2-d3",
+              "text": {
+                "vi": "may bay",
+                "en": "airplane"
+              }
+            }
+          ],
+          "answer": "wb16-match-subway-2-correct"
+        },
+        {
+          "id": "wb16-write-transport-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb16-write-transport-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "phuong tien giao thong",
+            "en": "means of transportation"
+          },
+          "acceptedAnswers": [
+            "교통수단"
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb16-write-transport-use-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb16-write-transport-use-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "su dung phuong tien giao thong",
+            "en": "using transportation"
+          },
+          "acceptedAnswers": [
+            "교통수단 이용"
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb16-write-transport-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb16-write-transport-2.speaking",
+          "type": "speaking",
+          "koreanText": "교통수단",
+          "expectedSpeech": "교통수단"
+        },
+        {
+          "id": "wb16-write-transport-use-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb16-write-transport-use-2.speaking",
+          "type": "speaking",
+          "koreanText": "교통수단 이용",
+          "expectedSpeech": "교통수단 이용"
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-16-lesson-5",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 2: transport",
+        "en": "Workbook practice 2: transport"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "transport",
+        "vocab",
+        "airplane",
+        "transport-use"
+      ],
+      "sourceExerciseIds": [
+        "wb16-match-airplane",
+        "wb16-match-station",
+        "wb16-match-bus-stop",
+        "wb16-future-transfer",
+        "wb16-walk-school"
+      ],
+      "coverageTags": [
+        "transport",
+        "vocab",
+        "airplane",
+        "transport-use",
+        "station",
+        "bus-stop",
+        "transfer",
+        "future",
+        "walk",
+        "movement"
+      ],
+      "tasks": [
+        {
+          "id": "wb16-match-airplane-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb16-match-airplane-1.word-match",
+          "type": "word_match",
+          "koreanText": "비행기",
+          "choices": [
+            {
+              "id": "wb16-match-airplane-1-correct",
+              "text": {
+                "vi": "may bay",
+                "en": "airplane"
+              }
+            },
+            {
+              "id": "wb16-match-airplane-1-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-airplane-1-d2",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-airplane-1-d3",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            }
+          ],
+          "answer": "wb16-match-airplane-1-correct"
+        },
+        {
+          "id": "wb16-match-airplane-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-match-airplane-2.listen",
+          "audioText": "비행기",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-match-airplane-2-correct",
+              "text": {
+                "vi": "may bay",
+                "en": "airplane"
+              }
+            },
+            {
+              "id": "wb16-match-airplane-2-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-airplane-2-d2",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-airplane-2-d3",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            }
+          ],
+          "answer": "wb16-match-airplane-2-correct"
+        },
+        {
+          "id": "wb16-match-station-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb16-match-station-1.word-match",
+          "type": "word_match",
+          "koreanText": "역",
+          "choices": [
+            {
+              "id": "wb16-match-station-1-correct",
+              "text": {
+                "vi": "ga",
+                "en": "station"
+              }
+            },
+            {
+              "id": "wb16-match-station-1-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-station-1-d2",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-station-1-d3",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            }
+          ],
+          "answer": "wb16-match-station-1-correct"
+        },
+        {
+          "id": "wb16-match-station-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-match-station-2.listen",
+          "audioText": "역",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-match-station-2-correct",
+              "text": {
+                "vi": "ga",
+                "en": "station"
+              }
+            },
+            {
+              "id": "wb16-match-station-2-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-station-2-d2",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-station-2-d3",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            }
+          ],
+          "answer": "wb16-match-station-2-correct"
+        },
+        {
+          "id": "wb16-match-bus-stop-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb16-match-bus-stop-1.word-match",
+          "type": "word_match",
+          "koreanText": "정류장",
+          "choices": [
+            {
+              "id": "wb16-match-bus-stop-1-correct",
+              "text": {
+                "vi": "tram xe buyt",
+                "en": "bus stop"
+              }
+            },
+            {
+              "id": "wb16-match-bus-stop-1-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-bus-stop-1-d2",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-bus-stop-1-d3",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            }
+          ],
+          "answer": "wb16-match-bus-stop-1-correct"
+        },
+        {
+          "id": "wb16-match-bus-stop-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-match-bus-stop-2.listen",
+          "audioText": "정류장",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-match-bus-stop-2-correct",
+              "text": {
+                "vi": "tram xe buyt",
+                "en": "bus stop"
+              }
+            },
+            {
+              "id": "wb16-match-bus-stop-2-d1",
+              "text": {
+                "vi": "xe buyt",
+                "en": "bus"
+              }
+            },
+            {
+              "id": "wb16-match-bus-stop-2-d2",
+              "text": {
+                "vi": "tau dien ngam",
+                "en": "subway"
+              }
+            },
+            {
+              "id": "wb16-match-bus-stop-2-d3",
+              "text": {
+                "vi": "tau hoa",
+                "en": "train"
+              }
+            }
+          ],
+          "answer": "wb16-match-bus-stop-2-correct"
+        },
+        {
+          "id": "wb16-future-transfer-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-future-transfer-2.grammar",
+          "supportText": {
+            "vi": "toi se phai chuyen may bay",
+            "en": "I will have to transfer planes"
+          },
+          "type": "grammar_select",
+          "koreanText": "이 비행기는 한국까지 바로 가지 않아서 비행기를 ___.",
+          "choices": [
+            "갈아탈 거예요",
+            "걸어갈 거예요",
+            "탈 거예요"
+          ],
+          "answer": "갈아탈 거예요"
+        },
+        {
+          "id": "wb16-walk-school-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-walk-school-2.grammar",
+          "supportText": {
+            "vi": "toi di bo den truong de tap the duc",
+            "en": "I walk to school for exercise"
+          },
+          "type": "grammar_select",
+          "koreanText": "저는 운동하러 학교까지 ___.",
+          "choices": [
+            "걸어가요",
+            "갈아타요",
+            "타요"
+          ],
+          "answer": "걸어가요"
+        },
+        {
+          "id": "wb16-future-transfer-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-future-transfer-1.fill",
+          "type": "fill_blank",
+          "koreanText": "이 비행기는 한국까지 바로 가지 않아서 비행기를 ___.",
+          "acceptedAnswers": [
+            "갈아탈 거예요"
+          ],
+          "choices": [
+            "갈아탈 거예요",
+            "걸어갈 거예요",
+            "탈 거예요"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "toi se phai chuyen may bay",
+            "en": "I will have to transfer planes"
+          }
+        },
+        {
+          "id": "wb16-walk-school-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-walk-school-1.fill",
+          "type": "fill_blank",
+          "koreanText": "저는 운동하러 학교까지 ___.",
+          "acceptedAnswers": [
+            "걸어가요"
+          ],
+          "choices": [
+            "걸어가요",
+            "갈아타요",
+            "타요"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "toi di bo den truong de tap the duc",
+            "en": "I walk to school for exercise"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-16-lesson-6",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 3: transport-use",
+        "en": "Workbook practice 3: transport-use"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "transport-use",
+        "ride",
+        "ability",
+        "grammar"
+      ],
+      "sourceExerciseIds": [
+        "wb16-bike-ride",
+        "wb16-library-from",
+        "wb16-restaurant-to",
+        "wb16-subway-from",
+        "wb16-agency-to",
+        "wb16-company-from"
+      ],
+      "coverageTags": [
+        "transport-use",
+        "ride",
+        "ability",
+        "grammar",
+        "from-to",
+        "library",
+        "restaurant",
+        "subway",
+        "agency",
+        "company",
+        "park"
+      ],
+      "tasks": [
+        {
+          "id": "wb16-bike-ride-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-bike-ride-2.grammar",
+          "supportText": {
+            "vi": "toi co the di xe dap",
+            "en": "I can ride a bicycle"
+          },
+          "type": "grammar_select",
+          "koreanText": "저는 자전거를 ___.",
+          "choices": [
+            "탈 수 있어요",
+            "걸어갈 수 있어요",
+            "갈아탈 수 있어요"
+          ],
+          "answer": "탈 수 있어요"
+        },
+        {
+          "id": "wb16-library-from-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-library-from-2.grammar",
+          "supportText": {
+            "vi": "tu thu vien den nha hang",
+            "en": "from the library to the restaurant"
+          },
+          "type": "grammar_select",
+          "koreanText": "도서관___ 식당까지 버스를 타고 가요.",
+          "choices": [
+            "에서",
+            "까지"
+          ],
+          "answer": "에서"
+        },
+        {
+          "id": "wb16-restaurant-to-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-restaurant-to-2.grammar",
+          "supportText": {
+            "vi": "den nha hang",
+            "en": "to the restaurant"
+          },
+          "type": "grammar_select",
+          "koreanText": "도서관에서 식당___ 버스를 타고 가요.",
+          "choices": [
+            "에서",
+            "까지"
+          ],
+          "answer": "까지"
+        },
+        {
+          "id": "wb16-subway-from-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-subway-from-2.grammar",
+          "supportText": {
+            "vi": "tu ga tau dien ngam den cong ty du lich",
+            "en": "from the subway station to the travel agency"
+          },
+          "type": "grammar_select",
+          "koreanText": "지하철역___ 여행사까지 걸어가요.",
+          "choices": [
+            "에서",
+            "까지"
+          ],
+          "answer": "에서"
+        },
+        {
+          "id": "wb16-agency-to-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-agency-to-2.grammar",
+          "supportText": {
+            "vi": "den cong ty du lich",
+            "en": "to the travel agency"
+          },
+          "type": "grammar_select",
+          "koreanText": "지하철역에서 여행사___ 걸어가요.",
+          "choices": [
+            "에서",
+            "까지"
+          ],
+          "answer": "까지"
+        },
+        {
+          "id": "wb16-company-from-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-company-from-2.grammar",
+          "supportText": {
+            "vi": "tu cong ty den cong vien thi gan",
+            "en": "it is close from the company to the park"
+          },
+          "type": "grammar_select",
+          "koreanText": "회사___ 공원까지 가까워요.",
+          "choices": [
+            "에서",
+            "까지"
+          ],
+          "answer": "에서"
+        },
+        {
+          "id": "wb16-bike-ride-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-bike-ride-1.fill",
+          "type": "fill_blank",
+          "koreanText": "저는 자전거를 ___.",
+          "acceptedAnswers": [
+            "탈 수 있어요"
+          ],
+          "choices": [
+            "탈 수 있어요",
+            "걸어갈 수 있어요",
+            "갈아탈 수 있어요"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "toi co the di xe dap",
+            "en": "I can ride a bicycle"
+          }
+        },
+        {
+          "id": "wb16-library-from-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-library-from-1.fill",
+          "type": "fill_blank",
+          "koreanText": "도서관___ 식당까지 버스를 타고 가요.",
+          "acceptedAnswers": [
+            "에서"
+          ],
+          "choices": [
+            "에서",
+            "까지",
+            "집에서"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "tu thu vien den nha hang",
+            "en": "from the library to the restaurant"
+          }
+        },
+        {
+          "id": "wb16-restaurant-to-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-restaurant-to-1.fill",
+          "type": "fill_blank",
+          "koreanText": "도서관에서 식당___ 버스를 타고 가요.",
+          "acceptedAnswers": [
+            "까지"
+          ],
+          "choices": [
+            "까지",
+            "에서",
+            "가지"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "den nha hang",
+            "en": "to the restaurant"
+          }
+        },
+        {
+          "id": "wb16-subway-from-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-subway-from-1.fill",
+          "type": "fill_blank",
+          "koreanText": "지하철역___ 여행사까지 걸어가요.",
+          "acceptedAnswers": [
+            "에서"
+          ],
+          "choices": [
+            "에서",
+            "까지",
+            "집에서"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "tu ga tau dien ngam den cong ty du lich",
+            "en": "from the subway station to the travel agency"
+          }
+        },
+        {
+          "id": "wb16-agency-to-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-agency-to-1.fill",
+          "type": "fill_blank",
+          "koreanText": "지하철역에서 여행사___ 걸어가요.",
+          "acceptedAnswers": [
+            "까지"
+          ],
+          "choices": [
+            "까지",
+            "에서",
+            "가지"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "den cong ty du lich",
+            "en": "to the travel agency"
+          }
+        },
+        {
+          "id": "wb16-company-from-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-company-from-1.fill",
+          "type": "fill_blank",
+          "koreanText": "회사___ 공원까지 가까워요.",
+          "acceptedAnswers": [
+            "에서"
+          ],
+          "choices": [
+            "에서",
+            "까지",
+            "집에서"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "tu cong ty den cong vien thi gan",
+            "en": "it is close from the company to the park"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-16-lesson-7",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 4: grammar",
+        "en": "Workbook practice 4: grammar"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "grammar",
+        "from-to",
+        "company",
+        "park"
+      ],
+      "sourceExerciseIds": [
+        "wb16-park-to",
+        "wb16-command-wash",
+        "wb16-command-walk-museum",
+        "wb16-command-listen",
+        "wb16-command-lie-down"
+      ],
+      "coverageTags": [
+        "grammar",
+        "from-to",
+        "company",
+        "park",
+        "command",
+        "cooking",
+        "museum",
+        "music",
+        "hospital"
+      ],
+      "tasks": [
+        {
+          "id": "wb16-park-to-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-park-to-2.grammar",
+          "supportText": {
+            "vi": "den cong vien",
+            "en": "to the park"
+          },
+          "type": "grammar_select",
+          "koreanText": "회사에서 공원___ 가까워요.",
+          "choices": [
+            "에서",
+            "까지"
+          ],
+          "answer": "까지"
+        },
+        {
+          "id": "wb16-command-wash-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-command-wash-2.grammar",
+          "supportText": {
+            "vi": "hay rua rau truoc",
+            "en": "wash the vegetables first"
+          },
+          "type": "grammar_select",
+          "koreanText": "먼저 야채들을 ___.",
+          "choices": [
+            "씻으십시오",
+            "들으십시오",
+            "누우십시오"
+          ],
+          "answer": "씻으십시오"
+        },
+        {
+          "id": "wb16-command-walk-museum-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-command-walk-museum-2.grammar",
+          "supportText": {
+            "vi": "hay di bo den bao tang",
+            "en": "walk to the museum"
+          },
+          "type": "grammar_select",
+          "koreanText": "박물관이 여기에서 가깝습니다. ___.",
+          "choices": [
+            "걸어가십시오",
+            "오십시오",
+            "누우십시오"
+          ],
+          "answer": "걸어가십시오"
+        },
+        {
+          "id": "wb16-command-listen-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-command-listen-2.grammar",
+          "supportText": {
+            "vi": "hay nghe nhieu bai hat Han Quoc",
+            "en": "listen to a lot of Korean songs"
+          },
+          "type": "grammar_select",
+          "koreanText": "그럼 한국 노래를 많이 ___.",
+          "choices": [
+            "들으십시오",
+            "씻으십시오",
+            "오십시오"
+          ],
+          "answer": "들으십시오"
+        },
+        {
+          "id": "wb16-command-lie-down-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-command-lie-down-2.grammar",
+          "supportText": {
+            "vi": "hay nam xuong o day",
+            "en": "lie down here"
+          },
+          "type": "grammar_select",
+          "koreanText": "한번 봅시다. 여기에 ___.",
+          "choices": [
+            "누우십시오",
+            "들으십시오",
+            "씻으십시오"
+          ],
+          "answer": "누우십시오"
+        },
+        {
+          "id": "wb16-park-to-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-park-to-1.fill",
+          "type": "fill_blank",
+          "koreanText": "회사에서 공원___ 가까워요.",
+          "acceptedAnswers": [
+            "까지"
+          ],
+          "choices": [
+            "까지",
+            "에서",
+            "가지"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "den cong vien",
+            "en": "to the park"
+          }
+        },
+        {
+          "id": "wb16-command-wash-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-command-wash-1.fill",
+          "type": "fill_blank",
+          "koreanText": "먼저 야채들을 ___.",
+          "acceptedAnswers": [
+            "씻으십시오"
+          ],
+          "choices": [
+            "씻으십시오",
+            "들으십시오",
+            "누우십시오"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "hay rua rau truoc",
+            "en": "wash the vegetables first"
+          }
+        },
+        {
+          "id": "wb16-command-walk-museum-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-command-walk-museum-1.fill",
+          "type": "fill_blank",
+          "koreanText": "박물관이 여기에서 가깝습니다. ___.",
+          "acceptedAnswers": [
+            "걸어가십시오"
+          ],
+          "choices": [
+            "걸어가십시오",
+            "오십시오",
+            "누우십시오"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "hay di bo den bao tang",
+            "en": "walk to the museum"
+          }
+        },
+        {
+          "id": "wb16-command-listen-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-command-listen-1.fill",
+          "type": "fill_blank",
+          "koreanText": "그럼 한국 노래를 많이 ___.",
+          "acceptedAnswers": [
+            "들으십시오"
+          ],
+          "choices": [
+            "들으십시오",
+            "씻으십시오",
+            "오십시오"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "hay nghe nhieu bai hat Han Quoc",
+            "en": "listen to a lot of Korean songs"
+          }
+        },
+        {
+          "id": "wb16-command-lie-down-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-command-lie-down-1.fill",
+          "type": "fill_blank",
+          "koreanText": "한번 봅시다. 여기에 ___.",
+          "acceptedAnswers": [
+            "누우십시오"
+          ],
+          "choices": [
+            "누우십시오",
+            "들으십시오",
+            "씻으십시오"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "hay nam xuong o day",
+            "en": "lie down here"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-16-lesson-8",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 5: reading",
+        "en": "Workbook practice 5: reading"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "reading",
+        "busan",
+        "train",
+        "time"
+      ],
+      "sourceExerciseIds": [
+        "wb16-reading-train",
+        "wb16-reading-time",
+        "wb16-reading-transfer",
+        "wb16-reading-gyeongju-bus",
+        "wb16-reading-not-used"
+      ],
+      "coverageTags": [
+        "reading",
+        "busan",
+        "train",
+        "time",
+        "transfer",
+        "gyeongju",
+        "bus",
+        "transport"
+      ],
+      "tasks": [
+        {
+          "id": "wb16-reading-train-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-reading-train-2.grammar",
+          "supportText": {
+            "vi": "toi da di tau o ga Seoul",
+            "en": "I took a train at Seoul Station"
+          },
+          "type": "grammar_select",
+          "koreanText": "서울역에서 기차를 ___.",
+          "choices": [
+            "탔습니다",
+            "갈아탔습니다",
+            "걸렸습니다"
+          ],
+          "answer": "탔습니다"
+        },
+        {
+          "id": "wb16-reading-time-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-reading-time-2.grammar",
+          "supportText": {
+            "vi": "da mat ba tieng den ga Busan",
+            "en": "it took three hours to Busan Station"
+          },
+          "type": "grammar_select",
+          "koreanText": "부산역까지 세 시간 ___.",
+          "choices": [
+            "걸렸습니다",
+            "탔습니다",
+            "갈아탔습니다"
+          ],
+          "answer": "걸렸습니다"
+        },
+        {
+          "id": "wb16-reading-transfer-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-reading-transfer-2.grammar",
+          "supportText": {
+            "vi": "toi da chuyen tau mot lan o ga Seomyeon",
+            "en": "I transferred once at Seomyeon Station"
+          },
+          "type": "grammar_select",
+          "koreanText": "서면역에서 한 번 ___.",
+          "choices": [
+            "갈아탔습니다",
+            "걸렸습니다",
+            "탔습니다"
+          ],
+          "answer": "갈아탔습니다"
+        },
+        {
+          "id": "wb16-reading-gyeongju-bus-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-reading-gyeongju-bus-2.grammar",
+          "supportText": {
+            "vi": "nguoi nay da di Gyeongju bang xe buyt",
+            "en": "the person went to Gyeongju by bus"
+          },
+          "type": "grammar_select",
+          "koreanText": "서울에서 경주까지 ___를 타고 갔습니다.",
+          "choices": [
+            "버스",
+            "기차",
+            "택시"
+          ],
+          "answer": "버스"
+        },
+        {
+          "id": "wb16-reading-not-used-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-reading-not-used-2.grammar",
+          "supportText": {
+            "vi": "phuong tien nguoi nay khong dung la tau dien ngam",
+            "en": "the transport this person did not use was the subway"
+          },
+          "type": "grammar_select",
+          "koreanText": "이 사람이 이용하지 않은 교통수단은 ___입니다.",
+          "choices": [
+            "버스",
+            "기차",
+            "지하철"
+          ],
+          "answer": "지하철"
+        },
+        {
+          "id": "wb16-reading-train-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-reading-train-1.fill",
+          "type": "fill_blank",
+          "koreanText": "서울역에서 기차를 ___.",
+          "acceptedAnswers": [
+            "탔습니다"
+          ],
+          "choices": [
+            "탔습니다",
+            "갈아탔습니다",
+            "걸렸습니다"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "toi da di tau o ga Seoul",
+            "en": "I took a train at Seoul Station"
+          }
+        },
+        {
+          "id": "wb16-reading-time-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-reading-time-1.fill",
+          "type": "fill_blank",
+          "koreanText": "부산역까지 세 시간 ___.",
+          "acceptedAnswers": [
+            "걸렸습니다"
+          ],
+          "choices": [
+            "걸렸습니다",
+            "탔습니다",
+            "갈아탔습니다"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "da mat ba tieng den ga Busan",
+            "en": "it took three hours to Busan Station"
+          }
+        },
+        {
+          "id": "wb16-reading-transfer-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-reading-transfer-1.fill",
+          "type": "fill_blank",
+          "koreanText": "서면역에서 한 번 ___.",
+          "acceptedAnswers": [
+            "갈아탔습니다"
+          ],
+          "choices": [
+            "갈아탔습니다",
+            "걸렸습니다",
+            "탔습니다"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "toi da chuyen tau mot lan o ga Seomyeon",
+            "en": "I transferred once at Seomyeon Station"
+          }
+        },
+        {
+          "id": "wb16-reading-gyeongju-bus-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-reading-gyeongju-bus-1.fill",
+          "type": "fill_blank",
+          "koreanText": "서울에서 경주까지 ___를 타고 갔습니다.",
+          "acceptedAnswers": [
+            "버스"
+          ],
+          "choices": [
+            "버스",
+            "기차",
+            "택시"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "nguoi nay da di Gyeongju bang xe buyt",
+            "en": "the person went to Gyeongju by bus"
+          }
+        },
+        {
+          "id": "wb16-reading-not-used-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-reading-not-used-1.fill",
+          "type": "fill_blank",
+          "koreanText": "이 사람이 이용하지 않은 교통수단은 ___입니다.",
+          "acceptedAnswers": [
+            "지하철"
+          ],
+          "choices": [
+            "지하철",
+            "버스",
+            "기차"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "phuong tien nguoi nay khong dung la tau dien ngam",
+            "en": "the transport this person did not use was the subway"
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-16-lesson-9",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 6: extension",
+        "en": "Workbook practice 6: extension"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "extension",
+        "directions",
+        "commands",
+        "advice"
+      ],
+      "sourceExerciseIds": [
+        "wb16-extension-line3",
+        "wb16-extension-songs",
+        "wb16-extension-find-hotel",
+        "wb16-qr-traffic-jam",
+        "wb16-qr-seoul-bus-number",
+        "wb16-qr-seoul-distance",
+        "wb16-qr-destination"
+      ],
+      "coverageTags": [
+        "extension",
+        "directions",
+        "commands",
+        "advice",
+        "travel",
+        "qr-listening",
+        "traffic",
+        "situation",
+        "bus-number",
+        "distance",
+        "destination"
+      ],
+      "tasks": [
+        {
+          "id": "wb16-qr-traffic-jam-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-qr-traffic-jam-1.listen",
+          "supportText": {
+            "vi": "Nghe QR va chon tinh huong giao thong dung.",
+            "en": "Listen to the QR audio and choose the correct traffic situation."
+          },
+          "audioText": "퇴근 시간이라 길이 막힙니다.",
+          "audioUrl": "/api/audio/16/wb16-qr-traffic-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-qr-traffic-jam-clear-road",
+              "text": {
+                "vi": "duong vang xe",
+                "en": "the road is clear"
+              }
+            },
+            {
+              "id": "wb16-qr-traffic-jam-traffic-jam",
+              "text": {
+                "vi": "duong dang tac",
+                "en": "the road is jammed"
+              }
+            }
+          ],
+          "answer": "wb16-qr-traffic-jam-traffic-jam"
+        },
+        {
+          "id": "wb16-qr-seoul-bus-number-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-qr-seoul-bus-number-1.listen",
+          "supportText": {
+            "vi": "Nghe hoi thoai QR va chon so xe buyt can di.",
+            "en": "Listen to the QR dialogue and choose the bus number to take."
+          },
+          "audioText": "리사: 실례합니다. 여기에서 서울역까지 어떻게 가요? 남자: 저기 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다. 리사: 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요? 남자: 아니요. 멀지 않아요.",
+          "audioUrl": "/api/audio/16/wb16-qr-seoul-station-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-qr-seoul-bus-number-50",
+              "text": {
+                "vi": "xe buyt 50",
+                "en": "bus 50"
+              }
+            },
+            {
+              "id": "wb16-qr-seoul-bus-number-100",
+              "text": {
+                "vi": "xe buyt 100",
+                "en": "bus 100"
+              }
+            },
+            {
+              "id": "wb16-qr-seoul-bus-number-150",
+              "text": {
+                "vi": "xe buyt 150",
+                "en": "bus 150"
+              }
+            },
+            {
+              "id": "wb16-qr-seoul-bus-number-200",
+              "text": {
+                "vi": "xe buyt 200",
+                "en": "bus 200"
+              }
+            }
+          ],
+          "answer": "wb16-qr-seoul-bus-number-100"
+        },
+        {
+          "id": "wb16-qr-seoul-distance-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-qr-seoul-distance-1.listen",
+          "supportText": {
+            "vi": "Nghe hoi thoai QR va chon cach mo ta khoang cach dung.",
+            "en": "Listen to the QR dialogue and choose the correct distance description."
+          },
+          "audioText": "리사: 실례합니다. 여기에서 서울역까지 어떻게 가요? 남자: 저기 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다. 리사: 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요? 남자: 아니요. 멀지 않아요.",
+          "audioUrl": "/api/audio/16/wb16-qr-seoul-station-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-qr-seoul-distance-far",
+              "text": {
+                "vi": "rat xa",
+                "en": "very far"
+              }
+            },
+            {
+              "id": "wb16-qr-seoul-distance-not-far",
+              "text": {
+                "vi": "khong xa",
+                "en": "not far"
+              }
+            },
+            {
+              "id": "wb16-qr-seoul-distance-three-hours",
+              "text": {
+                "vi": "mat ba tieng",
+                "en": "it takes three hours"
+              }
+            }
+          ],
+          "answer": "wb16-qr-seoul-distance-not-far"
+        },
+        {
+          "id": "wb16-qr-destination-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-qr-destination-1.listen",
+          "supportText": {
+            "vi": "Nghe QR va chon dia diem ma Jiyeon muon den.",
+            "en": "Listen to the QR audio and choose Jiyeon's destination."
+          },
+          "audioText": "지연 씨는 공항에 가려고 해요. 여기에서 600번 버스를 타고 가세요.",
+          "audioUrl": "/api/audio/16/wb16-qr-airport-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-qr-destination-airport",
+              "text": {
+                "vi": "san bay",
+                "en": "airport"
+              }
+            },
+            {
+              "id": "wb16-qr-destination-seoul-station",
+              "text": {
+                "vi": "ga Seoul",
+                "en": "Seoul Station"
+              }
+            },
+            {
+              "id": "wb16-qr-destination-terminal",
+              "text": {
+                "vi": "ben xe",
+                "en": "terminal"
+              }
+            },
+            {
+              "id": "wb16-qr-destination-harbor",
+              "text": {
+                "vi": "cang",
+                "en": "harbor"
+              }
+            }
+          ],
+          "answer": "wb16-qr-destination-airport"
+        },
+        {
+          "id": "wb16-extension-line3-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb16-extension-line3-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Hay di tau dien ngam tuyen 3 va xuong o Gyeongbokgung.",
+            "en": "Take Line 3 and get off at Gyeongbokgung."
+          },
+          "acceptedAnswers": [
+            "지하철 3호선을 타고 경복궁에서 내리십시오."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb16-extension-songs-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb16-extension-songs-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Hay nghe nhieu bai hat Han Quoc.",
+            "en": "Listen to a lot of Korean songs."
+          },
+          "acceptedAnswers": [
+            "한국 노래를 많이 들으십시오."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb16-extension-find-hotel-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb16-extension-find-hotel-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Hay tim cho o truoc.",
+            "en": "Find accommodation in advance."
+          },
+          "acceptedAnswers": [
+            "미리 숙소를 찾으십시오."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb16-extension-line3-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb16-extension-line3-2.speaking",
+          "type": "speaking",
+          "koreanText": "지하철 3호선을 타고 경복궁에서 내리십시오.",
+          "expectedSpeech": "지하철 3호선을 타고 경복궁에서 내리십시오."
+        },
+        {
+          "id": "wb16-extension-songs-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb16-extension-songs-2.speaking",
+          "type": "speaking",
+          "koreanText": "한국 노래를 많이 들으십시오.",
+          "expectedSpeech": "한국 노래를 많이 들으십시오."
+        },
+        {
+          "id": "wb16-extension-find-hotel-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb16-extension-find-hotel-2.speaking",
+          "type": "speaking",
+          "koreanText": "미리 숙소를 찾으십시오.",
+          "expectedSpeech": "미리 숙소를 찾으십시오."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-16-lesson-10",
+      "lessonRole": "review",
+      "title": {
+        "vi": "On nghe va chi duong",
+        "en": "Listening and route review"
+      },
+      "summary": {
+        "vi": "Gom lai cac bai nghe QR va cac cau hoi duong di cot loi cua bai 16.",
+        "en": "Pull together the QR listening tasks and the core route prompts from Unit 16."
+      },
+      "difficulty": {
+        "vi": "On tap tong hop",
+        "en": "Cumulative production"
+      },
+      "focusConcepts": [
+        "review",
+        "qr-listening",
+        "directions",
+        "transport"
+      ],
+      "sourceExerciseIds": [
+        "wb16-qr-traffic-jam",
+        "wb16-qr-seoul-bus-number",
+        "wb16-qr-seoul-distance",
+        "wb16-qr-destination"
+      ],
+      "coverageTags": [
+        "qr-listening",
+        "traffic",
+        "situation",
+        "directions",
+        "bus-number",
+        "distance",
+        "destination",
+        "travel"
+      ],
+      "tasks": [
+        {
+          "id": "wb16-qr-traffic-jam-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-qr-traffic-jam-1.listen",
+          "supportText": {
+            "vi": "Nghe QR va chon tinh huong giao thong dung.",
+            "en": "Listen to the QR audio and choose the correct traffic situation."
+          },
+          "audioText": "퇴근 시간이라 길이 막힙니다.",
+          "audioUrl": "/api/audio/16/wb16-qr-traffic-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-qr-traffic-jam-clear-road",
+              "text": {
+                "vi": "duong vang xe",
+                "en": "the road is clear"
+              }
+            },
+            {
+              "id": "wb16-qr-traffic-jam-traffic-jam",
+              "text": {
+                "vi": "duong dang tac",
+                "en": "the road is jammed"
+              }
+            }
+          ],
+          "answer": "wb16-qr-traffic-jam-traffic-jam"
+        },
+        {
+          "id": "wb16-qr-seoul-bus-number-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-qr-seoul-bus-number-1.listen",
+          "supportText": {
+            "vi": "Nghe hoi thoai QR va chon so xe buyt can di.",
+            "en": "Listen to the QR dialogue and choose the bus number to take."
+          },
+          "audioText": "리사: 실례합니다. 여기에서 서울역까지 어떻게 가요? 남자: 저기 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다. 리사: 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요? 남자: 아니요. 멀지 않아요.",
+          "audioUrl": "/api/audio/16/wb16-qr-seoul-station-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-qr-seoul-bus-number-50",
+              "text": {
+                "vi": "xe buyt 50",
+                "en": "bus 50"
+              }
+            },
+            {
+              "id": "wb16-qr-seoul-bus-number-100",
+              "text": {
+                "vi": "xe buyt 100",
+                "en": "bus 100"
+              }
+            },
+            {
+              "id": "wb16-qr-seoul-bus-number-150",
+              "text": {
+                "vi": "xe buyt 150",
+                "en": "bus 150"
+              }
+            },
+            {
+              "id": "wb16-qr-seoul-bus-number-200",
+              "text": {
+                "vi": "xe buyt 200",
+                "en": "bus 200"
+              }
+            }
+          ],
+          "answer": "wb16-qr-seoul-bus-number-100"
+        },
+        {
+          "id": "wb16-qr-seoul-distance-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-qr-seoul-distance-1.listen",
+          "supportText": {
+            "vi": "Nghe hoi thoai QR va chon cach mo ta khoang cach dung.",
+            "en": "Listen to the QR dialogue and choose the correct distance description."
+          },
+          "audioText": "리사: 실례합니다. 여기에서 서울역까지 어떻게 가요? 남자: 저기 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다. 리사: 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요? 남자: 아니요. 멀지 않아요.",
+          "audioUrl": "/api/audio/16/wb16-qr-seoul-station-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-qr-seoul-distance-far",
+              "text": {
+                "vi": "rat xa",
+                "en": "very far"
+              }
+            },
+            {
+              "id": "wb16-qr-seoul-distance-not-far",
+              "text": {
+                "vi": "khong xa",
+                "en": "not far"
+              }
+            },
+            {
+              "id": "wb16-qr-seoul-distance-three-hours",
+              "text": {
+                "vi": "mat ba tieng",
+                "en": "it takes three hours"
+              }
+            }
+          ],
+          "answer": "wb16-qr-seoul-distance-not-far"
+        },
+        {
+          "id": "wb16-qr-destination-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb16-qr-destination-1.listen",
+          "supportText": {
+            "vi": "Nghe QR va chon dia diem ma Jiyeon muon den.",
+            "en": "Listen to the QR audio and choose Jiyeon's destination."
+          },
+          "audioText": "지연 씨는 공항에 가려고 해요. 여기에서 600번 버스를 타고 가세요.",
+          "audioUrl": "/api/audio/16/wb16-qr-airport-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb16-qr-destination-airport",
+              "text": {
+                "vi": "san bay",
+                "en": "airport"
+              }
+            },
+            {
+              "id": "wb16-qr-destination-seoul-station",
+              "text": {
+                "vi": "ga Seoul",
+                "en": "Seoul Station"
+              }
+            },
+            {
+              "id": "wb16-qr-destination-terminal",
+              "text": {
+                "vi": "ben xe",
+                "en": "terminal"
+              }
+            },
+            {
+              "id": "wb16-qr-destination-harbor",
+              "text": {
+                "vi": "cang",
+                "en": "harbor"
+              }
+            }
+          ],
+          "answer": "wb16-qr-destination-airport"
+        },
+        {
+          "id": "u16-review-a-route-question",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Viet lai cau hoi hoan chinh de xin thong tin ve lo trinh.",
+            "en": "Rewrite the full question used to ask about a route."
+          },
+          "source": "textbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "u16-review-a-route-question.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Tu nha den truong mat bao lau?",
+            "en": "How long does it take from home to school?"
+          },
+          "acceptedAnswers": [
+            "집에서 학교까지 시간이 얼마나 걸려요?"
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "u16-review-a-thirty-minutes",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Viet lai cau tra loi ngan ve thoi gian di chuyen.",
+            "en": "Rewrite the short answer about travel time."
+          },
+          "source": "textbook",
+          "stage": "construction",
+          "grammarTags": [
+            "에서, 까지"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "u16-review-a-thirty-minutes.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Mat 30 phut.",
+            "en": "It takes 30 minutes."
+          },
+          "acceptedAnswers": [
+            "30분 걸려요."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "u16-review-a-arrange-title",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Ghep lai cau hoi duong di mot lan nua truoc khi sang phan tong hop.",
+            "en": "Rebuild the directions question once more before the cumulative section."
+          },
+          "source": "blended",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "u16-review-a-arrange-title.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Tu day den ga Seoul bang cach nao?",
+            "en": "How do I get to Seoul Station from here?"
+          },
+          "wordBank": [
+            "가요?",
+            "어떻게",
+            "서울역까지",
+            "여기에서"
+          ],
+          "answer": [
+            "여기에서",
+            "서울역까지",
+            "어떻게",
+            "가요?"
+          ]
+        },
+        {
+          "id": "u16-review-a-speak-instruction",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau chi duong co menh lenh lich su.",
+            "en": "Say the polite route instruction aloud again."
+          },
+          "source": "textbook",
+          "stage": "production",
+          "grammarTags": [
+            "-으십시오/-십시오"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "u16-review-a-speak-instruction.speaking",
+          "type": "speaking",
+          "koreanText": "저기 정류장에서 100번 버스를 타십시오.",
+          "expectedSpeech": "저기 정류장에서 100번 버스를 타십시오."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-16-lesson-11",
+      "lessonRole": "review",
+      "title": {
+        "vi": "On doc va san sinh",
+        "en": "Reading and production review"
+      },
+      "summary": {
+        "vi": "Khoa bai 16 bang bai doc du lich, cau hoan thanh thong tin, va cac loi khuyen co khung.",
+        "en": "Close Unit 16 with travel reading, information completion, and scaffolded advice prompts."
+      },
+      "difficulty": {
+        "vi": "On tap tong hop",
+        "en": "Cumulative production"
+      },
+      "focusConcepts": [
+        "review",
+        "reading",
+        "travel",
+        "commands"
+      ],
+      "sourceExerciseIds": [
+        "wb16-reading-train",
+        "wb16-reading-time",
+        "wb16-reading-gyeongju-bus",
+        "wb16-extension-line3",
+        "wb16-extension-find-hotel"
+      ],
+      "coverageTags": [
+        "reading",
+        "busan",
+        "train",
+        "time",
+        "gyeongju",
+        "bus",
+        "extension",
+        "directions",
+        "commands",
+        "travel"
+      ],
+      "tasks": [
+        {
+          "id": "wb16-reading-train-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-reading-train-2.grammar",
+          "supportText": {
+            "vi": "toi da di tau o ga Seoul",
+            "en": "I took a train at Seoul Station"
+          },
+          "type": "grammar_select",
+          "koreanText": "서울역에서 기차를 ___.",
+          "choices": [
+            "탔습니다",
+            "갈아탔습니다",
+            "걸렸습니다"
+          ],
+          "answer": "탔습니다"
+        },
+        {
+          "id": "wb16-reading-time-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-reading-time-2.grammar",
+          "supportText": {
+            "vi": "da mat ba tieng den ga Busan",
+            "en": "it took three hours to Busan Station"
+          },
+          "type": "grammar_select",
+          "koreanText": "부산역까지 세 시간 ___.",
+          "choices": [
+            "걸렸습니다",
+            "탔습니다",
+            "갈아탔습니다"
+          ],
+          "answer": "걸렸습니다"
+        },
+        {
+          "id": "wb16-reading-gyeongju-bus-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb16-reading-gyeongju-bus-2.grammar",
+          "supportText": {
+            "vi": "nguoi nay da di Gyeongju bang xe buyt",
+            "en": "the person went to Gyeongju by bus"
+          },
+          "type": "grammar_select",
+          "koreanText": "서울에서 경주까지 ___를 타고 갔습니다.",
+          "choices": [
+            "버스",
+            "기차",
+            "택시"
+          ],
+          "answer": "버스"
+        },
+        {
+          "id": "wb16-reading-train-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-reading-train-1.fill",
+          "type": "fill_blank",
+          "koreanText": "서울역에서 기차를 ___.",
+          "acceptedAnswers": [
+            "탔습니다"
+          ],
+          "choices": [
+            "탔습니다",
+            "갈아탔습니다",
+            "걸렸습니다"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "toi da di tau o ga Seoul",
+            "en": "I took a train at Seoul Station"
+          }
+        },
+        {
+          "id": "wb16-reading-time-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-reading-time-1.fill",
+          "type": "fill_blank",
+          "koreanText": "부산역까지 세 시간 ___.",
+          "acceptedAnswers": [
+            "걸렸습니다"
+          ],
+          "choices": [
+            "걸렸습니다",
+            "탔습니다",
+            "갈아탔습니다"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "da mat ba tieng den ga Busan",
+            "en": "it took three hours to Busan Station"
+          }
+        },
+        {
+          "id": "wb16-reading-gyeongju-bus-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb16-reading-gyeongju-bus-1.fill",
+          "type": "fill_blank",
+          "koreanText": "서울에서 경주까지 ___를 타고 갔습니다.",
+          "acceptedAnswers": [
+            "버스"
+          ],
+          "choices": [
+            "버스",
+            "기차",
+            "택시"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "nguoi nay da di Gyeongju bang xe buyt",
+            "en": "the person went to Gyeongju by bus"
+          }
+        },
+        {
+          "id": "wb16-extension-line3-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb16-extension-line3-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Hay di tau dien ngam tuyen 3 va xuong o Gyeongbokgung.",
+            "en": "Take Line 3 and get off at Gyeongbokgung."
+          },
+          "acceptedAnswers": [
+            "지하철 3호선을 타고 경복궁에서 내리십시오."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb16-extension-find-hotel-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb16-extension-find-hotel-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Hay tim cho o truoc.",
+            "en": "Find accommodation in advance."
+          },
+          "acceptedAnswers": [
+            "미리 숙소를 찾으십시오."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb16-extension-line3-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb16-extension-line3-2.speaking",
+          "type": "speaking",
+          "koreanText": "지하철 3호선을 타고 경복궁에서 내리십시오.",
+          "expectedSpeech": "지하철 3호선을 타고 경복궁에서 내리십시오."
+        },
+        {
+          "id": "wb16-extension-find-hotel-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb16-extension-find-hotel-2.speaking",
+          "type": "speaking",
+          "koreanText": "미리 숙소를 찾으십시오.",
+          "expectedSpeech": "미리 숙소를 찾으십시오."
+        }
+      ]
+    }
+  ]
+}
