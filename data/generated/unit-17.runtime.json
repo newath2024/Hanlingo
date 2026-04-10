@@ -94,22 +94,22 @@
             {
               "id": "u17-l1-housewarming-d1",
               "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
+                "vi": "thiep moi",
+                "en": "invitation card"
               }
             },
             {
               "id": "u17-l1-housewarming-d2",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
+                "vi": "khan giay",
+                "en": "tissue paper"
               }
             },
             {
               "id": "u17-l1-housewarming-d3",
               "text": {
-                "vi": "thiep moi",
-                "en": "invitation card"
+                "vi": "chuyen nha",
+                "en": "move house"
               }
             }
           ],
@@ -143,22 +143,22 @@
             {
               "id": "u17-l1-invitation-card-d1",
               "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
+                "vi": "loi moi",
+                "en": "invitation"
               }
             },
             {
               "id": "u17-l1-invitation-card-d2",
               "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
+                "vi": "moi",
+                "en": "invite"
               }
             },
             {
               "id": "u17-l1-invitation-card-d3",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
+                "vi": "khan giay",
+                "en": "tissue paper"
               }
             }
           ],
@@ -192,15 +192,15 @@
             {
               "id": "u17-l1-prepare-d1",
               "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
+                "vi": "nuoc giat",
+                "en": "detergent"
               }
             },
             {
               "id": "u17-l1-prepare-d2",
               "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
+                "vi": "giup do",
+                "en": "help"
               }
             },
             {
@@ -1291,22 +1291,22 @@
             {
               "id": "wb17-match-housewarming-picture-1-d1",
               "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
+                "vi": "thiep moi",
+                "en": "invitation card"
               }
             },
             {
               "id": "wb17-match-housewarming-picture-1-d2",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
+                "vi": "khan giay",
+                "en": "tissue paper"
               }
             },
             {
               "id": "wb17-match-housewarming-picture-1-d3",
               "text": {
-                "vi": "thiep moi",
-                "en": "invitation card"
+                "vi": "chuyen nha",
+                "en": "move house"
               }
             }
           ],
@@ -1340,22 +1340,22 @@
             {
               "id": "wb17-match-housewarming-picture-2-d1",
               "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
+                "vi": "thiep moi",
+                "en": "invitation card"
               }
             },
             {
               "id": "wb17-match-housewarming-picture-2-d2",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
+                "vi": "khan giay",
+                "en": "tissue paper"
               }
             },
             {
               "id": "wb17-match-housewarming-picture-2-d3",
               "text": {
-                "vi": "thiep moi",
-                "en": "invitation card"
+                "vi": "chuyen nha",
+                "en": "move house"
               }
             }
           ],
@@ -1389,22 +1389,22 @@
             {
               "id": "wb17-match-invitation-card-picture-1-d1",
               "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
+                "vi": "loi moi",
+                "en": "invitation"
               }
             },
             {
               "id": "wb17-match-invitation-card-picture-1-d2",
               "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
+                "vi": "moi",
+                "en": "invite"
               }
             },
             {
               "id": "wb17-match-invitation-card-picture-1-d3",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
+                "vi": "khan giay",
+                "en": "tissue paper"
               }
             }
           ],
@@ -1438,22 +1438,22 @@
             {
               "id": "wb17-match-invitation-card-picture-2-d1",
               "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
+                "vi": "loi moi",
+                "en": "invitation"
               }
             },
             {
               "id": "wb17-match-invitation-card-picture-2-d2",
               "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
+                "vi": "moi",
+                "en": "invite"
               }
             },
             {
               "id": "wb17-match-invitation-card-picture-2-d3",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
+                "vi": "khan giay",
+                "en": "tissue paper"
               }
             }
           ],
@@ -1487,22 +1487,22 @@
             {
               "id": "wb17-match-tissue-picture-1-d1",
               "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
+                "vi": "chuyen nha",
+                "en": "move house"
               }
             },
             {
               "id": "wb17-match-tissue-picture-1-d2",
               "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
+                "vi": "nuoc giat",
+                "en": "detergent"
               }
             },
             {
               "id": "wb17-match-tissue-picture-1-d3",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
+                "vi": "thiep moi",
+                "en": "invitation card"
               }
             }
           ],
@@ -1536,22 +1536,22 @@
             {
               "id": "wb17-match-tissue-picture-2-d1",
               "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
+                "vi": "chuyen nha",
+                "en": "move house"
               }
             },
             {
               "id": "wb17-match-tissue-picture-2-d2",
               "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
+                "vi": "nuoc giat",
+                "en": "detergent"
               }
             },
             {
               "id": "wb17-match-tissue-picture-2-d3",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
+                "vi": "thiep moi",
+                "en": "invitation card"
               }
             }
           ],
@@ -1585,22 +1585,22 @@
             {
               "id": "wb17-match-detergent-picture-1-d1",
               "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
+                "vi": "chuyen nha",
+                "en": "move house"
               }
             },
             {
               "id": "wb17-match-detergent-picture-1-d2",
               "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
+                "vi": "loi moi",
+                "en": "invitation"
               }
             },
             {
               "id": "wb17-match-detergent-picture-1-d3",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
+                "vi": "chuan bi",
+                "en": "prepare"
               }
             }
           ],
@@ -1634,22 +1634,22 @@
             {
               "id": "wb17-match-detergent-picture-2-d1",
               "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
+                "vi": "chuyen nha",
+                "en": "move house"
               }
             },
             {
               "id": "wb17-match-detergent-picture-2-d2",
               "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
+                "vi": "loi moi",
+                "en": "invitation"
               }
             },
             {
               "id": "wb17-match-detergent-picture-2-d3",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
+                "vi": "chuan bi",
+                "en": "prepare"
               }
             }
           ],

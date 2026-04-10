@@ -81,22 +81,22 @@
             {
               "id": "l1-hello-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
-              }
-            },
-            {
-              "id": "l1-hello-d2",
-              "text": {
                 "vi": "lan dau",
                 "en": "first time"
               }
             },
             {
+              "id": "l1-hello-d2",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              }
+            },
+            {
               "id": "l1-hello-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
-                "en": "nice to meet you"
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
               }
             }
           ],
@@ -130,8 +130,8 @@
             {
               "id": "l1-jeo-d1",
               "text": {
-                "vi": "xin chao",
-                "en": "hello"
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
               }
             },
             {
@@ -144,8 +144,8 @@
             {
               "id": "l1-jeo-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
-                "en": "nice to meet you"
+                "vi": "xin chao",
+                "en": "hello"
               }
             }
           ],
@@ -228,15 +228,15 @@
             {
               "id": "l1-nice-d1",
               "text": {
-                "vi": "xin chao",
-                "en": "hello"
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
               }
             },
             {
               "id": "l1-nice-d2",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
               }
             },
             {
@@ -684,15 +684,15 @@
             {
               "id": "l3-reply-listen-d1",
               "text": {
-                "vi": "xin chao",
-                "en": "hello"
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
               }
             },
             {
               "id": "l3-reply-listen-d2",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
               }
             },
             {
@@ -980,22 +980,22 @@
             {
               "id": "wb-match-hello-1-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
-              }
-            },
-            {
-              "id": "wb-match-hello-1-d2",
-              "text": {
                 "vi": "lan dau",
                 "en": "first time"
               }
             },
             {
+              "id": "wb-match-hello-1-d2",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              }
+            },
+            {
               "id": "wb-match-hello-1-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
-                "en": "nice to meet you"
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
               }
             }
           ],
@@ -1029,22 +1029,22 @@
             {
               "id": "wb-match-hello-2-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
-              }
-            },
-            {
-              "id": "wb-match-hello-2-d2",
-              "text": {
                 "vi": "lan dau",
                 "en": "first time"
               }
             },
             {
+              "id": "wb-match-hello-2-d2",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              }
+            },
+            {
               "id": "wb-match-hello-2-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
-                "en": "nice to meet you"
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
               }
             }
           ],
@@ -1078,8 +1078,8 @@
             {
               "id": "wb-match-jeo-1-d1",
               "text": {
-                "vi": "xin chao",
-                "en": "hello"
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
               }
             },
             {
@@ -1092,8 +1092,8 @@
             {
               "id": "wb-match-jeo-1-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
-                "en": "nice to meet you"
+                "vi": "xin chao",
+                "en": "hello"
               }
             }
           ],
@@ -1127,8 +1127,8 @@
             {
               "id": "wb-match-jeo-2-d1",
               "text": {
-                "vi": "xin chao",
-                "en": "hello"
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
               }
             },
             {
@@ -1141,8 +1141,8 @@
             {
               "id": "wb-match-jeo-2-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
-                "en": "nice to meet you"
+                "vi": "xin chao",
+                "en": "hello"
               }
             }
           ],
@@ -1371,22 +1371,22 @@
             {
               "id": "wb-translate-hello-1-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
-              }
-            },
-            {
-              "id": "wb-translate-hello-1-d2",
-              "text": {
                 "vi": "lan dau",
                 "en": "first time"
               }
             },
             {
+              "id": "wb-translate-hello-1-d2",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              }
+            },
+            {
               "id": "wb-translate-hello-1-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
-                "en": "nice to meet you"
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
               }
             }
           ],
@@ -1420,15 +1420,15 @@
             {
               "id": "wb-listen-too-1-d1",
               "text": {
-                "vi": "xin chao",
-                "en": "hello"
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
               }
             },
             {
               "id": "wb-listen-too-1-d2",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
               }
             },
             {
@@ -1665,15 +1665,15 @@
             {
               "id": "wb-translate-nice-1-d1",
               "text": {
-                "vi": "xin chao",
-                "en": "hello"
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
               }
             },
             {
               "id": "wb-translate-nice-1-d2",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
               }
             },
             {
@@ -2197,8 +2197,8 @@
             {
               "id": "wb-listen-student-1-d1",
               "text": {
-                "vi": "xin chao",
-                "en": "hello"
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
               }
             },
             {
@@ -2475,22 +2475,22 @@
             {
               "id": "wb-translate-doctor-1-d1",
               "text": {
-                "vi": "xin chao",
-                "en": "hello"
-              }
-            },
-            {
-              "id": "wb-translate-doctor-1-d2",
-              "text": {
                 "vi": "toi, em (khiem nhuong)",
                 "en": "I, me (humble)"
               }
             },
             {
-              "id": "wb-translate-doctor-1-d3",
+              "id": "wb-translate-doctor-1-d2",
               "text": {
                 "vi": "lan dau",
                 "en": "first time"
+              }
+            },
+            {
+              "id": "wb-translate-doctor-1-d3",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
               }
             }
           ],
@@ -2524,22 +2524,22 @@
             {
               "id": "wb-listen-greeting-1-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
-              }
-            },
-            {
-              "id": "wb-listen-greeting-1-d2",
-              "text": {
                 "vi": "lan dau",
                 "en": "first time"
               }
             },
             {
+              "id": "wb-listen-greeting-1-d2",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              }
+            },
+            {
               "id": "wb-listen-greeting-1-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
-                "en": "nice to meet you"
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
               }
             }
           ],
@@ -2834,22 +2834,22 @@
             {
               "id": "wb-translate-hello-1-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
-              }
-            },
-            {
-              "id": "wb-translate-hello-1-d2",
-              "text": {
                 "vi": "lan dau",
                 "en": "first time"
               }
             },
             {
+              "id": "wb-translate-hello-1-d2",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              }
+            },
+            {
               "id": "wb-translate-hello-1-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
-                "en": "nice to meet you"
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
               }
             }
           ],
@@ -3141,22 +3141,22 @@
             {
               "id": "wb-translate-doctor-1-d1",
               "text": {
-                "vi": "xin chao",
-                "en": "hello"
-              }
-            },
-            {
-              "id": "wb-translate-doctor-1-d2",
-              "text": {
                 "vi": "toi, em (khiem nhuong)",
                 "en": "I, me (humble)"
               }
             },
             {
-              "id": "wb-translate-doctor-1-d3",
+              "id": "wb-translate-doctor-1-d2",
               "text": {
                 "vi": "lan dau",
                 "en": "first time"
+              }
+            },
+            {
+              "id": "wb-translate-doctor-1-d3",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
               }
             }
           ],
