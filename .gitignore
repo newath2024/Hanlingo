@@ -8,3 +8,9 @@ coverage/
 *.tsbuildinfo
 .tmp-plan-pages-hi/
 tmp-workbook-page20.png
+.env
+.env.local
+.local-data/
+.local-postgres/
+.tmp-*.ps1
+.tmp-*.done
