@@ -984,9 +984,7 @@
         "wb17-write-housewarming",
         "wb17-write-invite",
         "wb17-must-form-eat",
-        "wb17-goyo-form-make",
-        "wb17-match-housewarming-picture",
-        "wb17-match-invitation-card-picture"
+        "wb17-goyo-form-make"
       ],
       "coverageTags": [
         "housewarming",
@@ -996,208 +994,9 @@
         "grammar",
         "must",
         "form-change",
-        "goyo",
-        "vocab",
-        "picture",
-        "invitation-card"
+        "goyo"
       ],
       "tasks": [
-        {
-          "id": "wb17-match-housewarming-picture-1",
-          "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
-          },
-          "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.1,
-          "errorPatternKey": "wb17-match-housewarming-picture-1.word-match",
-          "type": "word_match",
-          "koreanText": "집들이",
-          "choices": [
-            {
-              "id": "wb17-match-housewarming-picture-1-correct",
-              "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
-              }
-            },
-            {
-              "id": "wb17-match-housewarming-picture-1-d1",
-              "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
-              }
-            },
-            {
-              "id": "wb17-match-housewarming-picture-1-d2",
-              "text": {
-                "vi": "loi moi",
-                "en": "invitation"
-              }
-            },
-            {
-              "id": "wb17-match-housewarming-picture-1-d3",
-              "text": {
-                "vi": "thiep moi",
-                "en": "invitation card"
-              }
-            }
-          ],
-          "answer": "wb17-match-housewarming-picture-1-correct"
-        },
-        {
-          "id": "wb17-match-housewarming-picture-2",
-          "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
-          },
-          "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "wb17-match-housewarming-picture-2.listen",
-          "audioText": "집들이",
-          "type": "listen_select",
-          "choices": [
-            {
-              "id": "wb17-match-housewarming-picture-2-correct",
-              "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
-              }
-            },
-            {
-              "id": "wb17-match-housewarming-picture-2-d1",
-              "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
-              }
-            },
-            {
-              "id": "wb17-match-housewarming-picture-2-d2",
-              "text": {
-                "vi": "loi moi",
-                "en": "invitation"
-              }
-            },
-            {
-              "id": "wb17-match-housewarming-picture-2-d3",
-              "text": {
-                "vi": "thiep moi",
-                "en": "invitation card"
-              }
-            }
-          ],
-          "answer": "wb17-match-housewarming-picture-2-correct"
-        },
-        {
-          "id": "wb17-match-invitation-card-picture-1",
-          "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
-          },
-          "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.1,
-          "errorPatternKey": "wb17-match-invitation-card-picture-1.word-match",
-          "type": "word_match",
-          "koreanText": "초대장",
-          "choices": [
-            {
-              "id": "wb17-match-invitation-card-picture-1-correct",
-              "text": {
-                "vi": "thiep moi",
-                "en": "invitation card"
-              }
-            },
-            {
-              "id": "wb17-match-invitation-card-picture-1-d1",
-              "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
-              }
-            },
-            {
-              "id": "wb17-match-invitation-card-picture-1-d2",
-              "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
-              }
-            },
-            {
-              "id": "wb17-match-invitation-card-picture-1-d3",
-              "text": {
-                "vi": "loi moi",
-                "en": "invitation"
-              }
-            }
-          ],
-          "answer": "wb17-match-invitation-card-picture-1-correct"
-        },
-        {
-          "id": "wb17-match-invitation-card-picture-2",
-          "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
-          },
-          "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "wb17-match-invitation-card-picture-2.listen",
-          "audioText": "초대장",
-          "type": "listen_select",
-          "choices": [
-            {
-              "id": "wb17-match-invitation-card-picture-2-correct",
-              "text": {
-                "vi": "thiep moi",
-                "en": "invitation card"
-              }
-            },
-            {
-              "id": "wb17-match-invitation-card-picture-2-d1",
-              "text": {
-                "vi": "tiec tan gia",
-                "en": "housewarming party"
-              }
-            },
-            {
-              "id": "wb17-match-invitation-card-picture-2-d2",
-              "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
-              }
-            },
-            {
-              "id": "wb17-match-invitation-card-picture-2-d3",
-              "text": {
-                "vi": "loi moi",
-                "en": "invitation"
-              }
-            }
-          ],
-          "answer": "wb17-match-invitation-card-picture-2-correct"
-        },
         {
           "id": "wb17-must-form-eat-2",
           "prompt": {
@@ -1432,8 +1231,8 @@
       "lessonId": "unit-17-lesson-5",
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Luyen workbook 2: tissue",
-        "en": "Workbook practice 2: tissue"
+        "vi": "Luyen workbook 2: housewarming",
+        "en": "Workbook practice 2: housewarming"
       },
       "summary": {
         "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
@@ -1444,31 +1243,222 @@
         "en": "Recall and construction"
       },
       "focusConcepts": [
-        "tissue",
+        "housewarming",
         "vocab",
         "picture",
-        "detergent"
+        "invitation-card"
       ],
       "sourceExerciseIds": [
+        "wb17-match-housewarming-picture",
+        "wb17-match-invitation-card-picture",
         "wb17-match-tissue-picture",
-        "wb17-match-detergent-picture",
-        "wb17-chat-housewarming",
-        "wb17-chat-detergent",
-        "wb17-chat-tissue",
-        "wb17-dialogue-help-request"
+        "wb17-match-detergent-picture"
       ],
       "coverageTags": [
-        "tissue",
+        "housewarming",
         "vocab",
         "picture",
-        "detergent",
-        "dialogue",
-        "housewarming",
-        "shopping",
-        "help",
-        "request"
+        "invitation-card",
+        "tissue",
+        "detergent"
       ],
       "tasks": [
+        {
+          "id": "wb17-match-housewarming-picture-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb17-match-housewarming-picture-1.word-match",
+          "type": "word_match",
+          "koreanText": "집들이",
+          "choices": [
+            {
+              "id": "wb17-match-housewarming-picture-1-correct",
+              "text": {
+                "vi": "tiệc tân gia",
+                "en": "housewarming party"
+              }
+            },
+            {
+              "id": "wb17-match-housewarming-picture-1-d1",
+              "text": {
+                "vi": "tiec tan gia",
+                "en": "housewarming party"
+              }
+            },
+            {
+              "id": "wb17-match-housewarming-picture-1-d2",
+              "text": {
+                "vi": "loi moi",
+                "en": "invitation"
+              }
+            },
+            {
+              "id": "wb17-match-housewarming-picture-1-d3",
+              "text": {
+                "vi": "thiep moi",
+                "en": "invitation card"
+              }
+            }
+          ],
+          "answer": "wb17-match-housewarming-picture-1-correct"
+        },
+        {
+          "id": "wb17-match-housewarming-picture-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb17-match-housewarming-picture-2.listen",
+          "audioText": "집들이",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb17-match-housewarming-picture-2-correct",
+              "text": {
+                "vi": "tiệc tân gia",
+                "en": "housewarming party"
+              }
+            },
+            {
+              "id": "wb17-match-housewarming-picture-2-d1",
+              "text": {
+                "vi": "tiec tan gia",
+                "en": "housewarming party"
+              }
+            },
+            {
+              "id": "wb17-match-housewarming-picture-2-d2",
+              "text": {
+                "vi": "loi moi",
+                "en": "invitation"
+              }
+            },
+            {
+              "id": "wb17-match-housewarming-picture-2-d3",
+              "text": {
+                "vi": "thiep moi",
+                "en": "invitation card"
+              }
+            }
+          ],
+          "answer": "wb17-match-housewarming-picture-2-correct"
+        },
+        {
+          "id": "wb17-match-invitation-card-picture-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb17-match-invitation-card-picture-1.word-match",
+          "type": "word_match",
+          "koreanText": "초대장",
+          "choices": [
+            {
+              "id": "wb17-match-invitation-card-picture-1-correct",
+              "text": {
+                "vi": "thiep moi",
+                "en": "invitation card"
+              }
+            },
+            {
+              "id": "wb17-match-invitation-card-picture-1-d1",
+              "text": {
+                "vi": "tiec tan gia",
+                "en": "housewarming party"
+              }
+            },
+            {
+              "id": "wb17-match-invitation-card-picture-1-d2",
+              "text": {
+                "vi": "tiệc tân gia",
+                "en": "housewarming party"
+              }
+            },
+            {
+              "id": "wb17-match-invitation-card-picture-1-d3",
+              "text": {
+                "vi": "loi moi",
+                "en": "invitation"
+              }
+            }
+          ],
+          "answer": "wb17-match-invitation-card-picture-1-correct"
+        },
+        {
+          "id": "wb17-match-invitation-card-picture-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb17-match-invitation-card-picture-2.listen",
+          "audioText": "초대장",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb17-match-invitation-card-picture-2-correct",
+              "text": {
+                "vi": "thiep moi",
+                "en": "invitation card"
+              }
+            },
+            {
+              "id": "wb17-match-invitation-card-picture-2-d1",
+              "text": {
+                "vi": "tiec tan gia",
+                "en": "housewarming party"
+              }
+            },
+            {
+              "id": "wb17-match-invitation-card-picture-2-d2",
+              "text": {
+                "vi": "tiệc tân gia",
+                "en": "housewarming party"
+              }
+            },
+            {
+              "id": "wb17-match-invitation-card-picture-2-d3",
+              "text": {
+                "vi": "loi moi",
+                "en": "invitation"
+              }
+            }
+          ],
+          "answer": "wb17-match-invitation-card-picture-2-correct"
+        },
         {
           "id": "wb17-match-tissue-picture-1",
           "prompt": {
@@ -1664,7 +1654,48 @@
             }
           ],
           "answer": "wb17-match-detergent-picture-2-correct"
-        },
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-17-lesson-6",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 3: dialogue",
+        "en": "Workbook practice 3: dialogue"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "dialogue",
+        "housewarming",
+        "shopping",
+        "detergent"
+      ],
+      "sourceExerciseIds": [
+        "wb17-chat-housewarming",
+        "wb17-chat-detergent",
+        "wb17-chat-tissue",
+        "wb17-dialogue-help-request",
+        "wb17-dialogue-help-offer"
+      ],
+      "coverageTags": [
+        "dialogue",
+        "housewarming",
+        "shopping",
+        "detergent",
+        "tissue",
+        "help",
+        "request",
+        "offer"
+      ],
+      "tasks": [
         {
           "id": "wb17-chat-housewarming-2",
           "prompt": {
@@ -1776,6 +1807,34 @@
             "초대할까요"
           ],
           "answer": "도와줄 수 있어요"
+        },
+        {
+          "id": "wb17-dialogue-help-offer-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb17-dialogue-help-offer-2.grammar",
+          "supportText": {
+            "vi": "De toi giup ban.",
+            "en": "I will help you."
+          },
+          "type": "grammar_select",
+          "koreanText": "네, 제가 ___.",
+          "choices": [
+            "도와 드릴게요",
+            "이사할게요",
+            "초대할게요"
+          ],
+          "answer": "도와 드릴게요"
         },
         {
           "id": "wb17-chat-housewarming-1",
@@ -1912,15 +1971,49 @@
             "vi": "Ban co the giup toi mot chut duoc khong?",
             "en": "Could you help me a bit?"
           }
+        },
+        {
+          "id": "wb17-dialogue-help-offer-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb17-dialogue-help-offer-1.fill",
+          "type": "fill_blank",
+          "koreanText": "네, 제가 ___.",
+          "acceptedAnswers": [
+            "도와 드릴게요"
+          ],
+          "choices": [
+            "도와 드릴게요",
+            "이사할게요",
+            "초대할게요"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "De toi giup ban.",
+            "en": "I will help you."
+          }
         }
       ]
     },
     {
-      "lessonId": "unit-17-lesson-6",
+      "lessonId": "unit-17-lesson-7",
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Luyen workbook 3: dialogue",
-        "en": "Workbook practice 3: dialogue"
+        "vi": "Luyen workbook 4: grammar",
+        "en": "Workbook practice 4: grammar"
       },
       "summary": {
         "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
@@ -1931,61 +2024,26 @@
         "en": "Recall and construction"
       },
       "focusConcepts": [
-        "dialogue",
-        "help",
-        "offer",
-        "grammar"
+        "grammar",
+        "must",
+        "study",
+        "meeting"
       ],
       "sourceExerciseIds": [
-        "wb17-dialogue-help-offer",
         "wb17-must-study",
         "wb17-must-meet-friend",
         "wb17-must-go-hospital",
-        "wb17-must-practice-speaking",
-        "wb17-goyo-school-food"
+        "wb17-must-practice-speaking"
       ],
       "coverageTags": [
-        "dialogue",
-        "help",
-        "offer",
         "grammar",
         "must",
         "study",
         "meeting",
         "hospital",
-        "speaking",
-        "goyo",
-        "food"
+        "speaking"
       ],
       "tasks": [
-        {
-          "id": "wb17-dialogue-help-offer-2",
-          "prompt": {
-            "vi": "Chon dap an dung.",
-            "en": "Choose the correct answer."
-          },
-          "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
-            "en": "Choose the answer again to avoid mixing up the ending or key noun."
-          },
-          "source": "workbook",
-          "stage": "recall",
-          "grammarTags": [],
-          "srWeight": 1.35,
-          "errorPatternKey": "wb17-dialogue-help-offer-2.grammar",
-          "supportText": {
-            "vi": "De toi giup ban.",
-            "en": "I will help you."
-          },
-          "type": "grammar_select",
-          "koreanText": "네, 제가 ___.",
-          "choices": [
-            "도와 드릴게요",
-            "이사할게요",
-            "초대할게요"
-          ],
-          "answer": "도와 드릴게요"
-        },
         {
           "id": "wb17-must-study-2",
           "prompt": {
@@ -2105,70 +2163,6 @@
             "연습해요"
           ],
           "answer": "연습해야 돼요"
-        },
-        {
-          "id": "wb17-goyo-school-food-2",
-          "prompt": {
-            "vi": "Chon dap an dung.",
-            "en": "Choose the correct answer."
-          },
-          "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
-            "en": "Choose the answer again to avoid mixing up the ending or key noun."
-          },
-          "source": "workbook",
-          "stage": "recall",
-          "grammarTags": [
-            "-고요"
-          ],
-          "srWeight": 1.35,
-          "errorPatternKey": "wb17-goyo-school-food-2.grammar",
-          "supportText": {
-            "vi": "do an cung ngon",
-            "en": "the food is tasty too"
-          },
-          "type": "grammar_select",
-          "koreanText": "직원들이 친절해요. 음식도 ___.",
-          "choices": [
-            "맛있고요",
-            "맛있어야 돼요",
-            "맛있어요"
-          ],
-          "answer": "맛있고요"
-        },
-        {
-          "id": "wb17-dialogue-help-offer-1",
-          "prompt": {
-            "vi": "Hoan thanh cau sau.",
-            "en": "Complete the sentence."
-          },
-          "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
-            "en": "Fill the missing part of the sentence pattern."
-          },
-          "source": "workbook",
-          "stage": "construction",
-          "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "wb17-dialogue-help-offer-1.fill",
-          "type": "fill_blank",
-          "koreanText": "네, 제가 ___.",
-          "acceptedAnswers": [
-            "도와 드릴게요"
-          ],
-          "choices": [
-            "도와 드릴게요",
-            "이사할게요",
-            "초대할게요"
-          ],
-          "placeholder": {
-            "vi": "Nhap phan con thieu",
-            "en": "Type the missing part"
-          },
-          "clue": {
-            "vi": "De toi giup ban.",
-            "en": "I will help you."
-          }
         },
         {
           "id": "wb17-must-study-1",
@@ -2313,51 +2307,15 @@
             "vi": "phai luyen noi tieng Han",
             "en": "have to practice speaking Korean"
           }
-        },
-        {
-          "id": "wb17-goyo-school-food-1",
-          "prompt": {
-            "vi": "Hoan thanh cau sau.",
-            "en": "Complete the sentence."
-          },
-          "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
-            "en": "Fill the missing part of the sentence pattern."
-          },
-          "source": "workbook",
-          "stage": "construction",
-          "grammarTags": [
-            "-고요"
-          ],
-          "srWeight": 1.75,
-          "errorPatternKey": "wb17-goyo-school-food-1.fill",
-          "type": "fill_blank",
-          "koreanText": "직원들이 친절해요. 음식도 ___.",
-          "acceptedAnswers": [
-            "맛있고요"
-          ],
-          "choices": [
-            "맛있고요",
-            "맛있어야 돼요",
-            "맛있어요"
-          ],
-          "placeholder": {
-            "vi": "Nhap phan con thieu",
-            "en": "Type the missing part"
-          },
-          "clue": {
-            "vi": "do an cung ngon",
-            "en": "the food is tasty too"
-          }
         }
       ]
     },
     {
-      "lessonId": "unit-17-lesson-7",
+      "lessonId": "unit-17-lesson-8",
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Luyen workbook 4: grammar",
-        "en": "Workbook practice 4: grammar"
+        "vi": "Luyen workbook 5: grammar",
+        "en": "Workbook practice 5: grammar"
       },
       "summary": {
         "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
@@ -2370,32 +2328,57 @@
       "focusConcepts": [
         "grammar",
         "goyo",
-        "friends",
-        "email"
+        "food",
+        "friends"
       ],
       "sourceExerciseIds": [
+        "wb17-goyo-school-food",
         "wb17-goyo-make-friends",
         "wb17-email-hi",
-        "wb17-email-do",
-        "wb17-email-food",
-        "wb17-email-message",
-        "wb17-travel-place"
+        "wb17-email-do"
       ],
       "coverageTags": [
         "grammar",
         "goyo",
+        "food",
         "friends",
         "email",
         "writing",
         "greeting",
         "must",
-        "housewarming",
-        "food",
-        "contact",
-        "travel",
-        "places"
+        "housewarming"
       ],
       "tasks": [
+        {
+          "id": "wb17-goyo-school-food-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "-고요"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb17-goyo-school-food-2.grammar",
+          "supportText": {
+            "vi": "do an cung ngon",
+            "en": "the food is tasty too"
+          },
+          "type": "grammar_select",
+          "koreanText": "직원들이 친절해요. 음식도 ___.",
+          "choices": [
+            "맛있고요",
+            "맛있어야 돼요",
+            "맛있어요"
+          ],
+          "answer": "맛있고요"
+        },
         {
           "id": "wb17-goyo-make-friends-2",
           "prompt": {
@@ -2486,94 +2469,40 @@
           "answer": "해야 돼요"
         },
         {
-          "id": "wb17-email-food-2",
+          "id": "wb17-goyo-school-food-1",
           "prompt": {
-            "vi": "Chon dap an dung.",
-            "en": "Choose the correct answer."
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
-            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
-          "stage": "recall",
-          "grammarTags": [
-            "-아/어야 되다"
-          ],
-          "srWeight": 1.35,
-          "errorPatternKey": "wb17-email-food-2.grammar",
-          "supportText": {
-            "vi": "Can chuan bi mon an gi?",
-            "en": "What food should I prepare?"
-          },
-          "type": "grammar_select",
-          "koreanText": "집들이에 어떤 음식을 ___?",
-          "choices": [
-            "준비해야 돼요",
-            "준비하고요",
-            "준비해요"
-          ],
-          "answer": "준비해야 돼요"
-        },
-        {
-          "id": "wb17-email-message-2",
-          "prompt": {
-            "vi": "Chon dap an dung.",
-            "en": "Choose the correct answer."
-          },
-          "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
-            "en": "Choose the answer again to avoid mixing up the ending or key noun."
-          },
-          "source": "workbook",
-          "stage": "recall",
+          "stage": "construction",
           "grammarTags": [
             "-고요"
           ],
-          "srWeight": 1.35,
-          "errorPatternKey": "wb17-email-message-2.grammar",
-          "supportText": {
-            "vi": "Tin nhan cung duoc",
-            "en": "A message is fine too"
-          },
-          "type": "grammar_select",
-          "koreanText": "메일 주세요. 메시지도 ___.",
+          "srWeight": 1.75,
+          "errorPatternKey": "wb17-goyo-school-food-1.fill",
+          "type": "fill_blank",
+          "koreanText": "직원들이 친절해요. 음식도 ___.",
+          "acceptedAnswers": [
+            "맛있고요"
+          ],
           "choices": [
-            "되고요",
-            "해야 돼요",
-            "가고요"
+            "맛있고요",
+            "맛있어야 돼요",
+            "맛있어요"
           ],
-          "answer": "되고요"
-        },
-        {
-          "id": "wb17-travel-place-2",
-          "prompt": {
-            "vi": "Chon dap an dung.",
-            "en": "Choose the correct answer."
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
           },
-          "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
-            "en": "Choose the answer again to avoid mixing up the ending or key noun."
-          },
-          "source": "workbook",
-          "stage": "recall",
-          "grammarTags": [
-            "-고요"
-          ],
-          "srWeight": 1.35,
-          "errorPatternKey": "wb17-travel-place-2.grammar",
-          "supportText": {
-            "vi": "Toi cung muon den Busan nua",
-            "en": "I also want to go to Busan"
-          },
-          "type": "grammar_select",
-          "koreanText": "서울에 가고 싶어요. ___.",
-          "choices": [
-            "부산도 가고요",
-            "부산에 가야 돼요",
-            "부산에 가요"
-          ],
-          "answer": "부산도 가고요"
+          "clue": {
+            "vi": "do an cung ngon",
+            "en": "the food is tasty too"
+          }
         },
         {
           "id": "wb17-goyo-make-friends-1",
@@ -2680,6 +2609,234 @@
             "vi": "Can phai lam gi o tiec tan gia?",
             "en": "What should I do at the housewarming?"
           }
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-17-lesson-9",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 6: email",
+        "en": "Workbook practice 6: email"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "email",
+        "must",
+        "food",
+        "goyo"
+      ],
+      "sourceExerciseIds": [
+        "wb17-email-food",
+        "wb17-email-message",
+        "wb17-travel-place",
+        "wb17-qr-party-time",
+        "wb17-qr-buy-gifts"
+      ],
+      "coverageTags": [
+        "email",
+        "must",
+        "food",
+        "goyo",
+        "contact",
+        "travel",
+        "places",
+        "qr-listening",
+        "housewarming",
+        "time",
+        "gifts"
+      ],
+      "tasks": [
+        {
+          "id": "wb17-qr-party-time-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb17-qr-party-time-1.listen",
+          "supportText": {
+            "vi": "Nghe hoi thoai QR va chon gio dien ra tiệc tan gia.",
+            "en": "Listen to the QR dialogue and choose the housewarming time."
+          },
+          "audioText": "지훈: 내일 샤오위 씨, 집들이가 몇 시예요? 리사: 저녁 여섯 시예요. 그런데 집들이에 뭘 사 가야 돼요? 지훈: 보통 세제를 사 가고, 휴지도 사 가요. 리사: 그럼 휴지하고 세제를 제가 사 갈까요? 지훈: 좋아요. 그럼 샤오위 씨 집에서 만나요.",
+          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb17-qr-party-time-six-pm",
+              "text": {
+                "vi": "6 gio toi",
+                "en": "6 PM"
+              }
+            },
+            {
+              "id": "wb17-qr-party-time-seven-pm",
+              "text": {
+                "vi": "7 gio toi",
+                "en": "7 PM"
+              }
+            },
+            {
+              "id": "wb17-qr-party-time-eight-pm",
+              "text": {
+                "vi": "8 gio toi",
+                "en": "8 PM"
+              }
+            }
+          ],
+          "answer": "wb17-qr-party-time-six-pm"
+        },
+        {
+          "id": "wb17-qr-buy-gifts-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb17-qr-buy-gifts-1.listen",
+          "supportText": {
+            "vi": "Nghe hoi thoai QR va chon nhung thu Lisa se mua mang den.",
+            "en": "Listen to the QR dialogue and choose what Lisa will bring."
+          },
+          "audioText": "지훈: 내일 샤오위 씨, 집들이가 몇 시예요? 리사: 저녁 여섯 시예요. 그런데 집들이에 뭘 사 가야 돼요? 지훈: 보통 세제를 사 가고, 휴지도 사 가요. 리사: 그럼 휴지하고 세제를 제가 사 갈까요? 지훈: 좋아요. 그럼 샤오위 씨 집에서 만나요.",
+          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb17-qr-buy-gifts-flowers",
+              "text": {
+                "vi": "hoa",
+                "en": "flowers"
+              }
+            },
+            {
+              "id": "wb17-qr-buy-gifts-tissue-detergent",
+              "text": {
+                "vi": "khan giay va nuoc giat",
+                "en": "tissue paper and detergent"
+              }
+            },
+            {
+              "id": "wb17-qr-buy-gifts-invitation-card",
+              "text": {
+                "vi": "thiep moi",
+                "en": "invitation card"
+              }
+            }
+          ],
+          "answer": "wb17-qr-buy-gifts-tissue-detergent"
+        },
+        {
+          "id": "wb17-email-food-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "-아/어야 되다"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb17-email-food-2.grammar",
+          "supportText": {
+            "vi": "Can chuan bi mon an gi?",
+            "en": "What food should I prepare?"
+          },
+          "type": "grammar_select",
+          "koreanText": "집들이에 어떤 음식을 ___?",
+          "choices": [
+            "준비해야 돼요",
+            "준비하고요",
+            "준비해요"
+          ],
+          "answer": "준비해야 돼요"
+        },
+        {
+          "id": "wb17-email-message-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "-고요"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb17-email-message-2.grammar",
+          "supportText": {
+            "vi": "Tin nhan cung duoc",
+            "en": "A message is fine too"
+          },
+          "type": "grammar_select",
+          "koreanText": "메일 주세요. 메시지도 ___.",
+          "choices": [
+            "되고요",
+            "해야 돼요",
+            "가고요"
+          ],
+          "answer": "되고요"
+        },
+        {
+          "id": "wb17-travel-place-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "-고요"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb17-travel-place-2.grammar",
+          "supportText": {
+            "vi": "Toi cung muon den Busan nua",
+            "en": "I also want to go to Busan"
+          },
+          "type": "grammar_select",
+          "koreanText": "서울에 가고 싶어요. ___.",
+          "choices": [
+            "부산도 가고요",
+            "부산에 가야 돼요",
+            "부산에 가요"
+          ],
+          "answer": "부산도 가고요"
         },
         {
           "id": "wb17-email-food-1",
@@ -2792,7 +2949,7 @@
       ]
     },
     {
-      "lessonId": "unit-17-lesson-8",
+      "lessonId": "unit-17-lesson-10",
       "lessonRole": "review",
       "title": {
         "vi": "On tap email va nghe",
@@ -2828,9 +2985,106 @@
         "housewarming",
         "food",
         "goyo",
-        "contact"
+        "contact",
+        "qr-listening",
+        "time",
+        "gifts"
       ],
       "tasks": [
+        {
+          "id": "wb17-qr-party-time-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb17-qr-party-time-1.listen",
+          "supportText": {
+            "vi": "Nghe hoi thoai QR va chon gio dien ra tiệc tan gia.",
+            "en": "Listen to the QR dialogue and choose the housewarming time."
+          },
+          "audioText": "지훈: 내일 샤오위 씨, 집들이가 몇 시예요? 리사: 저녁 여섯 시예요. 그런데 집들이에 뭘 사 가야 돼요? 지훈: 보통 세제를 사 가고, 휴지도 사 가요. 리사: 그럼 휴지하고 세제를 제가 사 갈까요? 지훈: 좋아요. 그럼 샤오위 씨 집에서 만나요.",
+          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb17-qr-party-time-six-pm",
+              "text": {
+                "vi": "6 gio toi",
+                "en": "6 PM"
+              }
+            },
+            {
+              "id": "wb17-qr-party-time-seven-pm",
+              "text": {
+                "vi": "7 gio toi",
+                "en": "7 PM"
+              }
+            },
+            {
+              "id": "wb17-qr-party-time-eight-pm",
+              "text": {
+                "vi": "8 gio toi",
+                "en": "8 PM"
+              }
+            }
+          ],
+          "answer": "wb17-qr-party-time-six-pm"
+        },
+        {
+          "id": "wb17-qr-buy-gifts-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb17-qr-buy-gifts-1.listen",
+          "supportText": {
+            "vi": "Nghe hoi thoai QR va chon nhung thu Lisa se mua mang den.",
+            "en": "Listen to the QR dialogue and choose what Lisa will bring."
+          },
+          "audioText": "지훈: 내일 샤오위 씨, 집들이가 몇 시예요? 리사: 저녁 여섯 시예요. 그런데 집들이에 뭘 사 가야 돼요? 지훈: 보통 세제를 사 가고, 휴지도 사 가요. 리사: 그럼 휴지하고 세제를 제가 사 갈까요? 지훈: 좋아요. 그럼 샤오위 씨 집에서 만나요.",
+          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb17-qr-buy-gifts-flowers",
+              "text": {
+                "vi": "hoa",
+                "en": "flowers"
+              }
+            },
+            {
+              "id": "wb17-qr-buy-gifts-tissue-detergent",
+              "text": {
+                "vi": "khan giay va nuoc giat",
+                "en": "tissue paper and detergent"
+              }
+            },
+            {
+              "id": "wb17-qr-buy-gifts-invitation-card",
+              "text": {
+                "vi": "thiep moi",
+                "en": "invitation card"
+              }
+            }
+          ],
+          "answer": "wb17-qr-buy-gifts-tissue-detergent"
+        },
         {
           "id": "wb17-email-hi-2",
           "prompt": {
@@ -3095,7 +3349,7 @@
       ]
     },
     {
-      "lessonId": "unit-17-lesson-9",
+      "lessonId": "unit-17-lesson-11",
       "lessonRole": "review",
       "title": {
         "vi": "Noi va viet co khung",

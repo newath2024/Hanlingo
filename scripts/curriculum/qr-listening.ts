@@ -208,10 +208,11 @@ function isAudioLikeResource(
     return false;
   }
 
+  if (statusCode && (statusCode < 200 || statusCode >= 300)) {
+    return false;
+  }
+
   return Boolean(
-    statusCode &&
-      statusCode >= 200 &&
-      statusCode < 300 &&
       (
       mimeType?.startsWith("audio/") ||
         /\.(mp3|m4a|wav|ogg)(?:$|\?)/i.test(audioUrl)

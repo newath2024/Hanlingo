@@ -682,7 +682,7 @@
         "width": 61.02404905608978,
         "height": 61.33888801060806
       },
-      "needsReview": true,
+      "needsReview": false,
       "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/17_02_01.mp3"
     },
     {
@@ -696,7 +696,7 @@
         "width": 61.15814967975916,
         "height": 61.32954938871518
       },
-      "needsReview": true,
+      "needsReview": false,
       "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/17_02_02.mp3"
     }
   ],
@@ -774,7 +774,7 @@
     }
   ],
   "reviewNotes": [
-    "Seeded raw blocks mirror the reviewed Unit 1 content because the local pilot PDFs do not expose a usable text layer.",
+    "Seeded raw blocks mirror the reviewed normalized source because the local PDFs do not expose a usable text layer.",
     "Pages without mapped items are emitted as placeholder unknown blocks instead of being silently skipped.",
     "Swap these blocks with OCR or vision output when richer PDF extraction is available."
   ]

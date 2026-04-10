@@ -640,14 +640,18 @@
         "qrValue": "http://m.site.naver.com/0YybK",
         "transcript": "지훈: 내일 샤오위 씨, 집들이가 몇 시예요? 리사: 저녁 여섯 시예요. 그런데 집들이에 뭘 사 가야 돼요? 지훈: 보통 세제를 사 가고, 휴지도 사 가요. 리사: 그럼 휴지하고 세제를 제가 사 갈까요? 지훈: 좋아요. 그럼 샤오위 씨 집에서 만나요.",
         "transcriptConfidence": 0.7,
-        "needsReview": true
+        "needsReview": false,
+        "remoteUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/17_02_01.mp3",
+        "mimeType": "audio/mpeg"
       },
       {
         "id": "wb17-qr-followup-audio",
         "document": "workbook",
         "page": 288,
         "qrValue": "http://m.site.naver.com/0Yyc0",
-        "needsReview": true
+        "needsReview": false,
+        "remoteUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/17_02_02.mp3",
+        "mimeType": "audio/mpeg"
       }
     ],
     "exercises": [
@@ -1602,7 +1606,7 @@
           "sourceBlockId": "wb17-qr-party-time-seed",
           "page": 287
         },
-        "needsReview": true
+        "needsReview": false
       },
       {
         "id": "wb17-qr-buy-gifts",
@@ -1662,7 +1666,7 @@
           "sourceBlockId": "wb17-qr-buy-gifts-seed",
           "page": 287
         },
-        "needsReview": true
+        "needsReview": false
       }
     ]
   },

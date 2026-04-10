@@ -17,6 +17,20 @@ function isRedirect(statusCode?: number) {
   return Boolean(statusCode && statusCode >= 300 && statusCode < 400);
 }
 
+function isSuccessStatus(statusCode?: number) {
+  return Boolean(statusCode && statusCode >= 200 && statusCode < 300);
+}
+
+function toSingleHeader(
+  value: string | string[] | undefined,
+) {
+  return Array.isArray(value) ? value[0] : value;
+}
+
+function isAudioMimeType(mimeType?: string) {
+  return Boolean(mimeType?.startsWith("audio/"));
+}
+
 function buildRequestOptions(targetUrl: string, method: "GET" | "HEAD") {
   const parsedUrl = new URL(targetUrl);
 
@@ -69,25 +83,38 @@ export async function resolveRemoteAsset(
 ): Promise<ResolvedRemoteAsset | null> {
   try {
     const headResult = await openRemoteUrl(targetUrl, "HEAD");
-    const mimeType = headResult.response.headers["content-type"];
+    const mimeType = toSingleHeader(headResult.response.headers["content-type"]);
     const statusCode = headResult.response.statusCode;
     headResult.response.resume();
 
+    if (isSuccessStatus(statusCode) && isAudioMimeType(mimeType)) {
+      return {
+        finalUrl: headResult.finalUrl,
+        mimeType,
+        statusCode,
+      };
+    }
+
+    const getResult = await openRemoteUrl(targetUrl, "GET");
+    const getMimeType = toSingleHeader(getResult.response.headers["content-type"]);
+    const getStatusCode = getResult.response.statusCode;
+    getResult.response.resume();
+
     return {
-      finalUrl: headResult.finalUrl,
-      mimeType: Array.isArray(mimeType) ? mimeType[0] : mimeType,
-      statusCode,
+      finalUrl: getResult.finalUrl,
+      mimeType: getMimeType,
+      statusCode: getStatusCode,
     };
   } catch {
     try {
       const getResult = await openRemoteUrl(targetUrl, "GET");
-      const mimeType = getResult.response.headers["content-type"];
+      const mimeType = toSingleHeader(getResult.response.headers["content-type"]);
       const statusCode = getResult.response.statusCode;
       getResult.response.resume();
 
       return {
         finalUrl: getResult.finalUrl,
-        mimeType: Array.isArray(mimeType) ? mimeType[0] : mimeType,
+        mimeType,
         statusCode,
       };
     } catch {
