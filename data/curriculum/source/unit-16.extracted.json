@@ -1,0 +1,2083 @@
+{
+  "unitId": "16",
+  "unitNumber": 16,
+  "title": {
+    "vi": "Tu day den ga Seoul bang cach nao?",
+    "en": "How do I get to Seoul Station from here?"
+  },
+  "needsReview": true,
+  "extractionMode": "seeded_raw_blocks",
+  "sourceDocuments": {
+    "textbook": {
+      "fileName": "Giáo trình quyển 1.pdf",
+      "totalPages": 280,
+      "unitPages": {
+        "startPage": 208,
+        "endPage": 218
+      },
+      "boundarySource": "configured_page_spans",
+      "hasTextLayer": false,
+      "textPagesDetected": 0
+    },
+    "workbook": {
+      "fileName": "Sách bài tập quyển 1.pdf",
+      "totalPages": 392,
+      "unitPages": {
+        "startPage": 261,
+        "endPage": 276
+      },
+      "boundarySource": "configured_page_spans",
+      "hasTextLayer": false,
+      "textPagesDetected": 0
+    }
+  },
+  "textbook": {
+    "vocab": [
+      {
+        "id": "v-bus",
+        "korean": "버스",
+        "translations": {
+          "vi": "xe buyt",
+          "en": "bus"
+        },
+        "romanization": "beoseu",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "버스",
+          "confidence": 0.98,
+          "sourceBlockId": "v-bus-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-subway",
+        "korean": "지하철",
+        "translations": {
+          "vi": "tau dien ngam",
+          "en": "subway"
+        },
+        "romanization": "jihacheol",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "지하철",
+          "confidence": 0.98,
+          "sourceBlockId": "v-subway-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-train",
+        "korean": "기차",
+        "translations": {
+          "vi": "tau hoa",
+          "en": "train"
+        },
+        "romanization": "gicha",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "기차",
+          "confidence": 0.98,
+          "sourceBlockId": "v-train-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-airplane",
+        "korean": "비행기",
+        "translations": {
+          "vi": "may bay",
+          "en": "airplane"
+        },
+        "romanization": "bihaenggi",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "비행기",
+          "confidence": 0.98,
+          "sourceBlockId": "v-airplane-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-boat",
+        "korean": "배",
+        "translations": {
+          "vi": "thuyen",
+          "en": "boat"
+        },
+        "romanization": "bae",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "배",
+          "confidence": 0.98,
+          "sourceBlockId": "v-boat-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-station",
+        "korean": "역",
+        "translations": {
+          "vi": "ga",
+          "en": "station"
+        },
+        "romanization": "yeok",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "역",
+          "confidence": 0.98,
+          "sourceBlockId": "v-station-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-bus-stop",
+        "korean": "정류장",
+        "translations": {
+          "vi": "tram xe buyt",
+          "en": "bus stop"
+        },
+        "romanization": "jeongnyujang",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "정류장",
+          "confidence": 0.98,
+          "sourceBlockId": "v-bus-stop-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-terminal",
+        "korean": "터미널",
+        "translations": {
+          "vi": "ben xe",
+          "en": "terminal"
+        },
+        "romanization": "teomineol",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "터미널",
+          "confidence": 0.98,
+          "sourceBlockId": "v-terminal-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-ride",
+        "korean": "타다",
+        "translations": {
+          "vi": "di bang, len xe",
+          "en": "ride, take"
+        },
+        "romanization": "tada",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "타다",
+          "confidence": 0.98,
+          "sourceBlockId": "v-ride-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-walk",
+        "korean": "걸어가다",
+        "translations": {
+          "vi": "di bo",
+          "en": "walk"
+        },
+        "romanization": "georeogada",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "걸어가다",
+          "confidence": 0.98,
+          "sourceBlockId": "v-walk-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-transfer",
+        "korean": "갈아타다",
+        "translations": {
+          "vi": "chuyen xe, chuyen tau",
+          "en": "transfer"
+        },
+        "romanization": "garatada",
+        "pages": {
+          "startPage": 208,
+          "endPage": 208
+        },
+        "sourceRef": {
+          "rawText": "갈아타다",
+          "confidence": 0.98,
+          "sourceBlockId": "v-transfer-seed",
+          "page": 208
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-distance",
+        "korean": "거리",
+        "translations": {
+          "vi": "khoang cach",
+          "en": "distance"
+        },
+        "romanization": "geori",
+        "pages": {
+          "startPage": 209,
+          "endPage": 209
+        },
+        "sourceRef": {
+          "rawText": "거리",
+          "confidence": 0.98,
+          "sourceBlockId": "v-distance-seed",
+          "page": 209
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-far",
+        "korean": "멀다",
+        "translations": {
+          "vi": "xa",
+          "en": "be far"
+        },
+        "romanization": "meolda",
+        "pages": {
+          "startPage": 209,
+          "endPage": 209
+        },
+        "sourceRef": {
+          "rawText": "멀다",
+          "confidence": 0.98,
+          "sourceBlockId": "v-far-seed",
+          "page": 209
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-near",
+        "korean": "가깝다",
+        "translations": {
+          "vi": "gan",
+          "en": "be near"
+        },
+        "romanization": "gakkapda",
+        "pages": {
+          "startPage": 209,
+          "endPage": 209
+        },
+        "sourceRef": {
+          "rawText": "가깝다",
+          "confidence": 0.98,
+          "sourceBlockId": "v-near-seed",
+          "page": 209
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-how-long",
+        "korean": "얼마나",
+        "translations": {
+          "vi": "bao lau, bao xa",
+          "en": "how long, how far"
+        },
+        "romanization": "eolmana",
+        "pages": {
+          "startPage": 209,
+          "endPage": 209
+        },
+        "sourceRef": {
+          "rawText": "얼마나",
+          "confidence": 0.98,
+          "sourceBlockId": "v-how-long-seed",
+          "page": 209
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-traffic-jam",
+        "korean": "길이 막히다",
+        "translations": {
+          "vi": "duong bi tac",
+          "en": "the road is jammed"
+        },
+        "romanization": "giri makhida",
+        "pages": {
+          "startPage": 209,
+          "endPage": 209
+        },
+        "sourceRef": {
+          "rawText": "길이 막히다",
+          "confidence": 0.98,
+          "sourceBlockId": "v-traffic-jam-seed",
+          "page": 209
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-take-time",
+        "korean": "(시간이) 걸리다",
+        "translations": {
+          "vi": "mat thoi gian",
+          "en": "take time"
+        },
+        "romanization": "sigani geollida",
+        "pages": {
+          "startPage": 209,
+          "endPage": 209
+        },
+        "sourceRef": {
+          "rawText": "(시간이) 걸리다",
+          "confidence": 0.98,
+          "sourceBlockId": "v-take-time-seed",
+          "page": 209
+        },
+        "needsReview": true
+      }
+    ],
+    "grammar": [
+      {
+        "id": "g-from-to",
+        "pattern": "명사 + 에서, 까지",
+        "explanation": {
+          "vi": "Dung de noi diem bat dau va diem ket thuc cua duong di hoac pham vi di chuyen.",
+          "en": "Used to mark the starting point and ending point of a route or movement range."
+        },
+        "exampleIds": [
+          "ex-home-school-time",
+          "ex-busan-trip",
+          "ex-busan-transfer"
+        ],
+        "pages": {
+          "startPage": 210,
+          "endPage": 210
+        },
+        "sourceRef": {
+          "rawText": "명사 + 에서, 까지",
+          "confidence": 0.98,
+          "sourceBlockId": "g-from-to-seed",
+          "page": 210
+        },
+        "needsReview": true
+      },
+      {
+        "id": "g-command",
+        "pattern": "동사 + -으십시오/-십시오",
+        "explanation": {
+          "vi": "Dung de dua ra huong dan, menh lenh lich su, hoac loi khuyen trang trong.",
+          "en": "Used for polite instructions, commands, or formal suggestions."
+        },
+        "exampleIds": [
+          "ex-airport-shuttle",
+          "ex-wait",
+          "ex-come-tomorrow"
+        ],
+        "pages": {
+          "startPage": 211,
+          "endPage": 211
+        },
+        "sourceRef": {
+          "rawText": "동사 + -으십시오/-십시오",
+          "confidence": 0.98,
+          "sourceBlockId": "g-command-seed",
+          "page": 211
+        },
+        "needsReview": true
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "d-title-question",
+        "speaker": "Lisa",
+        "korean": "여기에서 서울역까지 어떻게 가요?",
+        "translations": {
+          "vi": "Tu day den ga Seoul bang cach nao?",
+          "en": "How do I get to Seoul Station from here?"
+        },
+        "pages": {
+          "startPage": 214,
+          "endPage": 214
+        },
+        "sourceRef": {
+          "rawText": "여기에서 서울역까지 어떻게 가요?",
+          "confidence": 0.98,
+          "sourceBlockId": "d-title-question-seed",
+          "page": 214
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-bus-stop-instruction",
+        "speaker": "Man",
+        "korean": "저기 정류장에서 100번 버스를 타십시오.",
+        "translations": {
+          "vi": "Hay di den tram xe buyt dang kia va len xe buyt so 100.",
+          "en": "Take bus 100 at that bus stop over there."
+        },
+        "pages": {
+          "startPage": 214,
+          "endPage": 214
+        },
+        "sourceRef": {
+          "rawText": "저기 정류장에서 100번 버스를 타십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "d-bus-stop-instruction-seed",
+          "page": 214
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-bus-route",
+        "speaker": "Man",
+        "korean": "그 버스가 서울역까지 갑니다.",
+        "translations": {
+          "vi": "Chiec xe buyt do di den tan ga Seoul.",
+          "en": "That bus goes all the way to Seoul Station."
+        },
+        "pages": {
+          "startPage": 214,
+          "endPage": 214
+        },
+        "sourceRef": {
+          "rawText": "그 버스가 서울역까지 갑니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "d-bus-route-seed",
+          "page": 214
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-distance-question",
+        "speaker": "Lisa",
+        "korean": "여기에서 서울역까지 많이 멀어요?",
+        "translations": {
+          "vi": "Tu day den ga Seoul co xa lam khong?",
+          "en": "Is it very far from here to Seoul Station?"
+        },
+        "pages": {
+          "startPage": 214,
+          "endPage": 214
+        },
+        "sourceRef": {
+          "rawText": "여기에서 서울역까지 많이 멀어요?",
+          "confidence": 0.98,
+          "sourceBlockId": "d-distance-question-seed",
+          "page": 214
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-distance-answer",
+        "speaker": "Man",
+        "korean": "아니요. 멀지 않아요.",
+        "translations": {
+          "vi": "Khong dau. Khong xa.",
+          "en": "No. It is not far."
+        },
+        "pages": {
+          "startPage": 214,
+          "endPage": 214
+        },
+        "sourceRef": {
+          "rawText": "아니요. 멀지 않아요.",
+          "confidence": 0.98,
+          "sourceBlockId": "d-distance-answer-seed",
+          "page": 214
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-bank-paper",
+        "speaker": "Clerk",
+        "korean": "이 종이를 쓰십시오. 그리고 여기에 똑같이 쓰십시오.",
+        "translations": {
+          "vi": "Hay viet vao to giay nay, roi viet lai y nhu vay o day.",
+          "en": "Fill out this paper, and then write the same thing here."
+        },
+        "pages": {
+          "startPage": 213,
+          "endPage": 213
+        },
+        "sourceRef": {
+          "rawText": "이 종이를 쓰십시오. 그리고 여기에 똑같이 쓰십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "d-bank-paper-seed",
+          "page": 213
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-bank-finish",
+        "speaker": "Clerk",
+        "korean": "여기 통장입니다. 받으십시오.",
+        "translations": {
+          "vi": "Day la so ngan hang cua ban. Xin hay nhan lay.",
+          "en": "Here is your bankbook. Please take it."
+        },
+        "pages": {
+          "startPage": 213,
+          "endPage": 213
+        },
+        "sourceRef": {
+          "rawText": "여기 통장입니다. 받으십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "d-bank-finish-seed",
+          "page": 213
+        },
+        "needsReview": true
+      }
+    ],
+    "examples": [
+      {
+        "id": "ex-home-school-time",
+        "korean": "집에서 학교까지 시간이 얼마나 걸려요?",
+        "translations": {
+          "vi": "Tu nha den truong mat bao lau?",
+          "en": "How long does it take from home to school?"
+        },
+        "grammarTags": [
+          "에서, 까지"
+        ],
+        "pages": {
+          "startPage": 210,
+          "endPage": 210
+        },
+        "sourceRef": {
+          "rawText": "집에서 학교까지 시간이 얼마나 걸려요?",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-home-school-time-seed",
+          "page": 210
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-thirty-minutes",
+        "korean": "30분 걸려요.",
+        "translations": {
+          "vi": "Mat 30 phut.",
+          "en": "It takes 30 minutes."
+        },
+        "grammarTags": [
+          "에서, 까지"
+        ],
+        "pages": {
+          "startPage": 210,
+          "endPage": 210
+        },
+        "sourceRef": {
+          "rawText": "30분 걸려요.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-thirty-minutes-seed",
+          "page": 210
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-airport-shuttle",
+        "korean": "공항 셔틀을 타십시오.",
+        "translations": {
+          "vi": "Hay len xe dua don san bay.",
+          "en": "Please take the airport shuttle."
+        },
+        "grammarTags": [
+          "-으십시오/-십시오"
+        ],
+        "pages": {
+          "startPage": 211,
+          "endPage": 211
+        },
+        "sourceRef": {
+          "rawText": "공항 셔틀을 타십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-airport-shuttle-seed",
+          "page": 211
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-wait",
+        "korean": "잠시만 기다리십시오.",
+        "translations": {
+          "vi": "Hay doi mot chut.",
+          "en": "Please wait a moment."
+        },
+        "grammarTags": [
+          "-으십시오/-십시오"
+        ],
+        "pages": {
+          "startPage": 211,
+          "endPage": 211
+        },
+        "sourceRef": {
+          "rawText": "잠시만 기다리십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-wait-seed",
+          "page": 211
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-come-tomorrow",
+        "korean": "내일 다시 오십시오.",
+        "translations": {
+          "vi": "Hay quay lai vao ngay mai.",
+          "en": "Please come again tomorrow."
+        },
+        "grammarTags": [
+          "-으십시오/-십시오"
+        ],
+        "pages": {
+          "startPage": 211,
+          "endPage": 211
+        },
+        "sourceRef": {
+          "rawText": "내일 다시 오십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-come-tomorrow-seed",
+          "page": 211
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-busan-trip",
+        "korean": "서울역에서 기차를 탔습니다.",
+        "translations": {
+          "vi": "Toi da len tau tai ga Seoul.",
+          "en": "I took a train at Seoul Station."
+        },
+        "grammarTags": [
+          "에서, 까지",
+          "travel"
+        ],
+        "pages": {
+          "startPage": 216,
+          "endPage": 216
+        },
+        "sourceRef": {
+          "rawText": "서울역에서 기차를 탔습니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-busan-trip-seed",
+          "page": 216
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-busan-transfer",
+        "korean": "서면역에서 한 번 갈아탔습니다.",
+        "translations": {
+          "vi": "Toi da chuyen tau mot lan o ga Seomyeon.",
+          "en": "I transferred once at Seomyeon Station."
+        },
+        "grammarTags": [
+          "에서, 까지",
+          "travel"
+        ],
+        "pages": {
+          "startPage": 216,
+          "endPage": 216
+        },
+        "sourceRef": {
+          "rawText": "서면역에서 한 번 갈아탔습니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-busan-transfer-seed",
+          "page": 216
+        },
+        "needsReview": true
+      }
+    ]
+  },
+  "workbook": {
+    "audioAssets": [
+      {
+        "id": "wb16-qr-traffic-audio",
+        "document": "workbook",
+        "page": 265,
+        "qrValue": "http://m.site.naver.com/0Yyb6",
+        "transcript": "퇴근 시간이라 길이 막힙니다.",
+        "transcriptConfidence": 0.6,
+        "needsReview": false,
+        "remoteUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_02.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      {
+        "id": "wb16-qr-seoul-station-audio",
+        "document": "workbook",
+        "page": 269,
+        "qrValue": "http://m.site.naver.com/0Yybi",
+        "transcript": "리사: 실례합니다. 여기에서 서울역까지 어떻게 가요? 남자: 저기 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다. 리사: 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요? 남자: 아니요. 멀지 않아요.",
+        "transcriptConfidence": 0.7,
+        "needsReview": false,
+        "remoteUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_03_02.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      {
+        "id": "wb16-qr-airport-audio",
+        "document": "workbook",
+        "page": 270,
+        "qrValue": "http://m.site.naver.com/0Yybr",
+        "transcript": "지연 씨는 공항에 가려고 해요. 여기에서 600번 버스를 타고 가세요.",
+        "transcriptConfidence": 0.55,
+        "needsReview": false,
+        "remoteUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_04_01.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      {
+        "id": "wb16-qr-trip-audio",
+        "document": "workbook",
+        "page": 271,
+        "qrValue": "http://m.site.naver.com/0Yybx",
+        "transcript": "지난 주말에 부산에 다녀왔습니다. 서울역에서 기차를 탔습니다.",
+        "transcriptConfidence": 0.55,
+        "needsReview": false,
+        "remoteUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_04_02.mp3",
+        "mimeType": "audio/mpeg"
+      }
+    ],
+    "exercises": [
+      {
+        "id": "wb16-write-transport",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Viet cum 'phuong tien giao thong' bang tieng Han.",
+          "en": "Write the phrase 'means of transportation' in Korean."
+        },
+        "localizedText": {
+          "vi": "phuong tien giao thong",
+          "en": "means of transportation"
+        },
+        "answer": "교통수단",
+        "metadata": {
+          "direction": "meaning_to_ko"
+        },
+        "coverageTags": [
+          "review",
+          "transport",
+          "category"
+        ],
+        "pages": {
+          "startPage": 261,
+          "endPage": 261
+        },
+        "sourceRef": {
+          "rawText": "교통수단",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-write-transport-seed",
+          "page": 261
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-write-transport-use",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Viet cum 'su dung phuong tien giao thong' bang tieng Han.",
+          "en": "Write the phrase 'using transportation' in Korean."
+        },
+        "localizedText": {
+          "vi": "su dung phuong tien giao thong",
+          "en": "using transportation"
+        },
+        "answer": "교통수단 이용",
+        "metadata": {
+          "direction": "meaning_to_ko"
+        },
+        "coverageTags": [
+          "review",
+          "transport",
+          "category"
+        ],
+        "pages": {
+          "startPage": 261,
+          "endPage": 261
+        },
+        "sourceRef": {
+          "rawText": "교통수단 이용",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-write-transport-use-seed",
+          "page": 261
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-match-bus",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Noi tranh voi tu dung.",
+          "en": "Match the picture with the correct word."
+        },
+        "koreanText": "버스",
+        "localizedText": {
+          "vi": "xe buyt",
+          "en": "bus"
+        },
+        "answer": "xe buyt",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "transport",
+          "vocab",
+          "bus"
+        ],
+        "pages": {
+          "startPage": 262,
+          "endPage": 262
+        },
+        "sourceRef": {
+          "rawText": "버스",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-match-bus-seed",
+          "page": 262
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-match-train",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Noi tranh voi tu dung.",
+          "en": "Match the picture with the correct word."
+        },
+        "koreanText": "기차",
+        "localizedText": {
+          "vi": "tau hoa",
+          "en": "train"
+        },
+        "answer": "tau hoa",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "transport",
+          "vocab",
+          "train"
+        ],
+        "pages": {
+          "startPage": 262,
+          "endPage": 262
+        },
+        "sourceRef": {
+          "rawText": "기차",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-match-train-seed",
+          "page": 262
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-match-subway",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Noi tranh voi tu dung.",
+          "en": "Match the picture with the correct word."
+        },
+        "koreanText": "지하철",
+        "localizedText": {
+          "vi": "tau dien ngam",
+          "en": "subway"
+        },
+        "answer": "tau dien ngam",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "transport",
+          "vocab",
+          "subway"
+        ],
+        "pages": {
+          "startPage": 262,
+          "endPage": 262
+        },
+        "sourceRef": {
+          "rawText": "지하철",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-match-subway-seed",
+          "page": 262
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-match-airplane",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Noi tranh voi tu dung.",
+          "en": "Match the picture with the correct word."
+        },
+        "koreanText": "비행기",
+        "localizedText": {
+          "vi": "may bay",
+          "en": "airplane"
+        },
+        "answer": "may bay",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "transport",
+          "vocab",
+          "airplane"
+        ],
+        "pages": {
+          "startPage": 262,
+          "endPage": 262
+        },
+        "sourceRef": {
+          "rawText": "비행기",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-match-airplane-seed",
+          "page": 262
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-match-station",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Noi tranh voi tu dung.",
+          "en": "Match the picture with the correct word."
+        },
+        "koreanText": "역",
+        "localizedText": {
+          "vi": "ga",
+          "en": "station"
+        },
+        "answer": "ga",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "transport-use",
+          "vocab",
+          "station"
+        ],
+        "pages": {
+          "startPage": 262,
+          "endPage": 262
+        },
+        "sourceRef": {
+          "rawText": "역",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-match-station-seed",
+          "page": 262
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-match-bus-stop",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Noi tranh voi tu dung.",
+          "en": "Match the picture with the correct word."
+        },
+        "koreanText": "정류장",
+        "localizedText": {
+          "vi": "tram xe buyt",
+          "en": "bus stop"
+        },
+        "answer": "tram xe buyt",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "transport-use",
+          "vocab",
+          "bus-stop"
+        ],
+        "pages": {
+          "startPage": 262,
+          "endPage": 262
+        },
+        "sourceRef": {
+          "rawText": "정류장",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-match-bus-stop-seed",
+          "page": 262
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-future-transfer",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Chon cum thich hop de dien vao cho trong.",
+          "en": "Fill in the blank with the correct phrase."
+        },
+        "koreanText": "이 비행기는 한국까지 바로 가지 않아서 비행기를 ___.",
+        "localizedText": {
+          "vi": "toi se phai chuyen may bay",
+          "en": "I will have to transfer planes"
+        },
+        "answer": "갈아탈 거예요",
+        "metadata": {
+          "target": "grammar",
+          "choices": [
+            "갈아탈 거예요",
+            "걸어갈 거예요",
+            "탈 거예요"
+          ]
+        },
+        "coverageTags": [
+          "transport-use",
+          "transfer",
+          "future"
+        ],
+        "pages": {
+          "startPage": 263,
+          "endPage": 263
+        },
+        "sourceRef": {
+          "rawText": "비행기를 갈아탈 거예요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-future-transfer-seed",
+          "page": 263
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-walk-school",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Chon cum thich hop de dien vao cho trong.",
+          "en": "Fill in the blank with the correct phrase."
+        },
+        "koreanText": "저는 운동하러 학교까지 ___.",
+        "localizedText": {
+          "vi": "toi di bo den truong de tap the duc",
+          "en": "I walk to school for exercise"
+        },
+        "answer": "걸어가요",
+        "metadata": {
+          "target": "grammar",
+          "choices": [
+            "걸어가요",
+            "갈아타요",
+            "타요"
+          ]
+        },
+        "coverageTags": [
+          "transport-use",
+          "walk",
+          "movement"
+        ],
+        "pages": {
+          "startPage": 263,
+          "endPage": 263
+        },
+        "sourceRef": {
+          "rawText": "학교까지 걸어가요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-walk-school-seed",
+          "page": 263
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-bike-ride",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Chon cum thich hop de dien vao cho trong.",
+          "en": "Fill in the blank with the correct phrase."
+        },
+        "koreanText": "저는 자전거를 ___.",
+        "localizedText": {
+          "vi": "toi co the di xe dap",
+          "en": "I can ride a bicycle"
+        },
+        "answer": "탈 수 있어요",
+        "metadata": {
+          "target": "grammar",
+          "choices": [
+            "탈 수 있어요",
+            "걸어갈 수 있어요",
+            "갈아탈 수 있어요"
+          ]
+        },
+        "coverageTags": [
+          "transport-use",
+          "ride",
+          "ability"
+        ],
+        "pages": {
+          "startPage": 263,
+          "endPage": 263
+        },
+        "sourceRef": {
+          "rawText": "자전거를 탈 수 있어요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-bike-ride-seed",
+          "page": 263
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-library-from",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien tro tu dung vao cho trong.",
+          "en": "Fill in the correct particle."
+        },
+        "koreanText": "도서관___ 식당까지 버스를 타고 가요.",
+        "localizedText": {
+          "vi": "tu thu vien den nha hang",
+          "en": "from the library to the restaurant"
+        },
+        "answer": "에서",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "에서, 까지",
+          "choices": [
+            "에서",
+            "까지"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "from-to",
+          "library",
+          "restaurant"
+        ],
+        "pages": {
+          "startPage": 265,
+          "endPage": 265
+        },
+        "sourceRef": {
+          "rawText": "도서관에서 식당까지 버스를 타고 가요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-library-from-seed",
+          "page": 265
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-restaurant-to",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien tro tu dung vao cho trong.",
+          "en": "Fill in the correct particle."
+        },
+        "koreanText": "도서관에서 식당___ 버스를 타고 가요.",
+        "localizedText": {
+          "vi": "den nha hang",
+          "en": "to the restaurant"
+        },
+        "answer": "까지",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "에서, 까지",
+          "choices": [
+            "에서",
+            "까지"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "from-to",
+          "library",
+          "restaurant"
+        ],
+        "pages": {
+          "startPage": 265,
+          "endPage": 265
+        },
+        "sourceRef": {
+          "rawText": "도서관에서 식당까지 버스를 타고 가요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-restaurant-to-seed",
+          "page": 265
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-subway-from",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien tro tu dung vao cho trong.",
+          "en": "Fill in the correct particle."
+        },
+        "koreanText": "지하철역___ 여행사까지 걸어가요.",
+        "localizedText": {
+          "vi": "tu ga tau dien ngam den cong ty du lich",
+          "en": "from the subway station to the travel agency"
+        },
+        "answer": "에서",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "에서, 까지",
+          "choices": [
+            "에서",
+            "까지"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "from-to",
+          "subway",
+          "agency"
+        ],
+        "pages": {
+          "startPage": 265,
+          "endPage": 265
+        },
+        "sourceRef": {
+          "rawText": "지하철역에서 여행사까지 걸어가요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-subway-from-seed",
+          "page": 265
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-agency-to",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien tro tu dung vao cho trong.",
+          "en": "Fill in the correct particle."
+        },
+        "koreanText": "지하철역에서 여행사___ 걸어가요.",
+        "localizedText": {
+          "vi": "den cong ty du lich",
+          "en": "to the travel agency"
+        },
+        "answer": "까지",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "에서, 까지",
+          "choices": [
+            "에서",
+            "까지"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "from-to",
+          "subway",
+          "agency"
+        ],
+        "pages": {
+          "startPage": 265,
+          "endPage": 265
+        },
+        "sourceRef": {
+          "rawText": "지하철역에서 여행사까지 걸어가요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-agency-to-seed",
+          "page": 265
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-company-from",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien tro tu dung vao cho trong.",
+          "en": "Fill in the correct particle."
+        },
+        "koreanText": "회사___ 공원까지 가까워요.",
+        "localizedText": {
+          "vi": "tu cong ty den cong vien thi gan",
+          "en": "it is close from the company to the park"
+        },
+        "answer": "에서",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "에서, 까지",
+          "choices": [
+            "에서",
+            "까지"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "from-to",
+          "company",
+          "park"
+        ],
+        "pages": {
+          "startPage": 265,
+          "endPage": 265
+        },
+        "sourceRef": {
+          "rawText": "회사에서 공원까지 가까워요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-company-from-seed",
+          "page": 265
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-park-to",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien tro tu dung vao cho trong.",
+          "en": "Fill in the correct particle."
+        },
+        "koreanText": "회사에서 공원___ 가까워요.",
+        "localizedText": {
+          "vi": "den cong vien",
+          "en": "to the park"
+        },
+        "answer": "까지",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "에서, 까지",
+          "choices": [
+            "에서",
+            "까지"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "from-to",
+          "company",
+          "park"
+        ],
+        "pages": {
+          "startPage": 265,
+          "endPage": 265
+        },
+        "sourceRef": {
+          "rawText": "회사에서 공원까지 가까워요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-park-to-seed",
+          "page": 265
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-command-wash",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh menh lenh lich su.",
+          "en": "Complete the polite command."
+        },
+        "koreanText": "먼저 야채들을 ___.",
+        "localizedText": {
+          "vi": "hay rua rau truoc",
+          "en": "wash the vegetables first"
+        },
+        "answer": "씻으십시오",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-으십시오/-십시오",
+          "choices": [
+            "씻으십시오",
+            "들으십시오",
+            "누우십시오"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "command",
+          "cooking"
+        ],
+        "pages": {
+          "startPage": 267,
+          "endPage": 267
+        },
+        "sourceRef": {
+          "rawText": "먼저 야채들을 씻으십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-command-wash-seed",
+          "page": 267
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-command-walk-museum",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh menh lenh lich su.",
+          "en": "Complete the polite command."
+        },
+        "koreanText": "박물관이 여기에서 가깝습니다. ___.",
+        "localizedText": {
+          "vi": "hay di bo den bao tang",
+          "en": "walk to the museum"
+        },
+        "answer": "걸어가십시오",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-으십시오/-십시오",
+          "choices": [
+            "걸어가십시오",
+            "오십시오",
+            "누우십시오"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "command",
+          "museum"
+        ],
+        "pages": {
+          "startPage": 267,
+          "endPage": 267
+        },
+        "sourceRef": {
+          "rawText": "박물관이 여기에서 가깝습니다. 걸어가십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-command-walk-museum-seed",
+          "page": 267
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-command-listen",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh menh lenh lich su.",
+          "en": "Complete the polite command."
+        },
+        "koreanText": "그럼 한국 노래를 많이 ___.",
+        "localizedText": {
+          "vi": "hay nghe nhieu bai hat Han Quoc",
+          "en": "listen to a lot of Korean songs"
+        },
+        "answer": "들으십시오",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-으십시오/-십시오",
+          "choices": [
+            "들으십시오",
+            "씻으십시오",
+            "오십시오"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "command",
+          "music"
+        ],
+        "pages": {
+          "startPage": 267,
+          "endPage": 267
+        },
+        "sourceRef": {
+          "rawText": "그럼 한국 노래를 많이 들으십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-command-listen-seed",
+          "page": 267
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-command-lie-down",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh menh lenh lich su.",
+          "en": "Complete the polite command."
+        },
+        "koreanText": "한번 봅시다. 여기에 ___.",
+        "localizedText": {
+          "vi": "hay nam xuong o day",
+          "en": "lie down here"
+        },
+        "answer": "누우십시오",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-으십시오/-십시오",
+          "choices": [
+            "누우십시오",
+            "들으십시오",
+            "씻으십시오"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "command",
+          "hospital"
+        ],
+        "pages": {
+          "startPage": 267,
+          "endPage": 267
+        },
+        "sourceRef": {
+          "rawText": "한번 봅시다. 여기에 누우십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-command-lie-down-seed",
+          "page": 267
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-reading-train",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien dong tu qua khu thich hop vao cho trong.",
+          "en": "Fill in the correct past-tense verb."
+        },
+        "koreanText": "서울역에서 기차를 ___.",
+        "localizedText": {
+          "vi": "toi da di tau o ga Seoul",
+          "en": "I took a train at Seoul Station"
+        },
+        "answer": "탔습니다",
+        "metadata": {
+          "target": "reading",
+          "choices": [
+            "탔습니다",
+            "갈아탔습니다",
+            "걸렸습니다"
+          ]
+        },
+        "coverageTags": [
+          "reading",
+          "busan",
+          "train"
+        ],
+        "pages": {
+          "startPage": 271,
+          "endPage": 271
+        },
+        "sourceRef": {
+          "rawText": "서울역에서 기차를 탔습니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-reading-train-seed",
+          "page": 271
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-reading-time",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien dong tu qua khu thich hop vao cho trong.",
+          "en": "Fill in the correct past-tense verb."
+        },
+        "koreanText": "부산역까지 세 시간 ___.",
+        "localizedText": {
+          "vi": "da mat ba tieng den ga Busan",
+          "en": "it took three hours to Busan Station"
+        },
+        "answer": "걸렸습니다",
+        "metadata": {
+          "target": "reading",
+          "choices": [
+            "걸렸습니다",
+            "탔습니다",
+            "갈아탔습니다"
+          ]
+        },
+        "coverageTags": [
+          "reading",
+          "busan",
+          "time"
+        ],
+        "pages": {
+          "startPage": 271,
+          "endPage": 271
+        },
+        "sourceRef": {
+          "rawText": "부산역까지 세 시간 걸렸습니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-reading-time-seed",
+          "page": 271
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-reading-transfer",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien dong tu qua khu thich hop vao cho trong.",
+          "en": "Fill in the correct past-tense verb."
+        },
+        "koreanText": "서면역에서 한 번 ___.",
+        "localizedText": {
+          "vi": "toi da chuyen tau mot lan o ga Seomyeon",
+          "en": "I transferred once at Seomyeon Station"
+        },
+        "answer": "갈아탔습니다",
+        "metadata": {
+          "target": "reading",
+          "choices": [
+            "갈아탔습니다",
+            "걸렸습니다",
+            "탔습니다"
+          ]
+        },
+        "coverageTags": [
+          "reading",
+          "busan",
+          "transfer"
+        ],
+        "pages": {
+          "startPage": 271,
+          "endPage": 271
+        },
+        "sourceRef": {
+          "rawText": "서면역에서 한 번 갈아탔습니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-reading-transfer-seed",
+          "page": 271
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-reading-gyeongju-bus",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dua vao bai doc va dien dap an dung.",
+          "en": "Use the reading passage to fill in the correct answer."
+        },
+        "koreanText": "서울에서 경주까지 ___를 타고 갔습니다.",
+        "localizedText": {
+          "vi": "nguoi nay da di Gyeongju bang xe buyt",
+          "en": "the person went to Gyeongju by bus"
+        },
+        "answer": "버스",
+        "metadata": {
+          "target": "reading",
+          "choices": [
+            "버스",
+            "기차",
+            "택시"
+          ]
+        },
+        "coverageTags": [
+          "reading",
+          "gyeongju",
+          "bus"
+        ],
+        "pages": {
+          "startPage": 272,
+          "endPage": 272
+        },
+        "sourceRef": {
+          "rawText": "서울에서 경주까지 버스를 타고 갔습니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-reading-gyeongju-bus-seed",
+          "page": 272
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-reading-not-used",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dua vao bai doc va dien dap an dung.",
+          "en": "Use the reading passage to fill in the correct answer."
+        },
+        "koreanText": "이 사람이 이용하지 않은 교통수단은 ___입니다.",
+        "localizedText": {
+          "vi": "phuong tien nguoi nay khong dung la tau dien ngam",
+          "en": "the transport this person did not use was the subway"
+        },
+        "answer": "지하철",
+        "metadata": {
+          "target": "reading",
+          "choices": [
+            "버스",
+            "기차",
+            "지하철"
+          ]
+        },
+        "coverageTags": [
+          "reading",
+          "gyeongju",
+          "transport"
+        ],
+        "pages": {
+          "startPage": 272,
+          "endPage": 272
+        },
+        "sourceRef": {
+          "rawText": "이 사람이 이용하지 않은 교통수단은 지하철입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-reading-not-used-seed",
+          "page": 272
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-extension-line3",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Viet cau huong dan duong di den Gyeongbokgung.",
+          "en": "Write the route instruction to Gyeongbokgung."
+        },
+        "localizedText": {
+          "vi": "Hay di tau dien ngam tuyen 3 va xuong o Gyeongbokgung.",
+          "en": "Take Line 3 and get off at Gyeongbokgung."
+        },
+        "answer": "지하철 3호선을 타고 경복궁에서 내리십시오.",
+        "metadata": {
+          "direction": "meaning_to_ko"
+        },
+        "coverageTags": [
+          "extension",
+          "directions",
+          "commands"
+        ],
+        "pages": {
+          "startPage": 273,
+          "endPage": 273
+        },
+        "sourceRef": {
+          "rawText": "지하철 3호선을 타고 경복궁에서 내리십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-extension-line3-seed",
+          "page": 273
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-extension-songs",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Viet mot loi khuyen lich su cho nguoi muon hoc tieng Han.",
+          "en": "Write a polite suggestion for someone who wants to study Korean."
+        },
+        "localizedText": {
+          "vi": "Hay nghe nhieu bai hat Han Quoc.",
+          "en": "Listen to a lot of Korean songs."
+        },
+        "answer": "한국 노래를 많이 들으십시오.",
+        "metadata": {
+          "direction": "meaning_to_ko"
+        },
+        "coverageTags": [
+          "extension",
+          "advice",
+          "commands"
+        ],
+        "pages": {
+          "startPage": 274,
+          "endPage": 274
+        },
+        "sourceRef": {
+          "rawText": "한국 노래를 많이 들으십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-extension-songs-seed",
+          "page": 274
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-extension-find-hotel",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Viet mot loi khuyen cho nguoi ban di du lich nuoc ngoai lan dau.",
+          "en": "Write a suggestion for a friend traveling abroad for the first time."
+        },
+        "localizedText": {
+          "vi": "Hay tim cho o truoc.",
+          "en": "Find accommodation in advance."
+        },
+        "answer": "미리 숙소를 찾으십시오.",
+        "metadata": {
+          "direction": "meaning_to_ko"
+        },
+        "coverageTags": [
+          "extension",
+          "travel",
+          "commands"
+        ],
+        "pages": {
+          "startPage": 275,
+          "endPage": 275
+        },
+        "sourceRef": {
+          "rawText": "미리 숙소를 찾으십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-extension-find-hotel-seed",
+          "page": 275
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-qr-traffic-jam",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe QR va chon tinh huong giao thong dung.",
+          "en": "Listen to the QR audio and choose the correct traffic situation."
+        },
+        "localizedText": {
+          "vi": "duong dang tac",
+          "en": "the road is jammed"
+        },
+        "answer": "duong dang tac",
+        "audioAssetId": "wb16-qr-traffic-audio",
+        "options": [
+          {
+            "id": "clear-road",
+            "label": {
+              "vi": "duong vang xe",
+              "en": "the road is clear"
+            },
+            "correct": false
+          },
+          {
+            "id": "traffic-jam",
+            "label": {
+              "vi": "duong dang tac",
+              "en": "the road is jammed"
+            },
+            "correct": true
+          }
+        ],
+        "metadata": {
+          "target": "qr_listening",
+          "variant": "situation_choice"
+        },
+        "coverageTags": [
+          "qr-listening",
+          "traffic",
+          "situation"
+        ],
+        "pages": {
+          "startPage": 264,
+          "endPage": 264
+        },
+        "sourceRef": {
+          "rawText": "길이 막히다 listening prompt. Choose the picture that matches the jammed road.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-qr-traffic-jam-seed",
+          "page": 264
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-qr-seoul-bus-number",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe hoi thoai QR va chon so xe buyt can di.",
+          "en": "Listen to the QR dialogue and choose the bus number to take."
+        },
+        "localizedText": {
+          "vi": "xe buyt 100",
+          "en": "bus 100"
+        },
+        "answer": "xe buyt 100",
+        "audioAssetId": "wb16-qr-seoul-station-audio",
+        "options": [
+          {
+            "id": "50",
+            "label": {
+              "vi": "xe buyt 50",
+              "en": "bus 50"
+            },
+            "correct": false
+          },
+          {
+            "id": "100",
+            "label": {
+              "vi": "xe buyt 100",
+              "en": "bus 100"
+            },
+            "correct": true
+          },
+          {
+            "id": "150",
+            "label": {
+              "vi": "xe buyt 150",
+              "en": "bus 150"
+            },
+            "correct": false
+          },
+          {
+            "id": "200",
+            "label": {
+              "vi": "xe buyt 200",
+              "en": "bus 200"
+            },
+            "correct": false
+          }
+        ],
+        "metadata": {
+          "target": "qr_listening",
+          "variant": "bus_number_choice"
+        },
+        "coverageTags": [
+          "qr-listening",
+          "directions",
+          "bus-number"
+        ],
+        "pages": {
+          "startPage": 269,
+          "endPage": 269
+        },
+        "sourceRef": {
+          "rawText": "정류장에서 100번 버스를 타십시오.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-qr-seoul-bus-number-seed",
+          "page": 269
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-qr-seoul-distance",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe hoi thoai QR va chon cach mo ta khoang cach dung.",
+          "en": "Listen to the QR dialogue and choose the correct distance description."
+        },
+        "localizedText": {
+          "vi": "khong xa",
+          "en": "not far"
+        },
+        "answer": "khong xa",
+        "audioAssetId": "wb16-qr-seoul-station-audio",
+        "options": [
+          {
+            "id": "far",
+            "label": {
+              "vi": "rat xa",
+              "en": "very far"
+            },
+            "correct": false
+          },
+          {
+            "id": "not-far",
+            "label": {
+              "vi": "khong xa",
+              "en": "not far"
+            },
+            "correct": true
+          },
+          {
+            "id": "three-hours",
+            "label": {
+              "vi": "mat ba tieng",
+              "en": "it takes three hours"
+            },
+            "correct": false
+          }
+        ],
+        "metadata": {
+          "target": "qr_listening",
+          "variant": "distance_choice"
+        },
+        "coverageTags": [
+          "qr-listening",
+          "distance",
+          "directions"
+        ],
+        "pages": {
+          "startPage": 269,
+          "endPage": 269
+        },
+        "sourceRef": {
+          "rawText": "여기에서 서울역까지 많이 멀어요? 아니요. 멀지 않아요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-qr-seoul-distance-seed",
+          "page": 269
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb16-qr-destination",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe QR va chon dia diem ma Jiyeon muon den.",
+          "en": "Listen to the QR audio and choose Jiyeon's destination."
+        },
+        "localizedText": {
+          "vi": "san bay",
+          "en": "airport"
+        },
+        "answer": "san bay",
+        "audioAssetId": "wb16-qr-airport-audio",
+        "options": [
+          {
+            "id": "airport",
+            "label": {
+              "vi": "san bay",
+              "en": "airport"
+            },
+            "correct": true
+          },
+          {
+            "id": "seoul-station",
+            "label": {
+              "vi": "ga Seoul",
+              "en": "Seoul Station"
+            },
+            "correct": false
+          },
+          {
+            "id": "terminal",
+            "label": {
+              "vi": "ben xe",
+              "en": "terminal"
+            },
+            "correct": false
+          },
+          {
+            "id": "harbor",
+            "label": {
+              "vi": "cang",
+              "en": "harbor"
+            },
+            "correct": false
+          }
+        ],
+        "metadata": {
+          "target": "qr_listening",
+          "variant": "destination_choice"
+        },
+        "coverageTags": [
+          "qr-listening",
+          "destination",
+          "travel"
+        ],
+        "pages": {
+          "startPage": 270,
+          "endPage": 270
+        },
+        "sourceRef": {
+          "rawText": "지연 씨는 공항에 가려고 해요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb16-qr-destination-seed",
+          "page": 270
+        },
+        "needsReview": true
+      }
+    ]
+  },
+  "reviewNotes": [
+    "Unit 16 is manually normalized from textbook pages 208-218 and workbook pages 261-276.",
+    "Workbook normalization keeps the closed-form transport drills, QR listening, reading cloze, and scaffolded extension prompts with canonical answers.",
+    "QR audio uses the shared remote resolver so Nuri assets that require GET fallback can still compile into runtime listening tasks."
+  ]
+}

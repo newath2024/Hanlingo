@@ -10,6 +10,7 @@ import type {
   SourceUnit,
 } from "@/types/curriculum";
 import { createUnit1SourceSeed, UNIT_1_PAGE_SPANS } from "./manual-unit-1";
+import { createUnit16SourceSeed, UNIT_16_PAGE_SPANS } from "./manual-unit-16";
 import { createUnit17SourceSeed, UNIT_17_PAGE_SPANS } from "./manual-unit-17";
 import {
   getExtractedSourcePath,
@@ -20,6 +21,7 @@ import {
 import { inspectPdf, resolvePdfFiles } from "./pdf";
 import { extractWorkbookListeningArtifacts } from "./qr-listening";
 import { UNIT_1_QR_SEED } from "./unit-1-qr-seed";
+import { UNIT_16_QR_SEED } from "./unit-16-qr-seed";
 import { UNIT_17_QR_SEED } from "./unit-17-qr-seed";
 import type { UnitQrSeedDefinition } from "./qr-seed";
 import { maybeExtractVisionBlocks } from "./vision";
@@ -56,6 +58,13 @@ const SEEDED_UNIT_CONFIGS: Record<string, SeedUnitConfig> = {
     pageSpans: UNIT_1_PAGE_SPANS,
     createSourceSeed: createUnit1SourceSeed,
     qrSeed: UNIT_1_QR_SEED,
+  },
+  "16": {
+    unitId: "16",
+    unitLabel: "Unit 16",
+    pageSpans: UNIT_16_PAGE_SPANS,
+    createSourceSeed: createUnit16SourceSeed,
+    qrSeed: UNIT_16_QR_SEED,
   },
   "17": {
     unitId: "17",
@@ -182,7 +191,7 @@ function buildSeededRawDraft(
     imageCrops,
     pageIssues,
     reviewNotes: [
-      "Seeded raw blocks mirror the reviewed Unit 1 content because the local pilot PDFs do not expose a usable text layer.",
+      "Seeded raw blocks mirror the reviewed normalized source because the local PDFs do not expose a usable text layer.",
       "Pages without mapped items are emitted as placeholder unknown blocks instead of being silently skipped.",
       "Swap these blocks with OCR or vision output when richer PDF extraction is available.",
     ],

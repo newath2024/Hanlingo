@@ -1,0 +1,831 @@
+{
+  "unitId": "16",
+  "unitNumber": 16,
+  "extractionMode": "seeded_raw_blocks",
+  "blocks": [
+    {
+      "id": "v-bus-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "버스",
+      "confidence": 0.98,
+      "sourceItemId": "v-bus",
+      "needsReview": true
+    },
+    {
+      "id": "v-subway-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "지하철",
+      "confidence": 0.98,
+      "sourceItemId": "v-subway",
+      "needsReview": true
+    },
+    {
+      "id": "v-train-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "기차",
+      "confidence": 0.98,
+      "sourceItemId": "v-train",
+      "needsReview": true
+    },
+    {
+      "id": "v-airplane-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "비행기",
+      "confidence": 0.98,
+      "sourceItemId": "v-airplane",
+      "needsReview": true
+    },
+    {
+      "id": "v-boat-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "배",
+      "confidence": 0.98,
+      "sourceItemId": "v-boat",
+      "needsReview": true
+    },
+    {
+      "id": "v-station-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "역",
+      "confidence": 0.98,
+      "sourceItemId": "v-station",
+      "needsReview": true
+    },
+    {
+      "id": "v-bus-stop-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "정류장",
+      "confidence": 0.98,
+      "sourceItemId": "v-bus-stop",
+      "needsReview": true
+    },
+    {
+      "id": "v-terminal-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "터미널",
+      "confidence": 0.98,
+      "sourceItemId": "v-terminal",
+      "needsReview": true
+    },
+    {
+      "id": "v-ride-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "타다",
+      "confidence": 0.98,
+      "sourceItemId": "v-ride",
+      "needsReview": true
+    },
+    {
+      "id": "v-walk-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "걸어가다",
+      "confidence": 0.98,
+      "sourceItemId": "v-walk",
+      "needsReview": true
+    },
+    {
+      "id": "v-transfer-seed",
+      "document": "textbook",
+      "page": 208,
+      "kind": "vocab",
+      "text": "갈아타다",
+      "confidence": 0.98,
+      "sourceItemId": "v-transfer",
+      "needsReview": true
+    },
+    {
+      "id": "v-distance-seed",
+      "document": "textbook",
+      "page": 209,
+      "kind": "vocab",
+      "text": "거리",
+      "confidence": 0.98,
+      "sourceItemId": "v-distance",
+      "needsReview": true
+    },
+    {
+      "id": "v-far-seed",
+      "document": "textbook",
+      "page": 209,
+      "kind": "vocab",
+      "text": "멀다",
+      "confidence": 0.98,
+      "sourceItemId": "v-far",
+      "needsReview": true
+    },
+    {
+      "id": "v-near-seed",
+      "document": "textbook",
+      "page": 209,
+      "kind": "vocab",
+      "text": "가깝다",
+      "confidence": 0.98,
+      "sourceItemId": "v-near",
+      "needsReview": true
+    },
+    {
+      "id": "v-how-long-seed",
+      "document": "textbook",
+      "page": 209,
+      "kind": "vocab",
+      "text": "얼마나",
+      "confidence": 0.98,
+      "sourceItemId": "v-how-long",
+      "needsReview": true
+    },
+    {
+      "id": "v-traffic-jam-seed",
+      "document": "textbook",
+      "page": 209,
+      "kind": "vocab",
+      "text": "길이 막히다",
+      "confidence": 0.98,
+      "sourceItemId": "v-traffic-jam",
+      "needsReview": true
+    },
+    {
+      "id": "v-take-time-seed",
+      "document": "textbook",
+      "page": 209,
+      "kind": "vocab",
+      "text": "(시간이) 걸리다",
+      "confidence": 0.98,
+      "sourceItemId": "v-take-time",
+      "needsReview": true
+    },
+    {
+      "id": "g-from-to-seed",
+      "document": "textbook",
+      "page": 210,
+      "kind": "grammar",
+      "text": "명사 + 에서, 까지",
+      "confidence": 0.98,
+      "sourceItemId": "g-from-to",
+      "needsReview": true
+    },
+    {
+      "id": "g-command-seed",
+      "document": "textbook",
+      "page": 211,
+      "kind": "grammar",
+      "text": "동사 + -으십시오/-십시오",
+      "confidence": 0.98,
+      "sourceItemId": "g-command",
+      "needsReview": true
+    },
+    {
+      "id": "d-title-question-seed",
+      "document": "textbook",
+      "page": 214,
+      "kind": "dialogue",
+      "text": "여기에서 서울역까지 어떻게 가요?",
+      "confidence": 0.98,
+      "sourceItemId": "d-title-question",
+      "needsReview": true
+    },
+    {
+      "id": "d-bus-stop-instruction-seed",
+      "document": "textbook",
+      "page": 214,
+      "kind": "dialogue",
+      "text": "저기 정류장에서 100번 버스를 타십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "d-bus-stop-instruction",
+      "needsReview": true
+    },
+    {
+      "id": "d-bus-route-seed",
+      "document": "textbook",
+      "page": 214,
+      "kind": "dialogue",
+      "text": "그 버스가 서울역까지 갑니다.",
+      "confidence": 0.98,
+      "sourceItemId": "d-bus-route",
+      "needsReview": true
+    },
+    {
+      "id": "d-distance-question-seed",
+      "document": "textbook",
+      "page": 214,
+      "kind": "dialogue",
+      "text": "여기에서 서울역까지 많이 멀어요?",
+      "confidence": 0.98,
+      "sourceItemId": "d-distance-question",
+      "needsReview": true
+    },
+    {
+      "id": "d-distance-answer-seed",
+      "document": "textbook",
+      "page": 214,
+      "kind": "dialogue",
+      "text": "아니요. 멀지 않아요.",
+      "confidence": 0.98,
+      "sourceItemId": "d-distance-answer",
+      "needsReview": true
+    },
+    {
+      "id": "d-bank-paper-seed",
+      "document": "textbook",
+      "page": 213,
+      "kind": "dialogue",
+      "text": "이 종이를 쓰십시오. 그리고 여기에 똑같이 쓰십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "d-bank-paper",
+      "needsReview": true
+    },
+    {
+      "id": "d-bank-finish-seed",
+      "document": "textbook",
+      "page": 213,
+      "kind": "dialogue",
+      "text": "여기 통장입니다. 받으십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "d-bank-finish",
+      "needsReview": true
+    },
+    {
+      "id": "ex-home-school-time-seed",
+      "document": "textbook",
+      "page": 210,
+      "kind": "example",
+      "text": "집에서 학교까지 시간이 얼마나 걸려요?",
+      "confidence": 0.98,
+      "sourceItemId": "ex-home-school-time",
+      "needsReview": true
+    },
+    {
+      "id": "ex-thirty-minutes-seed",
+      "document": "textbook",
+      "page": 210,
+      "kind": "example",
+      "text": "30분 걸려요.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-thirty-minutes",
+      "needsReview": true
+    },
+    {
+      "id": "ex-airport-shuttle-seed",
+      "document": "textbook",
+      "page": 211,
+      "kind": "example",
+      "text": "공항 셔틀을 타십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-airport-shuttle",
+      "needsReview": true
+    },
+    {
+      "id": "ex-wait-seed",
+      "document": "textbook",
+      "page": 211,
+      "kind": "example",
+      "text": "잠시만 기다리십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-wait",
+      "needsReview": true
+    },
+    {
+      "id": "ex-come-tomorrow-seed",
+      "document": "textbook",
+      "page": 211,
+      "kind": "example",
+      "text": "내일 다시 오십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-come-tomorrow",
+      "needsReview": true
+    },
+    {
+      "id": "ex-busan-trip-seed",
+      "document": "textbook",
+      "page": 216,
+      "kind": "example",
+      "text": "서울역에서 기차를 탔습니다.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-busan-trip",
+      "needsReview": true
+    },
+    {
+      "id": "ex-busan-transfer-seed",
+      "document": "textbook",
+      "page": 216,
+      "kind": "example",
+      "text": "서면역에서 한 번 갈아탔습니다.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-busan-transfer",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-write-transport-seed",
+      "document": "workbook",
+      "page": 261,
+      "kind": "exercise",
+      "text": "교통수단",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-write-transport",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-write-transport-use-seed",
+      "document": "workbook",
+      "page": 261,
+      "kind": "exercise",
+      "text": "교통수단 이용",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-write-transport-use",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-match-bus-seed",
+      "document": "workbook",
+      "page": 262,
+      "kind": "exercise",
+      "text": "버스",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-match-bus",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-match-train-seed",
+      "document": "workbook",
+      "page": 262,
+      "kind": "exercise",
+      "text": "기차",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-match-train",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-match-subway-seed",
+      "document": "workbook",
+      "page": 262,
+      "kind": "exercise",
+      "text": "지하철",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-match-subway",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-match-airplane-seed",
+      "document": "workbook",
+      "page": 262,
+      "kind": "exercise",
+      "text": "비행기",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-match-airplane",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-match-station-seed",
+      "document": "workbook",
+      "page": 262,
+      "kind": "exercise",
+      "text": "역",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-match-station",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-match-bus-stop-seed",
+      "document": "workbook",
+      "page": 262,
+      "kind": "exercise",
+      "text": "정류장",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-match-bus-stop",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-future-transfer-seed",
+      "document": "workbook",
+      "page": 263,
+      "kind": "exercise",
+      "text": "비행기를 갈아탈 거예요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-future-transfer",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-walk-school-seed",
+      "document": "workbook",
+      "page": 263,
+      "kind": "exercise",
+      "text": "학교까지 걸어가요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-walk-school",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-bike-ride-seed",
+      "document": "workbook",
+      "page": 263,
+      "kind": "exercise",
+      "text": "자전거를 탈 수 있어요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-bike-ride",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-library-from-seed",
+      "document": "workbook",
+      "page": 265,
+      "kind": "exercise",
+      "text": "도서관에서 식당까지 버스를 타고 가요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-library-from",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-restaurant-to-seed",
+      "document": "workbook",
+      "page": 265,
+      "kind": "exercise",
+      "text": "도서관에서 식당까지 버스를 타고 가요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-restaurant-to",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-subway-from-seed",
+      "document": "workbook",
+      "page": 265,
+      "kind": "exercise",
+      "text": "지하철역에서 여행사까지 걸어가요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-subway-from",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-agency-to-seed",
+      "document": "workbook",
+      "page": 265,
+      "kind": "exercise",
+      "text": "지하철역에서 여행사까지 걸어가요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-agency-to",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-company-from-seed",
+      "document": "workbook",
+      "page": 265,
+      "kind": "exercise",
+      "text": "회사에서 공원까지 가까워요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-company-from",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-park-to-seed",
+      "document": "workbook",
+      "page": 265,
+      "kind": "exercise",
+      "text": "회사에서 공원까지 가까워요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-park-to",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-command-wash-seed",
+      "document": "workbook",
+      "page": 267,
+      "kind": "exercise",
+      "text": "먼저 야채들을 씻으십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-command-wash",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-command-walk-museum-seed",
+      "document": "workbook",
+      "page": 267,
+      "kind": "exercise",
+      "text": "박물관이 여기에서 가깝습니다. 걸어가십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-command-walk-museum",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-command-listen-seed",
+      "document": "workbook",
+      "page": 267,
+      "kind": "exercise",
+      "text": "그럼 한국 노래를 많이 들으십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-command-listen",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-command-lie-down-seed",
+      "document": "workbook",
+      "page": 267,
+      "kind": "exercise",
+      "text": "한번 봅시다. 여기에 누우십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-command-lie-down",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-reading-train-seed",
+      "document": "workbook",
+      "page": 271,
+      "kind": "exercise",
+      "text": "서울역에서 기차를 탔습니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-reading-train",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-reading-time-seed",
+      "document": "workbook",
+      "page": 271,
+      "kind": "exercise",
+      "text": "부산역까지 세 시간 걸렸습니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-reading-time",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-reading-transfer-seed",
+      "document": "workbook",
+      "page": 271,
+      "kind": "exercise",
+      "text": "서면역에서 한 번 갈아탔습니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-reading-transfer",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-reading-gyeongju-bus-seed",
+      "document": "workbook",
+      "page": 272,
+      "kind": "exercise",
+      "text": "서울에서 경주까지 버스를 타고 갔습니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-reading-gyeongju-bus",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-reading-not-used-seed",
+      "document": "workbook",
+      "page": 272,
+      "kind": "exercise",
+      "text": "이 사람이 이용하지 않은 교통수단은 지하철입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-reading-not-used",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-extension-line3-seed",
+      "document": "workbook",
+      "page": 273,
+      "kind": "exercise",
+      "text": "지하철 3호선을 타고 경복궁에서 내리십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-extension-line3",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-extension-songs-seed",
+      "document": "workbook",
+      "page": 274,
+      "kind": "exercise",
+      "text": "한국 노래를 많이 들으십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-extension-songs",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-extension-find-hotel-seed",
+      "document": "workbook",
+      "page": 275,
+      "kind": "exercise",
+      "text": "미리 숙소를 찾으십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-extension-find-hotel",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-qr-traffic-jam-seed",
+      "document": "workbook",
+      "page": 264,
+      "kind": "exercise",
+      "text": "길이 막히다 listening prompt. Choose the picture that matches the jammed road.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-qr-traffic-jam",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-qr-seoul-bus-number-seed",
+      "document": "workbook",
+      "page": 269,
+      "kind": "exercise",
+      "text": "정류장에서 100번 버스를 타십시오.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-qr-seoul-bus-number",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-qr-seoul-distance-seed",
+      "document": "workbook",
+      "page": 269,
+      "kind": "exercise",
+      "text": "여기에서 서울역까지 많이 멀어요? 아니요. 멀지 않아요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-qr-seoul-distance",
+      "needsReview": true
+    },
+    {
+      "id": "wb16-qr-destination-seed",
+      "document": "workbook",
+      "page": 270,
+      "kind": "exercise",
+      "text": "지연 씨는 공항에 가려고 해요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-qr-destination",
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-212-placeholder",
+      "document": "textbook",
+      "page": 212,
+      "kind": "unknown",
+      "text": "Page 212 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-215-placeholder",
+      "document": "textbook",
+      "page": 215,
+      "kind": "unknown",
+      "text": "Page 215 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-217-placeholder",
+      "document": "textbook",
+      "page": 217,
+      "kind": "unknown",
+      "text": "Page 217 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-218-placeholder",
+      "document": "textbook",
+      "page": 218,
+      "kind": "unknown",
+      "text": "Page 218 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-266-placeholder",
+      "document": "workbook",
+      "page": 266,
+      "kind": "unknown",
+      "text": "Page 266 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-268-placeholder",
+      "document": "workbook",
+      "page": 268,
+      "kind": "unknown",
+      "text": "Page 268 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-276-placeholder",
+      "document": "workbook",
+      "page": 276,
+      "kind": "unknown",
+      "text": "Page 276 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    }
+  ],
+  "qrDetections": [
+    {
+      "id": "workbook-p265-qr-1",
+      "document": "workbook",
+      "page": 265,
+      "qrValue": "http://m.site.naver.com/0Yyb6",
+      "bounds": {
+        "x": 746.6054808854237,
+        "y": 729.6054808854237,
+        "width": 61.02404905608978,
+        "height": 61.338888010608
+      },
+      "needsReview": false,
+      "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_02.mp3"
+    },
+    {
+      "id": "workbook-p269-qr-1",
+      "document": "workbook",
+      "page": 269,
+      "qrValue": "http://m.site.naver.com/0Yybi",
+      "bounds": {
+        "x": 746.6054808854237,
+        "y": 179.60548088542367,
+        "width": 61.02404905608978,
+        "height": 61.338888010608
+      },
+      "needsReview": false,
+      "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_03_02.mp3"
+    },
+    {
+      "id": "workbook-p270-qr-3",
+      "document": "workbook",
+      "page": 270,
+      "qrValue": "http://m.site.naver.com/0Yybr",
+      "bounds": {
+        "x": 775.5780065352862,
+        "y": 287.2581970455789,
+        "width": 60.74117700076022,
+        "height": 61.8751255886948
+      },
+      "needsReview": false,
+      "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_04_01.mp3"
+    },
+    {
+      "id": "workbook-p271-qr-1",
+      "document": "workbook",
+      "page": 271,
+      "qrValue": "http://m.site.naver.com/0Yybx",
+      "bounds": {
+        "x": 746.6054808854237,
+        "y": 179.60548088542367,
+        "width": 61.02404905608978,
+        "height": 61.338888010608
+      },
+      "needsReview": false,
+      "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_04_02.mp3"
+    }
+  ],
+  "imageCrops": [],
+  "pageIssues": [
+    {
+      "document": "textbook",
+      "page": 212,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 215,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 217,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 218,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 266,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 268,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 276,
+      "reason": "No normalized items mapped to this page yet."
+    }
+  ],
+  "reviewNotes": [
+    "Seeded raw blocks mirror the reviewed normalized source because the local PDFs do not expose a usable text layer.",
+    "Pages without mapped items are emitted as placeholder unknown blocks instead of being silently skipped.",
+    "Swap these blocks with OCR or vision output when richer PDF extraction is available."
+  ]
+}
