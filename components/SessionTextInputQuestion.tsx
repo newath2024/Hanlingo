@@ -2,6 +2,7 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { getLocalizedText } from "@/lib/localized";
+import { speakIfKoreanText, speakKoreanText } from "@/lib/speech";
 import type { SessionItemResult, TextInputSessionItem } from "@/types/session";
 import { useEffect, useRef, useState } from "react";
 
@@ -81,16 +82,28 @@ export default function SessionTextInputQuestion({
       return;
     }
 
-    if (item.audioText && "speechSynthesis" in window && "SpeechSynthesisUtterance" in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(item.audioText);
-      utterance.lang = "ko-KR";
-      utterance.rate = 0.9;
-      utterance.onstart = () => setIsPlaying(true);
-      utterance.onend = () => setIsPlaying(false);
-      utterance.onerror = () => setIsPlaying(false);
-      window.speechSynthesis.speak(utterance);
+    if (
+      item.audioText &&
+      speakKoreanText(item.audioText, {
+        rate: 0.9,
+        onStart: () => setIsPlaying(true),
+        onEnd: () => setIsPlaying(false),
+        onError: () => setIsPlaying(false),
+      })
+    ) {
+      return;
     }
+  }
+
+  function handleChoiceSelect(choice: string) {
+    setSelectedChoice(choice);
+
+    speakIfKoreanText(choice, {
+      rate: 0.92,
+      onStart: () => setIsPlaying(true),
+      onEnd: () => setIsPlaying(false),
+      onError: () => setIsPlaying(false),
+    });
   }
 
   function handleCheckAnswer() {
@@ -183,7 +196,7 @@ export default function SessionTextInputQuestion({
                   <button
                     key={choice}
                     type="button"
-                    onClick={() => setSelectedChoice(choice)}
+                    onClick={() => handleChoiceSelect(choice)}
                     className={`choice-button ${
                       isSelected ? "border-accent bg-card-strong" : ""
                     }`}

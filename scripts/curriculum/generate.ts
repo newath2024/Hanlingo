@@ -275,6 +275,84 @@ function meaningKey(value: LocalizedText) {
   return `${normalizeKey(value.vi)}::${normalizeKey(value.en)}`;
 }
 
+function meaningDisplayKeys(value: LocalizedText) {
+  return [normalizeKey(value.vi), normalizeKey(value.en)].filter(Boolean);
+}
+
+function tokenizeMeaning(value: string) {
+  return normalizeKey(value)
+    .split(/[^a-z0-9\u00c0-\u024f]+/i)
+    .filter((token) => token.length >= 3);
+}
+
+function wordCount(value: string) {
+  return normalizeKey(value).split(/\s+/).filter(Boolean).length;
+}
+
+function isLexicalMeaning(value: LocalizedText) {
+  const normalizedVi = normalizeKey(value.vi);
+  const normalizedEn = normalizeKey(value.en);
+
+  if (!normalizedVi || !normalizedEn) {
+    return false;
+  }
+
+  if (/[?:]/.test(value.vi) || /[?:]/.test(value.en)) {
+    return false;
+  }
+
+  return wordCount(normalizedVi) <= 4 && wordCount(normalizedEn) <= 4;
+}
+
+function isSingleKoreanChunk(value: string) {
+  return value.trim().length > 0 && !/\s/.test(value.trim());
+}
+
+function sharedMeaningTokenCount(left: LocalizedText, right: LocalizedText) {
+  const leftTokens = new Set([
+    ...tokenizeMeaning(left.vi),
+    ...tokenizeMeaning(left.en),
+  ]);
+  const rightTokens = new Set([
+    ...tokenizeMeaning(right.vi),
+    ...tokenizeMeaning(right.en),
+  ]);
+
+  let overlap = 0;
+
+  leftTokens.forEach((token) => {
+    if (rightTokens.has(token)) {
+      overlap += 1;
+    }
+  });
+
+  return overlap;
+}
+
+function scoreChoiceDistractor(correct: LocalizedText, candidate: LocalizedText) {
+  let score = 0;
+
+  score += sharedMeaningTokenCount(correct, candidate) * 4;
+  score -= Math.abs(correct.en.length - candidate.en.length) * 0.05;
+  score -= Math.abs(correct.vi.length - candidate.vi.length) * 0.03;
+
+  if (
+    normalizeKey(correct.en).includes(normalizeKey(candidate.en)) ||
+    normalizeKey(candidate.en).includes(normalizeKey(correct.en))
+  ) {
+    score += 1.5;
+  }
+
+  if (
+    normalizeKey(correct.vi).includes(normalizeKey(candidate.vi)) ||
+    normalizeKey(candidate.vi).includes(normalizeKey(correct.vi))
+  ) {
+    score += 1.5;
+  }
+
+  return score;
+}
+
 function sortTasks(tasks: RuntimeTask[]) {
   return [...tasks].sort((left, right) => STAGE_ORDER[left.stage] - STAGE_ORDER[right.stage]);
 }
@@ -293,10 +371,19 @@ function buildLookups(source: SourceUnit) {
   const byKorean = new Map<string, LocalizedText>();
   const byMeaning = new Map<string, LocalizedText>();
   const fillChoicePool = new Map<string, string>();
+  const vocabMeanings = new Map<string, LocalizedText>();
 
   const registerMeaning = (meaning: LocalizedText) => {
     byMeaning.set(normalizeKey(meaning.vi), meaning);
     byMeaning.set(normalizeKey(meaning.en), meaning);
+  };
+
+  const registerVocabMeaning = (meaning: LocalizedText) => {
+    if (!isLexicalMeaning(meaning)) {
+      return;
+    }
+
+    vocabMeanings.set(meaningKey(meaning), meaning);
   };
 
   const registerFillChoice = (value: string) => {
@@ -328,6 +415,10 @@ function buildLookups(source: SourceUnit) {
     byKorean.set(korean, meaning);
     registerMeaning(meaning);
     registerFillFragments(korean);
+
+    if (isSingleKoreanChunk(korean)) {
+      registerVocabMeaning(meaning);
+    }
   };
 
   source.textbook.vocab.forEach((item) => register(item.korean, item.translations));
@@ -336,6 +427,10 @@ function buildLookups(source: SourceUnit) {
   source.workbook.exercises.forEach((item) => {
     if (item.localizedText) {
       registerMeaning(item.localizedText);
+
+      if (item.koreanText && isSingleKoreanChunk(item.koreanText)) {
+        registerVocabMeaning(item.localizedText);
+      }
     }
 
     if (item.koreanText && item.localizedText) {
@@ -357,31 +452,49 @@ function buildLookups(source: SourceUnit) {
     (entry, index, all) =>
       all.findIndex((candidate) => meaningKey(candidate) === meaningKey(entry)) === index,
   );
+  const vocabChoicePool = Array.from(vocabMeanings.values());
 
   return {
     byKorean: (value: string) => byKorean.get(value) ?? text(value),
     byMeaning: (value: string) => byMeaning.get(normalizeKey(value)) ?? text(value),
-    choicePool,
+    choicePool: vocabChoicePool.length >= 4 ? vocabChoicePool : choicePool,
     fillChoicePool: Array.from(fillChoicePool.values()),
   };
 }
 
 function buildChoices(correct: LocalizedText, pool: LocalizedText[], prefix: string) {
   const items = [choice(`${prefix}-correct`, correct)];
-  const used = new Set([meaningKey(correct)]);
+  const usedMeaningKeys = new Set([meaningKey(correct)]);
+  const usedDisplayKeys = new Set(meaningDisplayKeys(correct));
+  const rankedPool = pool
+    .map((entry) => ({
+      entry,
+      meaningKey: meaningKey(entry),
+      displayKeys: meaningDisplayKeys(entry),
+      score: scoreChoiceDistractor(correct, entry),
+    }))
+    .sort(
+      (left, right) =>
+        right.score - left.score ||
+        left.entry.en.localeCompare(right.entry.en) ||
+        left.entry.vi.localeCompare(right.entry.vi),
+    );
 
-  for (const entry of pool) {
+  for (const { entry, meaningKey: entryMeaningKey, displayKeys } of rankedPool) {
     if (items.length >= 4) {
       break;
     }
 
-    const key = meaningKey(entry);
-
-    if (used.has(key)) {
+    if (usedMeaningKeys.has(entryMeaningKey)) {
       continue;
     }
 
-    used.add(key);
+    if (displayKeys.some((displayKey) => usedDisplayKeys.has(displayKey))) {
+      continue;
+    }
+
+    usedMeaningKeys.add(entryMeaningKey);
+    displayKeys.forEach((displayKey) => usedDisplayKeys.add(displayKey));
     items.push(choice(`${prefix}-d${items.length}`, entry));
   }
 

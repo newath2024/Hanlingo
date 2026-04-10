@@ -2,6 +2,7 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { getLocalizedText } from "@/lib/localized";
+import { containsKoreanText, speakKoreanText } from "@/lib/speech";
 import Image from "next/image";
 import type {
   GrammarChoiceSessionItem,
@@ -140,18 +141,31 @@ export default function SessionChoiceQuestion({
     if (
       "audioText" in item &&
       item.audioText &&
-      "speechSynthesis" in window &&
-      "SpeechSynthesisUtterance" in window
+      speakKoreanText(item.audioText, {
+        rate: 0.9,
+        onStart: () => setIsPlaying(true),
+        onEnd: () => setIsPlaying(false),
+        onError: () => setIsPlaying(false),
+      })
     ) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(item.audioText);
-      utterance.lang = "ko-KR";
-      utterance.rate = 0.9;
-      utterance.onstart = () => setIsPlaying(true);
-      utterance.onend = () => setIsPlaying(false);
-      utterance.onerror = () => setIsPlaying(false);
-      window.speechSynthesis.speak(utterance);
+      return;
     }
+  }
+
+  function handleOptionSelect(optionId: string, spokenText?: string) {
+    setSelectedOption(optionId);
+
+    if (!spokenText || !containsKoreanText(spokenText)) {
+      return;
+    }
+
+    setIsPlaying(false);
+    speakKoreanText(spokenText, {
+      rate: 0.92,
+      onStart: () => setIsPlaying(true),
+      onEnd: () => setIsPlaying(false),
+      onError: () => setIsPlaying(false),
+    });
   }
 
   function handleCheckAnswer() {
@@ -219,7 +233,7 @@ export default function SessionChoiceQuestion({
                     <button
                       key={option.id}
                       type="button"
-                      onClick={() => setSelectedOption(option.id)}
+                      onClick={() => handleOptionSelect(option.id, label)}
                       className={`choice-button text-left ${
                         isSelected ? "border-accent bg-card-strong" : ""
                       }`}
@@ -248,7 +262,7 @@ export default function SessionChoiceQuestion({
                     <button
                       key={option}
                       type="button"
-                      onClick={() => setSelectedOption(option)}
+                      onClick={() => handleOptionSelect(option, option)}
                       className={`choice-button ${
                         isSelected ? "border-accent bg-card-strong" : ""
                       }`}

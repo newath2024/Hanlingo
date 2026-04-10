@@ -99,22 +99,22 @@
             {
               "id": "u16-l1-bus-d1",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
+                "vi": "tram xe buyt",
+                "en": "bus stop"
               }
             },
             {
               "id": "u16-l1-bus-d2",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "thuyen",
+                "en": "boat"
               }
             },
             {
               "id": "u16-l1-bus-d3",
               "text": {
-                "vi": "may bay",
-                "en": "airplane"
+                "vi": "tau hoa",
+                "en": "train"
               }
             }
           ],
@@ -148,22 +148,22 @@
             {
               "id": "u16-l1-subway-d1",
               "text": {
-                "vi": "xe buyt",
-                "en": "bus"
-              }
-            },
-            {
-              "id": "u16-l1-subway-d2",
-              "text": {
                 "vi": "tau hoa",
                 "en": "train"
               }
             },
             {
+              "id": "u16-l1-subway-d2",
+              "text": {
+                "vi": "chuyen xe, chuyen tau",
+                "en": "transfer"
+              }
+            },
+            {
               "id": "u16-l1-subway-d3",
               "text": {
-                "vi": "may bay",
-                "en": "airplane"
+                "vi": "ga",
+                "en": "station"
               }
             }
           ],
@@ -197,8 +197,8 @@
             {
               "id": "u16-l1-station-d1",
               "text": {
-                "vi": "xe buyt",
-                "en": "bus"
+                "vi": "gan",
+                "en": "be near"
               }
             },
             {
@@ -211,8 +211,8 @@
             {
               "id": "u16-l1-station-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "xa",
+                "en": "be far"
               }
             }
           ],
@@ -253,15 +253,15 @@
             {
               "id": "u16-l1-bus-stop-d2",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
+                "vi": "khoang cach",
+                "en": "distance"
               }
             },
             {
               "id": "u16-l1-bus-stop-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "tau dien ngam",
+                "en": "subway"
               }
             }
           ],
@@ -1034,22 +1034,22 @@
             {
               "id": "wb16-match-bus-1-d1",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
+                "vi": "tram xe buyt",
+                "en": "bus stop"
               }
             },
             {
               "id": "wb16-match-bus-1-d2",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "thuyen",
+                "en": "boat"
               }
             },
             {
               "id": "wb16-match-bus-1-d3",
               "text": {
-                "vi": "may bay",
-                "en": "airplane"
+                "vi": "tau hoa",
+                "en": "train"
               }
             }
           ],
@@ -1083,22 +1083,22 @@
             {
               "id": "wb16-match-bus-2-d1",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
+                "vi": "tram xe buyt",
+                "en": "bus stop"
               }
             },
             {
               "id": "wb16-match-bus-2-d2",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "thuyen",
+                "en": "boat"
               }
             },
             {
               "id": "wb16-match-bus-2-d3",
               "text": {
-                "vi": "may bay",
-                "en": "airplane"
+                "vi": "tau hoa",
+                "en": "train"
               }
             }
           ],
@@ -1132,22 +1132,22 @@
             {
               "id": "wb16-match-train-1-d1",
               "text": {
-                "vi": "xe buyt",
-                "en": "bus"
-              }
-            },
-            {
-              "id": "wb16-match-train-1-d2",
-              "text": {
                 "vi": "tau dien ngam",
                 "en": "subway"
               }
             },
             {
+              "id": "wb16-match-train-1-d2",
+              "text": {
+                "vi": "chuyen xe, chuyen tau",
+                "en": "transfer"
+              }
+            },
+            {
               "id": "wb16-match-train-1-d3",
               "text": {
-                "vi": "may bay",
-                "en": "airplane"
+                "vi": "thuyen",
+                "en": "boat"
               }
             }
           ],
@@ -1181,22 +1181,22 @@
             {
               "id": "wb16-match-train-2-d1",
               "text": {
-                "vi": "xe buyt",
-                "en": "bus"
-              }
-            },
-            {
-              "id": "wb16-match-train-2-d2",
-              "text": {
                 "vi": "tau dien ngam",
                 "en": "subway"
               }
             },
             {
+              "id": "wb16-match-train-2-d2",
+              "text": {
+                "vi": "chuyen xe, chuyen tau",
+                "en": "transfer"
+              }
+            },
+            {
               "id": "wb16-match-train-2-d3",
               "text": {
-                "vi": "may bay",
-                "en": "airplane"
+                "vi": "thuyen",
+                "en": "boat"
               }
             }
           ],
@@ -1230,22 +1230,22 @@
             {
               "id": "wb16-match-subway-1-d1",
               "text": {
-                "vi": "xe buyt",
-                "en": "bus"
-              }
-            },
-            {
-              "id": "wb16-match-subway-1-d2",
-              "text": {
                 "vi": "tau hoa",
                 "en": "train"
               }
             },
             {
+              "id": "wb16-match-subway-1-d2",
+              "text": {
+                "vi": "chuyen xe, chuyen tau",
+                "en": "transfer"
+              }
+            },
+            {
               "id": "wb16-match-subway-1-d3",
               "text": {
-                "vi": "may bay",
-                "en": "airplane"
+                "vi": "ga",
+                "en": "station"
               }
             }
           ],
@@ -1279,22 +1279,22 @@
             {
               "id": "wb16-match-subway-2-d1",
               "text": {
-                "vi": "xe buyt",
-                "en": "bus"
-              }
-            },
-            {
-              "id": "wb16-match-subway-2-d2",
-              "text": {
                 "vi": "tau hoa",
                 "en": "train"
               }
             },
             {
+              "id": "wb16-match-subway-2-d2",
+              "text": {
+                "vi": "chuyen xe, chuyen tau",
+                "en": "transfer"
+              }
+            },
+            {
               "id": "wb16-match-subway-2-d3",
               "text": {
-                "vi": "may bay",
-                "en": "airplane"
+                "vi": "ga",
+                "en": "station"
               }
             }
           ],
@@ -1467,22 +1467,22 @@
             {
               "id": "wb16-match-airplane-1-d1",
               "text": {
-                "vi": "xe buyt",
-                "en": "bus"
+                "vi": "ben xe",
+                "en": "terminal"
               }
             },
             {
               "id": "wb16-match-airplane-1-d2",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
+                "vi": "khoang cach",
+                "en": "distance"
               }
             },
             {
               "id": "wb16-match-airplane-1-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "tram xe buyt",
+                "en": "bus stop"
               }
             }
           ],
@@ -1516,22 +1516,22 @@
             {
               "id": "wb16-match-airplane-2-d1",
               "text": {
-                "vi": "xe buyt",
-                "en": "bus"
+                "vi": "ben xe",
+                "en": "terminal"
               }
             },
             {
               "id": "wb16-match-airplane-2-d2",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
+                "vi": "khoang cach",
+                "en": "distance"
               }
             },
             {
               "id": "wb16-match-airplane-2-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "tram xe buyt",
+                "en": "bus stop"
               }
             }
           ],
@@ -1565,8 +1565,8 @@
             {
               "id": "wb16-match-station-1-d1",
               "text": {
-                "vi": "xe buyt",
-                "en": "bus"
+                "vi": "gan",
+                "en": "be near"
               }
             },
             {
@@ -1579,8 +1579,8 @@
             {
               "id": "wb16-match-station-1-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "xa",
+                "en": "be far"
               }
             }
           ],
@@ -1614,8 +1614,8 @@
             {
               "id": "wb16-match-station-2-d1",
               "text": {
-                "vi": "xe buyt",
-                "en": "bus"
+                "vi": "gan",
+                "en": "be near"
               }
             },
             {
@@ -1628,8 +1628,8 @@
             {
               "id": "wb16-match-station-2-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "xa",
+                "en": "be far"
               }
             }
           ],
@@ -1670,15 +1670,15 @@
             {
               "id": "wb16-match-bus-stop-1-d2",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
+                "vi": "khoang cach",
+                "en": "distance"
               }
             },
             {
               "id": "wb16-match-bus-stop-1-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "tau dien ngam",
+                "en": "subway"
               }
             }
           ],
@@ -1719,15 +1719,15 @@
             {
               "id": "wb16-match-bus-stop-2-d2",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
+                "vi": "khoang cach",
+                "en": "distance"
               }
             },
             {
               "id": "wb16-match-bus-stop-2-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
+                "vi": "tau dien ngam",
+                "en": "subway"
               }
             }
           ],
