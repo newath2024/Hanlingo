@@ -64,7 +64,10 @@ function getLessonRoleLabel(
 
 export default function UnitScreen({ unit }: UnitScreenProps) {
   const { locale } = useAppLocale();
-  const { progress, dueReviews } = useHanlingoSnapshot(unit.id, getUnitWords(unit));
+  const { progress, dueReviews, isLoading, error } = useHanlingoSnapshot(
+    unit.id,
+    getUnitWords(unit),
+  );
   const completedNodeCount = getCompletedNodeCount(progress, unit);
   const currentNode = getCurrentNode(unit, progress);
   const unitCompleted = isUnitCompleted(progress, unit.id);
@@ -121,6 +124,14 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
             </div>
           </div>
         </div>
+
+        {isLoading ? (
+          <div className="mt-6 rounded-[1.8rem] bg-card-soft px-5 py-4 text-base font-bold text-muted-foreground">
+            {ui(locale, "Loading account progress...", "Dang tai tien do tai khoan...")}
+          </div>
+        ) : null}
+
+        {error ? <div className="mt-6 feedback-incorrect">{error}</div> : null}
       </section>
 
       <section className="panel max-w-4xl">

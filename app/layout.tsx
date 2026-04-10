@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Baloo_2, Noto_Sans_KR, Nunito } from "next/font/google";
 import type { ReactNode } from "react";
-import LocaleToggle from "@/components/LocaleToggle";
+import AppChrome from "@/components/AppChrome";
+import Providers from "@/app/providers";
 import "./globals.css";
 
 const nunito = Nunito({
@@ -34,8 +35,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className={`${nunito.variable} ${baloo.variable} ${notoSansKr.variable} h-full`}
     >
       <body className="min-h-full">
-        <LocaleToggle />
-        {children}
+        <Providers>
+          <AppChrome />
+          {children}
+        </Providers>
       </body>
     </html>
   );

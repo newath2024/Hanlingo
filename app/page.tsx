@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppLocale } from "@/hooks/useAppLocale";
+import { useAuth } from "@/hooks/useAuth";
 import { useHanlingoSnapshot } from "@/hooks/useHanlingoSnapshot";
 import { getLocalizedText } from "@/lib/localized";
 import {
@@ -120,7 +121,8 @@ function UnitCard({ locale, unit }: UnitCardProps) {
 
 export default function HomePage() {
   const { locale } = useAppLocale();
-  const { progress } = useHanlingoSnapshot("home-overview", []);
+  const { user } = useAuth();
+  const { progress, isLoading, error } = useHanlingoSnapshot("home-overview", []);
   const activeUnit =
     unitCatalog.find((unit) => !isUnitCompleted(progress, unit.id)) ?? unitCatalog[0] ?? null;
   const nextNode = activeUnit ? getCurrentNode(activeUnit, progress) : null;
@@ -148,8 +150,8 @@ export default function HomePage() {
               <p className="max-w-2xl text-lg text-muted-foreground">
                 {ui(
                   locale,
-                  "Keep Unit 1 as the pilot path and continue into Unit 17 with housewarming vocabulary, obligation grammar, and scaffolded dialogue.",
-                  "Giu Unit 1 lam duong pilot, dong thoi hoc tiep Unit 17 voi tu vung tiec tan gia, ngu phap nghia vu, va hoi thoai co khung.",
+                  `Signed in as @${user?.username ?? "learner"}. Your dashboard now reads live progress from your account, not this device only.`,
+                  `Dang dang nhap voi @${user?.username ?? "learner"}. Dashboard nay doc tien do truc tiep tu tai khoan cua ban, khong chi tren thiet bi nay.`,
                 )}
               </p>
             </div>
@@ -184,6 +186,14 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+        {isLoading ? (
+          <div className="mt-6 rounded-[1.8rem] bg-card-soft px-5 py-4 text-base font-bold text-muted-foreground">
+            {ui(locale, "Loading your dashboard...", "Dang tai dashboard cua ban...")}
+          </div>
+        ) : null}
+
+        {error ? <div className="mt-6 feedback-incorrect">{error}</div> : null}
       </section>
 
       <section className="panel max-w-5xl">

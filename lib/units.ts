@@ -3,7 +3,7 @@ import unit1Data from "@/data/generated/unit-1.runtime.json";
 import unit16Data from "@/data/generated/unit-16.runtime.json";
 import unit17Data from "@/data/generated/unit-17.runtime.json";
 import type { CurriculumIndex, RuntimeLesson, RuntimeUnit } from "@/types/curriculum";
-import type { ProgressState } from "@/lib/storage";
+import type { ProgressState } from "@/lib/progress-state";
 import type {
   NodeDefinition,
   NodeMatch,

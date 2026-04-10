@@ -18,7 +18,7 @@ import type {
   SupportedRuntimeTask,
   TextInputSessionItem,
 } from "@/types/session";
-import type { SentenceExposureMap } from "./storage";
+import type { SentenceExposureMap } from "@/lib/progress-state";
 
 export const SESSION_XP_PER_CORRECT = 5;
 export const WEAK_NODE_THRESHOLD = 0.6;

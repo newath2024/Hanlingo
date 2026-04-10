@@ -1,7 +1,7 @@
 "use client";
 
-import { scheduleNextReview, type ReviewRating } from "@/lib/review";
-import { getReviewForCard, saveReviewForCard } from "@/lib/storage";
+import type { ReviewRating } from "@/lib/review";
+import { useUserProgress } from "@/hooks/useUserProgress";
 import type { VocabEntry } from "@/types/lesson";
 import { useState } from "react";
 
@@ -18,25 +18,33 @@ const ratingLabels: Record<ReviewRating, string> = {
 };
 
 export default function Vocab({ lessonId, cards, onComplete }: VocabProps) {
+  const { saveReview, isLoading, error } = useUserProgress();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [ratedCount, setRatedCount] = useState(0);
   const [finished, setFinished] = useState(false);
   const [lastRating, setLastRating] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const currentCard = cards[currentIndex];
 
-  function handleRate(rating: ReviewRating) {
+  async function handleRate(rating: ReviewRating) {
     if (!currentCard || !revealed) {
       return;
     }
 
-    const nextReview = scheduleNextReview(
-      getReviewForCard(lessonId, currentCard.word),
-      rating,
-    );
+    setSubmitError(null);
 
-    saveReviewForCard(lessonId, currentCard.word, nextReview);
+    try {
+      await saveReview({
+        lessonId,
+        word: currentCard.word,
+        rating,
+      });
+    } catch (nextError) {
+      setSubmitError(nextError instanceof Error ? nextError.message : "Unable to save review.");
+      return;
+    }
 
     const nextRatedCount = ratedCount + 1;
     setRatedCount(nextRatedCount);
@@ -63,7 +71,7 @@ export default function Vocab({ lessonId, cards, onComplete }: VocabProps) {
             Nice. Every vocab card is now scheduled.
           </h3>
           <p className="text-base font-bold text-muted-foreground">
-            Your ratings were saved locally for the next review round.
+            Your ratings were saved on your account for the next review round.
           </p>
         </div>
       </section>
@@ -114,25 +122,35 @@ export default function Vocab({ lessonId, cards, onComplete }: VocabProps) {
             </div>
           </button>
 
+          {isLoading ? (
+            <div className="rounded-[1.6rem] bg-card-strong px-4 py-3 text-center text-sm font-bold text-muted-foreground">
+              Loading your review data...
+            </div>
+          ) : null}
+
+          {submitError || error ? (
+            <div className="feedback-incorrect">{submitError ?? error}</div>
+          ) : null}
+
           {revealed ? (
             <div className="grid gap-3 sm:grid-cols-3">
               <button
                 type="button"
-                onClick={() => handleRate("again")}
+                onClick={() => void handleRate("again")}
                 className="secondary-button border-danger/20 text-danger hover:border-danger/40 hover:bg-danger-soft"
               >
                 Again
               </button>
               <button
                 type="button"
-                onClick={() => handleRate("good")}
+                onClick={() => void handleRate("good")}
                 className="secondary-button"
               >
                 Good
               </button>
               <button
                 type="button"
-                onClick={() => handleRate("easy")}
+                onClick={() => void handleRate("easy")}
                 className="primary-button"
               >
                 Easy
@@ -152,4 +170,3 @@ export default function Vocab({ lessonId, cards, onComplete }: VocabProps) {
     </section>
   );
 }
-

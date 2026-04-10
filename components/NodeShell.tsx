@@ -1,42 +1,27 @@
 "use client";
 
 import { useAppLocale } from "@/hooks/useAppLocale";
-import { useHanlingoSnapshot } from "@/hooks/useHanlingoSnapshot";
-import {
-  getLocalizedText,
-  getLocalizedValue,
-} from "@/lib/localized";
+import { useUserProgress } from "@/hooks/useUserProgress";
+import { getLocalizedText, getLocalizedValue } from "@/lib/localized";
 import {
   SESSION_XP_PER_CORRECT,
-  WEAK_NODE_THRESHOLD,
   canQueueRetry,
   createLessonSession,
   getSessionItemTypeLabel,
   queueRetryItem,
 } from "@/lib/session";
-import {
-  addXp,
-  completeLesson,
-  completeUnit,
-  isNodeCompleted as isNodeCompletedOnDevice,
-  isUnitCompleted as isUnitCompletedOnDevice,
-  loadSentenceExposures,
-  recordErrorPatternMiss,
-  recordSentenceExposure,
-  saveNodeRun,
-} from "@/lib/storage";
-import {
-  getNextNode,
-  getNodeState,
-  getUnitWords,
-  isNodeCompleted,
-  isUnitCompleted,
-} from "@/lib/units";
+import { getNextNode, getNodeState, isNodeCompleted, isUnitCompleted } from "@/lib/units";
 import type { RuntimeLesson } from "@/types/curriculum";
 import type { SessionItem, SessionItemResult, WeakSessionItem } from "@/types/session";
 import type { NodeDefinition, UnitDefinition } from "@/types/unit";
 import Link from "next/link";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import {
+  useEffect,
+  useEffectEvent,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import ProgressBar from "./ProgressBar";
 import SessionBuildSentenceQuestion from "./SessionBuildSentenceQuestion";
 import SessionChoiceQuestion from "./SessionChoiceQuestion";
@@ -56,10 +41,14 @@ type FeedbackState = {
   queuedRetry: boolean;
 };
 
-function buildAdaptiveSessionItems(lesson: RuntimeLesson, unitLevel: number) {
+function buildAdaptiveSessionItems(
+  lesson: RuntimeLesson,
+  unitLevel: number,
+  sentenceSeenCounts: Record<string, number>,
+) {
   return createLessonSession(lesson, {
     unitLevel,
-    sentenceSeenCounts: loadSentenceExposures(),
+    sentenceSeenCounts,
   });
 }
 
@@ -97,34 +86,66 @@ function getFeedbackTone(status: SessionItemResult["status"]) {
 
 function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
   const { locale } = useAppLocale();
-  const { progress } = useHanlingoSnapshot(unit.id, getUnitWords(unit));
+  const {
+    progress,
+    isLoading: progressLoading,
+    error: progressError,
+    completeSession,
+  } = useUserProgress();
   const revealedAdaptiveItemIdsRef = useRef<Set<string>>(new Set());
+  const exposureDeltaRef = useRef<Record<string, number>>({});
+  const errorPatternDeltaRef = useRef<Record<string, number>>({});
   const [sessionKey, setSessionKey] = useState(0);
-  const [sessionItems, setSessionItems] = useState<SessionItem[]>(() =>
-    buildAdaptiveSessionItems(lesson, unit.unitNumber),
-  );
+  const [sessionItems, setSessionItems] = useState<SessionItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [feedbackState, setFeedbackState] = useState<FeedbackState | null>(null);
   const [firstPassScore, setFirstPassScore] = useState(0);
   const [sessionXpEarned, setSessionXpEarned] = useState(0);
   const [weakItems, setWeakItems] = useState<WeakSessionItem[]>([]);
   const [queuedRetrySourceIds, setQueuedRetrySourceIds] = useState<string[]>([]);
-  const [completedAtSessionStart, setCompletedAtSessionStart] = useState(() =>
-    typeof window !== "undefined" ? isNodeCompletedOnDevice(node.id) : false,
-  );
-  const [unitCompletedAtSessionStart, setUnitCompletedAtSessionStart] = useState(() =>
-    typeof window !== "undefined" ? isUnitCompletedOnDevice(unit.id) : false,
-  );
+  const [completedAtSessionStart, setCompletedAtSessionStart] = useState(false);
+  const [unitCompletedAtSessionStart, setUnitCompletedAtSessionStart] = useState(false);
   const [nodeCompletedNow, setNodeCompletedNow] = useState(false);
   const [unitCompletedNow, setUnitCompletedNow] = useState(false);
   const [sessionFinished, setSessionFinished] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [isSavingCompletion, setIsSavingCompletion] = useState(false);
 
   const currentItem = sessionItems[currentIndex];
   const isLocked =
+    !progressLoading &&
     getNodeState(progress, unit, node.id) === "locked" &&
     !isNodeCompleted(progress, node.id);
   const nextNode = getNextNode(unit, node.id);
   const ui = (en: string, vi: string) => getLocalizedText({ en, vi }, locale);
+
+  const initializeSession = useEffectEvent(() => {
+    revealedAdaptiveItemIdsRef.current = new Set();
+    exposureDeltaRef.current = {};
+    errorPatternDeltaRef.current = {};
+    setSessionItems(buildAdaptiveSessionItems(lesson, unit.unitNumber, progress.sentenceExposures));
+    setCurrentIndex(0);
+    setFeedbackState(null);
+    setFirstPassScore(0);
+    setSessionXpEarned(0);
+    setWeakItems([]);
+    setQueuedRetrySourceIds([]);
+    setNodeCompletedNow(false);
+    setUnitCompletedNow(false);
+    setSessionFinished(false);
+    setSaveError(null);
+    setIsSavingCompletion(false);
+    setCompletedAtSessionStart(isNodeCompleted(progress, node.id));
+    setUnitCompletedAtSessionStart(isUnitCompleted(progress, unit.id));
+  });
+
+  useEffect(() => {
+    if (progressLoading) {
+      return;
+    }
+
+    initializeSession();
+  }, [progressLoading, sessionKey]);
 
   useEffect(() => {
     if (
@@ -141,24 +162,12 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     }
 
     revealedAdaptiveItemIdsRef.current.add(currentItem.id);
-    recordSentenceExposure(currentItem.sentenceKey);
+    exposureDeltaRef.current[currentItem.sentenceKey] =
+      (exposureDeltaRef.current[currentItem.sentenceKey] ?? 0) + 1;
   }, [currentItem]);
 
   function handleReplay() {
-    revealedAdaptiveItemIdsRef.current = new Set();
     setSessionKey((previous) => previous + 1);
-    setSessionItems(buildAdaptiveSessionItems(lesson, unit.unitNumber));
-    setCurrentIndex(0);
-    setFeedbackState(null);
-    setFirstPassScore(0);
-    setSessionXpEarned(0);
-    setWeakItems([]);
-    setQueuedRetrySourceIds([]);
-    setNodeCompletedNow(false);
-    setUnitCompletedNow(false);
-    setSessionFinished(false);
-    setCompletedAtSessionStart(isNodeCompletedOnDevice(node.id));
-    setUnitCompletedAtSessionStart(isUnitCompletedOnDevice(unit.id));
   }
 
   function rememberWeakItem(item: SessionItem, reason: WeakSessionItem["reason"]) {
@@ -188,15 +197,15 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     let awardedXp = 0;
 
     if (isFirstPass && result.status === "correct") {
-      const xpResult = addXp(SESSION_XP_PER_CORRECT);
-      awardedXp = xpResult.awardedXp;
+      awardedXp = SESSION_XP_PER_CORRECT;
       setFirstPassScore((previous) => previous + 1);
       setSessionXpEarned((previous) => previous + awardedXp);
     } else if (isFirstPass) {
       rememberWeakItem(currentItem, result.status);
 
       if (result.status === "incorrect" || result.status === "skipped") {
-        recordErrorPatternMiss(currentItem.errorPatternKey);
+        errorPatternDeltaRef.current[currentItem.errorPatternKey] =
+          (errorPatternDeltaRef.current[currentItem.errorPatternKey] ?? 0) + 1;
       }
     }
 
@@ -229,33 +238,44 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     });
   }
 
-  function handleAdvance() {
+  async function handleAdvance() {
     if (!feedbackState) {
       return;
     }
 
-    setFeedbackState(null);
-
-    if (currentIndex === sessionItems.length - 1) {
-      completeLesson(node.lessonId);
-      const completion = saveNodeRun(
-        node.id,
-        firstPassScore,
-        node.sessionLength,
-        WEAK_NODE_THRESHOLD,
-      );
-      setNodeCompletedNow(completion.completedNow);
-
-      if (node.order === unit.nodes.length) {
-        const unitCompletion = completeUnit(unit.id);
-        setUnitCompletedNow(unitCompletion.completedNow);
-      }
-
-      setSessionFinished(true);
+    if (currentIndex !== sessionItems.length - 1) {
+      setFeedbackState(null);
+      setCurrentIndex((previous) => previous + 1);
       return;
     }
 
-    setCurrentIndex((previous) => previous + 1);
+    setIsSavingCompletion(true);
+    setSaveError(null);
+
+    try {
+      const result = await completeSession({
+        lessonId: node.lessonId,
+        nodeId: node.id,
+        unitId: unit.id,
+        score: firstPassScore,
+        totalQuestions: node.sessionLength,
+        awardedXp: sessionXpEarned,
+        completeUnit: node.order === unit.nodes.length,
+        errorPatternMisses: errorPatternDeltaRef.current,
+        sentenceExposureDeltas: exposureDeltaRef.current,
+      });
+
+      setFeedbackState(null);
+      setNodeCompletedNow(result.nodeCompletedNow);
+      setUnitCompletedNow(result.unitCompletedNow);
+      setSessionFinished(true);
+    } catch (error) {
+      setSaveError(
+        error instanceof Error ? error.message : "Unable to save lesson progress.",
+      );
+    } finally {
+      setIsSavingCompletion(false);
+    }
   }
 
   function renderCurrentQuestion() {
@@ -321,7 +341,9 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     const { item, result, awardedXp, queuedRetry } = feedbackState;
     const nextLabel =
       currentIndex === sessionItems.length - 1
-        ? ui("See lesson summary", "Xem tong ket bai hoc")
+        ? isSavingCompletion
+          ? ui("Saving lesson...", "Dang luu bai hoc...")
+          : ui("Save lesson summary", "Luu tong ket bai hoc")
         : ui("Next", "Tiep theo");
     const explanation = result.explanation ? getLocalizedText(result.explanation, locale) : "";
     const correctAnswer = result.correctAnswer
@@ -403,7 +425,14 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
             </div>
           ) : null}
 
-          <button type="button" onClick={handleAdvance} className="primary-button w-full">
+          {saveError ? <div className="feedback-incorrect">{saveError}</div> : null}
+
+          <button
+            type="button"
+            onClick={() => void handleAdvance()}
+            disabled={isSavingCompletion}
+            className="primary-button w-full"
+          >
             {nextLabel}
           </button>
         </div>
@@ -527,7 +556,10 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
           {nodeCompletedNow && nextNode ? (
             <div className="rounded-[1.8rem] bg-card-strong px-5 py-4 text-base font-bold text-foreground">
               {nextNode.type === "review"
-                ? ui("The final review lesson is now unlocked.", "Bai on tap cuoi cung da duoc mo khoa.")
+                ? ui(
+                    "The final review lesson is now unlocked.",
+                    "Bai on tap cuoi cung da duoc mo khoa.",
+                  )
                 : `${getLocalizedText(nextNode.title, locale)} ${ui("is now unlocked.", "da duoc mo khoa.")}`}
             </div>
           ) : null}
@@ -546,7 +578,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
             }`}
           >
             {nodeCompletedNow
-              ? ui("Lesson completion saved on this device.", "Tien do bai hoc da duoc luu tren thiet bi nay.")
+              ? ui("Lesson completion saved to your account.", "Tien do bai hoc da duoc luu vao tai khoan.")
               : completedAtSessionStart
                 ? ui(
                     "This lesson was already completed before this run.",
@@ -558,8 +590,8 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
                       "Unit da hoan thanh truoc khi ban hoc lai.",
                     )
                   : ui(
-                      "Progress is stored locally on this device.",
-                      "Tien do duoc luu cuc bo tren thiet bi nay.",
+                      "Progress is synced to your account.",
+                      "Tien do dang duoc dong bo vao tai khoan cua ban.",
                     )}
           </div>
 
@@ -573,6 +605,30 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
           </div>
         </div>
       </section>
+    );
+  }
+
+  if (progressLoading || !sessionItems.length) {
+    return (
+      <div className="flex w-full max-w-3xl flex-col gap-6">
+        <section className="panel">
+          <div className="lesson-card space-y-4 text-center">
+            <span className="pill mx-auto bg-card-strong text-foreground">
+              {ui("Syncing account", "Dang dong bo tai khoan")}
+            </span>
+            <h3 className="font-display text-3xl text-foreground">
+              {ui("Preparing your lesson run.", "Dang chuan bi luot hoc cua ban.")}
+            </h3>
+            <p className="text-base font-bold text-muted-foreground">
+              {ui(
+                "Fetching progress, review memory, and adaptive sentence exposure data.",
+                "Dang lay tien do, du lieu on tap, va du lieu tan suat gap cau.",
+              )}
+            </p>
+            {progressError ? <div className="feedback-incorrect">{progressError}</div> : null}
+          </div>
+        </section>
+      </div>
     );
   }
 
@@ -652,6 +708,8 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
             </Link>
           </div>
         </div>
+
+        {progressError ? <div className="mt-5 feedback-incorrect">{progressError}</div> : null}
 
         <div className="mt-5 flex flex-wrap gap-2">
           {node.focusConcepts.map((concept) => (
