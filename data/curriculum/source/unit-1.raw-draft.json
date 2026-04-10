@@ -1,0 +1,744 @@
+{
+  "unitId": "1",
+  "unitNumber": 1,
+  "extractionMode": "seeded_raw_blocks",
+  "blocks": [
+    {
+      "id": "tb-p18-v1",
+      "document": "textbook",
+      "page": 18,
+      "kind": "vocab",
+      "text": "안녕하세요",
+      "confidence": 0.98,
+      "sourceItemId": "v-hello",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p18-v2",
+      "document": "textbook",
+      "page": 18,
+      "kind": "vocab",
+      "text": "저",
+      "confidence": 0.98,
+      "sourceItemId": "v-i-humble",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p19-v1",
+      "document": "textbook",
+      "page": 19,
+      "kind": "vocab",
+      "text": "처음",
+      "confidence": 0.98,
+      "sourceItemId": "v-first-time",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p19-v2",
+      "document": "textbook",
+      "page": 19,
+      "kind": "vocab",
+      "text": "반갑습니다",
+      "confidence": 0.98,
+      "sourceItemId": "v-nice-to-meet",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p21-v1",
+      "document": "textbook",
+      "page": 21,
+      "kind": "vocab",
+      "text": "학생",
+      "confidence": 0.98,
+      "sourceItemId": "v-student",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p21-v2",
+      "document": "textbook",
+      "page": 21,
+      "kind": "vocab",
+      "text": "입니다",
+      "confidence": 0.98,
+      "sourceItemId": "v-is-formal",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p21-g1",
+      "document": "textbook",
+      "page": 21,
+      "kind": "grammar",
+      "text": "N + 입니다",
+      "confidence": 0.98,
+      "sourceItemId": "g-copula-imnida",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p18-d1",
+      "document": "textbook",
+      "page": 18,
+      "kind": "dialogue",
+      "text": "안녕하세요. 저는 민수입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "d-minsu-hello",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p18-d2",
+      "document": "textbook",
+      "page": 18,
+      "kind": "dialogue",
+      "text": "안녕하세요. 저는 지수입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "d-jisu-hello",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p19-d1",
+      "document": "textbook",
+      "page": 19,
+      "kind": "dialogue",
+      "text": "처음 뵙겠습니다.",
+      "confidence": 0.98,
+      "sourceItemId": "d-minsu-nice",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p19-d2",
+      "document": "textbook",
+      "page": 19,
+      "kind": "dialogue",
+      "text": "저도 반갑습니다.",
+      "confidence": 0.98,
+      "sourceItemId": "d-jisu-too",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p21-d1",
+      "document": "textbook",
+      "page": 21,
+      "kind": "dialogue",
+      "text": "저는 학생입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "d-minsu-student",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p21-ex1",
+      "document": "textbook",
+      "page": 21,
+      "kind": "example",
+      "text": "저는 학생입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-student",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p22-ex1",
+      "document": "textbook",
+      "page": 22,
+      "kind": "example",
+      "text": "저는 회사원입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-office-worker",
+      "needsReview": true
+    },
+    {
+      "id": "tb-p22-ex2",
+      "document": "textbook",
+      "page": 22,
+      "kind": "example",
+      "text": "저는 의사입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-doctor",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p20-b1",
+      "document": "workbook",
+      "page": 20,
+      "kind": "exercise",
+      "text": "저는 학생___ / 입니다",
+      "confidence": 0.98,
+      "sourceItemId": "wb-fill-student-ending",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p20-b2",
+      "document": "workbook",
+      "page": 20,
+      "kind": "exercise",
+      "text": "안녕하세요 = xin chào",
+      "confidence": 0.98,
+      "sourceItemId": "wb-match-hello",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p20-b3",
+      "document": "workbook",
+      "page": 20,
+      "kind": "exercise",
+      "text": "저 = tôi, em (khiêm nhường)",
+      "confidence": 0.98,
+      "sourceItemId": "wb-match-jeo",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p20-b4",
+      "document": "workbook",
+      "page": 20,
+      "kind": "exercise",
+      "text": "학생 = học sinh, sinh viên",
+      "confidence": 0.98,
+      "sourceItemId": "wb-match-student",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p21-b2",
+      "document": "workbook",
+      "page": 21,
+      "kind": "exercise",
+      "text": "Tôi là học sinh. -> 저는 학생입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-translate-student",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p21-b3",
+      "document": "workbook",
+      "page": 21,
+      "kind": "exercise",
+      "text": "안녕하세요. -> Xin chào.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-translate-hello",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p21-b4",
+      "document": "workbook",
+      "page": 21,
+      "kind": "exercise",
+      "text": "학생 + ___ / 입니다",
+      "confidence": 0.98,
+      "sourceItemId": "wb-grammar-copula-choice",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p22-b2",
+      "document": "workbook",
+      "page": 22,
+      "kind": "exercise",
+      "text": "저도 반갑습니다. -> Tôi cũng rất vui được gặp bạn.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-listen-too",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p22-b3",
+      "document": "workbook",
+      "page": 22,
+      "kind": "exercise",
+      "text": "저도 ___ / 반갑습니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-fill-nice",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p23-b1",
+      "document": "workbook",
+      "page": 23,
+      "kind": "exercise",
+      "text": "저는 / 지수입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-order-jisu",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p23-b2",
+      "document": "workbook",
+      "page": 23,
+      "kind": "exercise",
+      "text": "Tôi là Jisu. -> 저는 지수입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-translate-jisu",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p23-b3",
+      "document": "workbook",
+      "page": 23,
+      "kind": "exercise",
+      "text": "반갑습니다. -> Rất vui được gặp bạn.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-translate-nice",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p23-b4",
+      "document": "workbook",
+      "page": 23,
+      "kind": "exercise",
+      "text": "저는 지수___ / 입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-fill-name-line",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p24-b1",
+      "document": "workbook",
+      "page": 24,
+      "kind": "exercise",
+      "text": "학생 + ___ / 입니다",
+      "confidence": 0.98,
+      "sourceItemId": "wb-grammar-ending",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p25-b1",
+      "document": "workbook",
+      "page": 25,
+      "kind": "exercise",
+      "text": "저는 ___입니다. / 회사원",
+      "confidence": 0.98,
+      "sourceItemId": "wb-fill-office-worker",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p25-b2",
+      "document": "workbook",
+      "page": 25,
+      "kind": "exercise",
+      "text": "저는 / 회사원입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-order-office-worker",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p26-b1",
+      "document": "workbook",
+      "page": 26,
+      "kind": "exercise",
+      "text": "Tôi là nhân viên công ty. -> 저는 회사원입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-translate-office-worker",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p26-b2",
+      "document": "workbook",
+      "page": 26,
+      "kind": "exercise",
+      "text": "저는 학생입니다. -> Tôi là học sinh.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-listen-student",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p27-b1",
+      "document": "workbook",
+      "page": 27,
+      "kind": "exercise",
+      "text": "저는 의사입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-write-doctor",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p27-b2",
+      "document": "workbook",
+      "page": 27,
+      "kind": "exercise",
+      "text": "___ 민수입니다. / 저는",
+      "confidence": 0.98,
+      "sourceItemId": "wb-fill-intro-name",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p28-b1",
+      "document": "workbook",
+      "page": 28,
+      "kind": "exercise",
+      "text": "저는 의사입니다. -> Tôi là bác sĩ.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-translate-doctor",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p29-b1",
+      "document": "workbook",
+      "page": 29,
+      "kind": "exercise",
+      "text": "안녕하세요. / 저는 [이름]입니다.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-guided-selfintro",
+      "needsReview": true
+    },
+    {
+      "id": "wb-p29-b2",
+      "document": "workbook",
+      "page": 29,
+      "kind": "exercise",
+      "text": "안녕하세요. -> xin chào",
+      "confidence": 0.98,
+      "sourceItemId": "wb-listen-greeting",
+      "needsReview": true
+    },
+    {
+      "id": "wb-qr-listen-country-left-seed",
+      "document": "workbook",
+      "page": 20,
+      "kind": "exercise",
+      "text": "QR listening: Natasha's country. Choose the correct flag after listening.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-qr-listen-country-left",
+      "needsReview": true
+    },
+    {
+      "id": "wb-qr-listen-country-right-seed",
+      "document": "workbook",
+      "page": 20,
+      "kind": "exercise",
+      "text": "QR listening: Gayoung's country. Choose the correct flag after listening.",
+      "confidence": 0.98,
+      "sourceItemId": "wb-qr-listen-country-right",
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-17-placeholder",
+      "document": "textbook",
+      "page": 17,
+      "kind": "unknown",
+      "text": "Page 17 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-20-placeholder",
+      "document": "textbook",
+      "page": 20,
+      "kind": "unknown",
+      "text": "Page 20 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-23-placeholder",
+      "document": "textbook",
+      "page": 23,
+      "kind": "unknown",
+      "text": "Page 23 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-24-placeholder",
+      "document": "textbook",
+      "page": 24,
+      "kind": "unknown",
+      "text": "Page 24 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-25-placeholder",
+      "document": "textbook",
+      "page": 25,
+      "kind": "unknown",
+      "text": "Page 25 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-26-placeholder",
+      "document": "textbook",
+      "page": 26,
+      "kind": "unknown",
+      "text": "Page 26 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-27-placeholder",
+      "document": "textbook",
+      "page": 27,
+      "kind": "unknown",
+      "text": "Page 27 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-28-placeholder",
+      "document": "textbook",
+      "page": 28,
+      "kind": "unknown",
+      "text": "Page 28 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-29-placeholder",
+      "document": "textbook",
+      "page": 29,
+      "kind": "unknown",
+      "text": "Page 29 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-30-placeholder",
+      "document": "textbook",
+      "page": 30,
+      "kind": "unknown",
+      "text": "Page 30 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-31-placeholder",
+      "document": "textbook",
+      "page": 31,
+      "kind": "unknown",
+      "text": "Page 31 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-19-placeholder",
+      "document": "workbook",
+      "page": 19,
+      "kind": "unknown",
+      "text": "Page 19 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-30-placeholder",
+      "document": "workbook",
+      "page": 30,
+      "kind": "unknown",
+      "text": "Page 30 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-31-placeholder",
+      "document": "workbook",
+      "page": 31,
+      "kind": "unknown",
+      "text": "Page 31 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-32-placeholder",
+      "document": "workbook",
+      "page": 32,
+      "kind": "unknown",
+      "text": "Page 32 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-33-placeholder",
+      "document": "workbook",
+      "page": 33,
+      "kind": "unknown",
+      "text": "Page 33 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-34-placeholder",
+      "document": "workbook",
+      "page": 34,
+      "kind": "unknown",
+      "text": "Page 34 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    }
+  ],
+  "qrDetections": [
+    {
+      "id": "workbook-p20-qr-3",
+      "document": "workbook",
+      "page": 20,
+      "qrValue": "http://m.site.naver.com/0YvmA",
+      "bounds": {
+        "x": 775.5254808854236,
+        "y": 292.92548088542367,
+        "width": 61.02404905608989,
+        "height": 61.338888010608
+      },
+      "needsReview": false,
+      "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/01_03_01.mp3"
+    },
+    {
+      "id": "workbook-p20-qr-6",
+      "document": "workbook",
+      "page": 20,
+      "qrValue": "http://m.site.naver.com/0YvmL",
+      "bounds": {
+        "x": 775.4482628485815,
+        "y": 559.5412707910255,
+        "width": 60.76377354067586,
+        "height": 61.36233687234403
+      },
+      "needsReview": false,
+      "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/01_03_02.mp3"
+    }
+  ],
+  "imageCrops": [
+    {
+      "id": "wb-p20-flag-korea",
+      "document": "workbook",
+      "page": 20,
+      "label": "South Korea flag",
+      "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-korea.png",
+      "bounds": {
+        "x": 330,
+        "y": 938,
+        "width": 125,
+        "height": 96
+      },
+      "sourceItemId": "wb-qr-listen-country-left",
+      "needsReview": false
+    },
+    {
+      "id": "wb-p20-flag-usa",
+      "document": "workbook",
+      "page": 20,
+      "label": "United States flag",
+      "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-usa.png",
+      "bounds": {
+        "x": 459,
+        "y": 938,
+        "width": 125,
+        "height": 96
+      },
+      "sourceItemId": "wb-qr-listen-country-right",
+      "needsReview": false
+    },
+    {
+      "id": "wb-p20-flag-vietnam",
+      "document": "workbook",
+      "page": 20,
+      "label": "Vietnam flag",
+      "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-vietnam.png",
+      "bounds": {
+        "x": 590,
+        "y": 938,
+        "width": 125,
+        "height": 96
+      },
+      "sourceItemId": "wb-qr-listen-country-left",
+      "needsReview": false
+    },
+    {
+      "id": "wb-p20-flag-russia",
+      "document": "workbook",
+      "page": 20,
+      "label": "Russia flag",
+      "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-russia.png",
+      "bounds": {
+        "x": 722,
+        "y": 938,
+        "width": 125,
+        "height": 96
+      },
+      "sourceItemId": "wb-qr-listen-country-right",
+      "needsReview": false
+    }
+  ],
+  "pageIssues": [
+    {
+      "document": "textbook",
+      "page": 17,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 20,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 23,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 24,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 25,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 26,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 27,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 28,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 29,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 30,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 31,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 19,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 30,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 31,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 32,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 33,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 34,
+      "reason": "No normalized items mapped to this page yet."
+    }
+  ],
+  "reviewNotes": [
+    "Seeded raw blocks mirror the reviewed Unit 1 content because the local pilot PDFs do not expose a usable text layer.",
+    "Pages without mapped items are emitted as placeholder unknown blocks instead of being silently skipped.",
+    "Swap these blocks with OCR or vision output when richer PDF extraction is available."
+  ]
+}

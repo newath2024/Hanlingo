@@ -1,0 +1,1674 @@
+{
+  "unitId": "17",
+  "unitNumber": 17,
+  "title": {
+    "vi": "Toi nen mang gi den tiec tan gia?",
+    "en": "What should I bring to the housewarming?"
+  },
+  "needsReview": true,
+  "extractionMode": "seeded_raw_blocks",
+  "sourceDocuments": {
+    "textbook": {
+      "fileName": "Giáo trình quyển 1.pdf",
+      "totalPages": 280,
+      "unitPages": {
+        "startPage": 220,
+        "endPage": 231
+      },
+      "boundarySource": "configured_page_spans",
+      "hasTextLayer": false,
+      "textPagesDetected": 0
+    },
+    "workbook": {
+      "fileName": "Sách bài tập quyển 1.pdf",
+      "totalPages": 392,
+      "unitPages": {
+        "startPage": 277,
+        "endPage": 294
+      },
+      "boundarySource": "configured_page_spans",
+      "hasTextLayer": false,
+      "textPagesDetected": 0
+    }
+  },
+  "textbook": {
+    "vocab": [
+      {
+        "id": "v-housewarming",
+        "korean": "집들이",
+        "translations": {
+          "vi": "tiec tan gia",
+          "en": "housewarming party"
+        },
+        "romanization": "jipdeuri",
+        "pages": {
+          "startPage": 221,
+          "endPage": 221
+        },
+        "sourceRef": {
+          "rawText": "집들이",
+          "confidence": 0.98,
+          "sourceBlockId": "v-housewarming-seed",
+          "page": 221
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-invitation",
+        "korean": "초대",
+        "translations": {
+          "vi": "loi moi",
+          "en": "invitation"
+        },
+        "romanization": "chodae",
+        "pages": {
+          "startPage": 221,
+          "endPage": 221
+        },
+        "sourceRef": {
+          "rawText": "초대",
+          "confidence": 0.98,
+          "sourceBlockId": "v-invitation-seed",
+          "page": 221
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-invitation-card",
+        "korean": "초대장",
+        "translations": {
+          "vi": "thiep moi",
+          "en": "invitation card"
+        },
+        "romanization": "chodaejang",
+        "pages": {
+          "startPage": 221,
+          "endPage": 221
+        },
+        "sourceRef": {
+          "rawText": "초대장",
+          "confidence": 0.98,
+          "sourceBlockId": "v-invitation-card-seed",
+          "page": 221
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-tissue",
+        "korean": "휴지",
+        "translations": {
+          "vi": "khan giay",
+          "en": "tissue paper"
+        },
+        "romanization": "hyuji",
+        "pages": {
+          "startPage": 221,
+          "endPage": 221
+        },
+        "sourceRef": {
+          "rawText": "휴지",
+          "confidence": 0.98,
+          "sourceBlockId": "v-tissue-seed",
+          "page": 221
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-detergent",
+        "korean": "세제",
+        "translations": {
+          "vi": "nuoc giat",
+          "en": "detergent"
+        },
+        "romanization": "seje",
+        "pages": {
+          "startPage": 221,
+          "endPage": 221
+        },
+        "sourceRef": {
+          "rawText": "세제",
+          "confidence": 0.98,
+          "sourceBlockId": "v-detergent-seed",
+          "page": 221
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-move",
+        "korean": "이사하다",
+        "translations": {
+          "vi": "chuyen nha",
+          "en": "move house"
+        },
+        "romanization": "isahada",
+        "pages": {
+          "startPage": 221,
+          "endPage": 221
+        },
+        "sourceRef": {
+          "rawText": "새집으로 이사해서 기분이 좋아요.",
+          "confidence": 0.98,
+          "sourceBlockId": "v-move-seed",
+          "page": 221
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-help",
+        "korean": "도와주다",
+        "translations": {
+          "vi": "giup do",
+          "en": "help"
+        },
+        "romanization": "dowajuda",
+        "pages": {
+          "startPage": 221,
+          "endPage": 221
+        },
+        "sourceRef": {
+          "rawText": "짐 좀 도와줄 수 있어요?",
+          "confidence": 0.98,
+          "sourceBlockId": "v-help-seed",
+          "page": 221
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-invite-verb",
+        "korean": "초대하다",
+        "translations": {
+          "vi": "moi",
+          "en": "invite"
+        },
+        "romanization": "chodaehada",
+        "pages": {
+          "startPage": 221,
+          "endPage": 221
+        },
+        "sourceRef": {
+          "rawText": "생일 파티에 누구를 초대하고 싶어요?",
+          "confidence": 0.98,
+          "sourceBlockId": "v-invite-verb-seed",
+          "page": 221
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-prepare",
+        "korean": "준비하다",
+        "translations": {
+          "vi": "chuan bi",
+          "en": "prepare"
+        },
+        "romanization": "junbihada",
+        "pages": {
+          "startPage": 221,
+          "endPage": 221
+        },
+        "sourceRef": {
+          "rawText": "한국 음식을 준비할 거예요.",
+          "confidence": 0.98,
+          "sourceBlockId": "v-prepare-seed",
+          "page": 221
+        },
+        "needsReview": true
+      }
+    ],
+    "grammar": [
+      {
+        "id": "g-must-do",
+        "pattern": "동사 + -아/어야 되다",
+        "explanation": {
+          "vi": "Dien ta nghia vu, viec can phai lam, hoac su can thiet trong tinh huong nao do.",
+          "en": "Expresses obligation, necessity, or something that must be done in a situation."
+        },
+        "exampleIds": [
+          "ex-must-buy",
+          "ex-must-make-food",
+          "ex-must-bring-swim-cap"
+        ],
+        "pages": {
+          "startPage": 223,
+          "endPage": 223
+        },
+        "sourceRef": {
+          "rawText": "동사 + -아/어야 되다",
+          "confidence": 0.98,
+          "sourceBlockId": "g-must-do-seed",
+          "page": 223
+        },
+        "needsReview": true
+      },
+      {
+        "id": "g-goyo",
+        "pattern": "동사 + -고요",
+        "explanation": {
+          "vi": "Dung de noi tiep noi hoac bo sung them mot y nua trong cung luot noi.",
+          "en": "Used to continue speaking or add one more connected point in the same turn."
+        },
+        "exampleIds": [
+          "ex-look-around",
+          "ex-healthy-too",
+          "ex-travel-place"
+        ],
+        "pages": {
+          "startPage": 224,
+          "endPage": 224
+        },
+        "sourceRef": {
+          "rawText": "동사 + -고요",
+          "confidence": 0.98,
+          "sourceBlockId": "g-goyo-seed",
+          "page": 224
+        },
+        "needsReview": true
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "d-usual-housewarming-q",
+        "speaker": "Jihun",
+        "korean": "지훈 씨, 집들이에서 보통 뭘 해요?",
+        "translations": {
+          "vi": "Jihun, o tiec tan gia thuong lam gi?",
+          "en": "Jihun, what do people usually do at a housewarming?"
+        },
+        "pages": {
+          "startPage": 224,
+          "endPage": 224
+        },
+        "sourceRef": {
+          "rawText": "지훈 씨, 집들이에서 보통 뭘 해요?",
+          "confidence": 0.98,
+          "sourceBlockId": "d-usual-housewarming-q-seed",
+          "page": 224
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-housewarming-activities",
+        "speaker": "Lisa",
+        "korean": "집을 구경해요. 같이 식사도 하고요.",
+        "translations": {
+          "vi": "Moi nguoi xem nha, va cung an cung nhau nua.",
+          "en": "People look around the house, and they eat together too."
+        },
+        "pages": {
+          "startPage": 224,
+          "endPage": 224
+        },
+        "sourceRef": {
+          "rawText": "집을 구경해요. 같이 식사도 하고요.",
+          "confidence": 0.98,
+          "sourceBlockId": "d-housewarming-activities-seed",
+          "page": 224
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-weekend-housewarming",
+        "speaker": "Jihun",
+        "korean": "리사 씨, 주말에 집들이를 하려고 해요. 올 수 있어요?",
+        "translations": {
+          "vi": "Lisa, cuoi tuan nay toi dinh to chuc tiec tan gia. Ban co the den duoc khong?",
+          "en": "Lisa, I am planning a housewarming this weekend. Can you come?"
+        },
+        "pages": {
+          "startPage": 223,
+          "endPage": 223
+        },
+        "sourceRef": {
+          "rawText": "리사 씨, 주말에 집들이를 하려고 해요. 올 수 있어요?",
+          "confidence": 0.98,
+          "sourceBlockId": "d-weekend-housewarming-seed",
+          "page": 223
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-help-offer-question",
+        "speaker": "Lisa",
+        "korean": "그럼요. 제가 좀 도와줄까요?",
+        "translations": {
+          "vi": "Tat nhien roi. Toi co the giup mot chut khong?",
+          "en": "Of course. Should I help a little?"
+        },
+        "pages": {
+          "startPage": 223,
+          "endPage": 223
+        },
+        "sourceRef": {
+          "rawText": "그럼요. 제가 좀 도와줄까요?",
+          "confidence": 0.98,
+          "sourceBlockId": "d-help-offer-question-seed",
+          "page": 223
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-must-make-food",
+        "speaker": "Jihun",
+        "korean": "고마워요. 음식을 만들어야 돼요.",
+        "translations": {
+          "vi": "Cam on ban. Toi phai lam do an.",
+          "en": "Thanks. I have to make food."
+        },
+        "pages": {
+          "startPage": 223,
+          "endPage": 223
+        },
+        "sourceRef": {
+          "rawText": "고마워요. 음식을 만들어야 돼요.",
+          "confidence": 0.98,
+          "sourceBlockId": "d-must-make-food-seed",
+          "page": 223
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-come-early",
+        "speaker": "Jihun",
+        "korean": "그럼 좀 일찍 오세요.",
+        "translations": {
+          "vi": "Vay thi ban den som mot chut nhe.",
+          "en": "Then please come a little early."
+        },
+        "pages": {
+          "startPage": 223,
+          "endPage": 223
+        },
+        "sourceRef": {
+          "rawText": "그럼 좀 일찍 오세요.",
+          "confidence": 0.98,
+          "sourceBlockId": "d-come-early-seed",
+          "page": 223
+        },
+        "needsReview": true
+      }
+    ],
+    "examples": [
+      {
+        "id": "ex-help-request",
+        "korean": "저 좀 도와줄 수 있어요?",
+        "translations": {
+          "vi": "Ban co the giup toi mot chut duoc khong?",
+          "en": "Could you help me a bit?"
+        },
+        "grammarTags": [
+          "help expression"
+        ],
+        "pages": {
+          "startPage": 222,
+          "endPage": 222
+        },
+        "sourceRef": {
+          "rawText": "저 좀 도와줄 수 있어요?",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-help-request-seed",
+          "page": 222
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-help-offer",
+        "korean": "제가 도와 드릴게요.",
+        "translations": {
+          "vi": "De toi giup ban.",
+          "en": "I will help you."
+        },
+        "grammarTags": [
+          "help expression"
+        ],
+        "pages": {
+          "startPage": 222,
+          "endPage": 222
+        },
+        "sourceRef": {
+          "rawText": "제가 도와 드릴게요.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-help-offer-seed",
+          "page": 222
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-must-buy",
+        "korean": "집들이에 뭘 사 가야 돼요?",
+        "translations": {
+          "vi": "Toi nen mua gi de mang den tiec tan gia?",
+          "en": "What should I buy and bring to the housewarming?"
+        },
+        "grammarTags": [
+          "-아/어야 되다"
+        ],
+        "pages": {
+          "startPage": 220,
+          "endPage": 220
+        },
+        "sourceRef": {
+          "rawText": "집들이에 뭘 사 가야 돼요?",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-must-buy-seed",
+          "page": 220
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-must-make-food",
+        "korean": "음식을 만들어야 돼요.",
+        "translations": {
+          "vi": "Phai lam do an.",
+          "en": "I have to make food."
+        },
+        "grammarTags": [
+          "-아/어야 되다"
+        ],
+        "pages": {
+          "startPage": 223,
+          "endPage": 223
+        },
+        "sourceRef": {
+          "rawText": "음식을 만들어야 돼요.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-must-make-food-seed",
+          "page": 223
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-healthy-too",
+        "korean": "건강에도 좋고요.",
+        "translations": {
+          "vi": "Cung tot cho suc khoe nua.",
+          "en": "It is good for your health too."
+        },
+        "grammarTags": [
+          "-고요"
+        ],
+        "pages": {
+          "startPage": 224,
+          "endPage": 224
+        },
+        "sourceRef": {
+          "rawText": "건강에도 좋고요.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-healthy-too-seed",
+          "page": 224
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-delicious-too",
+        "korean": "경치가 예뻐요. 음식도 맛있고요.",
+        "translations": {
+          "vi": "Phong canh dep, va do an cung ngon nua.",
+          "en": "The scenery is beautiful, and the food is tasty too."
+        },
+        "grammarTags": [
+          "-고요"
+        ],
+        "pages": {
+          "startPage": 224,
+          "endPage": 224
+        },
+        "sourceRef": {
+          "rawText": "경치가 예뻐요. 음식도 맛있고요.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-delicious-too-seed",
+          "page": 224
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-look-around",
+        "korean": "집을 구경해요. 같이 식사도 하고요.",
+        "translations": {
+          "vi": "Moi nguoi xem nha, va cung an cung nhau nua.",
+          "en": "People look around the house, and they eat together too."
+        },
+        "grammarTags": [
+          "-고요"
+        ],
+        "pages": {
+          "startPage": 224,
+          "endPage": 224
+        },
+        "sourceRef": {
+          "rawText": "집을 구경해요. 같이 식사도 하고요.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-look-around-seed",
+          "page": 224
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-email-what-do",
+        "korean": "집들이에서 뭘 해야 돼요?",
+        "translations": {
+          "vi": "Toi can lam gi o tiec tan gia?",
+          "en": "What should I do at the housewarming?"
+        },
+        "grammarTags": [
+          "-아/어야 되다"
+        ],
+        "pages": {
+          "startPage": 229,
+          "endPage": 229
+        },
+        "sourceRef": {
+          "rawText": "집들이에서 뭘 해야 돼요?",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-email-what-do-seed",
+          "page": 229
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-email-what-food",
+        "korean": "집들이에 어떤 음식을 준비해야 돼요?",
+        "translations": {
+          "vi": "Toi can chuan bi mon an gi cho tiec tan gia?",
+          "en": "What food should I prepare for the housewarming?"
+        },
+        "grammarTags": [
+          "-아/어야 되다"
+        ],
+        "pages": {
+          "startPage": 229,
+          "endPage": 229
+        },
+        "sourceRef": {
+          "rawText": "집들이에 어떤 음식을 준비해야 돼요?",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-email-what-food-seed",
+          "page": 229
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-must-bring-swim-cap",
+        "korean": "그리고 수영 모자도 가져가야 해요.",
+        "translations": {
+          "vi": "Va cung phai mang theo mu boi nua.",
+          "en": "And I also have to bring a swim cap."
+        },
+        "grammarTags": [
+          "-아/어야 되다"
+        ],
+        "pages": {
+          "startPage": 291,
+          "endPage": 291
+        },
+        "sourceRef": {
+          "rawText": "그리고 수영 모자도 가져가야 해요.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-must-bring-swim-cap-seed",
+          "page": 291
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-travel-place",
+        "korean": "서울에 가고 싶어요. 부산도 가고요.",
+        "translations": {
+          "vi": "Toi muon di Seoul, va cung muon di Busan nua.",
+          "en": "I want to go to Seoul, and I want to go to Busan too."
+        },
+        "grammarTags": [
+          "-고요"
+        ],
+        "pages": {
+          "startPage": 293,
+          "endPage": 293
+        },
+        "sourceRef": {
+          "rawText": "서울에 가고 싶어요. 부산도 가고요.",
+          "confidence": 0.98,
+          "sourceBlockId": "ex-travel-place-seed",
+          "page": 293
+        },
+        "needsReview": true
+      }
+    ]
+  },
+  "workbook": {
+    "audioAssets": [
+      {
+        "id": "wb17-qr-dialogue-audio",
+        "document": "workbook",
+        "page": 287,
+        "qrValue": "http://m.site.naver.com/0YybK",
+        "transcript": "지훈: 내일 샤오위 씨, 집들이가 몇 시예요? 리사: 저녁 여섯 시예요. 그런데 집들이에 뭘 사 가야 돼요? 지훈: 보통 세제를 사 가고, 휴지도 사 가요. 리사: 그럼 휴지하고 세제를 제가 사 갈까요? 지훈: 좋아요. 그럼 샤오위 씨 집에서 만나요.",
+        "transcriptConfidence": 0.7,
+        "needsReview": true
+      },
+      {
+        "id": "wb17-qr-followup-audio",
+        "document": "workbook",
+        "page": 288,
+        "qrValue": "http://m.site.naver.com/0Yyc0",
+        "needsReview": true
+      }
+    ],
+    "exercises": [
+      {
+        "id": "wb17-write-housewarming",
+        "exerciseType": "writing",
+        "prompt": {
+          "vi": "Viet tu 'tiệc tân gia' bang tieng Han.",
+          "en": "Write the word 'housewarming party' in Korean."
+        },
+        "localizedText": {
+          "vi": "tiệc tân gia",
+          "en": "housewarming party"
+        },
+        "answer": "집들이",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "housewarming",
+          "review",
+          "writing"
+        ],
+        "pages": {
+          "startPage": 277,
+          "endPage": 277
+        },
+        "sourceRef": {
+          "rawText": "집들이 어휘를 쓰세요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-write-housewarming-seed",
+          "page": 277
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-write-invite",
+        "exerciseType": "writing",
+        "prompt": {
+          "vi": "Viet tu 'loi moi' bang tieng Han.",
+          "en": "Write the word 'invitation' in Korean."
+        },
+        "localizedText": {
+          "vi": "loi moi",
+          "en": "invitation"
+        },
+        "answer": "초대",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "invitation",
+          "review",
+          "writing"
+        ],
+        "pages": {
+          "startPage": 277,
+          "endPage": 277
+        },
+        "sourceRef": {
+          "rawText": "초대 어휘를 쓰세요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-write-invite-seed",
+          "page": 277
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-must-form-eat",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh dang -아/어야 되다 cua dong tu.",
+          "en": "Complete the -아/어야 되다 form of the verb."
+        },
+        "koreanText": "먹다 -> ___",
+        "localizedText": {
+          "vi": "phai an",
+          "en": "have to eat"
+        },
+        "answer": "먹어야 되다",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-아/어야 되다",
+          "choices": [
+            "먹어야 되다",
+            "먹고요",
+            "먹어요"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "must",
+          "form-change"
+        ],
+        "pages": {
+          "startPage": 277,
+          "endPage": 277
+        },
+        "sourceRef": {
+          "rawText": "먹다 -> 먹어야 되다",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-must-form-eat-seed",
+          "page": 277
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-goyo-form-make",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh dang -고요 cua dong tu.",
+          "en": "Complete the -고요 form of the verb."
+        },
+        "koreanText": "만들다 -> ___",
+        "localizedText": {
+          "vi": "va lam",
+          "en": "and make"
+        },
+        "answer": "만들고요",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-고요",
+          "choices": [
+            "만들고요",
+            "만들어야 되다",
+            "만들어요"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "goyo",
+          "form-change"
+        ],
+        "pages": {
+          "startPage": 278,
+          "endPage": 278
+        },
+        "sourceRef": {
+          "rawText": "만들다 -> 만들고요",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-goyo-form-make-seed",
+          "page": 278
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-match-housewarming-picture",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Xem tranh va noi voi tu dung.",
+          "en": "Look at the picture and match it with the correct word."
+        },
+        "koreanText": "집들이",
+        "localizedText": {
+          "vi": "tiệc tân gia",
+          "en": "housewarming party"
+        },
+        "answer": "tiệc tân gia",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "housewarming",
+          "vocab",
+          "picture"
+        ],
+        "pages": {
+          "startPage": 279,
+          "endPage": 279
+        },
+        "sourceRef": {
+          "rawText": "그림 보고 맞는 것을 골라 쓰세요. 집들이",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-match-housewarming-picture-seed",
+          "page": 279
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-match-invitation-card-picture",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Xem tranh va noi voi tu dung.",
+          "en": "Look at the picture and match it with the correct word."
+        },
+        "koreanText": "초대장",
+        "localizedText": {
+          "vi": "thiep moi",
+          "en": "invitation card"
+        },
+        "answer": "thiep moi",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "invitation-card",
+          "vocab",
+          "picture"
+        ],
+        "pages": {
+          "startPage": 279,
+          "endPage": 279
+        },
+        "sourceRef": {
+          "rawText": "그림 보고 맞는 것을 골라 쓰세요. 초대장",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-match-invitation-card-picture-seed",
+          "page": 279
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-match-tissue-picture",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Xem tranh va noi voi tu dung.",
+          "en": "Look at the picture and match it with the correct word."
+        },
+        "koreanText": "휴지",
+        "localizedText": {
+          "vi": "khan giay",
+          "en": "tissue paper"
+        },
+        "answer": "khan giay",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "tissue",
+          "vocab",
+          "picture"
+        ],
+        "pages": {
+          "startPage": 279,
+          "endPage": 279
+        },
+        "sourceRef": {
+          "rawText": "그림 보고 맞는 것을 골라 쓰세요. 휴지",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-match-tissue-picture-seed",
+          "page": 279
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-match-detergent-picture",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Xem tranh va noi voi tu dung.",
+          "en": "Look at the picture and match it with the correct word."
+        },
+        "koreanText": "세제",
+        "localizedText": {
+          "vi": "nuoc giat",
+          "en": "detergent"
+        },
+        "answer": "nuoc giat",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "detergent",
+          "vocab",
+          "picture"
+        ],
+        "pages": {
+          "startPage": 279,
+          "endPage": 279
+        },
+        "sourceRef": {
+          "rawText": "그림 보고 맞는 것을 골라 쓰세요. 세제",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-match-detergent-picture-seed",
+          "page": 279
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-chat-housewarming",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien tu thich hop vao hoi thoai.",
+          "en": "Fill the correct word into the dialogue."
+        },
+        "koreanText": "내일 ___에 뭘 사 갈까요?",
+        "localizedText": {
+          "vi": "tiệc tân gia",
+          "en": "housewarming party"
+        },
+        "answer": "집들이",
+        "metadata": {
+          "target": "dialogue",
+          "choices": [
+            "집들이",
+            "초대장",
+            "세제"
+          ]
+        },
+        "coverageTags": [
+          "dialogue",
+          "housewarming",
+          "shopping"
+        ],
+        "pages": {
+          "startPage": 280,
+          "endPage": 280
+        },
+        "sourceRef": {
+          "rawText": "내일 집들이에 뭘 사 갈까요?",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-chat-housewarming-seed",
+          "page": 280
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-chat-detergent",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien tu thich hop vao hoi thoai.",
+          "en": "Fill the correct word into the dialogue."
+        },
+        "koreanText": "보통 ___을/를 사 가요. 휴지도 좋고요.",
+        "localizedText": {
+          "vi": "nuoc giat",
+          "en": "detergent"
+        },
+        "answer": "세제",
+        "metadata": {
+          "target": "dialogue",
+          "choices": [
+            "세제",
+            "휴지",
+            "초대장"
+          ]
+        },
+        "coverageTags": [
+          "dialogue",
+          "detergent",
+          "shopping"
+        ],
+        "pages": {
+          "startPage": 280,
+          "endPage": 280
+        },
+        "sourceRef": {
+          "rawText": "보통 세제를 사 가요. 휴지도 좋고요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-chat-detergent-seed",
+          "page": 280
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-chat-tissue",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien tu thich hop vao hoi thoai.",
+          "en": "Fill the correct word into the dialogue."
+        },
+        "koreanText": "그럼 ___을/를 사 갑시다. 내일 봐요.",
+        "localizedText": {
+          "vi": "khan giay",
+          "en": "tissue paper"
+        },
+        "answer": "휴지",
+        "metadata": {
+          "target": "dialogue",
+          "choices": [
+            "휴지",
+            "세제",
+            "집들이"
+          ]
+        },
+        "coverageTags": [
+          "dialogue",
+          "tissue",
+          "shopping"
+        ],
+        "pages": {
+          "startPage": 280,
+          "endPage": 280
+        },
+        "sourceRef": {
+          "rawText": "그럼 휴지를 사 갑시다. 내일 봐요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-chat-tissue-seed",
+          "page": 280
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-dialogue-help-request",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh loi nho giup do trong hoi thoai.",
+          "en": "Complete the help-request line in the dialogue."
+        },
+        "koreanText": "죄송하지만 저 좀 ___?",
+        "localizedText": {
+          "vi": "Ban co the giup toi mot chut duoc khong?",
+          "en": "Could you help me a bit?"
+        },
+        "answer": "도와줄 수 있어요",
+        "metadata": {
+          "target": "dialogue",
+          "choices": [
+            "도와줄 수 있어요",
+            "이사했어요",
+            "초대할까요"
+          ]
+        },
+        "coverageTags": [
+          "dialogue",
+          "help",
+          "request"
+        ],
+        "pages": {
+          "startPage": 281,
+          "endPage": 281
+        },
+        "sourceRef": {
+          "rawText": "죄송하지만 저 좀 도와줄 수 있어요?",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-dialogue-help-request-seed",
+          "page": 281
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-dialogue-help-offer",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh loi de nghi giup do trong hoi thoai.",
+          "en": "Complete the help-offer line in the dialogue."
+        },
+        "koreanText": "네, 제가 ___.",
+        "localizedText": {
+          "vi": "De toi giup ban.",
+          "en": "I will help you."
+        },
+        "answer": "도와 드릴게요",
+        "metadata": {
+          "target": "dialogue",
+          "choices": [
+            "도와 드릴게요",
+            "이사할게요",
+            "초대할게요"
+          ]
+        },
+        "coverageTags": [
+          "dialogue",
+          "help",
+          "offer"
+        ],
+        "pages": {
+          "startPage": 281,
+          "endPage": 281
+        },
+        "sourceRef": {
+          "rawText": "네, 제가 도와 드릴게요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-dialogue-help-offer-seed",
+          "page": 281
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-must-study",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien dang -아/어야 되다 vao cho trong.",
+          "en": "Fill in the correct -아/어야 되다 form."
+        },
+        "koreanText": "안 돼요. 한국어 공부를 ___.",
+        "localizedText": {
+          "vi": "phai hoc tieng Han",
+          "en": "have to study Korean"
+        },
+        "answer": "해야 돼요",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-아/어야 되다",
+          "choices": [
+            "해야 돼요",
+            "하고요",
+            "해요"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "must",
+          "study"
+        ],
+        "pages": {
+          "startPage": 284,
+          "endPage": 284
+        },
+        "sourceRef": {
+          "rawText": "안 돼요. 한국어 공부를 해야 돼요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-must-study-seed",
+          "page": 284
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-must-meet-friend",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien dang -아/어야 되다 vao cho trong.",
+          "en": "Fill in the correct -아/어야 되다 form."
+        },
+        "koreanText": "친구들 약속이 있어요. 친구를 ___.",
+        "localizedText": {
+          "vi": "phai gap ban",
+          "en": "have to meet a friend"
+        },
+        "answer": "만나야 돼요",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-아/어야 되다",
+          "choices": [
+            "만나야 돼요",
+            "만나고요",
+            "만나요"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "must",
+          "meeting"
+        ],
+        "pages": {
+          "startPage": 284,
+          "endPage": 284
+        },
+        "sourceRef": {
+          "rawText": "친구들 약속이 있어요. 친구를 만나야 돼요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-must-meet-friend-seed",
+          "page": 284
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-must-go-hospital",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien dang -아/어야 되다 vao cho trong.",
+          "en": "Fill in the correct -아/어야 되다 form."
+        },
+        "koreanText": "몸이 안 좋아서 병원에 ___.",
+        "localizedText": {
+          "vi": "phai den benh vien",
+          "en": "have to go to the hospital"
+        },
+        "answer": "가야 돼요",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-아/어야 되다",
+          "choices": [
+            "가야 돼요",
+            "가고요",
+            "가요"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "must",
+          "hospital"
+        ],
+        "pages": {
+          "startPage": 284,
+          "endPage": 284
+        },
+        "sourceRef": {
+          "rawText": "몸이 안 좋아서 병원에 가야 돼요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-must-go-hospital-seed",
+          "page": 284
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-must-practice-speaking",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien dang -아/어야 되다 vao cho trong.",
+          "en": "Fill in the correct -아/어야 되다 form."
+        },
+        "koreanText": "그래서 한국어 말하기를 ___.",
+        "localizedText": {
+          "vi": "phai luyen noi tieng Han",
+          "en": "have to practice speaking Korean"
+        },
+        "answer": "연습해야 돼요",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-아/어야 되다",
+          "choices": [
+            "연습해야 돼요",
+            "연습하고요",
+            "연습해요"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "must",
+          "speaking"
+        ],
+        "pages": {
+          "startPage": 284,
+          "endPage": 284
+        },
+        "sourceRef": {
+          "rawText": "그래서 한국어 말하기를 연습해야 돼요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-must-practice-speaking-seed",
+          "page": 284
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-goyo-school-food",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien dang -고요 vao cho trong.",
+          "en": "Fill in the correct -고요 form."
+        },
+        "koreanText": "직원들이 친절해요. 음식도 ___.",
+        "localizedText": {
+          "vi": "do an cung ngon",
+          "en": "the food is tasty too"
+        },
+        "answer": "맛있고요",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-고요",
+          "choices": [
+            "맛있고요",
+            "맛있어야 돼요",
+            "맛있어요"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "goyo",
+          "food"
+        ],
+        "pages": {
+          "startPage": 285,
+          "endPage": 285
+        },
+        "sourceRef": {
+          "rawText": "직원들이 친절해요. 음식도 맛있고요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-goyo-school-food-seed",
+          "page": 285
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-goyo-make-friends",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien dang -고요 vao cho trong.",
+          "en": "Fill in the correct -고요 form."
+        },
+        "koreanText": "재미있어요. 친구도 사귈 수 ___.",
+        "localizedText": {
+          "vi": "cung co the ket ban",
+          "en": "you can make friends too"
+        },
+        "answer": "있고요",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "-고요",
+          "choices": [
+            "있고요",
+            "있어야 돼요",
+            "있어요"
+          ]
+        },
+        "coverageTags": [
+          "grammar",
+          "goyo",
+          "friends"
+        ],
+        "pages": {
+          "startPage": 285,
+          "endPage": 285
+        },
+        "sourceRef": {
+          "rawText": "재미있어요. 친구도 사귈 수 있고요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-goyo-make-friends-seed",
+          "page": 285
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-email-hi",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh email moi du tiec tan gia.",
+          "en": "Complete the housewarming invitation email."
+        },
+        "koreanText": "지연 씨, ___ 잘 지냈어요?",
+        "localizedText": {
+          "vi": "Lau roi khong gap",
+          "en": "Long time no see"
+        },
+        "answer": "오랜만이에요",
+        "metadata": {
+          "target": "email",
+          "choices": [
+            "오랜만이에요",
+            "해야 돼요",
+            "되고요",
+            "준비해야 돼요"
+          ]
+        },
+        "coverageTags": [
+          "email",
+          "writing",
+          "greeting"
+        ],
+        "pages": {
+          "startPage": 289,
+          "endPage": 289
+        },
+        "sourceRef": {
+          "rawText": "지연 씨, 오랜만이에요. 잘 지냈어요?",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-email-hi-seed",
+          "page": 289
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-email-do",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh email moi du tiec tan gia.",
+          "en": "Complete the housewarming invitation email."
+        },
+        "koreanText": "집들이에서 뭘 ___?",
+        "localizedText": {
+          "vi": "Can phai lam gi o tiec tan gia?",
+          "en": "What should I do at the housewarming?"
+        },
+        "answer": "해야 돼요",
+        "metadata": {
+          "target": "email",
+          "grammarTag": "-아/어야 되다",
+          "choices": [
+            "해야 돼요",
+            "하고요",
+            "해요"
+          ]
+        },
+        "coverageTags": [
+          "email",
+          "must",
+          "housewarming"
+        ],
+        "pages": {
+          "startPage": 289,
+          "endPage": 289
+        },
+        "sourceRef": {
+          "rawText": "집들이에서 뭘 해야 돼요?",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-email-do-seed",
+          "page": 289
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-email-food",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh email moi du tiec tan gia.",
+          "en": "Complete the housewarming invitation email."
+        },
+        "koreanText": "집들이에 어떤 음식을 ___?",
+        "localizedText": {
+          "vi": "Can chuan bi mon an gi?",
+          "en": "What food should I prepare?"
+        },
+        "answer": "준비해야 돼요",
+        "metadata": {
+          "target": "email",
+          "grammarTag": "-아/어야 되다",
+          "choices": [
+            "준비해야 돼요",
+            "준비하고요",
+            "준비해요"
+          ]
+        },
+        "coverageTags": [
+          "email",
+          "must",
+          "food"
+        ],
+        "pages": {
+          "startPage": 289,
+          "endPage": 289
+        },
+        "sourceRef": {
+          "rawText": "집들이에 어떤 음식을 준비해야 돼요?",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-email-food-seed",
+          "page": 289
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-email-message",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh email moi du tiec tan gia.",
+          "en": "Complete the housewarming invitation email."
+        },
+        "koreanText": "메일 주세요. 메시지도 ___.",
+        "localizedText": {
+          "vi": "Tin nhan cung duoc",
+          "en": "A message is fine too"
+        },
+        "answer": "되고요",
+        "metadata": {
+          "target": "email",
+          "grammarTag": "-고요",
+          "choices": [
+            "되고요",
+            "해야 돼요",
+            "가고요"
+          ]
+        },
+        "coverageTags": [
+          "email",
+          "goyo",
+          "contact"
+        ],
+        "pages": {
+          "startPage": 289,
+          "endPage": 289
+        },
+        "sourceRef": {
+          "rawText": "메일 주세요. 메시지도 되고요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-email-message-seed",
+          "page": 289
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-travel-place",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Hoan thanh cau -고요 khi noi ve ke hoach di choi.",
+          "en": "Complete the -고요 sentence about a travel plan."
+        },
+        "koreanText": "서울에 가고 싶어요. ___.",
+        "localizedText": {
+          "vi": "Toi cung muon den Busan nua",
+          "en": "I also want to go to Busan"
+        },
+        "answer": "부산도 가고요",
+        "metadata": {
+          "target": "travel",
+          "grammarTag": "-고요",
+          "choices": [
+            "부산도 가고요",
+            "부산에 가야 돼요",
+            "부산에 가요"
+          ]
+        },
+        "coverageTags": [
+          "travel",
+          "goyo",
+          "places"
+        ],
+        "pages": {
+          "startPage": 293,
+          "endPage": 293
+        },
+        "sourceRef": {
+          "rawText": "서울에 가고 싶어요. 부산도 가고요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-travel-place-seed",
+          "page": 293
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-qr-party-time",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe hoi thoai QR va chon gio dien ra tiệc tan gia.",
+          "en": "Listen to the QR dialogue and choose the housewarming time."
+        },
+        "localizedText": {
+          "vi": "6 gio toi",
+          "en": "6 PM"
+        },
+        "answer": "6 gio toi",
+        "audioAssetId": "wb17-qr-dialogue-audio",
+        "options": [
+          {
+            "id": "six-pm",
+            "label": {
+              "vi": "6 gio toi",
+              "en": "6 PM"
+            },
+            "correct": true
+          },
+          {
+            "id": "seven-pm",
+            "label": {
+              "vi": "7 gio toi",
+              "en": "7 PM"
+            },
+            "correct": false
+          },
+          {
+            "id": "eight-pm",
+            "label": {
+              "vi": "8 gio toi",
+              "en": "8 PM"
+            },
+            "correct": false
+          }
+        ],
+        "metadata": {
+          "target": "qr_listening",
+          "variant": "time_choice"
+        },
+        "coverageTags": [
+          "qr-listening",
+          "housewarming",
+          "time"
+        ],
+        "pages": {
+          "startPage": 287,
+          "endPage": 287
+        },
+        "sourceRef": {
+          "rawText": "내일 샤오위 씨, 집들이가 몇 시예요? 저녁 여섯 시예요.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-qr-party-time-seed",
+          "page": 287
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb17-qr-buy-gifts",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe hoi thoai QR va chon nhung thu Lisa se mua mang den.",
+          "en": "Listen to the QR dialogue and choose what Lisa will bring."
+        },
+        "localizedText": {
+          "vi": "khan giay va nuoc giat",
+          "en": "tissue paper and detergent"
+        },
+        "answer": "khan giay va nuoc giat",
+        "audioAssetId": "wb17-qr-dialogue-audio",
+        "options": [
+          {
+            "id": "flowers",
+            "label": {
+              "vi": "hoa",
+              "en": "flowers"
+            },
+            "correct": false
+          },
+          {
+            "id": "tissue-detergent",
+            "label": {
+              "vi": "khan giay va nuoc giat",
+              "en": "tissue paper and detergent"
+            },
+            "correct": true
+          },
+          {
+            "id": "invitation-card",
+            "label": {
+              "vi": "thiep moi",
+              "en": "invitation card"
+            },
+            "correct": false
+          }
+        ],
+        "metadata": {
+          "target": "qr_listening",
+          "variant": "gift_choice"
+        },
+        "coverageTags": [
+          "qr-listening",
+          "gifts",
+          "housewarming"
+        ],
+        "pages": {
+          "startPage": 287,
+          "endPage": 287
+        },
+        "sourceRef": {
+          "rawText": "보통 세제를 사 가고, 휴지도 사 가요. 그럼 휴지하고 세제를 제가 사 갈까요?",
+          "confidence": 0.98,
+          "sourceBlockId": "wb17-qr-buy-gifts-seed",
+          "page": 287
+        },
+        "needsReview": true
+      }
+    ]
+  },
+  "reviewNotes": [
+    "Unit 17 is manually normalized from the provided textbook/workbook page spans and kept bilingual at the reviewed layer.",
+    "Workbook coverage keeps the opening review page, picture-driven vocab, grammar drills, email writing, and one late travel-goyo prompt.",
+    "QR listening pages 287-288 are traced locally; audio-backed tasks compile only when the remote asset resolves to a usable audio response."
+  ]
+}

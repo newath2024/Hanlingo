@@ -1,0 +1,1272 @@
+{
+  "unitId": "1",
+  "unitNumber": 1,
+  "title": {
+    "vi": "Chao hoi va gioi thieu",
+    "en": "Greetings and introductions"
+  },
+  "needsReview": true,
+  "extractionMode": "seeded_raw_blocks",
+  "sourceDocuments": {
+    "textbook": {
+      "fileName": "Giáo trình quyển 1.pdf",
+      "totalPages": 280,
+      "unitPages": {
+        "startPage": 17,
+        "endPage": 31
+      },
+      "boundarySource": "configured_page_spans",
+      "hasTextLayer": false,
+      "textPagesDetected": 0
+    },
+    "workbook": {
+      "fileName": "Sách bài tập quyển 1.pdf",
+      "totalPages": 392,
+      "unitPages": {
+        "startPage": 19,
+        "endPage": 34
+      },
+      "boundarySource": "configured_page_spans",
+      "hasTextLayer": false,
+      "textPagesDetected": 0
+    }
+  },
+  "textbook": {
+    "vocab": [
+      {
+        "id": "v-hello",
+        "korean": "안녕하세요",
+        "translations": {
+          "vi": "xin chao",
+          "en": "hello"
+        },
+        "romanization": "annyeonghaseyo",
+        "pages": {
+          "startPage": 18,
+          "endPage": 18
+        },
+        "sourceRef": {
+          "rawText": "안녕하세요",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p18-v1",
+          "page": 18
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-i-humble",
+        "korean": "저",
+        "translations": {
+          "vi": "toi, em (khiem nhuong)",
+          "en": "I, me (humble)"
+        },
+        "romanization": "jeo",
+        "pages": {
+          "startPage": 18,
+          "endPage": 18
+        },
+        "sourceRef": {
+          "rawText": "저",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p18-v2",
+          "page": 18
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-first-time",
+        "korean": "처음",
+        "translations": {
+          "vi": "lan dau",
+          "en": "first time"
+        },
+        "romanization": "cheoeum",
+        "pages": {
+          "startPage": 19,
+          "endPage": 19
+        },
+        "sourceRef": {
+          "rawText": "처음",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p19-v1",
+          "page": 19
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-nice-to-meet",
+        "korean": "반갑습니다",
+        "translations": {
+          "vi": "rat vui duoc gap ban",
+          "en": "nice to meet you"
+        },
+        "romanization": "bangapseumnida",
+        "pages": {
+          "startPage": 19,
+          "endPage": 19
+        },
+        "sourceRef": {
+          "rawText": "반갑습니다",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p19-v2",
+          "page": 19
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-student",
+        "korean": "학생",
+        "translations": {
+          "vi": "hoc sinh, sinh vien",
+          "en": "student"
+        },
+        "romanization": "haksaeng",
+        "pages": {
+          "startPage": 21,
+          "endPage": 21
+        },
+        "sourceRef": {
+          "rawText": "학생",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p21-v1",
+          "page": 21
+        },
+        "needsReview": true
+      },
+      {
+        "id": "v-is-formal",
+        "korean": "입니다",
+        "translations": {
+          "vi": "la, la ... a",
+          "en": "am, is, are (formal polite)"
+        },
+        "romanization": "imnida",
+        "pages": {
+          "startPage": 21,
+          "endPage": 21
+        },
+        "sourceRef": {
+          "rawText": "입니다",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p21-v2",
+          "page": 21
+        },
+        "needsReview": true
+      }
+    ],
+    "grammar": [
+      {
+        "id": "g-copula-imnida",
+        "pattern": "N + 입니다",
+        "explanation": {
+          "vi": "Gan `입니다` sau danh tu de gioi thieu ban than hoac noi nghiep nghiep mot cach lich su.",
+          "en": "Attach `입니다` after a noun to introduce someone or state identity politely."
+        },
+        "exampleIds": [
+          "ex-student",
+          "ex-office-worker",
+          "ex-doctor"
+        ],
+        "pages": {
+          "startPage": 21,
+          "endPage": 22
+        },
+        "sourceRef": {
+          "rawText": "N + 입니다",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p21-g1",
+          "page": 21
+        },
+        "needsReview": true
+      }
+    ],
+    "dialogue": [
+      {
+        "id": "d-minsu-hello",
+        "speaker": "Minsu",
+        "korean": "안녕하세요. 저는 민수입니다.",
+        "translations": {
+          "vi": "Xin chao. Toi la Minsu.",
+          "en": "Hello. I am Minsu."
+        },
+        "pages": {
+          "startPage": 18,
+          "endPage": 18
+        },
+        "sourceRef": {
+          "rawText": "안녕하세요. 저는 민수입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p18-d1",
+          "page": 18
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-jisu-hello",
+        "speaker": "Jisu",
+        "korean": "안녕하세요. 저는 지수입니다.",
+        "translations": {
+          "vi": "Xin chao. Toi la Jisu.",
+          "en": "Hello. I am Jisu."
+        },
+        "pages": {
+          "startPage": 18,
+          "endPage": 18
+        },
+        "sourceRef": {
+          "rawText": "안녕하세요. 저는 지수입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p18-d2",
+          "page": 18
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-minsu-nice",
+        "speaker": "Minsu",
+        "korean": "처음 뵙겠습니다.",
+        "translations": {
+          "vi": "Lan dau gap ban, rat han hanh.",
+          "en": "It is my first time meeting you."
+        },
+        "pages": {
+          "startPage": 19,
+          "endPage": 19
+        },
+        "sourceRef": {
+          "rawText": "처음 뵙겠습니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p19-d1",
+          "page": 19
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-jisu-too",
+        "speaker": "Jisu",
+        "korean": "저도 반갑습니다.",
+        "translations": {
+          "vi": "Toi cung rat vui duoc gap ban.",
+          "en": "Nice to meet you too."
+        },
+        "pages": {
+          "startPage": 19,
+          "endPage": 19
+        },
+        "sourceRef": {
+          "rawText": "저도 반갑습니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p19-d2",
+          "page": 19
+        },
+        "needsReview": true
+      },
+      {
+        "id": "d-minsu-student",
+        "speaker": "Minsu",
+        "korean": "저는 학생입니다.",
+        "translations": {
+          "vi": "Toi la hoc sinh.",
+          "en": "I am a student."
+        },
+        "pages": {
+          "startPage": 21,
+          "endPage": 21
+        },
+        "sourceRef": {
+          "rawText": "저는 학생입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p21-d1",
+          "page": 21
+        },
+        "needsReview": true
+      }
+    ],
+    "examples": [
+      {
+        "id": "ex-student",
+        "korean": "저는 학생입니다.",
+        "translations": {
+          "vi": "Toi la hoc sinh.",
+          "en": "I am a student."
+        },
+        "grammarTags": [
+          "N + copula"
+        ],
+        "pages": {
+          "startPage": 21,
+          "endPage": 21
+        },
+        "sourceRef": {
+          "rawText": "저는 학생입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p21-ex1",
+          "page": 21
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-office-worker",
+        "korean": "저는 회사원입니다.",
+        "translations": {
+          "vi": "Toi la nhan vien cong ty.",
+          "en": "I am an office worker."
+        },
+        "grammarTags": [
+          "N + copula"
+        ],
+        "pages": {
+          "startPage": 22,
+          "endPage": 22
+        },
+        "sourceRef": {
+          "rawText": "저는 회사원입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p22-ex1",
+          "page": 22
+        },
+        "needsReview": true
+      },
+      {
+        "id": "ex-doctor",
+        "korean": "저는 의사입니다.",
+        "translations": {
+          "vi": "Toi la bac si.",
+          "en": "I am a doctor."
+        },
+        "grammarTags": [
+          "N + copula"
+        ],
+        "pages": {
+          "startPage": 22,
+          "endPage": 22
+        },
+        "sourceRef": {
+          "rawText": "저는 의사입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "tb-p22-ex2",
+          "page": 22
+        },
+        "needsReview": true
+      }
+    ]
+  },
+  "workbook": {
+    "audioAssets": [
+      {
+        "id": "wb-qr-country-1-audio",
+        "document": "workbook",
+        "page": 20,
+        "qrValue": "http://m.site.naver.com/0YvmA",
+        "transcript": "듣고 말하기 1. 두 사람이 처음 만났습니다. 대화를 듣고 빈 칸에 알맞은 말을 쓰세요. 안녕하세요. 저는 지훈이에요. 안녕하세요. 저는 나타샤예요. 나타샤 씨는 어느 나라 사람이에요? 저는 러시아 사람이에요. 저는 한국 사람이에요. 학생이에요.",
+        "transcriptConfidence": 0.7,
+        "needsReview": false,
+        "remoteUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/01_03_01.mp3",
+        "mimeType": "audio/mpeg"
+      },
+      {
+        "id": "wb-qr-country-2-audio",
+        "document": "workbook",
+        "page": 20,
+        "qrValue": "http://m.site.naver.com/0YvmL",
+        "transcript": "듣고 말하기 2. 다음을 듣고 무름에 답하세요. 안녕하세요. 저는 리사예요. 이름이 뭐예요? 안녕하세요. 저는 가영이에요. 가영 씨는 어느 나라 사람이에요? 저는 한국 사람이에요. 저는 미국 사람이에요. 영어 선생님이에요.",
+        "transcriptConfidence": 0.7,
+        "needsReview": false,
+        "remoteUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/01_03_02.mp3",
+        "mimeType": "audio/mpeg"
+      }
+    ],
+    "exercises": [
+      {
+        "id": "wb-fill-student-ending",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien duoi cau lich su con thieu.",
+          "en": "Fill in the missing polite ending."
+        },
+        "koreanText": "저는 학생___",
+        "answer": "입니다.",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "N + copula"
+        },
+        "coverageTags": [
+          "grammar",
+          "copula",
+          "student"
+        ],
+        "pages": {
+          "startPage": 20,
+          "endPage": 20
+        },
+        "sourceRef": {
+          "rawText": "저는 학생___ / 입니다",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p20-b1",
+          "page": 20
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-match-hello",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Noi bieu thuc voi y nghia dung.",
+          "en": "Match the expression to the correct meaning."
+        },
+        "koreanText": "안녕하세요",
+        "localizedText": {
+          "vi": "xin chao",
+          "en": "hello"
+        },
+        "answer": "xin chao",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "greeting",
+          "vocab"
+        ],
+        "pages": {
+          "startPage": 20,
+          "endPage": 20
+        },
+        "sourceRef": {
+          "rawText": "안녕하세요 = xin chào",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p20-b2",
+          "page": 20
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-match-jeo",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Noi tu voi y nghia cua no.",
+          "en": "Match the word with its meaning."
+        },
+        "koreanText": "저",
+        "localizedText": {
+          "vi": "toi, em (khiem nhuong)",
+          "en": "I, me (humble)"
+        },
+        "answer": "toi, em (khiem nhuong)",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "self-introduction",
+          "vocab"
+        ],
+        "pages": {
+          "startPage": 20,
+          "endPage": 20
+        },
+        "sourceRef": {
+          "rawText": "저 = tôi, em (khiêm nhường)",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p20-b3",
+          "page": 20
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-match-student",
+        "exerciseType": "matching",
+        "prompt": {
+          "vi": "Noi danh tu voi y nghia dung.",
+          "en": "Match the noun to the correct meaning."
+        },
+        "koreanText": "학생",
+        "localizedText": {
+          "vi": "hoc sinh, sinh vien",
+          "en": "student"
+        },
+        "answer": "hoc sinh, sinh vien",
+        "metadata": {
+          "target": "vocab"
+        },
+        "coverageTags": [
+          "student",
+          "vocab"
+        ],
+        "pages": {
+          "startPage": 20,
+          "endPage": 20
+        },
+        "sourceRef": {
+          "rawText": "학생 = học sinh, sinh viên",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p20-b4",
+          "page": 20
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-translate-student",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Dich sang tieng Han.",
+          "en": "Translate into Korean."
+        },
+        "localizedText": {
+          "vi": "Toi la hoc sinh.",
+          "en": "I am a student."
+        },
+        "answer": "저는 학생입니다.",
+        "metadata": {
+          "direction": "meaning_to_ko"
+        },
+        "coverageTags": [
+          "student",
+          "translation",
+          "copula"
+        ],
+        "pages": {
+          "startPage": 21,
+          "endPage": 21
+        },
+        "sourceRef": {
+          "rawText": "Tôi là học sinh. -> 저는 학생입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p21-b2",
+          "page": 21
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-translate-hello",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Dich sang y nghia.",
+          "en": "Translate into the meaning."
+        },
+        "koreanText": "안녕하세요.",
+        "answer": "Xin chao.",
+        "metadata": {
+          "direction": "ko_to_meaning"
+        },
+        "coverageTags": [
+          "greeting",
+          "translation"
+        ],
+        "pages": {
+          "startPage": 21,
+          "endPage": 21
+        },
+        "sourceRef": {
+          "rawText": "안녕하세요. -> Xin chào.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p21-b3",
+          "page": 21
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-grammar-copula-choice",
+        "exerciseType": "writing",
+        "prompt": {
+          "vi": "Chon duoi cau dung sau danh tu.",
+          "en": "Choose the correct ending after the noun."
+        },
+        "koreanText": "학생 + ___",
+        "answer": "입니다",
+        "metadata": {
+          "target": "grammar",
+          "choices": [
+            "입니다",
+            "은",
+            "는"
+          ],
+          "grammarTag": "N + copula"
+        },
+        "coverageTags": [
+          "grammar",
+          "copula"
+        ],
+        "pages": {
+          "startPage": 21,
+          "endPage": 21
+        },
+        "sourceRef": {
+          "rawText": "학생 + ___ / 입니다",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p21-b4",
+          "page": 21
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-listen-too",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe va chon y nghia dung.",
+          "en": "Listen and choose the correct meaning."
+        },
+        "koreanText": "저도 반갑습니다.",
+        "localizedText": {
+          "vi": "Toi cung rat vui duoc gap ban.",
+          "en": "Nice to meet you too."
+        },
+        "answer": "Toi cung rat vui duoc gap ban.",
+        "metadata": {
+          "target": "listening"
+        },
+        "coverageTags": [
+          "dialogue",
+          "listening",
+          "reply"
+        ],
+        "pages": {
+          "startPage": 22,
+          "endPage": 22
+        },
+        "sourceRef": {
+          "rawText": "저도 반갑습니다. -> Tôi cũng rất vui được gặp bạn.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p22-b2",
+          "page": 22
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-fill-nice",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien bieu thuc con thieu.",
+          "en": "Fill in the missing expression."
+        },
+        "koreanText": "저도 ___",
+        "answer": "반갑습니다.",
+        "metadata": {
+          "target": "expression",
+          "choices": [
+            "반갑습니다",
+            "학생입니다",
+            "회사원입니다"
+          ]
+        },
+        "coverageTags": [
+          "dialogue",
+          "reply",
+          "fill_blank"
+        ],
+        "pages": {
+          "startPage": 22,
+          "endPage": 22
+        },
+        "sourceRef": {
+          "rawText": "저도 ___ / 반갑습니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p22-b3",
+          "page": 22
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-order-jisu",
+        "exerciseType": "sentence_ordering",
+        "prompt": {
+          "vi": "Sap xep cau gioi thieu cua Jisu.",
+          "en": "Arrange Jisu's introduction."
+        },
+        "answer": [
+          "저는",
+          "지수입니다."
+        ],
+        "metadata": {
+          "wordBank": [
+            "저는",
+            "지수입니다.",
+            "반갑습니다.",
+            "안녕하세요."
+          ],
+          "target": "sentence_ordering"
+        },
+        "coverageTags": [
+          "self-introduction",
+          "name",
+          "construction"
+        ],
+        "pages": {
+          "startPage": 23,
+          "endPage": 23
+        },
+        "sourceRef": {
+          "rawText": "저는 / 지수입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p23-b1",
+          "page": 23
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-translate-jisu",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Dich sang tieng Han.",
+          "en": "Translate into Korean."
+        },
+        "localizedText": {
+          "vi": "Toi la Jisu.",
+          "en": "I am Jisu."
+        },
+        "answer": "저는 지수입니다.",
+        "metadata": {
+          "direction": "meaning_to_ko"
+        },
+        "coverageTags": [
+          "self-introduction",
+          "translation",
+          "name"
+        ],
+        "pages": {
+          "startPage": 23,
+          "endPage": 23
+        },
+        "sourceRef": {
+          "rawText": "Tôi là Jisu. -> 저는 지수입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p23-b2",
+          "page": 23
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-translate-nice",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Dich sang y nghia.",
+          "en": "Translate into the meaning."
+        },
+        "koreanText": "반갑습니다.",
+        "answer": "Rat vui duoc gap ban.",
+        "metadata": {
+          "direction": "ko_to_meaning"
+        },
+        "coverageTags": [
+          "greeting",
+          "translation"
+        ],
+        "pages": {
+          "startPage": 23,
+          "endPage": 23
+        },
+        "sourceRef": {
+          "rawText": "반갑습니다. -> Rất vui được gặp bạn.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p23-b3",
+          "page": 23
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-fill-name-line",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien duoi cau vao mau gioi thieu ten.",
+          "en": "Fill in the ending for the name-introduction pattern."
+        },
+        "koreanText": "저는 지수___",
+        "answer": "입니다.",
+        "metadata": {
+          "target": "grammar"
+        },
+        "coverageTags": [
+          "name",
+          "copula",
+          "fill_blank"
+        ],
+        "pages": {
+          "startPage": 23,
+          "endPage": 23
+        },
+        "sourceRef": {
+          "rawText": "저는 지수___ / 입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p23-b4",
+          "page": 23
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-grammar-ending",
+        "exerciseType": "writing",
+        "prompt": {
+          "vi": "Chon duoi cau phu hop sau danh tu.",
+          "en": "Choose the correct sentence ending after the noun."
+        },
+        "koreanText": "학생 + ___",
+        "answer": "입니다",
+        "metadata": {
+          "target": "grammar",
+          "grammarTag": "N + copula"
+        },
+        "coverageTags": [
+          "grammar",
+          "copula"
+        ],
+        "pages": {
+          "startPage": 24,
+          "endPage": 24
+        },
+        "sourceRef": {
+          "rawText": "학생 + ___ / 입니다",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p24-b1",
+          "page": 24
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-fill-office-worker",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien nghe nghiep con thieu.",
+          "en": "Fill in the missing job noun."
+        },
+        "koreanText": "저는 ___입니다.",
+        "answer": "회사원",
+        "metadata": {
+          "target": "job",
+          "choices": [
+            "회사원",
+            "학생",
+            "의사"
+          ]
+        },
+        "coverageTags": [
+          "role",
+          "office-worker",
+          "fill_blank"
+        ],
+        "pages": {
+          "startPage": 25,
+          "endPage": 25
+        },
+        "sourceRef": {
+          "rawText": "저는 ___입니다. / 회사원",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p25-b1",
+          "page": 25
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-order-office-worker",
+        "exerciseType": "sentence_ordering",
+        "prompt": {
+          "vi": "Sap xep cau ve nghe nghiep.",
+          "en": "Arrange the sentence about the job."
+        },
+        "answer": [
+          "저는",
+          "회사원입니다."
+        ],
+        "metadata": {
+          "wordBank": [
+            "저는",
+            "회사원입니다.",
+            "안녕하세요.",
+            "반갑습니다."
+          ],
+          "target": "sentence_ordering"
+        },
+        "coverageTags": [
+          "role",
+          "office-worker",
+          "construction"
+        ],
+        "pages": {
+          "startPage": 25,
+          "endPage": 25
+        },
+        "sourceRef": {
+          "rawText": "저는 / 회사원입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p25-b2",
+          "page": 25
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-translate-office-worker",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Dich sang tieng Han.",
+          "en": "Translate into Korean."
+        },
+        "localizedText": {
+          "vi": "Toi la nhan vien cong ty.",
+          "en": "I am an office worker."
+        },
+        "answer": "저는 회사원입니다.",
+        "metadata": {
+          "direction": "meaning_to_ko"
+        },
+        "coverageTags": [
+          "role",
+          "office-worker",
+          "translation"
+        ],
+        "pages": {
+          "startPage": 26,
+          "endPage": 26
+        },
+        "sourceRef": {
+          "rawText": "Tôi là nhân viên công ty. -> 저는 회사원입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p26-b1",
+          "page": 26
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-listen-student",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe va chon y nghia dung.",
+          "en": "Listen and choose the correct meaning."
+        },
+        "koreanText": "저는 학생입니다.",
+        "localizedText": {
+          "vi": "Toi la hoc sinh.",
+          "en": "I am a student."
+        },
+        "answer": "Toi la hoc sinh.",
+        "metadata": {
+          "target": "listening"
+        },
+        "coverageTags": [
+          "student",
+          "listening",
+          "copula"
+        ],
+        "pages": {
+          "startPage": 26,
+          "endPage": 26
+        },
+        "sourceRef": {
+          "rawText": "저는 학생입니다. -> Tôi là học sinh.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p26-b2",
+          "page": 26
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-write-doctor",
+        "exerciseType": "writing",
+        "prompt": {
+          "vi": "Viet cau: Toi la bac si.",
+          "en": "Write: I am a doctor."
+        },
+        "answer": "저는 의사입니다.",
+        "metadata": {
+          "target": "writing"
+        },
+        "coverageTags": [
+          "role",
+          "doctor",
+          "writing"
+        ],
+        "pages": {
+          "startPage": 27,
+          "endPage": 27
+        },
+        "sourceRef": {
+          "rawText": "저는 의사입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p27-b1",
+          "page": 27
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-fill-intro-name",
+        "exerciseType": "fill_blank",
+        "prompt": {
+          "vi": "Dien tu con thieu trong cau gioi thieu.",
+          "en": "Fill in the missing word in the introduction."
+        },
+        "koreanText": "___ 민수입니다.",
+        "localizedText": {
+          "vi": "Toi la Minsu.",
+          "en": "I am Minsu."
+        },
+        "answer": "저는",
+        "metadata": {
+          "target": "pattern",
+          "choices": [
+            "저는",
+            "저도",
+            "학생은"
+          ]
+        },
+        "coverageTags": [
+          "self-introduction",
+          "fill_blank"
+        ],
+        "pages": {
+          "startPage": 27,
+          "endPage": 27
+        },
+        "sourceRef": {
+          "rawText": "___ 민수입니다. / 저는",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p27-b2",
+          "page": 27
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-translate-doctor",
+        "exerciseType": "translation",
+        "prompt": {
+          "vi": "Dich sang y nghia.",
+          "en": "Translate into the meaning."
+        },
+        "koreanText": "저는 의사입니다.",
+        "answer": "Toi la bac si.",
+        "metadata": {
+          "direction": "ko_to_meaning"
+        },
+        "coverageTags": [
+          "role",
+          "doctor",
+          "translation"
+        ],
+        "pages": {
+          "startPage": 28,
+          "endPage": 28
+        },
+        "sourceRef": {
+          "rawText": "저는 의사입니다. -> Tôi là bác sĩ.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p28-b1",
+          "page": 28
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-guided-selfintro",
+        "exerciseType": "writing",
+        "prompt": {
+          "vi": "Viet gioi thieu ngan gom loi chao va ten.",
+          "en": "Write a short self-introduction with a greeting and your name."
+        },
+        "answer": [
+          "안녕하세요.",
+          "저는 지수입니다."
+        ],
+        "metadata": {
+          "target": "guided_writing",
+          "template": [
+            "안녕하세요.",
+            "저는 [이름]입니다."
+          ]
+        },
+        "coverageTags": [
+          "self-introduction",
+          "writing",
+          "greeting"
+        ],
+        "pages": {
+          "startPage": 29,
+          "endPage": 29
+        },
+        "sourceRef": {
+          "rawText": "안녕하세요. / 저는 [이름]입니다.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p29-b1",
+          "page": 29
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-listen-greeting",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe va chon loi chao dung.",
+          "en": "Listen and choose the correct greeting."
+        },
+        "koreanText": "안녕하세요",
+        "localizedText": {
+          "vi": "xin chao",
+          "en": "hello"
+        },
+        "answer": "xin chao",
+        "metadata": {
+          "target": "listening"
+        },
+        "coverageTags": [
+          "greeting",
+          "listening"
+        ],
+        "pages": {
+          "startPage": 29,
+          "endPage": 29
+        },
+        "sourceRef": {
+          "rawText": "안녕하세요. -> xin chào",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-p29-b2",
+          "page": 29
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-qr-listen-country-left",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe hoi thoai va chon la co quoc gia cua Natasha.",
+          "en": "Listen to the dialogue and choose Natasha's country flag."
+        },
+        "localizedText": {
+          "vi": "Nga",
+          "en": "Russia"
+        },
+        "answer": "Nga",
+        "audioAssetId": "wb-qr-country-1-audio",
+        "options": [
+          {
+            "id": "south-korea",
+            "label": {
+              "vi": "Han Quoc",
+              "en": "South Korea"
+            },
+            "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-korea.png",
+            "correct": false
+          },
+          {
+            "id": "united-states",
+            "label": {
+              "vi": "My",
+              "en": "United States"
+            },
+            "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-usa.png",
+            "correct": false
+          },
+          {
+            "id": "vietnam",
+            "label": {
+              "vi": "Viet Nam",
+              "en": "Vietnam"
+            },
+            "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-vietnam.png",
+            "correct": false
+          },
+          {
+            "id": "russia",
+            "label": {
+              "vi": "Nga",
+              "en": "Russia"
+            },
+            "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-russia.png",
+            "correct": true
+          }
+        ],
+        "metadata": {
+          "target": "qr_listening",
+          "variant": "image_choice"
+        },
+        "coverageTags": [
+          "qr-listening",
+          "country",
+          "flags",
+          "image-choice"
+        ],
+        "pages": {
+          "startPage": 20,
+          "endPage": 20
+        },
+        "sourceRef": {
+          "rawText": "QR listening: Natasha's country. Choose the correct flag after listening.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-qr-listen-country-left-seed",
+          "page": 20
+        },
+        "needsReview": true
+      },
+      {
+        "id": "wb-qr-listen-country-right",
+        "exerciseType": "listening",
+        "prompt": {
+          "vi": "Nghe hoi thoai va chon la co quoc gia cua Gayoung.",
+          "en": "Listen to the dialogue and choose Gayoung's country flag."
+        },
+        "localizedText": {
+          "vi": "Han Quoc",
+          "en": "South Korea"
+        },
+        "answer": "Han Quoc",
+        "audioAssetId": "wb-qr-country-2-audio",
+        "options": [
+          {
+            "id": "south-korea",
+            "label": {
+              "vi": "Han Quoc",
+              "en": "South Korea"
+            },
+            "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-korea.png",
+            "correct": true
+          },
+          {
+            "id": "united-states",
+            "label": {
+              "vi": "My",
+              "en": "United States"
+            },
+            "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-usa.png",
+            "correct": false
+          },
+          {
+            "id": "vietnam",
+            "label": {
+              "vi": "Viet Nam",
+              "en": "Vietnam"
+            },
+            "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-vietnam.png",
+            "correct": false
+          },
+          {
+            "id": "russia",
+            "label": {
+              "vi": "Nga",
+              "en": "Russia"
+            },
+            "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-russia.png",
+            "correct": false
+          }
+        ],
+        "metadata": {
+          "target": "qr_listening",
+          "variant": "image_choice"
+        },
+        "coverageTags": [
+          "qr-listening",
+          "country",
+          "flags",
+          "image-choice"
+        ],
+        "pages": {
+          "startPage": 20,
+          "endPage": 20
+        },
+        "sourceRef": {
+          "rawText": "QR listening: Gayoung's country. Choose the correct flag after listening.",
+          "confidence": 0.98,
+          "sourceBlockId": "wb-qr-listen-country-right-seed",
+          "page": 20
+        },
+        "needsReview": true
+      }
+    ]
+  },
+  "reviewNotes": [
+    "Unit 1 source is normalized from the pilot raw draft and kept bilingual at the reviewed layer.",
+    "Workbook exercises are split into smaller authored nodes so generation can build shorter lesson runs.",
+    "QR listening now restores only the verified page-20 audio-backed country-flag prompts."
+  ]
+}

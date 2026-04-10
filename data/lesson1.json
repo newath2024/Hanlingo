@@ -1,0 +1,127 @@
+{
+  "unit": 1,
+  "lesson": "Introductions",
+  "dialogue": [
+    {
+      "speaker": "민수",
+      "text": "안녕하세요? 저는 민수입니다.",
+      "translation": "Hello. I am Minsu."
+    },
+    {
+      "speaker": "지수",
+      "text": "안녕하세요? 저는 지수입니다.",
+      "translation": "Hello. I am Jisu."
+    },
+    {
+      "speaker": "민수",
+      "text": "만나서 반갑습니다.",
+      "translation": "Nice to meet you."
+    },
+    {
+      "speaker": "지수",
+      "text": "저도 반갑습니다.",
+      "translation": "Nice to meet you too."
+    },
+    {
+      "speaker": "민수",
+      "text": "저는 학생입니다.",
+      "translation": "I am a student."
+    }
+  ],
+  "buildSentence": [
+    {
+      "meaning": "I am Minsu.",
+      "wordBank": ["저는", "민수입니다", "학생입니다", "안녕하세요"],
+      "answer": ["저는", "민수입니다"]
+    },
+    {
+      "meaning": "Nice to meet you.",
+      "wordBank": ["만나서", "반갑습니다", "안녕하세요", "저도"],
+      "answer": ["만나서", "반갑습니다"]
+    },
+    {
+      "meaning": "I am a student.",
+      "wordBank": ["저는", "학생입니다", "민수입니다", "반갑습니다"],
+      "answer": ["저는", "학생입니다"]
+    }
+  ],
+  "vocab": [
+    {
+      "word": "안녕하세요",
+      "meaning": "hello"
+    },
+    {
+      "word": "저",
+      "meaning": "I, me (humble)"
+    },
+    {
+      "word": "만나서",
+      "meaning": "upon meeting"
+    },
+    {
+      "word": "반갑습니다",
+      "meaning": "nice to meet you"
+    },
+    {
+      "word": "학생",
+      "meaning": "student"
+    },
+    {
+      "word": "입니다",
+      "meaning": "am / is / are (formal polite)"
+    }
+  ],
+  "grammar": [
+    {
+      "pattern": "N + 입니다",
+      "explanation": "Attach 입니다 after a noun to politely say who or what someone is in a formal style.",
+      "examples": [
+        "저는 학생입니다.",
+        "민수는 회사원입니다.",
+        "이분은 선생님입니다."
+      ]
+    }
+  ],
+  "exercises": [
+    {
+      "type": "multiple_choice",
+      "question": "How do you say “I am Mina” in Korean?",
+      "options": [
+        "저는 미나입니다.",
+        "저는 미나예요?",
+        "미나 안녕하세요.",
+        "저는 학생"
+      ],
+      "answer": "저는 미나입니다."
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What does “안녕하세요” mean?",
+      "options": [
+        "thank you",
+        "hello",
+        "goodbye",
+        "sorry"
+      ],
+      "answer": "hello"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the blank: 저는 학생___",
+      "answer": "입니다"
+    },
+    {
+      "type": "fill_blank",
+      "question": "Fill in the blank: 만나서 ______",
+      "answer": "반갑습니다"
+    }
+  ],
+  "speaking": [
+    {
+      "prompt": "Say: 안녕하세요? 저는 [your name]입니다."
+    },
+    {
+      "prompt": "Say: 저는 학생입니다."
+    }
+  ]
+}

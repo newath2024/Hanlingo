@@ -1,0 +1,3387 @@
+{
+  "unitId": "1",
+  "unitNumber": 1,
+  "title": {
+    "vi": "Chao hoi va gioi thieu",
+    "en": "Greetings and introductions"
+  },
+  "subtitle": {
+    "vi": "Bat dau bang textbook input, day nang workbook practice, va giu listening hoat dong xuyen suot unit.",
+    "en": "Start with textbook input, lean into workbook practice, and keep listening active throughout the unit."
+  },
+  "reviewWords": [
+    "안녕하세요",
+    "저",
+    "처음",
+    "반갑습니다",
+    "학생",
+    "입니다",
+    "저는 학생입니다.",
+    "저는 회사원입니다.",
+    "저는 의사입니다."
+  ],
+  "lessons": [
+    {
+      "lessonId": "unit-1-lesson-1",
+      "lessonRole": "intro",
+      "title": {
+        "vi": "Bat dau chao hoi",
+        "en": "Start with greetings"
+      },
+      "summary": {
+        "vi": "Mo unit bang loi chao, dai tu khiem nhuong, va mau cau gioi thieu ngan.",
+        "en": "Open the unit with greetings, the humble pronoun, and a short introduction."
+      },
+      "difficulty": {
+        "vi": "Nhan dien va lam quen",
+        "en": "Recognition and warm-up"
+      },
+      "focusConcepts": [
+        "안녕하세요",
+        "저",
+        "학생",
+        "저는"
+      ],
+      "sourceExerciseIds": [
+        "wb-match-hello",
+        "wb-match-jeo",
+        "wb-match-student"
+      ],
+      "coverageTags": [
+        "greeting",
+        "vocab",
+        "self-introduction"
+      ],
+      "tasks": [
+        {
+          "id": "l1-hello",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Day la loi chao cot loi cua unit.",
+            "en": "This is the core greeting for the unit."
+          },
+          "source": "textbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "l1-hello.word-match",
+          "type": "word_match",
+          "koreanText": "안녕하세요",
+          "choices": [
+            {
+              "id": "l1-hello-correct",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "l1-hello-d1",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "l1-hello-d2",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            },
+            {
+              "id": "l1-hello-d3",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            }
+          ],
+          "answer": "l1-hello-correct"
+        },
+        {
+          "id": "l1-jeo",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "`저` la cach xung ho lich su.",
+            "en": "`저` is the polite way to say I/me."
+          },
+          "source": "textbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "l1-jeo.word-match",
+          "type": "word_match",
+          "koreanText": "저",
+          "choices": [
+            {
+              "id": "l1-jeo-correct",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "l1-jeo-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "l1-jeo-d2",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            },
+            {
+              "id": "l1-jeo-d3",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            }
+          ],
+          "answer": "l1-jeo-correct"
+        },
+        {
+          "id": "l1-student",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Danh tu nay lap lai nhieu lan trong workbook.",
+            "en": "This noun repeats throughout the workbook."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "l1-student.word-match",
+          "type": "word_match",
+          "koreanText": "학생",
+          "choices": [
+            {
+              "id": "l1-student-correct",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              }
+            },
+            {
+              "id": "l1-student-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "l1-student-d2",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "l1-student-d3",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            }
+          ],
+          "answer": "l1-student-correct"
+        },
+        {
+          "id": "l1-nice",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe cum chao khi gap mat de quen am.",
+            "en": "Hear the meeting greeting first to get used to the sound."
+          },
+          "source": "textbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "l1-nice.listen",
+          "audioText": "반갑습니다",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "l1-nice-correct",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            },
+            {
+              "id": "l1-nice-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "l1-nice-d2",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "l1-nice-d3",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            }
+          ],
+          "answer": "l1-nice-correct"
+        },
+        {
+          "id": "l1-hello-meaning",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Doi loi chao sang y nghia ngay sau khi nhan dien.",
+            "en": "Switch the greeting into its meaning right after recognition."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "l1-hello-meaning.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "xin chao",
+            "en": "hello"
+          },
+          "koreanText": "안녕하세요",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "l1-minsu",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Ghep loi chao voi phan gioi thieu ten.",
+            "en": "Combine the greeting with the name introduction."
+          },
+          "source": "textbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "l1-minsu.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Xin chao. Toi la Minsu.",
+            "en": "Hello. I am Minsu."
+          },
+          "acceptedAnswers": [
+            "안녕하세요. 저는 민수입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "l1-arrange",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Sap xep lai cau gioi thieu dau tien.",
+            "en": "Arrange the first introduction sentence."
+          },
+          "source": "blended",
+          "stage": "construction",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "l1-arrange.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Xin chao. Toi la Minsu.",
+            "en": "Hello. I am Minsu."
+          },
+          "wordBank": [
+            "민수입니다.",
+            "저는",
+            "안녕하세요."
+          ],
+          "answer": [
+            "안녕하세요.",
+            "저는",
+            "민수입니다."
+          ]
+        },
+        {
+          "id": "l1-speak",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Ket lesson bang mot cau chao ngan.",
+            "en": "Close the lesson with one short greeting."
+          },
+          "source": "textbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "l1-speak.speaking",
+          "type": "speaking",
+          "koreanText": "안녕하세요",
+          "expectedSpeech": "안녕하세요"
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-1-lesson-2",
+      "lessonRole": "grammar",
+      "title": {
+        "vi": "Lap cau voi copula",
+        "en": "Build with the copula"
+      },
+      "summary": {
+        "vi": "Cung co mau N + copula bang cau ve hoc sinh va nghe nghiep.",
+        "en": "Reinforce the noun + copula pattern with student and job sentences."
+      },
+      "difficulty": {
+        "vi": "Nhan dien va lam quen",
+        "en": "Recognition and warm-up"
+      },
+      "focusConcepts": [
+        "N + copula",
+        "입니다",
+        "학생",
+        "회사원"
+      ],
+      "sourceExerciseIds": [
+        "wb-fill-student-ending",
+        "wb-grammar-copula-choice",
+        "wb-translate-student",
+        "wb-fill-office-worker",
+        "wb-translate-office-worker"
+      ],
+      "coverageTags": [
+        "grammar",
+        "copula",
+        "student",
+        "role"
+      ],
+      "tasks": [
+        {
+          "id": "l2-g1",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Sau danh tu, Unit 1 dung cung mot duoi cau lich su.",
+            "en": "After a noun, Unit 1 uses one core polite ending."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "l2-g1.grammar",
+          "type": "grammar_select",
+          "koreanText": "학생 + ___",
+          "choices": [
+            "입니다",
+            "저",
+            "은"
+          ],
+          "answer": "입니다"
+        },
+        {
+          "id": "l2-g2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Lap lai cung pattern o che do recall.",
+            "en": "Repeat the same pattern in recall mode."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "l2-g2.grammar",
+          "type": "grammar_select",
+          "koreanText": "학생 + ___",
+          "choices": [
+            "입니다",
+            "는",
+            "가"
+          ],
+          "answer": "입니다"
+        },
+        {
+          "id": "l2-fill-student",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien lai dung duoi cau sau danh tu.",
+            "en": "Fill the correct polite ending after the noun."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "l2-fill-student.fill",
+          "type": "fill_blank",
+          "koreanText": "저는 학생___",
+          "acceptedAnswers": [
+            "입니다",
+            "입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          }
+        },
+        {
+          "id": "l2-fill-office",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Doi nghe nghiep nhung giu nguyen khung cau.",
+            "en": "Swap the job noun while keeping the sentence frame."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "l2-fill-office.fill",
+          "type": "fill_blank",
+          "koreanText": "저는 ___입니다/이에요.",
+          "acceptedAnswers": [
+            "회사원",
+            "회사원입니다",
+            "회사원이에요"
+          ],
+          "choices": [
+            "회사원",
+            "학생",
+            "의사"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "Toi la nhan vien cong ty.",
+            "en": "I am an office worker."
+          }
+        },
+        {
+          "id": "l2-tr-student",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich mau cau co ban nhat cua unit.",
+            "en": "Translate the unit's most basic model sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "l2-tr-student.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Toi la hoc sinh.",
+            "en": "I am a student."
+          },
+          "acceptedAnswers": [
+            "저는 학생입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "l2-arr-office",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Lap lai cau nghe nghiep cung ngu phap.",
+            "en": "Build a job sentence with the same grammar."
+          },
+          "source": "textbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "l2-arr-office.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Toi la nhan vien cong ty.",
+            "en": "I am an office worker."
+          },
+          "wordBank": [
+            "회사원입니다.",
+            "저는"
+          ],
+          "answer": [
+            "저는",
+            "회사원입니다."
+          ]
+        },
+        {
+          "id": "l2-speak-student",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai mau cau hoc sinh de tao phan xa.",
+            "en": "Say the student sentence aloud so it becomes automatic."
+          },
+          "source": "textbook",
+          "stage": "production",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "l2-speak-student.speaking",
+          "type": "speaking",
+          "koreanText": "저는 학생입니다.",
+          "expectedSpeech": "저는 학생입니다."
+        },
+        {
+          "id": "l2-speak-office",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Doi danh tu nhung van giu duoi cau lich su dung.",
+            "en": "Swap the noun while keeping the polite ending correct."
+          },
+          "source": "blended",
+          "stage": "production",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "l2-speak-office.speaking",
+          "type": "speaking",
+          "koreanText": "저는 회사원입니다.",
+          "expectedSpeech": "저는 회사원입니다."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-1-lesson-3",
+      "lessonRole": "dialogue",
+      "title": {
+        "vi": "Ghep lai doan hoi thoai",
+        "en": "Rebuild the dialogue"
+      },
+      "summary": {
+        "vi": "Nghe, ghep, va noi lai cac luot thoai chao hoi cot loi.",
+        "en": "Listen, rebuild, and say the core greeting dialogue turns."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "dialogue",
+        "reply",
+        "self-introduction",
+        "translation"
+      ],
+      "sourceExerciseIds": [
+        "wb-listen-too",
+        "wb-fill-nice",
+        "wb-order-jisu",
+        "wb-translate-jisu",
+        "wb-translate-nice",
+        "wb-fill-name-line"
+      ],
+      "coverageTags": [
+        "dialogue",
+        "reply",
+        "self-introduction",
+        "translation"
+      ],
+      "tasks": [
+        {
+          "id": "l3-reply-listen",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe cau dap truoc de bat nhip hoi thoai.",
+            "en": "Hear the reply first to catch the dialogue rhythm."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "l3-reply-listen.listen",
+          "audioText": "저도 반갑습니다.",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "l3-reply-listen-correct",
+              "text": {
+                "vi": "Toi cung rat vui duoc gap ban.",
+                "en": "Nice to meet you too."
+              }
+            },
+            {
+              "id": "l3-reply-listen-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "l3-reply-listen-d2",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "l3-reply-listen-d3",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            }
+          ],
+          "answer": "l3-reply-listen-correct"
+        },
+        {
+          "id": "l3-nice",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Nho lai y nghia cua loi chao khi gap mat.",
+            "en": "Recall the meaning of the meeting greeting."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "l3-nice.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "rat vui duoc gap ban",
+            "en": "nice to meet you"
+          },
+          "koreanText": "반갑습니다",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "l3-fill",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Giu `저도` va dien phan con lai cua cau dap.",
+            "en": "Keep `저도` and fill the rest of the reply."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "l3-fill.fill",
+          "type": "fill_blank",
+          "koreanText": "저도 ___",
+          "acceptedAnswers": [
+            "반갑습니다",
+            "반갑습니다."
+          ],
+          "choices": [
+            "반갑습니다",
+            "학생입니다",
+            "회사원입니다"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "Toi cung rat vui duoc gap ban.",
+            "en": "Nice to meet you too."
+          }
+        },
+        {
+          "id": "l3-jisu",
+          "prompt": {
+            "vi": "Ghep lai cau hoi thoai.",
+            "en": "Rebuild the dialogue line."
+          },
+          "explanation": {
+            "vi": "Ghep lai cau gioi thieu cua Jisu.",
+            "en": "Rebuild Jisu's introduction line."
+          },
+          "source": "textbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.8,
+          "errorPatternKey": "l3-jisu.dialogue",
+          "type": "dialogue_reconstruct",
+          "speaker": "Jisu",
+          "translation": {
+            "vi": "Xin chao. Toi la Jisu.",
+            "en": "Hello. I am Jisu."
+          },
+          "wordBank": [
+            "안녕하세요.",
+            "저는",
+            "지수입니다."
+          ],
+          "answer": [
+            "안녕하세요.",
+            "저는",
+            "지수입니다."
+          ]
+        },
+        {
+          "id": "l3-reply",
+          "prompt": {
+            "vi": "Ghep lai cau hoi thoai.",
+            "en": "Rebuild the dialogue line."
+          },
+          "explanation": {
+            "vi": "Ghep luon cau dap de tao thanh cap thoai.",
+            "en": "Rebuild the reply to create a full exchange."
+          },
+          "source": "blended",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.8,
+          "errorPatternKey": "l3-reply.dialogue",
+          "type": "dialogue_reconstruct",
+          "speaker": "Jisu",
+          "translation": {
+            "vi": "Toi cung rat vui duoc gap ban.",
+            "en": "Nice to meet you too."
+          },
+          "wordBank": [
+            "저도",
+            "반갑습니다."
+          ],
+          "answer": [
+            "저도",
+            "반갑습니다."
+          ]
+        },
+        {
+          "id": "l3-arrange",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Tach nho cau gioi thieu thanh mot bai sap xep nhanh.",
+            "en": "Break the introduction into a quicker ordering task."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "l3-arrange.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Xin chao. Toi la Jisu.",
+            "en": "Hello. I am Jisu."
+          },
+          "wordBank": [
+            "지수입니다.",
+            "저는",
+            "안녕하세요."
+          ],
+          "answer": [
+            "안녕하세요.",
+            "저는",
+            "지수입니다."
+          ]
+        },
+        {
+          "id": "l3-tr-jisu",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Viet lai toan bo cau gioi thieu cua Jisu.",
+            "en": "Write Jisu's full introduction again."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "l3-tr-jisu.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Xin chao. Toi la Jisu.",
+            "en": "Hello. I am Jisu."
+          },
+          "acceptedAnswers": [
+            "안녕하세요. 저는 지수입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "l3-speak",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Ket lesson bang mot luot thoai hoan chinh.",
+            "en": "Finish the lesson with one complete dialogue turn."
+          },
+          "source": "blended",
+          "stage": "production",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "l3-speak.speaking",
+          "type": "speaking",
+          "koreanText": "안녕하세요. 저는 지수입니다. 저도 반갑습니다.",
+          "expectedSpeech": "안녕하세요. 저는 지수입니다. 저도 반갑습니다."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-1-lesson-4",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 1: grammar",
+        "en": "Workbook practice 1: grammar"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "grammar",
+        "copula",
+        "student",
+        "greeting"
+      ],
+      "sourceExerciseIds": [
+        "wb-fill-student-ending",
+        "wb-match-hello",
+        "wb-match-jeo",
+        "wb-match-student"
+      ],
+      "coverageTags": [
+        "grammar",
+        "copula",
+        "student",
+        "greeting",
+        "vocab",
+        "self-introduction"
+      ],
+      "tasks": [
+        {
+          "id": "wb-match-hello-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb-match-hello-1.word-match",
+          "type": "word_match",
+          "koreanText": "안녕하세요",
+          "choices": [
+            {
+              "id": "wb-match-hello-1-correct",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-match-hello-1-d1",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-match-hello-1-d2",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            },
+            {
+              "id": "wb-match-hello-1-d3",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            }
+          ],
+          "answer": "wb-match-hello-1-correct"
+        },
+        {
+          "id": "wb-match-hello-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-match-hello-2.listen",
+          "audioText": "안녕하세요",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-match-hello-2-correct",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-match-hello-2-d1",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-match-hello-2-d2",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            },
+            {
+              "id": "wb-match-hello-2-d3",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            }
+          ],
+          "answer": "wb-match-hello-2-correct"
+        },
+        {
+          "id": "wb-match-jeo-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb-match-jeo-1.word-match",
+          "type": "word_match",
+          "koreanText": "저",
+          "choices": [
+            {
+              "id": "wb-match-jeo-1-correct",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-match-jeo-1-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-match-jeo-1-d2",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            },
+            {
+              "id": "wb-match-jeo-1-d3",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            }
+          ],
+          "answer": "wb-match-jeo-1-correct"
+        },
+        {
+          "id": "wb-match-jeo-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-match-jeo-2.listen",
+          "audioText": "저",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-match-jeo-2-correct",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-match-jeo-2-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-match-jeo-2-d2",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            },
+            {
+              "id": "wb-match-jeo-2-d3",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            }
+          ],
+          "answer": "wb-match-jeo-2-correct"
+        },
+        {
+          "id": "wb-match-student-1",
+          "prompt": {
+            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "en": "Match the Korean word with the correct meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "en": "Start with quick meaning recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb-match-student-1.word-match",
+          "type": "word_match",
+          "koreanText": "학생",
+          "choices": [
+            {
+              "id": "wb-match-student-1-correct",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              }
+            },
+            {
+              "id": "wb-match-student-1-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-match-student-1-d2",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-match-student-1-d3",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            }
+          ],
+          "answer": "wb-match-student-1-correct"
+        },
+        {
+          "id": "wb-match-student-2",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "en": "Hear the same expression again to lock sound and meaning."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-match-student-2.listen",
+          "audioText": "학생",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-match-student-2-correct",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              }
+            },
+            {
+              "id": "wb-match-student-2-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-match-student-2-d2",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-match-student-2-d3",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            }
+          ],
+          "answer": "wb-match-student-2-correct"
+        },
+        {
+          "id": "wb-fill-student-ending-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-fill-student-ending-2.grammar",
+          "type": "grammar_select",
+          "koreanText": "저는 학생___",
+          "choices": [
+            "입니다",
+            "저",
+            "은"
+          ],
+          "answer": "입니다"
+        },
+        {
+          "id": "wb-fill-student-ending-1",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb-fill-student-ending-1.fill",
+          "type": "fill_blank",
+          "koreanText": "저는 학생___",
+          "acceptedAnswers": [
+            "입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "Toi la hoc sinh.",
+            "en": "I am a student."
+          }
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-1-lesson-5",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 2: student",
+        "en": "Workbook practice 2: student"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "student",
+        "translation",
+        "copula",
+        "greeting"
+      ],
+      "sourceExerciseIds": [
+        "wb-translate-student",
+        "wb-translate-hello",
+        "wb-grammar-copula-choice",
+        "wb-listen-too"
+      ],
+      "coverageTags": [
+        "student",
+        "translation",
+        "copula",
+        "greeting",
+        "grammar",
+        "dialogue",
+        "listening",
+        "reply"
+      ],
+      "tasks": [
+        {
+          "id": "wb-translate-hello-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nhan y nghia truoc roi moi go lai.",
+            "en": "Recognize the meaning before typing it back."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-translate-hello-1.listen",
+          "audioText": "안녕하세요.",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-translate-hello-1-correct",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-translate-hello-1-d1",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-translate-hello-1-d2",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            },
+            {
+              "id": "wb-translate-hello-1-d3",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            }
+          ],
+          "answer": "wb-translate-hello-1-correct"
+        },
+        {
+          "id": "wb-listen-too-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Bai nghe ngan nen uu tien nhan dien nhanh.",
+            "en": "Short listening items begin with fast recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-listen-too-1.listen",
+          "audioText": "저도 반갑습니다.",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-listen-too-1-correct",
+              "text": {
+                "vi": "Toi cung rat vui duoc gap ban.",
+                "en": "Nice to meet you too."
+              }
+            },
+            {
+              "id": "wb-listen-too-1-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-listen-too-1-d2",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-listen-too-1-d3",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            }
+          ],
+          "answer": "wb-listen-too-1-correct"
+        },
+        {
+          "id": "wb-translate-hello-2",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Go lai y nghia bang tri nho.",
+            "en": "Type the meaning from memory."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-translate-hello-2.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "xin chao",
+            "en": "hello"
+          },
+          "koreanText": "안녕하세요.",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "wb-grammar-copula-choice-1",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nhac lai duoi cau lich su cot loi cua Unit 1.",
+            "en": "Revisit the core polite ending for Unit 1."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-grammar-copula-choice-1.grammar",
+          "type": "grammar_select",
+          "koreanText": "학생 + ___",
+          "choices": [
+            "입니다",
+            "은",
+            "는"
+          ],
+          "answer": "입니다"
+        },
+        {
+          "id": "wb-listen-too-2",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
+            "en": "Once you hear it correctly, type the meaning to lock it in."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-listen-too-2.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "Toi cung rat vui duoc gap ban.",
+            "en": "Nice to meet you too."
+          },
+          "koreanText": "저도 반갑습니다.",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "wb-translate-student-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-translate-student-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Toi la hoc sinh.",
+            "en": "I am a student."
+          },
+          "acceptedAnswers": [
+            "저는 학생입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb-grammar-copula-choice-2",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien lai mo hinh N + copula.",
+            "en": "Fill the N + copula pattern again."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb-grammar-copula-choice-2.fill",
+          "type": "fill_blank",
+          "koreanText": "학생___",
+          "acceptedAnswers": [
+            "입니다",
+            "입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          }
+        },
+        {
+          "id": "wb-translate-student-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-translate-student-2.speaking",
+          "type": "speaking",
+          "koreanText": "저는 학생입니다.",
+          "expectedSpeech": "저는 학생입니다."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-1-lesson-6",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 3: dialogue",
+        "en": "Workbook practice 3: dialogue"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "dialogue",
+        "reply",
+        "fill_blank",
+        "self-introduction"
+      ],
+      "sourceExerciseIds": [
+        "wb-fill-nice",
+        "wb-order-jisu",
+        "wb-translate-jisu",
+        "wb-translate-nice"
+      ],
+      "coverageTags": [
+        "dialogue",
+        "reply",
+        "fill_blank",
+        "self-introduction",
+        "name",
+        "construction",
+        "translation",
+        "greeting"
+      ],
+      "tasks": [
+        {
+          "id": "wb-translate-nice-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nhan y nghia truoc roi moi go lai.",
+            "en": "Recognize the meaning before typing it back."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-translate-nice-1.listen",
+          "audioText": "반갑습니다.",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-translate-nice-1-correct",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            },
+            {
+              "id": "wb-translate-nice-1-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-translate-nice-1-d2",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-translate-nice-1-d3",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            }
+          ],
+          "answer": "wb-translate-nice-1-correct"
+        },
+        {
+          "id": "wb-fill-nice-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-fill-nice-2.grammar",
+          "supportText": {
+            "vi": "Toi cung rat vui duoc gap ban.",
+            "en": "Nice to meet you too."
+          },
+          "type": "grammar_select",
+          "koreanText": "저도 ___",
+          "choices": [
+            "반갑습니다",
+            "학생입니다",
+            "회사원입니다"
+          ],
+          "answer": "반갑습니다"
+        },
+        {
+          "id": "wb-translate-nice-2",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Go lai y nghia bang tri nho.",
+            "en": "Type the meaning from memory."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-translate-nice-2.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "rat vui duoc gap ban",
+            "en": "nice to meet you"
+          },
+          "koreanText": "반갑습니다.",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "wb-fill-nice-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb-fill-nice-1.fill",
+          "type": "fill_blank",
+          "koreanText": "저도 ___",
+          "acceptedAnswers": [
+            "반갑습니다."
+          ],
+          "choices": [
+            "반갑습니다",
+            "학생입니다",
+            "회사원입니다"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "Toi cung rat vui duoc gap ban.",
+            "en": "Nice to meet you too."
+          }
+        },
+        {
+          "id": "wb-order-jisu-1",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Xay lai cau theo dung trat tu tu nhien.",
+            "en": "Build the sentence back in natural order."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-order-jisu-1.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "저는 지수입니다.",
+            "en": "저는 지수입니다."
+          },
+          "wordBank": [
+            "저는",
+            "지수입니다.",
+            "반갑습니다.",
+            "안녕하세요."
+          ],
+          "answer": [
+            "저는",
+            "지수입니다."
+          ]
+        },
+        {
+          "id": "wb-translate-jisu-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-translate-jisu-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Toi la Jisu.",
+            "en": "I am Jisu."
+          },
+          "acceptedAnswers": [
+            "저는 지수입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb-order-jisu-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi to cau vua ghep de chuyen sang phan xa noi.",
+            "en": "Say the rebuilt sentence aloud to move into speaking reflex."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-order-jisu-2.speaking",
+          "type": "speaking",
+          "koreanText": "저는 지수입니다.",
+          "expectedSpeech": "저는 지수입니다."
+        },
+        {
+          "id": "wb-translate-jisu-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-translate-jisu-2.speaking",
+          "type": "speaking",
+          "koreanText": "저는 지수입니다.",
+          "expectedSpeech": "저는 지수입니다."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-1-lesson-7",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 4: name",
+        "en": "Workbook practice 4: name"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "name",
+        "copula",
+        "fill_blank",
+        "grammar"
+      ],
+      "sourceExerciseIds": [
+        "wb-fill-name-line",
+        "wb-grammar-ending",
+        "wb-fill-office-worker",
+        "wb-order-office-worker"
+      ],
+      "coverageTags": [
+        "name",
+        "copula",
+        "fill_blank",
+        "grammar",
+        "role",
+        "office-worker",
+        "construction"
+      ],
+      "tasks": [
+        {
+          "id": "wb-fill-name-line-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-fill-name-line-2.grammar",
+          "type": "grammar_select",
+          "koreanText": "저는 지수___",
+          "choices": [
+            "입니다",
+            "저",
+            "은"
+          ],
+          "answer": "입니다"
+        },
+        {
+          "id": "wb-grammar-ending-1",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nhac lai duoi cau lich su cot loi cua Unit 1.",
+            "en": "Revisit the core polite ending for Unit 1."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-grammar-ending-1.grammar",
+          "type": "grammar_select",
+          "koreanText": "학생 + ___",
+          "choices": [
+            "입니다",
+            "저",
+            "은"
+          ],
+          "answer": "입니다"
+        },
+        {
+          "id": "wb-fill-office-worker-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-fill-office-worker-2.grammar",
+          "supportText": {
+            "vi": "Toi la nhan vien cong ty.",
+            "en": "I am an office worker."
+          },
+          "type": "grammar_select",
+          "koreanText": "저는 ___입니다.",
+          "choices": [
+            "회사원",
+            "학생",
+            "의사"
+          ],
+          "answer": "회사원"
+        },
+        {
+          "id": "wb-fill-name-line-1",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb-fill-name-line-1.fill",
+          "type": "fill_blank",
+          "koreanText": "저는 지수___",
+          "acceptedAnswers": [
+            "입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          }
+        },
+        {
+          "id": "wb-grammar-ending-2",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien lai mo hinh N + copula.",
+            "en": "Fill the N + copula pattern again."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb-grammar-ending-2.fill",
+          "type": "fill_blank",
+          "koreanText": "학생___",
+          "acceptedAnswers": [
+            "입니다",
+            "입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          }
+        },
+        {
+          "id": "wb-fill-office-worker-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb-fill-office-worker-1.fill",
+          "type": "fill_blank",
+          "koreanText": "저는 ___입니다.",
+          "acceptedAnswers": [
+            "회사원"
+          ],
+          "choices": [
+            "회사원",
+            "학생",
+            "의사"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "Toi la nhan vien cong ty.",
+            "en": "I am an office worker."
+          }
+        },
+        {
+          "id": "wb-order-office-worker-1",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Xay lai cau theo dung trat tu tu nhien.",
+            "en": "Build the sentence back in natural order."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-order-office-worker-1.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Toi la nhan vien cong ty.",
+            "en": "I am an office worker."
+          },
+          "wordBank": [
+            "저는",
+            "회사원입니다.",
+            "안녕하세요.",
+            "반갑습니다."
+          ],
+          "answer": [
+            "저는",
+            "회사원입니다."
+          ]
+        },
+        {
+          "id": "wb-order-office-worker-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi to cau vua ghep de chuyen sang phan xa noi.",
+            "en": "Say the rebuilt sentence aloud to move into speaking reflex."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-order-office-worker-2.speaking",
+          "type": "speaking",
+          "koreanText": "저는 회사원입니다.",
+          "expectedSpeech": "저는 회사원입니다."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-1-lesson-8",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 5: role",
+        "en": "Workbook practice 5: role"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "role",
+        "office-worker",
+        "translation",
+        "student"
+      ],
+      "sourceExerciseIds": [
+        "wb-translate-office-worker",
+        "wb-listen-student",
+        "wb-write-doctor",
+        "wb-fill-intro-name"
+      ],
+      "coverageTags": [
+        "role",
+        "office-worker",
+        "translation",
+        "student",
+        "listening",
+        "copula",
+        "doctor",
+        "writing",
+        "self-introduction",
+        "fill_blank"
+      ],
+      "tasks": [
+        {
+          "id": "wb-listen-student-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Bai nghe ngan nen uu tien nhan dien nhanh.",
+            "en": "Short listening items begin with fast recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-listen-student-1.listen",
+          "audioText": "저는 학생입니다.",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-listen-student-1-correct",
+              "text": {
+                "vi": "Toi la hoc sinh.",
+                "en": "I am a student."
+              }
+            },
+            {
+              "id": "wb-listen-student-1-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-listen-student-1-d2",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-listen-student-1-d3",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            }
+          ],
+          "answer": "wb-listen-student-1-correct"
+        },
+        {
+          "id": "wb-listen-student-2",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
+            "en": "Once you hear it correctly, type the meaning to lock it in."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-listen-student-2.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "Toi la hoc sinh.",
+            "en": "I am a student."
+          },
+          "koreanText": "저는 학생입니다.",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "wb-fill-intro-name-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-fill-intro-name-2.grammar",
+          "supportText": {
+            "vi": "Toi la Minsu.",
+            "en": "I am Minsu."
+          },
+          "type": "grammar_select",
+          "koreanText": "___ 민수입니다.",
+          "choices": [
+            "저는",
+            "저도",
+            "학생은"
+          ],
+          "answer": "저는"
+        },
+        {
+          "id": "wb-translate-office-worker-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-translate-office-worker-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Toi la nhan vien cong ty.",
+            "en": "I am an office worker."
+          },
+          "acceptedAnswers": [
+            "저는 회사원입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb-write-doctor-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Viet lai cau dich tu nghia da biet.",
+            "en": "Rewrite the target sentence from the known meaning."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-write-doctor-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Toi la bac si.",
+            "en": "I am a doctor."
+          },
+          "acceptedAnswers": [
+            "저는 의사입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb-fill-intro-name-1",
+          "prompt": {
+            "vi": "Hoan thanh cau sau.",
+            "en": "Complete the sentence."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb-fill-intro-name-1.fill",
+          "type": "fill_blank",
+          "koreanText": "___ 민수입니다.",
+          "acceptedAnswers": [
+            "저는"
+          ],
+          "choices": [
+            "저는",
+            "저도",
+            "학생은"
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "Toi la Minsu.",
+            "en": "I am Minsu."
+          }
+        },
+        {
+          "id": "wb-translate-office-worker-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-translate-office-worker-2.speaking",
+          "type": "speaking",
+          "koreanText": "저는 회사원입니다.",
+          "expectedSpeech": "저는 회사원입니다."
+        },
+        {
+          "id": "wb-write-doctor-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Doc to cau vua viet de xay phan xa noi.",
+            "en": "Read the written sentence aloud to build speaking reflex."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-write-doctor-2.speaking",
+          "type": "speaking",
+          "koreanText": "저는 의사입니다.",
+          "expectedSpeech": "저는 의사입니다."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-1-lesson-9",
+      "lessonRole": "workbook_practice",
+      "title": {
+        "vi": "Luyen workbook 6: role",
+        "en": "Workbook practice 6: role"
+      },
+      "summary": {
+        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
+        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+      },
+      "difficulty": {
+        "vi": "Nho lai va xay cau",
+        "en": "Recall and construction"
+      },
+      "focusConcepts": [
+        "role",
+        "doctor",
+        "translation",
+        "self-introduction"
+      ],
+      "sourceExerciseIds": [
+        "wb-translate-doctor",
+        "wb-guided-selfintro",
+        "wb-listen-greeting",
+        "wb-qr-listen-country-left",
+        "wb-qr-listen-country-right"
+      ],
+      "coverageTags": [
+        "role",
+        "doctor",
+        "translation",
+        "self-introduction",
+        "writing",
+        "greeting",
+        "listening",
+        "qr-listening",
+        "country",
+        "flags",
+        "image-choice"
+      ],
+      "tasks": [
+        {
+          "id": "wb-translate-doctor-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nhan y nghia truoc roi moi go lai.",
+            "en": "Recognize the meaning before typing it back."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-translate-doctor-1.listen",
+          "audioText": "저는 의사입니다.",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-translate-doctor-1-correct",
+              "text": {
+                "vi": "Toi la bac si.",
+                "en": "I am a doctor."
+              }
+            },
+            {
+              "id": "wb-translate-doctor-1-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-translate-doctor-1-d2",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-translate-doctor-1-d3",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            }
+          ],
+          "answer": "wb-translate-doctor-1-correct"
+        },
+        {
+          "id": "wb-listen-greeting-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Bai nghe ngan nen uu tien nhan dien nhanh.",
+            "en": "Short listening items begin with fast recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-listen-greeting-1.listen",
+          "audioText": "안녕하세요",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-listen-greeting-1-correct",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-listen-greeting-1-d1",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-listen-greeting-1-d2",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            },
+            {
+              "id": "wb-listen-greeting-1-d3",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            }
+          ],
+          "answer": "wb-listen-greeting-1-correct"
+        },
+        {
+          "id": "wb-qr-listen-country-left-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-qr-listen-country-left-1.listen",
+          "supportText": {
+            "vi": "Nghe hoi thoai va chon la co quoc gia cua Natasha.",
+            "en": "Listen to the dialogue and choose Natasha's country flag."
+          },
+          "audioText": "듣고 말하기 1. 두 사람이 처음 만났습니다. 대화를 듣고 빈 칸에 알맞은 말을 쓰세요. 안녕하세요. 저는 지훈이에요. 안녕하세요. 저는 나타샤예요. 나타샤 씨는 어느 나라 사람이에요? 저는 러시아 사람이에요. 저는 한국 사람이에요. 학생이에요.",
+          "audioUrl": "/api/audio/1/wb-qr-country-1-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-qr-listen-country-left-south-korea",
+              "text": {
+                "vi": "Han Quoc",
+                "en": "South Korea"
+              },
+              "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-korea.png"
+            },
+            {
+              "id": "wb-qr-listen-country-left-united-states",
+              "text": {
+                "vi": "My",
+                "en": "United States"
+              },
+              "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-usa.png"
+            },
+            {
+              "id": "wb-qr-listen-country-left-vietnam",
+              "text": {
+                "vi": "Viet Nam",
+                "en": "Vietnam"
+              },
+              "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-vietnam.png"
+            },
+            {
+              "id": "wb-qr-listen-country-left-russia",
+              "text": {
+                "vi": "Nga",
+                "en": "Russia"
+              },
+              "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-russia.png"
+            }
+          ],
+          "answer": "wb-qr-listen-country-left-russia"
+        },
+        {
+          "id": "wb-qr-listen-country-right-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "en": "Listen to the real QR audio and choose the correct answer."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-qr-listen-country-right-1.listen",
+          "supportText": {
+            "vi": "Nghe hoi thoai va chon la co quoc gia cua Gayoung.",
+            "en": "Listen to the dialogue and choose Gayoung's country flag."
+          },
+          "audioText": "듣고 말하기 2. 다음을 듣고 무름에 답하세요. 안녕하세요. 저는 리사예요. 이름이 뭐예요? 안녕하세요. 저는 가영이에요. 가영 씨는 어느 나라 사람이에요? 저는 한국 사람이에요. 저는 미국 사람이에요. 영어 선생님이에요.",
+          "audioUrl": "/api/audio/1/wb-qr-country-2-audio",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-qr-listen-country-right-south-korea",
+              "text": {
+                "vi": "Han Quoc",
+                "en": "South Korea"
+              },
+              "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-korea.png"
+            },
+            {
+              "id": "wb-qr-listen-country-right-united-states",
+              "text": {
+                "vi": "My",
+                "en": "United States"
+              },
+              "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-usa.png"
+            },
+            {
+              "id": "wb-qr-listen-country-right-vietnam",
+              "text": {
+                "vi": "Viet Nam",
+                "en": "Vietnam"
+              },
+              "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-vietnam.png"
+            },
+            {
+              "id": "wb-qr-listen-country-right-russia",
+              "text": {
+                "vi": "Nga",
+                "en": "Russia"
+              },
+              "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-russia.png"
+            }
+          ],
+          "answer": "wb-qr-listen-country-right-south-korea"
+        },
+        {
+          "id": "wb-translate-doctor-2",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Go lai y nghia bang tri nho.",
+            "en": "Type the meaning from memory."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-translate-doctor-2.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "Toi la bac si.",
+            "en": "I am a doctor."
+          },
+          "koreanText": "저는 의사입니다.",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "wb-listen-greeting-2",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
+            "en": "Once you hear it correctly, type the meaning to lock it in."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-listen-greeting-2.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "xin chao",
+            "en": "hello"
+          },
+          "koreanText": "안녕하세요",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "wb-guided-selfintro-1",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Ghep lai cum cau tu gioi thieu ngan.",
+            "en": "Rebuild the short self-introduction script."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-guided-selfintro-1.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Tu gioi thieu ngan",
+            "en": "Short self-introduction"
+          },
+          "wordBank": [
+            "안녕하세요.",
+            "저는",
+            "지수입니다."
+          ],
+          "answer": [
+            "안녕하세요.",
+            "저는",
+            "지수입니다."
+          ]
+        },
+        {
+          "id": "wb-guided-selfintro-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi tron mini script de mo phong speaking.",
+            "en": "Say the full mini script to simulate a speaking prompt."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-guided-selfintro-2.speaking",
+          "type": "speaking",
+          "koreanText": "안녕하세요. 저는 지수입니다.",
+          "expectedSpeech": "안녕하세요. 저는 지수입니다."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-1-lesson-10",
+      "lessonRole": "review",
+      "title": {
+        "vi": "On workbook 1",
+        "en": "Review checkpoint 1"
+      },
+      "summary": {
+        "vi": "On lai cac loi hay gap truoc khi vao phan tong hop cuoi.",
+        "en": "Review common mistake patterns before the final cumulative pass."
+      },
+      "difficulty": {
+        "vi": "On tap tong hop",
+        "en": "Cumulative production"
+      },
+      "focusConcepts": [
+        "review",
+        "copula",
+        "translation",
+        "workbook"
+      ],
+      "sourceExerciseIds": [
+        "wb-fill-student-ending",
+        "wb-translate-student",
+        "wb-translate-hello",
+        "wb-grammar-ending"
+      ],
+      "coverageTags": [
+        "grammar",
+        "copula",
+        "student",
+        "translation",
+        "greeting"
+      ],
+      "tasks": [
+        {
+          "id": "wb-translate-hello-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nhan y nghia truoc roi moi go lai.",
+            "en": "Recognize the meaning before typing it back."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-translate-hello-1.listen",
+          "audioText": "안녕하세요.",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-translate-hello-1-correct",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-translate-hello-1-d1",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-translate-hello-1-d2",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            },
+            {
+              "id": "wb-translate-hello-1-d3",
+              "text": {
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              }
+            }
+          ],
+          "answer": "wb-translate-hello-1-correct"
+        },
+        {
+          "id": "wb-fill-student-ending-2",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "en": "Choose the answer again to avoid mixing up the ending or key noun."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-fill-student-ending-2.grammar",
+          "type": "grammar_select",
+          "koreanText": "저는 학생___",
+          "choices": [
+            "입니다",
+            "저",
+            "은"
+          ],
+          "answer": "입니다"
+        },
+        {
+          "id": "wb-translate-hello-2",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Go lai y nghia bang tri nho.",
+            "en": "Type the meaning from memory."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-translate-hello-2.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "xin chao",
+            "en": "hello"
+          },
+          "koreanText": "안녕하세요.",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "wb-grammar-ending-1",
+          "prompt": {
+            "vi": "Chon dap an dung.",
+            "en": "Choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nhac lai duoi cau lich su cot loi cua Unit 1.",
+            "en": "Revisit the core polite ending for Unit 1."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-grammar-ending-1.grammar",
+          "type": "grammar_select",
+          "koreanText": "학생 + ___",
+          "choices": [
+            "입니다",
+            "저",
+            "은"
+          ],
+          "answer": "입니다"
+        },
+        {
+          "id": "wb-fill-student-ending-1",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "en": "Fill the missing part of the sentence pattern."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb-fill-student-ending-1.fill",
+          "type": "fill_blank",
+          "koreanText": "저는 학생___",
+          "acceptedAnswers": [
+            "입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "Toi la hoc sinh.",
+            "en": "I am a student."
+          }
+        },
+        {
+          "id": "wb-translate-student-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-translate-student-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Toi la hoc sinh.",
+            "en": "I am a student."
+          },
+          "acceptedAnswers": [
+            "저는 학생입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb-grammar-ending-2",
+          "prompt": {
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
+          },
+          "explanation": {
+            "vi": "Dien lai mo hinh N + copula.",
+            "en": "Fill the N + copula pattern again."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "wb-grammar-ending-2.fill",
+          "type": "fill_blank",
+          "koreanText": "학생___",
+          "acceptedAnswers": [
+            "입니다",
+            "입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          }
+        },
+        {
+          "id": "review-a-extra",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Keo lai cau gioi thieu goc de noi sang phan tong hop.",
+            "en": "Bring back the original introduction to bridge into the cumulative section."
+          },
+          "source": "blended",
+          "stage": "construction",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "review-a-extra.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Xin chao. Toi la Minsu.",
+            "en": "Hello. I am Minsu."
+          },
+          "wordBank": [
+            "민수입니다.",
+            "저는",
+            "안녕하세요."
+          ],
+          "answer": [
+            "안녕하세요.",
+            "저는",
+            "민수입니다."
+          ]
+        },
+        {
+          "id": "wb-translate-student-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-translate-student-2.speaking",
+          "type": "speaking",
+          "koreanText": "저는 학생입니다.",
+          "expectedSpeech": "저는 학생입니다."
+        }
+      ]
+    },
+    {
+      "lessonId": "unit-1-lesson-11",
+      "lessonRole": "review",
+      "title": {
+        "vi": "On tap tong hop",
+        "en": "Cumulative review"
+      },
+      "summary": {
+        "vi": "Khoa lai Unit 1 bang nhieu cau phai tu go va tu noi hon.",
+        "en": "Lock in Unit 1 with more prompts that require typing and speaking on your own."
+      },
+      "difficulty": {
+        "vi": "On tap tong hop",
+        "en": "Cumulative production"
+      },
+      "focusConcepts": [
+        "review",
+        "production",
+        "self-introduction",
+        "dialogue"
+      ],
+      "sourceExerciseIds": [
+        "wb-translate-office-worker",
+        "wb-write-doctor",
+        "wb-translate-doctor",
+        "wb-guided-selfintro"
+      ],
+      "coverageTags": [
+        "role",
+        "office-worker",
+        "translation",
+        "doctor",
+        "writing",
+        "self-introduction",
+        "greeting"
+      ],
+      "tasks": [
+        {
+          "id": "wb-translate-doctor-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Nhan y nghia truoc roi moi go lai.",
+            "en": "Recognize the meaning before typing it back."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-translate-doctor-1.listen",
+          "audioText": "저는 의사입니다.",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-translate-doctor-1-correct",
+              "text": {
+                "vi": "Toi la bac si.",
+                "en": "I am a doctor."
+              }
+            },
+            {
+              "id": "wb-translate-doctor-1-d1",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-translate-doctor-1-d2",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            },
+            {
+              "id": "wb-translate-doctor-1-d3",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            }
+          ],
+          "answer": "wb-translate-doctor-1-correct"
+        },
+        {
+          "id": "wb-translate-doctor-2",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Go lai y nghia bang tri nho.",
+            "en": "Type the meaning from memory."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-translate-doctor-2.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "Toi la bac si.",
+            "en": "I am a doctor."
+          },
+          "koreanText": "저는 의사입니다.",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
+        },
+        {
+          "id": "wb-translate-office-worker-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "en": "Translate the meaning into a full Korean sentence."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-translate-office-worker-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Toi la nhan vien cong ty.",
+            "en": "I am an office worker."
+          },
+          "acceptedAnswers": [
+            "저는 회사원입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb-write-doctor-1",
+          "prompt": {
+            "vi": "Dich y nghia sang tieng Han.",
+            "en": "Translate the meaning into Korean."
+          },
+          "explanation": {
+            "vi": "Viet lai cau dich tu nghia da biet.",
+            "en": "Rewrite the target sentence from the known meaning."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-write-doctor-1.translate",
+          "type": "translate",
+          "direction": "meaning_to_ko",
+          "meaning": {
+            "vi": "Toi la bac si.",
+            "en": "I am a doctor."
+          },
+          "acceptedAnswers": [
+            "저는 의사입니다."
+          ],
+          "placeholder": {
+            "vi": "Nhap cau tieng Han",
+            "en": "Type the Korean sentence"
+          }
+        },
+        {
+          "id": "wb-guided-selfintro-1",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Ghep lai cum cau tu gioi thieu ngan.",
+            "en": "Rebuild the short self-introduction script."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "wb-guided-selfintro-1.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Tu gioi thieu ngan",
+            "en": "Short self-introduction"
+          },
+          "wordBank": [
+            "안녕하세요.",
+            "저는",
+            "지수입니다."
+          ],
+          "answer": [
+            "안녕하세요.",
+            "저는",
+            "지수입니다."
+          ]
+        },
+        {
+          "id": "wb-translate-office-worker-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "en": "Say the translated sentence aloud to strengthen active production."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-translate-office-worker-2.speaking",
+          "type": "speaking",
+          "koreanText": "저는 회사원입니다.",
+          "expectedSpeech": "저는 회사원입니다."
+        },
+        {
+          "id": "wb-write-doctor-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Doc to cau vua viet de xay phan xa noi.",
+            "en": "Read the written sentence aloud to build speaking reflex."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-write-doctor-2.speaking",
+          "type": "speaking",
+          "koreanText": "저는 의사입니다.",
+          "expectedSpeech": "저는 의사입니다."
+        },
+        {
+          "id": "wb-guided-selfintro-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi tron mini script de mo phong speaking.",
+            "en": "Say the full mini script to simulate a speaking prompt."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "wb-guided-selfintro-2.speaking",
+          "type": "speaking",
+          "koreanText": "안녕하세요. 저는 지수입니다.",
+          "expectedSpeech": "안녕하세요. 저는 지수입니다."
+        },
+        {
+          "id": "review-b-extra-1",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi tron loi chao va ten voi do tu dong cao hon.",
+            "en": "Say the full greeting and name with more automaticity."
+          },
+          "source": "blended",
+          "stage": "production",
+          "grammarTags": [
+            "N + 저는"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "review-b-extra-1.speaking",
+          "type": "speaking",
+          "koreanText": "안녕하세요. 저는 민수입니다.",
+          "expectedSpeech": "안녕하세요. 저는 민수입니다."
+        },
+        {
+          "id": "review-b-extra-2",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Ket unit bang mot mini self-introduction day du hon.",
+            "en": "Close the unit with a fuller mini self-introduction."
+          },
+          "source": "blended",
+          "stage": "production",
+          "grammarTags": [
+            "N + copula"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "review-b-extra-2.speaking",
+          "type": "speaking",
+          "koreanText": "안녕하세요 저는 학생입니다. 반갑습니다",
+          "expectedSpeech": "안녕하세요 저는 학생입니다. 반갑습니다"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+.next/
+node_modules/
+out/
+build/
+dist/
+coverage/
+*.log
+*.tsbuildinfo
+.tmp-plan-pages-hi/
+tmp-workbook-page20.png

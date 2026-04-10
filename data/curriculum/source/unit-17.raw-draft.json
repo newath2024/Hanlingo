@@ -1,0 +1,781 @@
+{
+  "unitId": "17",
+  "unitNumber": 17,
+  "extractionMode": "seeded_raw_blocks",
+  "blocks": [
+    {
+      "id": "v-housewarming-seed",
+      "document": "textbook",
+      "page": 221,
+      "kind": "vocab",
+      "text": "집들이",
+      "confidence": 0.98,
+      "sourceItemId": "v-housewarming",
+      "needsReview": true
+    },
+    {
+      "id": "v-invitation-seed",
+      "document": "textbook",
+      "page": 221,
+      "kind": "vocab",
+      "text": "초대",
+      "confidence": 0.98,
+      "sourceItemId": "v-invitation",
+      "needsReview": true
+    },
+    {
+      "id": "v-invitation-card-seed",
+      "document": "textbook",
+      "page": 221,
+      "kind": "vocab",
+      "text": "초대장",
+      "confidence": 0.98,
+      "sourceItemId": "v-invitation-card",
+      "needsReview": true
+    },
+    {
+      "id": "v-tissue-seed",
+      "document": "textbook",
+      "page": 221,
+      "kind": "vocab",
+      "text": "휴지",
+      "confidence": 0.98,
+      "sourceItemId": "v-tissue",
+      "needsReview": true
+    },
+    {
+      "id": "v-detergent-seed",
+      "document": "textbook",
+      "page": 221,
+      "kind": "vocab",
+      "text": "세제",
+      "confidence": 0.98,
+      "sourceItemId": "v-detergent",
+      "needsReview": true
+    },
+    {
+      "id": "v-move-seed",
+      "document": "textbook",
+      "page": 221,
+      "kind": "vocab",
+      "text": "새집으로 이사해서 기분이 좋아요.",
+      "confidence": 0.98,
+      "sourceItemId": "v-move",
+      "needsReview": true
+    },
+    {
+      "id": "v-help-seed",
+      "document": "textbook",
+      "page": 221,
+      "kind": "vocab",
+      "text": "짐 좀 도와줄 수 있어요?",
+      "confidence": 0.98,
+      "sourceItemId": "v-help",
+      "needsReview": true
+    },
+    {
+      "id": "v-invite-verb-seed",
+      "document": "textbook",
+      "page": 221,
+      "kind": "vocab",
+      "text": "생일 파티에 누구를 초대하고 싶어요?",
+      "confidence": 0.98,
+      "sourceItemId": "v-invite-verb",
+      "needsReview": true
+    },
+    {
+      "id": "v-prepare-seed",
+      "document": "textbook",
+      "page": 221,
+      "kind": "vocab",
+      "text": "한국 음식을 준비할 거예요.",
+      "confidence": 0.98,
+      "sourceItemId": "v-prepare",
+      "needsReview": true
+    },
+    {
+      "id": "g-must-do-seed",
+      "document": "textbook",
+      "page": 223,
+      "kind": "grammar",
+      "text": "동사 + -아/어야 되다",
+      "confidence": 0.98,
+      "sourceItemId": "g-must-do",
+      "needsReview": true
+    },
+    {
+      "id": "g-goyo-seed",
+      "document": "textbook",
+      "page": 224,
+      "kind": "grammar",
+      "text": "동사 + -고요",
+      "confidence": 0.98,
+      "sourceItemId": "g-goyo",
+      "needsReview": true
+    },
+    {
+      "id": "d-usual-housewarming-q-seed",
+      "document": "textbook",
+      "page": 224,
+      "kind": "dialogue",
+      "text": "지훈 씨, 집들이에서 보통 뭘 해요?",
+      "confidence": 0.98,
+      "sourceItemId": "d-usual-housewarming-q",
+      "needsReview": true
+    },
+    {
+      "id": "d-housewarming-activities-seed",
+      "document": "textbook",
+      "page": 224,
+      "kind": "dialogue",
+      "text": "집을 구경해요. 같이 식사도 하고요.",
+      "confidence": 0.98,
+      "sourceItemId": "d-housewarming-activities",
+      "needsReview": true
+    },
+    {
+      "id": "d-weekend-housewarming-seed",
+      "document": "textbook",
+      "page": 223,
+      "kind": "dialogue",
+      "text": "리사 씨, 주말에 집들이를 하려고 해요. 올 수 있어요?",
+      "confidence": 0.98,
+      "sourceItemId": "d-weekend-housewarming",
+      "needsReview": true
+    },
+    {
+      "id": "d-help-offer-question-seed",
+      "document": "textbook",
+      "page": 223,
+      "kind": "dialogue",
+      "text": "그럼요. 제가 좀 도와줄까요?",
+      "confidence": 0.98,
+      "sourceItemId": "d-help-offer-question",
+      "needsReview": true
+    },
+    {
+      "id": "d-must-make-food-seed",
+      "document": "textbook",
+      "page": 223,
+      "kind": "dialogue",
+      "text": "고마워요. 음식을 만들어야 돼요.",
+      "confidence": 0.98,
+      "sourceItemId": "d-must-make-food",
+      "needsReview": true
+    },
+    {
+      "id": "d-come-early-seed",
+      "document": "textbook",
+      "page": 223,
+      "kind": "dialogue",
+      "text": "그럼 좀 일찍 오세요.",
+      "confidence": 0.98,
+      "sourceItemId": "d-come-early",
+      "needsReview": true
+    },
+    {
+      "id": "ex-help-request-seed",
+      "document": "textbook",
+      "page": 222,
+      "kind": "example",
+      "text": "저 좀 도와줄 수 있어요?",
+      "confidence": 0.98,
+      "sourceItemId": "ex-help-request",
+      "needsReview": true
+    },
+    {
+      "id": "ex-help-offer-seed",
+      "document": "textbook",
+      "page": 222,
+      "kind": "example",
+      "text": "제가 도와 드릴게요.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-help-offer",
+      "needsReview": true
+    },
+    {
+      "id": "ex-must-buy-seed",
+      "document": "textbook",
+      "page": 220,
+      "kind": "example",
+      "text": "집들이에 뭘 사 가야 돼요?",
+      "confidence": 0.98,
+      "sourceItemId": "ex-must-buy",
+      "needsReview": true
+    },
+    {
+      "id": "ex-must-make-food-seed",
+      "document": "textbook",
+      "page": 223,
+      "kind": "example",
+      "text": "음식을 만들어야 돼요.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-must-make-food",
+      "needsReview": true
+    },
+    {
+      "id": "ex-healthy-too-seed",
+      "document": "textbook",
+      "page": 224,
+      "kind": "example",
+      "text": "건강에도 좋고요.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-healthy-too",
+      "needsReview": true
+    },
+    {
+      "id": "ex-delicious-too-seed",
+      "document": "textbook",
+      "page": 224,
+      "kind": "example",
+      "text": "경치가 예뻐요. 음식도 맛있고요.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-delicious-too",
+      "needsReview": true
+    },
+    {
+      "id": "ex-look-around-seed",
+      "document": "textbook",
+      "page": 224,
+      "kind": "example",
+      "text": "집을 구경해요. 같이 식사도 하고요.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-look-around",
+      "needsReview": true
+    },
+    {
+      "id": "ex-email-what-do-seed",
+      "document": "textbook",
+      "page": 229,
+      "kind": "example",
+      "text": "집들이에서 뭘 해야 돼요?",
+      "confidence": 0.98,
+      "sourceItemId": "ex-email-what-do",
+      "needsReview": true
+    },
+    {
+      "id": "ex-email-what-food-seed",
+      "document": "textbook",
+      "page": 229,
+      "kind": "example",
+      "text": "집들이에 어떤 음식을 준비해야 돼요?",
+      "confidence": 0.98,
+      "sourceItemId": "ex-email-what-food",
+      "needsReview": true
+    },
+    {
+      "id": "ex-must-bring-swim-cap-seed",
+      "document": "textbook",
+      "page": 291,
+      "kind": "example",
+      "text": "그리고 수영 모자도 가져가야 해요.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-must-bring-swim-cap",
+      "needsReview": true
+    },
+    {
+      "id": "ex-travel-place-seed",
+      "document": "textbook",
+      "page": 293,
+      "kind": "example",
+      "text": "서울에 가고 싶어요. 부산도 가고요.",
+      "confidence": 0.98,
+      "sourceItemId": "ex-travel-place",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-write-housewarming-seed",
+      "document": "workbook",
+      "page": 277,
+      "kind": "exercise",
+      "text": "집들이 어휘를 쓰세요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-write-housewarming",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-write-invite-seed",
+      "document": "workbook",
+      "page": 277,
+      "kind": "exercise",
+      "text": "초대 어휘를 쓰세요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-write-invite",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-must-form-eat-seed",
+      "document": "workbook",
+      "page": 277,
+      "kind": "exercise",
+      "text": "먹다 -> 먹어야 되다",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-must-form-eat",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-goyo-form-make-seed",
+      "document": "workbook",
+      "page": 278,
+      "kind": "exercise",
+      "text": "만들다 -> 만들고요",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-goyo-form-make",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-match-housewarming-picture-seed",
+      "document": "workbook",
+      "page": 279,
+      "kind": "exercise",
+      "text": "그림 보고 맞는 것을 골라 쓰세요. 집들이",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-match-housewarming-picture",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-match-invitation-card-picture-seed",
+      "document": "workbook",
+      "page": 279,
+      "kind": "exercise",
+      "text": "그림 보고 맞는 것을 골라 쓰세요. 초대장",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-match-invitation-card-picture",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-match-tissue-picture-seed",
+      "document": "workbook",
+      "page": 279,
+      "kind": "exercise",
+      "text": "그림 보고 맞는 것을 골라 쓰세요. 휴지",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-match-tissue-picture",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-match-detergent-picture-seed",
+      "document": "workbook",
+      "page": 279,
+      "kind": "exercise",
+      "text": "그림 보고 맞는 것을 골라 쓰세요. 세제",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-match-detergent-picture",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-chat-housewarming-seed",
+      "document": "workbook",
+      "page": 280,
+      "kind": "exercise",
+      "text": "내일 집들이에 뭘 사 갈까요?",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-chat-housewarming",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-chat-detergent-seed",
+      "document": "workbook",
+      "page": 280,
+      "kind": "exercise",
+      "text": "보통 세제를 사 가요. 휴지도 좋고요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-chat-detergent",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-chat-tissue-seed",
+      "document": "workbook",
+      "page": 280,
+      "kind": "exercise",
+      "text": "그럼 휴지를 사 갑시다. 내일 봐요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-chat-tissue",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-dialogue-help-request-seed",
+      "document": "workbook",
+      "page": 281,
+      "kind": "exercise",
+      "text": "죄송하지만 저 좀 도와줄 수 있어요?",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-dialogue-help-request",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-dialogue-help-offer-seed",
+      "document": "workbook",
+      "page": 281,
+      "kind": "exercise",
+      "text": "네, 제가 도와 드릴게요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-dialogue-help-offer",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-must-study-seed",
+      "document": "workbook",
+      "page": 284,
+      "kind": "exercise",
+      "text": "안 돼요. 한국어 공부를 해야 돼요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-must-study",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-must-meet-friend-seed",
+      "document": "workbook",
+      "page": 284,
+      "kind": "exercise",
+      "text": "친구들 약속이 있어요. 친구를 만나야 돼요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-must-meet-friend",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-must-go-hospital-seed",
+      "document": "workbook",
+      "page": 284,
+      "kind": "exercise",
+      "text": "몸이 안 좋아서 병원에 가야 돼요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-must-go-hospital",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-must-practice-speaking-seed",
+      "document": "workbook",
+      "page": 284,
+      "kind": "exercise",
+      "text": "그래서 한국어 말하기를 연습해야 돼요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-must-practice-speaking",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-goyo-school-food-seed",
+      "document": "workbook",
+      "page": 285,
+      "kind": "exercise",
+      "text": "직원들이 친절해요. 음식도 맛있고요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-goyo-school-food",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-goyo-make-friends-seed",
+      "document": "workbook",
+      "page": 285,
+      "kind": "exercise",
+      "text": "재미있어요. 친구도 사귈 수 있고요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-goyo-make-friends",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-email-hi-seed",
+      "document": "workbook",
+      "page": 289,
+      "kind": "exercise",
+      "text": "지연 씨, 오랜만이에요. 잘 지냈어요?",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-email-hi",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-email-do-seed",
+      "document": "workbook",
+      "page": 289,
+      "kind": "exercise",
+      "text": "집들이에서 뭘 해야 돼요?",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-email-do",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-email-food-seed",
+      "document": "workbook",
+      "page": 289,
+      "kind": "exercise",
+      "text": "집들이에 어떤 음식을 준비해야 돼요?",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-email-food",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-email-message-seed",
+      "document": "workbook",
+      "page": 289,
+      "kind": "exercise",
+      "text": "메일 주세요. 메시지도 되고요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-email-message",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-travel-place-seed",
+      "document": "workbook",
+      "page": 293,
+      "kind": "exercise",
+      "text": "서울에 가고 싶어요. 부산도 가고요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-travel-place",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-qr-party-time-seed",
+      "document": "workbook",
+      "page": 287,
+      "kind": "exercise",
+      "text": "내일 샤오위 씨, 집들이가 몇 시예요? 저녁 여섯 시예요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-qr-party-time",
+      "needsReview": true
+    },
+    {
+      "id": "wb17-qr-buy-gifts-seed",
+      "document": "workbook",
+      "page": 287,
+      "kind": "exercise",
+      "text": "보통 세제를 사 가고, 휴지도 사 가요. 그럼 휴지하고 세제를 제가 사 갈까요?",
+      "confidence": 0.98,
+      "sourceItemId": "wb17-qr-buy-gifts",
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-225-placeholder",
+      "document": "textbook",
+      "page": 225,
+      "kind": "unknown",
+      "text": "Page 225 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-226-placeholder",
+      "document": "textbook",
+      "page": 226,
+      "kind": "unknown",
+      "text": "Page 226 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-227-placeholder",
+      "document": "textbook",
+      "page": 227,
+      "kind": "unknown",
+      "text": "Page 227 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-228-placeholder",
+      "document": "textbook",
+      "page": 228,
+      "kind": "unknown",
+      "text": "Page 228 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-230-placeholder",
+      "document": "textbook",
+      "page": 230,
+      "kind": "unknown",
+      "text": "Page 230 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "textbook-page-231-placeholder",
+      "document": "textbook",
+      "page": 231,
+      "kind": "unknown",
+      "text": "Page 231 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-282-placeholder",
+      "document": "workbook",
+      "page": 282,
+      "kind": "unknown",
+      "text": "Page 282 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-283-placeholder",
+      "document": "workbook",
+      "page": 283,
+      "kind": "unknown",
+      "text": "Page 283 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-286-placeholder",
+      "document": "workbook",
+      "page": 286,
+      "kind": "unknown",
+      "text": "Page 286 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-288-placeholder",
+      "document": "workbook",
+      "page": 288,
+      "kind": "unknown",
+      "text": "Page 288 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-290-placeholder",
+      "document": "workbook",
+      "page": 290,
+      "kind": "unknown",
+      "text": "Page 290 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-291-placeholder",
+      "document": "workbook",
+      "page": 291,
+      "kind": "unknown",
+      "text": "Page 291 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-292-placeholder",
+      "document": "workbook",
+      "page": 292,
+      "kind": "unknown",
+      "text": "Page 292 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    },
+    {
+      "id": "workbook-page-294-placeholder",
+      "document": "workbook",
+      "page": 294,
+      "kind": "unknown",
+      "text": "Page 294 captured but not normalized yet.",
+      "confidence": 0,
+      "needsReview": true
+    }
+  ],
+  "qrDetections": [
+    {
+      "id": "workbook-p287-qr-1",
+      "document": "workbook",
+      "page": 287,
+      "qrValue": "http://m.site.naver.com/0YybK",
+      "bounds": {
+        "x": 746.6054808854237,
+        "y": 326.6054808854237,
+        "width": 61.02404905608978,
+        "height": 61.33888801060806
+      },
+      "needsReview": true,
+      "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/17_02_01.mp3"
+    },
+    {
+      "id": "workbook-p288-qr-2",
+      "document": "workbook",
+      "page": 288,
+      "qrValue": "http://m.site.naver.com/0Yyc0",
+      "bounds": {
+        "x": 775.5094580549369,
+        "y": 139.981541925316,
+        "width": 61.15814967975916,
+        "height": 61.32954938871518
+      },
+      "needsReview": true,
+      "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/17_02_02.mp3"
+    }
+  ],
+  "imageCrops": [],
+  "pageIssues": [
+    {
+      "document": "textbook",
+      "page": 225,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 226,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 227,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 228,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 230,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "textbook",
+      "page": 231,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 282,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 283,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 286,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 288,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 290,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 291,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 292,
+      "reason": "No normalized items mapped to this page yet."
+    },
+    {
+      "document": "workbook",
+      "page": 294,
+      "reason": "No normalized items mapped to this page yet."
+    }
+  ],
+  "reviewNotes": [
+    "Seeded raw blocks mirror the reviewed Unit 1 content because the local pilot PDFs do not expose a usable text layer.",
+    "Pages without mapped items are emitted as placeholder unknown blocks instead of being silently skipped.",
+    "Swap these blocks with OCR or vision output when richer PDF extraction is available."
+  ]
+}

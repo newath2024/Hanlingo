@@ -1,0 +1,35 @@
+{
+  "name": "hanlingo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "curriculum:extract": "tsx scripts/curriculum/cli.ts extract --unit 1",
+    "curriculum:generate": "tsx scripts/curriculum/cli.ts generate --unit 1",
+    "curriculum:validate": "tsx scripts/curriculum/cli.ts validate --unit 1",
+    "curriculum:pilot": "tsx scripts/curriculum/cli.ts pilot --unit 1"
+  },
+  "dependencies": {
+    "next": "16.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^0.1.97",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.3",
+    "jsqr": "^1.4.0",
+    "pdfjs-dist": "^5.6.205",
+    "tailwindcss": "^4",
+    "tsx": "^4.21.0",
+    "typescript": "^5",
+    "zod": "^4.3.6"
+  }
+}
