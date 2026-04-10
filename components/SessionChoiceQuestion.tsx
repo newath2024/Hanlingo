@@ -2,14 +2,20 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { getLocalizedText } from "@/lib/localized";
-import { containsKoreanText, speakKoreanText } from "@/lib/speech";
+import {
+  containsKoreanText,
+  isLikelyKoreanVocabText,
+  playAudioUrl,
+  playFeedbackTone,
+  speakKoreanText,
+} from "@/lib/speech";
 import Image from "next/image";
 import type {
   GrammarChoiceSessionItem,
   LocalizedChoiceSessionItem,
   SessionItemResult,
 } from "@/types/session";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type SessionChoiceQuestionProps = {
   item: LocalizedChoiceSessionItem | GrammarChoiceSessionItem;
@@ -78,19 +84,42 @@ function getSessionItemLabel(
   return getLocalizedText({ en: "Word Match", vi: "Noi tu" }, locale);
 }
 
+function getPromptReplayText(item: SessionChoiceQuestionProps["item"]) {
+  if ("audioText" in item && item.audioText && isLikelyKoreanVocabText(item.audioText)) {
+    return item.audioText;
+  }
+
+  if (item.koreanText && isLikelyKoreanVocabText(item.koreanText)) {
+    return item.koreanText;
+  }
+
+  return null;
+}
+
+function isKoreanVocabQuestion(item: SessionChoiceQuestionProps["item"]) {
+  if (item.type !== "word_match" && item.type !== "listen_select") {
+    return false;
+  }
+
+  return Boolean(getPromptReplayText(item));
+}
+
 export default function SessionChoiceQuestion({
   item,
   onResolve,
 }: SessionChoiceQuestionProps) {
   const { locale } = useAppLocale();
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const didAutoplayRef = useRef(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const prompt = getLocalizedText(item.prompt, locale);
   const supportText = item.supportText ? getLocalizedText(item.supportText, locale) : "";
+  const replayText = getPromptReplayText(item);
+  const isVocabQuestion = isKoreanVocabQuestion(item);
   const hasAudio =
     ("audioUrl" in item && Boolean(item.audioUrl)) ||
-    ("audioText" in item && Boolean(item.audioText));
+    ("audioText" in item && Boolean(item.audioText)) ||
+    Boolean(replayText);
   const ui = (en: string, vi: string) => getLocalizedText({ en, vi }, locale);
   const supportLabel =
     supportText && item.type === "grammar_select"
@@ -99,58 +128,49 @@ export default function SessionChoiceQuestion({
 
   useEffect(() => {
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-
       if (typeof window !== "undefined" && "speechSynthesis" in window) {
         window.speechSynthesis.cancel();
       }
     };
   }, []);
 
-  async function handlePlayAudio() {
+  useEffect(() => {
+    didAutoplayRef.current = false;
+  }, [item.id]);
+
+  const handlePlayAudio = useCallback(async () => {
     if (typeof window === "undefined") {
       return;
     }
 
     if ("audioUrl" in item && item.audioUrl) {
-      if (
-        !audioRef.current ||
-        audioRef.current.src !== new URL(item.audioUrl, window.location.origin).toString()
-      ) {
-        audioRef.current?.pause();
-        audioRef.current = new Audio(item.audioUrl);
-        audioRef.current.onplay = () => setIsPlaying(true);
-        audioRef.current.onended = () => setIsPlaying(false);
-        audioRef.current.onpause = () => setIsPlaying(false);
-        audioRef.current.onerror = () => setIsPlaying(false);
-      }
-
-      audioRef.current.currentTime = 0;
-
-      try {
-        await audioRef.current.play();
-      } catch {
-        setIsPlaying(false);
-      }
-
+      await playAudioUrl(item.audioUrl, {
+        onStart: () => setIsPlaying(true),
+        onEnd: () => setIsPlaying(false),
+        onError: () => setIsPlaying(false),
+      });
       return;
     }
 
-    if (
-      "audioText" in item &&
-      item.audioText &&
-      speakKoreanText(item.audioText, {
+    if (replayText) {
+      speakKoreanText(replayText, {
         rate: 0.9,
         onStart: () => setIsPlaying(true),
         onEnd: () => setIsPlaying(false),
         onError: () => setIsPlaying(false),
-      })
-    ) {
+      });
       return;
     }
-  }
+  }, [item, replayText]);
+
+  useEffect(() => {
+    if (!isVocabQuestion || didAutoplayRef.current) {
+      return;
+    }
+
+    didAutoplayRef.current = true;
+    void handlePlayAudio();
+  }, [handlePlayAudio, isVocabQuestion, item.id]);
 
   function handleOptionSelect(optionId: string, spokenText?: string) {
     setSelectedOption(optionId);
@@ -174,6 +194,9 @@ export default function SessionChoiceQuestion({
     }
 
     const wasCorrect = selectedOption === item.answer;
+    if (isVocabQuestion) {
+      playFeedbackTone(wasCorrect ? "correct" : "wrong");
+    }
 
     onResolve({
       status: wasCorrect ? "correct" : "incorrect",
@@ -199,7 +222,7 @@ export default function SessionChoiceQuestion({
               {getInstruction(locale, item)}
             </h3>
           </div>
-          {hasAudio ? (
+          {hasAudio && !isVocabQuestion ? (
             <button type="button" onClick={handlePlayAudio} className="secondary-button">
               {isPlaying ? ui("Playing...", "Dang phat...") : ui("Play audio", "Phat audio")}
             </button>
@@ -216,7 +239,27 @@ export default function SessionChoiceQuestion({
               {prompt}
             </p>
 
-            {item.koreanText ? <p className="mt-4 korean-display">{item.koreanText}</p> : null}
+            {item.koreanText ? (
+              <div className="mt-4 flex items-start justify-between gap-3">
+                <p className="korean-display">{item.koreanText}</p>
+                {isVocabQuestion ? (
+                  <button
+                    type="button"
+                    onClick={() => void handlePlayAudio()}
+                    aria-label={ui("Replay Korean audio", "Phat lai audio tieng Han")}
+                    className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent/15 bg-white text-xl text-accent-strong shadow-[0_10px_24px_rgba(47,92,51,0.08)] transition hover:border-accent hover:bg-card-strong"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      className="h-5 w-5 fill-current"
+                    >
+                      <path d="M3 10v4h4l5 4V6L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4.03v8.06A4.5 4.5 0 0 0 16.5 12zm0-9.5v2.06A9 9 0 0 1 16.5 19.44v2.06a11 11 0 0 0 0-19z" />
+                    </svg>
+                  </button>
+                ) : null}
+              </div>
+            ) : null}
 
             {supportLabel ? (
               <p className="mt-4 text-base font-bold text-muted-foreground">{supportLabel}</p>
