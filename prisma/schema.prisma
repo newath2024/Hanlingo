@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String       @id @default(cuid())
+  email        String       @unique
+  username     String       @unique
+  passwordHash String
+  sessions     Session[]
+  progress     UserProgress?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  tokenHash String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model UserProgress {
+  id                 String   @id @default(cuid())
+  userId             String   @unique
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  xp                 Int      @default(0)
+  completedLessons   Json     @default("[]")
+  claimedStepRewards Json     @default("[]")
+  completedNodes     Json     @default("[]")
+  completedUnits     Json     @default("[]")
+  nodeRuns           Json     @default("{}")
+  errorPatternMisses Json     @default("{}")
+  reviews            Json     @default("{}")
+  sentenceExposures  Json     @default("{}")
+  importedFromLocalAt DateTime?
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}

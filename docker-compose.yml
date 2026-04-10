@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: hanlingo-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hanlingo
+      POSTGRES_USER: hanlingo
+      POSTGRES_PASSWORD: hanlingo
+    ports:
+      - "5432:5432"
+    volumes:
+      - hanlingo-postgres-data:/var/lib/postgresql/data
+
+volumes:
+  hanlingo-postgres-data:
