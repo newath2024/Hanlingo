@@ -1,5 +1,6 @@
 "use client";
 
+import { speakIfKoreanText } from "@/lib/speech";
 import type { BuildSentenceItem } from "@/types/lesson";
 import { useState } from "react";
 
@@ -28,6 +29,8 @@ export default function BuildSentence({ items, onComplete }: BuildSentenceProps)
     if (submitted) {
       return;
     }
+
+    speakIfKoreanText(word, { rate: 0.92 });
 
     setSelectedWords((previous) =>
       previous.includes(word)

@@ -2,6 +2,7 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { getLocalizedText } from "@/lib/localized";
+import { speakIfKoreanText } from "@/lib/speech";
 import type { ArrangeSessionItem, SessionItemResult } from "@/types/session";
 import { useState } from "react";
 
@@ -29,6 +30,8 @@ export default function SessionBuildSentenceQuestion({
   const isAdaptiveWordBank = item.interactionMode === "word_bank";
 
   function handleToggleWord(word: string) {
+    speakIfKoreanText(word, { rate: 0.92 });
+
     setSelectedWords((previous) =>
       previous.includes(word)
         ? previous.filter((selectedWord) => selectedWord !== word)

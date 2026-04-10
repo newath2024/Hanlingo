@@ -23,6 +23,82 @@ export type SpeechChunk = {
   status: ChunkStatus;
 };
 
+type KoreanSpeechOptions = {
+  rate?: number;
+  pitch?: number;
+  volume?: number;
+  onStart?: () => void;
+  onEnd?: () => void;
+  onError?: () => void;
+};
+
+const HANGUL_REGEX = /[\u1100-\u11ff\u3130-\u318f\uac00-\ud7af]/;
+const PREFERRED_KOREAN_VOICE_HINTS = [
+  "ko-kr",
+  "korean",
+  "google ko",
+  "microsoft heami",
+  "microsoft sunhi",
+  "yuna",
+];
+
+function getPreferredKoreanVoice(voices: SpeechSynthesisVoice[]) {
+  const koreanVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("ko"));
+
+  if (koreanVoices.length === 0) {
+    return null;
+  }
+
+  return (
+    koreanVoices.find((voice) =>
+      PREFERRED_KOREAN_VOICE_HINTS.some((hint) => {
+        const combined = `${voice.name} ${voice.lang}`.toLowerCase();
+        return combined.includes(hint);
+      }),
+    ) ?? koreanVoices[0]
+  );
+}
+
+export function containsKoreanText(text: string) {
+  return HANGUL_REGEX.test(text);
+}
+
+export function speakKoreanText(text: string, options: KoreanSpeechOptions = {}) {
+  if (
+    typeof window === "undefined" ||
+    !text.trim() ||
+    !("speechSynthesis" in window) ||
+    !("SpeechSynthesisUtterance" in window)
+  ) {
+    options.onError?.();
+    return false;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(text.trim());
+  const selectedVoice = getPreferredKoreanVoice(window.speechSynthesis.getVoices());
+
+  utterance.lang = selectedVoice?.lang ?? "ko-KR";
+  utterance.voice = selectedVoice;
+  utterance.rate = options.rate ?? 0.9;
+  utterance.pitch = options.pitch ?? 1;
+  utterance.volume = options.volume ?? 1;
+  utterance.onstart = () => options.onStart?.();
+  utterance.onend = () => options.onEnd?.();
+  utterance.onerror = () => options.onError?.();
+
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(utterance);
+  return true;
+}
+
+export function speakIfKoreanText(text: string, options: KoreanSpeechOptions = {}) {
+  if (!containsKoreanText(text)) {
+    return false;
+  }
+
+  return speakKoreanText(text, options);
+}
+
 export function getSpeechRecognitionConstructor() {
   if (typeof window === "undefined") {
     return null;

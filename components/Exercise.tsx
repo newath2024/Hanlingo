@@ -1,5 +1,6 @@
 "use client";
 
+import { speakIfKoreanText } from "@/lib/speech";
 import type { ExerciseItem } from "@/types/lesson";
 import { useState } from "react";
 
@@ -47,6 +48,11 @@ export default function Exercise({ exercises, onComplete }: ExerciseProps) {
       normalizeAnswer(userAnswer) === normalizeAnswer(currentExercise.answer),
     );
     setSubmitted(true);
+  }
+
+  function handleOptionSelect(option: string) {
+    setSelectedOption(option);
+    speakIfKoreanText(option, { rate: 0.92 });
   }
 
   function handleNextQuestion() {
@@ -129,7 +135,7 @@ export default function Exercise({ exercises, onComplete }: ExerciseProps) {
                       key={option}
                       type="button"
                       disabled={submitted}
-                      onClick={() => setSelectedOption(option)}
+                      onClick={() => handleOptionSelect(option)}
                       className={`choice-button ${
                         isSelected ? "border-accent bg-card-strong" : ""
                       } ${
