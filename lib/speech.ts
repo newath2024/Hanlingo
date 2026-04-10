@@ -32,6 +32,14 @@ type KoreanSpeechOptions = {
   onError?: () => void;
 };
 
+type AudioPlaybackOptions = {
+  onStart?: () => void;
+  onEnd?: () => void;
+  onError?: () => void;
+};
+
+type FeedbackToneKind = "correct" | "wrong";
+
 const HANGUL_REGEX = /[\u1100-\u11ff\u3130-\u318f\uac00-\ud7af]/;
 const PREFERRED_KOREAN_VOICE_HINTS = [
   "ko-kr",
@@ -59,8 +67,16 @@ function getPreferredKoreanVoice(voices: SpeechSynthesisVoice[]) {
   );
 }
 
+function getWordCount(text: string) {
+  return text.trim().split(/\s+/).filter(Boolean).length;
+}
+
 export function containsKoreanText(text: string) {
   return HANGUL_REGEX.test(text);
+}
+
+export function isLikelyKoreanVocabText(text: string, maxWords = 4) {
+  return containsKoreanText(text) && getWordCount(text) <= maxWords;
 }
 
 export function speakKoreanText(text: string, options: KoreanSpeechOptions = {}) {
@@ -97,6 +113,79 @@ export function speakIfKoreanText(text: string, options: KoreanSpeechOptions = {
   }
 
   return speakKoreanText(text, options);
+}
+
+export async function playAudioUrl(url: string, options: AudioPlaybackOptions = {}) {
+  if (typeof window === "undefined" || !url.trim()) {
+    options.onError?.();
+    return false;
+  }
+
+  try {
+    const audio = new Audio(url);
+    audio.onplay = () => options.onStart?.();
+    audio.onended = () => options.onEnd?.();
+    audio.onerror = () => options.onError?.();
+    await audio.play();
+    return true;
+  } catch {
+    options.onError?.();
+    return false;
+  }
+}
+
+export function playFeedbackTone(kind: FeedbackToneKind) {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  const AudioContextConstructor =
+    window.AudioContext ||
+    (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+
+  if (!AudioContextConstructor) {
+    return false;
+  }
+
+  const context = new AudioContextConstructor();
+  const now = context.currentTime;
+  const steps =
+    kind === "correct"
+      ? [
+          { frequency: 659.25, duration: 0.1 },
+          { frequency: 783.99, duration: 0.14 },
+        ]
+      : [
+          { frequency: 392.0, duration: 0.14 },
+          { frequency: 311.13, duration: 0.18 },
+        ];
+
+  let cursor = now;
+
+  steps.forEach((step) => {
+    const oscillator = context.createOscillator();
+    const gainNode = context.createGain();
+
+    oscillator.type = kind === "correct" ? "sine" : "triangle";
+    oscillator.frequency.setValueAtTime(step.frequency, cursor);
+    gainNode.gain.setValueAtTime(0.0001, cursor);
+    gainNode.gain.exponentialRampToValueAtTime(0.12, cursor + 0.01);
+    gainNode.gain.exponentialRampToValueAtTime(0.0001, cursor + step.duration);
+
+    oscillator.connect(gainNode);
+    gainNode.connect(context.destination);
+    oscillator.start(cursor);
+    oscillator.stop(cursor + step.duration);
+
+    cursor += step.duration + 0.03;
+  });
+
+  void context.resume();
+  window.setTimeout(() => {
+    void context.close();
+  }, Math.ceil((cursor - now) * 1000) + 100);
+
+  return true;
 }
 
 export function getSpeechRecognitionConstructor() {
