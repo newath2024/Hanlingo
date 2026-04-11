@@ -107,7 +107,8 @@ export default function SessionTextInputQuestion({
   }
 
   function handleCheckAnswer() {
-    const normalizedInput = normalizeAnswer(hasChoiceOptions ? selectedChoice : inputValue);
+    const rawAnswer = (hasChoiceOptions ? selectedChoice : inputValue).trim();
+    const normalizedInput = normalizeAnswer(rawAnswer);
 
     if (!normalizedInput) {
       return;
@@ -122,6 +123,8 @@ export default function SessionTextInputQuestion({
       awardedXp: 0,
       shouldRetryLater: !wasCorrect,
       weakItemLabel: item.weakItemLabel,
+      userAnswer: rawAnswer,
+      answerTokens: rawAnswer.split(/\s+/).filter(Boolean),
       correctAnswer: item.correctAnswer,
       explanation: item.explanation,
     });

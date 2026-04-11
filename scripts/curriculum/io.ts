@@ -36,6 +36,10 @@ export function getRuntimeUnitPath(unitId: string) {
   return path.join(GENERATED_OUTPUT_DIR, `unit-${unitId}.runtime.json`);
 }
 
+export function getExerciseSetPath(unitId: string) {
+  return path.join(GENERATED_OUTPUT_DIR, `unit-${unitId}.exercise-set.json`);
+}
+
 export function getGeneratedIndexPath() {
   return path.join(GENERATED_OUTPUT_DIR, "index.json");
 }

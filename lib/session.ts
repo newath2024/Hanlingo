@@ -31,7 +31,7 @@ function createRetryClone(item: SessionItem) {
   } as SessionItem;
 }
 
-function getCorrectAnswer(task: RuntimeTask): SessionDisplayText {
+export function getRuntimeTaskCorrectAnswer(task: RuntimeTask): SessionDisplayText {
   if (task.type === "word_match" || task.type === "listen_select") {
     return task.choices.find((choice) => choice.id === task.answer)?.text ?? task.answer;
   }
@@ -59,7 +59,7 @@ function getCorrectAnswer(task: RuntimeTask): SessionDisplayText {
   return task.expectedSpeech;
 }
 
-function getWeakLabel(task: RuntimeTask): SessionDisplayText {
+export function getRuntimeTaskWeakLabel(task: RuntimeTask): SessionDisplayText {
   if (task.type === "word_match") {
     return task.koreanText;
   }
@@ -99,7 +99,7 @@ function getWeakLabel(task: RuntimeTask): SessionDisplayText {
   return task.koreanText;
 }
 
-function createSessionItem(task: SupportedRuntimeTask): SessionItem {
+export function createSessionItemFromTask(task: SupportedRuntimeTask): SessionItem {
   const base = {
     id: task.id,
     sourceId: task.id,
@@ -110,12 +110,13 @@ function createSessionItem(task: SupportedRuntimeTask): SessionItem {
     explanation: task.explanation,
     supportText: task.supportText,
     stage: task.stage,
-    source: task.source,
+    curriculumSource: task.source,
     grammarTags: task.grammarTags,
     srWeight: task.srWeight,
     errorPatternKey: task.errorPatternKey,
-    weakItemLabel: getWeakLabel(task),
-    correctAnswer: getCorrectAnswer(task),
+    weakItemLabel: getRuntimeTaskWeakLabel(task),
+    correctAnswer: getRuntimeTaskCorrectAnswer(task),
+    tracksServerState: true,
     interactionMode: task.interactionMode,
     sentenceKey: task.sentenceKey,
   } as const;
@@ -218,7 +219,7 @@ export function createLessonSession(
   const distractorPool = collectLessonSentenceDistractorPool(lesson);
 
   return lesson.tasks.map((task) =>
-    createSessionItem(
+    createSessionItemFromTask(
       adaptSentenceTask(task, unitLevel, sentenceSeenCounts, distractorPool),
     ),
   );
@@ -253,8 +254,20 @@ export function getSessionItemTypeLabel(
     return getLocalizedText({ en: "Translate", vi: "Dich" }, locale);
   }
 
+  if (type === "translation_select") {
+    return getLocalizedText({ en: "Select Translation", vi: "Chon nghia" }, locale);
+  }
+
   if (type === "arrange_sentence") {
     return getLocalizedText({ en: "Arrange", vi: "Sap xep" }, locale);
+  }
+
+  if (type === "sentence_build") {
+    return getLocalizedText({ en: "Sentence Builder", vi: "Ghep cau" }, locale);
+  }
+
+  if (type === "reorder_sentence") {
+    return getLocalizedText({ en: "Reorder", vi: "Sap xep lai" }, locale);
   }
 
   if (type === "fill_blank") {
@@ -267,6 +280,14 @@ export function getSessionItemTypeLabel(
 
   if (type === "dialogue_reconstruct") {
     return getLocalizedText({ en: "Dialogue", vi: "Hoi thoai" }, locale);
+  }
+
+  if (type === "dialogue_response") {
+    return getLocalizedText({ en: "Dialogue Response", vi: "Dap hoi thoai" }, locale);
+  }
+
+  if (type === "listen_repeat") {
+    return getLocalizedText({ en: "Listen & Repeat", vi: "Nghe va lap lai" }, locale);
   }
 
   return getLocalizedText({ en: "Speaking", vi: "Noi" }, locale);

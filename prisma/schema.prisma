@@ -6,6 +6,27 @@ datasource db {
   provider = "postgresql"
 }
 
+enum ErrorType {
+  vocab
+  grammar
+  listening
+  speaking
+}
+
+enum FingerprintType {
+  WORD_CONFUSION
+  GRAMMAR_MISMATCH
+  RANDOM_GUESS
+  LISTENING_MISHEAR
+  ORDERING_BREAKDOWN
+}
+
+enum AttemptSourceContext {
+  lesson
+  practice_mixed
+  practice_errors
+}
+
 model User {
   id           String       @id @default(cuid())
   email        String       @unique
@@ -13,6 +34,9 @@ model User {
   passwordHash String
   sessions     Session[]
   progress     UserProgress?
+  errors       UserError[]
+  errorFingerprints UserErrorFingerprint[]
+  questionAttempts  UserQuestionAttempt[]
   createdAt    DateTime     @default(now())
   updatedAt    DateTime     @updatedAt
 }
@@ -46,4 +70,64 @@ model UserProgress {
   importedFromLocalAt DateTime?
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
+}
+
+model UserError {
+  id            String    @id @default(uuid())
+  userId        String
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questionId    String
+  lessonId      String
+  errorType     ErrorType
+  userAnswer    String
+  correctAnswer String
+  errorCount    Int       @default(1)
+  lastSeenAt    DateTime
+  nextReviewAt  DateTime
+  createdAt     DateTime  @default(now())
+
+  @@unique([userId, questionId])
+  @@index([userId, nextReviewAt])
+  @@index([userId, errorCount, lastSeenAt])
+}
+
+model UserErrorFingerprint {
+  id               String          @id @default(uuid())
+  userId           String
+  user             User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questionId       String
+  lessonId         String
+  exerciseType     String
+  fingerprintType  FingerprintType
+  confidenceScore  Float
+  userAnswerRaw    String
+  correctAnswerRaw String
+  analysisPayload  Json
+  responseTimeMs   Int?
+  priorAttempts    Int             @default(0)
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+
+  @@index([userId, createdAt])
+  @@index([userId, questionId, createdAt])
+  @@index([userId, fingerprintType, createdAt])
+}
+
+model UserQuestionAttempt {
+  id             String               @id @default(uuid())
+  userId         String
+  user           User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questionId     String
+  lessonId       String
+  unitId         String
+  nodeId         String
+  sourceContext  AttemptSourceContext
+  wasCorrect     Boolean
+  responseTimeMs Int?
+  createdAt      DateTime             @default(now())
+
+  @@index([userId, createdAt])
+  @@index([userId, questionId, createdAt])
+  @@index([userId, lessonId, createdAt])
+  @@index([userId, unitId, createdAt])
 }

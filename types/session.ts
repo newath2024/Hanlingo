@@ -12,16 +12,22 @@ import type {
   TranslateTask,
   WordMatchTask,
 } from "./curriculum";
+import type { FingerprintSummary } from "./error-fingerprint";
 
 export type SessionItemType =
   | "word_match"
   | "listen_select"
   | "translate"
+  | "translation_select"
   | "arrange_sentence"
+  | "sentence_build"
+  | "reorder_sentence"
   | "fill_blank"
   | "grammar_select"
   | "dialogue_reconstruct"
-  | "speaking";
+  | "dialogue_response"
+  | "speaking"
+  | "listen_repeat";
 
 export type SessionDisplayText = LocalizedText | string;
 
@@ -35,23 +41,47 @@ type SessionItemBase = {
   explanation: LocalizedText;
   supportText?: LocalizedText;
   stage: string;
-  source: string;
+  curriculumSource: string;
   grammarTags: string[];
   srWeight: number;
   errorPatternKey: string;
   weakItemLabel: SessionDisplayText;
   correctAnswer: SessionDisplayText;
+  tracksServerState: boolean;
   interactionMode?: InteractionMode;
   sentenceKey?: string;
 };
 
 export type LocalizedChoiceSessionItem = SessionItemBase & {
   type: "word_match" | "listen_select";
+  matchMode?: "choice";
   koreanText?: string;
   choices: LocalizedChoice[];
   answer: string;
   audioText?: string;
   audioUrl?: string;
+};
+
+export type PairMatchSessionItem = SessionItemBase & {
+  type: "word_match";
+  matchMode: "pairs";
+  pairs: Array<{
+    left: string;
+    right: string;
+  }>;
+  rightOptions: string[];
+  answer: Array<[string, string]>;
+};
+
+export type SelectSessionItem = SessionItemBase & {
+  type: "translation_select" | "dialogue_response";
+  question: string;
+  choices: string[];
+  answer: string;
+  context?: Array<{
+    speaker: string;
+    text: string;
+  }>;
 };
 
 export type GrammarChoiceSessionItem = SessionItemBase & {
@@ -75,12 +105,18 @@ export type TextInputSessionItem = SessionItemBase & {
 };
 
 export type ArrangeSessionItem = SessionItemBase & {
-  type: "arrange_sentence" | "dialogue_reconstruct";
+  type:
+    | "arrange_sentence"
+    | "dialogue_reconstruct"
+    | "sentence_build"
+    | "reorder_sentence";
   wordBank: string[];
   answer: string[];
   meaning?: LocalizedText;
   speaker?: string;
   translation?: LocalizedText;
+  targetMeaning?: string;
+  questionText?: string;
 };
 
 export type SpeakingSessionItem = SessionItemBase & {
@@ -89,12 +125,26 @@ export type SpeakingSessionItem = SessionItemBase & {
   expectedSpeech: string;
 };
 
+export type ListenRepeatSessionItem = SessionItemBase & {
+  type: "listen_repeat";
+  text: string;
+  ttsText: string;
+  expectedChunks: string[];
+  passRule: {
+    mode: "chunk_match";
+    min_correct_chunks: number;
+  };
+};
+
 export type SessionItem =
   | LocalizedChoiceSessionItem
+  | PairMatchSessionItem
+  | SelectSessionItem
   | GrammarChoiceSessionItem
   | TextInputSessionItem
   | ArrangeSessionItem
-  | SpeakingSessionItem;
+  | SpeakingSessionItem
+  | ListenRepeatSessionItem;
 
 export type SessionItemResultStatus =
   | "correct"
@@ -107,6 +157,10 @@ export type SessionItemResult = {
   awardedXp: number;
   shouldRetryLater: boolean;
   weakItemLabel: SessionDisplayText;
+  userAnswer?: string;
+  answerOptionId?: string;
+  answerTokens?: string[];
+  mistakeFingerprint?: FingerprintSummary;
   correctAnswer?: SessionDisplayText;
   explanation?: LocalizedText;
   detail?: string;

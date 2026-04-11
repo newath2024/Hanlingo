@@ -324,3 +324,110 @@ export const curriculumIndexSchema = z.object({
     }),
   ),
 });
+
+const exerciseDifficultySchema = z.enum(["easy", "medium", "hard"]);
+
+const exerciseBaseSchema = z.object({
+  id: z.string().min(1),
+  focus: z.array(z.string().min(1)).min(1),
+  prompt: z.string().min(1),
+  difficulty: exerciseDifficultySchema,
+});
+
+const wordMatchExerciseSchema = exerciseBaseSchema.extend({
+  type: z.literal("word_match"),
+  skill: z.literal("vocab"),
+  pairs: z
+    .array(
+      z.object({
+        left: z.string().min(1),
+        right: z.string().min(1),
+      }),
+    )
+    .min(1),
+  answer: z.array(z.tuple([z.string().min(1), z.string().min(1)])).min(1),
+});
+
+const fillBlankExerciseSchema = exerciseBaseSchema.extend({
+  type: z.literal("fill_blank"),
+  skill: z.literal("grammar"),
+  question: z.string().min(1),
+  blank_count: z.literal(1),
+  choices: z.array(z.string().min(1)).min(3),
+  answer: z.array(z.string().min(1)).length(1),
+  explanation: z.string().min(1),
+});
+
+const sentenceBuildExerciseSchema = exerciseBaseSchema.extend({
+  type: z.literal("sentence_build"),
+  skill: z.literal("sentence"),
+  target_meaning: z.string().min(1),
+  tokens: z.array(z.string().min(1)).min(2),
+  distractors: z.array(z.string().min(1)),
+  answer: z.string().min(1),
+});
+
+const reorderSentenceExerciseSchema = exerciseBaseSchema.extend({
+  type: z.literal("reorder_sentence"),
+  skill: z.literal("word_order"),
+  scrambled_tokens: z.array(z.string().min(1)).min(2),
+  answer_tokens: z.array(z.string().min(1)).min(2),
+  answer: z.string().min(1),
+});
+
+const translationSelectExerciseSchema = exerciseBaseSchema.extend({
+  type: z.literal("translation_select"),
+  skill: z.literal("reading"),
+  question: z.string().min(1),
+  choices: z.array(z.string().min(1)).min(3),
+  answer: z.string().min(1),
+});
+
+const dialogueResponseExerciseSchema = exerciseBaseSchema.extend({
+  type: z.literal("dialogue_response"),
+  skill: z.literal("conversation"),
+  context: z
+    .array(
+      z.object({
+        speaker: z.string().min(1),
+        text: z.string().min(1),
+      }),
+    )
+    .length(2),
+  choices: z.array(z.string().min(1)).min(3),
+  answer: z.string().min(1),
+});
+
+const listenRepeatExerciseSchema = exerciseBaseSchema.extend({
+  type: z.literal("listen_repeat"),
+  skill: z.literal("speaking"),
+  text: z.string().min(1),
+  tts_text: z.string().min(1),
+  expected_chunks: z.array(z.string().min(1)).min(1),
+  pass_rule: z.object({
+    mode: z.literal("chunk_match"),
+    min_correct_chunks: z.number().int().positive(),
+  }),
+});
+
+export const unitExerciseSchema = z.discriminatedUnion("type", [
+  wordMatchExerciseSchema,
+  fillBlankExerciseSchema,
+  sentenceBuildExerciseSchema,
+  reorderSentenceExerciseSchema,
+  translationSelectExerciseSchema,
+  dialogueResponseExerciseSchema,
+  listenRepeatExerciseSchema,
+]);
+
+export const exerciseStageSchema = z.object({
+  stage_id: z.string().regex(/^u\d{2}_s0[1-3]$/),
+  stage_goal: z.string().min(1),
+  exercises: z.array(unitExerciseSchema).min(3).max(5),
+});
+
+export const unitExerciseSetSchema = z.object({
+  unit_id: z.string().min(1),
+  unit_title: z.string().min(1),
+  stages: z.array(exerciseStageSchema).length(3),
+});

@@ -1,0 +1,359 @@
+{
+  "unit_id": "17",
+  "unit_title": "What should I bring to the housewarming?",
+  "stages": [
+    {
+      "stage_id": "u17_s01",
+      "stage_goal": "Recognize the core words and short lines for What should I bring to the housewarming?.",
+      "exercises": [
+        {
+          "id": "u17_s01_tb_word_match_1",
+          "focus": [
+            "textbook vocab",
+            "recognition"
+          ],
+          "prompt": "Match the Korean words to their meanings.",
+          "difficulty": "easy",
+          "type": "word_match",
+          "skill": "vocab",
+          "pairs": [
+            {
+              "left": "집들이",
+              "right": "housewarming party"
+            },
+            {
+              "left": "초대",
+              "right": "invitation"
+            },
+            {
+              "left": "초대장",
+              "right": "invitation card"
+            },
+            {
+              "left": "휴지",
+              "right": "tissue paper"
+            }
+          ],
+          "answer": [
+            [
+              "집들이",
+              "housewarming party"
+            ],
+            [
+              "초대",
+              "invitation"
+            ],
+            [
+              "초대장",
+              "invitation card"
+            ],
+            [
+              "휴지",
+              "tissue paper"
+            ]
+          ]
+        },
+        {
+          "id": "u17_s01_tb_word_match_2",
+          "focus": [
+            "textbook vocab",
+            "recognition"
+          ],
+          "prompt": "Match the Korean words to their meanings.",
+          "difficulty": "easy",
+          "type": "word_match",
+          "skill": "vocab",
+          "pairs": [
+            {
+              "left": "세제",
+              "right": "detergent"
+            },
+            {
+              "left": "이사하다",
+              "right": "move house"
+            },
+            {
+              "left": "도와주다",
+              "right": "help"
+            },
+            {
+              "left": "초대하다",
+              "right": "invite"
+            }
+          ],
+          "answer": [
+            [
+              "세제",
+              "detergent"
+            ],
+            [
+              "이사하다",
+              "move house"
+            ],
+            [
+              "도와주다",
+              "help"
+            ],
+            [
+              "초대하다",
+              "invite"
+            ]
+          ]
+        },
+        {
+          "id": "u17_s01_tb_translation_select_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Choose the best English meaning.",
+          "difficulty": "easy",
+          "type": "translation_select",
+          "skill": "reading",
+          "question": "지훈 씨, 집들이에서 보통 뭘 해요?",
+          "choices": [
+            "Jihun, what do people usually do at a housewarming?",
+            "People look around the house, and they eat together too.",
+            "Of course. Should I help a little?"
+          ],
+          "answer": "Jihun, what do people usually do at a housewarming?"
+        },
+        {
+          "id": "u17_s01_tb_translation_select_2",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Choose the best English meaning.",
+          "difficulty": "easy",
+          "type": "translation_select",
+          "skill": "reading",
+          "question": "집을 구경해요. 같이 식사도 하고요.",
+          "choices": [
+            "People look around the house, and they eat together too.",
+            "Jihun, what do people usually do at a housewarming?",
+            "Of course. Should I help a little?"
+          ],
+          "answer": "People look around the house, and they eat together too."
+        }
+      ]
+    },
+    {
+      "stage_id": "u17_s02",
+      "stage_goal": "Build short Korean responses and patterns for What should I bring to the housewarming?.",
+      "exercises": [
+        {
+          "id": "u17_s02_tb_fill_blank_1",
+          "focus": [
+            "help expression"
+          ],
+          "prompt": "Fill in the missing Korean chunk.",
+          "difficulty": "easy",
+          "type": "fill_blank",
+          "skill": "grammar",
+          "question": "___ 좀 도와줄 수 있어요?",
+          "blank_count": 1,
+          "choices": [
+            "저",
+            "지훈",
+            "집을"
+          ],
+          "answer": [
+            "저"
+          ],
+          "explanation": "Choose the chunk that completes the sentence naturally."
+        },
+        {
+          "id": "u17_s02_tb_sentence_build_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Build the Korean sentence.",
+          "difficulty": "easy",
+          "type": "sentence_build",
+          "skill": "sentence",
+          "target_meaning": "Jihun, what do people usually do at a housewarming?",
+          "tokens": [
+            "지훈",
+            "씨,",
+            "집들이에서",
+            "보통",
+            "뭘",
+            "해요?"
+          ],
+          "distractors": [
+            "집을",
+            "구경해요."
+          ],
+          "answer": "지훈 씨, 집들이에서 보통 뭘 해요?"
+        },
+        {
+          "id": "u17_s02_tb_reorder_sentence_1",
+          "focus": [
+            "help expression"
+          ],
+          "prompt": "Put the Korean sentence in the correct order.",
+          "difficulty": "easy",
+          "type": "reorder_sentence",
+          "skill": "word_order",
+          "scrambled_tokens": [
+            "드릴게요.",
+            "도와",
+            "제가"
+          ],
+          "answer_tokens": [
+            "제가",
+            "도와",
+            "드릴게요."
+          ],
+          "answer": "제가 도와 드릴게요."
+        },
+        {
+          "id": "u17_s02_tb_listen_repeat_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Listen and repeat the Korean sentence.",
+          "difficulty": "easy",
+          "type": "listen_repeat",
+          "skill": "speaking",
+          "text": "그럼요. 제가 좀 도와줄까요?",
+          "tts_text": "그럼요. 제가 좀 도와줄까요?",
+          "expected_chunks": [
+            "그럼요.",
+            "제가",
+            "좀",
+            "도와줄까요?"
+          ],
+          "pass_rule": {
+            "mode": "chunk_match",
+            "min_correct_chunks": 2
+          }
+        }
+      ]
+    },
+    {
+      "stage_id": "u17_s03",
+      "stage_goal": "Review What should I bring to the housewarming? with dialogue and workbook reinforcement.",
+      "exercises": [
+        {
+          "id": "u17_s03_wb_word_match_1",
+          "focus": [
+            "workbook review",
+            "matching"
+          ],
+          "prompt": "Match the workbook review items to their meanings.",
+          "difficulty": "easy",
+          "type": "word_match",
+          "skill": "vocab",
+          "pairs": [
+            {
+              "left": "집들이",
+              "right": "housewarming party"
+            },
+            {
+              "left": "초대장",
+              "right": "invitation card"
+            },
+            {
+              "left": "휴지",
+              "right": "tissue paper"
+            },
+            {
+              "left": "세제",
+              "right": "detergent"
+            }
+          ],
+          "answer": [
+            [
+              "집들이",
+              "housewarming party"
+            ],
+            [
+              "초대장",
+              "invitation card"
+            ],
+            [
+              "휴지",
+              "tissue paper"
+            ],
+            [
+              "세제",
+              "detergent"
+            ]
+          ]
+        },
+        {
+          "id": "u17_s03_wb_fill_blank_1",
+          "focus": [
+            "grammar",
+            "must",
+            "form-change"
+          ],
+          "prompt": "Complete the -아/어야 되다 form of the verb.",
+          "difficulty": "easy",
+          "type": "fill_blank",
+          "skill": "grammar",
+          "question": "먹다 -> ___",
+          "blank_count": 1,
+          "choices": [
+            "먹어야 되다",
+            "먹고요",
+            "먹어요"
+          ],
+          "answer": [
+            "먹어야 되다"
+          ],
+          "explanation": "Complete the -아/어야 되다 form of the verb."
+        },
+        {
+          "id": "u17_s03_tb_dialogue_response_1",
+          "focus": [
+            "textbook dialogue",
+            "response"
+          ],
+          "prompt": "Choose the best response to complete the dialogue.",
+          "difficulty": "easy",
+          "type": "dialogue_response",
+          "skill": "conversation",
+          "context": [
+            {
+              "speaker": "Lisa",
+              "text": "집을 구경해요. 같이 식사도 하고요."
+            },
+            {
+              "speaker": "Jihun",
+              "text": "__________"
+            }
+          ],
+          "choices": [
+            "리사 씨, 주말에 집들이를 하려고 해요. 올 수 있어요?",
+            "지훈 씨, 집들이에서 보통 뭘 해요?",
+            "집을 구경해요. 같이 식사도 하고요."
+          ],
+          "answer": "리사 씨, 주말에 집들이를 하려고 해요. 올 수 있어요?"
+        },
+        {
+          "id": "u17_s03_tb_listen_repeat_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Listen and repeat the Korean sentence.",
+          "difficulty": "easy",
+          "type": "listen_repeat",
+          "skill": "speaking",
+          "text": "그럼요. 제가 좀 도와줄까요?",
+          "tts_text": "그럼요. 제가 좀 도와줄까요?",
+          "expected_chunks": [
+            "그럼요.",
+            "제가",
+            "좀",
+            "도와줄까요?"
+          ],
+          "pass_rule": {
+            "mode": "chunk_match",
+            "min_correct_chunks": 2
+          }
+        }
+      ]
+    }
+  ]
+}

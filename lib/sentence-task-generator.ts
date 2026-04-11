@@ -28,6 +28,7 @@ export type SentenceTaskGeneratorInput = {
   seenCount: number;
   sentenceKey: string;
   distractorPool?: string[];
+  forcedInteractionMode?: InteractionMode;
 };
 
 export type SentenceTaskGeneratorResult = {
@@ -396,7 +397,7 @@ function createFullInputTask(
 
 export function generateSentenceTask(input: SentenceTaskGeneratorInput): SentenceTaskGeneratorResult {
   const chunks = chunkKoreanSentence(input.sentenceKr);
-  const mode = decideInteractionMode(input.seenCount);
+  const mode = input.forcedInteractionMode ?? decideInteractionMode(input.seenCount);
 
   if (mode === "word_bank") {
     return createWordBankTask(input, chunks);

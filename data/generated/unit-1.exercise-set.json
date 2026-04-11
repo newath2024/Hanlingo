@@ -1,0 +1,326 @@
+{
+  "unit_id": "1",
+  "unit_title": "Greetings and introductions",
+  "stages": [
+    {
+      "stage_id": "u01_s01",
+      "stage_goal": "Recognize the core words and short lines for Greetings and introductions.",
+      "exercises": [
+        {
+          "id": "u01_s01_tb_word_match_1",
+          "focus": [
+            "textbook vocab",
+            "recognition"
+          ],
+          "prompt": "Match the Korean words to their meanings.",
+          "difficulty": "easy",
+          "type": "word_match",
+          "skill": "vocab",
+          "pairs": [
+            {
+              "left": "안녕하세요",
+              "right": "hello"
+            },
+            {
+              "left": "저",
+              "right": "I, me (humble)"
+            },
+            {
+              "left": "처음",
+              "right": "first time"
+            }
+          ],
+          "answer": [
+            [
+              "안녕하세요",
+              "hello"
+            ],
+            [
+              "저",
+              "I, me (humble)"
+            ],
+            [
+              "처음",
+              "first time"
+            ]
+          ]
+        },
+        {
+          "id": "u01_s01_tb_word_match_2",
+          "focus": [
+            "textbook vocab",
+            "recognition"
+          ],
+          "prompt": "Match the Korean words to their meanings.",
+          "difficulty": "easy",
+          "type": "word_match",
+          "skill": "vocab",
+          "pairs": [
+            {
+              "left": "반갑습니다",
+              "right": "nice to meet you"
+            },
+            {
+              "left": "학생",
+              "right": "student"
+            },
+            {
+              "left": "입니다",
+              "right": "am, is, are (formal polite)"
+            }
+          ],
+          "answer": [
+            [
+              "반갑습니다",
+              "nice to meet you"
+            ],
+            [
+              "학생",
+              "student"
+            ],
+            [
+              "입니다",
+              "am, is, are (formal polite)"
+            ]
+          ]
+        },
+        {
+          "id": "u01_s01_tb_translation_select_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Choose the best English meaning.",
+          "difficulty": "easy",
+          "type": "translation_select",
+          "skill": "reading",
+          "question": "안녕하세요. 저는 민수입니다.",
+          "choices": [
+            "Hello. I am Minsu.",
+            "Hello. I am Jisu.",
+            "It is my first time meeting you."
+          ],
+          "answer": "Hello. I am Minsu."
+        },
+        {
+          "id": "u01_s01_tb_translation_select_2",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Choose the best English meaning.",
+          "difficulty": "easy",
+          "type": "translation_select",
+          "skill": "reading",
+          "question": "처음 뵙겠습니다.",
+          "choices": [
+            "It is my first time meeting you.",
+            "Hello. I am Minsu.",
+            "Hello. I am Jisu."
+          ],
+          "answer": "It is my first time meeting you."
+        }
+      ]
+    },
+    {
+      "stage_id": "u01_s02",
+      "stage_goal": "Build short Korean responses and patterns for Greetings and introductions.",
+      "exercises": [
+        {
+          "id": "u01_s02_tb_fill_blank_1",
+          "focus": [
+            "N + copula"
+          ],
+          "prompt": "Fill in the missing Korean chunk.",
+          "difficulty": "easy",
+          "type": "fill_blank",
+          "skill": "grammar",
+          "question": "저는 ___",
+          "blank_count": 1,
+          "choices": [
+            "학생입니다.",
+            "저는",
+            "뵙겠습니다."
+          ],
+          "answer": [
+            "학생입니다."
+          ],
+          "explanation": "Choose the chunk that completes the sentence naturally."
+        },
+        {
+          "id": "u01_s02_tb_sentence_build_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Build the Korean sentence.",
+          "difficulty": "easy",
+          "type": "sentence_build",
+          "skill": "sentence",
+          "target_meaning": "Hello. I am Minsu.",
+          "tokens": [
+            "안녕하세요.",
+            "저는",
+            "민수입니다."
+          ],
+          "distractors": [
+            "지수입니다.",
+            "처음"
+          ],
+          "answer": "안녕하세요. 저는 민수입니다."
+        },
+        {
+          "id": "u01_s02_tb_reorder_sentence_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Put the Korean sentence in the correct order.",
+          "difficulty": "easy",
+          "type": "reorder_sentence",
+          "skill": "word_order",
+          "scrambled_tokens": [
+            "뵙겠습니다.",
+            "처음"
+          ],
+          "answer_tokens": [
+            "처음",
+            "뵙겠습니다."
+          ],
+          "answer": "처음 뵙겠습니다."
+        },
+        {
+          "id": "u01_s02_tb_listen_repeat_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Listen and repeat the Korean sentence.",
+          "difficulty": "easy",
+          "type": "listen_repeat",
+          "skill": "speaking",
+          "text": "저도 반갑습니다.",
+          "tts_text": "저도 반갑습니다.",
+          "expected_chunks": [
+            "저도",
+            "반갑습니다."
+          ],
+          "pass_rule": {
+            "mode": "chunk_match",
+            "min_correct_chunks": 2
+          }
+        }
+      ]
+    },
+    {
+      "stage_id": "u01_s03",
+      "stage_goal": "Review Greetings and introductions with dialogue and workbook reinforcement.",
+      "exercises": [
+        {
+          "id": "u01_s03_wb_word_match_1",
+          "focus": [
+            "workbook review",
+            "matching"
+          ],
+          "prompt": "Match the workbook review items to their meanings.",
+          "difficulty": "easy",
+          "type": "word_match",
+          "skill": "vocab",
+          "pairs": [
+            {
+              "left": "안녕하세요",
+              "right": "hello"
+            },
+            {
+              "left": "저",
+              "right": "I, me (humble)"
+            },
+            {
+              "left": "학생",
+              "right": "student"
+            }
+          ],
+          "answer": [
+            [
+              "안녕하세요",
+              "hello"
+            ],
+            [
+              "저",
+              "I, me (humble)"
+            ],
+            [
+              "학생",
+              "student"
+            ]
+          ]
+        },
+        {
+          "id": "u01_s03_wb_fill_blank_1",
+          "focus": [
+            "dialogue",
+            "reply",
+            "fill_blank"
+          ],
+          "prompt": "Fill in the missing expression.",
+          "difficulty": "easy",
+          "type": "fill_blank",
+          "skill": "grammar",
+          "question": "저도 ___",
+          "blank_count": 1,
+          "choices": [
+            "반갑습니다.",
+            "학생입니다",
+            "회사원입니다"
+          ],
+          "answer": [
+            "반갑습니다."
+          ],
+          "explanation": "Fill in the missing expression."
+        },
+        {
+          "id": "u01_s03_tb_dialogue_response_1",
+          "focus": [
+            "textbook dialogue",
+            "response"
+          ],
+          "prompt": "Choose the best response to complete the dialogue.",
+          "difficulty": "easy",
+          "type": "dialogue_response",
+          "skill": "conversation",
+          "context": [
+            {
+              "speaker": "Jisu",
+              "text": "저도 반갑습니다."
+            },
+            {
+              "speaker": "Minsu",
+              "text": "__________"
+            }
+          ],
+          "choices": [
+            "저는 학생입니다.",
+            "안녕하세요. 저는 민수입니다.",
+            "안녕하세요. 저는 지수입니다."
+          ],
+          "answer": "저는 학생입니다."
+        },
+        {
+          "id": "u01_s03_wb_listen_repeat_1",
+          "focus": [
+            "greeting",
+            "listening"
+          ],
+          "prompt": "Listen and repeat the Korean sentence.",
+          "difficulty": "easy",
+          "type": "listen_repeat",
+          "skill": "speaking",
+          "text": "안녕하세요",
+          "tts_text": "안녕하세요",
+          "expected_chunks": [
+            "안녕하세요"
+          ],
+          "pass_rule": {
+            "mode": "chunk_match",
+            "min_correct_chunks": 1
+          }
+        }
+      ]
+    }
+  ]
+}

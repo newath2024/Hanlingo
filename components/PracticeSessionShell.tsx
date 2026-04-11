@@ -1,0 +1,774 @@
+"use client";
+
+import { useAppLocale } from "@/hooks/useAppLocale";
+import { getLocalizedText, getLocalizedValue } from "@/lib/localized";
+import { getSessionItemTypeLabel } from "@/lib/session";
+import type {
+  AdaptiveSessionItem,
+  AdaptiveSessionMode,
+  AdaptiveSessionResponse,
+} from "@/types/adaptive-learning";
+import {
+  FINGERPRINT_UI_CONFIDENCE_THRESHOLD,
+  type FingerprintSummary,
+} from "@/types/error-fingerprint";
+import type { SessionItemResult } from "@/types/session";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
+import ProgressBar from "./ProgressBar";
+import SessionBuildSentenceQuestion from "./SessionBuildSentenceQuestion";
+import SessionChoiceQuestion from "./SessionChoiceQuestion";
+import SessionSpeakingQuestion from "./SessionSpeakingQuestion";
+import SessionTextInputQuestion from "./SessionTextInputQuestion";
+import SessionWordMatchQuestion from "./SessionWordMatchQuestion";
+
+type PracticeSessionShellProps = {
+  mode: "mixed" | "errors";
+};
+
+type PracticeAnswerResponse = {
+  errorCount: number;
+  nextReviewAt: string | null;
+  correctAnswer: string;
+  repeated: boolean;
+  fingerprint: FingerprintSummary | null;
+};
+
+type FeedbackState = {
+  item: AdaptiveSessionItem;
+  result: SessionItemResult;
+  answer: PracticeAnswerResponse | null;
+};
+
+async function readJson<T>(response: Response): Promise<T> {
+  const json = (await response.json().catch(() => ({}))) as T & { error?: string };
+
+  if (!response.ok) {
+    throw new Error(json.error ?? "Request failed.");
+  }
+
+  return json;
+}
+
+function getSourceLabel(
+  locale: "en" | "vi",
+  source: AdaptiveSessionItem["selectionSource"],
+  errorCount: number,
+) {
+  if (source === "due_review") {
+    return errorCount > 1
+      ? getLocalizedText({ en: "Repeated mistake", vi: "Loi lap lai" }, locale)
+      : getLocalizedText({ en: "Due review", vi: "On den han" }, locale);
+  }
+
+  if (source === "weak_reinforcement") {
+    return getLocalizedText({ en: "Weak point", vi: "Diem yeu" }, locale);
+  }
+
+  if (source === "confidence_builder") {
+    return getLocalizedText({ en: "Confidence builder", vi: "Cau de lay lai nhip" }, locale);
+  }
+
+  return getLocalizedText({ en: "Progression", vi: "Tien do hien tai" }, locale);
+}
+
+function getModeCopy(
+  mode: AdaptiveSessionMode,
+  locale: "en" | "vi",
+  targetUnitId?: string,
+) {
+  if (mode === "weak_points") {
+    return {
+      eyebrow: getLocalizedText({ en: "Practice Mistakes", vi: "Luyen loi sai" }, locale),
+      title: getLocalizedText(
+        {
+          en: "Return to the weakest concepts before they harden into habits.",
+          vi: "Quay lai cac diem yeu truoc khi chung tro thanh thoi quen sai.",
+        },
+        locale,
+      ),
+      summary: getLocalizedText(
+        {
+          en: "This run stays mostly on due mistakes, then adds a small layer of easier recovery questions.",
+          vi: "Buoi nay tap trung vao loi den han, sau do chen them mot it cau de lay lai nhip.",
+        },
+        locale,
+      ),
+      emptyTitle: getLocalizedText(
+        { en: "No due mistakes right now.", vi: "Hien tai chua co loi den han." },
+        locale,
+      ),
+      emptySummary: getLocalizedText(
+        {
+          en: "Clear a few more lessons or come back later when the error queue is due again.",
+          vi: "Hoc them vai bai nua hoac quay lai sau khi hang doi loi sai den han.",
+        },
+        locale,
+      ),
+    };
+  }
+
+  if (mode === "focused_review") {
+    return {
+      eyebrow: getLocalizedText({ en: "Focused Review", vi: "On tap co trong tam" }, locale),
+      title: getLocalizedText(
+        {
+          en: targetUnitId
+            ? `Review the weak spots around Unit ${targetUnitId}.`
+            : "Review the weak spots around your current path.",
+          vi: targetUnitId
+            ? `On lai cac diem yeu quanh Unit ${targetUnitId}.`
+            : "On lai cac diem yeu quanh lo trinh hien tai.",
+        },
+        locale,
+      ),
+      summary: getLocalizedText(
+        {
+          en: "This run mixes nearby progression, due mistakes, and related weak concepts from the selected unit.",
+          vi: "Buoi nay tron giua tien do gan nhat, loi den han, va cac khai niem yeu lien quan trong unit da chon.",
+        },
+        locale,
+      ),
+      emptyTitle: getLocalizedText(
+        { en: "No focused review is available yet.", vi: "Chua co buoi on tap trong tam." },
+        locale,
+      ),
+      emptySummary: getLocalizedText(
+        {
+          en: "Unlock or finish a few more lessons in this unit first.",
+          vi: "Hay mo khoa hoac hoan thanh them vai bai trong unit nay truoc.",
+        },
+        locale,
+      ),
+    };
+  }
+
+  return {
+    eyebrow: getLocalizedText({ en: "Adaptive Continue", vi: "Tiep tuc theo dang thich ung" }, locale),
+    title: getLocalizedText(
+      {
+        en: "Keep momentum with a balanced run tuned to your current path and weak zones.",
+        vi: "Giu nhip hoc voi mot buoi can bang duoc chinh theo lo trinh va diem yeu hien tai.",
+      },
+      locale,
+    ),
+    summary: getLocalizedText(
+      {
+        en: "You still move forward, but due mistakes and weak concepts get pulled in at higher weight.",
+        vi: "Ban van di tiep, nhung loi den han va khai niem yeu se duoc uu tien cao hon.",
+      },
+      locale,
+    ),
+    emptyTitle: getLocalizedText(
+      { en: "No mixed practice is available yet.", vi: "Chua co luot luyen tap tong hop." },
+      locale,
+    ),
+    emptySummary: getLocalizedText(
+      {
+        en: "Unlock a few lessons first, then come back here for a blended review run.",
+        vi: "Mo khoa them vai bai hoc truoc, roi quay lai day de lam luot tong hop.",
+      },
+      locale,
+    ),
+  };
+}
+
+function getSessionLabelFallback(mode: AdaptiveSessionMode) {
+  if (mode === "weak_points") {
+    return { en: "Weak points practice", vi: "Luyen tap diem yeu" };
+  }
+
+  if (mode === "focused_review") {
+    return { en: "Focused review", vi: "On tap co trong tam" };
+  }
+
+  return { en: "Balanced progress session", vi: "Buoi hoc can bang tien do" };
+}
+
+export default function PracticeSessionShell({ mode }: PracticeSessionShellProps) {
+  const { locale } = useAppLocale();
+  const searchParams = useSearchParams();
+  const questionStartedAtRef = useRef(0);
+  const attemptCountRef = useRef<Record<string, number>>({});
+  const targetUnitId = searchParams.get("unitId")?.trim() || undefined;
+  const adaptiveMode: AdaptiveSessionMode =
+    mode === "errors"
+      ? "weak_points"
+      : targetUnitId
+        ? "focused_review"
+        : "balanced_progress";
+  const shouldRequestDebug = process.env.NODE_ENV !== "production";
+  const [sessionKey, setSessionKey] = useState(0);
+  const [items, setItems] = useState<AdaptiveSessionItem[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [correctCount, setCorrectCount] = useState(0);
+  const [feedbackState, setFeedbackState] = useState<FeedbackState | null>(null);
+  const [sessionFinished, setSessionFinished] = useState(false);
+  const [isSavingAnswer, setIsSavingAnswer] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [sessionLabel, setSessionLabel] = useState<{ en: string; vi: string } | null>(null);
+  const [sessionDebug, setSessionDebug] = useState<AdaptiveSessionResponse["debug"]>(undefined);
+  const [isCompletingSession, setIsCompletingSession] = useState(false);
+  const [completionError, setCompletionError] = useState<string | null>(null);
+  const copy = getModeCopy(adaptiveMode, locale, targetUnitId);
+  const ui = (en: string, vi: string) => getLocalizedText({ en, vi }, locale);
+  const currentItem = items[currentIndex] ?? null;
+
+  const loadPracticeSession = useCallback(async () => {
+    setIsLoading(true);
+    setLoadError(null);
+    setFeedbackState(null);
+    setCurrentIndex(0);
+    setCorrectCount(0);
+    setSessionFinished(false);
+    setSaveError(null);
+    setCompletionError(null);
+    setSessionId(null);
+    setSessionLabel(null);
+    setSessionDebug(undefined);
+    setIsCompletingSession(false);
+    questionStartedAtRef.current = 0;
+    attemptCountRef.current = {};
+
+    try {
+      const params = new URLSearchParams({
+        mode: adaptiveMode,
+        sessionSize: "10",
+      });
+
+      if (targetUnitId && adaptiveMode === "focused_review") {
+        params.set("targetUnitId", targetUnitId);
+      }
+
+      if (shouldRequestDebug) {
+        params.set("debug", "1");
+      }
+
+      const response = await fetch(`/api/lesson/adaptive?${params.toString()}`, {
+        method: "GET",
+        credentials: "same-origin",
+        cache: "no-store",
+      });
+      const json = await readJson<AdaptiveSessionResponse>(response);
+      setSessionId(json.sessionId);
+      setSessionLabel(json.sessionLabel);
+      setSessionDebug(json.debug);
+      setItems(json.items);
+    } catch (error) {
+      setItems([]);
+      setLoadError(
+        error instanceof Error ? error.message : "Unable to load practice session.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  }, [adaptiveMode, shouldRequestDebug, targetUnitId]);
+
+  useEffect(() => {
+    void loadPracticeSession();
+  }, [loadPracticeSession, sessionKey]);
+
+  useEffect(() => {
+    if (!currentItem) {
+      return;
+    }
+
+    questionStartedAtRef.current = Date.now();
+  }, [currentItem]);
+
+  function handleReplay() {
+    setSessionKey((previous) => previous + 1);
+  }
+
+  async function handleItemResolved(result: SessionItemResult) {
+    if (!currentItem || isSavingAnswer) {
+      return;
+    }
+
+    const responseTimeMs =
+      questionStartedAtRef.current > 0 ? Date.now() - questionStartedAtRef.current : 0;
+    const priorAttempts = attemptCountRef.current[currentItem.questionId] ?? 0;
+    attemptCountRef.current[currentItem.questionId] = priorAttempts + 1;
+
+    setIsSavingAnswer(true);
+    setSaveError(null);
+
+    let answer: PracticeAnswerResponse | null = null;
+
+    try {
+      const response = await fetch("/api/practice/answer", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "same-origin",
+        body: JSON.stringify({
+          questionId: currentItem.questionId,
+          lessonId: currentItem.lessonId,
+          sourceContext: adaptiveMode === "weak_points" ? "practice_errors" : "practice_mixed",
+          userAnswer: result.userAnswer,
+          answerOptionId: result.answerOptionId,
+          answerTokens: result.answerTokens,
+          responseTimeMs,
+          priorAttempts,
+          wasCorrect: result.status === "correct",
+        }),
+      });
+      answer = await readJson<PracticeAnswerResponse>(response);
+    } catch (error) {
+      setSaveError(
+        error instanceof Error ? error.message : "Unable to save practice answer.",
+      );
+    } finally {
+      setIsSavingAnswer(false);
+    }
+
+    if (result.status === "correct") {
+      setCorrectCount((previous) => previous + 1);
+    }
+
+    setFeedbackState({
+      item: currentItem,
+      result,
+      answer,
+    });
+  }
+
+  async function finalizeAdaptiveSession() {
+    if (!sessionId) {
+      setSessionFinished(true);
+      return;
+    }
+
+    setIsCompletingSession(true);
+    setCompletionError(null);
+
+    try {
+      const response = await fetch("/api/session/complete", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "same-origin",
+        body: JSON.stringify({
+          sessionId,
+          mode: adaptiveMode,
+          targetUnitId,
+          sessionSize: items.length,
+          selectedQuestionIds: items.map((item) => item.questionId),
+          correctCount,
+          totalCount: items.length,
+        }),
+      });
+      await readJson(response);
+    } catch (error) {
+      setCompletionError(
+        error instanceof Error ? error.message : "Unable to finalize adaptive session.",
+      );
+    } finally {
+      setIsCompletingSession(false);
+      setSessionFinished(true);
+    }
+  }
+
+  function handleAdvance() {
+    if (!feedbackState) {
+      return;
+    }
+
+    if (currentIndex >= items.length - 1) {
+      setFeedbackState(null);
+      void finalizeAdaptiveSession();
+      return;
+    }
+
+    setFeedbackState(null);
+    setSaveError(null);
+    setCurrentIndex((previous) => previous + 1);
+  }
+
+  function renderQuestion() {
+    if (!currentItem) {
+      return null;
+    }
+
+    if (currentItem.type === "word_match" && "pairs" in currentItem) {
+      return <SessionWordMatchQuestion item={currentItem} onResolve={handleItemResolved} />;
+    }
+
+    if (
+      currentItem.type === "word_match" ||
+      currentItem.type === "listen_select" ||
+      currentItem.type === "grammar_select" ||
+      currentItem.type === "translation_select" ||
+      currentItem.type === "dialogue_response"
+    ) {
+      return <SessionChoiceQuestion item={currentItem} onResolve={handleItemResolved} />;
+    }
+
+    if (currentItem.type === "translate" || currentItem.type === "fill_blank") {
+      return <SessionTextInputQuestion item={currentItem} onResolve={handleItemResolved} />;
+    }
+
+    if (
+      currentItem.type === "arrange_sentence" ||
+      currentItem.type === "dialogue_reconstruct" ||
+      currentItem.type === "sentence_build" ||
+      currentItem.type === "reorder_sentence"
+    ) {
+      return <SessionBuildSentenceQuestion item={currentItem} onResolve={handleItemResolved} />;
+    }
+
+    if (currentItem.type === "speaking" || currentItem.type === "listen_repeat") {
+      return <SessionSpeakingQuestion item={currentItem} onResolve={handleItemResolved} />;
+    }
+
+    return null;
+  }
+
+  function renderFeedback() {
+    if (!feedbackState) {
+      return null;
+    }
+
+    const { item, result, answer } = feedbackState;
+    const explanation = result.explanation ? getLocalizedText(result.explanation, locale) : "";
+    const correctAnswer = result.correctAnswer
+      ? getLocalizedValue(result.correctAnswer, locale)
+      : answer?.correctAnswer ?? "";
+    const fingerprintLabel =
+      answer?.fingerprint &&
+      answer.fingerprint.confidenceScore >= FINGERPRINT_UI_CONFIDENCE_THRESHOLD
+        ? getLocalizedText(answer.fingerprint.uiLabel, locale)
+        : "";
+
+    return (
+      <section className="panel">
+        <div className="lesson-card space-y-6 text-center">
+          <div className="space-y-3">
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <span className="pill bg-card-strong text-foreground">
+                {getSourceLabel(
+                  locale,
+                  item.selectionSource,
+                  answer?.errorCount ?? item.errorCount,
+                )}
+              </span>
+              {item.variantType !== "exact" ? (
+                <span className="pill bg-card-soft text-muted-foreground">
+                  {item.variantType === "interaction_mode_variant"
+                    ? ui("Harder format", "Tang do kho")
+                    : item.variantType === "related_task_variant"
+                      ? ui("Related variant", "Bien the lien quan")
+                      : ui("Fallback repeat", "Lap lai du phong")}
+                </span>
+              ) : null}
+              {(answer?.repeated || item.errorCount > 1) && (
+                <span className="pill bg-danger-soft text-danger">
+                  {ui(
+                    `Repeated x${answer?.errorCount ?? item.errorCount}`,
+                    `Lap lai x${answer?.errorCount ?? item.errorCount}`,
+                  )}
+                </span>
+              )}
+            </div>
+            <h3 className="font-display text-4xl text-foreground sm:text-5xl">
+              {result.status === "correct"
+                ? ui("Locked in.", "Da chot.")
+                : ui("Review it once more.", "Xem lai mot lan nua.")}
+            </h3>
+          </div>
+
+          <div className={result.status === "correct" ? "feedback-correct" : "feedback-incorrect"}>
+            {result.status === "correct" ? (
+              <p>
+                {answer?.nextReviewAt
+                  ? ui(
+                      `This mistake is now pushed back for a later review window.`,
+                      "Loi sai nay da duoc day lui sang mot moc on tap muon hon.",
+                    )
+                  : ui(
+                      "Correct. This item stays out of the queue for now.",
+                      "Dung. Muc nay tam thoi khong nam trong hang doi.",
+                    )}
+              </p>
+            ) : (
+              <div className="space-y-2">
+                <p>
+                  {ui("Correct answer", "Dap an dung")}: {correctAnswer}
+                </p>
+                <p className="font-semibold">
+                  {ui(
+                    "This item is scheduled back into your mistake queue.",
+                    "Muc nay da duoc dua tro lai vao hang doi loi sai.",
+                  )}
+                </p>
+              </div>
+            )}
+          </div>
+
+          {answer?.nextReviewAt ? (
+            <div className="rounded-[1.7rem] bg-card-soft px-4 py-3 text-sm font-bold text-muted-foreground">
+              {ui("Next review", "Lan on tiep theo")}:{" "}
+              {new Intl.DateTimeFormat(locale === "vi" ? "vi-VN" : "en-US", {
+                dateStyle: "medium",
+                timeStyle: "short",
+              }).format(new Date(answer.nextReviewAt))}
+            </div>
+          ) : null}
+
+          {result.detail ? (
+            <div className="rounded-[1.7rem] bg-card-soft px-4 py-3 text-sm font-bold text-muted-foreground">
+              {result.detail}
+            </div>
+          ) : null}
+
+          {fingerprintLabel ? (
+            <div className="rounded-[1.7rem] border border-accent/15 bg-card-soft px-4 py-3 text-sm font-bold text-foreground">
+              <p>{fingerprintLabel}</p>
+              <p className="mt-1 text-muted-foreground">{answer?.fingerprint?.shortReason}</p>
+            </div>
+          ) : null}
+
+          {explanation ? (
+            <div className="rounded-[1.7rem] bg-card-soft px-4 py-4 text-left text-sm font-bold text-muted-foreground">
+              {explanation}
+            </div>
+          ) : null}
+
+          {saveError ? <div className="feedback-incorrect">{saveError}</div> : null}
+
+          <button
+            type="button"
+            onClick={handleAdvance}
+            disabled={isCompletingSession}
+            className="primary-button w-full"
+          >
+            {currentIndex >= items.length - 1
+              ? isCompletingSession
+                ? ui("Saving session...", "Dang luu buoi hoc...")
+                : ui("Finish practice", "Ket thuc luyen tap")
+              : ui("Next", "Tiep theo")}
+          </button>
+        </div>
+      </section>
+    );
+  }
+
+  function renderSummary() {
+    return (
+      <section className="panel">
+        <div className="lesson-card space-y-6 text-center">
+          <span className="pill mx-auto bg-success-soft text-accent-strong">
+            {getLocalizedText(sessionLabel ?? getSessionLabelFallback(adaptiveMode), locale)}
+          </span>
+          <div className="space-y-2">
+            <h3 className="font-display text-4xl text-foreground sm:text-5xl">
+              {ui("Practice run complete.", "Da xong luot luyen tap.")}
+            </h3>
+            <p className="text-lg font-bold text-muted-foreground">
+              {ui(
+                `${correctCount}/${items.length} answers landed correctly.`,
+                `${correctCount}/${items.length} cau tra loi dung.`,
+              )}
+            </p>
+          </div>
+
+          {isCompletingSession ? (
+            <div className="rounded-[1.7rem] bg-card-soft px-4 py-3 text-sm font-bold text-muted-foreground">
+              {ui("Finalizing adaptive session...", "Dang chot buoi hoc thich ung...")}
+            </div>
+          ) : null}
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <button type="button" onClick={handleReplay} className="primary-button w-full">
+              {ui("Run again", "Lam lai")}
+            </button>
+            <Link href="/" className="secondary-button w-full">
+              {ui("Back to dashboard", "Ve dashboard")}
+            </Link>
+          </div>
+
+          {completionError ? <div className="feedback-incorrect">{completionError}</div> : null}
+        </div>
+      </section>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <main className="page-shell">
+        <section className="panel max-w-4xl">
+          <div className="lesson-card space-y-4 text-center">
+            <span className="pill mx-auto bg-card-strong text-foreground">
+              {copy.eyebrow}
+            </span>
+            <h1 className="font-display text-4xl text-foreground sm:text-5xl">
+              {ui("Building your next practice run.", "Dang tao luot luyen tap tiep theo.")}
+            </h1>
+            <p className="text-base font-bold text-muted-foreground">{copy.summary}</p>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <main className="page-shell">
+        <section className="panel max-w-4xl">
+          <div className="lesson-card space-y-5 text-center">
+            <span className="pill mx-auto bg-danger-soft text-danger">
+              {copy.eyebrow}
+            </span>
+            <h1 className="font-display text-4xl text-foreground sm:text-5xl">
+              {ui("Practice could not start.", "Khong the bat dau luot luyen tap.")}
+            </h1>
+            <div className="feedback-incorrect">{loadError}</div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <button type="button" onClick={handleReplay} className="primary-button w-full">
+                {ui("Try again", "Thu lai")}
+              </button>
+              <Link href="/" className="secondary-button w-full">
+                {ui("Back to dashboard", "Ve dashboard")}
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
+  if (!items.length) {
+    return (
+      <main className="page-shell">
+        <section className="panel max-w-4xl">
+          <div className="lesson-card space-y-5 text-center">
+            <span className="pill mx-auto bg-card-strong text-foreground">
+              {copy.eyebrow}
+            </span>
+            <h1 className="font-display text-4xl text-foreground sm:text-5xl">
+              {copy.emptyTitle}
+            </h1>
+            <p className="text-base font-bold text-muted-foreground">{copy.emptySummary}</p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <button type="button" onClick={handleReplay} className="primary-button w-full">
+                {ui("Refresh queue", "Tai lai hang doi")}
+              </button>
+              <Link href="/" className="secondary-button w-full">
+                {ui("Back to dashboard", "Ve dashboard")}
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
+  return (
+    <main className="page-shell">
+      <section className="panel max-w-4xl">
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div className="space-y-3">
+            <span className="pill bg-accent-warm/70 text-foreground">
+              {getLocalizedText(sessionLabel ?? getSessionLabelFallback(adaptiveMode), locale)}
+            </span>
+            <h1 className="font-display text-4xl text-foreground sm:text-6xl">{copy.title}</h1>
+            <p className="max-w-2xl text-base font-bold text-muted-foreground">
+              {copy.summary}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3 sm:justify-end">
+            <Link href="/" className="secondary-button">
+              {ui("Dashboard", "Dashboard")}
+            </Link>
+            <button type="button" onClick={handleReplay} className="secondary-button">
+              {ui("Reload set", "Tai lai bo cau hoi")}
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {shouldRequestDebug && sessionDebug?.length ? (
+        <section className="panel max-w-4xl">
+          <details className="rounded-[1.6rem] bg-card-soft p-4">
+            <summary className="cursor-pointer text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
+              {ui("Adaptive debug", "Adaptive debug")}
+            </summary>
+            <div className="mt-4 space-y-3">
+              {sessionDebug.map((entry) => (
+                <div key={entry.questionId} className="rounded-[1.2rem] bg-white p-4 text-sm">
+                  <p className="font-extrabold text-foreground">{entry.questionId}</p>
+                  <p className="mt-1 font-bold text-muted-foreground">
+                    {entry.selectionSource} · {entry.variantType}
+                  </p>
+                  <p className="mt-2 text-muted-foreground">{entry.reason}</p>
+                  <p className="mt-2 text-xs font-bold text-muted-foreground/80">
+                    {ui("Score", "Diem")}: {entry.weightBreakdown.totalScore} | W: {entry.weightBreakdown.weaknessWeight} | D: {entry.weightBreakdown.recencyDueWeight} | R: {entry.weightBreakdown.repeatedErrorWeight} | F: {entry.weightBreakdown.fingerprintPriorityWeight} | P: {entry.weightBreakdown.progressionRelevanceWeight} | O: {entry.weightBreakdown.overexposurePenalty}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </details>
+        </section>
+      ) : null}
+
+      {!sessionFinished && currentItem ? (
+        <>
+          <ProgressBar
+            currentIndex={currentIndex}
+            totalCount={items.length}
+            currentLabel={getSessionItemTypeLabel(
+              currentItem.type,
+              locale,
+              currentItem.interactionMode,
+            )}
+          />
+
+          <section className="panel max-w-4xl">
+            <div className="flex flex-wrap items-center gap-2">
+              <span
+                className={`pill ${
+                  currentItem.selectionSource === "due_review" ||
+                  currentItem.selectionSource === "weak_reinforcement"
+                    ? "bg-danger-soft text-danger"
+                    : "bg-card-strong text-foreground"
+                }`}
+              >
+                {getSourceLabel(locale, currentItem.selectionSource, currentItem.errorCount)}
+              </span>
+              {currentItem.variantType !== "exact" ? (
+                <span className="pill bg-card-soft text-muted-foreground">
+                  {currentItem.variantType === "interaction_mode_variant"
+                    ? ui("Harder format", "Tang do kho")
+                    : currentItem.variantType === "related_task_variant"
+                      ? ui("Related variant", "Bien the lien quan")
+                      : ui("Fallback repeat", "Lap lai du phong")}
+                </span>
+              ) : null}
+              {currentItem.errorCount > 1 ? (
+                <span className="pill bg-danger-soft text-danger">
+                  {ui(
+                    `Repeated x${currentItem.errorCount}`,
+                    `Lap lai x${currentItem.errorCount}`,
+                  )}
+                </span>
+              ) : null}
+            </div>
+          </section>
+        </>
+      ) : null}
+
+      {sessionFinished
+        ? renderSummary()
+        : feedbackState
+          ? renderFeedback()
+          : renderQuestion()}
+    </main>
+  );
+}

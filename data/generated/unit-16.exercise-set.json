@@ -1,0 +1,353 @@
+{
+  "unit_id": "16",
+  "unit_title": "How do I get to Seoul Station from here?",
+  "stages": [
+    {
+      "stage_id": "u16_s01",
+      "stage_goal": "Recognize the core words and short lines for How do I get to Seoul Station from here?.",
+      "exercises": [
+        {
+          "id": "u16_s01_tb_word_match_1",
+          "focus": [
+            "textbook vocab",
+            "recognition"
+          ],
+          "prompt": "Match the Korean words to their meanings.",
+          "difficulty": "easy",
+          "type": "word_match",
+          "skill": "vocab",
+          "pairs": [
+            {
+              "left": "버스",
+              "right": "bus"
+            },
+            {
+              "left": "지하철",
+              "right": "subway"
+            },
+            {
+              "left": "기차",
+              "right": "train"
+            },
+            {
+              "left": "비행기",
+              "right": "airplane"
+            }
+          ],
+          "answer": [
+            [
+              "버스",
+              "bus"
+            ],
+            [
+              "지하철",
+              "subway"
+            ],
+            [
+              "기차",
+              "train"
+            ],
+            [
+              "비행기",
+              "airplane"
+            ]
+          ]
+        },
+        {
+          "id": "u16_s01_tb_word_match_2",
+          "focus": [
+            "textbook vocab",
+            "recognition"
+          ],
+          "prompt": "Match the Korean words to their meanings.",
+          "difficulty": "easy",
+          "type": "word_match",
+          "skill": "vocab",
+          "pairs": [
+            {
+              "left": "배",
+              "right": "boat"
+            },
+            {
+              "left": "역",
+              "right": "station"
+            },
+            {
+              "left": "정류장",
+              "right": "bus stop"
+            },
+            {
+              "left": "터미널",
+              "right": "terminal"
+            }
+          ],
+          "answer": [
+            [
+              "배",
+              "boat"
+            ],
+            [
+              "역",
+              "station"
+            ],
+            [
+              "정류장",
+              "bus stop"
+            ],
+            [
+              "터미널",
+              "terminal"
+            ]
+          ]
+        },
+        {
+          "id": "u16_s01_tb_translation_select_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Choose the best English meaning.",
+          "difficulty": "easy",
+          "type": "translation_select",
+          "skill": "reading",
+          "question": "여기에서 서울역까지 어떻게 가요?",
+          "choices": [
+            "How do I get to Seoul Station from here?",
+            "Take bus 100 at that bus stop over there.",
+            "That bus goes all the way to Seoul Station."
+          ],
+          "answer": "How do I get to Seoul Station from here?"
+        },
+        {
+          "id": "u16_s01_tb_translation_select_2",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Choose the best English meaning.",
+          "difficulty": "easy",
+          "type": "translation_select",
+          "skill": "reading",
+          "question": "저기 정류장에서 100번 버스를 타십시오.",
+          "choices": [
+            "Take bus 100 at that bus stop over there.",
+            "How do I get to Seoul Station from here?",
+            "That bus goes all the way to Seoul Station."
+          ],
+          "answer": "Take bus 100 at that bus stop over there."
+        }
+      ]
+    },
+    {
+      "stage_id": "u16_s02",
+      "stage_goal": "Build short Korean responses and patterns for How do I get to Seoul Station from here?.",
+      "exercises": [
+        {
+          "id": "u16_s02_tb_fill_blank_1",
+          "focus": [
+            "에서, 까지"
+          ],
+          "prompt": "Fill in the missing Korean chunk.",
+          "difficulty": "easy",
+          "type": "fill_blank",
+          "skill": "grammar",
+          "question": "___ 학교까지 시간이 얼마나 걸려요?",
+          "blank_count": 1,
+          "choices": [
+            "집에서",
+            "여기에서",
+            "저기"
+          ],
+          "answer": [
+            "집에서"
+          ],
+          "explanation": "Choose the chunk that completes the sentence naturally."
+        },
+        {
+          "id": "u16_s02_tb_sentence_build_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Build the Korean sentence.",
+          "difficulty": "easy",
+          "type": "sentence_build",
+          "skill": "sentence",
+          "target_meaning": "How do I get to Seoul Station from here?",
+          "tokens": [
+            "여기에서",
+            "서울역까지",
+            "어떻게",
+            "가요?"
+          ],
+          "distractors": [
+            "저기",
+            "정류장에서"
+          ],
+          "answer": "여기에서 서울역까지 어떻게 가요?"
+        },
+        {
+          "id": "u16_s02_tb_reorder_sentence_1",
+          "focus": [
+            "에서, 까지"
+          ],
+          "prompt": "Put the Korean sentence in the correct order.",
+          "difficulty": "easy",
+          "type": "reorder_sentence",
+          "skill": "word_order",
+          "scrambled_tokens": [
+            "걸려요.",
+            "30분"
+          ],
+          "answer_tokens": [
+            "30분",
+            "걸려요."
+          ],
+          "answer": "30분 걸려요."
+        },
+        {
+          "id": "u16_s02_tb_listen_repeat_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Listen and repeat the Korean sentence.",
+          "difficulty": "easy",
+          "type": "listen_repeat",
+          "skill": "speaking",
+          "text": "아니요. 멀지 않아요.",
+          "tts_text": "아니요. 멀지 않아요.",
+          "expected_chunks": [
+            "아니요.",
+            "멀지",
+            "않아요."
+          ],
+          "pass_rule": {
+            "mode": "chunk_match",
+            "min_correct_chunks": 2
+          }
+        }
+      ]
+    },
+    {
+      "stage_id": "u16_s03",
+      "stage_goal": "Review How do I get to Seoul Station from here? with dialogue and workbook reinforcement.",
+      "exercises": [
+        {
+          "id": "u16_s03_wb_word_match_1",
+          "focus": [
+            "workbook review",
+            "matching"
+          ],
+          "prompt": "Match the workbook review items to their meanings.",
+          "difficulty": "easy",
+          "type": "word_match",
+          "skill": "vocab",
+          "pairs": [
+            {
+              "left": "버스",
+              "right": "bus"
+            },
+            {
+              "left": "기차",
+              "right": "train"
+            },
+            {
+              "left": "지하철",
+              "right": "subway"
+            },
+            {
+              "left": "비행기",
+              "right": "airplane"
+            }
+          ],
+          "answer": [
+            [
+              "버스",
+              "bus"
+            ],
+            [
+              "기차",
+              "train"
+            ],
+            [
+              "지하철",
+              "subway"
+            ],
+            [
+              "비행기",
+              "airplane"
+            ]
+          ]
+        },
+        {
+          "id": "u16_s03_wb_fill_blank_1",
+          "focus": [
+            "transport-use",
+            "transfer",
+            "future"
+          ],
+          "prompt": "Fill in the blank with the correct phrase.",
+          "difficulty": "easy",
+          "type": "fill_blank",
+          "skill": "grammar",
+          "question": "이 비행기는 한국까지 바로 가지 않아서 비행기를 ___.",
+          "blank_count": 1,
+          "choices": [
+            "갈아탈 거예요",
+            "걸어갈 거예요",
+            "탈 거예요"
+          ],
+          "answer": [
+            "갈아탈 거예요"
+          ],
+          "explanation": "Fill in the blank with the correct phrase."
+        },
+        {
+          "id": "u16_s03_tb_dialogue_response_1",
+          "focus": [
+            "textbook dialogue",
+            "response"
+          ],
+          "prompt": "Choose the best response to complete the dialogue.",
+          "difficulty": "easy",
+          "type": "dialogue_response",
+          "skill": "conversation",
+          "context": [
+            {
+              "speaker": "Man",
+              "text": "저기 정류장에서 100번 버스를 타십시오."
+            },
+            {
+              "speaker": "Man",
+              "text": "__________"
+            }
+          ],
+          "choices": [
+            "그 버스가 서울역까지 갑니다.",
+            "여기에서 서울역까지 어떻게 가요?",
+            "저기 정류장에서 100번 버스를 타십시오."
+          ],
+          "answer": "그 버스가 서울역까지 갑니다."
+        },
+        {
+          "id": "u16_s03_tb_listen_repeat_1",
+          "focus": [
+            "textbook dialogue"
+          ],
+          "prompt": "Listen and repeat the Korean sentence.",
+          "difficulty": "easy",
+          "type": "listen_repeat",
+          "skill": "speaking",
+          "text": "아니요. 멀지 않아요.",
+          "tts_text": "아니요. 멀지 않아요.",
+          "expected_chunks": [
+            "아니요.",
+            "멀지",
+            "않아요."
+          ],
+          "pass_rule": {
+            "mode": "chunk_match",
+            "min_correct_chunks": 2
+          }
+        }
+      ]
+    }
+  ]
+}

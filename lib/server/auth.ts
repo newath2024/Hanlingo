@@ -241,3 +241,11 @@ export async function touchSessionOnResponse(
 export function getRawSessionToken(token: string | undefined | null) {
   return splitSignedToken(token)?.rawToken ?? null;
 }
+
+export function getSessionTokenFromRequest(request: Request) {
+  return request.headers
+    .get("cookie")
+    ?.split(";")
+    .find((entry) => entry.trim().startsWith(`${SESSION_COOKIE_NAME}=`))
+    ?.split("=")[1];
+}

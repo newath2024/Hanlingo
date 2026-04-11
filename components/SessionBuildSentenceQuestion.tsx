@@ -59,6 +59,8 @@ export default function SessionBuildSentenceQuestion({
       awardedXp: 0,
       shouldRetryLater: !wasCorrect,
       weakItemLabel: item.weakItemLabel,
+      userAnswer: selectedWords.join(" "),
+      answerTokens: selectedWords,
       correctAnswer: item.correctAnswer,
       explanation: item.explanation,
     });
@@ -75,6 +77,10 @@ export default function SessionBuildSentenceQuestion({
                 ? ui("Sentence Builder", "Ghep cau")
                 : item.type === "dialogue_reconstruct"
                   ? ui("Dialogue Reconstruct", "Ghep lai hoi thoai")
+                  : item.type === "sentence_build"
+                    ? ui("Sentence Builder", "Ghep cau")
+                    : item.type === "reorder_sentence"
+                      ? ui("Reorder Sentence", "Sap xep lai cau")
                   : ui("Arrange Sentence", "Sap xep cau")}
           </p>
           <h3 className="font-display text-3xl text-foreground sm:text-4xl">
@@ -101,6 +107,12 @@ export default function SessionBuildSentenceQuestion({
                 <span className="pill bg-accent-cool text-accent-strong">{item.speaker}</span>
                 <p className="text-2xl font-extrabold leading-tight text-foreground">
                   {getLocalizedText(item.translation, locale)}
+                </p>
+              </div>
+            ) : item.type === "sentence_build" && item.targetMeaning ? (
+              <div className="mt-4 space-y-2">
+                <p className="text-2xl font-extrabold leading-tight text-foreground">
+                  {item.targetMeaning}
                 </p>
               </div>
             ) : item.meaning ? (

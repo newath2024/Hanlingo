@@ -6,7 +6,15 @@ export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const sessionToken = request.cookies.get(SESSION_COOKIE_NAME)?.value;
 
-  if (pathname.startsWith("/api/progress/") && !sessionToken) {
+  if (
+    (pathname.startsWith("/api/progress/") ||
+      pathname.startsWith("/api/practice/") ||
+      pathname.startsWith("/api/errors/") ||
+      pathname.startsWith("/api/review/") ||
+      pathname.startsWith("/api/lesson/") ||
+      pathname.startsWith("/api/session/")) &&
+    !sessionToken
+  ) {
     return NextResponse.json(
       {
         error: "Unauthorized.",
@@ -17,6 +25,8 @@ export function proxy(request: NextRequest) {
 
   if (
     (pathname === "/" ||
+      pathname === "/practice" ||
+      pathname.startsWith("/practice/") ||
       pathname.startsWith("/unit/") ||
       pathname.startsWith("/node/") ||
       pathname.startsWith("/lesson/")) &&
@@ -29,5 +39,18 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/unit/:path*", "/node/:path*", "/lesson/:path*", "/api/progress/:path*"],
+  matcher: [
+    "/",
+    "/practice",
+    "/practice/:path*",
+    "/unit/:path*",
+    "/node/:path*",
+    "/lesson/:path*",
+    "/api/progress/:path*",
+    "/api/practice/:path*",
+    "/api/errors/:path*",
+    "/api/review/:path*",
+    "/api/lesson/:path*",
+    "/api/session/:path*",
+  ],
 };

@@ -1,4 +1,5 @@
 import { extractUnit } from "./extract";
+import { generateExerciseSet, validateExerciseSet } from "./exercise-set";
 import { generateRuntimeUnit } from "./generate";
 import { validateCurriculum } from "./validate";
 
@@ -41,9 +42,28 @@ async function run() {
     return;
   }
 
+  if (command === "generate-exercise-set") {
+    const result = await generateExerciseSet({
+      unitId,
+      locale: "en",
+    });
+    console.log(`Generated exercise set: ${result.exerciseSetPath}`);
+    return;
+  }
+
   if (command === "validate") {
     const result = await validateCurriculum({ unitId });
     console.log(`Validated curriculum artifacts for unit ${unitId}.`);
+    console.log(result);
+    return;
+  }
+
+  if (command === "validate-exercise-set") {
+    const result = await validateExerciseSet({
+      unitId,
+      locale: "en",
+    });
+    console.log(`Validated exercise-set artifacts for unit ${unitId}.`);
     console.log(result);
     return;
   }
@@ -68,7 +88,7 @@ async function run() {
   }
 
   throw new Error(
-    "Unknown command. Use one of: extract, generate, validate, pilot.",
+    "Unknown command. Use one of: extract, generate, generate-exercise-set, validate, validate-exercise-set, pilot.",
   );
 }
 

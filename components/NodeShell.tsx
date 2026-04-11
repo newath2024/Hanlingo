@@ -2,6 +2,8 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { useUserProgress } from "@/hooks/useUserProgress";
+import { analyzeMistake, summarizeFingerprint } from "@/lib/error-fingerprint-analysis";
+import { createExerciseSetSession } from "@/lib/exercise-set-session";
 import { getLocalizedText, getLocalizedValue } from "@/lib/localized";
 import {
   SESSION_XP_PER_CORRECT,
@@ -11,11 +13,12 @@ import {
   queueRetryItem,
 } from "@/lib/session";
 import { getNextNode, getNodeState, isNodeCompleted, isUnitCompleted } from "@/lib/units";
-import type { RuntimeLesson } from "@/types/curriculum";
+import { FINGERPRINT_UI_CONFIDENCE_THRESHOLD } from "@/types/error-fingerprint";
 import type { SessionItem, SessionItemResult, WeakSessionItem } from "@/types/session";
-import type { NodeDefinition, UnitDefinition } from "@/types/unit";
+import type { AppLesson, NodeDefinition, UnitDefinition } from "@/types/unit";
 import Link from "next/link";
 import {
+  useCallback,
   useEffect,
   useEffectEvent,
   useRef,
@@ -27,11 +30,12 @@ import SessionBuildSentenceQuestion from "./SessionBuildSentenceQuestion";
 import SessionChoiceQuestion from "./SessionChoiceQuestion";
 import SessionSpeakingQuestion from "./SessionSpeakingQuestion";
 import SessionTextInputQuestion from "./SessionTextInputQuestion";
+import SessionWordMatchQuestion from "./SessionWordMatchQuestion";
 
 type NodeShellProps = {
   unit: UnitDefinition;
   node: NodeDefinition;
-  lesson: RuntimeLesson;
+  lesson: AppLesson;
 };
 
 type FeedbackState = {
@@ -41,15 +45,19 @@ type FeedbackState = {
   queuedRetry: boolean;
 };
 
-function buildAdaptiveSessionItems(
-  lesson: RuntimeLesson,
+function buildLessonSessionItems(
+  lesson: AppLesson,
   unitLevel: number,
   sentenceSeenCounts: Record<string, number>,
 ) {
-  return createLessonSession(lesson, {
-    unitLevel,
-    sentenceSeenCounts,
-  });
+  if ("tasks" in lesson) {
+    return createLessonSession(lesson, {
+      unitLevel,
+      sentenceSeenCounts,
+    });
+  }
+
+  return createExerciseSetSession(lesson);
 }
 
 function useClientReady() {
@@ -91,10 +99,34 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     isLoading: progressLoading,
     error: progressError,
     completeSession,
+    reportErrors,
   } = useUserProgress();
   const revealedAdaptiveItemIdsRef = useRef<Set<string>>(new Set());
   const exposureDeltaRef = useRef<Record<string, number>>({});
   const errorPatternDeltaRef = useRef<Record<string, number>>({});
+  const questionStartedAtRef = useRef(0);
+  const attemptCountRef = useRef<Record<string, number>>({});
+  const attemptQueueRef = useRef<
+    Array<{
+      questionId: string;
+      lessonId: string;
+      wasCorrect: boolean;
+      responseTimeMs: number;
+    }>
+  >([]);
+  const errorQueueRef = useRef<
+    Array<{
+      questionId: string;
+      lessonId: string;
+      userAnswer?: string;
+      answerOptionId?: string;
+      answerTokens?: string[];
+      responseTimeMs: number;
+      priorAttempts: number;
+    }>
+  >([]);
+  const flushTimerRef = useRef<number | null>(null);
+  const attemptFlushTimerRef = useRef<number | null>(null);
   const [sessionKey, setSessionKey] = useState(0);
   const [sessionItems, setSessionItems] = useState<SessionItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -123,7 +155,11 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     revealedAdaptiveItemIdsRef.current = new Set();
     exposureDeltaRef.current = {};
     errorPatternDeltaRef.current = {};
-    setSessionItems(buildAdaptiveSessionItems(lesson, unit.unitNumber, progress.sentenceExposures));
+    questionStartedAtRef.current = Date.now();
+    attemptCountRef.current = {};
+    attemptQueueRef.current = [];
+    errorQueueRef.current = [];
+    setSessionItems(buildLessonSessionItems(lesson, unit.unitNumber, progress.sentenceExposures));
     setCurrentIndex(0);
     setFeedbackState(null);
     setFirstPassScore(0);
@@ -138,6 +174,69 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     setCompletedAtSessionStart(isNodeCompleted(progress, node.id));
     setUnitCompletedAtSessionStart(isUnitCompleted(progress, unit.id));
   });
+
+  const flushQueuedErrors = useCallback(async () => {
+    const queuedEvents = errorQueueRef.current.splice(0);
+
+    if (!queuedEvents.length) {
+      return;
+    }
+
+    await reportErrors(queuedEvents);
+  }, [reportErrors]);
+
+  const flushQueuedAttempts = useCallback(async () => {
+    const queuedEvents = attemptQueueRef.current.splice(0);
+
+    if (!queuedEvents.length) {
+      return;
+    }
+
+    const response = await fetch("/api/review/attempts", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "same-origin",
+      body: JSON.stringify({
+        events: queuedEvents,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Unable to record lesson attempts.");
+    }
+  }, []);
+
+  const scheduleQueuedErrorFlush = useCallback(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    if (flushTimerRef.current !== null) {
+      window.clearTimeout(flushTimerRef.current);
+    }
+
+    flushTimerRef.current = window.setTimeout(() => {
+      flushTimerRef.current = null;
+      void flushQueuedErrors().catch(() => undefined);
+    }, 1200);
+  }, [flushQueuedErrors]);
+
+  const scheduleQueuedAttemptFlush = useCallback(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    if (attemptFlushTimerRef.current !== null) {
+      window.clearTimeout(attemptFlushTimerRef.current);
+    }
+
+    attemptFlushTimerRef.current = window.setTimeout(() => {
+      attemptFlushTimerRef.current = null;
+      void flushQueuedAttempts().catch(() => undefined);
+    }, 1200);
+  }, [flushQueuedAttempts]);
 
   useEffect(() => {
     if (progressLoading) {
@@ -166,6 +265,29 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
       (exposureDeltaRef.current[currentItem.sentenceKey] ?? 0) + 1;
   }, [currentItem]);
 
+  useEffect(() => {
+    if (!currentItem) {
+      return;
+    }
+
+    questionStartedAtRef.current = Date.now();
+  }, [currentItem]);
+
+  useEffect(() => {
+    return () => {
+      if (typeof window !== "undefined" && flushTimerRef.current !== null) {
+        window.clearTimeout(flushTimerRef.current);
+      }
+
+      if (typeof window !== "undefined" && attemptFlushTimerRef.current !== null) {
+        window.clearTimeout(attemptFlushTimerRef.current);
+      }
+
+      void flushQueuedErrors().catch(() => undefined);
+      void flushQueuedAttempts().catch(() => undefined);
+    };
+  }, [flushQueuedAttempts, flushQueuedErrors]);
+
   function handleReplay() {
     setSessionKey((previous) => previous + 1);
   }
@@ -191,6 +313,51 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
   function handleItemResolved(result: SessionItemResult) {
     if (!currentItem) {
       return;
+    }
+
+    const responseTimeMs =
+      questionStartedAtRef.current > 0 ? Date.now() - questionStartedAtRef.current : 0;
+    const priorAttempts = attemptCountRef.current[currentItem.sourceId] ?? 0;
+    attemptCountRef.current[currentItem.sourceId] = priorAttempts + 1;
+    const mistakeFingerprint =
+      result.status === "incorrect"
+        ? summarizeFingerprint(
+            analyzeMistake({
+              question: currentItem,
+              userAnswer: result.userAnswer ?? "",
+              correctAnswer: getLocalizedValue(currentItem.correctAnswer, locale),
+              answerOptionId: result.answerOptionId,
+              answerTokens: result.answerTokens,
+              responseTimeMs,
+              priorAttempts,
+            }),
+          )
+        : undefined;
+
+    if (result.status === "incorrect" && currentItem.tracksServerState) {
+      errorQueueRef.current.push({
+        questionId: currentItem.sourceId,
+        lessonId: node.lessonId,
+        userAnswer: result.userAnswer,
+        answerOptionId: result.answerOptionId,
+        answerTokens: result.answerTokens,
+        responseTimeMs,
+        priorAttempts,
+      });
+      scheduleQueuedErrorFlush();
+    }
+
+    if (
+      currentItem.tracksServerState &&
+      (result.status === "correct" || result.status === "incorrect")
+    ) {
+      attemptQueueRef.current.push({
+        questionId: currentItem.sourceId,
+        lessonId: node.lessonId,
+        wasCorrect: result.status === "correct",
+        responseTimeMs,
+      });
+      scheduleQueuedAttemptFlush();
     }
 
     const isFirstPass = !currentItem.isRetry;
@@ -232,6 +399,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
       result: {
         ...result,
         awardedXp,
+        mistakeFingerprint,
       },
       awardedXp,
       queuedRetry,
@@ -253,6 +421,8 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     setSaveError(null);
 
     try {
+      await flushQueuedErrors().catch(() => undefined);
+      await flushQueuedAttempts().catch(() => undefined);
       const result = await completeSession({
         lessonId: node.lessonId,
         nodeId: node.id,
@@ -283,10 +453,22 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
       return null;
     }
 
+    if (currentItem.type === "word_match" && "pairs" in currentItem) {
+      return (
+        <SessionWordMatchQuestion
+          key={`${sessionKey}-${currentItem.id}`}
+          item={currentItem}
+          onResolve={handleItemResolved}
+        />
+      );
+    }
+
     if (
       currentItem.type === "word_match" ||
       currentItem.type === "listen_select" ||
-      currentItem.type === "grammar_select"
+      currentItem.type === "grammar_select" ||
+      currentItem.type === "translation_select" ||
+      currentItem.type === "dialogue_response"
     ) {
       return (
         <SessionChoiceQuestion
@@ -309,7 +491,9 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
 
     if (
       currentItem.type === "arrange_sentence" ||
-      currentItem.type === "dialogue_reconstruct"
+      currentItem.type === "dialogue_reconstruct" ||
+      currentItem.type === "sentence_build" ||
+      currentItem.type === "reorder_sentence"
     ) {
       return (
         <SessionBuildSentenceQuestion
@@ -320,7 +504,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
       );
     }
 
-    if (currentItem.type === "speaking") {
+    if (currentItem.type === "speaking" || currentItem.type === "listen_repeat") {
       return (
         <SessionSpeakingQuestion
           key={`${sessionKey}-${currentItem.id}`}
@@ -349,6 +533,11 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     const correctAnswer = result.correctAnswer
       ? getLocalizedValue(result.correctAnswer, locale)
       : "";
+    const fingerprintLabel =
+      result.mistakeFingerprint &&
+      result.mistakeFingerprint.confidenceScore >= FINGERPRINT_UI_CONFIDENCE_THRESHOLD
+        ? getLocalizedText(result.mistakeFingerprint.uiLabel, locale)
+        : "";
 
     return (
       <section className="panel">
@@ -416,6 +605,13 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
           {result.detail ? (
             <div className="rounded-[1.7rem] bg-card-soft px-4 py-3 text-sm font-bold text-muted-foreground">
               {result.detail}
+            </div>
+          ) : null}
+
+          {fingerprintLabel ? (
+            <div className="rounded-[1.7rem] border border-accent/15 bg-card-soft px-4 py-3 text-sm font-bold text-foreground">
+              <p>{fingerprintLabel}</p>
+              <p className="mt-1 text-muted-foreground">{result.mistakeFingerprint?.shortReason}</p>
             </div>
           ) : null}
 

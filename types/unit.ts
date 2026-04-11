@@ -1,4 +1,7 @@
-import type { LessonRole, LocalizedText, RuntimeLesson, RuntimeUnit } from "./curriculum";
+import type { LessonRole, LocalizedText, RuntimeLesson } from "./curriculum";
+import type { ExerciseSetLesson } from "./exercise-set";
+
+export type AppLesson = RuntimeLesson | ExerciseSetLesson;
 
 export type NodeType = "standard" | "review";
 
@@ -17,15 +20,21 @@ export type NodeDefinition = {
   sessionLength: number;
 };
 
-export type UnitDefinition = RuntimeUnit & {
+export type UnitDefinition = {
   id: string;
+  unitId: string;
+  unitNumber: number;
+  title: LocalizedText;
+  subtitle: LocalizedText;
+  reviewWords: string[];
+  lessons: AppLesson[];
   nodes: NodeDefinition[];
 };
 
 export type NodeMatch = {
   unit: UnitDefinition;
   node: NodeDefinition;
-  lesson: RuntimeLesson;
+  lesson: AppLesson;
 };
 
 export type NodeProgress = {

@@ -7,14 +7,31 @@ import Image from "next/image";
 import type {
   GrammarChoiceSessionItem,
   LocalizedChoiceSessionItem,
+  SelectSessionItem,
   SessionItemResult,
 } from "@/types/session";
 import { useEffect, useRef, useState } from "react";
 
 type SessionChoiceQuestionProps = {
-  item: LocalizedChoiceSessionItem | GrammarChoiceSessionItem;
+  item: LocalizedChoiceSessionItem | GrammarChoiceSessionItem | SelectSessionItem;
   onResolve: (result: SessionItemResult) => void;
 };
+
+function isLocalizedChoiceItem(
+  item: SessionChoiceQuestionProps["item"],
+): item is LocalizedChoiceSessionItem {
+  return item.type === "word_match" || item.type === "listen_select";
+}
+
+function isSelectItem(item: SessionChoiceQuestionProps["item"]): item is SelectSessionItem {
+  return item.type === "translation_select" || item.type === "dialogue_response";
+}
+
+function getStringChoiceItem(
+  item: SessionChoiceQuestionProps["item"],
+): GrammarChoiceSessionItem | SelectSessionItem | null {
+  return isLocalizedChoiceItem(item) ? null : item;
+}
 
 function getInstruction(
   locale: "en" | "vi",
@@ -25,6 +42,26 @@ function getInstruction(
       {
         en: "Listen, then choose the best answer.",
         vi: "Nghe roi chon dap an phu hop nhat.",
+      },
+      locale,
+    );
+  }
+
+  if (item.type === "translation_select") {
+    return getLocalizedText(
+      {
+        en: "Read the Korean line, then choose the best meaning.",
+        vi: "Doc cau tieng Han, roi chon nghia phu hop nhat.",
+      },
+      locale,
+    );
+  }
+
+  if (item.type === "dialogue_response") {
+    return getLocalizedText(
+      {
+        en: "Read the dialogue and choose the best response.",
+        vi: "Doc hoi thoai va chon cau dap phu hop nhat.",
       },
       locale,
     );
@@ -75,6 +112,14 @@ function getSessionItemLabel(
     return getLocalizedText({ en: "Grammar", vi: "Ngu phap" }, locale);
   }
 
+  if (item.type === "translation_select") {
+    return getLocalizedText({ en: "Select Translation", vi: "Chon nghia" }, locale);
+  }
+
+  if (item.type === "dialogue_response") {
+    return getLocalizedText({ en: "Dialogue Response", vi: "Dap hoi thoai" }, locale);
+  }
+
   return getLocalizedText({ en: "Word Match", vi: "Noi tu" }, locale);
 }
 
@@ -96,6 +141,10 @@ export default function SessionChoiceQuestion({
     supportText && item.type === "grammar_select"
       ? `${ui("Meaning", "Nghia")}: ${supportText}`
       : supportText;
+  const choiceItem = isLocalizedChoiceItem(item) ? item : null;
+  const selectItem = isSelectItem(item) ? item : null;
+  const stringChoiceItem = getStringChoiceItem(item);
+  const stringChoices = stringChoiceItem?.choices ?? [];
 
   useEffect(() => {
     return () => {
@@ -174,12 +223,23 @@ export default function SessionChoiceQuestion({
     }
 
     const wasCorrect = selectedOption === item.answer;
+    const userAnswer = choiceItem
+      ? getLocalizedText(
+          choiceItem.choices.find((choice) => choice.id === selectedOption)?.text ?? {
+            en: selectedOption,
+            vi: selectedOption,
+          },
+          locale,
+        )
+      : selectedOption;
 
     onResolve({
       status: wasCorrect ? "correct" : "incorrect",
       awardedXp: 0,
       shouldRetryLater: !wasCorrect,
       weakItemLabel: item.weakItemLabel,
+      userAnswer,
+      answerOptionId: selectedOption,
       correctAnswer: item.correctAnswer,
       explanation: item.explanation,
     });
@@ -216,7 +276,31 @@ export default function SessionChoiceQuestion({
               {prompt}
             </p>
 
-            {item.koreanText ? <p className="mt-4 korean-display">{item.koreanText}</p> : null}
+            {"koreanText" in item && item.koreanText ? (
+              <p className="mt-4 korean-display">{item.koreanText}</p>
+            ) : null}
+
+            {selectItem?.type === "translation_select" ? (
+              <p className="mt-4 korean-display">{selectItem.question}</p>
+            ) : null}
+
+            {selectItem?.type === "dialogue_response" && selectItem.context?.length ? (
+              <div className="mt-4 space-y-3">
+                {selectItem.context.map((line, index) => (
+                  <div
+                    key={`${line.speaker}-${index}`}
+                    className="rounded-[1.4rem] bg-white/80 px-4 py-3 text-left"
+                  >
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                      {line.speaker}
+                    </p>
+                    <p className="mt-1 text-lg font-extrabold leading-tight text-foreground">
+                      {line.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ) : null}
 
             {supportLabel ? (
               <p className="mt-4 text-base font-bold text-muted-foreground">{supportLabel}</p>
@@ -224,8 +308,8 @@ export default function SessionChoiceQuestion({
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            {"choices" in item && item.type !== "grammar_select"
-              ? item.choices.map((option) => {
+            {choiceItem
+              ? choiceItem.choices.map((option) => {
                   const isSelected = selectedOption === option.id;
                   const label = getLocalizedText(option.text, locale);
 
@@ -255,7 +339,7 @@ export default function SessionChoiceQuestion({
                     </button>
                   );
                 })
-              : item.choices.map((option) => {
+              : stringChoices?.map((option) => {
                   const isSelected = selectedOption === option;
 
                   return (

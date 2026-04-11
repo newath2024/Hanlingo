@@ -3,10 +3,16 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { Prisma } from "@prisma/client";
+import { AttemptSourceContext, ErrorType, FingerprintType, Prisma } from "@prisma/client";
 import { createDefaultUserProgressState } from "@/lib/progress-state";
 import { getServerEnv } from "@/lib/server/env";
 import { prisma } from "@/lib/server/prisma";
+import type { ErrorType as SharedErrorType } from "@/types/error-tracking";
+import type {
+  FingerprintType as SharedFingerprintType,
+  MistakeAnalysisPayload,
+} from "@/types/error-fingerprint";
+import type { AttemptSourceContext as SharedAttemptSourceContext } from "@/types/error-heatmap";
 
 export class DuplicateUserError extends Error {
   constructor() {
@@ -54,6 +60,56 @@ export type ProgressRecord = {
   updatedAt: Date;
 };
 
+export type UserErrorType = SharedErrorType;
+
+export type UserErrorRecord = {
+  id: string;
+  userId: string;
+  questionId: string;
+  lessonId: string;
+  errorType: UserErrorType;
+  userAnswer: string;
+  correctAnswer: string;
+  errorCount: number;
+  lastSeenAt: Date;
+  nextReviewAt: Date;
+  createdAt: Date;
+};
+
+export type UserErrorFingerprintType = SharedFingerprintType;
+
+export type UserErrorFingerprintRecord = {
+  id: string;
+  userId: string;
+  questionId: string;
+  lessonId: string;
+  exerciseType: string;
+  fingerprintType: UserErrorFingerprintType;
+  confidenceScore: number;
+  userAnswerRaw: string;
+  correctAnswerRaw: string;
+  analysisPayload: MistakeAnalysisPayload;
+  responseTimeMs: number | null;
+  priorAttempts: number;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type UserQuestionAttemptSourceContext = SharedAttemptSourceContext;
+
+export type UserQuestionAttemptRecord = {
+  id: string;
+  userId: string;
+  questionId: string;
+  lessonId: string;
+  unitId: string;
+  nodeId: string;
+  sourceContext: UserQuestionAttemptSourceContext;
+  wasCorrect: boolean;
+  responseTimeMs: number | null;
+  createdAt: Date;
+};
+
 type FileStoreShape = {
   users: Array<{
     id: string;
@@ -86,6 +142,47 @@ type FileStoreShape = {
     importedFromLocalAt: string | null;
     createdAt: string;
     updatedAt: string;
+  }>;
+  errors: Array<{
+    id: string;
+    userId: string;
+    questionId: string;
+    lessonId: string;
+    errorType: UserErrorType;
+    userAnswer: string;
+    correctAnswer: string;
+    errorCount: number;
+    lastSeenAt: string;
+    nextReviewAt: string;
+    createdAt: string;
+  }>;
+  errorFingerprints: Array<{
+    id: string;
+    userId: string;
+    questionId: string;
+    lessonId: string;
+    exerciseType: string;
+    fingerprintType: UserErrorFingerprintType;
+    confidenceScore: number;
+    userAnswerRaw: string;
+    correctAnswerRaw: string;
+    analysisPayload: MistakeAnalysisPayload;
+    responseTimeMs: number | null;
+    priorAttempts: number;
+    createdAt: string;
+    updatedAt: string;
+  }>;
+  questionAttempts: Array<{
+    id: string;
+    userId: string;
+    questionId: string;
+    lessonId: string;
+    unitId: string;
+    nodeId: string;
+    sourceContext: UserQuestionAttemptSourceContext;
+    wasCorrect: boolean;
+    responseTimeMs: number | null;
+    createdAt: string;
   }>;
 };
 
@@ -123,6 +220,75 @@ function toProgressRecord(record: FileStoreShape["progress"][number]): ProgressR
   };
 }
 
+function toUserErrorRecord(record: FileStoreShape["errors"][number]): UserErrorRecord {
+  return {
+    ...record,
+    lastSeenAt: new Date(record.lastSeenAt),
+    nextReviewAt: new Date(record.nextReviewAt),
+    createdAt: new Date(record.createdAt),
+  };
+}
+
+function toUserErrorFingerprintRecord(
+  record: FileStoreShape["errorFingerprints"][number],
+): UserErrorFingerprintRecord {
+  return {
+    ...record,
+    createdAt: new Date(record.createdAt),
+    updatedAt: new Date(record.updatedAt),
+  };
+}
+
+function toUserQuestionAttemptRecord(
+  record: FileStoreShape["questionAttempts"][number],
+): UserQuestionAttemptRecord {
+  return {
+    ...record,
+    createdAt: new Date(record.createdAt),
+  };
+}
+
+function toPrismaUserErrorFingerprintRecord(record: {
+  id: string;
+  userId: string;
+  questionId: string;
+  lessonId: string;
+  exerciseType: string;
+  fingerprintType: FingerprintType;
+  confidenceScore: number;
+  userAnswerRaw: string;
+  correctAnswerRaw: string;
+  analysisPayload: Prisma.JsonValue;
+  responseTimeMs: number | null;
+  priorAttempts: number;
+  createdAt: Date;
+  updatedAt: Date;
+}): UserErrorFingerprintRecord {
+  return {
+    ...record,
+    fingerprintType: record.fingerprintType as UserErrorFingerprintType,
+    analysisPayload: (record.analysisPayload ?? {}) as MistakeAnalysisPayload,
+  };
+}
+
+function toPrismaUserQuestionAttemptRecord(record: {
+  id: string;
+  userId: string;
+  questionId: string;
+  lessonId: string;
+  unitId: string;
+  nodeId: string;
+  sourceContext: AttemptSourceContext;
+  wasCorrect: boolean;
+  responseTimeMs: number | null;
+  createdAt: Date;
+}): UserQuestionAttemptRecord {
+  return {
+    ...record,
+    sourceContext: record.sourceContext as UserQuestionAttemptSourceContext,
+  };
+}
+
 function createDefaultProgressRecord(userId: string): ProgressRecord {
   const now = new Date();
   const defaults = createDefaultUserProgressState();
@@ -155,15 +321,46 @@ async function ensureFileStore() {
       users: [],
       sessions: [],
       progress: [],
+      errors: [],
+      errorFingerprints: [],
+      questionAttempts: [],
     };
     await writeFile(FILE_STORE_PATH, JSON.stringify(emptyStore, null, 2), "utf8");
   }
 }
 
+function normalizeFileStoreShape(value: unknown): FileStoreShape {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {
+      users: [],
+      sessions: [],
+    progress: [],
+    errors: [],
+    errorFingerprints: [],
+    questionAttempts: [],
+  };
+  }
+
+  const candidate = value as Partial<FileStoreShape>;
+
+  return {
+    users: Array.isArray(candidate.users) ? candidate.users : [],
+    sessions: Array.isArray(candidate.sessions) ? candidate.sessions : [],
+    progress: Array.isArray(candidate.progress) ? candidate.progress : [],
+    errors: Array.isArray(candidate.errors) ? candidate.errors : [],
+    errorFingerprints: Array.isArray(candidate.errorFingerprints)
+      ? candidate.errorFingerprints
+      : [],
+    questionAttempts: Array.isArray(candidate.questionAttempts)
+      ? candidate.questionAttempts
+      : [],
+  };
+}
+
 async function readFileStore(): Promise<FileStoreShape> {
   await ensureFileStore();
   const raw = await readFile(FILE_STORE_PATH, "utf8");
-  return JSON.parse(raw) as FileStoreShape;
+  return normalizeFileStoreShape(JSON.parse(raw));
 }
 
 async function writeFileStore(store: FileStoreShape) {
@@ -525,4 +722,409 @@ export async function upsertProgressForUser(
     store.progress.push(created);
     return toProgressRecord(created);
   });
+}
+
+function toUserErrorCreateInput(record: Omit<UserErrorRecord, "id" | "createdAt">) {
+  return {
+    userId: record.userId,
+    questionId: record.questionId,
+    lessonId: record.lessonId,
+    errorType: record.errorType as ErrorType,
+    userAnswer: record.userAnswer,
+    correctAnswer: record.correctAnswer,
+    errorCount: record.errorCount,
+    lastSeenAt: record.lastSeenAt,
+    nextReviewAt: record.nextReviewAt,
+  };
+}
+
+function toUserErrorFingerprintCreateInput(
+  record: Omit<UserErrorFingerprintRecord, "id" | "createdAt" | "updatedAt">,
+) {
+  return {
+    userId: record.userId,
+    questionId: record.questionId,
+    lessonId: record.lessonId,
+    exerciseType: record.exerciseType,
+    fingerprintType: record.fingerprintType as FingerprintType,
+    confidenceScore: record.confidenceScore,
+    userAnswerRaw: record.userAnswerRaw,
+    correctAnswerRaw: record.correctAnswerRaw,
+    analysisPayload: record.analysisPayload as Prisma.InputJsonValue,
+    responseTimeMs: record.responseTimeMs,
+    priorAttempts: record.priorAttempts,
+  };
+}
+
+function toUserQuestionAttemptCreateInput(
+  record: Omit<UserQuestionAttemptRecord, "id" | "createdAt">,
+) {
+  return {
+    userId: record.userId,
+    questionId: record.questionId,
+    lessonId: record.lessonId,
+    unitId: record.unitId,
+    nodeId: record.nodeId,
+    sourceContext: record.sourceContext as AttemptSourceContext,
+    wasCorrect: record.wasCorrect,
+    responseTimeMs: record.responseTimeMs,
+  };
+}
+
+export async function findUserErrorsByQuestionIds(userId: string, questionIds: string[]) {
+  assertEnvLoaded();
+
+  if (questionIds.length === 0) {
+    return [] as UserErrorRecord[];
+  }
+
+  if (!isFileStoreEnabled()) {
+    return prisma.userError.findMany({
+      where: {
+        userId,
+        questionId: {
+          in: questionIds,
+        },
+      },
+    });
+  }
+
+  const requestedIds = new Set(questionIds);
+  const store = await readFileStore();
+
+  return store.errors
+    .filter((entry) => entry.userId === userId && requestedIds.has(entry.questionId))
+    .map(toUserErrorRecord);
+}
+
+export async function listUserErrors(userId: string) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    return prisma.userError.findMany({
+      where: {
+        userId,
+      },
+    });
+  }
+
+  const store = await readFileStore();
+
+  return store.errors
+    .filter((entry) => entry.userId === userId)
+    .map(toUserErrorRecord);
+}
+
+export async function listDueUserErrors(
+  userId: string,
+  dueBefore: Date,
+  limit: number,
+) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    return prisma.userError.findMany({
+      where: {
+        userId,
+        nextReviewAt: {
+          lte: dueBefore,
+        },
+      },
+      orderBy: [
+        {
+          errorCount: "desc",
+        },
+        {
+          lastSeenAt: "asc",
+        },
+      ],
+      take: limit,
+    });
+  }
+
+  const dueTime = dueBefore.getTime();
+  const store = await readFileStore();
+
+  return store.errors
+    .filter(
+      (entry) =>
+        entry.userId === userId && new Date(entry.nextReviewAt).getTime() <= dueTime,
+    )
+    .sort((left, right) => {
+      if (right.errorCount !== left.errorCount) {
+        return right.errorCount - left.errorCount;
+      }
+
+      return new Date(left.lastSeenAt).getTime() - new Date(right.lastSeenAt).getTime();
+    })
+    .slice(0, limit)
+    .map(toUserErrorRecord);
+}
+
+export async function upsertUserErrors(
+  records: Array<Omit<UserErrorRecord, "id" | "createdAt">>,
+) {
+  assertEnvLoaded();
+
+  if (records.length === 0) {
+    return [] as UserErrorRecord[];
+  }
+
+  if (!isFileStoreEnabled()) {
+    const questionIds = [...new Set(records.map((record) => record.questionId))];
+    const existingRecords = await prisma.userError.findMany({
+      where: {
+        userId: records[0]?.userId,
+        questionId: {
+          in: questionIds,
+        },
+      },
+    });
+    const existingByQuestionId = new Map(
+      existingRecords.map((record) => [record.questionId, record]),
+    );
+
+    return prisma.$transaction(
+      records.map((record) => {
+        const existing = existingByQuestionId.get(record.questionId);
+        const data = toUserErrorCreateInput(record);
+
+        if (existing) {
+          return prisma.userError.update({
+            where: {
+              id: existing.id,
+            },
+            data,
+          });
+        }
+
+        return prisma.userError.create({
+          data,
+        });
+      }),
+    );
+  }
+
+  return withFileStoreMutation(async (store) =>
+    records.map((record) => {
+      const existing = store.errors.find(
+        (entry) =>
+          entry.userId === record.userId && entry.questionId === record.questionId,
+      );
+
+      if (existing) {
+        existing.lessonId = record.lessonId;
+        existing.errorType = record.errorType;
+        existing.userAnswer = record.userAnswer;
+        existing.correctAnswer = record.correctAnswer;
+        existing.errorCount = record.errorCount;
+        existing.lastSeenAt = record.lastSeenAt.toISOString();
+        existing.nextReviewAt = record.nextReviewAt.toISOString();
+        return toUserErrorRecord(existing);
+      }
+
+      const created = {
+        id: randomUUID(),
+        userId: record.userId,
+        questionId: record.questionId,
+        lessonId: record.lessonId,
+        errorType: record.errorType,
+        userAnswer: record.userAnswer,
+        correctAnswer: record.correctAnswer,
+        errorCount: record.errorCount,
+        lastSeenAt: record.lastSeenAt.toISOString(),
+        nextReviewAt: record.nextReviewAt.toISOString(),
+        createdAt: new Date().toISOString(),
+      };
+
+      store.errors.push(created);
+      return toUserErrorRecord(created);
+    }),
+  );
+}
+
+export async function createUserErrorFingerprints(
+  records: Array<Omit<UserErrorFingerprintRecord, "id" | "createdAt" | "updatedAt">>,
+) {
+  assertEnvLoaded();
+
+  if (records.length === 0) {
+    return [] as UserErrorFingerprintRecord[];
+  }
+
+  if (!isFileStoreEnabled()) {
+    const createdRecords = await prisma.$transaction(
+      records.map((record) =>
+        prisma.userErrorFingerprint.create({
+          data: toUserErrorFingerprintCreateInput(record),
+        }),
+      ),
+    );
+
+    return createdRecords.map(toPrismaUserErrorFingerprintRecord);
+  }
+
+  return withFileStoreMutation(async (store) =>
+    records.map((record) => {
+      const now = new Date().toISOString();
+      const created = {
+        id: randomUUID(),
+        userId: record.userId,
+        questionId: record.questionId,
+        lessonId: record.lessonId,
+        exerciseType: record.exerciseType,
+        fingerprintType: record.fingerprintType,
+        confidenceScore: record.confidenceScore,
+        userAnswerRaw: record.userAnswerRaw,
+        correctAnswerRaw: record.correctAnswerRaw,
+        analysisPayload: record.analysisPayload,
+        responseTimeMs: record.responseTimeMs,
+        priorAttempts: record.priorAttempts,
+        createdAt: now,
+        updatedAt: now,
+      };
+
+      store.errorFingerprints.push(created);
+      return toUserErrorFingerprintRecord(created);
+    }),
+  );
+}
+
+export async function findLatestUserErrorFingerprintsByQuestionIds(
+  userId: string,
+  questionIds: string[],
+) {
+  assertEnvLoaded();
+
+  if (questionIds.length === 0) {
+    return [] as UserErrorFingerprintRecord[];
+  }
+
+  if (!isFileStoreEnabled()) {
+    const records = await prisma.userErrorFingerprint.findMany({
+      where: {
+        userId,
+        questionId: {
+          in: questionIds,
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    const latestByQuestionId = new Map<string, UserErrorFingerprintRecord>();
+
+    for (const record of records.map(toPrismaUserErrorFingerprintRecord)) {
+      if (!latestByQuestionId.has(record.questionId)) {
+        latestByQuestionId.set(record.questionId, record);
+      }
+    }
+
+    return [...latestByQuestionId.values()];
+  }
+
+  const requestedIds = new Set(questionIds);
+  const latestByQuestionId = new Map<string, FileStoreShape["errorFingerprints"][number]>();
+  const store = await readFileStore();
+
+  for (const record of [...store.errorFingerprints].reverse()) {
+    if (record.userId !== userId || !requestedIds.has(record.questionId)) {
+      continue;
+    }
+
+    if (!latestByQuestionId.has(record.questionId)) {
+      latestByQuestionId.set(record.questionId, record);
+    }
+  }
+
+  return [...latestByQuestionId.values()].map(toUserErrorFingerprintRecord);
+}
+
+export async function createUserQuestionAttempts(
+  records: Array<Omit<UserQuestionAttemptRecord, "id" | "createdAt">>,
+) {
+  assertEnvLoaded();
+
+  if (records.length === 0) {
+    return [] as UserQuestionAttemptRecord[];
+  }
+
+  if (!isFileStoreEnabled()) {
+    const createdRecords = await prisma.$transaction(
+      records.map((record) =>
+        prisma.userQuestionAttempt.create({
+          data: toUserQuestionAttemptCreateInput(record),
+        }),
+      ),
+    );
+
+    return createdRecords.map(toPrismaUserQuestionAttemptRecord);
+  }
+
+  return withFileStoreMutation(async (store) =>
+    records.map((record) => {
+      const created = {
+        id: randomUUID(),
+        userId: record.userId,
+        questionId: record.questionId,
+        lessonId: record.lessonId,
+        unitId: record.unitId,
+        nodeId: record.nodeId,
+        sourceContext: record.sourceContext,
+        wasCorrect: record.wasCorrect,
+        responseTimeMs: record.responseTimeMs,
+        createdAt: new Date().toISOString(),
+      };
+
+      store.questionAttempts.push(created);
+      return toUserQuestionAttemptRecord(created);
+    }),
+  );
+}
+
+export async function listUserQuestionAttempts(
+  userId: string,
+  options: {
+    unitId?: string;
+    lessonId?: string;
+  } = {},
+) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    return prisma.userQuestionAttempt.findMany({
+      where: {
+        userId,
+        unitId: options.unitId,
+        lessonId: options.lessonId,
+      },
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
+  }
+
+  const store = await readFileStore();
+
+  return store.questionAttempts
+    .filter((entry) => {
+      if (entry.userId !== userId) {
+        return false;
+      }
+
+      if (options.unitId && entry.unitId !== options.unitId) {
+        return false;
+      }
+
+      if (options.lessonId && entry.lessonId !== options.lessonId) {
+        return false;
+      }
+
+      return true;
+    })
+    .sort(
+      (left, right) =>
+        new Date(left.createdAt).getTime() - new Date(right.createdAt).getTime(),
+    )
+    .map(toUserQuestionAttemptRecord);
 }

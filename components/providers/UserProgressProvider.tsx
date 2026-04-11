@@ -37,6 +37,16 @@ type SessionCompleteInput = {
   sentenceExposureDeltas: Record<string, number>;
 };
 
+type ErrorReportInput = {
+  questionId: string;
+  lessonId: string;
+  userAnswer?: string;
+  answerOptionId?: string;
+  answerTokens?: string[];
+  responseTimeMs: number;
+  priorAttempts: number;
+};
+
 type UserProgressContextValue = {
   progress: UserProgressState;
   isLoading: boolean;
@@ -51,6 +61,7 @@ type UserProgressContextValue = {
   completeSession: (
     input: SessionCompleteInput,
   ) => Promise<{ nodeCompletedNow: boolean; unitCompletedNow: boolean }>;
+  reportErrors: (events: ErrorReportInput[]) => Promise<void>;
 };
 
 export const UserProgressContext = createContext<UserProgressContextValue | null>(null);
@@ -245,6 +256,25 @@ export default function UserProgressProvider({ children }: { children: ReactNode
     };
   }, []);
 
+  const reportErrors = useCallback(async (events: ErrorReportInput[]) => {
+    if (!events.length) {
+      return;
+    }
+
+    const response = await fetch("/api/errors/report", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "same-origin",
+      body: JSON.stringify({
+        events,
+      }),
+    });
+
+    await readJson<{ saved: number; fingerprintsSaved: number }>(response);
+  }, []);
+
   const value = useMemo(
     () => ({
       progress,
@@ -254,8 +284,18 @@ export default function UserProgressProvider({ children }: { children: ReactNode
       importLocalProgress,
       saveReview,
       completeSession,
+      reportErrors,
     }),
-    [completeSession, error, importLocalProgress, isLoading, progress, reload, saveReview],
+    [
+      completeSession,
+      error,
+      importLocalProgress,
+      isLoading,
+      progress,
+      reload,
+      reportErrors,
+      saveReview,
+    ],
   );
 
   return <UserProgressContext.Provider value={value}>{children}</UserProgressContext.Provider>;
