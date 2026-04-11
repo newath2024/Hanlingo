@@ -16,6 +16,7 @@ import type { SessionItemResult } from "@/types/session";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
+import PracticeSession, { type PracticeSessionFeedback } from "./PracticeSession";
 import ProgressBar from "./ProgressBar";
 import SessionBuildSentenceQuestion from "./SessionBuildSentenceQuestion";
 import SessionChoiceQuestion from "./SessionChoiceQuestion";
@@ -459,7 +460,7 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
     return null;
   }
 
-  function renderFeedback() {
+  function buildFeedback(): PracticeSessionFeedback | null {
     if (!feedbackState) {
       return null;
     }
@@ -475,117 +476,100 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
         ? getLocalizedText(answer.fingerprint.uiLabel, locale)
         : "";
 
-    return (
-      <section className="panel">
-        <div className="lesson-card space-y-6 text-center">
-          <div className="space-y-3">
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <span className="pill bg-card-strong text-foreground">
-                {getSourceLabel(
-                  locale,
-                  item.selectionSource,
-                  answer?.errorCount ?? item.errorCount,
-                )}
-              </span>
-              {item.variantType !== "exact" ? (
-                <span className="pill bg-card-soft text-muted-foreground">
-                  {item.variantType === "interaction_mode_variant"
-                    ? ui("Harder format", "Tang do kho")
-                    : item.variantType === "related_task_variant"
-                      ? ui("Related variant", "Bien the lien quan")
-                      : ui("Fallback repeat", "Lap lai du phong")}
-                </span>
-              ) : null}
-              {(answer?.repeated || item.errorCount > 1) && (
-                <span className="pill bg-danger-soft text-danger">
-                  {ui(
-                    `Repeated x${answer?.errorCount ?? item.errorCount}`,
-                    `Lap lai x${answer?.errorCount ?? item.errorCount}`,
-                  )}
-                </span>
+    return {
+      id: `${item.questionId}-${currentIndex}-${result.status}`,
+      status: result.status,
+      title:
+        result.status === "correct"
+          ? ui("Locked in.", "Da chot.")
+          : ui("Review it once more.", "Xem lai mot lan nua."),
+      eyebrow: ui("Answer checked", "Da kiem tra dap an"),
+      badges: (
+        <>
+          <span className="pill bg-card-strong text-foreground">
+            {getSourceLabel(locale, item.selectionSource, answer?.errorCount ?? item.errorCount)}
+          </span>
+          {item.variantType !== "exact" ? (
+            <span className="pill bg-card-soft text-muted-foreground">
+              {item.variantType === "interaction_mode_variant"
+                ? ui("Harder format", "Tang do kho")
+                : item.variantType === "related_task_variant"
+                  ? ui("Related variant", "Bien the lien quan")
+                  : ui("Fallback repeat", "Lap lai du phong")}
+            </span>
+          ) : null}
+          {(answer?.repeated || item.errorCount > 1) && (
+            <span className="pill bg-danger-soft text-danger">
+              {ui(
+                `Repeated x${answer?.errorCount ?? item.errorCount}`,
+                `Lap lai x${answer?.errorCount ?? item.errorCount}`,
               )}
-            </div>
-            <h3 className="font-display text-4xl text-foreground sm:text-5xl">
-              {result.status === "correct"
-                ? ui("Locked in.", "Da chot.")
-                : ui("Review it once more.", "Xem lai mot lan nua.")}
-            </h3>
+            </span>
+          )}
+        </>
+      ),
+      summary:
+        result.status === "correct" ? (
+          <p>
+            {answer?.nextReviewAt
+              ? ui(
+                  "This mistake is now pushed back for a later review window.",
+                  "Loi sai nay da duoc day lui sang mot moc on tap muon hon.",
+                )
+              : ui(
+                  "Correct. This item stays out of the queue for now.",
+                  "Dung. Muc nay tam thoi khong nam trong hang doi.",
+                )}
+          </p>
+        ) : (
+          <div className="space-y-2">
+            <p>
+              {ui("Correct answer", "Dap an dung")}: {correctAnswer}
+            </p>
+            <p className="font-semibold">
+              {ui(
+                "This item is scheduled back into your mistake queue.",
+                "Muc nay da duoc dua tro lai vao hang doi loi sai.",
+              )}
+            </p>
           </div>
-
-          <div className={result.status === "correct" ? "feedback-correct" : "feedback-incorrect"}>
-            {result.status === "correct" ? (
+        ),
+      hint:
+        result.status === "incorrect"
+          ? ui(
+              "One fast correction now is better than repeating the same pattern later.",
+              "Sua nhanh ngay bay gio se tot hon viec lap lai cung mot loi o lan sau.",
+            )
+          : undefined,
+      detail:
+        answer?.nextReviewAt || result.detail ? (
+          <div className="space-y-2">
+            {answer?.nextReviewAt ? (
               <p>
-                {answer?.nextReviewAt
-                  ? ui(
-                      `This mistake is now pushed back for a later review window.`,
-                      "Loi sai nay da duoc day lui sang mot moc on tap muon hon.",
-                    )
-                  : ui(
-                      "Correct. This item stays out of the queue for now.",
-                      "Dung. Muc nay tam thoi khong nam trong hang doi.",
-                    )}
+                {ui("Next review", "Lan on tiep theo")}:{" "}
+                {new Intl.DateTimeFormat(locale === "vi" ? "vi-VN" : "en-US", {
+                  dateStyle: "medium",
+                  timeStyle: "short",
+                }).format(new Date(answer.nextReviewAt))}
               </p>
-            ) : (
-              <div className="space-y-2">
-                <p>
-                  {ui("Correct answer", "Dap an dung")}: {correctAnswer}
-                </p>
-                <p className="font-semibold">
-                  {ui(
-                    "This item is scheduled back into your mistake queue.",
-                    "Muc nay da duoc dua tro lai vao hang doi loi sai.",
-                  )}
-                </p>
-              </div>
-            )}
+            ) : null}
+            {result.detail ? <p>{result.detail}</p> : null}
           </div>
-
-          {answer?.nextReviewAt ? (
-            <div className="rounded-[1.7rem] bg-card-soft px-4 py-3 text-sm font-bold text-muted-foreground">
-              {ui("Next review", "Lan on tiep theo")}:{" "}
-              {new Intl.DateTimeFormat(locale === "vi" ? "vi-VN" : "en-US", {
-                dateStyle: "medium",
-                timeStyle: "short",
-              }).format(new Date(answer.nextReviewAt))}
-            </div>
-          ) : null}
-
-          {result.detail ? (
-            <div className="rounded-[1.7rem] bg-card-soft px-4 py-3 text-sm font-bold text-muted-foreground">
-              {result.detail}
-            </div>
-          ) : null}
-
-          {fingerprintLabel ? (
-            <div className="rounded-[1.7rem] border border-accent/15 bg-card-soft px-4 py-3 text-sm font-bold text-foreground">
-              <p>{fingerprintLabel}</p>
-              <p className="mt-1 text-muted-foreground">{answer?.fingerprint?.shortReason}</p>
-            </div>
-          ) : null}
-
-          {explanation ? (
-            <div className="rounded-[1.7rem] bg-card-soft px-4 py-4 text-left text-sm font-bold text-muted-foreground">
-              {explanation}
-            </div>
-          ) : null}
-
-          {saveError ? <div className="feedback-incorrect">{saveError}</div> : null}
-
-          <button
-            type="button"
-            onClick={handleAdvance}
-            disabled={isCompletingSession}
-            className="primary-button w-full"
-          >
-            {currentIndex >= items.length - 1
-              ? isCompletingSession
-                ? ui("Saving session...", "Dang luu buoi hoc...")
-                : ui("Finish practice", "Ket thuc luyen tap")
-              : ui("Next", "Tiep theo")}
-          </button>
-        </div>
-      </section>
-    );
+        ) : undefined,
+      fingerprintLabel,
+      fingerprintReason: answer?.fingerprint?.shortReason,
+      explanation: explanation || undefined,
+      errorMessage: saveError,
+      onContinue: handleAdvance,
+      actionLabel:
+        currentIndex >= items.length - 1
+          ? ui("Finish practice", "Ket thuc luyen tap")
+          : ui("Next", "Tiep theo"),
+      actionLoadingLabel: ui("Saving session...", "Dang luu buoi hoc..."),
+      isContinuing: isCompletingSession,
+      showCelebration: result.status === "correct",
+      widthClassName: "max-w-4xl",
+    };
   }
 
   function renderSummary() {
@@ -627,6 +611,52 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
       </section>
     );
   }
+
+  const practiceQuestion = !sessionFinished && currentItem ? renderQuestion() : null;
+  const practiceFeedback = !sessionFinished ? buildFeedback() : null;
+  const practiceProgress =
+    !sessionFinished && currentItem ? (
+      <>
+        <ProgressBar
+          currentIndex={currentIndex}
+          totalCount={items.length}
+          currentLabel={getSessionItemTypeLabel(
+            currentItem.type,
+            locale,
+            currentItem.interactionMode,
+          )}
+        />
+
+        <section className="panel max-w-4xl">
+          <div className="flex flex-wrap items-center gap-2">
+            <span
+              className={`pill ${
+                currentItem.selectionSource === "due_review" ||
+                currentItem.selectionSource === "weak_reinforcement"
+                  ? "bg-danger-soft text-danger"
+                  : "bg-card-strong text-foreground"
+              }`}
+            >
+              {getSourceLabel(locale, currentItem.selectionSource, currentItem.errorCount)}
+            </span>
+            {currentItem.variantType !== "exact" ? (
+              <span className="pill bg-card-soft text-muted-foreground">
+                {currentItem.variantType === "interaction_mode_variant"
+                  ? ui("Harder format", "Tang do kho")
+                  : currentItem.variantType === "related_task_variant"
+                    ? ui("Related variant", "Bien the lien quan")
+                    : ui("Fallback repeat", "Lap lai du phong")}
+              </span>
+            ) : null}
+            {currentItem.errorCount > 1 ? (
+              <span className="pill bg-danger-soft text-danger">
+                {ui(`Repeated x${currentItem.errorCount}`, `Lap lai x${currentItem.errorCount}`)}
+              </span>
+            ) : null}
+          </div>
+        </section>
+      </>
+    ) : null;
 
   if (isLoading) {
     return (
@@ -747,57 +777,18 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
         </section>
       ) : null}
 
-      {!sessionFinished && currentItem ? (
-        <>
-          <ProgressBar
-            currentIndex={currentIndex}
-            totalCount={items.length}
-            currentLabel={getSessionItemTypeLabel(
-              currentItem.type,
-              locale,
-              currentItem.interactionMode,
-            )}
-          />
-
-          <section className="panel max-w-4xl">
-            <div className="flex flex-wrap items-center gap-2">
-              <span
-                className={`pill ${
-                  currentItem.selectionSource === "due_review" ||
-                  currentItem.selectionSource === "weak_reinforcement"
-                    ? "bg-danger-soft text-danger"
-                    : "bg-card-strong text-foreground"
-                }`}
-              >
-                {getSourceLabel(locale, currentItem.selectionSource, currentItem.errorCount)}
-              </span>
-              {currentItem.variantType !== "exact" ? (
-                <span className="pill bg-card-soft text-muted-foreground">
-                  {currentItem.variantType === "interaction_mode_variant"
-                    ? ui("Harder format", "Tang do kho")
-                    : currentItem.variantType === "related_task_variant"
-                      ? ui("Related variant", "Bien the lien quan")
-                      : ui("Fallback repeat", "Lap lai du phong")}
-                </span>
-              ) : null}
-              {currentItem.errorCount > 1 ? (
-                <span className="pill bg-danger-soft text-danger">
-                  {ui(
-                    `Repeated x${currentItem.errorCount}`,
-                    `Lap lai x${currentItem.errorCount}`,
-                  )}
-                </span>
-              ) : null}
-            </div>
-          </section>
-        </>
-      ) : null}
-
       {sessionFinished
         ? renderSummary()
-        : feedbackState
-          ? renderFeedback()
-          : renderQuestion()}
+        : currentItem
+          ? (
+              <PracticeSession
+                questionKey={`${sessionKey}-${currentItem.questionId}-${currentIndex}`}
+                progress={practiceProgress}
+                question={practiceQuestion}
+                feedback={practiceFeedback}
+              />
+            )
+          : null}
     </main>
   );
 }

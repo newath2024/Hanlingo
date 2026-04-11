@@ -2,16 +2,18 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { getLocalizedText } from "@/lib/localized";
+import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import {
   containsKoreanText,
   isLikelyKoreanVocabText,
   playAudioUrl,
-  playFeedbackTone,
   speakKoreanText,
 } from "@/lib/speech";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import type { LocalizedChoiceSessionItem, SessionItemResult } from "@/types/session";
 import { useCallback, useEffect, useRef, useState } from "react";
+import CheckButton from "./CheckButton";
 
 type SessionVocabImageChoiceQuestionProps = {
   item: LocalizedChoiceSessionItem;
@@ -124,8 +126,6 @@ export default function SessionVocabImageChoiceQuestion({
         locale,
       );
 
-    playFeedbackTone(wasCorrect ? "correct" : "wrong");
-
     onResolve({
       status: wasCorrect ? "correct" : "incorrect",
       awardedXp: 0,
@@ -139,9 +139,17 @@ export default function SessionVocabImageChoiceQuestion({
   }
 
   return (
-    <section className="panel">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <motion.section
+      className="panel"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="space-y-6" variants={containerVariants}>
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+        >
           <div className="space-y-2">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
               {item.isRetry
@@ -165,10 +173,13 @@ export default function SessionVocabImageChoiceQuestion({
               {item.isRetry ? ui("Retry", "Lam lai") : ui("Fresh question", "Cau hoi moi")}
             </span>
           )}
-        </div>
+        </motion.div>
 
-        <article className="lesson-card space-y-5">
-          <div className="rounded-[2rem] bg-card-soft p-6 shadow-[0_14px_30px_rgba(47,92,51,0.08)]">
+        <motion.article className="lesson-card space-y-5" variants={itemVariants}>
+          <motion.div
+            variants={itemVariants}
+            className="rounded-[2rem] bg-card-soft p-6 shadow-[0_14px_30px_rgba(47,92,51,0.08)]"
+          >
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
               {prompt}
             </p>
@@ -193,22 +204,25 @@ export default function SessionVocabImageChoiceQuestion({
             {supportText ? (
               <p className="mt-4 text-sm font-bold text-muted-foreground">{supportText}</p>
             ) : null}
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-2 gap-4 xl:grid-cols-4">
+          <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 xl:grid-cols-4">
             {item.choices.map((option) => {
               const isSelected = selectedOption === option.id;
               const meaningLabel = getLocalizedText(option.text, locale);
               const koreanLabel = option.koreanLabel ?? meaningLabel;
 
               return (
-                <button
+                <motion.button
                   key={option.id}
                   type="button"
                   onClick={() => handleOptionSelect(option.id, koreanLabel)}
                   aria-pressed={isSelected}
                   aria-label={`${koreanLabel} - ${meaningLabel}${isSelected ? `, ${ui("selected", "da chon")}` : ""}`}
-                  className={`group relative overflow-hidden rounded-[1.9rem] border-2 bg-white text-left shadow-[0_14px_28px_rgba(47,92,51,0.08)] transition duration-200 hover:scale-[1.03] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/20 ${
+                  whileHover={{ scale: 1.03, y: -3 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                  className={`group relative overflow-hidden rounded-[1.9rem] border-2 bg-white text-left shadow-[0_14px_28px_rgba(47,92,51,0.08)] transition duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent/20 ${
                     isSelected
                       ? "border-accent bg-card-strong shadow-[0_18px_34px_rgba(87,185,92,0.22)]"
                       : "border-accent/10 hover:border-accent/30"
@@ -231,21 +245,19 @@ export default function SessionVocabImageChoiceQuestion({
                       <p className="text-sm font-bold text-muted-foreground">{meaningLabel}</p>
                     </div>
                   </div>
-                </button>
+                </motion.button>
               );
             })}
-          </div>
+          </motion.div>
 
-          <button
-            type="button"
+          <CheckButton
+            label={ui("Check answer", "Kiem tra dap an")}
             onClick={handleCheckAnswer}
             disabled={!selectedOption}
-            className="primary-button w-full"
-          >
-            {ui("Check answer", "Kiem tra dap an")}
-          </button>
-        </article>
-      </div>
-    </section>
+            fullWidth
+          />
+        </motion.article>
+      </motion.div>
+    </motion.section>
   );
 }

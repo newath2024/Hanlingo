@@ -25,6 +25,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
+import PracticeSession, { type PracticeSessionFeedback } from "./PracticeSession";
 import ProgressBar from "./ProgressBar";
 import SessionBuildSentenceQuestion from "./SessionBuildSentenceQuestion";
 import SessionChoiceQuestion from "./SessionChoiceQuestion";
@@ -75,18 +76,6 @@ function getWeakReasonLabel(locale: "en" | "vi", reason: WeakSessionItem["reason
   }
 
   return getLocalizedText({ en: "Practice only", vi: "Chi luyen tap" }, locale);
-}
-
-function getFeedbackTone(status: SessionItemResult["status"]) {
-  if (status === "correct") {
-    return "feedback-correct";
-  }
-
-  if (status === "incorrect") {
-    return "feedback-incorrect";
-  }
-
-  return "rounded-[1.7rem] border border-accent/15 bg-card-soft px-4 py-3 text-sm font-bold text-foreground";
 }
 
 function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
@@ -528,7 +517,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     return null;
   }
 
-  function renderFeedback() {
+  function buildFeedback(): PracticeSessionFeedback | null {
     if (!feedbackState) {
       return null;
     }
@@ -550,101 +539,90 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
         ? getLocalizedText(result.mistakeFingerprint.uiLabel, locale)
         : "";
 
-    return (
-      <section className="panel">
-        <div className="lesson-card space-y-6 text-center">
-          <div className="space-y-3">
-            <span className="pill mx-auto bg-card-strong text-foreground">
-              {item.isRetry
-                ? ui("Retry checked", "Da kiem tra lan lam lai")
-                : ui("Question checked", "Da kiem tra cau hoi")}
-            </span>
-            <h3 className="font-display text-4xl text-foreground sm:text-5xl">
-              {result.status === "correct"
-                ? ui("Nice!", "Tot!")
-                : result.status === "incorrect"
-                  ? ui("Not quite.", "Chua dung.")
-                  : result.status === "skipped"
-                    ? ui("Skipped for now.", "Tam thoi bo qua.")
-                    : ui("Practice saved.", "Da luu luot luyen tap.")}
-            </h3>
-          </div>
-
-          <div className={getFeedbackTone(result.status)}>
-            {result.status === "correct" ? (
-              <p>
-                {awardedXp > 0
-                  ? ui(
-                      `+${awardedXp} XP earned on this first-pass answer.`,
-                      `+${awardedXp} XP cho cau tra loi dung o luot dau.`,
-                    )
-                  : ui(
-                      "Correct on the retry. No bonus XP is added on replay items.",
-                      "Dung o lan lam lai. Khong cong them XP cho muc quay lai.",
-                    )}
-              </p>
-            ) : result.status === "incorrect" ? (
-              <div className="space-y-2">
-                <p>
-                  {ui("Correct answer", "Dap an dung")}: {correctAnswer}
-                </p>
-                <p className="font-semibold">
-                  {queuedRetry
-                    ? ui(
-                        "This question will return once later in the lesson run.",
-                        "Cau hoi nay se quay lai mot lan nua ve sau trong luot hoc.",
-                      )
-                    : ui(
-                        "This question will stay in your weak-items summary.",
-                        "Cau hoi nay se duoc giu trong tong ket muc yeu.",
-                      )}
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-2">
-                <p>{correctAnswer}</p>
-                <p className="font-semibold">
-                  {ui(
-                    "No XP for this mic-free pass. It stays in weak items for review.",
-                    "Khong co XP cho lan bo qua mic nay. Muc nay van o lai trong danh sach can xem lai.",
+    return {
+      id: `${item.id}-${currentIndex}-${result.status}`,
+      status: result.status,
+      title:
+        result.status === "correct"
+          ? ui("Nice!", "Tot!")
+          : result.status === "incorrect"
+            ? ui("Not quite.", "Chua dung.")
+            : result.status === "skipped"
+              ? ui("Skipped for now.", "Tam thoi bo qua.")
+              : ui("Practice saved.", "Da luu luot luyen tap."),
+      eyebrow: item.isRetry
+        ? ui("Retry checked", "Da kiem tra lan lam lai")
+        : ui("Question checked", "Da kiem tra cau hoi"),
+      badges: (
+        <>
+          <span className="pill bg-card-strong text-foreground">
+            {item.isRetry ? ui("Retry item", "Muc lam lai") : ui("First pass", "Luot dau")}
+          </span>
+          {result.status === "correct" && awardedXp > 0 ? (
+            <span className="pill bg-success-soft text-accent-strong">+{awardedXp} XP</span>
+          ) : null}
+        </>
+      ),
+      summary:
+        result.status === "correct" ? (
+          <p>
+            {awardedXp > 0
+              ? ui(
+                  `+${awardedXp} XP earned on this first-pass answer.`,
+                  `+${awardedXp} XP cho cau tra loi dung o luot dau.`,
+                )
+              : ui(
+                  "Correct on the retry. No bonus XP is added on replay items.",
+                  "Dung o lan lam lai. Khong cong them XP cho muc quay lai.",
+                )}
+          </p>
+        ) : result.status === "incorrect" ? (
+          <div className="space-y-2">
+            <p>
+              {ui("Correct answer", "Dap an dung")}: {correctAnswer}
+            </p>
+            <p className="font-semibold">
+              {queuedRetry
+                ? ui(
+                    "This question will return once later in the lesson run.",
+                    "Cau hoi nay se quay lai mot lan nua ve sau trong luot hoc.",
+                  )
+                : ui(
+                    "This question will stay in your weak-items summary.",
+                    "Cau hoi nay se duoc giu trong tong ket muc yeu.",
                   )}
-                </p>
-              </div>
-            )}
+            </p>
           </div>
-
-          {result.detail ? (
-            <div className="rounded-[1.7rem] bg-card-soft px-4 py-3 text-sm font-bold text-muted-foreground">
-              {result.detail}
-            </div>
-          ) : null}
-
-          {fingerprintLabel ? (
-            <div className="rounded-[1.7rem] border border-accent/15 bg-card-soft px-4 py-3 text-sm font-bold text-foreground">
-              <p>{fingerprintLabel}</p>
-              <p className="mt-1 text-muted-foreground">{result.mistakeFingerprint?.shortReason}</p>
-            </div>
-          ) : null}
-
-          {explanation ? (
-            <div className="rounded-[1.7rem] bg-card-soft px-4 py-4 text-left text-sm font-bold text-muted-foreground">
-              <p>{explanation}</p>
-            </div>
-          ) : null}
-
-          {saveError ? <div className="feedback-incorrect">{saveError}</div> : null}
-
-          <button
-            type="button"
-            onClick={() => void handleAdvance()}
-            disabled={isSavingCompletion}
-            className="primary-button w-full"
-          >
-            {nextLabel}
-          </button>
-        </div>
-      </section>
-    );
+        ) : (
+          <div className="space-y-2">
+            <p>{correctAnswer}</p>
+            <p className="font-semibold">
+              {ui(
+                "No XP for this mic-free pass. It stays in weak items for review.",
+                "Khong co XP cho lan bo qua mic nay. Muc nay van o lai trong danh sach can xem lai.",
+              )}
+            </p>
+          </div>
+        ),
+      hint:
+        result.status === "incorrect"
+          ? ui(
+              "Correct it once now so the retry later feels automatic.",
+              "Sua lai ngay bay gio de lan gap lai sau nay tro nen tu dong hon.",
+            )
+          : undefined,
+      detail: result.detail || undefined,
+      fingerprintLabel,
+      fingerprintReason: result.mistakeFingerprint?.shortReason,
+      explanation: explanation || undefined,
+      errorMessage: saveError,
+      onContinue: () => void handleAdvance(),
+      actionLabel: nextLabel,
+      actionLoadingLabel: ui("Saving lesson...", "Dang luu bai hoc..."),
+      isContinuing: isSavingCompletion,
+      showCelebration: result.status === "correct",
+      widthClassName: "max-w-3xl",
+    };
   }
 
   function renderSummary() {
@@ -815,6 +793,22 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     );
   }
 
+  const practiceQuestion = !sessionFinished && currentItem ? renderCurrentQuestion() : null;
+  const practiceFeedback = !sessionFinished ? buildFeedback() : null;
+  const practiceProgress =
+    !sessionFinished && currentItem ? (
+      <ProgressBar
+        currentIndex={currentIndex}
+        totalCount={sessionItems.length}
+        currentLabel={getSessionItemTypeLabel(
+          currentItem.type,
+          locale,
+          currentItem.interactionMode,
+        )}
+        isRetry={currentItem.isRetry}
+      />
+    ) : null;
+
   if (progressLoading || !sessionItems.length) {
     return (
       <div className="flex w-full max-w-3xl flex-col gap-6">
@@ -927,24 +921,18 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
         </div>
       </header>
 
-      {!sessionFinished && currentItem ? (
-        <ProgressBar
-          currentIndex={currentIndex}
-          totalCount={sessionItems.length}
-          currentLabel={getSessionItemTypeLabel(
-            currentItem.type,
-            locale,
-            currentItem.interactionMode,
-          )}
-          isRetry={currentItem.isRetry}
-        />
-      ) : null}
-
       {sessionFinished
         ? renderSummary()
-        : feedbackState
-          ? renderFeedback()
-          : renderCurrentQuestion()}
+        : currentItem
+          ? (
+              <PracticeSession
+                questionKey={`${sessionKey}-${currentItem.id}-${currentIndex}`}
+                progress={practiceProgress}
+                question={practiceQuestion}
+                feedback={practiceFeedback}
+              />
+            )
+          : null}
     </div>
   );
 }

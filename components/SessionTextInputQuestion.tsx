@@ -2,9 +2,12 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { getLocalizedText } from "@/lib/localized";
+import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import { speakIfKoreanText, speakKoreanText } from "@/lib/speech";
+import { motion } from "framer-motion";
 import type { SessionItemResult, TextInputSessionItem } from "@/types/session";
 import { useEffect, useRef, useState } from "react";
+import CheckButton from "./CheckButton";
 
 type SessionTextInputQuestionProps = {
   item: TextInputSessionItem;
@@ -131,16 +134,24 @@ export default function SessionTextInputQuestion({
   }
 
   return (
-    <section className="panel">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <motion.section
+      className="panel"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="space-y-6" variants={containerVariants}>
+        <motion.div
+          variants={itemVariants}
+          className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+        >
           <div className="space-y-2">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
               {item.isRetry
                 ? ui("Retry question", "Cau hoi lam lai")
                 : isAdaptiveTyping
                   ? ui("Type Sentence", "Nhap cau")
-                : item.type === "fill_blank"
+                  : item.type === "fill_blank"
                     ? ui("Fill Blank", "Dien khuyet")
                     : ui("Translate", "Dich")}
             </p>
@@ -149,7 +160,7 @@ export default function SessionTextInputQuestion({
                 ? ui("Type the full Korean sentence.", "Nhap toan bo cau tieng Han.")
                 : hasChoiceOptions
                   ? ui("Choose the missing answer.", "Chon dap an con thieu.")
-                : ui("Type the missing answer.", "Nhap dap an con thieu.")}
+                  : ui("Type the missing answer.", "Nhap dap an con thieu.")}
             </h3>
           </div>
           {hasAudio ? (
@@ -157,10 +168,13 @@ export default function SessionTextInputQuestion({
               {isPlaying ? ui("Playing...", "Dang phat...") : ui("Play audio", "Phat audio")}
             </button>
           ) : null}
-        </div>
+        </motion.div>
 
-        <article className="lesson-card space-y-5">
-          <div className="rounded-[2rem] bg-card-soft p-6 shadow-[0_14px_30px_rgba(47,92,51,0.08)]">
+        <motion.article className="lesson-card space-y-5" variants={itemVariants}>
+          <motion.div
+            variants={itemVariants}
+            className="rounded-[2rem] bg-card-soft p-6 shadow-[0_14px_30px_rgba(47,92,51,0.08)]"
+          >
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
               {prompt}
             </p>
@@ -188,48 +202,49 @@ export default function SessionTextInputQuestion({
             ) : null}
 
             <p className="mt-4 text-sm font-bold text-muted-foreground">{explanation}</p>
-          </div>
+          </motion.div>
 
           {hasChoiceOptions ? (
-            <div className="grid gap-3 sm:grid-cols-2">
+            <motion.div variants={itemVariants} className="grid gap-3 sm:grid-cols-2">
               {item.choices?.map((choice) => {
                 const isSelected = selectedChoice === choice;
 
                 return (
-                  <button
+                  <motion.button
                     key={choice}
                     type="button"
                     onClick={() => handleChoiceSelect(choice)}
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                     className={`choice-button ${
                       isSelected ? "border-accent bg-card-strong" : ""
                     }`}
                   >
                     {choice}
-                  </button>
+                  </motion.button>
                 );
               })}
-            </div>
+            </motion.div>
           ) : (
-            <div className="mt-5">
+            <motion.div variants={itemVariants} className="mt-5">
               <input
                 value={inputValue}
                 onChange={(event) => setInputValue(event.target.value)}
                 placeholder={placeholder || ui("Type your answer", "Nhap cau tra loi")}
                 className="w-full rounded-[1.8rem] border border-accent/15 bg-white px-5 py-4 text-xl font-bold text-foreground outline-none transition focus:border-accent"
               />
-            </div>
+            </motion.div>
           )}
 
-          <button
-            type="button"
+          <CheckButton
+            label={ui("Check answer", "Kiem tra dap an")}
             onClick={handleCheckAnswer}
             disabled={hasChoiceOptions ? !selectedChoice : !inputValue.trim()}
-            className="primary-button w-full"
-          >
-            {ui("Check answer", "Kiem tra dap an")}
-          </button>
-        </article>
-      </div>
-    </section>
+            fullWidth
+          />
+        </motion.article>
+      </motion.div>
+    </motion.section>
   );
 }

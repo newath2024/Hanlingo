@@ -2,13 +2,14 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { getLocalizedText } from "@/lib/localized";
+import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import {
   containsKoreanText,
   isLikelyKoreanVocabText,
   playAudioUrl,
-  playFeedbackTone,
   speakKoreanText,
 } from "@/lib/speech";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import type {
   GrammarChoiceSessionItem,
@@ -17,6 +18,7 @@ import type {
   SessionItemResult,
 } from "@/types/session";
 import { useCallback, useEffect, useRef, useState } from "react";
+import CheckButton from "./CheckButton";
 
 type SessionChoiceQuestionProps = {
   item: LocalizedChoiceSessionItem | GrammarChoiceSessionItem | SelectSessionItem;
@@ -252,10 +254,6 @@ export default function SessionChoiceQuestion({
         )
       : selectedOption;
 
-    if (isVocabQuestion) {
-      playFeedbackTone(wasCorrect ? "correct" : "wrong");
-    }
-
     onResolve({
       status: wasCorrect ? "correct" : "incorrect",
       awardedXp: 0,
@@ -269,9 +267,17 @@ export default function SessionChoiceQuestion({
   }
 
   return (
-    <section className="panel">
-      <div className="space-y-6">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <motion.section
+      className="panel"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="space-y-6" variants={containerVariants}>
+        <motion.div
+          className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+          variants={itemVariants}
+        >
           <div className="space-y-2">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
               {item.isRetry
@@ -291,10 +297,13 @@ export default function SessionChoiceQuestion({
               {item.isRetry ? ui("Retry", "Lam lai") : ui("Fresh question", "Cau hoi moi")}
             </span>
           )}
-        </div>
+        </motion.div>
 
-        <article className="lesson-card space-y-5">
-          <div className="rounded-[2rem] bg-card-soft p-6 shadow-[0_14px_30px_rgba(47,92,51,0.08)]">
+        <motion.article className="lesson-card space-y-5" variants={itemVariants}>
+          <motion.div
+            variants={itemVariants}
+            className="rounded-[2rem] bg-card-soft p-6 shadow-[0_14px_30px_rgba(47,92,51,0.08)]"
+          >
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
               {prompt}
             </p>
@@ -342,19 +351,22 @@ export default function SessionChoiceQuestion({
             {supportLabel ? (
               <p className="mt-4 text-base font-bold text-muted-foreground">{supportLabel}</p>
             ) : null}
-          </div>
+          </motion.div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
+          <motion.div variants={itemVariants} className="grid gap-3 sm:grid-cols-2">
             {choiceItem
               ? choiceItem.choices.map((option) => {
                   const isSelected = selectedOption === option.id;
                   const label = getLocalizedText(option.text, locale);
 
                   return (
-                    <button
+                    <motion.button
                       key={option.id}
                       type="button"
                       onClick={() => handleOptionSelect(option.id, label)}
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                       className={`choice-button text-left ${
                         isSelected ? "border-accent bg-card-strong" : ""
                       }`}
@@ -373,35 +385,36 @@ export default function SessionChoiceQuestion({
                       <p className={`font-extrabold text-foreground ${option.imageUrl ? "mt-3" : ""}`}>
                         {label}
                       </p>
-                    </button>
+                    </motion.button>
                   );
                 })
               : stringChoices.map((option) => {
                   const isSelected = selectedOption === option;
 
                   return (
-                    <button
+                    <motion.button
                       key={option}
                       type="button"
                       onClick={() => handleOptionSelect(option, option)}
+                      whileHover={{ scale: 1.02, y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                       className={`choice-button ${isSelected ? "border-accent bg-card-strong" : ""}`}
                     >
                       {option}
-                    </button>
+                    </motion.button>
                   );
                 })}
-          </div>
+          </motion.div>
 
-          <button
-            type="button"
+          <CheckButton
+            label={ui("Check answer", "Kiem tra dap an")}
             onClick={handleCheckAnswer}
             disabled={!selectedOption}
-            className="primary-button w-full"
-          >
-            {ui("Check answer", "Kiem tra dap an")}
-          </button>
-        </article>
-      </div>
-    </section>
+            fullWidth
+          />
+        </motion.article>
+      </motion.div>
+    </motion.section>
   );
 }

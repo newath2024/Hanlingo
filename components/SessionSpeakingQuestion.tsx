@@ -3,6 +3,7 @@
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { useSpeechRecognitionSupport } from "@/hooks/useHanlingoSnapshot";
 import { getLocalizedText } from "@/lib/localized";
+import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import {
   createSpeechChunks,
   evaluateSpeechChunks,
@@ -14,12 +15,14 @@ import {
   type RecognitionInstance,
   type SpeechChunk,
 } from "@/lib/speech";
+import { motion } from "framer-motion";
 import type {
   ListenRepeatSessionItem,
   SessionItemResult,
   SpeakingSessionItem,
 } from "@/types/session";
 import { useEffect, useMemo, useRef, useState } from "react";
+import CheckButton from "./CheckButton";
 
 type SessionSpeakingQuestionProps = {
   item: SpeakingSessionItem | ListenRepeatSessionItem;
@@ -239,9 +242,14 @@ export default function SessionSpeakingQuestion({
   }
 
   return (
-    <section className="panel">
-      <div className="space-y-6">
-        <div className="space-y-2">
+    <motion.section
+      className="panel"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="space-y-6" variants={containerVariants}>
+        <motion.div className="space-y-2" variants={itemVariants}>
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
             {item.isRetry
               ? isListenRepeat
@@ -262,9 +270,9 @@ export default function SessionSpeakingQuestion({
                   "Doc cau tieng Han thanh tieng, roi kiem tra ban ghi.",
                 )}
           </h3>
-        </div>
+        </motion.div>
 
-        <article className="lesson-card space-y-5 text-center">
+        <motion.article className="lesson-card space-y-5 text-center" variants={itemVariants}>
           <span className="pill mx-auto bg-accent-cool text-accent-strong">
             {speechSupported
               ? ui("Speech recognition ready", "San sang nhan dang giong noi")
@@ -379,36 +387,34 @@ export default function SessionSpeakingQuestion({
           <div className="grid gap-3">
             {speechSupported ? (
               listening ? (
-                <button
-                  type="button"
+                <CheckButton
+                  label={ui("Stop microphone", "Dung microphone")}
                   onClick={() => recognitionRef.current?.stop()}
-                  className="primary-button w-full"
-                >
-                  {ui("Stop microphone", "Dung microphone")}
-                </button>
+                  fullWidth
+                />
               ) : attemptFinished ? (
-                <button
-                  type="button"
+                <CheckButton
+                  label={
+                    isListenRepeat
+                      ? ui("Check repetition", "Kiem tra lap lai")
+                      : ui("Check speaking", "Kiem tra phan noi")
+                  }
                   onClick={handleSubmitAttempt}
-                  className="primary-button w-full"
-                >
-                  {isListenRepeat
-                    ? ui("Check repetition", "Kiem tra lap lai")
-                    : ui("Check speaking", "Kiem tra phan noi")}
-                </button>
+                  fullWidth
+                />
               ) : (
-                <button
-                  type="button"
+                <CheckButton
+                  label={ui("Start microphone", "Bat dau microphone")}
                   onClick={handleStartSpeaking}
-                  className="primary-button w-full"
-                >
-                  {ui("Start microphone", "Bat dau microphone")}
-                </button>
+                  fullWidth
+                />
               )
             ) : (
-              <button type="button" onClick={handleSkip} className="primary-button w-full">
-                {ui("Practice without mic", "Luyen tap khong can mic")}
-              </button>
+              <CheckButton
+                label={ui("Practice without mic", "Luyen tap khong can mic")}
+                onClick={handleSkip}
+                fullWidth
+              />
             )}
 
             {speechSupported && attemptFinished ? (
@@ -427,8 +433,8 @@ export default function SessionSpeakingQuestion({
               </button>
             ) : null}
           </div>
-        </article>
-      </div>
-    </section>
+        </motion.article>
+      </motion.div>
+    </motion.section>
   );
 }

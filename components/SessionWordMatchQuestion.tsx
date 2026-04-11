@@ -2,9 +2,12 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { getLocalizedText } from "@/lib/localized";
+import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import { speakIfKoreanText } from "@/lib/speech";
+import { motion } from "framer-motion";
 import type { PairMatchSessionItem, SessionItemResult } from "@/types/session";
 import { useMemo, useState } from "react";
+import CheckButton from "./CheckButton";
 
 type SessionWordMatchQuestionProps = {
   item: PairMatchSessionItem;
@@ -77,9 +80,14 @@ export default function SessionWordMatchQuestion({
   }
 
   return (
-    <section className="panel">
-      <div className="space-y-6">
-        <div className="space-y-2">
+    <motion.section
+      className="panel"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="space-y-6" variants={containerVariants}>
+        <motion.div className="space-y-2" variants={itemVariants}>
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
             {item.isRetry ? ui("Retry question", "Cau hoi lam lai") : ui("Word Match", "Noi tu")}
           </p>
@@ -89,10 +97,13 @@ export default function SessionWordMatchQuestion({
               "Cham vao muc tieng Han, roi cham vao nghia cua no.",
             )}
           </h3>
-        </div>
+        </motion.div>
 
-        <article className="lesson-card space-y-5">
-          <div className="rounded-[1.9rem] bg-card-soft p-5 shadow-[0_14px_30px_rgba(47,92,51,0.08)]">
+        <motion.article className="lesson-card space-y-5" variants={itemVariants}>
+          <motion.div
+            variants={itemVariants}
+            className="rounded-[1.9rem] bg-card-soft p-5 shadow-[0_14px_30px_rgba(47,92,51,0.08)]"
+          >
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
               {prompt}
             </p>
@@ -102,10 +113,10 @@ export default function SessionWordMatchQuestion({
                 {ui("Selected Korean item", "Muc tieng Han da chon")}: {selectedLeft}
               </div>
             ) : null}
-          </div>
+          </motion.div>
 
           {matches.length > 0 ? (
-            <div className="space-y-3">
+            <motion.div variants={itemVariants} className="space-y-3">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
                 {ui("Current matches", "Cac cap da noi")}
               </p>
@@ -121,10 +132,10 @@ export default function SessionWordMatchQuestion({
                   </button>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ) : null}
 
-          <div className="grid gap-4 lg:grid-cols-2">
+          <motion.div variants={itemVariants} className="grid gap-4 lg:grid-cols-2">
             <div className="space-y-3">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
                 {ui("Korean", "Tieng Han")}
@@ -135,17 +146,20 @@ export default function SessionWordMatchQuestion({
                   const isSelected = selectedLeft === pair.left;
 
                   return (
-                    <button
+                    <motion.button
                       key={pair.left}
                       type="button"
                       disabled={isUsed}
                       onClick={() => handleSelectLeft(pair.left)}
+                      whileHover={isUsed ? undefined : { scale: 1.02, y: -2 }}
+                      whileTap={isUsed ? undefined : { scale: 0.98 }}
+                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                       className={`choice-button text-left ${
                         isSelected ? "border-accent bg-card-strong" : ""
                       }`}
                     >
                       {pair.left}
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
@@ -160,20 +174,23 @@ export default function SessionWordMatchQuestion({
                   const isUsed = usedRightValues.has(right);
 
                   return (
-                    <button
+                    <motion.button
                       key={right}
                       type="button"
                       disabled={isUsed || !selectedLeft}
                       onClick={() => handleSelectRight(right)}
+                      whileHover={isUsed || !selectedLeft ? undefined : { scale: 1.02, y: -2 }}
+                      whileTap={isUsed || !selectedLeft ? undefined : { scale: 0.98 }}
+                      transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
                       className="choice-button text-left"
                     >
                       {right}
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           <div className="grid gap-3 sm:grid-cols-[1fr_1.4fr]">
             <button
@@ -187,17 +204,15 @@ export default function SessionWordMatchQuestion({
             >
               {ui("Clear", "Xoa")}
             </button>
-            <button
-              type="button"
+            <CheckButton
+              label={ui("Check answer", "Kiem tra dap an")}
               onClick={handleCheckAnswer}
               disabled={matches.length !== item.answer.length}
-              className="primary-button w-full"
-            >
-              {ui("Check answer", "Kiem tra dap an")}
-            </button>
+              fullWidth
+            />
           </div>
-        </article>
-      </div>
-    </section>
+        </motion.article>
+      </motion.div>
+    </motion.section>
   );
 }

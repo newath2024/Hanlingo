@@ -89,6 +89,15 @@
   .primary-button {
     @apply inline-flex items-center justify-center rounded-full bg-accent px-6 py-3.5 text-base font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-accent-strong disabled:cursor-not-allowed disabled:opacity-50;
     box-shadow: 0 14px 30px rgba(63, 148, 70, 0.25);
+    transition:
+      transform 220ms ease,
+      background-color 220ms ease,
+      box-shadow 220ms ease,
+      opacity 220ms ease;
+  }
+
+  .primary-button:hover {
+    box-shadow: 0 18px 36px rgba(63, 148, 70, 0.34);
   }
 
   .secondary-button {
@@ -181,6 +190,7 @@
 
   .chip-button:hover {
     @apply -translate-y-0.5 border-accent/40 bg-card-strong;
+    box-shadow: 0 14px 28px rgba(47, 92, 51, 0.12);
   }
 
   .chip-button-active {
@@ -189,6 +199,68 @@
 
   .sentence-well {
     @apply rounded-[1.9rem] border border-dashed border-accent/25 bg-card-soft p-5;
+    transition:
+      border-color 220ms ease,
+      box-shadow 220ms ease,
+      background-color 220ms ease,
+      transform 220ms ease;
+  }
+
+  .sentence-well-active {
+    border-color: rgba(88, 185, 93, 0.55);
+    box-shadow:
+      inset 0 0 0 1px rgba(88, 185, 93, 0.08),
+      0 0 0 4px rgba(88, 185, 93, 0.08),
+      0 18px 36px rgba(88, 185, 93, 0.12);
+  }
+
+  .sentence-well-incorrect {
+    border-color: rgba(217, 92, 75, 0.4);
+    box-shadow:
+      inset 0 0 0 1px rgba(217, 92, 75, 0.08),
+      0 0 0 4px rgba(217, 92, 75, 0.08);
+  }
+
+  .button-spinner {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: rgba(255, 255, 255, 1);
+    animation: button-spin 0.7s linear infinite;
+  }
+
+  .practice-feedback-flash {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at top, rgba(164, 235, 146, 0.3), transparent 48%),
+      linear-gradient(180deg, rgba(199, 248, 194, 0.22), rgba(199, 248, 194, 0.06));
+  }
+
+  .practice-feedback-sheet {
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+    border-color: rgba(61, 112, 68, 0.12);
+    box-shadow:
+      0 22px 54px rgba(47, 92, 51, 0.18),
+      0 10px 24px rgba(47, 92, 51, 0.12);
+  }
+
+  .practice-feedback-confetti {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .practice-feedback-confetti__piece {
+    position: absolute;
+    width: 0.8rem;
+    height: 1rem;
+    border-radius: 0.35rem;
+    opacity: 0;
   }
 
   .auth-shell {
@@ -507,6 +579,16 @@
   }
 }
 
+@keyframes button-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -519,7 +601,9 @@
   .section-donut__focus-ring,
   .path-node-current,
   .shell-nav-item,
-  .shell-mobile-nav__item {
+  .shell-mobile-nav__item,
+  .button-spinner,
+  .practice-feedback-confetti__piece {
     animation: none !important;
     transition: none !important;
   }

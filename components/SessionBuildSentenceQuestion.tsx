@@ -2,9 +2,14 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { getLocalizedText } from "@/lib/localized";
+import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import { speakIfKoreanText } from "@/lib/speech";
 import type { ArrangeSessionItem, SessionItemResult } from "@/types/session";
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { useMemo, useState } from "react";
+import AnswerBuilder from "./AnswerBuilder";
+import CheckButton from "./CheckButton";
+import type { WordChipToken } from "./WordChip";
 
 type SessionBuildSentenceQuestionProps = {
   item: ArrangeSessionItem;
@@ -18,33 +23,64 @@ function matchesAnswer(selectedWords: string[], answer: string[]) {
   );
 }
 
+function getMismatchIndexes(selectedWords: string[], answer: string[]) {
+  const mismatches: number[] = [];
+
+  selectedWords.forEach((word, index) => {
+    if (word !== answer[index]) {
+      mismatches.push(index);
+    }
+  });
+
+  return mismatches;
+}
+
+function buildWordTokens(item: ArrangeSessionItem): WordChipToken[] {
+  return item.wordBank.map((word, index) => ({
+    id: `${item.id}-${index}`,
+    text: word,
+    index,
+  }));
+}
+
 export default function SessionBuildSentenceQuestion({
   item,
   onResolve,
 }: SessionBuildSentenceQuestionProps) {
   const { locale } = useAppLocale();
-  const [selectedWords, setSelectedWords] = useState<string[]>([]);
+  const [selectedTokenIds, setSelectedTokenIds] = useState<string[]>([]);
+  const [incorrectIndexes, setIncorrectIndexes] = useState<number[]>([]);
   const prompt = getLocalizedText(item.prompt, locale);
   const explanation = getLocalizedText(item.explanation, locale);
   const ui = (en: string, vi: string) => getLocalizedText({ en, vi }, locale);
   const isAdaptiveWordBank = item.interactionMode === "word_bank";
+  const wordTokens = useMemo(() => buildWordTokens(item), [item]);
+  const tokenMap = useMemo(
+    () => new Map(wordTokens.map((token) => [token.id, token])),
+    [wordTokens],
+  );
+  const selectedWords = selectedTokenIds
+    .map((tokenId) => tokenMap.get(tokenId)?.text ?? "")
+    .filter(Boolean);
 
-  function handleToggleWord(word: string) {
-    speakIfKoreanText(word, { rate: 0.92 });
+  function handleToggleWord(token: WordChipToken) {
+    speakIfKoreanText(token.text, { rate: 0.92 });
+    setIncorrectIndexes([]);
 
-    setSelectedWords((previous) =>
-      previous.includes(word)
-        ? previous.filter((selectedWord) => selectedWord !== word)
-        : [...previous, word],
+    setSelectedTokenIds((previous) =>
+      previous.includes(token.id)
+        ? previous.filter((selectedTokenId) => selectedTokenId !== token.id)
+        : [...previous, token.id],
     );
   }
 
   function handleClear() {
-    if (selectedWords.length === 0) {
+    if (selectedTokenIds.length === 0) {
       return;
     }
 
-    setSelectedWords([]);
+    setSelectedTokenIds([]);
+    setIncorrectIndexes([]);
   }
 
   function handleCheckAnswer() {
@@ -53,6 +89,8 @@ export default function SessionBuildSentenceQuestion({
     }
 
     const wasCorrect = matchesAnswer(selectedWords, item.answer);
+
+    setIncorrectIndexes(wasCorrect ? [] : getMismatchIndexes(selectedWords, item.answer));
 
     onResolve({
       status: wasCorrect ? "correct" : "incorrect",
@@ -67,9 +105,14 @@ export default function SessionBuildSentenceQuestion({
   }
 
   return (
-    <section className="panel">
-      <div className="space-y-6">
-        <div className="space-y-2">
+    <motion.section
+      className="panel"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div className="space-y-6" variants={containerVariants}>
+        <motion.div className="space-y-2" variants={itemVariants}>
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
             {item.isRetry
               ? ui("Retry question", "Cau hoi lam lai")
@@ -81,7 +124,7 @@ export default function SessionBuildSentenceQuestion({
                     ? ui("Sentence Builder", "Ghep cau")
                     : item.type === "reorder_sentence"
                       ? ui("Reorder Sentence", "Sap xep lai cau")
-                  : ui("Arrange Sentence", "Sap xep cau")}
+                      : ui("Arrange Sentence", "Sap xep cau")}
           </p>
           <h3 className="font-display text-3xl text-foreground sm:text-4xl">
             {isAdaptiveWordBank
@@ -94,10 +137,13 @@ export default function SessionBuildSentenceQuestion({
                   "Cham vao cac cum tieng Han de ghep thanh cau dich.",
                 )}
           </h3>
-        </div>
+        </motion.div>
 
-        <article className="lesson-card space-y-5">
-          <div className="rounded-[1.9rem] bg-card-soft p-5 shadow-[0_14px_30px_rgba(47,92,51,0.08)]">
+        <motion.article className="lesson-card space-y-5" variants={itemVariants}>
+          <motion.div
+            variants={itemVariants}
+            className="rounded-[1.9rem] bg-card-soft p-5 shadow-[0_14px_30px_rgba(47,92,51,0.08)]"
+          >
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
               {prompt}
             </p>
@@ -124,78 +170,62 @@ export default function SessionBuildSentenceQuestion({
             ) : null}
 
             <p className="mt-4 text-sm font-bold text-muted-foreground">{explanation}</p>
-          </div>
+          </motion.div>
 
-          <div className="sentence-well">
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
-              {ui("Your sentence", "Cau cua ban")}
-            </p>
+          <motion.div variants={itemVariants}>
+            <AnswerBuilder
+              groupId={item.id}
+              tokens={wordTokens}
+              selectedTokenIds={selectedTokenIds}
+              incorrectIndexes={incorrectIndexes}
+              onToggleToken={handleToggleWord}
+              answerLabel={ui("Your sentence", "Cau cua ban")}
+              bankLabel={ui("Word bank", "Ngan tu")}
+              emptyState={ui(
+                "Tap words below to build the answer.",
+                "Cham vao cac tu ben duoi de ghep cau tra loi.",
+              )}
+            />
+          </motion.div>
 
-            {selectedWords.length > 0 ? (
-              <div className="mt-4 flex flex-wrap gap-3">
-                {selectedWords.map((word) => (
-                  <button
-                    key={`selected-${word}`}
-                    type="button"
-                    onClick={() => handleToggleWord(word)}
-                    className="chip-button chip-button-active"
-                  >
-                    {word}
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <p className="mt-4 text-base font-bold text-muted-foreground">
+          {incorrectIndexes.length > 0 ? (
+            <motion.div variants={itemVariants} className="feedback-incorrect space-y-2">
+              <p>
                 {ui(
-                  "Tap words below to build the answer.",
-                  "Cham vao cac tu ben duoi de ghep cau tra loi.",
+                  "A few chunks are out of place. Watch the word order.",
+                  "Mot vai cum dang sai vi tri. Hay de y thu tu tu.",
                 )}
               </p>
-            )}
-          </div>
-
-          <div className="space-y-3">
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
-              {ui("Word bank", "Ngan tu")}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              {item.wordBank.map((word) => {
-                const isSelected = selectedWords.includes(word);
-
-                return (
-                  <button
-                    key={`bank-${word}`}
-                    type="button"
-                    onClick={() => handleToggleWord(word)}
-                    className={`chip-button ${isSelected ? "chip-button-active" : ""}`}
-                  >
-                    {word}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
+              <p className="font-semibold">
+                {ui("Correct order", "Thu tu dung")}: {item.answer.join(" ")}
+              </p>
+              <p className="text-sm font-bold text-danger/90">
+                {ui(
+                  "Hint: start from the subject and rebuild the sentence one chunk at a time.",
+                  "Goi y: bat dau tu chu ngu roi ghep lai tung cum mot.",
+                )}
+              </p>
+            </motion.div>
+          ) : null}
 
           <div className="grid gap-3 sm:grid-cols-[1fr_1.4fr]">
             <button
               type="button"
               onClick={handleClear}
-              disabled={selectedWords.length === 0}
+              disabled={selectedTokenIds.length === 0}
               className="secondary-button w-full"
             >
               {ui("Clear", "Xoa")}
             </button>
-            <button
-              type="button"
+            <CheckButton
+              label={ui("Check answer", "Kiem tra dap an")}
               onClick={handleCheckAnswer}
-              disabled={selectedWords.length === 0}
-              className="primary-button w-full"
-            >
-              {ui("Check answer", "Kiem tra dap an")}
-            </button>
+              disabled={selectedTokenIds.length === 0}
+              fullWidth
+            />
           </div>
-        </article>
-      </div>
-    </section>
+        </motion.article>
+      </motion.div>
+    </motion.section>
   );
 }
