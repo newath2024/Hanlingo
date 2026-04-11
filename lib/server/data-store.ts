@@ -1,7 +1,7 @@
 import "server-only";
 
 import { randomUUID } from "node:crypto";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { access, mkdir, open, readFile, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { AttemptSourceContext, ErrorType, FingerprintType, Prisma } from "@prisma/client";
 import { createDefaultUserProgressState } from "@/lib/progress-state";
@@ -189,8 +189,13 @@ type FileStoreShape = {
 };
 
 const FILE_STORE_PATH = path.join(process.cwd(), ".local-data", "dev-auth-store.json");
+const FILE_STORE_LOCK_PATH = path.join(process.cwd(), ".local-data", "dev-auth-store.lock");
 
-let writeChain = Promise.resolve();
+declare global {
+  var __hanlingoFileStoreWriteChain: Promise<void> | undefined;
+}
+
+let writeChain = globalThis.__hanlingoFileStoreWriteChain ?? Promise.resolve();
 
 function isFileStoreEnabled() {
   return process.env.HANLINGO_DEV_FILE_STORE === "true";
@@ -332,16 +337,159 @@ async function ensureFileStore() {
   }
 }
 
+function isErrnoException(error: unknown): error is NodeJS.ErrnoException {
+  return error instanceof Error && "code" in error;
+}
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function isFileStoreLocked() {
+  try {
+    await access(FILE_STORE_LOCK_PATH);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+async function waitForFileStoreLockRelease(maxAttempts = 80, delayMs = 25) {
+  for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+    if (!(await isFileStoreLocked())) {
+      return;
+    }
+
+    await sleep(delayMs);
+  }
+}
+
+async function acquireFileStoreLock(maxAttempts = 200, delayMs = 25) {
+  await mkdir(path.dirname(FILE_STORE_LOCK_PATH), { recursive: true });
+
+  for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+    try {
+      const handle = await open(FILE_STORE_LOCK_PATH, "wx");
+      await handle.close();
+      return;
+    } catch (error) {
+      if (isErrnoException(error) && error.code === "EEXIST") {
+        await sleep(delayMs);
+        continue;
+      }
+
+      throw error;
+    }
+  }
+
+  throw new Error("Timed out waiting for the dev auth store lock.");
+}
+
+async function releaseFileStoreLock() {
+  try {
+    await unlink(FILE_STORE_LOCK_PATH);
+  } catch (error) {
+    if (isErrnoException(error) && error.code === "ENOENT") {
+      return;
+    }
+
+    throw error;
+  }
+}
+
+function findTopLevelJsonObjectEnd(raw: string) {
+  let started = false;
+  let depth = 0;
+  let inString = false;
+  let escapeNext = false;
+
+  for (let index = 0; index < raw.length; index += 1) {
+    const character = raw[index];
+
+    if (!started) {
+      if (/\s/.test(character)) {
+        continue;
+      }
+
+      if (character !== "{") {
+        return null;
+      }
+
+      started = true;
+      depth = 1;
+      continue;
+    }
+
+    if (inString) {
+      if (escapeNext) {
+        escapeNext = false;
+        continue;
+      }
+
+      if (character === "\\") {
+        escapeNext = true;
+        continue;
+      }
+
+      if (character === "\"") {
+        inString = false;
+      }
+
+      continue;
+    }
+
+    if (character === "\"") {
+      inString = true;
+      continue;
+    }
+
+    if (character === "{") {
+      depth += 1;
+      continue;
+    }
+
+    if (character === "}") {
+      depth -= 1;
+
+      if (depth === 0) {
+        return index;
+      }
+    }
+  }
+
+  return null;
+}
+
+function recoverFileStoreFromTrailingContent(raw: string) {
+  const objectEndIndex = findTopLevelJsonObjectEnd(raw);
+
+  if (objectEndIndex === null) {
+    return null;
+  }
+
+  const trailingContent = raw.slice(objectEndIndex + 1);
+
+  if (!trailingContent.trim()) {
+    return null;
+  }
+
+  try {
+    return normalizeFileStoreShape(JSON.parse(raw.slice(0, objectEndIndex + 1)));
+  } catch {
+    return null;
+  }
+}
+
 function normalizeFileStoreShape(value: unknown): FileStoreShape {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     return {
       users: [],
       sessions: [],
-    progress: [],
-    errors: [],
-    errorFingerprints: [],
-    questionAttempts: [],
-  };
+      progress: [],
+      errors: [],
+      errorFingerprints: [],
+      questionAttempts: [],
+    };
   }
 
   const candidate = value as Partial<FileStoreShape>;
@@ -360,10 +508,44 @@ function normalizeFileStoreShape(value: unknown): FileStoreShape {
   };
 }
 
+function parseFileStore(raw: string) {
+  try {
+    return normalizeFileStoreShape(JSON.parse(raw));
+  } catch (error) {
+    const recovered = recoverFileStoreFromTrailingContent(raw);
+
+    if (recovered) {
+      console.warn("[file-store] Recovered trailing garbage from dev auth store JSON.");
+      return recovered;
+    }
+
+    throw error;
+  }
+}
+
+async function readFileStoreUnsafe(): Promise<FileStoreShape> {
+  const raw = await readFile(FILE_STORE_PATH, "utf8");
+  return parseFileStore(raw);
+}
+
 async function readFileStore(): Promise<FileStoreShape> {
   await ensureFileStore();
-  const raw = await readFile(FILE_STORE_PATH, "utf8");
-  return normalizeFileStoreShape(JSON.parse(raw));
+
+  for (let attempt = 0; attempt < 4; attempt += 1) {
+    await waitForFileStoreLockRelease();
+
+    try {
+      return await readFileStoreUnsafe();
+    } catch (error) {
+      if (attempt === 3) {
+        throw error;
+      }
+
+      await sleep(25 * (attempt + 1));
+    }
+  }
+
+  throw new Error("Unable to read the dev auth store.");
 }
 
 async function writeFileStore(store: FileStoreShape) {
@@ -373,13 +555,23 @@ async function writeFileStore(store: FileStoreShape) {
 async function withFileStoreMutation<T>(mutator: (store: FileStoreShape) => T | Promise<T>) {
   let result!: T;
 
-  writeChain = writeChain.then(async () => {
-    const store = await readFileStore();
-    result = await mutator(store);
-    await writeFileStore(store);
+  const pendingMutation = writeChain.catch(() => undefined).then(async () => {
+    await ensureFileStore();
+    await acquireFileStoreLock();
+
+    try {
+      const store = await readFileStoreUnsafe();
+      result = await mutator(store);
+      await writeFileStore(store);
+    } finally {
+      await releaseFileStoreLock();
+    }
   });
 
-  await writeChain;
+  writeChain = pendingMutation.then(() => undefined, () => undefined);
+  globalThis.__hanlingoFileStoreWriteChain = writeChain;
+
+  await pendingMutation;
   return result;
 }
 
