@@ -72,9 +72,12 @@
   .page-shell {
     @apply mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center justify-center gap-6 px-4 py-24 sm:px-6;
   }
-
   .shell-page {
     @apply mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8;
+  }
+
+  .app-chrome-shell {
+    @apply mx-auto w-full max-w-5xl px-4 py-4 sm:px-6;
   }
 
   .panel {
@@ -90,6 +93,11 @@
 
   .secondary-button {
     @apply inline-flex items-center justify-center rounded-full border border-accent/20 bg-white px-6 py-3.5 text-base font-bold text-foreground transition hover:-translate-y-0.5 hover:border-accent/40 hover:bg-card-strong disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .back-button {
+    @apply inline-flex h-12 w-12 items-center justify-center rounded-full border border-accent/12 bg-white/92 text-foreground transition hover:-translate-y-0.5 hover:border-accent/30 hover:bg-card-strong active:scale-[0.98];
+    box-shadow: 0 12px 28px rgba(47, 92, 51, 0.12);
   }
 
   .choice-button {
