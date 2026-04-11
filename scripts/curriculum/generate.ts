@@ -25,6 +25,12 @@ import { maybeEnhanceRuntimeUnitWithOpenAI } from "./openai";
 type GenerateOptions = { unitId: string; localOnly?: boolean };
 type Lookups = ReturnType<typeof buildLookups>;
 type FillBlankSlotKind = "noun_slot" | "tail_expression" | "lead_chunk" | "generic";
+type VisualVocabEntry = {
+  vocabId: string;
+  korean: string;
+  meaning: LocalizedText;
+  imageUrl: string;
+};
 type SectionBlueprint = {
   sectionId: string;
   title: LocalizedText;
@@ -62,10 +68,16 @@ const FILL_BLANK_GRAMMAR_ENDINGS = new Set([
 
 const text = (vi: string, en = vi): LocalizedText => ({ vi, en });
 
-const choice = (id: string, value: LocalizedText, imageUrl?: string): LocalizedChoice => ({
+const choice = (
+  id: string,
+  value: LocalizedText,
+  imageUrl?: string,
+  koreanLabel?: string,
+): LocalizedChoice => ({
   id,
   text: value,
   ...(imageUrl ? { imageUrl } : {}),
+  ...(koreanLabel ? { koreanLabel } : {}),
 });
 
 const answerText = (value: string | string[]) =>
@@ -386,6 +398,7 @@ function buildLookups(source: SourceUnit) {
   const byMeaning = new Map<string, LocalizedText>();
   const fillChoicePool = new Map<string, string>();
   const vocabMeanings = new Map<string, LocalizedText>();
+  const visualVocabById = new Map<string, VisualVocabEntry>();
 
   const registerMeaning = (meaning: LocalizedText) => {
     byMeaning.set(normalizeKey(meaning.vi), meaning);
@@ -435,7 +448,18 @@ function buildLookups(source: SourceUnit) {
     }
   };
 
-  source.textbook.vocab.forEach((item) => register(item.korean, item.translations));
+  source.textbook.vocab.forEach((item) => {
+    register(item.korean, item.translations);
+
+    if (item.imagePath) {
+      visualVocabById.set(item.id, {
+        vocabId: item.id,
+        korean: item.korean,
+        meaning: item.translations,
+        imageUrl: item.imagePath,
+      });
+    }
+  });
   source.textbook.dialogue.forEach((item) => register(item.korean, item.translations));
   source.textbook.examples.forEach((item) => register(item.korean, item.translations));
   source.workbook.exercises.forEach((item) => {
@@ -467,12 +491,15 @@ function buildLookups(source: SourceUnit) {
       all.findIndex((candidate) => meaningKey(candidate) === meaningKey(entry)) === index,
   );
   const vocabChoicePool = Array.from(vocabMeanings.values());
+  const visualVocabPool = Array.from(visualVocabById.values());
 
   return {
     byKorean: (value: string) => byKorean.get(value) ?? text(value),
     byMeaning: (value: string) => byMeaning.get(normalizeKey(value)) ?? text(value),
     choicePool: vocabChoicePool.length >= 4 ? vocabChoicePool : choicePool,
     fillChoicePool: Array.from(fillChoicePool.values()),
+    visualVocabPool,
+    visualVocabById,
   };
 }
 
@@ -513,6 +540,57 @@ function buildChoices(correct: LocalizedText, pool: LocalizedText[], prefix: str
   }
 
   return items;
+}
+
+function scoreVisualDistractor(correct: VisualVocabEntry, candidate: VisualVocabEntry) {
+  return scoreChoiceDistractor(correct.meaning, candidate.meaning);
+}
+
+function buildImageChoices(correct: VisualVocabEntry, pool: VisualVocabEntry[], prefix: string) {
+  const items = [choice(`${prefix}-correct`, correct.meaning, correct.imageUrl, correct.korean)];
+  const usedVocabIds = new Set([correct.vocabId]);
+  const rankedPool = pool
+    .map((entry) => ({
+      entry,
+      score: scoreVisualDistractor(correct, entry),
+    }))
+    .sort(
+      (left, right) =>
+        right.score - left.score ||
+        left.entry.korean.localeCompare(right.entry.korean) ||
+        left.entry.vocabId.localeCompare(right.entry.vocabId),
+    );
+
+  for (const { entry } of rankedPool) {
+    if (items.length >= 4) {
+      break;
+    }
+
+    if (usedVocabIds.has(entry.vocabId)) {
+      continue;
+    }
+
+    usedVocabIds.add(entry.vocabId);
+    items.push(choice(`${prefix}-d${items.length}`, entry.meaning, entry.imageUrl, entry.korean));
+  }
+
+  if (items.length !== 4) {
+    throw new Error(
+      `${prefix} requires 4 image-backed vocab choices. Found ${items.length}.`,
+    );
+  }
+
+  return items;
+}
+
+function pickVisualVocab(lookups: Lookups, vocabId: string) {
+  const match = lookups.visualVocabById.get(vocabId);
+
+  if (!match) {
+    throw new Error(`Missing image-backed vocab entry for ${vocabId}.`);
+  }
+
+  return match;
 }
 
 function getAudioProxyPath(unitId: string, assetId: string) {
@@ -649,6 +727,34 @@ function wm(
   };
 }
 
+function wmImage(
+  id: string,
+  visual: VisualVocabEntry,
+  pool: VisualVocabEntry[],
+  source: RuntimeTask["source"],
+  explanation: LocalizedText,
+): RuntimeTask {
+  return {
+    id,
+    type: "word_match",
+    prompt: text(
+      "Chon the dung voi y nghia nay.",
+      "Choose the card that matches this meaning.",
+    ),
+    explanation,
+    source,
+    stage: "recognition",
+    grammarTags: [],
+    srWeight: srWeight("recognition"),
+    errorPatternKey: `${id}.word-match`,
+    koreanText: visual.korean,
+    questionText: visual.meaning,
+    presentation: "image_cards",
+    choices: buildImageChoices(visual, pool, id),
+    answer: `${id}-correct`,
+  };
+}
+
 function ls(
   id: string,
   audioText: string,
@@ -680,6 +786,43 @@ function ls(
     ...(options?.supportText ? { supportText: options.supportText } : {}),
     choices: options?.choices ?? buildChoices(meaning, pool, id),
     answer: options?.answer ?? `${id}-correct`,
+  };
+}
+
+function lsImage(
+  id: string,
+  audioText: string,
+  visual: VisualVocabEntry,
+  pool: VisualVocabEntry[],
+  source: RuntimeTask["source"],
+  explanation: LocalizedText,
+  options?: {
+    audioUrl?: string;
+    grammarTags?: string[];
+    prompt?: LocalizedText;
+    supportText?: LocalizedText;
+    questionText?: LocalizedText;
+  },
+): RuntimeTask {
+  return {
+    id,
+    type: "listen_select",
+    prompt:
+      options?.prompt ??
+      text("Nghe roi chon the phu hop.", "Listen and choose the matching card."),
+    explanation,
+    source,
+    stage: "recognition",
+    grammarTags: options?.grammarTags ?? [],
+    srWeight: srWeight("recognition", 0.05),
+    errorPatternKey: `${id}.listen`,
+    audioText,
+    ...(options?.audioUrl ? { audioUrl: options.audioUrl } : {}),
+    ...(options?.supportText ? { supportText: options.supportText } : {}),
+    ...(options?.questionText ? { questionText: options.questionText } : {}),
+    presentation: "image_cards",
+    choices: buildImageChoices(visual, pool, id),
+    answer: `${id}-correct`,
   };
 }
 
@@ -868,6 +1011,10 @@ function meaningFromExercise(exercise: SourceWorkbookExercise, lookups: Lookups)
   return lookups.byMeaning(answerText(exercise.answer));
 }
 
+function getExerciseVocabId(exercise: SourceWorkbookExercise) {
+  return typeof exercise.metadata.vocabId === "string" ? exercise.metadata.vocabId : undefined;
+}
+
 function audioBackedTasks(
   unitId: string,
   exercise: SourceWorkbookExercise,
@@ -959,6 +1106,39 @@ function exerciseToTasks(
   }
 
   if (exercise.exerciseType === "matching") {
+    const vocabId = getExerciseVocabId(exercise);
+
+    if (vocabId) {
+      const visual = pickVisualVocab(lookups, vocabId);
+
+      return [
+        wmImage(
+          `${exercise.id}-1`,
+          visual,
+          lookups.visualVocabPool,
+          "workbook",
+          text(
+            "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "Start by matching the image card with the Korean word and meaning together.",
+          ),
+        ),
+        lsImage(
+          `${exercise.id}-2`,
+          exercise.koreanText ?? visual.korean,
+          visual,
+          lookups.visualVocabPool,
+          "workbook",
+          text(
+            "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "Hear the word again and choose the matching card to lock in sound and image.",
+          ),
+          {
+            supportText: exercise.prompt,
+          },
+        ),
+      ];
+    }
+
     return [
       wm(
         `${exercise.id}-1`,
@@ -1258,10 +1438,12 @@ function buildLessonFromExercises(
 
 function introLesson(source: SourceUnit, lookups: Lookups, totalLessons: number) {
   const hello = pickFrom(source.textbook.vocab, "v-hello");
-  const humbleI = pickFrom(source.textbook.vocab, "v-i-humble");
-  const student = pickFrom(source.textbook.vocab, "v-student");
   const nice = pickFrom(source.textbook.vocab, "v-nice-to-meet");
   const minsu = pickFrom(source.textbook.dialogue, "d-minsu-hello");
+  const helloVisual = pickVisualVocab(lookups, "v-hello");
+  const humbleIVisual = pickVisualVocab(lookups, "v-i-humble");
+  const studentVisual = pickVisualVocab(lookups, "v-student");
+  const niceVisual = pickVisualVocab(lookups, "v-nice-to-meet");
 
   return lesson(
     "unit-1-lesson-1",
@@ -1275,38 +1457,35 @@ function introLesson(source: SourceUnit, lookups: Lookups, totalLessons: number)
     ["wb-match-hello", "wb-match-jeo", "wb-match-student"],
     ["greeting", "vocab", "self-introduction"],
     [
-      wm(
+      wmImage(
         "l1-hello",
-        hello.korean,
-        hello.translations,
-        lookups.choicePool,
+        helloVisual,
+        lookups.visualVocabPool,
         "textbook",
         text("Day la loi chao cot loi cua unit.", "This is the core greeting for the unit."),
       ),
-      wm(
+      wmImage(
         "l1-jeo",
-        humbleI.korean,
-        humbleI.translations,
-        lookups.choicePool,
+        humbleIVisual,
+        lookups.visualVocabPool,
         "textbook",
         text("`저` la cach xung ho lich su.", "`저` is the polite way to say I/me."),
       ),
-      wm(
+      wmImage(
         "l1-student",
-        student.korean,
-        student.translations,
-        lookups.choicePool,
+        studentVisual,
+        lookups.visualVocabPool,
         "workbook",
         text(
           "Danh tu nay lap lai nhieu lan trong workbook.",
           "This noun repeats throughout the workbook.",
         ),
       ),
-      ls(
+      lsImage(
         "l1-nice",
         nice.korean,
-        nice.translations,
-        lookups.choicePool,
+        niceVisual,
+        lookups.visualVocabPool,
         "textbook",
         text(
           "Nghe cum chao khi gap mat de quen am.",
@@ -2029,11 +2208,12 @@ function reviewLessons(
 }
 
 function introLesson16(source: SourceUnit, lookups: Lookups, totalLessons: number) {
-  const bus = pickFrom(source.textbook.vocab, "v-bus");
-  const subway = pickFrom(source.textbook.vocab, "v-subway");
-  const station = pickFrom(source.textbook.vocab, "v-station");
   const busStop = pickFrom(source.textbook.vocab, "v-bus-stop");
   const titleQuestion = pickFrom(source.textbook.dialogue, "d-title-question");
+  const busVisual = pickVisualVocab(lookups, "v-bus");
+  const subwayVisual = pickVisualVocab(lookups, "v-subway");
+  const stationVisual = pickVisualVocab(lookups, "v-station");
+  const busStopVisual = pickVisualVocab(lookups, "v-bus-stop");
 
   return lesson(
     "unit-16-lesson-1",
@@ -2053,35 +2233,31 @@ function introLesson16(source: SourceUnit, lookups: Lookups, totalLessons: numbe
     ],
     ["transport", "vocab", "directions", "intro"],
     [
-      wm(
+      wmImage(
         "u16-l1-bus",
-        bus.korean,
-        bus.translations,
-        lookups.choicePool,
+        busVisual,
+        lookups.visualVocabPool,
         "textbook",
         text("Bat dau bang phuong tien quen thuoc nhat.", "Start with the most familiar vehicle."),
       ),
-      wm(
+      wmImage(
         "u16-l1-subway",
-        subway.korean,
-        subway.translations,
-        lookups.choicePool,
+        subwayVisual,
+        lookups.visualVocabPool,
         "textbook",
         text("Tau dien ngam se lap lai nhieu trong phan hoi duong.", "The subway repeats often in directions."),
       ),
-      wm(
+      wmImage(
         "u16-l1-station",
-        station.korean,
-        station.translations,
-        lookups.choicePool,
+        stationVisual,
+        lookups.visualVocabPool,
         "workbook",
         text("Danh tu dia diem nay la moc neo cua unit.", "This place noun anchors the whole unit."),
       ),
-      wm(
+      wmImage(
         "u16-l1-bus-stop",
-        busStop.korean,
-        busStop.translations,
-        lookups.choicePool,
+        busStopVisual,
+        lookups.visualVocabPool,
         "workbook",
         text("Nho tu nay de doc duoc huong dan di xe buyt.", "Know this word to follow bus directions."),
       ),
@@ -2755,12 +2931,13 @@ function unit16Sections() {
 }
 
 function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: number) {
-  const housewarming = pickFrom(source.textbook.vocab, "v-housewarming");
   const invitationCard = pickFrom(source.textbook.vocab, "v-invitation-card");
-  const prepare = pickFrom(source.textbook.vocab, "v-prepare");
   const helpRequest = pickFrom(source.textbook.examples, "ex-help-request");
   const helpOffer = pickFrom(source.textbook.examples, "ex-help-offer");
   const titleQuestion = pickFrom(source.textbook.examples, "ex-must-buy");
+  const housewarmingVisual = pickVisualVocab(lookups, "v-housewarming");
+  const invitationCardVisual = pickVisualVocab(lookups, "v-invitation-card");
+  const prepareVisual = pickVisualVocab(lookups, "v-prepare");
 
   return lesson(
     "unit-17-lesson-1",
@@ -2779,30 +2956,27 @@ function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: numbe
     ],
     ["housewarming", "vocab", "help", "preparation"],
     [
-      wm(
+      wmImage(
         "u17-l1-housewarming",
-        housewarming.korean,
-        housewarming.translations,
-        lookups.choicePool,
+        housewarmingVisual,
+        lookups.visualVocabPool,
         "textbook",
         text("Day la danh tu trung tam cua ca bai 17.", "This is the central noun of Unit 17."),
       ),
-      wm(
+      wmImage(
         "u17-l1-invitation-card",
-        invitationCard.korean,
-        invitationCard.translations,
-        lookups.choicePool,
+        invitationCardVisual,
+        lookups.visualVocabPool,
         "textbook",
         text(
           "Vat dung nay xuat hien ngay tu phan mo bai workbook.",
           "This item appears immediately in the workbook warm-up.",
         ),
       ),
-      wm(
+      wmImage(
         "u17-l1-prepare",
-        prepare.korean,
-        prepare.translations,
-        lookups.choicePool,
+        prepareVisual,
+        lookups.visualVocabPool,
         "workbook",
         text(
           "Dong tu nay noi voi viec chuan bi do an va tiec.",

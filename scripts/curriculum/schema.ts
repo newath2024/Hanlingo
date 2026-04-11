@@ -38,6 +38,7 @@ const sourceVocabEntrySchema = z.object({
   korean: z.string().min(1),
   translations: localizedTextSchema,
   romanization: z.string().optional(),
+  imagePath: z.string().min(1).optional(),
   pages: pageRangeSchema,
   sourceRef: sourceCaptureRefSchema,
   needsReview: z.boolean(),
@@ -223,6 +224,7 @@ const localizedChoiceSchema = z.object({
   id: z.string().min(1),
   text: localizedTextSchema,
   imageUrl: z.string().min(1).optional(),
+  koreanLabel: z.string().min(1).optional(),
 });
 
 const wordMatchTaskSchema = runtimeTaskBaseSchema.extend({
@@ -230,12 +232,16 @@ const wordMatchTaskSchema = runtimeTaskBaseSchema.extend({
   koreanText: z.string().min(1),
   choices: z.array(localizedChoiceSchema).min(2),
   answer: z.string().min(1),
+  presentation: z.enum(["default", "image_cards"]).optional(),
+  questionText: localizedTextSchema.optional(),
 });
 
 const listenSelectTaskSchema = runtimeTaskBaseSchema.extend({
   type: z.literal("listen_select"),
   choices: z.array(localizedChoiceSchema).min(2),
   answer: z.string().min(1),
+  presentation: z.enum(["default", "image_cards"]).optional(),
+  questionText: localizedTextSchema.optional(),
 });
 
 const translateTaskSchema = runtimeTaskBaseSchema.extend({

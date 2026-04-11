@@ -141,8 +141,8 @@
         {
           "id": "l1-hello",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
             "vi": "Day la loi chao cot loi cua unit.",
@@ -161,37 +161,50 @@
               "text": {
                 "vi": "xin chao",
                 "en": "hello"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-hello.svg",
+              "koreanLabel": "안녕하세요"
             },
             {
               "id": "l1-hello-d1",
               "text": {
-                "vi": "lan dau",
-                "en": "first time"
-              }
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-student.svg",
+              "koreanLabel": "학생"
             },
             {
               "id": "l1-hello-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
-                "en": "student"
-              }
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-i-humble.svg",
+              "koreanLabel": "저"
             },
             {
               "id": "l1-hello-d3",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
-              }
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-nice-to-meet.svg",
+              "koreanLabel": "반갑습니다"
             }
           ],
-          "answer": "l1-hello-correct"
+          "answer": "l1-hello-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "xin chao",
+            "en": "hello"
+          }
         },
         {
           "id": "l1-jeo",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
             "vi": "`저` la cach xung ho lich su.",
@@ -210,37 +223,50 @@
               "text": {
                 "vi": "toi, em (khiem nhuong)",
                 "en": "I, me (humble)"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-i-humble.svg",
+              "koreanLabel": "저"
             },
             {
               "id": "l1-jeo-d1",
               "text": {
-                "vi": "hoc sinh, sinh vien",
-                "en": "student"
-              }
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-nice-to-meet.svg",
+              "koreanLabel": "반갑습니다"
             },
             {
               "id": "l1-jeo-d2",
               "text": {
-                "vi": "lan dau",
-                "en": "first time"
-              }
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-student.svg",
+              "koreanLabel": "학생"
             },
             {
               "id": "l1-jeo-d3",
               "text": {
                 "vi": "xin chao",
                 "en": "hello"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-hello.svg",
+              "koreanLabel": "안녕하세요"
             }
           ],
-          "answer": "l1-jeo-correct"
+          "answer": "l1-jeo-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "toi, em (khiem nhuong)",
+            "en": "I, me (humble)"
+          }
         },
         {
           "id": "l1-student",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
             "vi": "Danh tu nay lap lai nhieu lan trong workbook.",
@@ -259,37 +285,50 @@
               "text": {
                 "vi": "hoc sinh, sinh vien",
                 "en": "student"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-student.svg",
+              "koreanLabel": "학생"
             },
             {
               "id": "l1-student-d1",
               "text": {
                 "vi": "xin chao",
                 "en": "hello"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-hello.svg",
+              "koreanLabel": "안녕하세요"
             },
             {
               "id": "l1-student-d2",
               "text": {
                 "vi": "toi, em (khiem nhuong)",
                 "en": "I, me (humble)"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-i-humble.svg",
+              "koreanLabel": "저"
             },
             {
               "id": "l1-student-d3",
               "text": {
-                "vi": "lan dau",
-                "en": "first time"
-              }
+                "vi": "rat vui duoc gap ban",
+                "en": "nice to meet you"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-nice-to-meet.svg",
+              "koreanLabel": "반갑습니다"
             }
           ],
-          "answer": "l1-student-correct"
+          "answer": "l1-student-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "hoc sinh, sinh vien",
+            "en": "student"
+          }
         },
         {
           "id": "l1-nice",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
             "vi": "Nghe cum chao khi gap mat de quen am.",
@@ -308,31 +347,40 @@
               "text": {
                 "vi": "rat vui duoc gap ban",
                 "en": "nice to meet you"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-nice-to-meet.svg",
+              "koreanLabel": "반갑습니다"
             },
             {
               "id": "l1-nice-d1",
               "text": {
                 "vi": "toi, em (khiem nhuong)",
                 "en": "I, me (humble)"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-i-humble.svg",
+              "koreanLabel": "저"
             },
             {
               "id": "l1-nice-d2",
               "text": {
                 "vi": "hoc sinh, sinh vien",
                 "en": "student"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-student.svg",
+              "koreanLabel": "학생"
             },
             {
               "id": "l1-nice-d3",
               "text": {
-                "vi": "lan dau",
-                "en": "first time"
-              }
+                "vi": "xin chao",
+                "en": "hello"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-1/v-hello.svg",
+              "koreanLabel": "안녕하세요"
             }
           ],
-          "answer": "l1-nice-correct"
+          "answer": "l1-nice-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "l1-hello-meaning",

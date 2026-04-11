@@ -184,6 +184,39 @@ function validateSourceContent(source: SourceUnit, options?: { requireCompileabl
   });
 }
 
+function validateImageBackedVocabSource(source: SourceUnit) {
+  const imageBackedVocabIds = new Set(
+    source.textbook.vocab
+      .filter((entry) => Boolean(entry.imagePath))
+      .map((entry) => entry.id),
+  );
+
+  source.workbook.exercises.forEach((exercise) => {
+    if (exercise.exerciseType !== "matching") {
+      return;
+    }
+
+    const isPictureMatching =
+      exercise.coverageTags.includes("picture") ||
+      exercise.prompt.en.toLowerCase().includes("picture");
+
+    if (!isPictureMatching) {
+      return;
+    }
+
+    const vocabId =
+      typeof exercise.metadata.vocabId === "string" ? exercise.metadata.vocabId : undefined;
+
+    if (!vocabId) {
+      throw new Error(`${exercise.id} must define metadata.vocabId for picture vocab tasks.`);
+    }
+
+    if (!imageBackedVocabIds.has(vocabId)) {
+      throw new Error(`${exercise.id} points to ${vocabId}, but that vocab is missing imagePath.`);
+    }
+  });
+}
+
 function validateRawDraft(rawDraft: RawUnitDraft, reviewedSource: SourceUnit) {
   const workbookPages = new Set(
     rawDraft.blocks.filter((block) => block.document === "workbook").map((block) => block.page),
@@ -387,6 +420,38 @@ function validateListeningRuntime(unit: RuntimeUnit) {
   });
 }
 
+function validateImageCardRuntime(unit: RuntimeUnit) {
+  unit.lessons.forEach((lesson) => {
+    lesson.tasks.forEach((task) => {
+      if (
+        (task.type !== "word_match" && task.type !== "listen_select") ||
+        task.presentation !== "image_cards"
+      ) {
+        return;
+      }
+
+      if (task.choices.length !== 4) {
+        throw new Error(`${task.id} must provide exactly 4 image-card choices.`);
+      }
+
+      if (
+        !task.choices.every(
+          (choice) => Boolean(choice.imageUrl?.trim()) && Boolean(choice.koreanLabel?.trim()),
+        )
+      ) {
+        throw new Error(`${task.id} image-card choices must include imageUrl and koreanLabel.`);
+      }
+
+      if (
+        task.type === "word_match" &&
+        (!task.questionText?.vi?.trim() || !task.questionText?.en?.trim())
+      ) {
+        throw new Error(`${task.id} must provide questionText for image-card word match.`);
+      }
+    });
+  });
+}
+
 function validateErrorPatternKeys(unit: RuntimeUnit) {
   unit.lessons.forEach((lesson) => {
     lesson.tasks.forEach((task) => {
@@ -421,6 +486,7 @@ export async function validateCurriculum(options: ValidateOptions) {
     throw new Error("Reviewed source file must have needsReview=false.");
   }
   validateSourceContent(reviewedSource, { requireCompileable: true });
+  validateImageBackedVocabSource(reviewedSource);
 
   if (await exists(rawPath)) {
     const rawDraft = rawUnitDraftSchema.parse(await readJsonFile<RawUnitDraft>(rawPath));
@@ -442,6 +508,7 @@ export async function validateCurriculum(options: ValidateOptions) {
   validateQrListeningSections(runtimeUnit, reviewedSource);
   validateErrorPatternKeys(runtimeUnit);
   validateListeningRuntime(runtimeUnit);
+  validateImageCardRuntime(runtimeUnit);
 
   if (!curriculumIndex.units.some((entry) => entry.id === options.unitId)) {
     throw new Error(`Generated index is missing unit ${options.unitId}.`);

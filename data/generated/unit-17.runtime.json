@@ -154,8 +154,8 @@
         {
           "id": "u17-l1-housewarming",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
             "vi": "Day la danh tu trung tam cua ca bai 17.",
@@ -174,37 +174,50 @@
               "text": {
                 "vi": "tiec tan gia",
                 "en": "housewarming party"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
+              "koreanLabel": "집들이"
             },
             {
               "id": "u17-l1-housewarming-d1",
               "text": {
                 "vi": "thiep moi",
                 "en": "invitation card"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             },
             {
               "id": "u17-l1-housewarming-d2",
               "text": {
                 "vi": "khan giay",
                 "en": "tissue paper"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "u17-l1-housewarming-d3",
               "text": {
-                "vi": "chuyen nha",
-                "en": "move house"
-              }
+                "vi": "nuoc giat",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             }
           ],
-          "answer": "u17-l1-housewarming-correct"
+          "answer": "u17-l1-housewarming-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "tiec tan gia",
+            "en": "housewarming party"
+          }
         },
         {
           "id": "u17-l1-invitation-card",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
             "vi": "Vat dung nay xuat hien ngay tu phan mo bai workbook.",
@@ -223,37 +236,50 @@
               "text": {
                 "vi": "thiep moi",
                 "en": "invitation card"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             },
             {
               "id": "u17-l1-invitation-card-d1",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
-              }
+                "vi": "khan giay",
+                "en": "tissue paper"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "u17-l1-invitation-card-d2",
               "text": {
-                "vi": "moi",
-                "en": "invite"
-              }
+                "vi": "tiec tan gia",
+                "en": "housewarming party"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
+              "koreanLabel": "집들이"
             },
             {
               "id": "u17-l1-invitation-card-d3",
               "text": {
-                "vi": "khan giay",
-                "en": "tissue paper"
-              }
+                "vi": "nuoc giat",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             }
           ],
-          "answer": "u17-l1-invitation-card-correct"
+          "answer": "u17-l1-invitation-card-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "thiep moi",
+            "en": "invitation card"
+          }
         },
         {
           "id": "u17-l1-prepare",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
             "vi": "Dong tu nay noi voi viec chuan bi do an va tiec.",
@@ -272,31 +298,44 @@
               "text": {
                 "vi": "chuan bi",
                 "en": "prepare"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
+              "koreanLabel": "준비하다"
             },
             {
               "id": "u17-l1-prepare-d1",
               "text": {
                 "vi": "nuoc giat",
                 "en": "detergent"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             },
             {
               "id": "u17-l1-prepare-d2",
               "text": {
-                "vi": "giup do",
-                "en": "help"
-              }
+                "vi": "khan giay",
+                "en": "tissue paper"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "u17-l1-prepare-d3",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
-              }
+                "vi": "thiep moi",
+                "en": "invitation card"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             }
           ],
-          "answer": "u17-l1-prepare-correct"
+          "answer": "u17-l1-prepare-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "chuan bi",
+            "en": "prepare"
+          }
         },
         {
           "id": "u17-l1-help-request",
@@ -1359,12 +1398,12 @@
         {
           "id": "wb17-match-housewarming-picture-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1377,92 +1416,118 @@
             {
               "id": "wb17-match-housewarming-picture-1-correct",
               "text": {
-                "vi": "tiệc tân gia",
+                "vi": "tiec tan gia",
                 "en": "housewarming party"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
+              "koreanLabel": "집들이"
             },
             {
               "id": "wb17-match-housewarming-picture-1-d1",
               "text": {
                 "vi": "thiep moi",
                 "en": "invitation card"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             },
             {
               "id": "wb17-match-housewarming-picture-1-d2",
               "text": {
                 "vi": "khan giay",
                 "en": "tissue paper"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "wb17-match-housewarming-picture-1-d3",
               "text": {
-                "vi": "chuyen nha",
-                "en": "move house"
-              }
+                "vi": "nuoc giat",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             }
           ],
-          "answer": "wb17-match-housewarming-picture-1-correct"
+          "answer": "wb17-match-housewarming-picture-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "tiec tan gia",
+            "en": "housewarming party"
+          }
         },
         {
           "id": "wb17-match-housewarming-picture-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb17-match-housewarming-picture-2.listen",
+          "supportText": {
+            "vi": "Xem tranh va noi voi tu dung.",
+            "en": "Look at the picture and match it with the correct word."
+          },
           "audioText": "집들이",
           "type": "listen_select",
           "choices": [
             {
               "id": "wb17-match-housewarming-picture-2-correct",
               "text": {
-                "vi": "tiệc tân gia",
+                "vi": "tiec tan gia",
                 "en": "housewarming party"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
+              "koreanLabel": "집들이"
             },
             {
               "id": "wb17-match-housewarming-picture-2-d1",
               "text": {
                 "vi": "thiep moi",
                 "en": "invitation card"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             },
             {
               "id": "wb17-match-housewarming-picture-2-d2",
               "text": {
                 "vi": "khan giay",
                 "en": "tissue paper"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "wb17-match-housewarming-picture-2-d3",
               "text": {
-                "vi": "chuyen nha",
-                "en": "move house"
-              }
+                "vi": "nuoc giat",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             }
           ],
-          "answer": "wb17-match-housewarming-picture-2-correct"
+          "answer": "wb17-match-housewarming-picture-2-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "wb17-match-invitation-card-picture-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1477,47 +1542,64 @@
               "text": {
                 "vi": "thiep moi",
                 "en": "invitation card"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             },
             {
               "id": "wb17-match-invitation-card-picture-1-d1",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
-              }
+                "vi": "khan giay",
+                "en": "tissue paper"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "wb17-match-invitation-card-picture-1-d2",
               "text": {
-                "vi": "moi",
-                "en": "invite"
-              }
+                "vi": "tiec tan gia",
+                "en": "housewarming party"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
+              "koreanLabel": "집들이"
             },
             {
               "id": "wb17-match-invitation-card-picture-1-d3",
               "text": {
-                "vi": "khan giay",
-                "en": "tissue paper"
-              }
+                "vi": "nuoc giat",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             }
           ],
-          "answer": "wb17-match-invitation-card-picture-1-correct"
+          "answer": "wb17-match-invitation-card-picture-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "thiep moi",
+            "en": "invitation card"
+          }
         },
         {
           "id": "wb17-match-invitation-card-picture-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb17-match-invitation-card-picture-2.listen",
+          "supportText": {
+            "vi": "Xem tranh va noi voi tu dung.",
+            "en": "Look at the picture and match it with the correct word."
+          },
           "audioText": "초대장",
           "type": "listen_select",
           "choices": [
@@ -1526,41 +1608,50 @@
               "text": {
                 "vi": "thiep moi",
                 "en": "invitation card"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             },
             {
               "id": "wb17-match-invitation-card-picture-2-d1",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
-              }
+                "vi": "khan giay",
+                "en": "tissue paper"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "wb17-match-invitation-card-picture-2-d2",
               "text": {
-                "vi": "moi",
-                "en": "invite"
-              }
+                "vi": "tiec tan gia",
+                "en": "housewarming party"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
+              "koreanLabel": "집들이"
             },
             {
               "id": "wb17-match-invitation-card-picture-2-d3",
               "text": {
-                "vi": "khan giay",
-                "en": "tissue paper"
-              }
+                "vi": "nuoc giat",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             }
           ],
-          "answer": "wb17-match-invitation-card-picture-2-correct"
+          "answer": "wb17-match-invitation-card-picture-2-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "wb17-match-tissue-picture-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1575,47 +1666,64 @@
               "text": {
                 "vi": "khan giay",
                 "en": "tissue paper"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "wb17-match-tissue-picture-1-d1",
               "text": {
-                "vi": "chuyen nha",
-                "en": "move house"
-              }
+                "vi": "nuoc giat",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             },
             {
               "id": "wb17-match-tissue-picture-1-d2",
               "text": {
-                "vi": "nuoc giat",
-                "en": "detergent"
-              }
+                "vi": "thiep moi",
+                "en": "invitation card"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             },
             {
               "id": "wb17-match-tissue-picture-1-d3",
               "text": {
-                "vi": "thiep moi",
-                "en": "invitation card"
-              }
+                "vi": "chuan bi",
+                "en": "prepare"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
+              "koreanLabel": "준비하다"
             }
           ],
-          "answer": "wb17-match-tissue-picture-1-correct"
+          "answer": "wb17-match-tissue-picture-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "khan giay",
+            "en": "tissue paper"
+          }
         },
         {
           "id": "wb17-match-tissue-picture-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb17-match-tissue-picture-2.listen",
+          "supportText": {
+            "vi": "Xem tranh va noi voi tu dung.",
+            "en": "Look at the picture and match it with the correct word."
+          },
           "audioText": "휴지",
           "type": "listen_select",
           "choices": [
@@ -1624,41 +1732,50 @@
               "text": {
                 "vi": "khan giay",
                 "en": "tissue paper"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "wb17-match-tissue-picture-2-d1",
               "text": {
-                "vi": "chuyen nha",
-                "en": "move house"
-              }
+                "vi": "nuoc giat",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             },
             {
               "id": "wb17-match-tissue-picture-2-d2",
               "text": {
-                "vi": "nuoc giat",
-                "en": "detergent"
-              }
+                "vi": "thiep moi",
+                "en": "invitation card"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             },
             {
               "id": "wb17-match-tissue-picture-2-d3",
               "text": {
-                "vi": "thiep moi",
-                "en": "invitation card"
-              }
+                "vi": "chuan bi",
+                "en": "prepare"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
+              "koreanLabel": "준비하다"
             }
           ],
-          "answer": "wb17-match-tissue-picture-2-correct"
+          "answer": "wb17-match-tissue-picture-2-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "wb17-match-detergent-picture-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1673,47 +1790,64 @@
               "text": {
                 "vi": "nuoc giat",
                 "en": "detergent"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             },
             {
               "id": "wb17-match-detergent-picture-1-d1",
               "text": {
-                "vi": "chuyen nha",
-                "en": "move house"
-              }
+                "vi": "chuan bi",
+                "en": "prepare"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
+              "koreanLabel": "준비하다"
             },
             {
               "id": "wb17-match-detergent-picture-1-d2",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
-              }
+                "vi": "khan giay",
+                "en": "tissue paper"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "wb17-match-detergent-picture-1-d3",
               "text": {
-                "vi": "chuan bi",
-                "en": "prepare"
-              }
+                "vi": "thiep moi",
+                "en": "invitation card"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             }
           ],
-          "answer": "wb17-match-detergent-picture-1-correct"
+          "answer": "wb17-match-detergent-picture-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "nuoc giat",
+            "en": "detergent"
+          }
         },
         {
           "id": "wb17-match-detergent-picture-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb17-match-detergent-picture-2.listen",
+          "supportText": {
+            "vi": "Xem tranh va noi voi tu dung.",
+            "en": "Look at the picture and match it with the correct word."
+          },
           "audioText": "세제",
           "type": "listen_select",
           "choices": [
@@ -1722,31 +1856,40 @@
               "text": {
                 "vi": "nuoc giat",
                 "en": "detergent"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
             },
             {
               "id": "wb17-match-detergent-picture-2-d1",
               "text": {
-                "vi": "chuyen nha",
-                "en": "move house"
-              }
+                "vi": "chuan bi",
+                "en": "prepare"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
+              "koreanLabel": "준비하다"
             },
             {
               "id": "wb17-match-detergent-picture-2-d2",
               "text": {
-                "vi": "loi moi",
-                "en": "invitation"
-              }
+                "vi": "khan giay",
+                "en": "tissue paper"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
             },
             {
               "id": "wb17-match-detergent-picture-2-d3",
               "text": {
-                "vi": "chuan bi",
-                "en": "prepare"
-              }
+                "vi": "thiep moi",
+                "en": "invitation card"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
             }
           ],
-          "answer": "wb17-match-detergent-picture-2-correct"
+          "answer": "wb17-match-detergent-picture-2-correct",
+          "presentation": "image_cards"
         }
       ]
     },

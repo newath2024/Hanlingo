@@ -1,5 +1,6 @@
 import type {
   ArrangeSentenceTask,
+  ChoicePresentation,
   DialogueReconstructTask,
   FillBlankTask,
   GrammarSelectTask,
@@ -60,6 +61,8 @@ export type LocalizedChoiceSessionItem = SessionItemBase & {
   answer: string;
   audioText?: string;
   audioUrl?: string;
+  presentation?: ChoicePresentation;
+  questionText?: LocalizedText;
 };
 
 export type PairMatchSessionItem = SessionItemBase & {

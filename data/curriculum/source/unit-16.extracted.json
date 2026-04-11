@@ -41,6 +41,7 @@
           "en": "bus"
         },
         "romanization": "beoseu",
+        "imagePath": "/generated/vocab-icons/unit-16/v-bus.svg",
         "pages": {
           "startPage": 208,
           "endPage": 208
@@ -61,6 +62,7 @@
           "en": "subway"
         },
         "romanization": "jihacheol",
+        "imagePath": "/generated/vocab-icons/unit-16/v-subway.svg",
         "pages": {
           "startPage": 208,
           "endPage": 208
@@ -81,6 +83,7 @@
           "en": "train"
         },
         "romanization": "gicha",
+        "imagePath": "/generated/vocab-icons/unit-16/v-train.svg",
         "pages": {
           "startPage": 208,
           "endPage": 208
@@ -101,6 +104,7 @@
           "en": "airplane"
         },
         "romanization": "bihaenggi",
+        "imagePath": "/generated/vocab-icons/unit-16/v-airplane.svg",
         "pages": {
           "startPage": 208,
           "endPage": 208
@@ -141,6 +145,7 @@
           "en": "station"
         },
         "romanization": "yeok",
+        "imagePath": "/generated/vocab-icons/unit-16/v-station.svg",
         "pages": {
           "startPage": 208,
           "endPage": 208
@@ -161,6 +166,7 @@
           "en": "bus stop"
         },
         "romanization": "jeongnyujang",
+        "imagePath": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
         "pages": {
           "startPage": 208,
           "endPage": 208
@@ -851,12 +857,14 @@
         },
         "answer": "xe buyt",
         "metadata": {
-          "target": "vocab"
+          "target": "vocab",
+          "vocabId": "v-bus"
         },
         "coverageTags": [
           "transport",
           "vocab",
-          "bus"
+          "bus",
+          "picture"
         ],
         "pages": {
           "startPage": 262,
@@ -884,12 +892,14 @@
         },
         "answer": "tau hoa",
         "metadata": {
-          "target": "vocab"
+          "target": "vocab",
+          "vocabId": "v-train"
         },
         "coverageTags": [
           "transport",
           "vocab",
-          "train"
+          "train",
+          "picture"
         ],
         "pages": {
           "startPage": 262,
@@ -917,12 +927,14 @@
         },
         "answer": "tau dien ngam",
         "metadata": {
-          "target": "vocab"
+          "target": "vocab",
+          "vocabId": "v-subway"
         },
         "coverageTags": [
           "transport",
           "vocab",
-          "subway"
+          "subway",
+          "picture"
         ],
         "pages": {
           "startPage": 262,
@@ -950,12 +962,14 @@
         },
         "answer": "may bay",
         "metadata": {
-          "target": "vocab"
+          "target": "vocab",
+          "vocabId": "v-airplane"
         },
         "coverageTags": [
           "transport",
           "vocab",
-          "airplane"
+          "airplane",
+          "picture"
         ],
         "pages": {
           "startPage": 262,
@@ -983,12 +997,14 @@
         },
         "answer": "ga",
         "metadata": {
-          "target": "vocab"
+          "target": "vocab",
+          "vocabId": "v-station"
         },
         "coverageTags": [
           "transport-use",
           "vocab",
-          "station"
+          "station",
+          "picture"
         ],
         "pages": {
           "startPage": 262,
@@ -1016,12 +1032,14 @@
         },
         "answer": "tram xe buyt",
         "metadata": {
-          "target": "vocab"
+          "target": "vocab",
+          "vocabId": "v-bus-stop"
         },
         "coverageTags": [
           "transport-use",
           "vocab",
-          "bus-stop"
+          "bus-stop",
+          "picture"
         ],
         "pages": {
           "startPage": 262,

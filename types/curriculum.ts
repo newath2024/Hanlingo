@@ -5,6 +5,7 @@ export type LocalizedText = {
 
 export type MeaningDirection = "meaning_to_ko" | "ko_to_meaning";
 export type InteractionMode = "word_bank" | "hybrid" | "full_input";
+export type ChoicePresentation = "default" | "image_cards";
 
 export type SourceBoundaryMode = "configured_page_spans" | "pdf_text_layer";
 export type ExtractionMode =
@@ -65,6 +66,7 @@ export type SourceVocabEntry = {
   korean: string;
   translations: LocalizedText;
   romanization?: string;
+  imagePath?: string;
   pages: SourcePageRange;
   sourceRef: SourceCaptureRef;
   needsReview: boolean;
@@ -226,6 +228,7 @@ export type LocalizedChoice = {
   id: string;
   text: LocalizedText;
   imageUrl?: string;
+  koreanLabel?: string;
 };
 
 export type RuntimeTaskBase = {
@@ -249,12 +252,16 @@ export type WordMatchTask = RuntimeTaskBase & {
   koreanText: string;
   choices: LocalizedChoice[];
   answer: string;
+  presentation?: ChoicePresentation;
+  questionText?: LocalizedText;
 };
 
 export type ListenSelectTask = RuntimeTaskBase & {
   type: "listen_select";
   choices: LocalizedChoice[];
   answer: string;
+  presentation?: ChoicePresentation;
+  questionText?: LocalizedText;
 };
 
 export type TranslateTask = RuntimeTaskBase & {

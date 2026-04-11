@@ -159,8 +159,8 @@
         {
           "id": "u16-l1-bus",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
             "vi": "Bat dau bang phuong tien quen thuoc nhat.",
@@ -179,37 +179,50 @@
               "text": {
                 "vi": "xe buyt",
                 "en": "bus"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus.svg",
+              "koreanLabel": "버스"
             },
             {
               "id": "u16-l1-bus-d1",
               "text": {
                 "vi": "tram xe buyt",
                 "en": "bus stop"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             },
             {
               "id": "u16-l1-bus-d2",
               "text": {
-                "vi": "thuyen",
-                "en": "boat"
-              }
+                "vi": "tau hoa",
+                "en": "train"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             },
             {
               "id": "u16-l1-bus-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             }
           ],
-          "answer": "u16-l1-bus-correct"
+          "answer": "u16-l1-bus-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "xe buyt",
+            "en": "bus"
+          }
         },
         {
           "id": "u16-l1-subway",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
             "vi": "Tau dien ngam se lap lai nhieu trong phan hoi duong.",
@@ -228,37 +241,50 @@
               "text": {
                 "vi": "tau dien ngam",
                 "en": "subway"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "u16-l1-subway-d1",
               "text": {
                 "vi": "tau hoa",
                 "en": "train"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             },
             {
               "id": "u16-l1-subway-d2",
               "text": {
-                "vi": "chuyen xe, chuyen tau",
-                "en": "transfer"
-              }
+                "vi": "ga",
+                "en": "station"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-station.svg",
+              "koreanLabel": "역"
             },
             {
               "id": "u16-l1-subway-d3",
               "text": {
-                "vi": "ga",
-                "en": "station"
-              }
+                "vi": "tram xe buyt",
+                "en": "bus stop"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             }
           ],
-          "answer": "u16-l1-subway-correct"
+          "answer": "u16-l1-subway-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "tau dien ngam",
+            "en": "subway"
+          }
         },
         {
           "id": "u16-l1-station",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
             "vi": "Danh tu dia diem nay la moc neo cua unit.",
@@ -277,37 +303,50 @@
               "text": {
                 "vi": "ga",
                 "en": "station"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-station.svg",
+              "koreanLabel": "역"
             },
             {
               "id": "u16-l1-station-d1",
               "text": {
-                "vi": "gan",
-                "en": "be near"
-              }
+                "vi": "tau dien ngam",
+                "en": "subway"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "u16-l1-station-d2",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             },
             {
               "id": "u16-l1-station-d3",
               "text": {
-                "vi": "xa",
-                "en": "be far"
-              }
+                "vi": "tau hoa",
+                "en": "train"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             }
           ],
-          "answer": "u16-l1-station-correct"
+          "answer": "u16-l1-station-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "ga",
+            "en": "station"
+          }
         },
         {
           "id": "u16-l1-bus-stop",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
             "vi": "Nho tu nay de doc duoc huong dan di xe buyt.",
@@ -326,31 +365,44 @@
               "text": {
                 "vi": "tram xe buyt",
                 "en": "bus stop"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             },
             {
               "id": "u16-l1-bus-stop-d1",
               "text": {
                 "vi": "xe buyt",
                 "en": "bus"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus.svg",
+              "koreanLabel": "버스"
             },
             {
               "id": "u16-l1-bus-stop-d2",
               "text": {
-                "vi": "khoang cach",
-                "en": "distance"
-              }
+                "vi": "tau dien ngam",
+                "en": "subway"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "u16-l1-bus-stop-d3",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             }
           ],
-          "answer": "u16-l1-bus-stop-correct"
+          "answer": "u16-l1-bus-stop-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "tram xe buyt",
+            "en": "bus stop"
+          }
         },
         {
           "id": "u16-l1-title-meaning",
@@ -1093,6 +1145,7 @@
         "category",
         "vocab",
         "bus",
+        "picture",
         "train",
         "subway"
       ],
@@ -1100,12 +1153,12 @@
         {
           "id": "wb16-match-bus-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1120,47 +1173,64 @@
               "text": {
                 "vi": "xe buyt",
                 "en": "bus"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus.svg",
+              "koreanLabel": "버스"
             },
             {
               "id": "wb16-match-bus-1-d1",
               "text": {
                 "vi": "tram xe buyt",
                 "en": "bus stop"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             },
             {
               "id": "wb16-match-bus-1-d2",
               "text": {
-                "vi": "thuyen",
-                "en": "boat"
-              }
+                "vi": "tau hoa",
+                "en": "train"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             },
             {
               "id": "wb16-match-bus-1-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             }
           ],
-          "answer": "wb16-match-bus-1-correct"
+          "answer": "wb16-match-bus-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "xe buyt",
+            "en": "bus"
+          }
         },
         {
           "id": "wb16-match-bus-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb16-match-bus-2.listen",
+          "supportText": {
+            "vi": "Noi tranh voi tu dung.",
+            "en": "Match the picture with the correct word."
+          },
           "audioText": "버스",
           "type": "listen_select",
           "choices": [
@@ -1169,41 +1239,50 @@
               "text": {
                 "vi": "xe buyt",
                 "en": "bus"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus.svg",
+              "koreanLabel": "버스"
             },
             {
               "id": "wb16-match-bus-2-d1",
               "text": {
                 "vi": "tram xe buyt",
                 "en": "bus stop"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             },
             {
               "id": "wb16-match-bus-2-d2",
               "text": {
-                "vi": "thuyen",
-                "en": "boat"
-              }
+                "vi": "tau hoa",
+                "en": "train"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             },
             {
               "id": "wb16-match-bus-2-d3",
               "text": {
-                "vi": "tau hoa",
-                "en": "train"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             }
           ],
-          "answer": "wb16-match-bus-2-correct"
+          "answer": "wb16-match-bus-2-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "wb16-match-train-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1218,47 +1297,64 @@
               "text": {
                 "vi": "tau hoa",
                 "en": "train"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             },
             {
               "id": "wb16-match-train-1-d1",
               "text": {
                 "vi": "tau dien ngam",
                 "en": "subway"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "wb16-match-train-1-d2",
               "text": {
-                "vi": "chuyen xe, chuyen tau",
-                "en": "transfer"
-              }
+                "vi": "xe buyt",
+                "en": "bus"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus.svg",
+              "koreanLabel": "버스"
             },
             {
               "id": "wb16-match-train-1-d3",
               "text": {
-                "vi": "thuyen",
-                "en": "boat"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             }
           ],
-          "answer": "wb16-match-train-1-correct"
+          "answer": "wb16-match-train-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "tau hoa",
+            "en": "train"
+          }
         },
         {
           "id": "wb16-match-train-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb16-match-train-2.listen",
+          "supportText": {
+            "vi": "Noi tranh voi tu dung.",
+            "en": "Match the picture with the correct word."
+          },
           "audioText": "기차",
           "type": "listen_select",
           "choices": [
@@ -1267,41 +1363,50 @@
               "text": {
                 "vi": "tau hoa",
                 "en": "train"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             },
             {
               "id": "wb16-match-train-2-d1",
               "text": {
                 "vi": "tau dien ngam",
                 "en": "subway"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "wb16-match-train-2-d2",
               "text": {
-                "vi": "chuyen xe, chuyen tau",
-                "en": "transfer"
-              }
+                "vi": "xe buyt",
+                "en": "bus"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus.svg",
+              "koreanLabel": "버스"
             },
             {
               "id": "wb16-match-train-2-d3",
               "text": {
-                "vi": "thuyen",
-                "en": "boat"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             }
           ],
-          "answer": "wb16-match-train-2-correct"
+          "answer": "wb16-match-train-2-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "wb16-match-subway-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1316,47 +1421,64 @@
               "text": {
                 "vi": "tau dien ngam",
                 "en": "subway"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "wb16-match-subway-1-d1",
               "text": {
                 "vi": "tau hoa",
                 "en": "train"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             },
             {
               "id": "wb16-match-subway-1-d2",
               "text": {
-                "vi": "chuyen xe, chuyen tau",
-                "en": "transfer"
-              }
+                "vi": "ga",
+                "en": "station"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-station.svg",
+              "koreanLabel": "역"
             },
             {
               "id": "wb16-match-subway-1-d3",
               "text": {
-                "vi": "ga",
-                "en": "station"
-              }
+                "vi": "tram xe buyt",
+                "en": "bus stop"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             }
           ],
-          "answer": "wb16-match-subway-1-correct"
+          "answer": "wb16-match-subway-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "tau dien ngam",
+            "en": "subway"
+          }
         },
         {
           "id": "wb16-match-subway-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb16-match-subway-2.listen",
+          "supportText": {
+            "vi": "Noi tranh voi tu dung.",
+            "en": "Match the picture with the correct word."
+          },
           "audioText": "지하철",
           "type": "listen_select",
           "choices": [
@@ -1365,31 +1487,40 @@
               "text": {
                 "vi": "tau dien ngam",
                 "en": "subway"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "wb16-match-subway-2-d1",
               "text": {
                 "vi": "tau hoa",
                 "en": "train"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             },
             {
               "id": "wb16-match-subway-2-d2",
               "text": {
-                "vi": "chuyen xe, chuyen tau",
-                "en": "transfer"
-              }
+                "vi": "ga",
+                "en": "station"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-station.svg",
+              "koreanLabel": "역"
             },
             {
               "id": "wb16-match-subway-2-d3",
               "text": {
-                "vi": "ga",
-                "en": "station"
-              }
+                "vi": "tram xe buyt",
+                "en": "bus stop"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             }
           ],
-          "answer": "wb16-match-subway-2-correct"
+          "answer": "wb16-match-subway-2-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "wb16-write-transport-1",
@@ -1523,6 +1654,7 @@
         "transport",
         "vocab",
         "airplane",
+        "picture",
         "transport-use",
         "station",
         "bus-stop",
@@ -1535,12 +1667,12 @@
         {
           "id": "wb16-match-airplane-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1555,47 +1687,64 @@
               "text": {
                 "vi": "may bay",
                 "en": "airplane"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             },
             {
               "id": "wb16-match-airplane-1-d1",
               "text": {
-                "vi": "ben xe",
-                "en": "terminal"
-              }
+                "vi": "tram xe buyt",
+                "en": "bus stop"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             },
             {
               "id": "wb16-match-airplane-1-d2",
               "text": {
-                "vi": "khoang cach",
-                "en": "distance"
-              }
+                "vi": "tau hoa",
+                "en": "train"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             },
             {
               "id": "wb16-match-airplane-1-d3",
               "text": {
-                "vi": "tram xe buyt",
-                "en": "bus stop"
-              }
+                "vi": "ga",
+                "en": "station"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-station.svg",
+              "koreanLabel": "역"
             }
           ],
-          "answer": "wb16-match-airplane-1-correct"
+          "answer": "wb16-match-airplane-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "may bay",
+            "en": "airplane"
+          }
         },
         {
           "id": "wb16-match-airplane-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb16-match-airplane-2.listen",
+          "supportText": {
+            "vi": "Noi tranh voi tu dung.",
+            "en": "Match the picture with the correct word."
+          },
           "audioText": "비행기",
           "type": "listen_select",
           "choices": [
@@ -1604,41 +1753,50 @@
               "text": {
                 "vi": "may bay",
                 "en": "airplane"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             },
             {
               "id": "wb16-match-airplane-2-d1",
               "text": {
-                "vi": "ben xe",
-                "en": "terminal"
-              }
+                "vi": "tram xe buyt",
+                "en": "bus stop"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             },
             {
               "id": "wb16-match-airplane-2-d2",
               "text": {
-                "vi": "khoang cach",
-                "en": "distance"
-              }
+                "vi": "tau hoa",
+                "en": "train"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             },
             {
               "id": "wb16-match-airplane-2-d3",
               "text": {
-                "vi": "tram xe buyt",
-                "en": "bus stop"
-              }
+                "vi": "ga",
+                "en": "station"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-station.svg",
+              "koreanLabel": "역"
             }
           ],
-          "answer": "wb16-match-airplane-2-correct"
+          "answer": "wb16-match-airplane-2-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "wb16-match-station-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1653,47 +1811,64 @@
               "text": {
                 "vi": "ga",
                 "en": "station"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-station.svg",
+              "koreanLabel": "역"
             },
             {
               "id": "wb16-match-station-1-d1",
               "text": {
-                "vi": "gan",
-                "en": "be near"
-              }
+                "vi": "tau dien ngam",
+                "en": "subway"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "wb16-match-station-1-d2",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             },
             {
               "id": "wb16-match-station-1-d3",
               "text": {
-                "vi": "xa",
-                "en": "be far"
-              }
+                "vi": "tau hoa",
+                "en": "train"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             }
           ],
-          "answer": "wb16-match-station-1-correct"
+          "answer": "wb16-match-station-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "ga",
+            "en": "station"
+          }
         },
         {
           "id": "wb16-match-station-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb16-match-station-2.listen",
+          "supportText": {
+            "vi": "Noi tranh voi tu dung.",
+            "en": "Match the picture with the correct word."
+          },
           "audioText": "역",
           "type": "listen_select",
           "choices": [
@@ -1702,41 +1877,50 @@
               "text": {
                 "vi": "ga",
                 "en": "station"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-station.svg",
+              "koreanLabel": "역"
             },
             {
               "id": "wb16-match-station-2-d1",
               "text": {
-                "vi": "gan",
-                "en": "be near"
-              }
+                "vi": "tau dien ngam",
+                "en": "subway"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "wb16-match-station-2-d2",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             },
             {
               "id": "wb16-match-station-2-d3",
               "text": {
-                "vi": "xa",
-                "en": "be far"
-              }
+                "vi": "tau hoa",
+                "en": "train"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-train.svg",
+              "koreanLabel": "기차"
             }
           ],
-          "answer": "wb16-match-station-2-correct"
+          "answer": "wb16-match-station-2-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "wb16-match-bus-stop-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
-            "en": "Match the Korean word with the correct meaning."
+            "vi": "Chon the dung voi y nghia nay.",
+            "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
-            "en": "Start with quick meaning recognition."
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1751,47 +1935,64 @@
               "text": {
                 "vi": "tram xe buyt",
                 "en": "bus stop"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             },
             {
               "id": "wb16-match-bus-stop-1-d1",
               "text": {
                 "vi": "xe buyt",
                 "en": "bus"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus.svg",
+              "koreanLabel": "버스"
             },
             {
               "id": "wb16-match-bus-stop-1-d2",
               "text": {
-                "vi": "khoang cach",
-                "en": "distance"
-              }
+                "vi": "tau dien ngam",
+                "en": "subway"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "wb16-match-bus-stop-1-d3",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             }
           ],
-          "answer": "wb16-match-bus-stop-1-correct"
+          "answer": "wb16-match-bus-stop-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "tram xe buyt",
+            "en": "bus stop"
+          }
         },
         {
           "id": "wb16-match-bus-stop-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe roi chon the phu hop.",
+            "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
-            "en": "Hear the same expression again to lock sound and meaning."
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb16-match-bus-stop-2.listen",
+          "supportText": {
+            "vi": "Noi tranh voi tu dung.",
+            "en": "Match the picture with the correct word."
+          },
           "audioText": "정류장",
           "type": "listen_select",
           "choices": [
@@ -1800,31 +2001,40 @@
               "text": {
                 "vi": "tram xe buyt",
                 "en": "bus stop"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus-stop.svg",
+              "koreanLabel": "정류장"
             },
             {
               "id": "wb16-match-bus-stop-2-d1",
               "text": {
                 "vi": "xe buyt",
                 "en": "bus"
-              }
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-bus.svg",
+              "koreanLabel": "버스"
             },
             {
               "id": "wb16-match-bus-stop-2-d2",
               "text": {
-                "vi": "khoang cach",
-                "en": "distance"
-              }
+                "vi": "tau dien ngam",
+                "en": "subway"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-subway.svg",
+              "koreanLabel": "지하철"
             },
             {
               "id": "wb16-match-bus-stop-2-d3",
               "text": {
-                "vi": "tau dien ngam",
-                "en": "subway"
-              }
+                "vi": "may bay",
+                "en": "airplane"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-16/v-airplane.svg",
+              "koreanLabel": "비행기"
             }
           ],
-          "answer": "wb16-match-bus-stop-2-correct"
+          "answer": "wb16-match-bus-stop-2-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "wb16-future-transfer-2",

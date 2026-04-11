@@ -41,6 +41,7 @@
           "en": "housewarming party"
         },
         "romanization": "jipdeuri",
+        "imagePath": "/generated/vocab-icons/unit-17/v-housewarming.svg",
         "pages": {
           "startPage": 221,
           "endPage": 221
@@ -81,6 +82,7 @@
           "en": "invitation card"
         },
         "romanization": "chodaejang",
+        "imagePath": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
         "pages": {
           "startPage": 221,
           "endPage": 221
@@ -101,6 +103,7 @@
           "en": "tissue paper"
         },
         "romanization": "hyuji",
+        "imagePath": "/generated/vocab-icons/unit-17/v-tissue.svg",
         "pages": {
           "startPage": 221,
           "endPage": 221
@@ -121,6 +124,7 @@
           "en": "detergent"
         },
         "romanization": "seje",
+        "imagePath": "/generated/vocab-icons/unit-17/v-detergent.svg",
         "pages": {
           "startPage": 221,
           "endPage": 221
@@ -201,6 +205,7 @@
           "en": "prepare"
         },
         "romanization": "junbihada",
+        "imagePath": "/generated/vocab-icons/unit-17/v-prepare.svg",
         "pages": {
           "startPage": 221,
           "endPage": 221
@@ -811,7 +816,8 @@
         },
         "answer": "tiệc tân gia",
         "metadata": {
-          "target": "vocab"
+          "target": "vocab",
+          "vocabId": "v-housewarming"
         },
         "coverageTags": [
           "housewarming",
@@ -844,7 +850,8 @@
         },
         "answer": "thiep moi",
         "metadata": {
-          "target": "vocab"
+          "target": "vocab",
+          "vocabId": "v-invitation-card"
         },
         "coverageTags": [
           "invitation-card",
@@ -877,7 +884,8 @@
         },
         "answer": "khan giay",
         "metadata": {
-          "target": "vocab"
+          "target": "vocab",
+          "vocabId": "v-tissue"
         },
         "coverageTags": [
           "tissue",
@@ -910,7 +918,8 @@
         },
         "answer": "nuoc giat",
         "metadata": {
-          "target": "vocab"
+          "target": "vocab",
+          "vocabId": "v-detergent"
         },
         "coverageTags": [
           "detergent",

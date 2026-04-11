@@ -23,6 +23,25 @@ import type { SentenceExposureMap } from "@/lib/progress-state";
 export const SESSION_XP_PER_CORRECT = 5;
 export const WEAK_NODE_THRESHOLD = 0.6;
 
+function getImageCardCorrectAnswer(
+  task: Extract<RuntimeTask, { type: "word_match" | "listen_select" }>,
+) {
+  const correctChoice = task.choices.find((choice) => choice.id === task.answer);
+
+  if (!correctChoice) {
+    return task.answer;
+  }
+
+  if (task.presentation === "image_cards" && correctChoice.koreanLabel) {
+    return {
+      vi: `${correctChoice.koreanLabel} - ${correctChoice.text.vi}`,
+      en: `${correctChoice.koreanLabel} - ${correctChoice.text.en}`,
+    };
+  }
+
+  return correctChoice.text;
+}
+
 function createRetryClone(item: SessionItem) {
   return {
     ...item,
@@ -33,7 +52,7 @@ function createRetryClone(item: SessionItem) {
 
 export function getRuntimeTaskCorrectAnswer(task: RuntimeTask): SessionDisplayText {
   if (task.type === "word_match" || task.type === "listen_select") {
-    return task.choices.find((choice) => choice.id === task.answer)?.text ?? task.answer;
+    return getImageCardCorrectAnswer(task);
   }
 
   if (task.type === "translate") {
@@ -130,6 +149,8 @@ export function createSessionItemFromTask(task: SupportedRuntimeTask): SessionIt
       answer: task.answer,
       audioText: task.audioText,
       audioUrl: task.audioUrl,
+      presentation: task.presentation,
+      questionText: task.questionText,
     };
     return item;
   }

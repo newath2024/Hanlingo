@@ -29,6 +29,10 @@ function page(startPage: number, endPage = startPage) {
   return { startPage, endPage };
 }
 
+function vocabIcon(vocabId: string) {
+  return `/generated/vocab-icons/unit-17/${vocabId}.svg`;
+}
+
 function capture(
   sourceItemId: string,
   pageNumber: number,
@@ -150,7 +154,7 @@ export function createUnit17SourceSeed(
         koreanText: "집들이",
         localizedText: text("tiệc tân gia", "housewarming party"),
         answer: "tiệc tân gia",
-        metadata: { target: "vocab" },
+        metadata: { target: "vocab", vocabId: "v-housewarming" },
         coverageTags: ["housewarming", "vocab", "picture"],
         pages: page(279),
         sourceRef: capture("wb17-match-housewarming-picture", 279, "그림 보고 맞는 것을 골라 쓰세요. 집들이"),
@@ -165,7 +169,7 @@ export function createUnit17SourceSeed(
         koreanText: "초대장",
         localizedText: text("thiep moi", "invitation card"),
         answer: "thiep moi",
-        metadata: { target: "vocab" },
+        metadata: { target: "vocab", vocabId: "v-invitation-card" },
         coverageTags: ["invitation-card", "vocab", "picture"],
         pages: page(279),
         sourceRef: capture("wb17-match-invitation-card-picture", 279, "그림 보고 맞는 것을 골라 쓰세요. 초대장"),
@@ -180,7 +184,7 @@ export function createUnit17SourceSeed(
         koreanText: "휴지",
         localizedText: text("khan giay", "tissue paper"),
         answer: "khan giay",
-        metadata: { target: "vocab" },
+        metadata: { target: "vocab", vocabId: "v-tissue" },
         coverageTags: ["tissue", "vocab", "picture"],
         pages: page(279),
         sourceRef: capture("wb17-match-tissue-picture", 279, "그림 보고 맞는 것을 골라 쓰세요. 휴지"),
@@ -195,7 +199,7 @@ export function createUnit17SourceSeed(
         koreanText: "세제",
         localizedText: text("nuoc giat", "detergent"),
         answer: "nuoc giat",
-        metadata: { target: "vocab" },
+        metadata: { target: "vocab", vocabId: "v-detergent" },
         coverageTags: ["detergent", "vocab", "picture"],
         pages: page(279),
         sourceRef: capture("wb17-match-detergent-picture", 279, "그림 보고 맞는 것을 골라 쓰세요. 세제"),
@@ -529,6 +533,7 @@ export function createUnit17SourceSeed(
           korean: "집들이",
           translations: text("tiec tan gia", "housewarming party"),
           romanization: "jipdeuri",
+          imagePath: vocabIcon("v-housewarming"),
           pages: page(221),
           sourceRef: capture("v-housewarming", 221, "집들이"),
           needsReview,
@@ -547,6 +552,7 @@ export function createUnit17SourceSeed(
           korean: "초대장",
           translations: text("thiep moi", "invitation card"),
           romanization: "chodaejang",
+          imagePath: vocabIcon("v-invitation-card"),
           pages: page(221),
           sourceRef: capture("v-invitation-card", 221, "초대장"),
           needsReview,
@@ -556,6 +562,7 @@ export function createUnit17SourceSeed(
           korean: "휴지",
           translations: text("khan giay", "tissue paper"),
           romanization: "hyuji",
+          imagePath: vocabIcon("v-tissue"),
           pages: page(221),
           sourceRef: capture("v-tissue", 221, "휴지"),
           needsReview,
@@ -565,6 +572,7 @@ export function createUnit17SourceSeed(
           korean: "세제",
           translations: text("nuoc giat", "detergent"),
           romanization: "seje",
+          imagePath: vocabIcon("v-detergent"),
           pages: page(221),
           sourceRef: capture("v-detergent", 221, "세제"),
           needsReview,
@@ -601,6 +609,7 @@ export function createUnit17SourceSeed(
           korean: "준비하다",
           translations: text("chuan bi", "prepare"),
           romanization: "junbihada",
+          imagePath: vocabIcon("v-prepare"),
           pages: page(221),
           sourceRef: capture("v-prepare", 221, "한국 음식을 준비할 거예요."),
           needsReview,

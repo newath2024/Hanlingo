@@ -41,6 +41,7 @@
           "en": "hello"
         },
         "romanization": "annyeonghaseyo",
+        "imagePath": "/generated/vocab-icons/unit-1/v-hello.svg",
         "pages": {
           "startPage": 18,
           "endPage": 18
@@ -61,6 +62,7 @@
           "en": "I, me (humble)"
         },
         "romanization": "jeo",
+        "imagePath": "/generated/vocab-icons/unit-1/v-i-humble.svg",
         "pages": {
           "startPage": 18,
           "endPage": 18
@@ -101,6 +103,7 @@
           "en": "nice to meet you"
         },
         "romanization": "bangapseumnida",
+        "imagePath": "/generated/vocab-icons/unit-1/v-nice-to-meet.svg",
         "pages": {
           "startPage": 19,
           "endPage": 19
@@ -121,6 +124,7 @@
           "en": "student"
         },
         "romanization": "haksaeng",
+        "imagePath": "/generated/vocab-icons/unit-1/v-student.svg",
         "pages": {
           "startPage": 21,
           "endPage": 21

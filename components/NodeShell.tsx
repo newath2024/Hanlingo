@@ -30,6 +30,7 @@ import SessionBuildSentenceQuestion from "./SessionBuildSentenceQuestion";
 import SessionChoiceQuestion from "./SessionChoiceQuestion";
 import SessionSpeakingQuestion from "./SessionSpeakingQuestion";
 import SessionTextInputQuestion from "./SessionTextInputQuestion";
+import SessionVocabImageChoiceQuestion from "./SessionVocabImageChoiceQuestion";
 import SessionWordMatchQuestion from "./SessionWordMatchQuestion";
 
 type NodeShellProps = {
@@ -452,6 +453,20 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     if (currentItem.type === "word_match" && "pairs" in currentItem) {
       return (
         <SessionWordMatchQuestion
+          key={`${sessionKey}-${currentItem.id}`}
+          item={currentItem}
+          onResolve={handleItemResolved}
+        />
+      );
+    }
+
+    if (
+      (currentItem.type === "word_match" || currentItem.type === "listen_select") &&
+      "presentation" in currentItem &&
+      currentItem.presentation === "image_cards"
+    ) {
+      return (
+        <SessionVocabImageChoiceQuestion
           key={`${sessionKey}-${currentItem.id}`}
           item={currentItem}
           onResolve={handleItemResolved}

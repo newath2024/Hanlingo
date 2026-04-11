@@ -32,6 +32,10 @@ function page(startPage: number, endPage = startPage) {
   return { startPage, endPage };
 }
 
+function vocabIcon(vocabId: string) {
+  return `/generated/vocab-icons/unit-1/${vocabId}.svg`;
+}
+
 function loadRawDraft() {
   const rawPath = path.resolve(process.cwd(), "data/curriculum/source/unit-1.raw-draft.json");
   const raw = fs.readFileSync(rawPath, "utf8").replace(/^\uFEFF/, "");
@@ -491,6 +495,7 @@ export function createUnit1SourceSeed(
           korean: "안녕하세요",
           translations: text("xin chao", "hello"),
           romanization: "annyeonghaseyo",
+          imagePath: vocabIcon("v-hello"),
           pages: page(18),
           sourceRef: sourceRefFor("v-hello", 18, "안녕하세요"),
           needsReview,
@@ -500,6 +505,7 @@ export function createUnit1SourceSeed(
           korean: "저",
           translations: text("toi, em (khiem nhuong)", "I, me (humble)"),
           romanization: "jeo",
+          imagePath: vocabIcon("v-i-humble"),
           pages: page(18),
           sourceRef: sourceRefFor("v-i-humble", 18, "저"),
           needsReview,
@@ -518,6 +524,7 @@ export function createUnit1SourceSeed(
           korean: "반갑습니다",
           translations: text("rat vui duoc gap ban", "nice to meet you"),
           romanization: "bangapseumnida",
+          imagePath: vocabIcon("v-nice-to-meet"),
           pages: page(19),
           sourceRef: sourceRefFor("v-nice-to-meet", 19, "반갑습니다"),
           needsReview,
@@ -527,6 +534,7 @@ export function createUnit1SourceSeed(
           korean: "학생",
           translations: text("hoc sinh, sinh vien", "student"),
           romanization: "haksaeng",
+          imagePath: vocabIcon("v-student"),
           pages: page(21),
           sourceRef: sourceRefFor("v-student", 21, "학생"),
           needsReview,
