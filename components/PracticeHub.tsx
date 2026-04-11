@@ -6,7 +6,7 @@ import { useAppLocale } from "@/hooks/useAppLocale";
 import { useHanlingoSnapshot } from "@/hooks/useHanlingoSnapshot";
 import { usePracticeOverview } from "@/hooks/usePracticeOverview";
 import { getLocalizedText } from "@/lib/localized";
-import { getCurrentNode, isUnitCompleted, unitCatalog } from "@/lib/units";
+import { getCurrentNode, getCurrentUnit } from "@/lib/units";
 import type { AppLocale } from "@/types/app-locale";
 
 function ui(locale: AppLocale, en: string, vi: string) {
@@ -21,8 +21,7 @@ export default function PracticeHub() {
   const { locale } = useAppLocale();
   const { progress } = useHanlingoSnapshot("practice-hub", []);
   const { data, isLoading, error } = usePracticeOverview();
-  const activeUnit =
-    unitCatalog.find((unit) => !isUnitCompleted(progress, unit.id)) ?? unitCatalog[0] ?? null;
+  const activeUnit = getCurrentUnit(progress);
   const activeNode = activeUnit ? getCurrentNode(activeUnit, progress) : null;
 
   const suggestedDrills = useMemo(() => {

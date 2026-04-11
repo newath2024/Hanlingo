@@ -8,7 +8,7 @@ import { useHanlingoSnapshot } from "@/hooks/useHanlingoSnapshot";
 import { usePracticeOverview } from "@/hooks/usePracticeOverview";
 import { useUserErrorHeatmap } from "@/hooks/useUserErrorHeatmap";
 import { getLocalizedText } from "@/lib/localized";
-import { getCurrentNode, isUnitCompleted, unitCatalog } from "@/lib/units";
+import { getCurrentNode, getCurrentUnit } from "@/lib/units";
 import type { AppLocale } from "@/types/app-locale";
 import type { AccuracyTrend, StreakTrend } from "@/types/analytics";
 import type { UserErrorHeatmapEntry } from "@/types/error-heatmap";
@@ -637,8 +637,7 @@ export default function AnalyticsCoachScreen() {
     limit: 3,
   });
   const { progress } = useHanlingoSnapshot("analytics-coach", []);
-  const activeUnit =
-    unitCatalog.find((unit) => !isUnitCompleted(progress, unit.id)) ?? unitCatalog[0] ?? null;
+  const activeUnit = getCurrentUnit(progress);
   const activeNode = activeUnit ? getCurrentNode(activeUnit, progress) : null;
   const hasLearningHistory =
     (analyticsData?.totalAttempts ?? 0) > 0 ||

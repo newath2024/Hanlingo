@@ -24,8 +24,9 @@ import {
 import { getUserProgress } from "@/lib/server/progress";
 import {
   getCurrentNode,
+  getCurrentUnit,
   getRuntimeUnitById,
-  isUnitCompleted,
+  isUnitUnlocked,
   runtimeUnitCatalog,
 } from "@/lib/units";
 import type {
@@ -249,12 +250,11 @@ function getProgressionContext(
   progress: Awaited<ReturnType<typeof getUserProgress>>,
   targetUnitId?: string,
 ) {
-  const activeUnit =
-    runtimeUnitCatalog.find((unit) => !isUnitCompleted(progress, unit.id)) ??
-    runtimeUnitCatalog[0] ??
-    null;
+  const activeUnit = getCurrentUnit(progress);
   const targetUnit = targetUnitId ? getRuntimeUnitById(targetUnitId) : null;
-  const effectiveUnit = targetUnit ?? activeUnit;
+  const unlockedTargetUnit =
+    targetUnit && isUnitUnlocked(progress, targetUnit.id) ? targetUnit : null;
+  const effectiveUnit = unlockedTargetUnit ?? activeUnit;
   const currentNode = effectiveUnit ? getCurrentNode(effectiveUnit, progress) : null;
 
   return {

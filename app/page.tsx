@@ -8,10 +8,13 @@ import { getLocalizedText } from "@/lib/localized";
 import {
   getCompletedNodeCount,
   getCurrentNode,
-  getUnitWords,
+  getCurrentUnit,
+  getPreviousUnit,
   isUnitCompleted,
+  isUnitUnlocked,
   unitCatalog,
 } from "@/lib/units";
+import type { ProgressState } from "@/lib/progress-state";
 import type { AppLocale } from "@/types/app-locale";
 import type { UnitDefinition } from "@/types/unit";
 
@@ -22,18 +25,24 @@ function ui(locale: AppLocale, en: string, vi: string) {
 type LearnUnitCardProps = {
   locale: AppLocale;
   unit: UnitDefinition;
+  progress: ProgressState;
 };
 
-function LearnUnitCard({ locale, unit }: LearnUnitCardProps) {
-  const { progress } = useHanlingoSnapshot(unit.id, getUnitWords(unit));
+function LearnUnitCard({ locale, unit, progress }: LearnUnitCardProps) {
   const completedNodeCount = getCompletedNodeCount(progress, unit);
   const unitCompleted = isUnitCompleted(progress, unit.id);
-  const currentNode = getCurrentNode(unit, progress);
+  const unitUnlocked = isUnitUnlocked(progress, unit.id);
+  const currentNode = unitUnlocked ? getCurrentNode(unit, progress) : null;
+  const previousUnit = getPreviousUnit(unit.id);
   const progressPercent =
     unit.nodes.length > 0 ? Math.round((completedNodeCount / unit.nodes.length) * 100) : 0;
 
   return (
-    <article className="rounded-[2rem] border border-accent/10 bg-white p-5 shadow-[0_14px_34px_rgba(47,92,51,0.08)] transition hover:scale-[1.01]">
+    <article
+      className={`rounded-[2rem] border bg-white p-5 shadow-[0_14px_34px_rgba(47,92,51,0.08)] transition ${
+        unitUnlocked ? "hover:scale-[1.01] border-accent/10" : "border-accent/8 opacity-85"
+      }`}
+    >
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div className="min-w-0 space-y-3">
           <div className="flex flex-wrap items-center gap-2">
@@ -44,12 +53,16 @@ function LearnUnitCard({ locale, unit }: LearnUnitCardProps) {
               className={`pill ${
                 unitCompleted
                   ? "bg-success-soft text-accent-strong"
-                  : "bg-card-strong text-foreground"
+                  : unitUnlocked
+                    ? "bg-card-strong text-foreground"
+                    : "bg-muted text-muted-foreground"
               }`}
             >
               {unitCompleted
                 ? ui(locale, "Completed", "Da xong")
-                : ui(locale, "In progress", "Dang hoc")}
+                : unitUnlocked
+                  ? ui(locale, "In progress", "Dang hoc")
+                  : ui(locale, "Locked", "Bi khoa")}
             </span>
           </div>
 
@@ -75,7 +88,9 @@ function LearnUnitCard({ locale, unit }: LearnUnitCardProps) {
             </div>
             <div className="h-3 rounded-full bg-muted">
               <div
-                className="progress-fill h-full rounded-full bg-accent"
+                className={`progress-fill h-full rounded-full ${
+                  unitUnlocked ? "bg-accent" : "bg-muted-foreground/35"
+                }`}
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
@@ -85,18 +100,34 @@ function LearnUnitCard({ locale, unit }: LearnUnitCardProps) {
         <div className="flex w-full flex-col gap-3 md:max-w-[240px]">
           <div className="rounded-[1.5rem] bg-card-soft p-4">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-muted-foreground">
-              {ui(locale, "Next lesson", "Bai tiep theo")}
+              {unitUnlocked
+                ? ui(locale, "Next lesson", "Bai tiep theo")
+                : ui(locale, "Unlock rule", "Dieu kien mo khoa")}
             </p>
             <p className="mt-2 text-base font-extrabold text-foreground">
-              {currentNode
-                ? getLocalizedText(currentNode.title, locale)
-                : ui(locale, "Unit review available", "Co the on lai unit")}
+              {unitUnlocked
+                ? currentNode
+                  ? getLocalizedText(currentNode.title, locale)
+                  : ui(locale, "Unit review available", "Co the on lai unit")
+                : previousUnit
+                  ? ui(
+                      locale,
+                      `Finish Unit ${previousUnit.unitNumber} first.`,
+                      `Hoan thanh Unit ${previousUnit.unitNumber} truoc.`,
+                    )
+                  : ui(locale, "Start from the first unit.", "Bat dau tu unit dau tien.")}
             </p>
           </div>
 
-          <Link href={`/unit/${unit.id}`} className="primary-button w-full">
-            {ui(locale, "Open unit", "Mo unit")}
-          </Link>
+          {unitUnlocked ? (
+            <Link href={`/unit/${unit.id}`} className="primary-button w-full">
+              {ui(locale, "Open unit", "Mo unit")}
+            </Link>
+          ) : (
+            <div className="secondary-button w-full cursor-not-allowed border-accent/10 bg-muted text-muted-foreground hover:translate-y-0 hover:border-accent/10 hover:bg-muted">
+              {ui(locale, "Locked for now", "Tam thoi bi khoa")}
+            </div>
+          )}
         </div>
       </div>
     </article>
@@ -107,8 +138,7 @@ export default function HomePage() {
   const { locale } = useAppLocale();
   const { user } = useAuth();
   const { progress, isLoading, error } = useHanlingoSnapshot("home-overview", []);
-  const activeUnit =
-    unitCatalog.find((unit) => !isUnitCompleted(progress, unit.id)) ?? unitCatalog[0] ?? null;
+  const activeUnit = getCurrentUnit(progress);
   const continueNode = activeUnit ? getCurrentNode(activeUnit, progress) ?? activeUnit.nodes[0] : null;
   const completedNodeCount = activeUnit ? getCompletedNodeCount(progress, activeUnit) : 0;
   const activeProgressPercent =
@@ -123,6 +153,7 @@ export default function HomePage() {
           .sort((left, right) => left.unitNumber - right.unitNumber),
       ]
     : [...unitCatalog];
+  const unlockedUnitCount = unitCatalog.filter((unit) => isUnitUnlocked(progress, unit.id)).length;
 
   return (
     <main className="shell-page">
@@ -220,17 +251,30 @@ export default function HomePage() {
                 {ui(locale, "Units", "Cac unit")}
               </p>
               <h2 className="mt-2 font-display text-3xl text-foreground">
-                {ui(locale, "Pick the path you want to move forward on.", "Chon lo trinh ban muon day tiep.")}
+                {ui(
+                  locale,
+                  "Follow the guided path one unit at a time.",
+                  "Di theo lo trinh dan huong, moi lan mot unit.",
+                )}
               </h2>
             </div>
             <span className="pill bg-card-strong text-foreground">
-              {ui(locale, `${unitCatalog.length} units available`, `${unitCatalog.length} unit hien co`)}
+              {ui(
+                locale,
+                `${unlockedUnitCount} unit${unlockedUnitCount === 1 ? "" : "s"} unlocked`,
+                `${unlockedUnitCount} unit dang mo`,
+              )}
             </span>
           </div>
 
           <div className="grid gap-4">
             {sortedUnits.map((unit) => (
-              <LearnUnitCard key={unit.id} locale={locale} unit={unit} />
+              <LearnUnitCard
+                key={unit.id}
+                locale={locale}
+                unit={unit}
+                progress={progress}
+              />
             ))}
           </div>
         </div>

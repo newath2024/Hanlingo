@@ -135,6 +135,42 @@ export function isUnitCompleted(progress: ProgressState, unitId: string) {
   return progress.completedUnits.includes(unitId);
 }
 
+export function getPreviousUnit(unitId: string) {
+  const unitIndex = unitCatalog.findIndex((unit) => unit.id === unitId);
+
+  if (unitIndex <= 0) {
+    return null;
+  }
+
+  return unitCatalog[unitIndex - 1] ?? null;
+}
+
+export function isUnitUnlocked(progress: ProgressState, unitId: string) {
+  const unit = getUnitById(unitId);
+
+  if (!unit) {
+    return false;
+  }
+
+  const previousUnit = getPreviousUnit(unitId);
+
+  if (!previousUnit) {
+    return true;
+  }
+
+  return isUnitCompleted(progress, previousUnit.id);
+}
+
+export function getCurrentUnit(progress: ProgressState) {
+  return (
+    unitCatalog.find(
+      (unit) => isUnitUnlocked(progress, unit.id) && !isUnitCompleted(progress, unit.id),
+    ) ??
+    unitCatalog[0] ??
+    null
+  );
+}
+
 export function getNodeRun(progress: ProgressState, nodeId: string): NodeProgress | null {
   return progress.nodeRuns[nodeId] ?? null;
 }
@@ -147,6 +183,10 @@ export function isNodeUnlocked(
   const node = unit.nodes.find((candidate) => candidate.id === nodeId);
 
   if (!node) {
+    return false;
+  }
+
+  if (!isUnitUnlocked(progress, unit.id)) {
     return false;
   }
 

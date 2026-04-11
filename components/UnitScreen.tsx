@@ -8,7 +8,10 @@ import { getLocalizedText } from "@/lib/localized";
 import {
   getCompletedNodeCount,
   getCurrentNode,
+  getCurrentUnit,
+  getPreviousUnit,
   getUnitWords,
+  isUnitUnlocked,
 } from "@/lib/units";
 import type { AppLocale } from "@/types/app-locale";
 import type { UnitDefinition } from "@/types/unit";
@@ -24,10 +27,95 @@ function ui(locale: AppLocale, en: string, vi: string) {
 export default function UnitScreen({ unit }: UnitScreenProps) {
   const { locale } = useAppLocale();
   const { progress, isLoading, error } = useHanlingoSnapshot(unit.id, getUnitWords(unit));
-  const currentNode = getCurrentNode(unit, progress) ?? unit.nodes[0] ?? null;
+  const unitUnlocked = isUnitUnlocked(progress, unit.id);
+  const currentUnit = getCurrentUnit(progress);
+  const previousUnit = getPreviousUnit(unit.id);
+  const currentNode = unitUnlocked ? getCurrentNode(unit, progress) ?? unit.nodes[0] ?? null : null;
   const completedNodeCount = getCompletedNodeCount(progress, unit);
   const progressPercent =
     unit.nodes.length > 0 ? Math.round((completedNodeCount / unit.nodes.length) * 100) : 0;
+
+  if (!unitUnlocked) {
+    return (
+      <main className="shell-page">
+        <section className="panel overflow-hidden">
+          <div className="space-y-4">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="pill bg-accent text-white">
+                {ui(locale, "Unit", "Unit")} {unit.unitNumber}
+              </span>
+              <span className="pill bg-muted text-muted-foreground">
+                {ui(locale, "Locked", "Bi khoa")}
+              </span>
+            </div>
+
+            <div className="space-y-3">
+              <h1 className="font-display text-4xl leading-tight text-foreground sm:text-6xl">
+                {getLocalizedText(unit.title, locale)}
+              </h1>
+              <p className="max-w-2xl text-lg font-bold text-muted-foreground">
+                {getLocalizedText(unit.subtitle, locale)}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="panel">
+          <div className="lesson-card space-y-6 text-center">
+            <span className="pill mx-auto bg-card-strong text-foreground">
+              {ui(locale, "Sequential unlock", "Mo khoa tuan tu")}
+            </span>
+            <h2 className="font-display text-4xl text-foreground sm:text-5xl">
+              {ui(
+                locale,
+                "This unit opens only after the previous one is complete.",
+                "Unit nay chi mo sau khi ban hoan thanh unit truoc.",
+              )}
+            </h2>
+            <p className="text-base font-bold text-muted-foreground">
+              {previousUnit
+                ? ui(
+                    locale,
+                    `Finish Unit ${previousUnit.unitNumber} first, then come back here.`,
+                    `Hay hoan thanh Unit ${previousUnit.unitNumber} truoc, roi quay lai day.`,
+                  )
+                : ui(
+                    locale,
+                    "Start from the first unit and move forward in order.",
+                    "Hay bat dau tu unit dau tien va di tiep theo dung thu tu.",
+                  )}
+            </p>
+
+            {currentUnit ? (
+              <div className="rounded-[1.8rem] bg-card-soft px-5 py-4 text-left">
+                <p className="text-sm font-black uppercase tracking-[0.16em] text-muted-foreground">
+                  {ui(locale, "Current unlocked unit", "Unit dang mo")}
+                </p>
+                <p className="mt-2 text-2xl font-extrabold text-foreground">
+                  {ui(locale, "Unit", "Unit")} {currentUnit.unitNumber}:{" "}
+                  {getLocalizedText(currentUnit.title, locale)}
+                </p>
+              </div>
+            ) : null}
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Link
+                href={currentUnit ? `/unit/${currentUnit.id}` : "/"}
+                className="primary-button w-full"
+              >
+                {ui(locale, "Go to current unit", "Toi unit hien tai")}
+              </Link>
+              <Link href="/" className="secondary-button w-full">
+                {ui(locale, "Back to learn", "Ve trang hoc")}
+              </Link>
+            </div>
+
+            {error ? <div className="feedback-incorrect">{error}</div> : null}
+          </div>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="shell-page">
