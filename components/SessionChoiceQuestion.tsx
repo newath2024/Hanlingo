@@ -134,7 +134,7 @@ function getPromptReplayText(item: SessionChoiceQuestionProps["item"]) {
     return item.audioText;
   }
 
-  if (item.koreanText && isLikelyKoreanVocabText(item.koreanText)) {
+  if ("koreanText" in item && item.koreanText && isLikelyKoreanVocabText(item.koreanText)) {
     return item.koreanText;
   }
 
