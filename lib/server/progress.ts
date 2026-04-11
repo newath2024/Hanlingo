@@ -13,9 +13,13 @@ import {
   type SentenceExposureMap,
   type UserProgressState,
 } from "@/lib/progress-state";
+import { listPendingUnitPathMigrations } from "@/lib/unit-path-migrations";
 import { WEAK_NODE_THRESHOLD } from "@/lib/session";
 import {
   createProgressForUser,
+  deleteUserErrorFingerprintsByLessonIds,
+  deleteUserErrorsByLessonIds,
+  deleteUserQuestionAttemptsByUnitIds,
   findProgressByUserId,
   type ProgressRecord,
   upsertProgressForUser,
@@ -32,6 +36,7 @@ function fromProgressRecord(record: ProgressRecord): UserProgressState {
     claimedStepRewards: record.claimedStepRewards,
     completedNodes: record.completedNodes,
     completedUnits: record.completedUnits,
+    pathVersions: record.pathVersions,
     nodeRuns: record.nodeRuns,
     errorPatternMisses: record.errorPatternMisses,
     reviews: record.reviews,
@@ -47,6 +52,7 @@ function toProgressRecordInput(progress: UserProgressState) {
     claimedStepRewards: progress.claimedStepRewards,
     completedNodes: progress.completedNodes,
     completedUnits: progress.completedUnits,
+    pathVersions: progress.pathVersions,
     nodeRuns: progress.nodeRuns,
     errorPatternMisses: progress.errorPatternMisses,
     reviews: progress.reviews,
@@ -70,22 +76,90 @@ function mergeNumberMaps(baseMap: Record<string, number>, deltaMap: Record<strin
   }, { ...baseMap });
 }
 
+async function applyPendingUnitPathMigrations(
+  userId: string,
+  progress: UserProgressState,
+) {
+  const pendingScopes = listPendingUnitPathMigrations(progress.pathVersions);
+
+  if (pendingScopes.length === 0) {
+    return progress;
+  }
+
+  const lessonIdSet = new Set(pendingScopes.flatMap((scope) => scope.lessonIds));
+  const nodeIdSet = new Set(pendingScopes.flatMap((scope) => scope.nodeIds));
+  const unitIdSet = new Set(pendingScopes.map((scope) => scope.unitId));
+  const errorPatternKeySet = new Set(
+    pendingScopes.flatMap((scope) => scope.errorPatternKeys),
+  );
+  const errorPatternPrefixes = pendingScopes.flatMap((scope) => scope.errorPatternPrefixes);
+  const sentenceKeySet = new Set(pendingScopes.flatMap((scope) => scope.sentenceKeys));
+  const nextPathVersions = pendingScopes.reduce<Record<string, number>>(
+    (versions, scope) => ({
+      ...versions,
+      [scope.unitId]: scope.version,
+    }),
+    { ...progress.pathVersions },
+  );
+
+  const nextProgress = sanitizeUserProgressState({
+    ...progress,
+    completedLessons: progress.completedLessons.filter((lessonId) => !lessonIdSet.has(lessonId)),
+    completedNodes: progress.completedNodes.filter((nodeId) => !nodeIdSet.has(nodeId)),
+    completedUnits: progress.completedUnits.filter((unitId) => !unitIdSet.has(unitId)),
+    nodeRuns: Object.fromEntries(
+      Object.entries(progress.nodeRuns).filter(([nodeId]) => !nodeIdSet.has(nodeId)),
+    ),
+    errorPatternMisses: Object.fromEntries(
+      Object.entries(progress.errorPatternMisses).filter(
+        ([key]) =>
+          !errorPatternKeySet.has(key) &&
+          !errorPatternPrefixes.some((prefix) => key.startsWith(prefix)),
+      ),
+    ),
+    reviews: Object.fromEntries(
+      Object.entries(progress.reviews).filter(([key]) => {
+        const separatorIndex = key.indexOf(":");
+        const lessonId = separatorIndex === -1 ? key : key.slice(0, separatorIndex);
+        return !lessonIdSet.has(lessonId);
+      }),
+    ),
+    sentenceExposures: Object.fromEntries(
+      Object.entries(progress.sentenceExposures).filter(
+        ([sentenceKey]) => !sentenceKeySet.has(sentenceKey),
+      ),
+    ),
+    pathVersions: nextPathVersions,
+  });
+
+  await Promise.all([
+    deleteUserErrorsByLessonIds(userId, [...lessonIdSet]),
+    deleteUserErrorFingerprintsByLessonIds(userId, [...lessonIdSet]),
+    deleteUserQuestionAttemptsByUnitIds(userId, [...unitIdSet]),
+  ]);
+
+  const updated = await upsertProgressForUser(userId, toProgressRecordInput(nextProgress));
+  return fromProgressRecord(updated);
+}
+
 export async function ensureUserProgress(userId: string) {
   const existing = await findProgressByUserId(userId);
 
   if (existing) {
-    return fromProgressRecord(existing);
+    return applyPendingUnitPathMigrations(userId, fromProgressRecord(existing));
   }
 
   const created = await createProgressForUser(userId);
 
-  return fromProgressRecord(created);
+  return applyPendingUnitPathMigrations(userId, fromProgressRecord(created));
 }
 
 export async function getUserProgress(userId: string) {
   const existing = await findProgressByUserId(userId);
 
-  return existing ? fromProgressRecord(existing) : ensureUserProgress(userId);
+  return existing
+    ? applyPendingUnitPathMigrations(userId, fromProgressRecord(existing))
+    : ensureUserProgress(userId);
 }
 
 export async function importLocalProgress(

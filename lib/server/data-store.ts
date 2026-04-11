@@ -51,6 +51,7 @@ export type ProgressRecord = {
   claimedStepRewards: unknown;
   completedNodes: unknown;
   completedUnits: unknown;
+  pathVersions: unknown;
   nodeRuns: unknown;
   errorPatternMisses: unknown;
   reviews: unknown;
@@ -135,6 +136,7 @@ type FileStoreShape = {
     claimedStepRewards: unknown;
     completedNodes: unknown;
     completedUnits: unknown;
+    pathVersions: unknown;
     nodeRuns: unknown;
     errorPatternMisses: unknown;
     reviews: unknown;
@@ -301,6 +303,7 @@ function createDefaultProgressRecord(userId: string): ProgressRecord {
     claimedStepRewards: defaults.claimedStepRewards,
     completedNodes: defaults.completedNodes,
     completedUnits: defaults.completedUnits,
+    pathVersions: defaults.pathVersions,
     nodeRuns: defaults.nodeRuns,
     errorPatternMisses: defaults.errorPatternMisses,
     reviews: defaults.reviews,
@@ -660,6 +663,7 @@ export async function upsertProgressForUser(
       claimedStepRewards: data.claimedStepRewards as Prisma.InputJsonValue,
       completedNodes: data.completedNodes as Prisma.InputJsonValue,
       completedUnits: data.completedUnits as Prisma.InputJsonValue,
+      pathVersions: data.pathVersions as Prisma.InputJsonValue,
       nodeRuns: data.nodeRuns as Prisma.InputJsonValue,
       errorPatternMisses: data.errorPatternMisses as Prisma.InputJsonValue,
       reviews: data.reviews as Prisma.InputJsonValue,
@@ -689,6 +693,7 @@ export async function upsertProgressForUser(
       existing.claimedStepRewards = data.claimedStepRewards;
       existing.completedNodes = data.completedNodes;
       existing.completedUnits = data.completedUnits;
+      existing.pathVersions = data.pathVersions;
       existing.nodeRuns = data.nodeRuns;
       existing.errorPatternMisses = data.errorPatternMisses;
       existing.reviews = data.reviews;
@@ -708,6 +713,7 @@ export async function upsertProgressForUser(
       claimedStepRewards: data.claimedStepRewards,
       completedNodes: data.completedNodes,
       completedUnits: data.completedUnits,
+      pathVersions: data.pathVersions,
       nodeRuns: data.nodeRuns,
       errorPatternMisses: data.errorPatternMisses,
       reviews: data.reviews,
@@ -813,6 +819,33 @@ export async function listUserErrors(userId: string) {
   return store.errors
     .filter((entry) => entry.userId === userId)
     .map(toUserErrorRecord);
+}
+
+export async function deleteUserErrorsByLessonIds(userId: string, lessonIds: string[]) {
+  assertEnvLoaded();
+
+  if (lessonIds.length === 0) {
+    return;
+  }
+
+  if (!isFileStoreEnabled()) {
+    await prisma.userError.deleteMany({
+      where: {
+        userId,
+        lessonId: {
+          in: lessonIds,
+        },
+      },
+    });
+    return;
+  }
+
+  const lessonIdSet = new Set(lessonIds);
+  await withFileStoreMutation(async (store) => {
+    store.errors = store.errors.filter(
+      (entry) => entry.userId !== userId || !lessonIdSet.has(entry.lessonId),
+    );
+  });
 }
 
 export async function listDueUserErrors(
@@ -1040,6 +1073,36 @@ export async function findLatestUserErrorFingerprintsByQuestionIds(
   return [...latestByQuestionId.values()].map(toUserErrorFingerprintRecord);
 }
 
+export async function deleteUserErrorFingerprintsByLessonIds(
+  userId: string,
+  lessonIds: string[],
+) {
+  assertEnvLoaded();
+
+  if (lessonIds.length === 0) {
+    return;
+  }
+
+  if (!isFileStoreEnabled()) {
+    await prisma.userErrorFingerprint.deleteMany({
+      where: {
+        userId,
+        lessonId: {
+          in: lessonIds,
+        },
+      },
+    });
+    return;
+  }
+
+  const lessonIdSet = new Set(lessonIds);
+  await withFileStoreMutation(async (store) => {
+    store.errorFingerprints = store.errorFingerprints.filter(
+      (entry) => entry.userId !== userId || !lessonIdSet.has(entry.lessonId),
+    );
+  });
+}
+
 export async function createUserQuestionAttempts(
   records: Array<Omit<UserQuestionAttemptRecord, "id" | "createdAt">>,
 ) {
@@ -1080,6 +1143,33 @@ export async function createUserQuestionAttempts(
       return toUserQuestionAttemptRecord(created);
     }),
   );
+}
+
+export async function deleteUserQuestionAttemptsByUnitIds(userId: string, unitIds: string[]) {
+  assertEnvLoaded();
+
+  if (unitIds.length === 0) {
+    return;
+  }
+
+  if (!isFileStoreEnabled()) {
+    await prisma.userQuestionAttempt.deleteMany({
+      where: {
+        userId,
+        unitId: {
+          in: unitIds,
+        },
+      },
+    });
+    return;
+  }
+
+  const unitIdSet = new Set(unitIds);
+  await withFileStoreMutation(async (store) => {
+    store.questionAttempts = store.questionAttempts.filter(
+      (entry) => entry.userId !== userId || !unitIdSet.has(entry.unitId),
+    );
+  });
 }
 
 export async function listUserQuestionAttempts(

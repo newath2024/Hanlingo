@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Baloo_2, Noto_Sans_KR, Nunito } from "next/font/google";
 import type { ReactNode } from "react";
-import AppChrome from "@/components/AppChrome";
+import LearningShell from "@/components/LearningShell";
 import Providers from "@/app/providers";
 import "./globals.css";
 
@@ -36,8 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <body className="min-h-full">
         <Providers>
-          <AppChrome />
-          {children}
+          <LearningShell>{children}</LearningShell>
         </Providers>
       </body>
     </html>

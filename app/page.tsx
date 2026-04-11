@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { useAuth } from "@/hooks/useAuth";
 import { useHanlingoSnapshot } from "@/hooks/useHanlingoSnapshot";
@@ -13,36 +14,28 @@ import {
 } from "@/lib/units";
 import type { AppLocale } from "@/types/app-locale";
 import type { UnitDefinition } from "@/types/unit";
-import Link from "next/link";
-import ReviewHeatmapPanel from "@/components/ReviewHeatmapPanel";
 
 function ui(locale: AppLocale, en: string, vi: string) {
   return getLocalizedText({ en, vi }, locale);
 }
 
-type UnitCardProps = {
+type LearnUnitCardProps = {
   locale: AppLocale;
   unit: UnitDefinition;
 };
 
-function UnitCard({ locale, unit }: UnitCardProps) {
-  const { progress, dueReviews } = useHanlingoSnapshot(unit.id, getUnitWords(unit));
-  const currentNode = getCurrentNode(unit, progress);
-  const unitCompleted = isUnitCompleted(progress, unit.id);
+function LearnUnitCard({ locale, unit }: LearnUnitCardProps) {
+  const { progress } = useHanlingoSnapshot(unit.id, getUnitWords(unit));
   const completedNodeCount = getCompletedNodeCount(progress, unit);
-  const workbookPracticeLessons = unit.nodes.filter(
-    (node) => node.lessonRole === "workbook_practice",
-  ).length;
-  const workbookCoverageCount = new Set(
-    unit.nodes.flatMap((node) => node.sourceExerciseIds),
-  ).size;
-  const title = getLocalizedText(unit.title, locale);
-  const subtitle = getLocalizedText(unit.subtitle, locale);
+  const unitCompleted = isUnitCompleted(progress, unit.id);
+  const currentNode = getCurrentNode(unit, progress);
+  const progressPercent =
+    unit.nodes.length > 0 ? Math.round((completedNodeCount / unit.nodes.length) * 100) : 0;
 
   return (
-    <article className="rounded-[2rem] border border-accent/10 bg-white p-5 shadow-[0_14px_30px_rgba(47,92,51,0.08)]">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-        <div className="space-y-3">
+    <article className="rounded-[2rem] border border-accent/10 bg-white p-5 shadow-[0_14px_34px_rgba(47,92,51,0.08)] transition hover:scale-[1.01]">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="min-w-0 space-y-3">
           <div className="flex flex-wrap items-center gap-2">
             <span className="pill bg-accent-warm/70 text-foreground">
               {ui(locale, "Unit", "Unit")} {unit.unitNumber}
@@ -51,68 +44,58 @@ function UnitCard({ locale, unit }: UnitCardProps) {
               className={`pill ${
                 unitCompleted
                   ? "bg-success-soft text-accent-strong"
-                  : "bg-card-strong text-muted-foreground"
+                  : "bg-card-strong text-foreground"
               }`}
             >
               {unitCompleted
-                ? ui(locale, "Completed", "Da hoan thanh")
+                ? ui(locale, "Completed", "Da xong")
                 : ui(locale, "In progress", "Dang hoc")}
             </span>
           </div>
 
-          <div>
-            <h2 className="font-display text-3xl text-foreground">{title}</h2>
-            <p className="mt-2 max-w-2xl text-sm text-muted-foreground">{subtitle}</p>
+          <div className="space-y-2">
+            <h2 className="font-display text-3xl text-foreground">
+              {getLocalizedText(unit.title, locale)}
+            </h2>
+            <p className="max-w-2xl text-sm font-bold text-muted-foreground">
+              {getLocalizedText(unit.subtitle, locale)}
+            </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            <span className="pill bg-card-strong text-foreground">
-              {ui(
-                locale,
-                `${completedNodeCount}/${unit.nodes.length} lessons complete`,
-                `${completedNodeCount}/${unit.nodes.length} bai da xong`,
-              )}
-            </span>
-            <span className="pill bg-card-strong text-foreground">
-              {ui(
-                locale,
-                `${workbookPracticeLessons} workbook nodes`,
-                `${workbookPracticeLessons} node workbook`,
-              )}
-            </span>
-            <span className="pill bg-card-strong text-foreground">
-              {ui(
-                locale,
-                `${workbookCoverageCount} source exercises`,
-                `${workbookCoverageCount} bai tap nguon`,
-              )}
-            </span>
-            <span className="pill bg-card-strong text-foreground">
-              {ui(
-                locale,
-                `${dueReviews} due review${dueReviews === 1 ? "" : "s"}`,
-                `${dueReviews} the on tap den han`,
-              )}
-            </span>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between gap-3 text-sm font-black text-foreground">
+              <span>
+                {ui(
+                  locale,
+                  `${completedNodeCount}/${unit.nodes.length} lessons`,
+                  `${completedNodeCount}/${unit.nodes.length} bai`,
+                )}
+              </span>
+              <span>{progressPercent}%</span>
+            </div>
+            <div className="h-3 rounded-full bg-muted">
+              <div
+                className="progress-fill h-full rounded-full bg-accent"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
           </div>
         </div>
 
-        <div className="flex w-full flex-col gap-3 sm:max-w-[260px]">
-          <div className="rounded-[1.6rem] bg-card-strong p-4">
-            <p className="text-sm font-bold text-muted-foreground">
+        <div className="flex w-full flex-col gap-3 md:max-w-[240px]">
+          <div className="rounded-[1.5rem] bg-card-soft p-4">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-muted-foreground">
               {ui(locale, "Next lesson", "Bai tiep theo")}
             </p>
-            <p className="mt-2 text-lg font-extrabold text-foreground">
+            <p className="mt-2 text-base font-extrabold text-foreground">
               {currentNode
                 ? getLocalizedText(currentNode.title, locale)
-                : ui(locale, "Unit complete", "Da xong unit")}
+                : ui(locale, "Unit review available", "Co the on lai unit")}
             </p>
           </div>
 
           <Link href={`/unit/${unit.id}`} className="primary-button w-full">
-            {unitCompleted
-              ? ui(locale, "Review unit", "On lai unit")
-              : ui(locale, "Open unit", "Mo unit")}
+            {ui(locale, "Open unit", "Mo unit")}
           </Link>
         </div>
       </div>
@@ -126,115 +109,128 @@ export default function HomePage() {
   const { progress, isLoading, error } = useHanlingoSnapshot("home-overview", []);
   const activeUnit =
     unitCatalog.find((unit) => !isUnitCompleted(progress, unit.id)) ?? unitCatalog[0] ?? null;
-  const nextNode = activeUnit ? getCurrentNode(activeUnit, progress) : null;
-
-  if (!unitCatalog.length) {
-    return null;
-  }
+  const continueNode = activeUnit ? getCurrentNode(activeUnit, progress) ?? activeUnit.nodes[0] : null;
+  const completedNodeCount = activeUnit ? getCompletedNodeCount(progress, activeUnit) : 0;
+  const activeProgressPercent =
+    activeUnit && activeUnit.nodes.length > 0
+      ? Math.round((completedNodeCount / activeUnit.nodes.length) * 100)
+      : 0;
+  const sortedUnits = activeUnit
+    ? [
+        activeUnit,
+        ...unitCatalog
+          .filter((unit) => unit.id !== activeUnit.id)
+          .sort((left, right) => left.unitNumber - right.unitNumber),
+      ]
+    : [...unitCatalog];
 
   return (
-    <main className="page-shell">
-      <section className="panel max-w-5xl overflow-hidden">
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+    <main className="shell-page">
+      <section className="panel overflow-hidden">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="space-y-4">
-            <span className="pill bg-accent-warm/70 text-foreground">
-              {ui(locale, "Hanlingo Unit Path", "Lo trinh unit Hanlingo")}
+            <span className="pill bg-accent text-white">
+              {ui(locale, "Learn", "Hoc")}
             </span>
             <div className="space-y-3">
               <h1 className="font-display text-4xl leading-tight text-foreground sm:text-6xl">
                 {ui(
                   locale,
-                  "Move across Korean units, one focused node at a time.",
-                  "Di qua cac unit tieng Han, moi node mot muc tieu ro rang.",
+                  "Start the next Korean lesson before anything else.",
+                  "Vao bai tieng Han tiep theo truoc moi thu khac.",
                 )}
               </h1>
-              <p className="max-w-2xl text-lg text-muted-foreground">
+              <p className="max-w-2xl text-lg font-bold text-muted-foreground">
                 {ui(
                   locale,
-                  `Signed in as @${user?.username ?? "learner"}. Your dashboard now reads live progress from your account, not this device only.`,
-                  `Dang dang nhap voi @${user?.username ?? "learner"}. Dashboard nay doc tien do truc tiep tu tai khoan cua ban, khong chi tren thiet bi nay.`,
+                  `Signed in as @${user?.username ?? "learner"}. Learn opens first, practice comes after the lesson path.`,
+                  `Dang nhap voi @${user?.username ?? "learner"}. Uu tien vao bai hoc truoc, roi moi sang luyen tap.`,
                 )}
               </p>
             </div>
           </div>
 
-          <div className="grid min-w-[220px] grid-cols-2 gap-3 self-stretch sm:max-w-[320px]">
-            <div className="rounded-[1.6rem] bg-card-strong p-4">
-              <p className="text-sm font-bold text-muted-foreground">
-                {ui(locale, "Total XP", "Tong XP")}
+          <div className="w-full max-w-[360px] rounded-[2rem] bg-[#18261d] p-5 text-white shadow-[0_24px_64px_rgba(20,35,27,0.24)]">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-white/60">
+              {ui(locale, "Continue learning", "Hoc tiep")}
+            </p>
+
+            <div className="mt-4 space-y-3">
+              <p className="text-sm font-bold text-[#8ab29b]">
+                {activeUnit
+                  ? `${ui(locale, "Unit", "Unit")} ${activeUnit.unitNumber}`
+                  : ui(locale, "No unit loaded", "Chua co unit")}
               </p>
-              <p className="mt-2 font-display text-4xl text-accent-strong">
-                {progress.xp}
-              </p>
-            </div>
-            <div className="rounded-[1.6rem] bg-white p-4">
-              <p className="text-sm font-bold text-muted-foreground">
-                {ui(locale, "Units", "So unit")}
-              </p>
-              <p className="mt-2 font-display text-4xl text-foreground">
-                {unitCatalog.length}
-              </p>
-            </div>
-            <div className="col-span-2 rounded-[1.6rem] bg-white p-4">
-              <p className="text-sm font-bold text-muted-foreground">
-                {ui(locale, "Next lesson", "Bai tiep theo")}
-              </p>
-              <p className="mt-2 text-lg font-extrabold text-foreground">
-                {activeUnit && nextNode
-                  ? `${ui(locale, "Unit", "Unit")} ${activeUnit.unitNumber}: ${getLocalizedText(nextNode.title, locale)}`
-                  : ui(locale, "All current units complete", "Da xong cac unit hien co")}
+              <h2 className="font-display text-4xl leading-tight text-white">
+                {continueNode
+                  ? getLocalizedText(continueNode.title, locale)
+                  : ui(locale, "Pick a unit to continue", "Chon unit de hoc tiep")}
+              </h2>
+              <p className="text-sm font-bold text-white/68">
+                {activeUnit
+                  ? getLocalizedText(activeUnit.title, locale)
+                  : ui(locale, "Your current path will appear here.", "Lo trinh hien tai cua ban se hien o day.")}
               </p>
             </div>
-            <Link href="/practice/errors" className="secondary-button col-span-2 w-full">
-              {ui(locale, "Practice Mistakes 🔥", "Luyen loi sai 🔥")}
-            </Link>
-            <Link href="/practice" className="primary-button col-span-2 w-full">
-              {ui(locale, "Continue adaptive practice", "Tiep tuc luyen tap thich ung")}
-            </Link>
+
+            <div className="mt-5 space-y-2">
+              <div className="flex items-center justify-between gap-3 text-sm font-black text-white">
+                <span>{ui(locale, "Progress", "Tien do")}</span>
+                <span>{activeProgressPercent}%</span>
+              </div>
+              <div className="h-3 rounded-full bg-white/12">
+                <div
+                  className="progress-fill h-full rounded-full bg-[#8ce052]"
+                  style={{ width: `${activeProgressPercent}%` }}
+                />
+              </div>
+            </div>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <Link
+                href={continueNode ? `/node/${continueNode.id}` : activeUnit ? `/unit/${activeUnit.id}` : "/"}
+                className="primary-button w-full border-0 bg-[#8ce052] text-[#14231b] hover:bg-[#9bea66]"
+              >
+                {ui(locale, "Continue", "Tiep tuc")}
+              </Link>
+              <Link
+                href={activeUnit ? `/unit/${activeUnit.id}` : "/"}
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/12 bg-white/8 px-6 py-3.5 text-base font-extrabold text-white transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/12"
+              >
+                {ui(locale, "Open unit", "Mo unit")}
+              </Link>
+            </div>
           </div>
         </div>
 
         {isLoading ? (
           <div className="mt-6 rounded-[1.8rem] bg-card-soft px-5 py-4 text-base font-bold text-muted-foreground">
-            {ui(locale, "Loading your dashboard...", "Dang tai dashboard cua ban...")}
+            {ui(locale, "Loading your next lesson...", "Dang tai bai tiep theo...")}
           </div>
         ) : null}
 
         {error ? <div className="mt-6 feedback-incorrect">{error}</div> : null}
       </section>
 
-      <ReviewHeatmapPanel />
-
-      <section className="panel max-w-5xl">
-        <div className="space-y-6">
+      <section className="panel">
+        <div className="space-y-5">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground">
-                {ui(locale, "Available Units", "Cac unit hien co")}
+              <p className="text-sm font-black uppercase tracking-[0.2em] text-muted-foreground">
+                {ui(locale, "Units", "Cac unit")}
               </p>
               <h2 className="mt-2 font-display text-3xl text-foreground">
-                {ui(locale, "Choose where to continue", "Chon unit de hoc tiep")}
+                {ui(locale, "Pick the path you want to move forward on.", "Chon lo trinh ban muon day tiep.")}
               </h2>
             </div>
-            {activeUnit ? (
-              <div className="flex flex-wrap gap-3">
-                <Link href="/practice/errors" className="secondary-button">
-                  {ui(locale, "Practice Mistakes 🔥", "Luyen loi sai 🔥")}
-                </Link>
-                <Link href={`/unit/${activeUnit.id}`} className="secondary-button">
-                  {ui(
-                    locale,
-                    `Jump to Unit ${activeUnit.unitNumber}`,
-                    `Vao Unit ${activeUnit.unitNumber}`,
-                  )}
-                </Link>
-              </div>
-            ) : null}
+            <span className="pill bg-card-strong text-foreground">
+              {ui(locale, `${unitCatalog.length} units available`, `${unitCatalog.length} unit hien co`)}
+            </span>
           </div>
 
           <div className="grid gap-4">
-            {unitCatalog.map((unit) => (
-              <UnitCard key={unit.id} locale={locale} unit={unit} />
+            {sortedUnits.map((unit) => (
+              <LearnUnitCard key={unit.id} locale={locale} unit={unit} />
             ))}
           </div>
         </div>

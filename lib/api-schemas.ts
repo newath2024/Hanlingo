@@ -22,6 +22,7 @@ const progressStateSchema = z.object({
   claimedStepRewards: z.array(z.string().min(1)),
   completedNodes: z.array(z.string().min(1)),
   completedUnits: z.array(z.string().min(1)),
+  pathVersions: z.record(z.string(), z.number().int().nonnegative()).default({}),
   nodeRuns: z.record(z.string(), nodeProgressSchema),
   errorPatternMisses: z.record(z.string(), z.number().int().nonnegative()),
 });
@@ -142,4 +143,8 @@ export const heatmapQuerySchema = z.object({
   unitId: z.string().trim().min(1).optional(),
   lessonId: z.string().trim().min(1).optional(),
   limit: z.coerce.number().int().positive().max(20).default(6),
+});
+
+export const analyticsOverviewQuerySchema = z.object({
+  timeZone: z.string().trim().min(1).max(100).optional(),
 });

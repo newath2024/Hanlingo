@@ -1,15 +1,10 @@
 import curriculumIndex from "@/data/generated/index.json";
-import unit1ExerciseSetData from "@/data/generated/unit-1.exercise-set.json";
-import unit16ExerciseSetData from "@/data/generated/unit-16.exercise-set.json";
-import unit17ExerciseSetData from "@/data/generated/unit-17.exercise-set.json";
 import unit1Data from "@/data/generated/unit-1.runtime.json";
 import unit16Data from "@/data/generated/unit-16.runtime.json";
 import unit17Data from "@/data/generated/unit-17.runtime.json";
 import type { ProgressState } from "@/lib/progress-state";
 import type { CurriculumIndex, RuntimeLesson, RuntimeUnit } from "@/types/curriculum";
-import type { ExerciseSetLesson, UnitExerciseSet } from "@/types/exercise-set";
 import type {
-  AppLesson,
   NodeDefinition,
   NodeMatch,
   NodeProgress,
@@ -17,55 +12,37 @@ import type {
   UnitDefinition,
 } from "@/types/unit";
 
-type RuntimeUnitDefinition = Omit<UnitDefinition, "lessons"> & {
-  lessons: RuntimeLesson[];
-};
-
 const generatedIndex = curriculumIndex as CurriculumIndex;
 const runtimeUnits: Record<string, RuntimeUnit> = {
   "1": unit1Data as RuntimeUnit,
   "16": unit16Data as RuntimeUnit,
   "17": unit17Data as RuntimeUnit,
 };
-const exerciseSets: Record<string, UnitExerciseSet> = {
-  "1": unit1ExerciseSetData as UnitExerciseSet,
-  "16": unit16ExerciseSetData as UnitExerciseSet,
-  "17": unit17ExerciseSetData as UnitExerciseSet,
-};
-
-function toLocalizedText(value: string) {
-  return {
-    en: value,
-    vi: value,
-  };
-}
 
 function buildNodeDefinition(
   unitId: string,
-  lesson: AppLesson,
+  lesson: RuntimeLesson,
   order: number,
 ): NodeDefinition {
-  const sourceExerciseIds =
-    "tasks" in lesson ? lesson.sourceExerciseIds : lesson.exerciseIds;
-  const sessionLength = "tasks" in lesson ? lesson.tasks.length : lesson.exercises.length;
-
   return {
     id: lesson.lessonId,
     unitId,
     lessonId: lesson.lessonId,
     order,
+    sectionId: lesson.sectionId,
+    sectionOrder: lesson.sectionOrder,
     title: lesson.title,
     summary: lesson.summary,
     focusConcepts: lesson.focusConcepts,
     type: lesson.lessonRole === "review" ? "review" : "standard",
     lessonRole: lesson.lessonRole,
-    sourceExerciseIds,
+    sourceExerciseIds: lesson.sourceExerciseIds,
     coverageTags: lesson.coverageTags,
-    sessionLength,
+    sessionLength: lesson.tasks.length,
   };
 }
 
-function buildRuntimeUnitDefinition(runtimeUnit: RuntimeUnit): RuntimeUnitDefinition {
+function buildRuntimeUnitDefinition(runtimeUnit: RuntimeUnit): UnitDefinition {
   const nodes = runtimeUnit.lessons.map((lesson, index) =>
     buildNodeDefinition(runtimeUnit.unitId, lesson, index + 1),
   );
@@ -77,95 +54,10 @@ function buildRuntimeUnitDefinition(runtimeUnit: RuntimeUnit): RuntimeUnitDefini
     title: runtimeUnit.title,
     subtitle: runtimeUnit.subtitle,
     reviewWords: runtimeUnit.reviewWords,
+    sections: runtimeUnit.sections,
     lessons: runtimeUnit.lessons,
     nodes,
   };
-}
-
-function getStageLessonRole(order: number) {
-  if (order === 3) {
-    return "review" as const;
-  }
-
-  if (order === 2) {
-    return "grammar" as const;
-  }
-
-  return "intro" as const;
-}
-
-function getStageLessonTitle(order: number) {
-  if (order === 1) {
-    return "Stage 1";
-  }
-
-  if (order === 2) {
-    return "Stage 2";
-  }
-
-  return "Stage 3";
-}
-
-function buildExerciseLessons(unitId: string): ExerciseSetLesson[] {
-  const exerciseSet = exerciseSets[unitId];
-
-  if (!exerciseSet) {
-    return [];
-  }
-
-  return exerciseSet.stages.map((stage, index) => {
-    const focusConcepts = [...new Set(stage.exercises.flatMap((exercise) => exercise.focus))];
-
-    return {
-      ...stage,
-      lessonId: `unit-${unitId}-lesson-${index + 1}`,
-      lessonRole: getStageLessonRole(index + 1),
-      order: index + 1,
-      title: toLocalizedText(getStageLessonTitle(index + 1)),
-      summary: toLocalizedText(stage.stage_goal),
-      focusConcepts,
-      coverageTags: focusConcepts,
-      exerciseIds: stage.exercises.map((exercise) => exercise.id),
-    };
-  });
-}
-
-function buildExerciseUnitDefinition(runtimeUnit: RuntimeUnit): UnitDefinition {
-  const exerciseSet = exerciseSets[runtimeUnit.unitId];
-
-  if (!exerciseSet || exerciseSet.unit_id !== runtimeUnit.unitId) {
-    throw new Error(`Exercise-set artifact is out of sync for unit ${runtimeUnit.unitId}.`);
-  }
-
-  const lessons = buildExerciseLessons(runtimeUnit.unitId);
-  const nodes = lessons.map((lesson, index) =>
-    buildNodeDefinition(runtimeUnit.unitId, lesson, index + 1),
-  );
-
-  return {
-    id: runtimeUnit.unitId,
-    unitId: runtimeUnit.unitId,
-    unitNumber: runtimeUnit.unitNumber,
-    title: runtimeUnit.title,
-    subtitle: runtimeUnit.subtitle,
-    reviewWords: runtimeUnit.reviewWords,
-    lessons,
-    nodes,
-  };
-}
-
-function buildStandardUnitDefinition(unitId: string) {
-  const runtimeUnit = runtimeUnits[unitId];
-
-  if (!runtimeUnit) {
-    return null;
-  }
-
-  if (exerciseSets[unitId]) {
-    return buildExerciseUnitDefinition(runtimeUnit);
-  }
-
-  return buildRuntimeUnitDefinition(runtimeUnit);
 }
 
 function buildRuntimeCatalogUnit(unitId: string) {
@@ -179,12 +71,10 @@ function buildRuntimeCatalogUnit(unitId: string) {
 }
 
 export const unitCatalog: UnitDefinition[] = generatedIndex.units
-  .map((entry) => buildStandardUnitDefinition(entry.id))
+  .map((entry) => buildRuntimeCatalogUnit(entry.id))
   .filter((unit): unit is UnitDefinition => unit !== null);
 
-export const runtimeUnitCatalog: RuntimeUnitDefinition[] = generatedIndex.units
-  .map((entry) => buildRuntimeCatalogUnit(entry.id))
-  .filter((unit): unit is RuntimeUnitDefinition => unit !== null);
+export const runtimeUnitCatalog: UnitDefinition[] = unitCatalog;
 
 export const nodeCatalog = unitCatalog.flatMap((unit) => unit.nodes);
 
@@ -227,7 +117,7 @@ export function getLessonForNode(unit: UnitDefinition, node: NodeDefinition) {
 }
 
 export function getRuntimeLessonForNode(
-  unit: RuntimeUnitDefinition,
+  unit: UnitDefinition,
   node: NodeDefinition,
 ) {
   return unit.lessons.find((lesson) => lesson.lessonId === node.lessonId) ?? null;

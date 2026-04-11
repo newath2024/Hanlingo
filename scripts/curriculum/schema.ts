@@ -297,6 +297,8 @@ export const runtimeTaskSchema = z.discriminatedUnion("type", [
 
 export const runtimeLessonSchema = z.object({
   lessonId: z.string().min(1),
+  sectionId: z.string().min(1),
+  sectionOrder: z.number().int().positive(),
   lessonRole: z.enum(["intro", "grammar", "dialogue", "workbook_practice", "review"]),
   title: localizedTextSchema,
   summary: localizedTextSchema,
@@ -304,7 +306,15 @@ export const runtimeLessonSchema = z.object({
   focusConcepts: z.array(z.string().min(1)),
   sourceExerciseIds: z.array(z.string().min(1)),
   coverageTags: z.array(z.string().min(1)),
-  tasks: z.array(runtimeTaskSchema).min(8).max(12),
+  tasks: z.array(runtimeTaskSchema).min(8).max(10),
+});
+
+export const runtimeSectionSchema = z.object({
+  sectionId: z.string().min(1),
+  order: z.number().int().positive(),
+  title: localizedTextSchema,
+  summary: localizedTextSchema,
+  lessonIds: z.array(z.string().min(1)).min(2).max(6),
 });
 
 export const runtimeUnitSchema = z.object({
@@ -313,6 +323,7 @@ export const runtimeUnitSchema = z.object({
   title: localizedTextSchema,
   subtitle: localizedTextSchema,
   reviewWords: z.array(z.string().min(1)).min(1),
+  sections: z.array(runtimeSectionSchema).length(5),
   lessons: z.array(runtimeLessonSchema).min(8).max(16),
 });
 

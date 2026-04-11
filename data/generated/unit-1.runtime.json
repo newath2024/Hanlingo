@@ -20,9 +20,94 @@
     "저는 회사원입니다.",
     "저는 의사입니다."
   ],
+  "sections": [
+    {
+      "sectionId": "unit-1-section-1",
+      "order": 1,
+      "title": {
+        "vi": "Section 1: Greetings",
+        "en": "Section 1: greetings"
+      },
+      "summary": {
+        "vi": "Nen tang chao hoi, dai tu xung ho, va cau copula co ban.",
+        "en": "Greeting foundations, polite self-reference, and the core copula frame."
+      },
+      "lessonIds": [
+        "unit-1-lesson-1",
+        "unit-1-lesson-2"
+      ]
+    },
+    {
+      "sectionId": "unit-1-section-2",
+      "order": 2,
+      "title": {
+        "vi": "Section 2: Dialogue",
+        "en": "Section 2: dialogue and use"
+      },
+      "summary": {
+        "vi": "Ghep lai hoi thoai va dua ngu phap vao bai workbook dau tien.",
+        "en": "Rebuild the dialogue and move the grammar into the first workbook lesson."
+      },
+      "lessonIds": [
+        "unit-1-lesson-3",
+        "unit-1-lesson-4"
+      ]
+    },
+    {
+      "sectionId": "unit-1-section-3",
+      "order": 3,
+      "title": {
+        "vi": "Section 3: Workbook Core",
+        "en": "Section 3: workbook core"
+      },
+      "summary": {
+        "vi": "Ba lesson lien tiep de day du cac bai identity va role drills cua workbook.",
+        "en": "Three straight lessons to keep the identity and role drills fully covered."
+      },
+      "lessonIds": [
+        "unit-1-lesson-5",
+        "unit-1-lesson-6",
+        "unit-1-lesson-7"
+      ]
+    },
+    {
+      "sectionId": "unit-1-section-4",
+      "order": 4,
+      "title": {
+        "vi": "Section 4: Listening",
+        "en": "Section 4: listening and QR"
+      },
+      "summary": {
+        "vi": "Tach nghe workbook va bai nghe QR thanh cum listening rieng.",
+        "en": "Split workbook listening and QR listening into their own focused block."
+      },
+      "lessonIds": [
+        "unit-1-lesson-8",
+        "unit-1-lesson-9"
+      ]
+    },
+    {
+      "sectionId": "unit-1-section-5",
+      "order": 5,
+      "title": {
+        "vi": "Section 5: Review",
+        "en": "Section 5: review and output"
+      },
+      "summary": {
+        "vi": "On tap cuoi unit bang bai tong hop va bai san sinh co khung.",
+        "en": "Finish with a review checkpoint and a more output-heavy close."
+      },
+      "lessonIds": [
+        "unit-1-lesson-10",
+        "unit-1-lesson-11"
+      ]
+    }
+  ],
   "lessons": [
     {
       "lessonId": "unit-1-lesson-1",
+      "sectionId": "unit-1-section-1",
+      "sectionOrder": 1,
       "lessonRole": "intro",
       "title": {
         "vi": "Bat dau chao hoi",
@@ -363,6 +448,8 @@
     },
     {
       "lessonId": "unit-1-lesson-2",
+      "sectionId": "unit-1-section-1",
+      "sectionOrder": 1,
       "lessonRole": "grammar",
       "title": {
         "vi": "Lap cau voi copula",
@@ -622,6 +709,8 @@
     },
     {
       "lessonId": "unit-1-lesson-3",
+      "sectionId": "unit-1-section-2",
+      "sectionOrder": 2,
       "lessonRole": "dialogue",
       "title": {
         "vi": "Ghep lai doan hoi thoai",
@@ -918,24 +1007,26 @@
     },
     {
       "lessonId": "unit-1-lesson-4",
+      "sectionId": "unit-1-section-2",
+      "sectionOrder": 2,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Luyen workbook 1: grammar",
-        "en": "Workbook practice 1: grammar"
+        "vi": "Dung copula trong workbook",
+        "en": "Workbook: copula in use"
       },
       "summary": {
-        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
-        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+        "vi": "Chuyen tu textbook sang workbook bang cac bai match va dien khuyet co ban.",
+        "en": "Move from textbook input into workbook matching and core fill-in drills."
       },
       "difficulty": {
         "vi": "Nho lai va xay cau",
         "en": "Recall and construction"
       },
       "focusConcepts": [
-        "grammar",
         "copula",
-        "student",
-        "greeting"
+        "greeting",
+        "self-introduction",
+        "student"
       ],
       "sourceExerciseIds": [
         "wb-fill-student-ending",
@@ -1307,24 +1398,26 @@
     },
     {
       "lessonId": "unit-1-lesson-5",
+      "sectionId": "unit-1-section-3",
+      "sectionOrder": 3,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Luyen workbook 2: student",
-        "en": "Workbook practice 2: student"
+        "vi": "Identity drills 1",
+        "en": "Identity drills 1"
       },
       "summary": {
-        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
-        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+        "vi": "Luyen dich, nghe, va chon duoi cau lich su trong cum bai tu gioi thieu.",
+        "en": "Drill translation, listening, and polite endings around self-introduction sentences."
       },
       "difficulty": {
         "vi": "Nho lai va xay cau",
         "en": "Recall and construction"
       },
       "focusConcepts": [
-        "student",
         "translation",
         "copula",
-        "greeting"
+        "dialogue",
+        "student"
       ],
       "sourceExerciseIds": [
         "wb-translate-student",
@@ -1601,24 +1694,26 @@
     },
     {
       "lessonId": "unit-1-lesson-6",
+      "sectionId": "unit-1-section-3",
+      "sectionOrder": 3,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Luyen workbook 3: dialogue",
-        "en": "Workbook practice 3: dialogue"
+        "vi": "Identity drills 2",
+        "en": "Identity drills 2"
       },
       "summary": {
-        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
-        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+        "vi": "Tiep tuc workbook bang cau dap, sap xep, va cau gioi thieu co ten rieng.",
+        "en": "Continue the workbook path with replies, ordering, and named self-introductions."
       },
       "difficulty": {
         "vi": "Nho lai va xay cau",
         "en": "Recall and construction"
       },
       "focusConcepts": [
-        "dialogue",
         "reply",
-        "fill_blank",
-        "self-introduction"
+        "name",
+        "translation",
+        "construction"
       ],
       "sourceExerciseIds": [
         "wb-fill-nice",
@@ -1877,14 +1972,16 @@
     },
     {
       "lessonId": "unit-1-lesson-7",
+      "sectionId": "unit-1-section-3",
+      "sectionOrder": 3,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Luyen workbook 4: name",
-        "en": "Workbook practice 4: name"
+        "vi": "Role and name drills",
+        "en": "Role and name drills"
       },
       "summary": {
-        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
-        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+        "vi": "Khoa lai ten, nghe nghiep, va duoi cau copula bang chuoi bai tap ngan.",
+        "en": "Lock in names, jobs, and polite copula endings through a tight workbook run."
       },
       "difficulty": {
         "vi": "Nho lai va xay cau",
@@ -1892,9 +1989,9 @@
       },
       "focusConcepts": [
         "name",
+        "role",
         "copula",
-        "fill_blank",
-        "grammar"
+        "office-worker"
       ],
       "sourceExerciseIds": [
         "wb-fill-name-line",
@@ -2131,30 +2228,33 @@
     },
     {
       "lessonId": "unit-1-lesson-8",
+      "sectionId": "unit-1-section-4",
+      "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Luyen workbook 5: role",
-        "en": "Workbook practice 5: role"
+        "vi": "Nghe va tu gioi thieu",
+        "en": "Listening and self-introduction"
       },
       "summary": {
-        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
-        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+        "vi": "Gom bai nghe workbook va bai viet tu gioi thieu truoc khi vao QR listening rieng.",
+        "en": "Collect the workbook listening and self-introduction writing before the dedicated QR lesson."
       },
       "difficulty": {
         "vi": "Nho lai va xay cau",
         "en": "Recall and construction"
       },
       "focusConcepts": [
-        "role",
-        "office-worker",
-        "translation",
-        "student"
+        "listening",
+        "self-introduction",
+        "doctor",
+        "office-worker"
       ],
       "sourceExerciseIds": [
         "wb-translate-office-worker",
         "wb-listen-student",
         "wb-write-doctor",
-        "wb-fill-intro-name"
+        "wb-fill-intro-name",
+        "wb-listen-greeting"
       ],
       "coverageTags": [
         "role",
@@ -2166,7 +2266,8 @@
         "doctor",
         "writing",
         "self-introduction",
-        "fill_blank"
+        "fill_blank",
+        "greeting"
       ],
       "tasks": [
         {
@@ -2217,6 +2318,55 @@
             }
           ],
           "answer": "wb-listen-student-1-correct"
+        },
+        {
+          "id": "wb-listen-greeting-1",
+          "prompt": {
+            "vi": "Nghe roi chon dap an dung.",
+            "en": "Listen and choose the correct answer."
+          },
+          "explanation": {
+            "vi": "Bai nghe ngan nen uu tien nhan dien nhanh.",
+            "en": "Short listening items begin with fast recognition."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb-listen-greeting-1.listen",
+          "audioText": "안녕하세요",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb-listen-greeting-1-correct",
+              "text": {
+                "vi": "xin chao",
+                "en": "hello"
+              }
+            },
+            {
+              "id": "wb-listen-greeting-1-d1",
+              "text": {
+                "vi": "lan dau",
+                "en": "first time"
+              }
+            },
+            {
+              "id": "wb-listen-greeting-1-d2",
+              "text": {
+                "vi": "hoc sinh, sinh vien",
+                "en": "student"
+              }
+            },
+            {
+              "id": "wb-listen-greeting-1-d3",
+              "text": {
+                "vi": "toi, em (khiem nhuong)",
+                "en": "I, me (humble)"
+              }
+            }
+          ],
+          "answer": "wb-listen-greeting-1-correct"
         },
         {
           "id": "wb-listen-student-2",
@@ -2272,6 +2422,33 @@
             "학생은"
           ],
           "answer": "저는"
+        },
+        {
+          "id": "wb-listen-greeting-2",
+          "prompt": {
+            "vi": "Dich cau tieng Han sang y nghia.",
+            "en": "Translate the Korean into its meaning."
+          },
+          "explanation": {
+            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
+            "en": "Once you hear it correctly, type the meaning to lock it in."
+          },
+          "source": "workbook",
+          "stage": "recall",
+          "grammarTags": [],
+          "srWeight": 1.35,
+          "errorPatternKey": "wb-listen-greeting-2.translate",
+          "type": "translate",
+          "direction": "ko_to_meaning",
+          "meaning": {
+            "vi": "xin chao",
+            "en": "hello"
+          },
+          "koreanText": "안녕하세요",
+          "placeholder": {
+            "vi": "Nhap y nghia",
+            "en": "Type the meaning"
+          }
         },
         {
           "id": "wb-translate-office-worker-1",
@@ -2407,144 +2584,38 @@
     },
     {
       "lessonId": "unit-1-lesson-9",
+      "sectionId": "unit-1-section-4",
+      "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Luyen workbook 6: role",
-        "en": "Workbook practice 6: role"
+        "vi": "Nghe QR ve quoc tich",
+        "en": "QR listening: countries and flags"
       },
       "summary": {
-        "vi": "Tach workbook thanh cac node ngan de moi cum bai deu co recall va production.",
-        "en": "Split the workbook into short nodes so every cluster mixes recall and production."
+        "vi": "Tach rieng bai nghe QR thanh mot lesson nghe tap trung co co, cau dien, va cau noi lap lai.",
+        "en": "Split the QR audio into a dedicated listening lesson with flag choice, fill tasks, and spoken repeats."
       },
       "difficulty": {
         "vi": "Nho lai va xay cau",
         "en": "Recall and construction"
       },
       "focusConcepts": [
-        "role",
-        "doctor",
-        "translation",
+        "qr-listening",
+        "country",
+        "flags",
         "self-introduction"
       ],
       "sourceExerciseIds": [
-        "wb-translate-doctor",
-        "wb-guided-selfintro",
-        "wb-listen-greeting",
         "wb-qr-listen-country-left",
         "wb-qr-listen-country-right"
       ],
       "coverageTags": [
-        "role",
-        "doctor",
-        "translation",
-        "self-introduction",
-        "writing",
-        "greeting",
-        "listening",
         "qr-listening",
         "country",
         "flags",
         "image-choice"
       ],
       "tasks": [
-        {
-          "id": "wb-translate-doctor-1",
-          "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
-          },
-          "explanation": {
-            "vi": "Nhan y nghia truoc roi moi go lai.",
-            "en": "Recognize the meaning before typing it back."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "wb-translate-doctor-1.listen",
-          "audioText": "저는 의사입니다.",
-          "type": "listen_select",
-          "choices": [
-            {
-              "id": "wb-translate-doctor-1-correct",
-              "text": {
-                "vi": "Toi la bac si.",
-                "en": "I am a doctor."
-              }
-            },
-            {
-              "id": "wb-translate-doctor-1-d1",
-              "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
-              }
-            },
-            {
-              "id": "wb-translate-doctor-1-d2",
-              "text": {
-                "vi": "lan dau",
-                "en": "first time"
-              }
-            },
-            {
-              "id": "wb-translate-doctor-1-d3",
-              "text": {
-                "vi": "hoc sinh, sinh vien",
-                "en": "student"
-              }
-            }
-          ],
-          "answer": "wb-translate-doctor-1-correct"
-        },
-        {
-          "id": "wb-listen-greeting-1",
-          "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
-            "en": "Listen and choose the correct answer."
-          },
-          "explanation": {
-            "vi": "Bai nghe ngan nen uu tien nhan dien nhanh.",
-            "en": "Short listening items begin with fast recognition."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "wb-listen-greeting-1.listen",
-          "audioText": "안녕하세요",
-          "type": "listen_select",
-          "choices": [
-            {
-              "id": "wb-listen-greeting-1-correct",
-              "text": {
-                "vi": "xin chao",
-                "en": "hello"
-              }
-            },
-            {
-              "id": "wb-listen-greeting-1-d1",
-              "text": {
-                "vi": "lan dau",
-                "en": "first time"
-              }
-            },
-            {
-              "id": "wb-listen-greeting-1-d2",
-              "text": {
-                "vi": "hoc sinh, sinh vien",
-                "en": "student"
-              }
-            },
-            {
-              "id": "wb-listen-greeting-1-d3",
-              "text": {
-                "vi": "toi, em (khiem nhuong)",
-                "en": "I, me (humble)"
-              }
-            }
-          ],
-          "answer": "wb-listen-greeting-1-correct"
-        },
         {
           "id": "wb-qr-listen-country-left-1",
           "prompt": {
@@ -2662,117 +2733,195 @@
           "answer": "wb-qr-listen-country-right-south-korea"
         },
         {
-          "id": "wb-translate-doctor-2",
+          "id": "u1-qr-left-fill-country",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
-            "en": "Translate the Korean into its meaning."
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Go lai y nghia bang tri nho.",
-            "en": "Type the meaning from memory."
+            "vi": "Nghe lai file QR cua Natasha roi dien quoc tich bang tieng Han.",
+            "en": "Replay Natasha's QR audio and fill in the nationality in Korean."
           },
           "source": "workbook",
-          "stage": "recall",
-          "grammarTags": [],
-          "srWeight": 1.35,
-          "errorPatternKey": "wb-translate-doctor-2.translate",
-          "type": "translate",
-          "direction": "ko_to_meaning",
-          "meaning": {
-            "vi": "Toi la bac si.",
-            "en": "I am a doctor."
-          },
-          "koreanText": "저는 의사입니다.",
+          "stage": "construction",
+          "grammarTags": [
+            "qr-listening"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "u1-qr-left-fill-country.fill",
+          "audioText": "듣고 말하기 1. 두 사람이 처음 만났습니다. 대화를 듣고 빈 칸에 알맞은 말을 쓰세요. 안녕하세요. 저는 지훈이에요. 안녕하세요. 저는 나타샤예요. 나타샤 씨는 어느 나라 사람이에요? 저는 러시아 사람이에요. 저는 한국 사람이에요. 학생이에요.",
+          "audioUrl": "/api/audio/1/wb-qr-country-1-audio",
+          "type": "fill_blank",
+          "koreanText": "저는 ___ 사람이에요.",
+          "acceptedAnswers": [
+            "러시아"
+          ],
+          "choices": [
+            "러시아",
+            "한국",
+            "미국"
+          ],
           "placeholder": {
-            "vi": "Nhap y nghia",
-            "en": "Type the meaning"
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "Nga",
+            "en": "Russia"
           }
         },
         {
-          "id": "wb-listen-greeting-2",
+          "id": "u1-qr-right-fill-country",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
-            "en": "Translate the Korean into its meaning."
+            "vi": "Dien vao cho trong.",
+            "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
-            "en": "Once you hear it correctly, type the meaning to lock it in."
+            "vi": "Nghe lai file QR cua Gayoung roi dien quoc tich bang tieng Han.",
+            "en": "Replay Gayoung's QR audio and fill in the nationality in Korean."
           },
           "source": "workbook",
-          "stage": "recall",
-          "grammarTags": [],
-          "srWeight": 1.35,
-          "errorPatternKey": "wb-listen-greeting-2.translate",
-          "type": "translate",
-          "direction": "ko_to_meaning",
-          "meaning": {
-            "vi": "xin chao",
-            "en": "hello"
-          },
-          "koreanText": "안녕하세요",
+          "stage": "construction",
+          "grammarTags": [
+            "qr-listening"
+          ],
+          "srWeight": 1.75,
+          "errorPatternKey": "u1-qr-right-fill-country.fill",
+          "audioText": "듣고 말하기 2. 다음을 듣고 무름에 답하세요. 안녕하세요. 저는 리사예요. 이름이 뭐예요? 안녕하세요. 저는 가영이에요. 가영 씨는 어느 나라 사람이에요? 저는 한국 사람이에요. 저는 미국 사람이에요. 영어 선생님이에요.",
+          "audioUrl": "/api/audio/1/wb-qr-country-2-audio",
+          "type": "fill_blank",
+          "koreanText": "저는 ___ 사람이에요.",
+          "acceptedAnswers": [
+            "한국"
+          ],
+          "choices": [
+            "한국",
+            "러시아",
+            "미국"
+          ],
           "placeholder": {
-            "vi": "Nhap y nghia",
-            "en": "Type the meaning"
+            "vi": "Nhap phan con thieu",
+            "en": "Type the missing part"
+          },
+          "clue": {
+            "vi": "Han Quoc",
+            "en": "South Korea"
           }
         },
         {
-          "id": "wb-guided-selfintro-1",
+          "id": "u1-qr-left-arrange",
           "prompt": {
             "vi": "Sap xep lai cau hoan chinh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Ghep lai cum cau tu gioi thieu ngan.",
-            "en": "Rebuild the short self-introduction script."
+            "vi": "Sap xep lai cau tra loi xuat hien trong file nghe QR ben trai.",
+            "en": "Rebuild the answer line heard in the left-side QR audio."
           },
           "source": "workbook",
           "stage": "construction",
           "grammarTags": [
-            "N + 저는"
+            "qr-listening"
           ],
           "srWeight": 1.7,
-          "errorPatternKey": "wb-guided-selfintro-1.arrange",
+          "errorPatternKey": "u1-qr-left-arrange.arrange",
           "type": "arrange_sentence",
           "meaning": {
-            "vi": "Tu gioi thieu ngan",
-            "en": "Short self-introduction"
+            "vi": "Natasha là người Nga.",
+            "en": "Natasha is from Russia."
           },
           "wordBank": [
-            "안녕하세요.",
-            "저는",
-            "지수입니다."
+            "사람이에요.",
+            "러시아",
+            "저는"
           ],
           "answer": [
-            "안녕하세요.",
             "저는",
-            "지수입니다."
+            "러시아",
+            "사람이에요."
           ]
         },
         {
-          "id": "wb-guided-selfintro-2",
+          "id": "u1-qr-right-arrange",
+          "prompt": {
+            "vi": "Sap xep lai cau hoan chinh.",
+            "en": "Arrange the words into a complete sentence."
+          },
+          "explanation": {
+            "vi": "Sap xep lai cau tra loi xuat hien trong file nghe QR ben phai.",
+            "en": "Rebuild the answer line heard in the right-side QR audio."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [
+            "qr-listening"
+          ],
+          "srWeight": 1.7,
+          "errorPatternKey": "u1-qr-right-arrange.arrange",
+          "type": "arrange_sentence",
+          "meaning": {
+            "vi": "Gayoung là người Hàn Quốc.",
+            "en": "Gayoung is from South Korea."
+          },
+          "wordBank": [
+            "사람이에요.",
+            "한국",
+            "저는"
+          ],
+          "answer": [
+            "저는",
+            "한국",
+            "사람이에요."
+          ]
+        },
+        {
+          "id": "u1-qr-left-speak",
           "prompt": {
             "vi": "Noi to cau nay.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi tron mini script de mo phong speaking.",
-            "en": "Say the full mini script to simulate a speaking prompt."
+            "vi": "Noi lai cau gioi thieu quoc tich cua Natasha.",
+            "en": "Say Natasha's nationality sentence aloud."
           },
           "source": "workbook",
           "stage": "production",
           "grammarTags": [
-            "N + 저는"
+            "qr-listening"
           ],
           "srWeight": 2.1,
-          "errorPatternKey": "wb-guided-selfintro-2.speaking",
+          "errorPatternKey": "u1-qr-left-speak.speaking",
           "type": "speaking",
-          "koreanText": "안녕하세요. 저는 지수입니다.",
-          "expectedSpeech": "안녕하세요. 저는 지수입니다."
+          "koreanText": "저는 러시아 사람이에요.",
+          "expectedSpeech": "저는 러시아 사람이에요."
+        },
+        {
+          "id": "u1-qr-right-speak",
+          "prompt": {
+            "vi": "Noi to cau nay.",
+            "en": "Say this sentence aloud."
+          },
+          "explanation": {
+            "vi": "Noi lai cau gioi thieu quoc tich cua Gayoung.",
+            "en": "Say Gayoung's nationality sentence aloud."
+          },
+          "source": "workbook",
+          "stage": "production",
+          "grammarTags": [
+            "qr-listening"
+          ],
+          "srWeight": 2.1,
+          "errorPatternKey": "u1-qr-right-speak.speaking",
+          "type": "speaking",
+          "koreanText": "저는 한국 사람이에요.",
+          "expectedSpeech": "저는 한국 사람이에요."
         }
       ]
     },
     {
       "lessonId": "unit-1-lesson-10",
+      "sectionId": "unit-1-section-5",
+      "sectionOrder": 5,
       "lessonRole": "review",
       "title": {
         "vi": "On workbook 1",
@@ -3078,6 +3227,8 @@
     },
     {
       "lessonId": "unit-1-lesson-11",
+      "sectionId": "unit-1-section-5",
+      "sectionOrder": 5,
       "lessonRole": "review",
       "title": {
         "vi": "On tap tong hop",

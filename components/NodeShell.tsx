@@ -3,7 +3,6 @@
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { useUserProgress } from "@/hooks/useUserProgress";
 import { analyzeMistake, summarizeFingerprint } from "@/lib/error-fingerprint-analysis";
-import { createExerciseSetSession } from "@/lib/exercise-set-session";
 import { getLocalizedText, getLocalizedValue } from "@/lib/localized";
 import {
   SESSION_XP_PER_CORRECT,
@@ -13,9 +12,10 @@ import {
   queueRetryItem,
 } from "@/lib/session";
 import { getNextNode, getNodeState, isNodeCompleted, isUnitCompleted } from "@/lib/units";
+import type { RuntimeLesson } from "@/types/curriculum";
 import { FINGERPRINT_UI_CONFIDENCE_THRESHOLD } from "@/types/error-fingerprint";
 import type { SessionItem, SessionItemResult, WeakSessionItem } from "@/types/session";
-import type { AppLesson, NodeDefinition, UnitDefinition } from "@/types/unit";
+import type { NodeDefinition, UnitDefinition } from "@/types/unit";
 import Link from "next/link";
 import {
   useCallback,
@@ -35,7 +35,7 @@ import SessionWordMatchQuestion from "./SessionWordMatchQuestion";
 type NodeShellProps = {
   unit: UnitDefinition;
   node: NodeDefinition;
-  lesson: AppLesson;
+  lesson: RuntimeLesson;
 };
 
 type FeedbackState = {
@@ -46,18 +46,14 @@ type FeedbackState = {
 };
 
 function buildLessonSessionItems(
-  lesson: AppLesson,
+  lesson: RuntimeLesson,
   unitLevel: number,
   sentenceSeenCounts: Record<string, number>,
 ) {
-  if ("tasks" in lesson) {
-    return createLessonSession(lesson, {
-      unitLevel,
-      sentenceSeenCounts,
-    });
-  }
-
-  return createExerciseSetSession(lesson);
+  return createLessonSession(lesson, {
+    unitLevel,
+    sentenceSeenCounts,
+  });
 }
 
 function useClientReady() {

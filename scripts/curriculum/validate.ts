@@ -247,14 +247,65 @@ function validateLessonRoles(unit: RuntimeUnit) {
   });
 }
 
-function validateCoverage(unit: RuntimeUnit, source: SourceUnit) {
-  const eligibleExercises = source.workbook.exercises.filter((exercise) => !exercise.needsReview);
-  const nonReviewLessons = unit.lessons.filter((lesson) => lesson.lessonRole !== "review");
-  const coveredIds = new Set(nonReviewLessons.flatMap((lesson) => lesson.sourceExerciseIds));
-  const directCoverageRatio = coveredIds.size / eligibleExercises.length;
+function validateSections(unit: RuntimeUnit) {
+  if (unit.sections.length !== 5) {
+    throw new Error(`${unit.unitId} must define exactly 5 sections.`);
+  }
 
-  if (directCoverageRatio < 0.8) {
-    throw new Error(`Non-review lessons cover only ${(directCoverageRatio * 100).toFixed(1)}% of workbook exercise IDs.`);
+  const lessonById = new Map(unit.lessons.map((lesson) => [lesson.lessonId, lesson] as const));
+  const seenLessonIds = new Set<string>();
+
+  unit.sections.forEach((section, index) => {
+    if (section.order !== index + 1) {
+      throw new Error(`${section.sectionId} must have order ${index + 1}.`);
+    }
+
+    if (section.lessonIds.length < 2 || section.lessonIds.length > 3) {
+      throw new Error(`${section.sectionId} must contain 2-3 lessons.`);
+    }
+
+    section.lessonIds.forEach((lessonId) => {
+      const lesson = lessonById.get(lessonId);
+
+      if (!lesson) {
+        throw new Error(`${section.sectionId} references missing lesson ${lessonId}.`);
+      }
+
+      if (seenLessonIds.has(lessonId)) {
+        throw new Error(`${lessonId} appears in more than one section.`);
+      }
+
+      if (lesson.sectionId !== section.sectionId || lesson.sectionOrder !== section.order) {
+        throw new Error(`${lessonId} must point back to ${section.sectionId}.`);
+      }
+
+      seenLessonIds.add(lessonId);
+    });
+  });
+
+  if (seenLessonIds.size !== unit.lessons.length) {
+    throw new Error(`${unit.unitId} has lessons that are not assigned to sections.`);
+  }
+}
+
+function validateCoverage(unit: RuntimeUnit, source: SourceUnit) {
+  const readyAudioAssetIds = new Set(
+    source.workbook.audioAssets
+      .filter((asset) => asset.remoteUrl && !asset.needsReview)
+      .map((asset) => asset.id),
+  );
+  const eligibleExercises = source.workbook.exercises.filter(
+    (exercise) =>
+      !exercise.needsReview &&
+      (!exercise.audioAssetId || readyAudioAssetIds.has(exercise.audioAssetId)),
+  );
+  const coveredIds = new Set(unit.lessons.flatMap((lesson) => lesson.sourceExerciseIds));
+  const missingExerciseIds = eligibleExercises
+    .map((exercise) => exercise.id)
+    .filter((exerciseId) => !coveredIds.has(exerciseId));
+
+  if (missingExerciseIds.length > 0) {
+    throw new Error(`Runtime path is missing workbook coverage for: ${missingExerciseIds.join(", ")}.`);
   }
 
   const nonIntroLessons = unit.lessons.slice(2);
@@ -267,6 +318,54 @@ function validateCoverage(unit: RuntimeUnit, source: SourceUnit) {
 
   if (totalTasks === 0 || workbookTasks / totalTasks < 0.6) {
     throw new Error("Workbook-derived tasks must account for at least 60% of authored tasks outside the first two lessons.");
+  }
+}
+
+function validateQrListeningSections(unit: RuntimeUnit, source: SourceUnit) {
+  const readyAudioAssetIds = new Set(
+    source.workbook.audioAssets
+      .filter((asset) => asset.remoteUrl && !asset.needsReview)
+      .map((asset) => asset.id),
+  );
+  const qrExerciseIds = source.workbook.exercises
+    .filter(
+      (exercise) =>
+        !exercise.needsReview &&
+        exercise.coverageTags.includes("qr-listening") &&
+        (!exercise.audioAssetId || readyAudioAssetIds.has(exercise.audioAssetId)),
+    )
+    .map((exercise) => exercise.id);
+
+  if (qrExerciseIds.length === 0) {
+    return;
+  }
+
+  const listeningSection = unit.sections.find((section) => section.order === 4);
+
+  if (!listeningSection) {
+    throw new Error(`${unit.unitId} is missing section 4 for QR listening.`);
+  }
+
+  const listeningLessonIds = new Set(listeningSection.lessonIds);
+  const qrInListeningSection = new Set(
+    unit.lessons
+      .filter((lesson) => listeningLessonIds.has(lesson.lessonId))
+      .flatMap((lesson) => lesson.sourceExerciseIds.filter((exerciseId) => qrExerciseIds.includes(exerciseId))),
+  );
+  const qrOutsideListeningSection = unit.lessons
+    .filter((lesson) => !listeningLessonIds.has(lesson.lessonId))
+    .flatMap((lesson) => lesson.sourceExerciseIds.filter((exerciseId) => qrExerciseIds.includes(exerciseId)));
+
+  const missingQrIds = qrExerciseIds.filter((exerciseId) => !qrInListeningSection.has(exerciseId));
+
+  if (missingQrIds.length > 0) {
+    throw new Error(`Section 4 is missing QR listening exercises: ${missingQrIds.join(", ")}.`);
+  }
+
+  if (qrOutsideListeningSection.length > 0) {
+    throw new Error(
+      `QR listening exercises must stay inside section 4 only. Found outside: ${[...new Set(qrOutsideListeningSection)].join(", ")}.`,
+    );
   }
 }
 
@@ -337,8 +436,10 @@ export async function validateCurriculum(options: ValidateOptions) {
   validateChoiceAnswers(runtimeUnit);
   validateFillBlankSolvability(runtimeUnit);
   validateGrammarSelectSolvability(runtimeUnit);
+  validateSections(runtimeUnit);
   validateLessonRoles(runtimeUnit);
   validateCoverage(runtimeUnit, reviewedSource);
+  validateQrListeningSections(runtimeUnit, reviewedSource);
   validateErrorPatternKeys(runtimeUnit);
   validateListeningRuntime(runtimeUnit);
 

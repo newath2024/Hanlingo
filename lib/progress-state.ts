@@ -7,6 +7,7 @@ export type ProgressState = {
   claimedStepRewards: string[];
   completedNodes: string[];
   completedUnits: string[];
+  pathVersions: Record<string, number>;
   nodeRuns: Record<string, NodeProgress>;
   errorPatternMisses: Record<string, number>;
 };
@@ -26,6 +27,7 @@ export const DEFAULT_PROGRESS_STATE: ProgressState = {
   claimedStepRewards: [],
   completedNodes: [],
   completedUnits: [],
+  pathVersions: {},
   nodeRuns: {},
   errorPatternMisses: {},
 };
@@ -106,6 +108,7 @@ export function sanitizeProgressState(value: unknown): ProgressState {
     claimedStepRewards: toUniqueStringArray(candidate.claimedStepRewards),
     completedNodes: toUniqueStringArray(candidate.completedNodes),
     completedUnits: toUniqueStringArray(candidate.completedUnits),
+    pathVersions: sanitizeNumberRecord(candidate.pathVersions),
     nodeRuns: sanitizeNodeProgressMap(candidate.nodeRuns),
     errorPatternMisses: sanitizeNumberRecord(candidate.errorPatternMisses),
   };

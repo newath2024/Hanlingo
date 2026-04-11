@@ -1,7 +1,11 @@
-import type { LessonRole, LocalizedText, RuntimeLesson } from "./curriculum";
-import type { ExerciseSetLesson } from "./exercise-set";
+import type {
+  LessonRole,
+  LocalizedText,
+  RuntimeLesson,
+  RuntimeUnitSection,
+} from "./curriculum";
 
-export type AppLesson = RuntimeLesson | ExerciseSetLesson;
+export type UnitSectionDefinition = RuntimeUnitSection;
 
 export type NodeType = "standard" | "review";
 
@@ -10,6 +14,8 @@ export type NodeDefinition = {
   unitId: string;
   lessonId: string;
   order: number;
+  sectionId: string;
+  sectionOrder: number;
   title: LocalizedText;
   summary: LocalizedText;
   focusConcepts: string[];
@@ -27,14 +33,15 @@ export type UnitDefinition = {
   title: LocalizedText;
   subtitle: LocalizedText;
   reviewWords: string[];
-  lessons: AppLesson[];
+  sections: UnitSectionDefinition[];
+  lessons: RuntimeLesson[];
   nodes: NodeDefinition[];
 };
 
 export type NodeMatch = {
   unit: UnitDefinition;
   node: NodeDefinition;
-  lesson: AppLesson;
+  lesson: RuntimeLesson;
 };
 
 export type NodeProgress = {

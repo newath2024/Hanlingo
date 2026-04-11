@@ -122,7 +122,7 @@ function SectionBlock({
   );
 }
 
-export default function ReviewHeatmapPanel() {
+export default function ReviewHeatmapPanel({ compact = false }: { compact?: boolean }) {
   const { locale } = useAppLocale();
   const { data, isLoading, error, reload } = useUserErrorHeatmap();
   const ui = (en: string, vi: string) => getLocalizedText({ en, vi }, locale);
@@ -133,15 +133,17 @@ export default function ReviewHeatmapPanel() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-2">
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground">
-              {ui("Review Analytics", "Phan tich on tap")}
+              {compact ? ui("Weak Areas", "Muc dang yeu") : ui("Review Analytics", "Phan tich on tap")}
             </p>
             <h2 className="font-display text-3xl text-foreground">
-              {ui("Error heatmap for your current weak zones.", "Ban do nhiet loi sai cua cac diem yeu hien tai.")}
+              {compact
+                ? ui("Use the heatmap as a secondary view of where review still slips.", "Dung heatmap nhu mot lop xem phu cho cac diem on tap van bi truot.")
+                : ui("Error heatmap for your current weak zones.", "Ban do nhiet loi sai cua cac diem yeu hien tai.")}
             </h2>
           </div>
 
           <button type="button" onClick={() => void reload()} className="secondary-button">
-            {ui("Refresh heatmap", "Tai lai heatmap")}
+            {ui("Refresh", "Tai lai")}
           </button>
         </div>
 
@@ -155,22 +157,24 @@ export default function ReviewHeatmapPanel() {
 
         {!isLoading && !error && data ? (
           <>
-            <div className="grid gap-4 sm:grid-cols-3">
-              <div className="rounded-[1.8rem] bg-card-strong p-5">
-                <p className="text-sm font-bold text-muted-foreground">{ui("Total seen", "Tong luot lam")}</p>
-                <p className="mt-2 font-display text-4xl text-foreground">{data.summary.totalSeen}</p>
+            {!compact ? (
+              <div className="grid gap-4 sm:grid-cols-3">
+                <div className="rounded-[1.8rem] bg-card-strong p-5">
+                  <p className="text-sm font-bold text-muted-foreground">{ui("Total seen", "Tong luot lam")}</p>
+                  <p className="mt-2 font-display text-4xl text-foreground">{data.summary.totalSeen}</p>
+                </div>
+                <div className="rounded-[1.8rem] bg-white p-5">
+                  <p className="text-sm font-bold text-muted-foreground">{ui("Total wrong", "Tong loi sai")}</p>
+                  <p className="mt-2 font-display text-4xl text-danger">{data.summary.totalWrong}</p>
+                </div>
+                <div className="rounded-[1.8rem] bg-white p-5">
+                  <p className="text-sm font-bold text-muted-foreground">{ui("Overall accuracy", "Do chinh xac tong")}</p>
+                  <p className="mt-2 font-display text-4xl text-accent-strong">
+                    {formatPercent(data.summary.overallAccuracy)}
+                  </p>
+                </div>
               </div>
-              <div className="rounded-[1.8rem] bg-white p-5">
-                <p className="text-sm font-bold text-muted-foreground">{ui("Total wrong", "Tong loi sai")}</p>
-                <p className="mt-2 font-display text-4xl text-danger">{data.summary.totalWrong}</p>
-              </div>
-              <div className="rounded-[1.8rem] bg-white p-5">
-                <p className="text-sm font-bold text-muted-foreground">{ui("Overall accuracy", "Do chinh xac tong")}</p>
-                <p className="mt-2 font-display text-4xl text-accent-strong">
-                  {formatPercent(data.summary.overallAccuracy)}
-                </p>
-              </div>
-            </div>
+            ) : null}
 
             {data.summary.totalSeen === 0 ? (
               <div className="rounded-[1.8rem] bg-card-soft px-5 py-4 text-base font-bold text-muted-foreground">
@@ -180,13 +184,15 @@ export default function ReviewHeatmapPanel() {
                 )}
               </div>
             ) : (
-              <div className="grid gap-4 lg:grid-cols-2">
-                <SectionBlock
-                  locale={locale}
-                  title={ui("Hardest Units", "Unit kho nhat")}
-                  emptyLabel={ui("No weak units yet.", "Chua co unit yeu.")}
-                  entries={data.summary.mostMissedUnits}
-                />
+              <div className={`grid gap-4 ${compact ? "xl:grid-cols-3" : "lg:grid-cols-2"}`}>
+                {!compact ? (
+                  <SectionBlock
+                    locale={locale}
+                    title={ui("Hardest Units", "Unit kho nhat")}
+                    emptyLabel={ui("No weak units yet.", "Chua co unit yeu.")}
+                    entries={data.summary.mostMissedUnits}
+                  />
+                ) : null}
                 <SectionBlock
                   locale={locale}
                   title={ui("Hardest Lessons", "Bai kho nhat")}

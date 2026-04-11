@@ -315,6 +315,8 @@ export type RuntimeTask =
 
 export type RuntimeLesson = {
   lessonId: string;
+  sectionId: string;
+  sectionOrder: number;
   lessonRole: LessonRole;
   title: LocalizedText;
   summary: LocalizedText;
@@ -325,12 +327,21 @@ export type RuntimeLesson = {
   tasks: RuntimeTask[];
 };
 
+export type RuntimeUnitSection = {
+  sectionId: string;
+  order: number;
+  title: LocalizedText;
+  summary: LocalizedText;
+  lessonIds: string[];
+};
+
 export type RuntimeUnit = {
   unitId: string;
   unitNumber: number;
   title: LocalizedText;
   subtitle: LocalizedText;
   reviewWords: string[];
+  sections: RuntimeUnitSection[];
   lessons: RuntimeLesson[];
 };
 

@@ -63,6 +63,7 @@ model UserProgress {
   claimedStepRewards Json     @default("[]")
   completedNodes     Json     @default("[]")
   completedUnits     Json     @default("[]")
+  pathVersions       Json     @default("{}")
   nodeRuns           Json     @default("{}")
   errorPatternMisses Json     @default("{}")
   reviews            Json     @default("{}")

@@ -77,6 +77,7 @@ function getModeCopy(
   mode: AdaptiveSessionMode,
   locale: "en" | "vi",
   targetUnitId?: string,
+  targetLessonId?: string,
 ) {
   if (mode === "weak_points") {
     return {
@@ -114,19 +115,27 @@ function getModeCopy(
       eyebrow: getLocalizedText({ en: "Focused Review", vi: "On tap co trong tam" }, locale),
       title: getLocalizedText(
         {
-          en: targetUnitId
-            ? `Review the weak spots around Unit ${targetUnitId}.`
-            : "Review the weak spots around your current path.",
-          vi: targetUnitId
-            ? `On lai cac diem yeu quanh Unit ${targetUnitId}.`
-            : "On lai cac diem yeu quanh lo trinh hien tai.",
+          en: targetLessonId
+            ? "Review the weak spots around this lesson."
+            : targetUnitId
+              ? `Review the weak spots around Unit ${targetUnitId}.`
+              : "Review the weak spots around your current path.",
+          vi: targetLessonId
+            ? "On lai cac diem yeu quanh bai hoc nay."
+            : targetUnitId
+              ? `On lai cac diem yeu quanh Unit ${targetUnitId}.`
+              : "On lai cac diem yeu quanh lo trinh hien tai.",
         },
         locale,
       ),
       summary: getLocalizedText(
         {
-          en: "This run mixes nearby progression, due mistakes, and related weak concepts from the selected unit.",
-          vi: "Buoi nay tron giua tien do gan nhat, loi den han, va cac khai niem yeu lien quan trong unit da chon.",
+          en: targetLessonId
+            ? "This run mixes nearby lesson content, due mistakes, and related weak concepts from the selected lesson."
+            : "This run mixes nearby progression, due mistakes, and related weak concepts from the selected unit.",
+          vi: targetLessonId
+            ? "Buoi nay tron giua noi dung bai hoc gan nhat, loi den han, va cac khai niem yeu lien quan trong bai da chon."
+            : "Buoi nay tron giua tien do gan nhat, loi den han, va cac khai niem yeu lien quan trong unit da chon.",
         },
         locale,
       ),
@@ -136,8 +145,12 @@ function getModeCopy(
       ),
       emptySummary: getLocalizedText(
         {
-          en: "Unlock or finish a few more lessons in this unit first.",
-          vi: "Hay mo khoa hoac hoan thanh them vai bai trong unit nay truoc.",
+          en: targetLessonId
+            ? "Finish a few more lessons or answer a few more questions in this lesson first."
+            : "Unlock or finish a few more lessons in this unit first.",
+          vi: targetLessonId
+            ? "Hay hoc them vai bai hoac tra loi them mot it cau trong bai nay truoc."
+            : "Hay mo khoa hoac hoan thanh them vai bai trong unit nay truoc.",
         },
         locale,
       ),
@@ -192,10 +205,11 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
   const questionStartedAtRef = useRef(0);
   const attemptCountRef = useRef<Record<string, number>>({});
   const targetUnitId = searchParams.get("unitId")?.trim() || undefined;
+  const targetLessonId = searchParams.get("lessonId")?.trim() || undefined;
   const adaptiveMode: AdaptiveSessionMode =
     mode === "errors"
       ? "weak_points"
-      : targetUnitId
+      : targetLessonId || targetUnitId
         ? "focused_review"
         : "balanced_progress";
   const shouldRequestDebug = process.env.NODE_ENV !== "production";
@@ -214,9 +228,10 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
   const [sessionDebug, setSessionDebug] = useState<AdaptiveSessionResponse["debug"]>(undefined);
   const [isCompletingSession, setIsCompletingSession] = useState(false);
   const [completionError, setCompletionError] = useState<string | null>(null);
-  const copy = getModeCopy(adaptiveMode, locale, targetUnitId);
+  const copy = getModeCopy(adaptiveMode, locale, targetUnitId, targetLessonId);
   const ui = (en: string, vi: string) => getLocalizedText({ en, vi }, locale);
   const currentItem = items[currentIndex] ?? null;
+  const backHref = "/practice";
 
   const loadPracticeSession = useCallback(async () => {
     setIsLoading(true);
@@ -244,6 +259,10 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
         params.set("targetUnitId", targetUnitId);
       }
 
+      if (targetLessonId && adaptiveMode === "focused_review") {
+        params.set("targetLessonId", targetLessonId);
+      }
+
       if (shouldRequestDebug) {
         params.set("debug", "1");
       }
@@ -266,7 +285,7 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
     } finally {
       setIsLoading(false);
     }
-  }, [adaptiveMode, shouldRequestDebug, targetUnitId]);
+  }, [adaptiveMode, shouldRequestDebug, targetLessonId, targetUnitId]);
 
   useEffect(() => {
     void loadPracticeSession();
@@ -358,6 +377,7 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
           sessionId,
           mode: adaptiveMode,
           targetUnitId,
+          targetLessonId,
           sessionSize: items.length,
           selectedQuestionIds: items.map((item) => item.questionId),
           correctCount,
@@ -588,8 +608,8 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
             <button type="button" onClick={handleReplay} className="primary-button w-full">
               {ui("Run again", "Lam lai")}
             </button>
-            <Link href="/" className="secondary-button w-full">
-              {ui("Back to dashboard", "Ve dashboard")}
+            <Link href={backHref} className="secondary-button w-full">
+              {ui("Back to practice", "Ve luyen tap")}
             </Link>
           </div>
 
@@ -633,8 +653,8 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
               <button type="button" onClick={handleReplay} className="primary-button w-full">
                 {ui("Try again", "Thu lai")}
               </button>
-              <Link href="/" className="secondary-button w-full">
-                {ui("Back to dashboard", "Ve dashboard")}
+              <Link href={backHref} className="secondary-button w-full">
+                {ui("Back to practice", "Ve luyen tap")}
               </Link>
             </div>
           </div>
@@ -659,8 +679,8 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
               <button type="button" onClick={handleReplay} className="primary-button w-full">
                 {ui("Refresh queue", "Tai lai hang doi")}
               </button>
-              <Link href="/" className="secondary-button w-full">
-                {ui("Back to dashboard", "Ve dashboard")}
+              <Link href={backHref} className="secondary-button w-full">
+                {ui("Back to practice", "Ve luyen tap")}
               </Link>
             </div>
           </div>
@@ -684,8 +704,8 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
           </div>
 
           <div className="flex flex-wrap gap-3 sm:justify-end">
-            <Link href="/" className="secondary-button">
-              {ui("Dashboard", "Dashboard")}
+            <Link href={backHref} className="secondary-button">
+              {ui("Practice hub", "Hub luyen tap")}
             </Link>
             <button type="button" onClick={handleReplay} className="secondary-button">
               {ui("Reload set", "Tai lai bo cau hoi")}
