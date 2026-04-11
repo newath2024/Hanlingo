@@ -122,6 +122,9 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
                   : ui(locale, "Unit complete", "Hoan thanh unit")}
               </p>
             </div>
+            <Link href="/practice/errors" className="secondary-button col-span-2 w-full">
+              {ui(locale, "Practice Mistakes 🔥", "Luyen loi sai 🔥")}
+            </Link>
           </div>
         </div>
 
@@ -208,6 +211,15 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
                 )}
               </p>
             </div>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            <Link href="/practice/errors" className="secondary-button">
+              {ui(locale, "Practice Mistakes 🔥", "Luyen loi sai 🔥")}
+            </Link>
+            <Link href={`/practice?unitId=${unit.id}`} className="primary-button">
+              {ui(locale, "Focused review", "On tap co trong tam")}
+            </Link>
           </div>
 
           <div className="space-y-4">

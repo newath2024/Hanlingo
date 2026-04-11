@@ -14,6 +14,7 @@ import {
 import type { AppLocale } from "@/types/app-locale";
 import type { UnitDefinition } from "@/types/unit";
 import Link from "next/link";
+import ReviewHeatmapPanel from "@/components/ReviewHeatmapPanel";
 
 function ui(locale: AppLocale, en: string, vi: string) {
   return getLocalizedText({ en, vi }, locale);
@@ -184,6 +185,12 @@ export default function HomePage() {
                   : ui(locale, "All current units complete", "Da xong cac unit hien co")}
               </p>
             </div>
+            <Link href="/practice/errors" className="secondary-button col-span-2 w-full">
+              {ui(locale, "Practice Mistakes 🔥", "Luyen loi sai 🔥")}
+            </Link>
+            <Link href="/practice" className="primary-button col-span-2 w-full">
+              {ui(locale, "Continue adaptive practice", "Tiep tuc luyen tap thich ung")}
+            </Link>
           </div>
         </div>
 
@@ -195,6 +202,8 @@ export default function HomePage() {
 
         {error ? <div className="mt-6 feedback-incorrect">{error}</div> : null}
       </section>
+
+      <ReviewHeatmapPanel />
 
       <section className="panel max-w-5xl">
         <div className="space-y-6">
@@ -208,13 +217,18 @@ export default function HomePage() {
               </h2>
             </div>
             {activeUnit ? (
-              <Link href={`/unit/${activeUnit.id}`} className="secondary-button">
-                {ui(
-                  locale,
-                  `Jump to Unit ${activeUnit.unitNumber}`,
-                  `Vao Unit ${activeUnit.unitNumber}`,
-                )}
-              </Link>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/practice/errors" className="secondary-button">
+                  {ui(locale, "Practice Mistakes 🔥", "Luyen loi sai 🔥")}
+                </Link>
+                <Link href={`/unit/${activeUnit.id}`} className="secondary-button">
+                  {ui(
+                    locale,
+                    `Jump to Unit ${activeUnit.unitNumber}`,
+                    `Vao Unit ${activeUnit.unitNumber}`,
+                  )}
+                </Link>
+              </div>
             ) : null}
           </div>
 
