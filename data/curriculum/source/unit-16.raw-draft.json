@@ -784,11 +784,6 @@
   "imageCrops": [],
   "pageIssues": [
     {
-      "document": "workbook",
-      "page": 264,
-      "reason": "Expected a listening QR on this workbook page but none was decoded."
-    },
-    {
       "document": "textbook",
       "page": 212,
       "reason": "No normalized items mapped to this page yet."

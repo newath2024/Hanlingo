@@ -1,8 +1,6 @@
-import fs from "node:fs/promises";
-import path from "node:path";
 import { Readable } from "node:stream";
-import type { SourceUnit } from "@/types/curriculum";
 import { openRemoteAudioStream } from "@/lib/remote-audio";
+import { loadReviewedSourceUnit } from "@/lib/server/curriculum-source";
 
 type RouteContext = {
   params: Promise<{
@@ -11,21 +9,9 @@ type RouteContext = {
   }>;
 };
 
-async function loadReviewedSource(unitId: string) {
-  const filePath = path.join(
-    process.cwd(),
-    "data",
-    "curriculum",
-    "source",
-    `unit-${unitId}.reviewed.json`,
-  );
-  const raw = await fs.readFile(filePath, "utf-8");
-  return JSON.parse(raw) as SourceUnit;
-}
-
 export async function GET(_: Request, context: RouteContext) {
   const { unitId, assetId } = await context.params;
-  const source = await loadReviewedSource(unitId);
+  const source = await loadReviewedSourceUnit(unitId);
   const asset = source.workbook.audioAssets.find((entry) => entry.id === assetId);
 
   if (!asset?.remoteUrl) {

@@ -130,16 +130,24 @@ export type ListeningExerciseType =
 
 export type ListeningDifficulty = "easy" | "medium" | "hard";
 
+export type ListeningTtsConfig = {
+  text: string;
+  voice: "ko-KR";
+  speed: number;
+};
+
 export type SourceListeningChoice = {
   id: string;
   text: LocalizedText;
   imagePath?: string;
+  imageId?: string;
 };
 
 export type SourceListeningItem = {
   id: string;
   sourceExerciseIds: string[];
-  audioAssetId: string;
+  audioAssetId?: string;
+  tts?: ListeningTtsConfig;
   clipStartMs?: number;
   clipEndMs?: number;
   type: ListeningExerciseType;
@@ -357,6 +365,7 @@ export type ListeningTask = RuntimeTaskBase & {
   type: "listening";
   listeningType: ListeningExerciseType;
   audioUrl: string;
+  tts?: ListeningTtsConfig;
   clipStartMs?: number;
   clipEndMs?: number;
   questionText?: LocalizedText;

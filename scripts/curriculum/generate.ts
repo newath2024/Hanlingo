@@ -2,6 +2,7 @@ import type {
   CurriculumIndex,
   LessonRole,
   ListeningTask,
+  ListeningTtsConfig,
   LocalizedChoice,
   LocalizedText,
   MeaningDirection,
@@ -14,7 +15,12 @@ import type {
   SourceUnit,
   SourceWorkbookExercise,
 } from "@/types/curriculum";
-import { resolveSourceListeningItems, type CurriculumWarning } from "./listening";
+import {
+  isCompileableListeningItem,
+  resolveSourceListeningItems,
+  type CurriculumWarning,
+} from "./listening";
+import { resolveListeningChoiceImagePath } from "./listening-images";
 import { runtimeUnitSchema, sourceUnitSchema } from "./schema";
 import {
   getGeneratedIndexPath,
@@ -633,6 +639,10 @@ function getAudioProxyPath(unitId: string, assetId: string) {
   return `/api/audio/${unitId}/${assetId}`;
 }
 
+function getTtsAudioProxyPath(unitId: string, itemId: string) {
+  return `/api/audio/tts/${unitId}/${itemId}`;
+}
+
 function isReadyAudioAsset(asset: SourceAudioAsset | undefined) {
   return Boolean(asset && asset.remoteUrl && !asset.needsReview);
 }
@@ -895,6 +905,7 @@ function listeningTask(
   },
 ): ListeningTask {
   const stage = getListeningTaskStage(item.type);
+  const tts: ListeningTtsConfig | undefined = item.tts ? { ...item.tts } : undefined;
 
   return {
     id,
@@ -908,6 +919,7 @@ function listeningTask(
     srWeight: srWeight(stage, 0.05),
     errorPatternKey: `${id}.listening`,
     audioUrl,
+    ...(tts ? { tts } : {}),
     ...(typeof item.clipStartMs === "number" ? { clipStartMs: item.clipStartMs } : {}),
     ...(typeof item.clipEndMs === "number" ? { clipEndMs: item.clipEndMs } : {}),
     ...(item.questionText ? { questionText: item.questionText } : {}),
@@ -920,7 +932,7 @@ function listeningTask(
     ...(item.choices
       ? {
           choices: item.choices.map((entry) =>
-            choice(entry.id, entry.text, entry.imagePath),
+            choice(entry.id, entry.text, resolveListeningChoiceImagePath(entry)),
           ),
         }
       : {}),
@@ -943,10 +955,14 @@ function compileListeningItem(
     prompt?: LocalizedText;
   },
 ) {
-  const asset = audioAssetsById.get(item.audioAssetId);
+  if (item.tts) {
+    return listeningTask(item.id, item, getTtsAudioProxyPath(unitId, item.id), options);
+  }
 
-  if (!isReadyAudioAsset(asset)) {
-    throw new Error(`${item.id} references unavailable listening audio asset ${item.audioAssetId}.`);
+  const asset = item.audioAssetId ? audioAssetsById.get(item.audioAssetId) : undefined;
+
+  if (!item.audioAssetId || !isReadyAudioAsset(asset)) {
+    throw new Error(`${item.id} references unavailable listening audio source.`);
   }
 
   return listeningTask(item.id, item, getAudioProxyPath(unitId, item.audioAssetId), options);
@@ -2789,8 +2805,8 @@ function buildUnit16QrLessons(
       lessonRole: "workbook_practice",
       title: text("Nghe QR: kẹt xe và khách sạn", "QR listening: traffic and hotel"),
       summary: text(
-        "Tách bài QR trang 264 thành 5 item nghe atomic, mỗi item chỉ giữ một tín hiệu nghe cốt lõi.",
-        "Split the page 264 QR exercise into 5 atomic listening items, each built around one core listening signal.",
+        "Tách bài trang 264 thành 5 item nghe atomic bằng TTS tiếng Hàn, mỗi item chỉ giữ một tín hiệu nghe cốt lõi.",
+        "Split the page 264 exercise into 5 Korean TTS-backed atomic listening items, each built around one core listening signal.",
       ),
       focusConcepts: ["qr-listening", "traffic", "reason", "hotel", "transport", "duration"],
       exerciseIds: [traffic.id, hotelDuration.id],
@@ -4019,8 +4035,8 @@ function buildRuntimeContext(source: SourceUnit) {
     items: resolvedListeningItems,
     warnings,
   } = resolveSourceListeningItems(source);
-  const listeningItems = resolvedListeningItems.filter(
-    (item) => !item.needsReview && isReadyAudioAsset(audioAssetsById.get(item.audioAssetId)),
+  const listeningItems = resolvedListeningItems.filter((item) =>
+    isCompileableListeningItem(item, audioAssetsById),
   );
   const listeningItemsByExerciseId = new Map<string, SourceListeningItem[]>();
   const listeningItemsById = new Map(
@@ -4037,7 +4053,7 @@ function buildRuntimeContext(source: SourceUnit) {
   const eligibleExercises = source.workbook.exercises.filter(
     (exercise) =>
       !exercise.needsReview &&
-      (exercise.exerciseType === "listening" && exercise.audioAssetId
+      (exercise.exerciseType === "listening"
         ? listeningItemsByExerciseId.has(exercise.id)
         : !exercise.audioAssetId || isReadyAudioAsset(audioAssetsById.get(exercise.audioAssetId))),
   );

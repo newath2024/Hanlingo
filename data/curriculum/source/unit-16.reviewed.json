@@ -734,17 +734,6 @@
   "workbook": {
     "audioAssets": [
       {
-        "id": "wb16-qr-traffic-audio",
-        "document": "workbook",
-        "page": 264,
-        "qrValue": "http://m.site.naver.com/0Yyb6",
-        "transcript": "A: 선생님, 왜 안 와요? B: 미안해요. 지금 길이 많이 막혀요. A: 역에서 호텔까지 얼마나 걸려요? B: 버스를 타고 십오 분쯤 걸려요.",
-        "transcriptConfidence": 0.75,
-        "remoteUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_02.mp3",
-        "mimeType": "audio/mpeg",
-        "needsReview": false
-      },
-      {
         "id": "wb16-qr-seoul-station-audio",
         "document": "workbook",
         "page": 269,
@@ -1855,7 +1844,6 @@
           "en": "the road is jammed"
         },
         "answer": "đường đang tắc",
-        "audioAssetId": "wb16-qr-traffic-audio",
         "options": [
           {
             "id": "clear-road",
@@ -1907,7 +1895,6 @@
           "en": "take a bus for 15 minutes to the hotel"
         },
         "answer": "đi xe buýt 15 phút đến khách sạn",
-        "audioAssetId": "wb16-qr-traffic-audio",
         "options": [
           {
             "id": "bus-to-hotel-15",
@@ -2150,19 +2137,21 @@
         "sourceExerciseIds": [
           "wb16-qr-traffic-jam"
         ],
-        "audioAssetId": "wb16-qr-traffic-audio",
-        "clipStartMs": 1700,
-        "clipEndMs": 4100,
+        "tts": {
+          "text": "지금 길이 많이 막혀요",
+          "voice": "ko-KR",
+          "speed": 0.9
+        },
         "type": "choose_image",
         "prompt": {
-          "vi": "Nghe đoạn ngắn rồi chọn hình đúng.",
-          "en": "Listen to the short clip and choose the matching image."
+          "vi": "Nghe câu ngắn rồi chọn hình đúng.",
+          "en": "Listen to the short sentence and choose the matching image."
         },
         "questionText": {
-          "vi": "Tình huống giao thông nào đang được nhắc tới?",
+          "vi": "Tình huống giao thông nào đúng?",
           "en": "Which traffic situation is mentioned?"
         },
-        "transcriptKo": "지금 길이 많이 막혀요.",
+        "transcriptKo": "지금 길이 많이 막혀요",
         "translation": {
           "vi": "Bây giờ đường đang tắc nhiều.",
           "en": "The road is very jammed right now."
@@ -2174,7 +2163,7 @@
               "vi": "đường đang tắc",
               "en": "the road is jammed"
             },
-            "imagePath": "/generated/listening-cards/unit-16/traffic-jam.svg"
+            "imageId": "traffic_jam"
           },
           {
             "id": "clear-road",
@@ -2182,7 +2171,7 @@
               "vi": "đường đang thông",
               "en": "the road is clear"
             },
-            "imagePath": "/generated/listening-cards/unit-16/clear-road.svg"
+            "imageId": "traffic_clear"
           }
         ],
         "correctChoiceId": "traffic-jam",
@@ -2197,7 +2186,7 @@
           "endPage": 264
         },
         "sourceRef": {
-          "rawText": "지금 길이 많이 막혀요. choose_image clip",
+          "rawText": "지금 길이 많이 막혀요 choose_image tts",
           "confidence": 0.98,
           "sourceBlockId": "u16-qr-traffic-jam-image-seed",
           "page": 264
@@ -2209,19 +2198,21 @@
         "sourceExerciseIds": [
           "wb16-qr-traffic-jam"
         ],
-        "audioAssetId": "wb16-qr-traffic-audio",
-        "clipStartMs": 1700,
-        "clipEndMs": 4100,
+        "tts": {
+          "text": "지금 길이 많이 막혀요",
+          "voice": "ko-KR",
+          "speed": 0.9
+        },
         "type": "multiple_choice",
         "prompt": {
-          "vi": "Nghe đoạn ngắn rồi chọn đáp án đúng.",
-          "en": "Listen to the short clip and choose the correct answer."
+          "vi": "Nghe câu ngắn rồi chọn đáp án đúng.",
+          "en": "Listen to the short sentence and choose the correct answer."
         },
         "questionText": {
           "vi": "Vì sao người đó chưa đến?",
           "en": "Why has the person not arrived yet?"
         },
-        "transcriptKo": "지금 길이 많이 막혀요.",
+        "transcriptKo": "지금 길이 많이 막혀요",
         "translation": {
           "vi": "Bây giờ đường đang tắc nhiều.",
           "en": "The road is very jammed right now."
@@ -2261,7 +2252,7 @@
           "endPage": 264
         },
         "sourceRef": {
-          "rawText": "지금 길이 많이 막혀요. multiple_choice clip",
+          "rawText": "지금 길이 많이 막혀요 multiple_choice tts",
           "confidence": 0.98,
           "sourceBlockId": "u16-qr-traffic-reason-choice-seed",
           "page": 264
@@ -2273,19 +2264,21 @@
         "sourceExerciseIds": [
           "wb16-qr-hotel-duration"
         ],
-        "audioAssetId": "wb16-qr-traffic-audio",
-        "clipStartMs": 5200,
-        "clipEndMs": 8400,
+        "tts": {
+          "text": "버스를 타고 십오 분쯤 걸려요",
+          "voice": "ko-KR",
+          "speed": 0.9
+        },
         "type": "choose_image",
         "prompt": {
-          "vi": "Nghe đoạn ngắn rồi chọn hình đúng.",
-          "en": "Listen to the short clip and choose the matching image."
+          "vi": "Nghe câu ngắn rồi chọn hình đúng.",
+          "en": "Listen to the short sentence and choose the matching image."
         },
         "questionText": {
           "vi": "Cách đi và thời gian nào được nhắc tới?",
           "en": "Which transport and time are mentioned?"
         },
-        "transcriptKo": "버스를 타고 십오 분쯤 걸려요.",
+        "transcriptKo": "버스를 타고 십오 분쯤 걸려요",
         "translation": {
           "vi": "Đi xe buýt thì mất khoảng 15 phút.",
           "en": "It takes about 15 minutes by bus."
@@ -2297,7 +2290,7 @@
               "vi": "đi xe buýt 15 phút",
               "en": "15 minutes by bus"
             },
-            "imagePath": "/generated/listening-cards/unit-16/bus-hotel-15.svg"
+            "imageId": "bus_hotel_15"
           },
           {
             "id": "walk-to-hotel-15",
@@ -2305,7 +2298,7 @@
               "vi": "đi bộ 15 phút",
               "en": "15 minutes on foot"
             },
-            "imagePath": "/generated/listening-cards/unit-16/walk-hotel-15.svg"
+            "imageId": "walk_hotel_15"
           }
         ],
         "correctChoiceId": "bus-to-hotel-15",
@@ -2321,7 +2314,7 @@
           "endPage": 264
         },
         "sourceRef": {
-          "rawText": "버스를 타고 십오 분쯤 걸려요. choose_image clip",
+          "rawText": "버스를 타고 십오 분쯤 걸려요 choose_image tts",
           "confidence": 0.98,
           "sourceBlockId": "u16-qr-hotel-transport-time-image-seed",
           "page": 264
@@ -2333,19 +2326,21 @@
         "sourceExerciseIds": [
           "wb16-qr-hotel-duration"
         ],
-        "audioAssetId": "wb16-qr-traffic-audio",
-        "clipStartMs": 6200,
-        "clipEndMs": 8400,
+        "tts": {
+          "text": "십오 분쯤 걸려요",
+          "voice": "ko-KR",
+          "speed": 0.9
+        },
         "type": "multiple_choice",
         "prompt": {
-          "vi": "Nghe đoạn ngắn rồi chọn đáp án đúng.",
-          "en": "Listen to the short clip and choose the correct answer."
+          "vi": "Nghe câu ngắn rồi chọn đáp án đúng.",
+          "en": "Listen to the short sentence and choose the correct answer."
         },
         "questionText": {
           "vi": "Mất khoảng bao lâu?",
           "en": "About how long does it take?"
         },
-        "transcriptKo": "십오 분쯤 걸려요.",
+        "transcriptKo": "십오 분쯤 걸려요",
         "translation": {
           "vi": "Mất khoảng 15 phút.",
           "en": "It takes about 15 minutes."
@@ -2385,7 +2380,7 @@
           "endPage": 264
         },
         "sourceRef": {
-          "rawText": "십오 분쯤 걸려요. multiple_choice clip",
+          "rawText": "십오 분쯤 걸려요 multiple_choice tts",
           "confidence": 0.98,
           "sourceBlockId": "u16-qr-hotel-time-choice-seed",
           "page": 264
@@ -2397,19 +2392,21 @@
         "sourceExerciseIds": [
           "wb16-qr-hotel-duration"
         ],
-        "audioAssetId": "wb16-qr-traffic-audio",
-        "clipStartMs": 5200,
-        "clipEndMs": 8400,
+        "tts": {
+          "text": "버스를 타고 십오 분쯤 걸려요",
+          "voice": "ko-KR",
+          "speed": 0.9
+        },
         "type": "multiple_choice",
         "prompt": {
-          "vi": "Nghe đoạn ngắn rồi chọn đáp án đúng.",
-          "en": "Listen to the short clip and choose the correct answer."
+          "vi": "Nghe câu ngắn rồi chọn đáp án đúng.",
+          "en": "Listen to the short sentence and choose the correct answer."
         },
         "questionText": {
           "vi": "Đi bằng phương tiện gì?",
           "en": "What do they take?"
         },
-        "transcriptKo": "버스를 타고 십오 분쯤 걸려요.",
+        "transcriptKo": "버스를 타고 십오 분쯤 걸려요",
         "translation": {
           "vi": "Đi xe buýt thì mất khoảng 15 phút.",
           "en": "It takes about 15 minutes by bus."
@@ -2449,7 +2446,7 @@
           "endPage": 264
         },
         "sourceRef": {
-          "rawText": "버스를 타고 십오 분쯤 걸려요. multiple_choice clip",
+          "rawText": "버스를 타고 십오 분쯤 걸려요 multiple_choice tts",
           "confidence": 0.98,
           "sourceBlockId": "u16-qr-hotel-transport-choice-seed",
           "page": 264
@@ -2782,6 +2779,6 @@
   "reviewNotes": [
     "Unit 16 is manually normalized from textbook pages 208-218 and workbook pages 261-276.",
     "Workbook normalization keeps the closed-form transport drills, QR listening, reading cloze, and scaffolded extension prompts with canonical answers.",
-    "QR audio uses the shared remote resolver so Nuri assets that require GET fallback can still compile into runtime listening tasks."
+    "Page 264 QR listening is re-authored as item-level Korean TTS, while the later QR pages still use the shared remote resolver for workbook audio."
   ]
 }

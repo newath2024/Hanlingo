@@ -103,16 +103,24 @@ const listeningExerciseTypeSchema = z.enum([
 
 const listeningDifficultySchema = z.enum(["easy", "medium", "hard"]);
 
+const listeningTtsConfigSchema = z.object({
+  text: z.string().min(1),
+  voice: z.literal("ko-KR"),
+  speed: z.number().positive(),
+});
+
 const sourceListeningChoiceSchema = z.object({
   id: z.string().min(1),
   text: localizedTextSchema,
   imagePath: z.string().min(1).optional(),
+  imageId: z.string().min(1).optional(),
 });
 
 const sourceListeningItemSchema = z.object({
   id: z.string().min(1),
   sourceExerciseIds: z.array(z.string().min(1)).min(1),
-  audioAssetId: z.string().min(1),
+  audioAssetId: z.string().min(1).optional(),
+  tts: listeningTtsConfigSchema.optional(),
   clipStartMs: z.number().int().nonnegative().optional(),
   clipEndMs: z.number().int().nonnegative().optional(),
   type: listeningExerciseTypeSchema,
@@ -338,6 +346,7 @@ const listeningTaskSchema = runtimeTaskBaseSchema.extend({
   type: z.literal("listening"),
   listeningType: listeningExerciseTypeSchema,
   audioUrl: z.string().min(1),
+  tts: listeningTtsConfigSchema.optional(),
   clipStartMs: z.number().int().nonnegative().optional(),
   clipEndMs: z.number().int().nonnegative().optional(),
   questionText: localizedTextSchema.optional(),
