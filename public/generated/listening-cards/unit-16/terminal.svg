@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-labelledby="title desc">
+  <title id="title">Bus terminal</title>
+  <desc id="desc">A terminal building with a bus stop sign.</desc>
+  <rect width="320" height="200" fill="#f4f7ea" rx="24"/>
+  <rect x="62" y="82" width="196" height="82" rx="18" fill="#6c8350"/>
+  <rect x="86" y="104" width="34" height="26" rx="4" fill="#e6f3d0"/>
+  <rect x="132" y="104" width="34" height="26" rx="4" fill="#e6f3d0"/>
+  <rect x="178" y="104" width="34" height="26" rx="4" fill="#e6f3d0"/>
+  <rect x="228" y="74" width="12" height="60" rx="6" fill="#355070"/>
+  <rect x="214" y="54" width="40" height="28" rx="8" fill="#4d77a5"/>
+  <circle cx="234" cy="68" r="8" fill="#f5d76b"/>
+  <text x="160" y="44" text-anchor="middle" font-size="24" font-family="Arial, sans-serif" font-weight="700" fill="#52643b">Terminal</text>
+</svg>

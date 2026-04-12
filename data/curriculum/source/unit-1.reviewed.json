@@ -1266,7 +1266,8 @@
         },
         "needsReview": false
       }
-    ]
+    ],
+    "listeningItems": []
   },
   "reviewNotes": [
     "Unit 1 source is normalized from the pilot raw draft and kept bilingual at the reviewed layer.",

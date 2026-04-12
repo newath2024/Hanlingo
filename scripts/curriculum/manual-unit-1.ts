@@ -643,6 +643,7 @@ export function createUnit1SourceSeed(
     workbook: {
       audioAssets: createUnit1QrAudioAssets(qrSeedArgs),
       exercises: workbookExercises,
+      listeningItems: [],
     },
     reviewNotes: [
       "Unit 1 source is normalized from the pilot raw draft and kept bilingual at the reviewed layer.",

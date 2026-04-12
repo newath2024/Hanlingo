@@ -824,6 +824,7 @@ export function createUnit17SourceSeed(
     workbook: {
       audioAssets: createUnit17QrAudioAssets(qrSeedArgs),
       exercises: workbookExercises,
+      listeningItems: [],
     },
     reviewNotes: [
       "Unit 17 is manually normalized from the provided textbook/workbook page spans and kept bilingual at the reviewed layer.",

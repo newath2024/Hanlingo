@@ -7,6 +7,7 @@ import type {
 } from "@/types/curriculum";
 import {
   createUnit16QrAudioAssets,
+  createUnit16QrListeningItems,
   createUnit16QrWorkbookExercises,
 } from "./unit-16-qr-seed";
 
@@ -1036,6 +1037,7 @@ export function createUnit16SourceSeed(
     workbook: {
       audioAssets: createUnit16QrAudioAssets(qrSeedArgs),
       exercises: workbookExercises,
+      listeningItems: createUnit16QrListeningItems(qrSeedArgs),
     },
     reviewNotes: [
       "Unit 16 is manually normalized from textbook pages 208-218 and workbook pages 261-276.",

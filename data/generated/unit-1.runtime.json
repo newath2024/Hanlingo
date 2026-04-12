@@ -1098,7 +1098,7 @@
             "en": "Match the Korean word with the correct meaning."
           },
           "explanation": {
-            "vi": "Bắt đầu bằng nhận diện ý nghĩa nhanh.",
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
             "en": "Start with quick meaning recognition."
           },
           "source": "workbook",
@@ -1147,7 +1147,7 @@
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe lại cùng biểu hiện để khóa âm và nghĩa.",
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
             "en": "Hear the same expression again to lock sound and meaning."
           },
           "source": "workbook",
@@ -1196,7 +1196,7 @@
             "en": "Match the Korean word with the correct meaning."
           },
           "explanation": {
-            "vi": "Bắt đầu bằng nhận diện ý nghĩa nhanh.",
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
             "en": "Start with quick meaning recognition."
           },
           "source": "workbook",
@@ -1245,7 +1245,7 @@
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe lại cùng biểu hiện để khóa âm và nghĩa.",
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
             "en": "Hear the same expression again to lock sound and meaning."
           },
           "source": "workbook",
@@ -1294,7 +1294,7 @@
             "en": "Match the Korean word with the correct meaning."
           },
           "explanation": {
-            "vi": "Bắt đầu bằng nhận diện ý nghĩa nhanh.",
+            "vi": "Bat dau bang nhan dien y nghia nhanh.",
             "en": "Start with quick meaning recognition."
           },
           "source": "workbook",
@@ -1343,7 +1343,7 @@
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe lại cùng biểu hiện để khóa âm và nghĩa.",
+            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
             "en": "Hear the same expression again to lock sound and meaning."
           },
           "source": "workbook",
@@ -1392,7 +1392,7 @@
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -1418,7 +1418,7 @@
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -1491,7 +1491,7 @@
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhận ý nghĩa trước rồi mới gõ lại.",
+            "vi": "Nhan y nghia truoc roi moi go lai.",
             "en": "Recognize the meaning before typing it back."
           },
           "source": "workbook",
@@ -1540,14 +1540,18 @@
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Bài nghe ngắn nên ưu tiên nhận diện nhanh.",
-            "en": "Short listening items begin with fast recognition."
+            "vi": "Nghe lai cau ngan nay roi chon dap an dung.",
+            "en": "Hear the short line again and choose the correct answer."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb-listen-too-1.listen",
+          "supportText": {
+            "vi": "Nghe và chọn ý nghĩa đúng.",
+            "en": "Listen and choose the correct meaning."
+          },
           "audioText": "저도 반갑습니다.",
           "type": "listen_select",
           "choices": [
@@ -1589,7 +1593,7 @@
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Gõ lại ý nghĩa bằng trí nhớ.",
+            "vi": "Go lai y nghia bang tri nho.",
             "en": "Type the meaning from memory."
           },
           "source": "workbook",
@@ -1642,7 +1646,7 @@
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Sau khi nghe đúng, gõ lại ý nghĩa để khóa trí nhớ.",
+            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
             "en": "Once you hear it correctly, type the meaning to lock it in."
           },
           "source": "workbook",
@@ -1669,7 +1673,7 @@
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
             "en": "Translate the meaning into a full Korean sentence."
           },
           "source": "workbook",
@@ -1726,7 +1730,7 @@
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
             "en": "Say the translated sentence aloud to strengthen active production."
           },
           "source": "workbook",
@@ -1787,7 +1791,7 @@
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhận ý nghĩa trước rồi mới gõ lại.",
+            "vi": "Nhan y nghia truoc roi moi go lai.",
             "en": "Recognize the meaning before typing it back."
           },
           "source": "workbook",
@@ -1836,7 +1840,7 @@
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -1864,7 +1868,7 @@
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Gõ lại ý nghĩa bằng trí nhớ.",
+            "vi": "Go lai y nghia bang tri nho.",
             "en": "Type the meaning from memory."
           },
           "source": "workbook",
@@ -1891,7 +1895,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -1925,7 +1929,7 @@
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Xây lại câu theo đúng trật tự tự nhiên.",
+            "vi": "Xay lai cau theo dung trat tu tu nhien.",
             "en": "Build the sentence back in natural order."
           },
           "source": "workbook",
@@ -1956,7 +1960,7 @@
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
             "en": "Translate the meaning into a full Korean sentence."
           },
           "source": "workbook",
@@ -1985,7 +1989,7 @@
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Nói to câu vừa ghép để chuyển sang phản xạ nói.",
+            "vi": "Noi to cau vua ghep de chuyen sang phan xa noi.",
             "en": "Say the rebuilt sentence aloud to move into speaking reflex."
           },
           "source": "workbook",
@@ -2004,7 +2008,7 @@
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
             "en": "Say the translated sentence aloud to strengthen active production."
           },
           "source": "workbook",
@@ -2064,7 +2068,7 @@
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2114,7 +2118,7 @@
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2142,7 +2146,7 @@
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2195,7 +2199,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2229,7 +2233,7 @@
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Xây lại câu theo đúng trật tự tự nhiên.",
+            "vi": "Xay lai cau theo dung trat tu tu nhien.",
             "en": "Build the sentence back in natural order."
           },
           "source": "workbook",
@@ -2260,7 +2264,7 @@
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Nói to câu vừa ghép để chuyển sang phản xạ nói.",
+            "vi": "Noi to cau vua ghep de chuyen sang phan xa noi.",
             "en": "Say the rebuilt sentence aloud to move into speaking reflex."
           },
           "source": "workbook",
@@ -2325,14 +2329,18 @@
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Bài nghe ngắn nên ưu tiên nhận diện nhanh.",
-            "en": "Short listening items begin with fast recognition."
+            "vi": "Nghe lai cau ngan nay roi chon dap an dung.",
+            "en": "Hear the short line again and choose the correct answer."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb-listen-student-1.listen",
+          "supportText": {
+            "vi": "Nghe và chọn ý nghĩa đúng.",
+            "en": "Listen and choose the correct meaning."
+          },
           "audioText": "저는 학생입니다.",
           "type": "listen_select",
           "choices": [
@@ -2374,14 +2382,18 @@
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Bài nghe ngắn nên ưu tiên nhận diện nhanh.",
-            "en": "Short listening items begin with fast recognition."
+            "vi": "Nghe lai cau ngan nay roi chon dap an dung.",
+            "en": "Hear the short line again and choose the correct answer."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "wb-listen-greeting-1.listen",
+          "supportText": {
+            "vi": "Nghe và chọn lời chào đúng.",
+            "en": "Listen and choose the correct greeting."
+          },
           "audioText": "안녕하세요",
           "type": "listen_select",
           "choices": [
@@ -2423,7 +2435,7 @@
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Sau khi nghe đúng, gõ lại ý nghĩa để khóa trí nhớ.",
+            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
             "en": "Once you hear it correctly, type the meaning to lock it in."
           },
           "source": "workbook",
@@ -2450,7 +2462,7 @@
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2478,7 +2490,7 @@
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Sau khi nghe đúng, gõ lại ý nghĩa để khóa trí nhớ.",
+            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
             "en": "Once you hear it correctly, type the meaning to lock it in."
           },
           "source": "workbook",
@@ -2505,7 +2517,7 @@
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
             "en": "Translate the meaning into a full Korean sentence."
           },
           "source": "workbook",
@@ -2563,7 +2575,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2597,7 +2609,7 @@
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
             "en": "Say the translated sentence aloud to strengthen active production."
           },
           "source": "workbook",
@@ -2636,12 +2648,12 @@
       "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Nghe QR về quốc tịch",
+        "vi": "Nghe QR ve quoc tich",
         "en": "QR listening: countries and flags"
       },
       "summary": {
-        "vi": "Tách riêng bài nghe QR thành một lesson nghe tập trung có cờ, câu điền, và câu nói lặp lại.",
-        "en": "Split the QR audio into a dedicated listening lesson with flag choice, fill tasks, and spoken repeats."
+        "vi": "Giu bai QR o dang atomic: moi luot nghe chi hoi mot muc tieu nho, du Unit 1 van dang dung full-audio fallback.",
+        "en": "Keep the QR lesson atomic: each listen asks one small target, even while Unit 1 still uses full-audio fallback."
       },
       "difficulty": {
         "vi": "Nhớ lại và xây câu",
@@ -2665,27 +2677,32 @@
       ],
       "tasks": [
         {
-          "id": "wb-qr-listen-country-left-1",
+          "id": "u1-qr-left-flag",
           "prompt": {
-            "vi": "Nghe rồi chọn đáp án đúng.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe hội thoại và chọn lá cờ quốc gia của Natasha.",
+            "en": "Listen to the dialogue and choose Natasha's country flag."
           },
           "explanation": {
-            "vi": "Nghe file audio thật từ QR rồi chọn đáp án đúng.",
-            "en": "Listen to the real QR audio and choose the correct answer."
+            "vi": "Natasha den tu nuoc nao?",
+            "en": "Which country is Natasha from?"
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
-          "errorPatternKey": "wb-qr-listen-country-left-1.listen",
-          "supportText": {
-            "vi": "Nghe hội thoại và chọn lá cờ quốc gia của Natasha.",
-            "en": "Listen to the dialogue and choose Natasha's country flag."
-          },
-          "audioText": "듣고 말하기 1. 두 사람이 처음 만났습니다. 대화를 듣고 빈 칸에 알맞은 말을 쓰세요. 안녕하세요. 저는 지훈이에요. 안녕하세요. 저는 나타샤예요. 나타샤 씨는 어느 나라 사람이에요? 저는 러시아 사람이에요. 저는 한국 사람이에요. 학생이에요.",
+          "errorPatternKey": "u1-qr-left-flag.listening",
           "audioUrl": "/api/audio/1/wb-qr-country-1-audio",
-          "type": "listen_select",
+          "type": "listening",
+          "listeningType": "choose_image",
+          "questionText": {
+            "vi": "Natasha den tu nuoc nao?",
+            "en": "Which country is Natasha from?"
+          },
+          "contextGroupId": "u1-qr-country-left",
+          "contextTitle": {
+            "vi": "Natasha",
+            "en": "Natasha"
+          },
           "choices": [
             {
               "id": "wb-qr-listen-country-left-south-korea",
@@ -2720,30 +2737,35 @@
               "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-russia.png"
             }
           ],
-          "answer": "wb-qr-listen-country-left-russia"
+          "correctChoiceId": "wb-qr-listen-country-left-russia"
         },
         {
-          "id": "wb-qr-listen-country-right-1",
+          "id": "u1-qr-right-flag",
           "prompt": {
-            "vi": "Nghe rồi chọn đáp án đúng.",
-            "en": "Listen and choose the correct answer."
+            "vi": "Nghe hội thoại và chọn lá cờ quốc gia của Gayoung.",
+            "en": "Listen to the dialogue and choose Gayoung's country flag."
           },
           "explanation": {
-            "vi": "Nghe file audio thật từ QR rồi chọn đáp án đúng.",
-            "en": "Listen to the real QR audio and choose the correct answer."
+            "vi": "Gayoung den tu nuoc nao?",
+            "en": "Which country is Gayoung from?"
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
-          "errorPatternKey": "wb-qr-listen-country-right-1.listen",
-          "supportText": {
-            "vi": "Nghe hội thoại và chọn lá cờ quốc gia của Gayoung.",
-            "en": "Listen to the dialogue and choose Gayoung's country flag."
-          },
-          "audioText": "듣고 말하기 2. 다음을 듣고 무름에 답하세요. 안녕하세요. 저는 리사예요. 이름이 뭐예요? 안녕하세요. 저는 가영이에요. 가영 씨는 어느 나라 사람이에요? 저는 한국 사람이에요. 저는 미국 사람이에요. 영어 선생님이에요.",
+          "errorPatternKey": "u1-qr-right-flag.listening",
           "audioUrl": "/api/audio/1/wb-qr-country-2-audio",
-          "type": "listen_select",
+          "type": "listening",
+          "listeningType": "choose_image",
+          "questionText": {
+            "vi": "Gayoung den tu nuoc nao?",
+            "en": "Which country is Gayoung from?"
+          },
+          "contextGroupId": "u1-qr-country-right",
+          "contextTitle": {
+            "vi": "Gayoung",
+            "en": "Gayoung"
+          },
           "choices": [
             {
               "id": "wb-qr-listen-country-right-south-korea",
@@ -2778,191 +2800,117 @@
               "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-russia.png"
             }
           ],
-          "answer": "wb-qr-listen-country-right-south-korea"
+          "correctChoiceId": "wb-qr-listen-country-right-south-korea"
         },
         {
           "id": "u1-qr-left-fill-country",
           "prompt": {
-            "vi": "Điền vào chỗ trống.",
-            "en": "Fill in the blank."
+            "vi": "Nghe lai roi dien quoc tich cua Natasha.",
+            "en": "Listen again and fill Natasha's nationality."
           },
           "explanation": {
-            "vi": "Nghe lại file QR của Natasha rồi điền quốc tịch bằng tiếng Hàn.",
-            "en": "Replay Natasha's QR audio and fill in the nationality in Korean."
+            "vi": "jeoneun ___ saramieyo.",
+            "en": "I am from ___."
           },
           "source": "workbook",
           "stage": "construction",
-          "grammarTags": [
-            "qr-listening"
-          ],
+          "grammarTags": [],
           "srWeight": 1.75,
-          "errorPatternKey": "u1-qr-left-fill-country.fill",
-          "audioText": "듣고 말하기 1. 두 사람이 처음 만났습니다. 대화를 듣고 빈 칸에 알맞은 말을 쓰세요. 안녕하세요. 저는 지훈이에요. 안녕하세요. 저는 나타샤예요. 나타샤 씨는 어느 나라 사람이에요? 저는 러시아 사람이에요. 저는 한국 사람이에요. 학생이에요.",
+          "errorPatternKey": "u1-qr-left-fill-country.listening",
           "audioUrl": "/api/audio/1/wb-qr-country-1-audio",
-          "type": "fill_blank",
-          "koreanText": "저는 ___ 사람이에요.",
+          "type": "listening",
+          "listeningType": "fill_blank",
+          "questionText": {
+            "vi": "jeoneun ___ saramieyo.",
+            "en": "I am from ___."
+          },
+          "contextGroupId": "u1-qr-country-left",
+          "contextTitle": {
+            "vi": "Natasha",
+            "en": "Natasha"
+          },
+          "choices": [
+            {
+              "id": "u1-left-russia",
+              "text": {
+                "vi": "러시아",
+                "en": "Russia"
+              }
+            },
+            {
+              "id": "u1-left-korea",
+              "text": {
+                "vi": "한국",
+                "en": "South Korea"
+              }
+            },
+            {
+              "id": "u1-left-usa",
+              "text": {
+                "vi": "미국",
+                "en": "United States"
+              }
+            }
+          ],
+          "correctText": "러시아",
           "acceptedAnswers": [
             "러시아"
-          ],
-          "choices": [
-            "러시아",
-            "한국",
-            "미국"
-          ],
-          "placeholder": {
-            "vi": "Nhập phần còn thiếu",
-            "en": "Type the missing part"
-          },
-          "clue": {
-            "vi": "Nga",
-            "en": "Russia"
-          }
+          ]
         },
         {
           "id": "u1-qr-right-fill-country",
           "prompt": {
-            "vi": "Điền vào chỗ trống.",
-            "en": "Fill in the blank."
+            "vi": "Nghe lai roi dien quoc tich cua Gayoung.",
+            "en": "Listen again and fill Gayoung's nationality."
           },
           "explanation": {
-            "vi": "Nghe lại file QR của Gayoung rồi điền quốc tịch bằng tiếng Hàn.",
-            "en": "Replay Gayoung's QR audio and fill in the nationality in Korean."
+            "vi": "jeoneun ___ saramieyo.",
+            "en": "I am from ___."
           },
           "source": "workbook",
           "stage": "construction",
-          "grammarTags": [
-            "qr-listening"
-          ],
+          "grammarTags": [],
           "srWeight": 1.75,
-          "errorPatternKey": "u1-qr-right-fill-country.fill",
-          "audioText": "듣고 말하기 2. 다음을 듣고 무름에 답하세요. 안녕하세요. 저는 리사예요. 이름이 뭐예요? 안녕하세요. 저는 가영이에요. 가영 씨는 어느 나라 사람이에요? 저는 한국 사람이에요. 저는 미국 사람이에요. 영어 선생님이에요.",
+          "errorPatternKey": "u1-qr-right-fill-country.listening",
           "audioUrl": "/api/audio/1/wb-qr-country-2-audio",
-          "type": "fill_blank",
-          "koreanText": "저는 ___ 사람이에요.",
+          "type": "listening",
+          "listeningType": "fill_blank",
+          "questionText": {
+            "vi": "jeoneun ___ saramieyo.",
+            "en": "I am from ___."
+          },
+          "contextGroupId": "u1-qr-country-right",
+          "contextTitle": {
+            "vi": "Gayoung",
+            "en": "Gayoung"
+          },
+          "choices": [
+            {
+              "id": "u1-right-korea",
+              "text": {
+                "vi": "한국",
+                "en": "South Korea"
+              }
+            },
+            {
+              "id": "u1-right-russia",
+              "text": {
+                "vi": "러시아",
+                "en": "Russia"
+              }
+            },
+            {
+              "id": "u1-right-usa",
+              "text": {
+                "vi": "미국",
+                "en": "United States"
+              }
+            }
+          ],
+          "correctText": "한국",
           "acceptedAnswers": [
             "한국"
-          ],
-          "choices": [
-            "한국",
-            "러시아",
-            "미국"
-          ],
-          "placeholder": {
-            "vi": "Nhập phần còn thiếu",
-            "en": "Type the missing part"
-          },
-          "clue": {
-            "vi": "Hàn Quốc",
-            "en": "South Korea"
-          }
-        },
-        {
-          "id": "u1-qr-left-arrange",
-          "prompt": {
-            "vi": "Sắp xếp lại câu hoàn chỉnh.",
-            "en": "Arrange the words into a complete sentence."
-          },
-          "explanation": {
-            "vi": "Sắp xếp lại câu trả lời xuất hiện trong file nghe QR bên trái.",
-            "en": "Rebuild the answer line heard in the left-side QR audio."
-          },
-          "source": "workbook",
-          "stage": "construction",
-          "grammarTags": [
-            "qr-listening"
-          ],
-          "srWeight": 1.7,
-          "errorPatternKey": "u1-qr-left-arrange.arrange",
-          "type": "arrange_sentence",
-          "meaning": {
-            "vi": "Natasha là người Nga.",
-            "en": "Natasha is from Russia."
-          },
-          "wordBank": [
-            "사람이에요.",
-            "러시아",
-            "저는"
-          ],
-          "answer": [
-            "저는",
-            "러시아",
-            "사람이에요."
           ]
-        },
-        {
-          "id": "u1-qr-right-arrange",
-          "prompt": {
-            "vi": "Sắp xếp lại câu hoàn chỉnh.",
-            "en": "Arrange the words into a complete sentence."
-          },
-          "explanation": {
-            "vi": "Sắp xếp lại câu trả lời xuất hiện trong file nghe QR bên phải.",
-            "en": "Rebuild the answer line heard in the right-side QR audio."
-          },
-          "source": "workbook",
-          "stage": "construction",
-          "grammarTags": [
-            "qr-listening"
-          ],
-          "srWeight": 1.7,
-          "errorPatternKey": "u1-qr-right-arrange.arrange",
-          "type": "arrange_sentence",
-          "meaning": {
-            "vi": "Gayoung là người Hàn Quốc.",
-            "en": "Gayoung is from South Korea."
-          },
-          "wordBank": [
-            "사람이에요.",
-            "한국",
-            "저는"
-          ],
-          "answer": [
-            "저는",
-            "한국",
-            "사람이에요."
-          ]
-        },
-        {
-          "id": "u1-qr-left-speak",
-          "prompt": {
-            "vi": "Nói to câu này.",
-            "en": "Say this sentence aloud."
-          },
-          "explanation": {
-            "vi": "Nói lại câu giới thiệu quốc tịch của Natasha.",
-            "en": "Say Natasha's nationality sentence aloud."
-          },
-          "source": "workbook",
-          "stage": "production",
-          "grammarTags": [
-            "qr-listening"
-          ],
-          "srWeight": 2.1,
-          "errorPatternKey": "u1-qr-left-speak.speaking",
-          "type": "speaking",
-          "koreanText": "저는 러시아 사람이에요.",
-          "expectedSpeech": "저는 러시아 사람이에요."
-        },
-        {
-          "id": "u1-qr-right-speak",
-          "prompt": {
-            "vi": "Nói to câu này.",
-            "en": "Say this sentence aloud."
-          },
-          "explanation": {
-            "vi": "Nói lại câu giới thiệu quốc tịch của Gayoung.",
-            "en": "Say Gayoung's nationality sentence aloud."
-          },
-          "source": "workbook",
-          "stage": "production",
-          "grammarTags": [
-            "qr-listening"
-          ],
-          "srWeight": 2.1,
-          "errorPatternKey": "u1-qr-right-speak.speaking",
-          "type": "speaking",
-          "koreanText": "저는 한국 사람이에요.",
-          "expectedSpeech": "저는 한국 사람이에요."
         }
       ]
     },
@@ -3010,7 +2958,7 @@
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhận ý nghĩa trước rồi mới gõ lại.",
+            "vi": "Nhan y nghia truoc roi moi go lai.",
             "en": "Recognize the meaning before typing it back."
           },
           "source": "workbook",
@@ -3059,7 +3007,7 @@
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
+            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3085,7 +3033,7 @@
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Gõ lại ý nghĩa bằng trí nhớ.",
+            "vi": "Go lai y nghia bang tri nho.",
             "en": "Type the meaning from memory."
           },
           "source": "workbook",
@@ -3138,7 +3086,7 @@
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
+            "vi": "Dien lai dung phan con thieu cua mau cau.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3169,7 +3117,7 @@
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
             "en": "Translate the meaning into a full Korean sentence."
           },
           "source": "workbook",
@@ -3259,7 +3207,7 @@
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
             "en": "Say the translated sentence aloud to strengthen active production."
           },
           "source": "workbook",
@@ -3319,7 +3267,7 @@
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhận ý nghĩa trước rồi mới gõ lại.",
+            "vi": "Nhan y nghia truoc roi moi go lai.",
             "en": "Recognize the meaning before typing it back."
           },
           "source": "workbook",
@@ -3368,7 +3316,7 @@
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Gõ lại ý nghĩa bằng trí nhớ.",
+            "vi": "Go lai y nghia bang tri nho.",
             "en": "Type the meaning from memory."
           },
           "source": "workbook",
@@ -3395,7 +3343,7 @@
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
+            "vi": "Dich y nghia thanh cau tieng Han day du.",
             "en": "Translate the meaning into a full Korean sentence."
           },
           "source": "workbook",
@@ -3486,7 +3434,7 @@
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
+            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
             "en": "Say the translated sentence aloud to strengthen active production."
           },
           "source": "workbook",

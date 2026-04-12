@@ -2,7 +2,7 @@
   "unitId": "16",
   "unitNumber": 16,
   "title": {
-    "vi": "Tu day den ga Seoul bang cach nao?",
+    "vi": "Từ đây đến ga Seoul bằng cách nào?",
     "en": "How do I get to Seoul Station from here?"
   },
   "needsReview": true,
@@ -37,7 +37,7 @@
         "id": "v-bus",
         "korean": "버스",
         "translations": {
-          "vi": "xe buyt",
+          "vi": "xe buýt",
           "en": "bus"
         },
         "romanization": "beoseu",
@@ -58,7 +58,7 @@
         "id": "v-subway",
         "korean": "지하철",
         "translations": {
-          "vi": "tau dien ngam",
+          "vi": "tàu điện ngầm",
           "en": "subway"
         },
         "romanization": "jihacheol",
@@ -79,7 +79,7 @@
         "id": "v-train",
         "korean": "기차",
         "translations": {
-          "vi": "tau hoa",
+          "vi": "tàu hỏa",
           "en": "train"
         },
         "romanization": "gicha",
@@ -100,7 +100,7 @@
         "id": "v-airplane",
         "korean": "비행기",
         "translations": {
-          "vi": "may bay",
+          "vi": "máy bay",
           "en": "airplane"
         },
         "romanization": "bihaenggi",
@@ -121,7 +121,7 @@
         "id": "v-boat",
         "korean": "배",
         "translations": {
-          "vi": "thuyen",
+          "vi": "thuyền",
           "en": "boat"
         },
         "romanization": "bae",
@@ -162,7 +162,7 @@
         "id": "v-bus-stop",
         "korean": "정류장",
         "translations": {
-          "vi": "tram xe buyt",
+          "vi": "trạm xe buýt",
           "en": "bus stop"
         },
         "romanization": "jeongnyujang",
@@ -183,7 +183,7 @@
         "id": "v-terminal",
         "korean": "터미널",
         "translations": {
-          "vi": "ben xe",
+          "vi": "bến xe",
           "en": "terminal"
         },
         "romanization": "teomineol",
@@ -203,7 +203,7 @@
         "id": "v-ride",
         "korean": "타다",
         "translations": {
-          "vi": "di bang, len xe",
+          "vi": "đi bằng, lên xe",
           "en": "ride, take"
         },
         "romanization": "tada",
@@ -223,7 +223,7 @@
         "id": "v-walk",
         "korean": "걸어가다",
         "translations": {
-          "vi": "di bo",
+          "vi": "đi bộ",
           "en": "walk"
         },
         "romanization": "georeogada",
@@ -243,7 +243,7 @@
         "id": "v-transfer",
         "korean": "갈아타다",
         "translations": {
-          "vi": "chuyen xe, chuyen tau",
+          "vi": "chuyến xe, chuyến tàu",
           "en": "transfer"
         },
         "romanization": "garatada",
@@ -263,7 +263,7 @@
         "id": "v-distance",
         "korean": "거리",
         "translations": {
-          "vi": "khoang cach",
+          "vi": "khoảng cách",
           "en": "distance"
         },
         "romanization": "geori",
@@ -303,7 +303,7 @@
         "id": "v-near",
         "korean": "가깝다",
         "translations": {
-          "vi": "gan",
+          "vi": "gần",
           "en": "be near"
         },
         "romanization": "gakkapda",
@@ -323,7 +323,7 @@
         "id": "v-how-long",
         "korean": "얼마나",
         "translations": {
-          "vi": "bao lau, bao xa",
+          "vi": "bao lâu, bao xa",
           "en": "how long, how far"
         },
         "romanization": "eolmana",
@@ -343,7 +343,7 @@
         "id": "v-traffic-jam",
         "korean": "길이 막히다",
         "translations": {
-          "vi": "duong bi tac",
+          "vi": "đường bị tắc",
           "en": "the road is jammed"
         },
         "romanization": "giri makhida",
@@ -363,7 +363,7 @@
         "id": "v-take-time",
         "korean": "(시간이) 걸리다",
         "translations": {
-          "vi": "mat thoi gian",
+          "vi": "mất thời gian",
           "en": "take time"
         },
         "romanization": "sigani geollida",
@@ -385,7 +385,7 @@
         "id": "g-from-to",
         "pattern": "명사 + 에서, 까지",
         "explanation": {
-          "vi": "Dung de noi diem bat dau va diem ket thuc cua duong di hoac pham vi di chuyen.",
+          "vi": "Dùng để nói điểm bắt đầu và điểm kết thúc của đường đi hoặc phạm vi di chuyển.",
           "en": "Used to mark the starting point and ending point of a route or movement range."
         },
         "exampleIds": [
@@ -409,7 +409,7 @@
         "id": "g-command",
         "pattern": "동사 + -으십시오/-십시오",
         "explanation": {
-          "vi": "Dung de dua ra huong dan, menh lenh lich su, hoac loi khuyen trang trong.",
+          "vi": "Dùng để đưa ra hướng dẫn, mệnh lệnh lịch sự, hoặc lời khuyên trang trọng.",
           "en": "Used for polite instructions, commands, or formal suggestions."
         },
         "exampleIds": [
@@ -436,7 +436,7 @@
         "speaker": "Lisa",
         "korean": "여기에서 서울역까지 어떻게 가요?",
         "translations": {
-          "vi": "Tu day den ga Seoul bang cach nao?",
+          "vi": "Từ đây đến ga Seoul bằng cách nào?",
           "en": "How do I get to Seoul Station from here?"
         },
         "pages": {
@@ -456,7 +456,7 @@
         "speaker": "Man",
         "korean": "저기 정류장에서 100번 버스를 타십시오.",
         "translations": {
-          "vi": "Hay di den tram xe buyt dang kia va len xe buyt so 100.",
+          "vi": "Hãy đi đến trạm xe buýt đằng kia và lên xe buýt số 100.",
           "en": "Take bus 100 at that bus stop over there."
         },
         "pages": {
@@ -476,7 +476,7 @@
         "speaker": "Man",
         "korean": "그 버스가 서울역까지 갑니다.",
         "translations": {
-          "vi": "Chiec xe buyt do di den tan ga Seoul.",
+          "vi": "Chiếc xe buýt đó đi đến tận ga Seoul.",
           "en": "That bus goes all the way to Seoul Station."
         },
         "pages": {
@@ -496,7 +496,7 @@
         "speaker": "Lisa",
         "korean": "여기에서 서울역까지 많이 멀어요?",
         "translations": {
-          "vi": "Tu day den ga Seoul co xa lam khong?",
+          "vi": "Từ đây đến ga Seoul có xa lắm không?",
           "en": "Is it very far from here to Seoul Station?"
         },
         "pages": {
@@ -516,7 +516,7 @@
         "speaker": "Man",
         "korean": "아니요. 멀지 않아요.",
         "translations": {
-          "vi": "Khong dau. Khong xa.",
+          "vi": "Không đâu. Không xa.",
           "en": "No. It is not far."
         },
         "pages": {
@@ -536,7 +536,7 @@
         "speaker": "Clerk",
         "korean": "이 종이를 쓰십시오. 그리고 여기에 똑같이 쓰십시오.",
         "translations": {
-          "vi": "Hay viet vao to giay nay, roi viet lai y nhu vay o day.",
+          "vi": "Hãy viết vào tờ giấy này, rồi viết lại y như vậy ở đây.",
           "en": "Fill out this paper, and then write the same thing here."
         },
         "pages": {
@@ -556,7 +556,7 @@
         "speaker": "Clerk",
         "korean": "여기 통장입니다. 받으십시오.",
         "translations": {
-          "vi": "Day la so ngan hang cua ban. Xin hay nhan lay.",
+          "vi": "Đây là sổ ngân hàng của bạn. Xin hãy nhận lấy.",
           "en": "Here is your bankbook. Please take it."
         },
         "pages": {
@@ -577,7 +577,7 @@
         "id": "ex-home-school-time",
         "korean": "집에서 학교까지 시간이 얼마나 걸려요?",
         "translations": {
-          "vi": "Tu nha den truong mat bao lau?",
+          "vi": "Từ nhà đến trường mất bao lâu?",
           "en": "How long does it take from home to school?"
         },
         "grammarTags": [
@@ -599,7 +599,7 @@
         "id": "ex-thirty-minutes",
         "korean": "30분 걸려요.",
         "translations": {
-          "vi": "Mat 30 phut.",
+          "vi": "Mất 30 phút.",
           "en": "It takes 30 minutes."
         },
         "grammarTags": [
@@ -621,7 +621,7 @@
         "id": "ex-airport-shuttle",
         "korean": "공항 셔틀을 타십시오.",
         "translations": {
-          "vi": "Hay len xe dua don san bay.",
+          "vi": "Hãy lên xe đưa đón sân bay.",
           "en": "Please take the airport shuttle."
         },
         "grammarTags": [
@@ -643,7 +643,7 @@
         "id": "ex-wait",
         "korean": "잠시만 기다리십시오.",
         "translations": {
-          "vi": "Hay doi mot chut.",
+          "vi": "Hãy đợi một chút.",
           "en": "Please wait a moment."
         },
         "grammarTags": [
@@ -665,7 +665,7 @@
         "id": "ex-come-tomorrow",
         "korean": "내일 다시 오십시오.",
         "translations": {
-          "vi": "Hay quay lai vao ngay mai.",
+          "vi": "Hãy quay lại vào ngày mai.",
           "en": "Please come again tomorrow."
         },
         "grammarTags": [
@@ -687,7 +687,7 @@
         "id": "ex-busan-trip",
         "korean": "서울역에서 기차를 탔습니다.",
         "translations": {
-          "vi": "Toi da len tau tai ga Seoul.",
+          "vi": "Tôi đã lên tàu tại ga Seoul.",
           "en": "I took a train at Seoul Station."
         },
         "grammarTags": [
@@ -710,7 +710,7 @@
         "id": "ex-busan-transfer",
         "korean": "서면역에서 한 번 갈아탔습니다.",
         "translations": {
-          "vi": "Toi da chuyen tau mot lan o ga Seomyeon.",
+          "vi": "Tôi đã chuyển tàu một lần ở ga Seomyeon.",
           "en": "I transferred once at Seomyeon Station."
         },
         "grammarTags": [
@@ -783,11 +783,11 @@
         "id": "wb16-write-transport",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Viet cum 'phuong tien giao thong' bang tieng Han.",
+          "vi": "Viết cụm 'phương tiện giao thông' bằng tiếng Hàn.",
           "en": "Write the phrase 'means of transportation' in Korean."
         },
         "localizedText": {
-          "vi": "phuong tien giao thong",
+          "vi": "phương tiện giao thông",
           "en": "means of transportation"
         },
         "answer": "교통수단",
@@ -815,11 +815,11 @@
         "id": "wb16-write-transport-use",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Viet cum 'su dung phuong tien giao thong' bang tieng Han.",
+          "vi": "Viết cụm 'sử dụng phương tiện giao thông' bằng tiếng Hàn.",
           "en": "Write the phrase 'using transportation' in Korean."
         },
         "localizedText": {
-          "vi": "su dung phuong tien giao thong",
+          "vi": "sử dụng phương tiện giao thông",
           "en": "using transportation"
         },
         "answer": "교통수단 이용",
@@ -847,15 +847,15 @@
         "id": "wb16-match-bus",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Noi tranh voi tu dung.",
+          "vi": "Nối tranh với từ đúng.",
           "en": "Match the picture with the correct word."
         },
         "koreanText": "버스",
         "localizedText": {
-          "vi": "xe buyt",
+          "vi": "xe buýt",
           "en": "bus"
         },
-        "answer": "xe buyt",
+        "answer": "xe buýt",
         "metadata": {
           "target": "vocab",
           "vocabId": "v-bus"
@@ -882,15 +882,15 @@
         "id": "wb16-match-train",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Noi tranh voi tu dung.",
+          "vi": "Nối tranh với từ đúng.",
           "en": "Match the picture with the correct word."
         },
         "koreanText": "기차",
         "localizedText": {
-          "vi": "tau hoa",
+          "vi": "tàu hỏa",
           "en": "train"
         },
-        "answer": "tau hoa",
+        "answer": "tàu hỏa",
         "metadata": {
           "target": "vocab",
           "vocabId": "v-train"
@@ -917,15 +917,15 @@
         "id": "wb16-match-subway",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Noi tranh voi tu dung.",
+          "vi": "Nối tranh với từ đúng.",
           "en": "Match the picture with the correct word."
         },
         "koreanText": "지하철",
         "localizedText": {
-          "vi": "tau dien ngam",
+          "vi": "tàu điện ngầm",
           "en": "subway"
         },
-        "answer": "tau dien ngam",
+        "answer": "tàu điện ngầm",
         "metadata": {
           "target": "vocab",
           "vocabId": "v-subway"
@@ -952,15 +952,15 @@
         "id": "wb16-match-airplane",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Noi tranh voi tu dung.",
+          "vi": "Nối tranh với từ đúng.",
           "en": "Match the picture with the correct word."
         },
         "koreanText": "비행기",
         "localizedText": {
-          "vi": "may bay",
+          "vi": "máy bay",
           "en": "airplane"
         },
-        "answer": "may bay",
+        "answer": "máy bay",
         "metadata": {
           "target": "vocab",
           "vocabId": "v-airplane"
@@ -987,7 +987,7 @@
         "id": "wb16-match-station",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Noi tranh voi tu dung.",
+          "vi": "Nối tranh với từ đúng.",
           "en": "Match the picture with the correct word."
         },
         "koreanText": "역",
@@ -1022,15 +1022,15 @@
         "id": "wb16-match-bus-stop",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Noi tranh voi tu dung.",
+          "vi": "Nối tranh với từ đúng.",
           "en": "Match the picture with the correct word."
         },
         "koreanText": "정류장",
         "localizedText": {
-          "vi": "tram xe buyt",
+          "vi": "trạm xe buýt",
           "en": "bus stop"
         },
-        "answer": "tram xe buyt",
+        "answer": "trạm xe buýt",
         "metadata": {
           "target": "vocab",
           "vocabId": "v-bus-stop"
@@ -1057,12 +1057,12 @@
         "id": "wb16-future-transfer",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Chon cum thich hop de dien vao cho trong.",
+          "vi": "Chọn cụm thích hợp để điền vào chỗ trống.",
           "en": "Fill in the blank with the correct phrase."
         },
         "koreanText": "이 비행기는 한국까지 바로 가지 않아서 비행기를 ___.",
         "localizedText": {
-          "vi": "toi se phai chuyen may bay",
+          "vi": "tôi sẽ phải chuyển máy bay",
           "en": "I will have to transfer planes"
         },
         "answer": "갈아탈 거예요",
@@ -1095,12 +1095,12 @@
         "id": "wb16-walk-school",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Chon cum thich hop de dien vao cho trong.",
+          "vi": "Chọn cụm thích hợp để điền vào chỗ trống.",
           "en": "Fill in the blank with the correct phrase."
         },
         "koreanText": "저는 운동하러 학교까지 ___.",
         "localizedText": {
-          "vi": "toi di bo den truong de tap the duc",
+          "vi": "tôi đi bộ đến trường để tập thể dục",
           "en": "I walk to school for exercise"
         },
         "answer": "걸어가요",
@@ -1133,12 +1133,12 @@
         "id": "wb16-bike-ride",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Chon cum thich hop de dien vao cho trong.",
+          "vi": "Chọn cụm thích hợp để điền vào chỗ trống.",
           "en": "Fill in the blank with the correct phrase."
         },
         "koreanText": "저는 자전거를 ___.",
         "localizedText": {
-          "vi": "toi co the di xe dap",
+          "vi": "tôi có thể đi xe đạp",
           "en": "I can ride a bicycle"
         },
         "answer": "탈 수 있어요",
@@ -1171,12 +1171,12 @@
         "id": "wb16-library-from",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien tro tu dung vao cho trong.",
+          "vi": "Điền trợ từ đúng vào chỗ trống.",
           "en": "Fill in the correct particle."
         },
         "koreanText": "도서관___ 식당까지 버스를 타고 가요.",
         "localizedText": {
-          "vi": "tu thu vien den nha hang",
+          "vi": "từ thư viện đến nhà hàng",
           "en": "from the library to the restaurant"
         },
         "answer": "에서",
@@ -1210,12 +1210,12 @@
         "id": "wb16-restaurant-to",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien tro tu dung vao cho trong.",
+          "vi": "Điền trợ từ đúng vào chỗ trống.",
           "en": "Fill in the correct particle."
         },
         "koreanText": "도서관에서 식당___ 버스를 타고 가요.",
         "localizedText": {
-          "vi": "den nha hang",
+          "vi": "đến nhà hàng",
           "en": "to the restaurant"
         },
         "answer": "까지",
@@ -1249,12 +1249,12 @@
         "id": "wb16-subway-from",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien tro tu dung vao cho trong.",
+          "vi": "Điền trợ từ đúng vào chỗ trống.",
           "en": "Fill in the correct particle."
         },
         "koreanText": "지하철역___ 여행사까지 걸어가요.",
         "localizedText": {
-          "vi": "tu ga tau dien ngam den cong ty du lich",
+          "vi": "từ ga tàu điện ngầm đến công ty du lịch",
           "en": "from the subway station to the travel agency"
         },
         "answer": "에서",
@@ -1288,12 +1288,12 @@
         "id": "wb16-agency-to",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien tro tu dung vao cho trong.",
+          "vi": "Điền trợ từ đúng vào chỗ trống.",
           "en": "Fill in the correct particle."
         },
         "koreanText": "지하철역에서 여행사___ 걸어가요.",
         "localizedText": {
-          "vi": "den cong ty du lich",
+          "vi": "đến công ty du lịch",
           "en": "to the travel agency"
         },
         "answer": "까지",
@@ -1327,12 +1327,12 @@
         "id": "wb16-company-from",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien tro tu dung vao cho trong.",
+          "vi": "Điền trợ từ đúng vào chỗ trống.",
           "en": "Fill in the correct particle."
         },
         "koreanText": "회사___ 공원까지 가까워요.",
         "localizedText": {
-          "vi": "tu cong ty den cong vien thi gan",
+          "vi": "từ công ty đến công viên thì gần",
           "en": "it is close from the company to the park"
         },
         "answer": "에서",
@@ -1366,12 +1366,12 @@
         "id": "wb16-park-to",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien tro tu dung vao cho trong.",
+          "vi": "Điền trợ từ đúng vào chỗ trống.",
           "en": "Fill in the correct particle."
         },
         "koreanText": "회사에서 공원___ 가까워요.",
         "localizedText": {
-          "vi": "den cong vien",
+          "vi": "đến công viên",
           "en": "to the park"
         },
         "answer": "까지",
@@ -1405,12 +1405,12 @@
         "id": "wb16-command-wash",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh menh lenh lich su.",
+          "vi": "Hoàn thành mệnh lệnh lịch sự.",
           "en": "Complete the polite command."
         },
         "koreanText": "먼저 야채들을 ___.",
         "localizedText": {
-          "vi": "hay rua rau truoc",
+          "vi": "hãy rửa rau trước",
           "en": "wash the vegetables first"
         },
         "answer": "씻으십시오",
@@ -1444,12 +1444,12 @@
         "id": "wb16-command-walk-museum",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh menh lenh lich su.",
+          "vi": "Hoàn thành mệnh lệnh lịch sự.",
           "en": "Complete the polite command."
         },
         "koreanText": "박물관이 여기에서 가깝습니다. ___.",
         "localizedText": {
-          "vi": "hay di bo den bao tang",
+          "vi": "hãy đi bộ đến bảo tàng",
           "en": "walk to the museum"
         },
         "answer": "걸어가십시오",
@@ -1483,12 +1483,12 @@
         "id": "wb16-command-listen",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh menh lenh lich su.",
+          "vi": "Hoàn thành mệnh lệnh lịch sự.",
           "en": "Complete the polite command."
         },
         "koreanText": "그럼 한국 노래를 많이 ___.",
         "localizedText": {
-          "vi": "hay nghe nhieu bai hat Han Quoc",
+          "vi": "hãy nghe nhiều bài hát Hàn Quốc",
           "en": "listen to a lot of Korean songs"
         },
         "answer": "들으십시오",
@@ -1522,12 +1522,12 @@
         "id": "wb16-command-lie-down",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh menh lenh lich su.",
+          "vi": "Hoàn thành mệnh lệnh lịch sự.",
           "en": "Complete the polite command."
         },
         "koreanText": "한번 봅시다. 여기에 ___.",
         "localizedText": {
-          "vi": "hay nam xuong o day",
+          "vi": "hãy nằm xuống ở đây",
           "en": "lie down here"
         },
         "answer": "누우십시오",
@@ -1561,12 +1561,12 @@
         "id": "wb16-reading-train",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien dong tu qua khu thich hop vao cho trong.",
+          "vi": "Điền động từ quá khứ thích hợp vào chỗ trống.",
           "en": "Fill in the correct past-tense verb."
         },
         "koreanText": "서울역에서 기차를 ___.",
         "localizedText": {
-          "vi": "toi da di tau o ga Seoul",
+          "vi": "tôi đã đi tàu ở ga Seoul",
           "en": "I took a train at Seoul Station"
         },
         "answer": "탔습니다",
@@ -1599,12 +1599,12 @@
         "id": "wb16-reading-time",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien dong tu qua khu thich hop vao cho trong.",
+          "vi": "Điền động từ quá khứ thích hợp vào chỗ trống.",
           "en": "Fill in the correct past-tense verb."
         },
         "koreanText": "부산역까지 세 시간 ___.",
         "localizedText": {
-          "vi": "da mat ba tieng den ga Busan",
+          "vi": "đã mất ba tiếng đến ga Busan",
           "en": "it took three hours to Busan Station"
         },
         "answer": "걸렸습니다",
@@ -1637,12 +1637,12 @@
         "id": "wb16-reading-transfer",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien dong tu qua khu thich hop vao cho trong.",
+          "vi": "Điền động từ quá khứ thích hợp vào chỗ trống.",
           "en": "Fill in the correct past-tense verb."
         },
         "koreanText": "서면역에서 한 번 ___.",
         "localizedText": {
-          "vi": "toi da chuyen tau mot lan o ga Seomyeon",
+          "vi": "tôi đã chuyển tàu một lần ở ga Seomyeon",
           "en": "I transferred once at Seomyeon Station"
         },
         "answer": "갈아탔습니다",
@@ -1675,12 +1675,12 @@
         "id": "wb16-reading-gyeongju-bus",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dua vao bai doc va dien dap an dung.",
+          "vi": "Dựa vào bài đọc và điền đáp án đúng.",
           "en": "Use the reading passage to fill in the correct answer."
         },
         "koreanText": "서울에서 경주까지 ___를 타고 갔습니다.",
         "localizedText": {
-          "vi": "nguoi nay da di Gyeongju bang xe buyt",
+          "vi": "người này đã đi Gyeongju bằng xe buýt",
           "en": "the person went to Gyeongju by bus"
         },
         "answer": "버스",
@@ -1713,12 +1713,12 @@
         "id": "wb16-reading-not-used",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dua vao bai doc va dien dap an dung.",
+          "vi": "Dựa vào bài đọc và điền đáp án đúng.",
           "en": "Use the reading passage to fill in the correct answer."
         },
         "koreanText": "이 사람이 이용하지 않은 교통수단은 ___입니다.",
         "localizedText": {
-          "vi": "phuong tien nguoi nay khong dung la tau dien ngam",
+          "vi": "phương tiện người này không dùng là tàu điện ngầm",
           "en": "the transport this person did not use was the subway"
         },
         "answer": "지하철",
@@ -1751,11 +1751,11 @@
         "id": "wb16-extension-line3",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Viet cau huong dan duong di den Gyeongbokgung.",
+          "vi": "Viết câu hướng dẫn đường đi đến Gyeongbokgung.",
           "en": "Write the route instruction to Gyeongbokgung."
         },
         "localizedText": {
-          "vi": "Hay di tau dien ngam tuyen 3 va xuong o Gyeongbokgung.",
+          "vi": "Hãy đi tàu điện ngầm tuyến 3 và xuống ở Gyeongbokgung.",
           "en": "Take Line 3 and get off at Gyeongbokgung."
         },
         "answer": "지하철 3호선을 타고 경복궁에서 내리십시오.",
@@ -1783,11 +1783,11 @@
         "id": "wb16-extension-songs",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Viet mot loi khuyen lich su cho nguoi muon hoc tieng Han.",
+          "vi": "Viết một lời khuyên lịch sự cho người muốn học tiếng Hàn.",
           "en": "Write a polite suggestion for someone who wants to study Korean."
         },
         "localizedText": {
-          "vi": "Hay nghe nhieu bai hat Han Quoc.",
+          "vi": "Hãy nghe nhiều bài hát Hàn Quốc.",
           "en": "Listen to a lot of Korean songs."
         },
         "answer": "한국 노래를 많이 들으십시오.",
@@ -1815,11 +1815,11 @@
         "id": "wb16-extension-find-hotel",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Viet mot loi khuyen cho nguoi ban di du lich nuoc ngoai lan dau.",
+          "vi": "Viết một lời khuyên cho người bạn đi du lịch nước ngoài lần đầu.",
           "en": "Write a suggestion for a friend traveling abroad for the first time."
         },
         "localizedText": {
-          "vi": "Hay tim cho o truoc.",
+          "vi": "Hãy tìm chỗ ở trước.",
           "en": "Find accommodation in advance."
         },
         "answer": "미리 숙소를 찾으십시오.",
@@ -1847,20 +1847,20 @@
         "id": "wb16-qr-traffic-jam",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe QR va chon tinh huong giao thong dung.",
+          "vi": "Nghe QR và chọn tình huống giao thông đúng.",
           "en": "Listen to the QR audio and choose the correct traffic situation."
         },
         "localizedText": {
-          "vi": "duong dang tac",
+          "vi": "đường đang tắc",
           "en": "the road is jammed"
         },
-        "answer": "duong dang tac",
+        "answer": "đường đang tắc",
         "audioAssetId": "wb16-qr-traffic-audio",
         "options": [
           {
             "id": "clear-road",
             "label": {
-              "vi": "duong vang xe",
+              "vi": "đường vắng xe",
               "en": "the road is clear"
             },
             "correct": false
@@ -1868,7 +1868,7 @@
           {
             "id": "traffic-jam",
             "label": {
-              "vi": "duong dang tac",
+              "vi": "đường đang tắc",
               "en": "the road is jammed"
             },
             "correct": true
@@ -1899,20 +1899,20 @@
         "id": "wb16-qr-seoul-bus-number",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe hoi thoai QR va chon so xe buyt can di.",
+          "vi": "Nghe hội thoại QR và chọn số xe buýt cần đi.",
           "en": "Listen to the QR dialogue and choose the bus number to take."
         },
         "localizedText": {
-          "vi": "xe buyt 100",
+          "vi": "xe buýt 100",
           "en": "bus 100"
         },
-        "answer": "xe buyt 100",
+        "answer": "xe buýt 100",
         "audioAssetId": "wb16-qr-seoul-station-audio",
         "options": [
           {
             "id": "50",
             "label": {
-              "vi": "xe buyt 50",
+              "vi": "xe buýt 50",
               "en": "bus 50"
             },
             "correct": false
@@ -1920,7 +1920,7 @@
           {
             "id": "100",
             "label": {
-              "vi": "xe buyt 100",
+              "vi": "xe buýt 100",
               "en": "bus 100"
             },
             "correct": true
@@ -1928,7 +1928,7 @@
           {
             "id": "150",
             "label": {
-              "vi": "xe buyt 150",
+              "vi": "xe buýt 150",
               "en": "bus 150"
             },
             "correct": false
@@ -1936,7 +1936,7 @@
           {
             "id": "200",
             "label": {
-              "vi": "xe buyt 200",
+              "vi": "xe buýt 200",
               "en": "bus 200"
             },
             "correct": false
@@ -1967,20 +1967,20 @@
         "id": "wb16-qr-seoul-distance",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe hoi thoai QR va chon cach mo ta khoang cach dung.",
+          "vi": "Nghe hội thoại QR và chọn cách mô tả khoảng cách đúng.",
           "en": "Listen to the QR dialogue and choose the correct distance description."
         },
         "localizedText": {
-          "vi": "khong xa",
+          "vi": "không xa",
           "en": "not far"
         },
-        "answer": "khong xa",
+        "answer": "không xa",
         "audioAssetId": "wb16-qr-seoul-station-audio",
         "options": [
           {
             "id": "far",
             "label": {
-              "vi": "rat xa",
+              "vi": "rất xa",
               "en": "very far"
             },
             "correct": false
@@ -1988,7 +1988,7 @@
           {
             "id": "not-far",
             "label": {
-              "vi": "khong xa",
+              "vi": "không xa",
               "en": "not far"
             },
             "correct": true
@@ -1996,7 +1996,7 @@
           {
             "id": "three-hours",
             "label": {
-              "vi": "mat ba tieng",
+              "vi": "mất ba tiếng",
               "en": "it takes three hours"
             },
             "correct": false
@@ -2027,20 +2027,20 @@
         "id": "wb16-qr-destination",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe QR va chon dia diem ma Jiyeon muon den.",
+          "vi": "Nghe QR và chọn địa điểm mà Jiyeon muốn đến.",
           "en": "Listen to the QR audio and choose Jiyeon's destination."
         },
         "localizedText": {
-          "vi": "san bay",
+          "vi": "sân bay",
           "en": "airport"
         },
-        "answer": "san bay",
+        "answer": "sân bay",
         "audioAssetId": "wb16-qr-airport-audio",
         "options": [
           {
             "id": "airport",
             "label": {
-              "vi": "san bay",
+              "vi": "sân bay",
               "en": "airport"
             },
             "correct": true
@@ -2056,7 +2056,7 @@
           {
             "id": "terminal",
             "label": {
-              "vi": "ben xe",
+              "vi": "bến xe",
               "en": "terminal"
             },
             "correct": false
@@ -2064,7 +2064,7 @@
           {
             "id": "harbor",
             "label": {
-              "vi": "cang",
+              "vi": "cảng",
               "en": "harbor"
             },
             "correct": false
@@ -2087,6 +2087,686 @@
           "rawText": "지연 씨는 공항에 가려고 해요.",
           "confidence": 0.98,
           "sourceBlockId": "wb16-qr-destination-seed",
+          "page": 270
+        },
+        "needsReview": true
+      }
+    ],
+    "listeningItems": [
+      {
+        "id": "u16-qr-traffic-jam-image",
+        "sourceExerciseIds": [
+          "wb16-qr-traffic-jam"
+        ],
+        "audioAssetId": "wb16-qr-traffic-audio",
+        "clipStartMs": 0,
+        "clipEndMs": 2600,
+        "type": "choose_image",
+        "prompt": {
+          "vi": "Nghe đoạn ngắn rồi chọn hình đúng.",
+          "en": "Listen to the short clip and choose the matching image."
+        },
+        "questionText": {
+          "vi": "Tình huống giao thông nào đang được nhắc tới?",
+          "en": "Which traffic situation is mentioned?"
+        },
+        "transcriptKo": "퇴근 시간이라 길이 막힙니다.",
+        "translation": {
+          "vi": "Đường đang tắc vì giờ tan tầm.",
+          "en": "The road is jammed because it is rush hour."
+        },
+        "choices": [
+          {
+            "id": "traffic-jam",
+            "text": {
+              "vi": "đường đang tắc",
+              "en": "the road is jammed"
+            },
+            "imagePath": "/generated/listening-cards/unit-16/traffic-jam.svg"
+          },
+          {
+            "id": "clear-road",
+            "text": {
+              "vi": "đường đang thông",
+              "en": "the road is clear"
+            },
+            "imagePath": "/generated/listening-cards/unit-16/clear-road.svg"
+          }
+        ],
+        "correctChoiceId": "traffic-jam",
+        "coverageTags": [
+          "qr-listening",
+          "traffic",
+          "situation"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 264,
+          "endPage": 264
+        },
+        "sourceRef": {
+          "rawText": "퇴근 시간이라 길이 막힙니다. choose_image clip",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-traffic-jam-image-seed",
+          "page": 264
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-seoul-route-order",
+        "sourceExerciseIds": [
+          "wb16-qr-seoul-bus-number"
+        ],
+        "audioAssetId": "wb16-qr-seoul-station-audio",
+        "clipStartMs": 0,
+        "clipEndMs": 2700,
+        "type": "order_step",
+        "prompt": {
+          "vi": "Nghe đoạn hỏi đường rồi sắp xếp câu hỏi.",
+          "en": "Listen to the directions question and arrange it in order."
+        },
+        "questionText": {
+          "vi": "Sắp xếp lại câu hỏi xuất hiện trong audio.",
+          "en": "Arrange the question that appears in the audio."
+        },
+        "transcriptKo": "리사: 실례합니다. 여기에서 서울역까지 어떻게 가요?",
+        "translation": {
+          "vi": "Từ đây đến ga Seoul đi thế nào?",
+          "en": "How do I get to Seoul Station from here?"
+        },
+        "contextGroupId": "u16-qr-seoul-route",
+        "contextTitle": {
+          "vi": "Đường đến ga Seoul",
+          "en": "Route to Seoul Station"
+        },
+        "contextSummary": {
+          "vi": "Một đoạn hội thoại ngắn hỏi đường đến ga Seoul.",
+          "en": "A short dialogue about asking the way to Seoul Station."
+        },
+        "choices": [
+          {
+            "id": "route-q-1",
+            "text": {
+              "vi": "여기에서",
+              "en": "from here"
+            }
+          },
+          {
+            "id": "route-q-2",
+            "text": {
+              "vi": "서울역까지",
+              "en": "to Seoul Station"
+            }
+          },
+          {
+            "id": "route-q-3",
+            "text": {
+              "vi": "어떻게",
+              "en": "how"
+            }
+          },
+          {
+            "id": "route-q-4",
+            "text": {
+              "vi": "가요?",
+              "en": "do I go?"
+            }
+          }
+        ],
+        "correctOrderChoiceIds": [
+          "route-q-1",
+          "route-q-2",
+          "route-q-3",
+          "route-q-4"
+        ],
+        "coverageTags": [
+          "qr-listening",
+          "directions",
+          "route-question"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 269,
+          "endPage": 269
+        },
+        "sourceRef": {
+          "rawText": "여기에서 서울역까지 어떻게 가요? order_step clip",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-seoul-route-order-seed",
+          "page": 269
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-seoul-bus-number-choice",
+        "sourceExerciseIds": [
+          "wb16-qr-seoul-bus-number"
+        ],
+        "audioAssetId": "wb16-qr-seoul-station-audio",
+        "clipStartMs": 2400,
+        "clipEndMs": 5600,
+        "type": "multiple_choice",
+        "prompt": {
+          "vi": "Nghe đoạn chỉ đường rồi chọn số xe buýt.",
+          "en": "Listen to the directions clip and choose the bus number."
+        },
+        "questionText": {
+          "vi": "Cần đi xe buýt số mấy?",
+          "en": "Which bus number should Lisa take?"
+        },
+        "transcriptKo": "남자: 저기 정류장에서 100번 버스를 타십시오.",
+        "translation": {
+          "vi": "Hãy bắt xe buýt số 100 ở trạm đằng kia.",
+          "en": "Take bus 100 at that bus stop over there."
+        },
+        "contextGroupId": "u16-qr-seoul-route",
+        "contextTitle": {
+          "vi": "Đường đến ga Seoul",
+          "en": "Route to Seoul Station"
+        },
+        "contextSummary": {
+          "vi": "Một đoạn hội thoại ngắn hỏi đường đến ga Seoul.",
+          "en": "A short dialogue about asking the way to Seoul Station."
+        },
+        "choices": [
+          {
+            "id": "bus-50",
+            "text": {
+              "vi": "xe buýt 50",
+              "en": "bus 50"
+            }
+          },
+          {
+            "id": "bus-100",
+            "text": {
+              "vi": "xe buýt 100",
+              "en": "bus 100"
+            }
+          },
+          {
+            "id": "bus-150",
+            "text": {
+              "vi": "xe buýt 150",
+              "en": "bus 150"
+            }
+          }
+        ],
+        "correctChoiceId": "bus-100",
+        "coverageTags": [
+          "qr-listening",
+          "directions",
+          "bus-number"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 269,
+          "endPage": 269
+        },
+        "sourceRef": {
+          "rawText": "저기 정류장에서 100번 버스를 타십시오. multiple_choice clip",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-seoul-bus-number-choice-seed",
+          "page": 269
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-seoul-route-yes-no",
+        "sourceExerciseIds": [
+          "wb16-qr-seoul-bus-number",
+          "wb16-qr-seoul-distance"
+        ],
+        "audioAssetId": "wb16-qr-seoul-station-audio",
+        "clipStartMs": 5000,
+        "clipEndMs": 7600,
+        "type": "yes_no",
+        "prompt": {
+          "vi": "Nghe đoạn ngắn rồi trả lời Đúng hoặc Sai.",
+          "en": "Listen to the short clip and answer Yes or No."
+        },
+        "questionText": {
+          "vi": "Đoạn audio có nói xe buýt đó đi đến ga Seoul không?",
+          "en": "Does the audio say that the bus goes to Seoul Station?"
+        },
+        "transcriptKo": "남자: 그 버스가 서울역까지 갑니다.",
+        "translation": {
+          "vi": "Xe buýt đó đi đến ga Seoul.",
+          "en": "That bus goes to Seoul Station."
+        },
+        "contextGroupId": "u16-qr-seoul-route",
+        "contextTitle": {
+          "vi": "Đường đến ga Seoul",
+          "en": "Route to Seoul Station"
+        },
+        "contextSummary": {
+          "vi": "Một đoạn hội thoại ngắn hỏi đường đến ga Seoul.",
+          "en": "A short dialogue about asking the way to Seoul Station."
+        },
+        "choices": [
+          {
+            "id": "yes",
+            "text": {
+              "vi": "Đúng",
+              "en": "Yes"
+            }
+          },
+          {
+            "id": "no",
+            "text": {
+              "vi": "Sai",
+              "en": "No"
+            }
+          }
+        ],
+        "correctChoiceId": "yes",
+        "coverageTags": [
+          "qr-listening",
+          "directions",
+          "route-check"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 269,
+          "endPage": 269
+        },
+        "sourceRef": {
+          "rawText": "그 버스가 서울역까지 갑니다. yes_no clip",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-seoul-route-yes-no-seed",
+          "page": 269
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-seoul-distance-choice",
+        "sourceExerciseIds": [
+          "wb16-qr-seoul-distance"
+        ],
+        "audioAssetId": "wb16-qr-seoul-station-audio",
+        "clipStartMs": 8200,
+        "clipEndMs": 11800,
+        "type": "multiple_choice",
+        "prompt": {
+          "vi": "Nghe câu hỏi và câu trả lời rồi chọn mô tả khoảng cách.",
+          "en": "Listen to the distance exchange and choose the best answer."
+        },
+        "questionText": {
+          "vi": "Khoảng cách đến ga Seoul được mô tả như thế nào?",
+          "en": "How is the distance to Seoul Station described?"
+        },
+        "transcriptKo": "리사: 그런데 여기에서 서울역까지 많이 멀어요? 남자: 아니요. 멀지 않아요.",
+        "translation": {
+          "vi": "Không, không xa.",
+          "en": "No, it is not far."
+        },
+        "contextGroupId": "u16-qr-seoul-route",
+        "contextTitle": {
+          "vi": "Đường đến ga Seoul",
+          "en": "Route to Seoul Station"
+        },
+        "contextSummary": {
+          "vi": "Một đoạn hội thoại ngắn hỏi đường đến ga Seoul.",
+          "en": "A short dialogue about asking the way to Seoul Station."
+        },
+        "choices": [
+          {
+            "id": "distance-far",
+            "text": {
+              "vi": "rất xa",
+              "en": "very far"
+            }
+          },
+          {
+            "id": "distance-not-far",
+            "text": {
+              "vi": "không xa",
+              "en": "not far"
+            }
+          },
+          {
+            "id": "distance-three-hours",
+            "text": {
+              "vi": "mất ba tiếng",
+              "en": "takes three hours"
+            }
+          }
+        ],
+        "correctChoiceId": "distance-not-far",
+        "coverageTags": [
+          "qr-listening",
+          "distance",
+          "directions"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 269,
+          "endPage": 269
+        },
+        "sourceRef": {
+          "rawText": "많이 멀어요? 아니요. 멀지 않아요. multiple_choice clip",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-seoul-distance-choice-seed",
+          "page": 269
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-airport-destination-image",
+        "sourceExerciseIds": [
+          "wb16-qr-destination"
+        ],
+        "audioAssetId": "wb16-qr-airport-audio",
+        "clipStartMs": 0,
+        "clipEndMs": 2500,
+        "type": "choose_image",
+        "prompt": {
+          "vi": "Nghe đoạn ngắn rồi chọn nơi Jiyeon muốn đến.",
+          "en": "Listen to the short clip and choose Jiyeon's destination."
+        },
+        "questionText": {
+          "vi": "Jiyeon muốn đến đâu?",
+          "en": "Where does Jiyeon want to go?"
+        },
+        "transcriptKo": "지연 씨는 공항에 가려고 해요.",
+        "translation": {
+          "vi": "Jiyeon muốn đi sân bay.",
+          "en": "Jiyeon wants to go to the airport."
+        },
+        "contextGroupId": "u16-qr-airport",
+        "contextTitle": {
+          "vi": "Đi sân bay",
+          "en": "Going to the airport"
+        },
+        "contextSummary": {
+          "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
+          "en": "A short clip about a destination and bus advice."
+        },
+        "choices": [
+          {
+            "id": "airport",
+            "text": {
+              "vi": "sân bay",
+              "en": "airport"
+            },
+            "imagePath": "/generated/listening-cards/unit-16/airport.svg"
+          },
+          {
+            "id": "seoul-station",
+            "text": {
+              "vi": "ga Seoul",
+              "en": "Seoul Station"
+            },
+            "imagePath": "/generated/listening-cards/unit-16/seoul-station.svg"
+          },
+          {
+            "id": "terminal",
+            "text": {
+              "vi": "bến xe",
+              "en": "terminal"
+            },
+            "imagePath": "/generated/listening-cards/unit-16/terminal.svg"
+          }
+        ],
+        "correctChoiceId": "airport",
+        "coverageTags": [
+          "qr-listening",
+          "destination",
+          "travel"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 270,
+          "endPage": 270
+        },
+        "sourceRef": {
+          "rawText": "지연 씨는 공항에 가려고 해요. choose_image clip",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-airport-destination-image-seed",
+          "page": 270
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-airport-destination-fill",
+        "sourceExerciseIds": [
+          "wb16-qr-destination"
+        ],
+        "audioAssetId": "wb16-qr-airport-audio",
+        "clipStartMs": 0,
+        "clipEndMs": 2500,
+        "type": "fill_blank",
+        "prompt": {
+          "vi": "Nghe đoạn ngắn rồi điền nơi muốn đến.",
+          "en": "Listen to the short clip and fill in the destination."
+        },
+        "questionText": {
+          "vi": "Hoàn thành câu còn thiếu.",
+          "en": "Complete the missing destination."
+        },
+        "transcriptKo": "지연 씨는 공항에 가려고 해요.",
+        "translation": {
+          "vi": "Jiyeon muốn đi sân bay.",
+          "en": "Jiyeon wants to go to the airport."
+        },
+        "contextGroupId": "u16-qr-airport",
+        "contextTitle": {
+          "vi": "Đi sân bay",
+          "en": "Going to the airport"
+        },
+        "contextSummary": {
+          "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
+          "en": "A short clip about a destination and bus advice."
+        },
+        "choices": [
+          {
+            "id": "airport-fill",
+            "text": {
+              "vi": "공항",
+              "en": "airport"
+            }
+          },
+          {
+            "id": "station-fill",
+            "text": {
+              "vi": "서울역",
+              "en": "Seoul Station"
+            }
+          },
+          {
+            "id": "terminal-fill",
+            "text": {
+              "vi": "터미널",
+              "en": "terminal"
+            }
+          }
+        ],
+        "correctText": "공항",
+        "acceptedAnswers": [
+          "공항"
+        ],
+        "coverageTags": [
+          "qr-listening",
+          "destination",
+          "fill-blank"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 270,
+          "endPage": 270
+        },
+        "sourceRef": {
+          "rawText": "지연 씨는 ___에 가려고 해요. fill_blank clip",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-airport-destination-fill-seed",
+          "page": 270
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-airport-bus-fill",
+        "sourceExerciseIds": [
+          "wb16-qr-destination"
+        ],
+        "audioAssetId": "wb16-qr-airport-audio",
+        "clipStartMs": 2100,
+        "clipEndMs": 5000,
+        "type": "fill_blank",
+        "prompt": {
+          "vi": "Nghe lời khuyên rồi điền số xe buýt.",
+          "en": "Listen to the advice clip and fill in the bus number."
+        },
+        "questionText": {
+          "vi": "Điền số xe buýt được nhắc tới.",
+          "en": "Fill in the bus number that is mentioned."
+        },
+        "transcriptKo": "여기에서 600번 버스를 타고 가세요.",
+        "translation": {
+          "vi": "Hãy bắt xe buýt số 600 từ đây.",
+          "en": "Take bus 600 from here."
+        },
+        "contextGroupId": "u16-qr-airport",
+        "contextTitle": {
+          "vi": "Đi sân bay",
+          "en": "Going to the airport"
+        },
+        "contextSummary": {
+          "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
+          "en": "A short clip about a destination and bus advice."
+        },
+        "choices": [
+          {
+            "id": "bus-100-fill",
+            "text": {
+              "vi": "100",
+              "en": "100"
+            }
+          },
+          {
+            "id": "bus-600-fill",
+            "text": {
+              "vi": "600",
+              "en": "600"
+            }
+          },
+          {
+            "id": "bus-900-fill",
+            "text": {
+              "vi": "900",
+              "en": "900"
+            }
+          }
+        ],
+        "correctText": "600",
+        "acceptedAnswers": [
+          "600"
+        ],
+        "coverageTags": [
+          "qr-listening",
+          "destination",
+          "bus-number"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 270,
+          "endPage": 270
+        },
+        "sourceRef": {
+          "rawText": "여기에서 600번 버스를 타고 가세요. fill_blank clip",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-airport-bus-fill-seed",
+          "page": 270
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-airport-order",
+        "sourceExerciseIds": [
+          "wb16-qr-destination"
+        ],
+        "audioAssetId": "wb16-qr-airport-audio",
+        "clipStartMs": 2100,
+        "clipEndMs": 5000,
+        "type": "order_step",
+        "prompt": {
+          "vi": "Nghe lời khuyên rồi sắp xếp lại câu chỉ đường.",
+          "en": "Listen to the advice clip and arrange the sentence in order."
+        },
+        "questionText": {
+          "vi": "Sắp xếp lại câu xuất hiện trong audio.",
+          "en": "Arrange the sentence that appears in the audio."
+        },
+        "transcriptKo": "여기에서 600번 버스를 타고 가세요.",
+        "translation": {
+          "vi": "Hãy bắt xe buýt số 600 từ đây.",
+          "en": "Take bus 600 from here."
+        },
+        "contextGroupId": "u16-qr-airport",
+        "contextTitle": {
+          "vi": "Đi sân bay",
+          "en": "Going to the airport"
+        },
+        "contextSummary": {
+          "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
+          "en": "A short clip about a destination and bus advice."
+        },
+        "choices": [
+          {
+            "id": "airport-order-1",
+            "text": {
+              "vi": "여기에서",
+              "en": "from here"
+            }
+          },
+          {
+            "id": "airport-order-2",
+            "text": {
+              "vi": "600번",
+              "en": "bus 600"
+            }
+          },
+          {
+            "id": "airport-order-3",
+            "text": {
+              "vi": "버스를",
+              "en": "the bus"
+            }
+          },
+          {
+            "id": "airport-order-4",
+            "text": {
+              "vi": "타고",
+              "en": "take and"
+            }
+          },
+          {
+            "id": "airport-order-5",
+            "text": {
+              "vi": "가세요.",
+              "en": "go please"
+            }
+          }
+        ],
+        "correctOrderChoiceIds": [
+          "airport-order-1",
+          "airport-order-2",
+          "airport-order-3",
+          "airport-order-4",
+          "airport-order-5"
+        ],
+        "coverageTags": [
+          "qr-listening",
+          "destination",
+          "route-advice"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 270,
+          "endPage": 270
+        },
+        "sourceRef": {
+          "rawText": "여기에서 600번 버스를 타고 가세요. order_step clip",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-airport-order-seed",
           "page": 270
         },
         "needsReview": true

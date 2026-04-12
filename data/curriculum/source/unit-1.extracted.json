@@ -2,7 +2,7 @@
   "unitId": "1",
   "unitNumber": 1,
   "title": {
-    "vi": "Chao hoi va gioi thieu",
+    "vi": "Chào hỏi và giới thiệu",
     "en": "Greetings and introductions"
   },
   "needsReview": true,
@@ -37,7 +37,7 @@
         "id": "v-hello",
         "korean": "안녕하세요",
         "translations": {
-          "vi": "xin chao",
+          "vi": "xin chào",
           "en": "hello"
         },
         "romanization": "annyeonghaseyo",
@@ -58,7 +58,7 @@
         "id": "v-i-humble",
         "korean": "저",
         "translations": {
-          "vi": "toi, em (khiem nhuong)",
+          "vi": "tôi, em (khiêm nhường)",
           "en": "I, me (humble)"
         },
         "romanization": "jeo",
@@ -79,7 +79,7 @@
         "id": "v-first-time",
         "korean": "처음",
         "translations": {
-          "vi": "lan dau",
+          "vi": "lần đầu",
           "en": "first time"
         },
         "romanization": "cheoeum",
@@ -99,7 +99,7 @@
         "id": "v-nice-to-meet",
         "korean": "반갑습니다",
         "translations": {
-          "vi": "rat vui duoc gap ban",
+          "vi": "rất vui được gặp bạn",
           "en": "nice to meet you"
         },
         "romanization": "bangapseumnida",
@@ -120,7 +120,7 @@
         "id": "v-student",
         "korean": "학생",
         "translations": {
-          "vi": "hoc sinh, sinh vien",
+          "vi": "học sinh, sinh viên",
           "en": "student"
         },
         "romanization": "haksaeng",
@@ -141,7 +141,7 @@
         "id": "v-is-formal",
         "korean": "입니다",
         "translations": {
-          "vi": "la, la ... a",
+          "vi": "là, là ... ạ",
           "en": "am, is, are (formal polite)"
         },
         "romanization": "imnida",
@@ -163,7 +163,7 @@
         "id": "g-copula-imnida",
         "pattern": "N + 입니다",
         "explanation": {
-          "vi": "Gan `입니다` sau danh tu de gioi thieu ban than hoac noi nghiep nghiep mot cach lich su.",
+          "vi": "Gắn `입니다` sau danh từ để giới thiệu bản thân hoặc nói nghề nghiệp một cách lịch sự.",
           "en": "Attach `입니다` after a noun to introduce someone or state identity politely."
         },
         "exampleIds": [
@@ -190,7 +190,7 @@
         "speaker": "Minsu",
         "korean": "안녕하세요. 저는 민수입니다.",
         "translations": {
-          "vi": "Xin chao. Toi la Minsu.",
+          "vi": "Xin chào. Tôi là Minsu.",
           "en": "Hello. I am Minsu."
         },
         "pages": {
@@ -210,7 +210,7 @@
         "speaker": "Jisu",
         "korean": "안녕하세요. 저는 지수입니다.",
         "translations": {
-          "vi": "Xin chao. Toi la Jisu.",
+          "vi": "Xin chào. Tôi là Jisu.",
           "en": "Hello. I am Jisu."
         },
         "pages": {
@@ -230,7 +230,7 @@
         "speaker": "Minsu",
         "korean": "처음 뵙겠습니다.",
         "translations": {
-          "vi": "Lan dau gap ban, rat han hanh.",
+          "vi": "Lần đầu gặp bạn, rất hân hạnh.",
           "en": "It is my first time meeting you."
         },
         "pages": {
@@ -250,7 +250,7 @@
         "speaker": "Jisu",
         "korean": "저도 반갑습니다.",
         "translations": {
-          "vi": "Toi cung rat vui duoc gap ban.",
+          "vi": "Tôi cũng rất vui được gặp bạn.",
           "en": "Nice to meet you too."
         },
         "pages": {
@@ -270,7 +270,7 @@
         "speaker": "Minsu",
         "korean": "저는 학생입니다.",
         "translations": {
-          "vi": "Toi la hoc sinh.",
+          "vi": "Tôi là học sinh.",
           "en": "I am a student."
         },
         "pages": {
@@ -291,7 +291,7 @@
         "id": "ex-student",
         "korean": "저는 학생입니다.",
         "translations": {
-          "vi": "Toi la hoc sinh.",
+          "vi": "Tôi là học sinh.",
           "en": "I am a student."
         },
         "grammarTags": [
@@ -313,7 +313,7 @@
         "id": "ex-office-worker",
         "korean": "저는 회사원입니다.",
         "translations": {
-          "vi": "Toi la nhan vien cong ty.",
+          "vi": "Tôi là nhân viên công ty.",
           "en": "I am an office worker."
         },
         "grammarTags": [
@@ -335,7 +335,7 @@
         "id": "ex-doctor",
         "korean": "저는 의사입니다.",
         "translations": {
-          "vi": "Toi la bac si.",
+          "vi": "Tôi là bác sĩ.",
           "en": "I am a doctor."
         },
         "grammarTags": [
@@ -385,7 +385,7 @@
         "id": "wb-fill-student-ending",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien duoi cau lich su con thieu.",
+          "vi": "Điền đuôi câu lịch sự còn thiếu.",
           "en": "Fill in the missing polite ending."
         },
         "koreanText": "저는 학생___",
@@ -415,15 +415,15 @@
         "id": "wb-match-hello",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Noi bieu thuc voi y nghia dung.",
+          "vi": "Nối biểu thức với ý nghĩa đúng.",
           "en": "Match the expression to the correct meaning."
         },
         "koreanText": "안녕하세요",
         "localizedText": {
-          "vi": "xin chao",
+          "vi": "xin chào",
           "en": "hello"
         },
-        "answer": "xin chao",
+        "answer": "xin chào",
         "metadata": {
           "target": "vocab"
         },
@@ -447,15 +447,15 @@
         "id": "wb-match-jeo",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Noi tu voi y nghia cua no.",
+          "vi": "Nối từ với ý nghĩa của nó.",
           "en": "Match the word with its meaning."
         },
         "koreanText": "저",
         "localizedText": {
-          "vi": "toi, em (khiem nhuong)",
+          "vi": "tôi, em (khiêm nhường)",
           "en": "I, me (humble)"
         },
-        "answer": "toi, em (khiem nhuong)",
+        "answer": "tôi, em (khiêm nhường)",
         "metadata": {
           "target": "vocab"
         },
@@ -479,15 +479,15 @@
         "id": "wb-match-student",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Noi danh tu voi y nghia dung.",
+          "vi": "Nối danh từ với ý nghĩa đúng.",
           "en": "Match the noun to the correct meaning."
         },
         "koreanText": "학생",
         "localizedText": {
-          "vi": "hoc sinh, sinh vien",
+          "vi": "học sinh, sinh viên",
           "en": "student"
         },
-        "answer": "hoc sinh, sinh vien",
+        "answer": "học sinh, sinh viên",
         "metadata": {
           "target": "vocab"
         },
@@ -511,11 +511,11 @@
         "id": "wb-translate-student",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Dich sang tieng Han.",
+          "vi": "Dịch sang tiếng Hàn.",
           "en": "Translate into Korean."
         },
         "localizedText": {
-          "vi": "Toi la hoc sinh.",
+          "vi": "Tôi là học sinh.",
           "en": "I am a student."
         },
         "answer": "저는 학생입니다.",
@@ -543,11 +543,11 @@
         "id": "wb-translate-hello",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Dich sang y nghia.",
+          "vi": "Dịch sang ý nghĩa.",
           "en": "Translate into the meaning."
         },
         "koreanText": "안녕하세요.",
-        "answer": "Xin chao.",
+        "answer": "Xin chào.",
         "metadata": {
           "direction": "ko_to_meaning"
         },
@@ -571,7 +571,7 @@
         "id": "wb-grammar-copula-choice",
         "exerciseType": "writing",
         "prompt": {
-          "vi": "Chon duoi cau dung sau danh tu.",
+          "vi": "Chọn đuôi câu đúng sau danh từ.",
           "en": "Choose the correct ending after the noun."
         },
         "koreanText": "학생 + ___",
@@ -605,15 +605,15 @@
         "id": "wb-listen-too",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe va chon y nghia dung.",
+          "vi": "Nghe và chọn ý nghĩa đúng.",
           "en": "Listen and choose the correct meaning."
         },
         "koreanText": "저도 반갑습니다.",
         "localizedText": {
-          "vi": "Toi cung rat vui duoc gap ban.",
+          "vi": "Tôi cũng rất vui được gặp bạn.",
           "en": "Nice to meet you too."
         },
-        "answer": "Toi cung rat vui duoc gap ban.",
+        "answer": "Tôi cũng rất vui được gặp bạn.",
         "metadata": {
           "target": "listening"
         },
@@ -638,7 +638,7 @@
         "id": "wb-fill-nice",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien bieu thuc con thieu.",
+          "vi": "Điền biểu thức còn thiếu.",
           "en": "Fill in the missing expression."
         },
         "koreanText": "저도 ___",
@@ -672,7 +672,7 @@
         "id": "wb-order-jisu",
         "exerciseType": "sentence_ordering",
         "prompt": {
-          "vi": "Sap xep cau gioi thieu cua Jisu.",
+          "vi": "Sắp xếp câu giới thiệu của Jisu.",
           "en": "Arrange Jisu's introduction."
         },
         "answer": [
@@ -709,11 +709,11 @@
         "id": "wb-translate-jisu",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Dich sang tieng Han.",
+          "vi": "Dịch sang tiếng Hàn.",
           "en": "Translate into Korean."
         },
         "localizedText": {
-          "vi": "Toi la Jisu.",
+          "vi": "Tôi là Jisu.",
           "en": "I am Jisu."
         },
         "answer": "저는 지수입니다.",
@@ -741,11 +741,11 @@
         "id": "wb-translate-nice",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Dich sang y nghia.",
+          "vi": "Dịch sang ý nghĩa.",
           "en": "Translate into the meaning."
         },
         "koreanText": "반갑습니다.",
-        "answer": "Rat vui duoc gap ban.",
+        "answer": "Rất vui được gặp bạn.",
         "metadata": {
           "direction": "ko_to_meaning"
         },
@@ -769,7 +769,7 @@
         "id": "wb-fill-name-line",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien duoi cau vao mau gioi thieu ten.",
+          "vi": "Điền đuôi câu vào mẫu giới thiệu tên.",
           "en": "Fill in the ending for the name-introduction pattern."
         },
         "koreanText": "저는 지수___",
@@ -798,7 +798,7 @@
         "id": "wb-grammar-ending",
         "exerciseType": "writing",
         "prompt": {
-          "vi": "Chon duoi cau phu hop sau danh tu.",
+          "vi": "Chọn đuôi câu phù hợp sau danh từ.",
           "en": "Choose the correct sentence ending after the noun."
         },
         "koreanText": "학생 + ___",
@@ -827,7 +827,7 @@
         "id": "wb-fill-office-worker",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien nghe nghiep con thieu.",
+          "vi": "Điền nghề nghiệp còn thiếu.",
           "en": "Fill in the missing job noun."
         },
         "koreanText": "저는 ___입니다.",
@@ -861,7 +861,7 @@
         "id": "wb-order-office-worker",
         "exerciseType": "sentence_ordering",
         "prompt": {
-          "vi": "Sap xep cau ve nghe nghiep.",
+          "vi": "Sắp xếp câu về nghề nghiệp.",
           "en": "Arrange the sentence about the job."
         },
         "answer": [
@@ -898,11 +898,11 @@
         "id": "wb-translate-office-worker",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Dich sang tieng Han.",
+          "vi": "Dịch sang tiếng Hàn.",
           "en": "Translate into Korean."
         },
         "localizedText": {
-          "vi": "Toi la nhan vien cong ty.",
+          "vi": "Tôi là nhân viên công ty.",
           "en": "I am an office worker."
         },
         "answer": "저는 회사원입니다.",
@@ -930,15 +930,15 @@
         "id": "wb-listen-student",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe va chon y nghia dung.",
+          "vi": "Nghe và chọn ý nghĩa đúng.",
           "en": "Listen and choose the correct meaning."
         },
         "koreanText": "저는 학생입니다.",
         "localizedText": {
-          "vi": "Toi la hoc sinh.",
+          "vi": "Tôi là học sinh.",
           "en": "I am a student."
         },
-        "answer": "Toi la hoc sinh.",
+        "answer": "Tôi là học sinh.",
         "metadata": {
           "target": "listening"
         },
@@ -963,7 +963,7 @@
         "id": "wb-write-doctor",
         "exerciseType": "writing",
         "prompt": {
-          "vi": "Viet cau: Toi la bac si.",
+          "vi": "Viết câu: Tôi là bác sĩ.",
           "en": "Write: I am a doctor."
         },
         "answer": "저는 의사입니다.",
@@ -991,12 +991,12 @@
         "id": "wb-fill-intro-name",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien tu con thieu trong cau gioi thieu.",
+          "vi": "Điền từ còn thiếu trong câu giới thiệu.",
           "en": "Fill in the missing word in the introduction."
         },
         "koreanText": "___ 민수입니다.",
         "localizedText": {
-          "vi": "Toi la Minsu.",
+          "vi": "Tôi là Minsu.",
           "en": "I am Minsu."
         },
         "answer": "저는",
@@ -1028,11 +1028,11 @@
         "id": "wb-translate-doctor",
         "exerciseType": "translation",
         "prompt": {
-          "vi": "Dich sang y nghia.",
+          "vi": "Dịch sang ý nghĩa.",
           "en": "Translate into the meaning."
         },
         "koreanText": "저는 의사입니다.",
-        "answer": "Toi la bac si.",
+        "answer": "Tôi là bác sĩ.",
         "metadata": {
           "direction": "ko_to_meaning"
         },
@@ -1057,7 +1057,7 @@
         "id": "wb-guided-selfintro",
         "exerciseType": "writing",
         "prompt": {
-          "vi": "Viet gioi thieu ngan gom loi chao va ten.",
+          "vi": "Viết giới thiệu ngắn gồm lời chào và tên.",
           "en": "Write a short self-introduction with a greeting and your name."
         },
         "answer": [
@@ -1092,15 +1092,15 @@
         "id": "wb-listen-greeting",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe va chon loi chao dung.",
+          "vi": "Nghe và chọn lời chào đúng.",
           "en": "Listen and choose the correct greeting."
         },
         "koreanText": "안녕하세요",
         "localizedText": {
-          "vi": "xin chao",
+          "vi": "xin chào",
           "en": "hello"
         },
-        "answer": "xin chao",
+        "answer": "xin chào",
         "metadata": {
           "target": "listening"
         },
@@ -1124,7 +1124,7 @@
         "id": "wb-qr-listen-country-left",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe hoi thoai va chon la co quoc gia cua Natasha.",
+          "vi": "Nghe hội thoại và chọn lá cờ quốc gia của Natasha.",
           "en": "Listen to the dialogue and choose Natasha's country flag."
         },
         "localizedText": {
@@ -1137,7 +1137,7 @@
           {
             "id": "south-korea",
             "label": {
-              "vi": "Han Quoc",
+              "vi": "Hàn Quốc",
               "en": "South Korea"
             },
             "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-korea.png",
@@ -1146,7 +1146,7 @@
           {
             "id": "united-states",
             "label": {
-              "vi": "My",
+              "vi": "Mỹ",
               "en": "United States"
             },
             "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-usa.png",
@@ -1155,7 +1155,7 @@
           {
             "id": "vietnam",
             "label": {
-              "vi": "Viet Nam",
+              "vi": "Việt Nam",
               "en": "Vietnam"
             },
             "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-vietnam.png",
@@ -1197,20 +1197,20 @@
         "id": "wb-qr-listen-country-right",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe hoi thoai va chon la co quoc gia cua Gayoung.",
+          "vi": "Nghe hội thoại và chọn lá cờ quốc gia của Gayoung.",
           "en": "Listen to the dialogue and choose Gayoung's country flag."
         },
         "localizedText": {
-          "vi": "Han Quoc",
+          "vi": "Hàn Quốc",
           "en": "South Korea"
         },
-        "answer": "Han Quoc",
+        "answer": "Hàn Quốc",
         "audioAssetId": "wb-qr-country-2-audio",
         "options": [
           {
             "id": "south-korea",
             "label": {
-              "vi": "Han Quoc",
+              "vi": "Hàn Quốc",
               "en": "South Korea"
             },
             "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-korea.png",
@@ -1219,7 +1219,7 @@
           {
             "id": "united-states",
             "label": {
-              "vi": "My",
+              "vi": "Mỹ",
               "en": "United States"
             },
             "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-usa.png",
@@ -1228,7 +1228,7 @@
           {
             "id": "vietnam",
             "label": {
-              "vi": "Viet Nam",
+              "vi": "Việt Nam",
               "en": "Vietnam"
             },
             "imagePath": "/generated/curriculum/unit-1/workbook/page-20/flag-vietnam.png",
@@ -1266,7 +1266,8 @@
         },
         "needsReview": true
       }
-    ]
+    ],
+    "listeningItems": []
   },
   "reviewNotes": [
     "Unit 1 source is normalized from the pilot raw draft and kept bilingual at the reviewed layer.",

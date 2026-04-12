@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-labelledby="title desc">
+  <title id="title">Clear road</title>
+  <desc id="desc">An open road with light traffic.</desc>
+  <rect width="320" height="200" fill="#e9f7ff" rx="24"/>
+  <rect x="100" y="34" width="120" height="44" rx="22" fill="#ffffff"/>
+  <circle cx="124" cy="56" r="10" fill="#ffd46c"/>
+  <rect x="52" y="104" width="216" height="58" rx="24" fill="#2f3944"/>
+  <rect x="154" y="108" width="12" height="50" rx="6" fill="#ffe17d"/>
+  <rect x="128" y="118" width="44" height="22" rx="8" fill="#60a36d"/>
+  <text x="160" y="52" text-anchor="middle" font-size="22" font-family="Arial, sans-serif" font-weight="700" fill="#31506b">Clear Road</text>
+</svg>
