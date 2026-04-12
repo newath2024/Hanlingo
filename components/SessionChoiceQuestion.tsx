@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppLocale } from "@/hooks/useAppLocale";
+import { getPromptGlossSegments } from "@/lib/gloss";
 import { getLocalizedText } from "@/lib/localized";
 import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import {
@@ -19,6 +20,7 @@ import type {
 } from "@/types/session";
 import { useCallback, useEffect, useRef, useState } from "react";
 import CheckButton from "./CheckButton";
+import KoreanTextWithGloss from "./KoreanTextWithGloss";
 
 type SessionChoiceQuestionProps = {
   item: LocalizedChoiceSessionItem | GrammarChoiceSessionItem | SelectSessionItem;
@@ -176,6 +178,8 @@ export default function SessionChoiceQuestion({
   const selectItem = isSelectItem(item) ? item : null;
   const stringChoiceItem = getStringChoiceItem(item);
   const stringChoices = stringChoiceItem?.choices ?? [];
+  const grammarPromptGlossSegments =
+    item.type === "grammar_select" ? getPromptGlossSegments(item.koreanText) : [];
 
   useEffect(() => {
     return () => {
@@ -310,7 +314,18 @@ export default function SessionChoiceQuestion({
 
             {"koreanText" in item && item.koreanText ? (
               <div className="mt-4 flex items-start justify-between gap-3">
-                <p className="korean-display">{item.koreanText}</p>
+                {item.type === "grammar_select" && grammarPromptGlossSegments.length > 0 ? (
+                  <KoreanTextWithGloss
+                    text={item.koreanText}
+                    locale={locale}
+                    segments={grammarPromptGlossSegments}
+                    supportsGloss
+                    showSentenceMeaning={false}
+                    textClassName="korean-display"
+                  />
+                ) : (
+                  <p className="korean-display">{item.koreanText}</p>
+                )}
                 {isVocabQuestion ? (
                   <button
                     type="button"

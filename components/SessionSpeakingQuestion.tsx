@@ -26,6 +26,7 @@ import type {
 } from "@/types/session";
 import { useEffect, useMemo, useRef, useState } from "react";
 import CheckButton from "./CheckButton";
+import KoreanTextWithGloss from "./KoreanTextWithGloss";
 
 type SessionSpeakingQuestionProps = {
   item: SpeakingSessionItem | ListenRepeatSessionItem;
@@ -48,8 +49,9 @@ export default function SessionSpeakingQuestion({
   const recognitionRef = useRef<RecognitionInstance | null>(null);
   const speechSupported = useSpeechRecognitionSupport();
   const prompt = getLocalizedText(item.prompt, locale);
-  const supportText = item.supportText ? getLocalizedText(item.supportText, locale) : "";
   const isListenRepeat = item.type === "listen_repeat";
+  const speakingQuestionType =
+    item.questionType ?? (item.stage === "production" ? "speaking_prompt" : "speaking_scaffold");
 
   const [listening, setListening] = useState(false);
   const [transcript, setTranscript] = useState("");
@@ -286,15 +288,15 @@ export default function SessionSpeakingQuestion({
             <p className="text-base font-bold text-muted-foreground">{prompt}</p>
           </div>
 
-          <p className="korean-display" lang={DEFAULT_KOREAN_SPEECH_LANG}>
-            {isListenRepeat ? item.text : item.koreanText}
-          </p>
-
-          {supportText ? (
-            <div className="rounded-[1.8rem] bg-card-soft p-5 text-left">
-              <p className="text-sm font-bold text-muted-foreground">{supportText}</p>
-            </div>
-          ) : null}
+          <KoreanTextWithGloss
+            text={isListenRepeat ? item.text : item.koreanText}
+            locale={locale}
+            segments={!isListenRepeat ? item.glossSegments : undefined}
+            supportsGloss={item.supportsGloss}
+            questionType={speakingQuestionType}
+            textClassName="korean-display"
+            lang={DEFAULT_KOREAN_SPEECH_LANG}
+          />
 
           <div className="flex justify-center">
             <button type="button" onClick={handlePlayModelAudio} className="secondary-button">

@@ -490,7 +490,14 @@
           "errorPatternKey": "l1-speak.speaking",
           "type": "speaking",
           "koreanText": "안녕하세요",
-          "expectedSpeech": "안녕하세요"
+          "expectedSpeech": "안녕하세요",
+          "glossSegments": [
+            {
+              "textKo": "안녕하세요",
+              "meaningEn": "hello",
+              "meaningVi": "xin chào"
+            }
+          ]
         }
       ]
     },
@@ -730,7 +737,19 @@
           "errorPatternKey": "l2-speak-student.speaking",
           "type": "speaking",
           "koreanText": "저는 학생입니다.",
-          "expectedSpeech": "저는 학생입니다."
+          "expectedSpeech": "저는 학생입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "학생입니다.",
+              "meaningEn": "am a student",
+              "meaningVi": "là học sinh"
+            }
+          ]
         },
         {
           "id": "l2-speak-office",
@@ -751,7 +770,19 @@
           "errorPatternKey": "l2-speak-office.speaking",
           "type": "speaking",
           "koreanText": "저는 회사원입니다.",
-          "expectedSpeech": "저는 회사원입니다."
+          "expectedSpeech": "저는 회사원입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "회사원입니다.",
+              "meaningEn": "am an office worker",
+              "meaningVi": "là nhân viên văn phòng"
+            }
+          ]
         }
       ]
     },
@@ -1049,7 +1080,24 @@
           "errorPatternKey": "l3-speak.speaking",
           "type": "speaking",
           "koreanText": "안녕하세요. 저는 지수입니다. 저도 반갑습니다.",
-          "expectedSpeech": "안녕하세요. 저는 지수입니다. 저도 반갑습니다."
+          "expectedSpeech": "안녕하세요. 저는 지수입니다. 저도 반갑습니다.",
+          "glossSegments": [
+            {
+              "textKo": "안녕하세요.",
+              "meaningEn": "hello",
+              "meaningVi": "xin chào"
+            },
+            {
+              "textKo": "저는 지수입니다.",
+              "meaningEn": "I am Jisoo",
+              "meaningVi": "tôi là Jisoo"
+            },
+            {
+              "textKo": "저도 반갑습니다.",
+              "meaningEn": "nice to meet you too",
+              "meaningVi": "tôi cũng rất vui được gặp bạn"
+            }
+          ]
         }
       ]
     },
@@ -1740,7 +1788,19 @@
           "errorPatternKey": "wb-translate-student-2.speaking",
           "type": "speaking",
           "koreanText": "저는 학생입니다.",
-          "expectedSpeech": "저는 학생입니다."
+          "expectedSpeech": "저는 학생입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "학생입니다.",
+              "meaningEn": "am a student",
+              "meaningVi": "là học sinh"
+            }
+          ]
         }
       ]
     },
@@ -1999,7 +2059,19 @@
           "errorPatternKey": "wb-order-jisu-2.speaking",
           "type": "speaking",
           "koreanText": "저는 지수입니다.",
-          "expectedSpeech": "저는 지수입니다."
+          "expectedSpeech": "저는 지수입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "지수입니다.",
+              "meaningEn": "am Jisoo",
+              "meaningVi": "là Jisoo"
+            }
+          ]
         },
         {
           "id": "wb-translate-jisu-2",
@@ -2018,7 +2090,19 @@
           "errorPatternKey": "wb-translate-jisu-2.speaking",
           "type": "speaking",
           "koreanText": "저는 지수입니다.",
-          "expectedSpeech": "저는 지수입니다."
+          "expectedSpeech": "저는 지수입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "지수입니다.",
+              "meaningEn": "am Jisoo",
+              "meaningVi": "là Jisoo"
+            }
+          ]
         }
       ]
     },
@@ -2274,7 +2358,19 @@
           "errorPatternKey": "wb-order-office-worker-2.speaking",
           "type": "speaking",
           "koreanText": "저는 회사원입니다.",
-          "expectedSpeech": "저는 회사원입니다."
+          "expectedSpeech": "저는 회사원입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "회사원입니다.",
+              "meaningEn": "am an office worker",
+              "meaningVi": "là nhân viên văn phòng"
+            }
+          ]
         }
       ]
     },
@@ -2619,7 +2715,19 @@
           "errorPatternKey": "wb-translate-office-worker-2.speaking",
           "type": "speaking",
           "koreanText": "저는 회사원입니다.",
-          "expectedSpeech": "저는 회사원입니다."
+          "expectedSpeech": "저는 회사원입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "회사원입니다.",
+              "meaningEn": "am an office worker",
+              "meaningVi": "là nhân viên văn phòng"
+            }
+          ]
         },
         {
           "id": "wb-write-doctor-2",
@@ -2638,7 +2746,19 @@
           "errorPatternKey": "wb-write-doctor-2.speaking",
           "type": "speaking",
           "koreanText": "저는 의사입니다.",
-          "expectedSpeech": "저는 의사입니다."
+          "expectedSpeech": "저는 의사입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "의사입니다.",
+              "meaningEn": "am a doctor",
+              "meaningVi": "là bác sĩ"
+            }
+          ]
         }
       ]
     },
@@ -3217,7 +3337,19 @@
           "errorPatternKey": "wb-translate-student-2.speaking",
           "type": "speaking",
           "koreanText": "저는 학생입니다.",
-          "expectedSpeech": "저는 학생입니다."
+          "expectedSpeech": "저는 학생입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "학생입니다.",
+              "meaningEn": "am a student",
+              "meaningVi": "là học sinh"
+            }
+          ]
         }
       ]
     },
@@ -3444,7 +3576,19 @@
           "errorPatternKey": "wb-translate-office-worker-2.speaking",
           "type": "speaking",
           "koreanText": "저는 회사원입니다.",
-          "expectedSpeech": "저는 회사원입니다."
+          "expectedSpeech": "저는 회사원입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "회사원입니다.",
+              "meaningEn": "am an office worker",
+              "meaningVi": "là nhân viên văn phòng"
+            }
+          ]
         },
         {
           "id": "wb-write-doctor-2",
@@ -3463,7 +3607,19 @@
           "errorPatternKey": "wb-write-doctor-2.speaking",
           "type": "speaking",
           "koreanText": "저는 의사입니다.",
-          "expectedSpeech": "저는 의사입니다."
+          "expectedSpeech": "저는 의사입니다.",
+          "glossSegments": [
+            {
+              "textKo": "저는",
+              "meaningEn": "I (topic)",
+              "meaningVi": "còn tôi / tôi thì"
+            },
+            {
+              "textKo": "의사입니다.",
+              "meaningEn": "am a doctor",
+              "meaningVi": "là bác sĩ"
+            }
+          ]
         },
         {
           "id": "wb-guided-selfintro-2",
@@ -3484,7 +3640,19 @@
           "errorPatternKey": "wb-guided-selfintro-2.speaking",
           "type": "speaking",
           "koreanText": "안녕하세요. 저는 지수입니다.",
-          "expectedSpeech": "안녕하세요. 저는 지수입니다."
+          "expectedSpeech": "안녕하세요. 저는 지수입니다.",
+          "glossSegments": [
+            {
+              "textKo": "안녕하세요.",
+              "meaningEn": "hello",
+              "meaningVi": "xin chào"
+            },
+            {
+              "textKo": "저는 지수입니다.",
+              "meaningEn": "I am Jisoo",
+              "meaningVi": "tôi là Jisoo"
+            }
+          ]
         },
         {
           "id": "review-b-extra-1",
@@ -3505,7 +3673,19 @@
           "errorPatternKey": "review-b-extra-1.speaking",
           "type": "speaking",
           "koreanText": "안녕하세요. 저는 민수입니다.",
-          "expectedSpeech": "안녕하세요. 저는 민수입니다."
+          "expectedSpeech": "안녕하세요. 저는 민수입니다.",
+          "glossSegments": [
+            {
+              "textKo": "안녕하세요.",
+              "meaningEn": "hello",
+              "meaningVi": "xin chào"
+            },
+            {
+              "textKo": "저는 민수입니다.",
+              "meaningEn": "I am Minsu",
+              "meaningVi": "tôi là Minsu"
+            }
+          ]
         },
         {
           "id": "review-b-extra-2",
@@ -3526,7 +3706,24 @@
           "errorPatternKey": "review-b-extra-2.speaking",
           "type": "speaking",
           "koreanText": "안녕하세요 저는 학생입니다. 반갑습니다",
-          "expectedSpeech": "안녕하세요 저는 학생입니다. 반갑습니다"
+          "expectedSpeech": "안녕하세요 저는 학생입니다. 반갑습니다",
+          "glossSegments": [
+            {
+              "textKo": "안녕하세요",
+              "meaningEn": "hello",
+              "meaningVi": "xin chào"
+            },
+            {
+              "textKo": "저는 학생입니다.",
+              "meaningEn": "I am a student",
+              "meaningVi": "tôi là học sinh"
+            },
+            {
+              "textKo": "반갑습니다",
+              "meaningEn": "nice to meet you",
+              "meaningVi": "rất vui được gặp bạn"
+            }
+          ]
         }
       ]
     }

@@ -158,6 +158,58 @@
     word-break: keep-all;
   }
 
+  .korean-gloss {
+    @apply relative w-full;
+  }
+
+  .korean-gloss__sentence {
+    @apply relative;
+  }
+
+  .korean-gloss__token {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.22em;
+    border-radius: 0.45em;
+    padding: 0 0.08em;
+    transition:
+      color 160ms ease,
+      background-color 160ms ease;
+  }
+
+  .korean-gloss__token:hover,
+  .korean-gloss__token-active {
+    background: rgba(242, 212, 106, 0.18);
+  }
+
+  .korean-gloss__bubble {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 0.7rem);
+    z-index: 20;
+    min-width: 9rem;
+    max-width: min(18rem, 72vw);
+    transform: translateX(-50%);
+    border-radius: 1rem;
+    border: 1px solid rgba(88, 185, 93, 0.14);
+    background: rgba(255, 253, 246, 0.98);
+    padding: 0.7rem 0.9rem;
+    text-align: center;
+    font-family: var(--font-nunito), sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--muted-foreground);
+    box-shadow: 0 14px 34px rgba(47, 92, 51, 0.12);
+    pointer-events: none;
+  }
+
+  .korean-gloss__bubble-sentence {
+    left: 50%;
+    top: calc(100% + 0.9rem);
+    min-width: 12rem;
+  }
+
   .xp-reward-card {
     @apply rounded-[2rem] border border-accent/15 bg-white px-6 py-8 text-center shadow-[0_24px_60px_rgba(63,148,70,0.18)];
     animation: reward-pop 0.6s ease-out;
