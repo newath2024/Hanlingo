@@ -45,6 +45,7 @@ type ManualLessonBlueprint = {
   focusConcepts: string[];
   exerciseIds: string[];
   extraTasks?: RuntimeTask[];
+  taskOrdering?: "default" | "interleave_pairs";
 };
 
 const STAGE_ORDER: Record<RuntimeTask["stage"], number> = {
@@ -380,7 +381,30 @@ function scoreChoiceDistractor(correct: LocalizedText, candidate: LocalizedText)
 }
 
 function sortTasks(tasks: RuntimeTask[]) {
-  return [...tasks].sort((left, right) => STAGE_ORDER[left.stage] - STAGE_ORDER[right.stage]);
+  return tasks
+    .map((task, index) => ({ task, index }))
+    .sort(
+      (left, right) =>
+        STAGE_ORDER[left.task.stage] - STAGE_ORDER[right.task.stage] || left.index - right.index,
+    )
+    .map(({ task }) => task);
+}
+
+function interleaveTaskGroups<T>(groups: T[][]) {
+  const maxLength = Math.max(0, ...groups.map((group) => group.length));
+  const ordered: T[] = [];
+
+  for (let index = 0; index < maxLength; index += 1) {
+    groups.forEach((group) => {
+      const task = group[index];
+
+      if (task) {
+        ordered.push(task);
+      }
+    });
+  }
+
+  return ordered;
 }
 
 function pickFrom<T extends { id: string }>(items: T[], id: string) {
@@ -1416,6 +1440,13 @@ function buildLessonFromExercises(
 ) {
   const exercises = blueprint.exerciseIds.map((id) => pickFrom(source.workbook.exercises, id));
   const coverageTags = Array.from(new Set(exercises.flatMap((exercise) => exercise.coverageTags)));
+  const taskGroups = exercises.map((exercise) =>
+    exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+  );
+  const exerciseTasks =
+    blueprint.taskOrdering === "interleave_pairs"
+      ? interleaveTaskGroups(taskGroups)
+      : taskGroups.flat();
 
   return lesson(
     blueprint.lessonId,
@@ -1426,9 +1457,7 @@ function buildLessonFromExercises(
     blueprint.exerciseIds,
     coverageTags,
     [
-      ...exercises.flatMap((exercise) =>
-        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
-      ),
+      ...exerciseTasks,
       ...(blueprint.extraTasks ?? []),
     ],
     order,
@@ -2793,6 +2822,7 @@ function buildUnit16WorkbookLessons(
           "Open the workbook block with transport vocabulary and basic usage phrases.",
         ),
         focusConcepts: ["transport", "bus", "train", "subway"],
+        taskOrdering: "interleave_pairs",
         exerciseIds: [
           "wb16-write-transport",
           "wb16-write-transport-use",
