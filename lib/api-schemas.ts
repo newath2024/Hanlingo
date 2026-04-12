@@ -149,3 +149,7 @@ export const heatmapQuerySchema = z.object({
 export const analyticsOverviewQuerySchema = z.object({
   timeZone: z.string().trim().min(1).max(100).optional(),
 });
+
+export const shellSidebarSummaryQuerySchema = z.object({
+  timeZone: z.string().trim().min(1).max(100).optional(),
+});

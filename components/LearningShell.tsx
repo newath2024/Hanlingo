@@ -1,170 +1,178 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import MaskedStatusIcon from "@/components/MaskedStatusIcon";
 import LocaleToggle from "@/components/LocaleToggle";
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { useAuth } from "@/hooks/useAuth";
+import { useShellSidebarSummary } from "@/hooks/useShellSidebarSummary";
 import { getLocalizedText } from "@/lib/localized";
 import { isShellPath } from "@/lib/auth-routes";
+import {
+  isSidebarItemActive,
+  SIDEBAR_NAV_ITEMS,
+  SIDEBAR_NAV_SECTIONS,
+  SIDEBAR_STATUS_CARDS,
+  type SidebarNavItemConfig,
+} from "@/lib/sidebar-navigation";
 
 type LearningShellProps = {
   children: ReactNode;
-};
-
-type NavItem = {
-  id: string;
-  href: string;
-  label: { en: string; vi: string };
-  icon: (props: { className?: string }) => ReactNode;
 };
 
 function ui(locale: "en" | "vi", en: string, vi: string) {
   return getLocalizedText({ en, vi }, locale);
 }
 
-function HomeIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className={className}>
-      <path d="M3 11.5 12 4l9 7.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M6.5 10.5V20h11V10.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
+function getNavIconShellStyle(item: SidebarNavItemConfig, active: boolean) {
+  return {
+    backgroundColor: active ? item.tone.iconActiveBackground : item.tone.iconBackground,
+    color: active ? item.tone.iconActiveColor : item.tone.iconColor,
+  } satisfies CSSProperties;
 }
 
-function PracticeIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className={className}>
-      <path d="M12 21c4.4 0 8-3.6 8-8s-3.6-8-8-8-8 3.6-8 8 3.6 8 8 8Z" />
-      <path d="M12 3V1.5" strokeLinecap="round" />
-      <path d="m10.4 12.6 2.2 2.2 4-5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function AnalyticsIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className={className}>
-      <path d="M5 20V11" strokeLinecap="round" />
-      <path d="M12 20V7" strokeLinecap="round" />
-      <path d="M19 20V4" strokeLinecap="round" />
-      <path d="M3 20h18" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function TrophyIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className={className}>
-      <path d="M8 4h8v3a4 4 0 0 1-8 0V4Z" strokeLinejoin="round" />
-      <path d="M6 5H4a2 2 0 0 0 2 4" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M18 5h2a2 2 0 0 1-2 4" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M12 11v4" strokeLinecap="round" />
-      <path d="M8.5 20h7" strokeLinecap="round" />
-      <path d="M9.5 15.5h5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function ProfileIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" className={className}>
-      <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
-      <path d="M5 20a7 7 0 0 1 14 0" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function isItemActive(pathname: string, itemId: string) {
-  if (itemId === "learn") {
-    return pathname === "/" || pathname.startsWith("/unit/");
-  }
-
-  if (itemId === "practice") {
-    return pathname === "/practice" || pathname.startsWith("/practice/");
-  }
-
-  return pathname === `/${itemId}`;
+function getBadgeStyle(item: SidebarNavItemConfig) {
+  return {
+    backgroundColor: item.tone.badgeBackground,
+    borderColor: item.tone.badgeBorder,
+    color: item.tone.badgeText,
+  } satisfies CSSProperties;
 }
 
 export default function LearningShell({ children }: LearningShellProps) {
   const pathname = usePathname();
   const { locale } = useAppLocale();
   const { user, isLoading, logout } = useAuth();
+  const shouldRenderShell = isShellPath(pathname);
+  const { data: sidebarSummary, isLoading: isSidebarSummaryLoading } =
+    useShellSidebarSummary(pathname, shouldRenderShell);
 
-  if (!isShellPath(pathname)) {
+  if (!shouldRenderShell) {
     return <>{children}</>;
   }
-
-  const navItems: NavItem[] = [
-    {
-      id: "learn",
-      href: "/",
-      label: { en: "Learn", vi: "Hoc" },
-      icon: HomeIcon,
-    },
-    {
-      id: "practice",
-      href: "/practice",
-      label: { en: "Practice", vi: "Luyen tap" },
-      icon: PracticeIcon,
-    },
-    {
-      id: "analytics",
-      href: "/analytics",
-      label: { en: "Analytics", vi: "Phan tich" },
-      icon: AnalyticsIcon,
-    },
-    {
-      id: "leaderboard",
-      href: "/leaderboard",
-      label: { en: "Leaderboard", vi: "Bang xep hang" },
-      icon: TrophyIcon,
-    },
-    {
-      id: "profile",
-      href: "/profile",
-      label: { en: "Profile", vi: "Ho so" },
-      icon: ProfileIcon,
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-[#f4efdf]">
       <div className="mx-auto flex min-h-screen w-full max-w-[1600px]">
-        <aside className="hidden w-[270px] shrink-0 flex-col bg-[#14231b] px-5 py-7 text-white lg:flex">
+        <aside
+          className="hidden w-[292px] shrink-0 flex-col overflow-y-auto bg-[#14231b] px-5 py-6 text-white lg:flex"
+          style={{
+            background:
+              "radial-gradient(circle at top, rgba(140, 224, 82, 0.14), transparent 34%), radial-gradient(circle at bottom, rgba(242, 212, 106, 0.16), transparent 28%), linear-gradient(180deg, #18261d 0%, #14231b 100%)",
+          }}
+        >
           <Link href="/" className="px-3">
             <span className="font-display text-4xl text-[#8ce052]">Hanlingo</span>
           </Link>
 
-          <nav className="mt-8 flex flex-1 flex-col gap-3">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const active = isItemActive(pathname, item.id);
+          <section
+            aria-busy={isSidebarSummaryLoading}
+            className="mt-7 rounded-[2rem] border border-white/10 bg-white/6 p-4 shadow-[0_18px_40px_rgba(8,16,12,0.22)]"
+          >
+            <p className="text-[0.68rem] font-black uppercase tracking-[0.24em] text-white/48">
+              {ui(locale, "Daily momentum", "Nhip hoc hom nay")}
+            </p>
+            <p className="mt-2 text-sm font-bold text-white/74">
+              {ui(
+                locale,
+                "Check the streak and today's XP before jumping back in.",
+                "Xem streak va XP hom nay truoc khi quay lai bai.",
+              )}
+            </p>
 
-              return (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className={`shell-nav-item ${active ? "shell-nav-item-active" : ""}`}
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              {SIDEBAR_STATUS_CARDS.map((card) => (
+                <div
+                  key={card.id}
+                  className="rounded-[1.45rem] border border-white/10 bg-[#102016]/72 px-3 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
                 >
-                  <Icon className="h-6 w-6 shrink-0" />
-                  <span>{getLocalizedText(item.label, locale)}</span>
-                </Link>
-              );
-            })}
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="flex h-9 w-9 items-center justify-center rounded-full"
+                      style={{
+                        backgroundColor: card.tone.iconBackground,
+                        color: card.tone.iconColor,
+                      }}
+                    >
+                      <MaskedStatusIcon path={card.iconPath} size={18} color="currentColor" />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="truncate text-[0.68rem] font-black uppercase tracking-[0.18em] text-white/45">
+                        {getLocalizedText(card.label, locale)}
+                      </p>
+                      <p className="truncate text-[0.72rem] font-bold text-white/58">
+                        {getLocalizedText(card.caption, locale)}
+                      </p>
+                    </div>
+                  </div>
+                  <p
+                    className="mt-3 font-display text-4xl leading-none"
+                    style={{ color: card.tone.valueColor }}
+                  >
+                    {card.getValue(sidebarSummary)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <nav className="mt-7 flex flex-1 flex-col gap-6">
+            {SIDEBAR_NAV_SECTIONS.map((section) => (
+              <div key={section.id} className="space-y-3">
+                <p className="px-3 text-[0.68rem] font-black uppercase tracking-[0.24em] text-white/38">
+                  {getLocalizedText(section.label, locale)}
+                </p>
+
+                <div className="space-y-2">
+                  {section.items.map((item) => {
+                    const active = isSidebarItemActive(pathname, item.id);
+                    const badge = item.getBadge?.(sidebarSummary) ?? null;
+
+                    return (
+                      <Link
+                        key={item.id}
+                        href={item.href}
+                        aria-current={active ? "page" : undefined}
+                        className={`shell-nav-item ${active ? "shell-nav-item-active" : ""}`}
+                      >
+                        <span className="shell-nav-item__active-bar" />
+                        <span
+                          className="shell-nav-item__icon-shell"
+                          style={getNavIconShellStyle(item, active)}
+                        >
+                          <MaskedStatusIcon path={item.iconPath} size={20} color="currentColor" />
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate">{getLocalizedText(item.label, locale)}</span>
+                        </span>
+                        {badge ? (
+                          <span
+                            className="shell-nav-badge"
+                            style={getBadgeStyle(item)}
+                            title={getLocalizedText(badge.title, locale)}
+                          >
+                            {badge.text}
+                          </span>
+                        ) : null}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </nav>
 
-          <div className="rounded-[1.7rem] border border-white/10 bg-white/5 p-4">
+          <div className="rounded-[1.9rem] border border-white/10 bg-white/6 p-4">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-white/55">
-              {ui(locale, "Keep going", "Tiep tuc")}
+              {ui(locale, "Next push", "Nhip tiep theo")}
             </p>
             <p className="mt-2 text-sm font-bold text-white/82">
               {ui(
                 locale,
-                "Start the next lesson before checking stats.",
-                "Vao bai tiep theo truoc khi xem thong ke.",
+                "Clear the next lesson, then come back for the mistakes badge.",
+                "Qua bai tiep theo, roi quay lai de giam badge loi can on.",
               )}
             </p>
           </div>
@@ -208,18 +216,23 @@ export default function LearningShell({ children }: LearningShellProps) {
       </div>
 
       <nav className="shell-mobile-nav lg:hidden">
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const active = isItemActive(pathname, item.id);
+        {SIDEBAR_NAV_ITEMS.map((item) => {
+          const active = isSidebarItemActive(pathname, item.id);
 
           return (
             <Link
               key={item.id}
               href={item.href}
+              aria-current={active ? "page" : undefined}
               className={`shell-mobile-nav__item ${active ? "shell-mobile-nav__item-active" : ""}`}
             >
-              <Icon className="h-5 w-5" />
-              <span>{getLocalizedText(item.label, locale)}</span>
+              <span
+                className="shell-mobile-nav__icon-shell"
+                style={getNavIconShellStyle(item, active)}
+              >
+                <MaskedStatusIcon path={item.iconPath} size={18} color="currentColor" />
+              </span>
+              <span>{getLocalizedText(item.mobileLabel, locale)}</span>
             </Link>
           );
         })}

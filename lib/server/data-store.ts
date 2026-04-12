@@ -1709,6 +1709,33 @@ export async function listUserQuestionAttempts(
     .map(toUserQuestionAttemptRecord);
 }
 
+export async function listLeaderboardActivitiesByUser(userId: string) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const records = await prisma.leaderboardActivity.findMany({
+      where: {
+        userId,
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    return records.map(toPrismaLeaderboardActivityRecord);
+  }
+
+  const store = await readFileStore();
+
+  return store.leaderboardActivities
+    .filter((entry) => entry.userId === userId)
+    .sort(
+      (left, right) =>
+        new Date(right.createdAt).getTime() - new Date(left.createdAt).getTime(),
+    )
+    .map(toLeaderboardActivityRecord);
+}
+
 function toLeaderboardWeekCreateInput(input: {
   key: string;
   startsAt: Date;
