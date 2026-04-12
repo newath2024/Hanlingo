@@ -310,36 +310,247 @@
     box-shadow: 0 0 0 4px rgba(88, 185, 93, 0.12);
   }
 
-  .shell-nav-item {
-    @apply relative inline-flex items-center gap-3.5 overflow-hidden rounded-[1.55rem] px-4 py-4 text-base font-extrabold text-white/76 transition;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+  .sidebar-desktop-shell {
+    @apply hidden w-[304px] shrink-0 flex-col overflow-y-auto px-5 py-5 text-white lg:flex;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+      radial-gradient(circle at top, rgba(140, 224, 82, 0.16), transparent 33%),
+      radial-gradient(circle at 86% 16%, rgba(242, 212, 106, 0.14), transparent 24%),
+      radial-gradient(circle at bottom, rgba(88, 185, 93, 0.1), transparent 22%),
+      linear-gradient(180deg, #1a2a1f 0%, #14231b 100%);
+  }
+
+  .sidebar-panel__eyebrow {
+    @apply text-[0.68rem] font-black uppercase tracking-[0.22em] text-white/46;
+  }
+
+  .sidebar-brand-zone {
+    @apply relative px-1;
+  }
+
+  .sidebar-brand-glow {
+    position: absolute;
+    top: -0.5rem;
+    left: 1.2rem;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(140, 224, 82, 0.2), transparent 68%);
+    filter: blur(12px);
+    pointer-events: none;
+  }
+
+  .sidebar-brand-card {
+    @apply relative block overflow-hidden rounded-[2rem] border px-4 py-4 transition;
+    border-color: rgba(255, 255, 255, 0.08);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.03));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 18px 38px rgba(7, 12, 9, 0.18);
+  }
+
+  .sidebar-brand-card::before {
+    content: "";
+    position: absolute;
+    inset: auto -10% -30% auto;
+    width: 8.5rem;
+    height: 8.5rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(242, 212, 106, 0.18), transparent 68%);
+    pointer-events: none;
+  }
+
+  .sidebar-brand-card:hover {
+    transform: translateY(-1px);
+    border-color: rgba(140, 224, 82, 0.18);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 22px 42px rgba(7, 12, 9, 0.2);
+  }
+
+  .sidebar-brand__eyebrow {
+    @apply relative z-[1] block text-[0.68rem] font-black uppercase tracking-[0.2em] text-white/42;
+  }
+
+  .sidebar-brand__wordmark {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-top: 0.65rem;
+    font-family: var(--font-baloo), var(--font-nunito), sans-serif;
+    font-size: 2.7rem;
+    line-height: 0.96;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    background: linear-gradient(180deg, #eefbe0 0%, #8ce052 48%, #71ca49 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .sidebar-brand__support {
+    @apply relative z-[1] mt-3 max-w-[15.5rem] text-sm font-bold leading-6 text-white/72;
+  }
+
+  .sidebar-momentum-card {
+    @apply relative mt-6 overflow-hidden rounded-[2rem] border p-4;
+    border-color: rgba(255, 255, 255, 0.1);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.035));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 18px 40px rgba(8, 16, 12, 0.22);
+  }
+
+  .sidebar-momentum-card__glow {
+    position: absolute;
+    inset: auto auto -2.2rem -1.4rem;
+    width: 9rem;
+    height: 9rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(242, 212, 106, 0.15), transparent 70%);
+    filter: blur(18px);
+    pointer-events: none;
+  }
+
+  .sidebar-momentum-card__header {
+    @apply relative z-[1] flex items-start justify-between gap-3;
+  }
+
+  .sidebar-momentum-card__headline {
+    @apply mt-2 max-w-[11.5rem] font-display text-[2rem] leading-[1.02] text-white;
+  }
+
+  .sidebar-momentum-card__cta {
+    @apply inline-flex shrink-0 items-center rounded-full border px-3 py-1.5 text-[0.68rem] font-black uppercase tracking-[0.14em] text-white transition;
+    border-color: rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .sidebar-momentum-card__cta:hover {
+    @apply text-[#f5ffd8];
+    border-color: rgba(140, 224, 82, 0.3);
+    background: rgba(140, 224, 82, 0.12);
+    transform: translateY(-1px);
+  }
+
+  .sidebar-momentum-card__copy {
+    @apply relative z-[1] mt-3 text-sm font-bold leading-6 text-white/74;
+  }
+
+  .sidebar-momentum-card__next {
+    @apply relative z-[1] mt-4 rounded-[1.45rem] border px-3 py-3;
+    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(10, 20, 14, 0.28);
+  }
+
+  .sidebar-momentum-card__next-label {
+    @apply text-[0.68rem] font-black uppercase tracking-[0.18em] text-white/44;
+  }
+
+  .sidebar-momentum-card__next-title {
+    @apply mt-2 text-sm font-extrabold leading-6 text-white/82;
+  }
+
+  .sidebar-momentum-card__next-meta {
+    @apply mt-1 text-[0.74rem] font-bold text-white/48;
+  }
+
+  .sidebar-momentum-card__stats {
+    @apply relative z-[1] mt-4 grid gap-3;
+  }
+
+  .sidebar-momentum-stat {
+    @apply flex items-center gap-3 rounded-[1.45rem] border px-3 py-3;
+    border-color: rgba(255, 255, 255, 0.08);
+    background:
+      linear-gradient(180deg, rgba(10, 20, 14, 0.28), rgba(10, 20, 14, 0.18));
+  }
+
+  .sidebar-momentum-stat__icon {
+    @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-full;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 10px 22px rgba(7, 12, 9, 0.18);
+  }
+
+  .sidebar-momentum-stat__icon--warm {
+    background: #fff0cb;
+    color: #9a6013;
+  }
+
+  .sidebar-momentum-stat__icon--green {
+    background: #ebf8dc;
+    color: #2f8f46;
+  }
+
+  .sidebar-momentum-stat__label {
+    @apply text-sm font-black text-white;
+  }
+
+  .sidebar-momentum-stat__meta {
+    @apply text-[0.74rem] font-bold text-white/52;
+  }
+
+  .sidebar-momentum-stat__value {
+    @apply ml-auto font-display text-[2.2rem] leading-none text-white;
+  }
+
+  .sidebar-momentum-stat__value--accent {
+    color: #8ce052;
+  }
+
+  .sidebar-nav-section {
+    @apply space-y-3;
+  }
+
+  .sidebar-nav-section__label {
+    @apply px-3 text-[0.68rem] font-black uppercase tracking-[0.24em] text-white/36;
+  }
+
+  .sidebar-nav-section__tray {
+    @apply rounded-[1.9rem] border p-2.5;
+    border-color: rgba(255, 255, 255, 0.08);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.03));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 16px 30px rgba(7, 12, 9, 0.12);
+  }
+
+  .shell-nav-item {
+    @apply relative flex items-center gap-3.5 overflow-hidden rounded-[1.5rem] px-4 py-4 text-[0.97rem] font-extrabold text-white/78 transition;
+    border: 1px solid transparent;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.035),
+      0 10px 18px rgba(7, 12, 9, 0.08);
   }
 
   .shell-nav-item:hover {
     @apply text-white;
-    transform: translateX(2px);
-    border-color: rgba(140, 224, 82, 0.16);
+    transform: translateX(3px) translateY(-1px);
+    border-color: rgba(140, 224, 82, 0.18);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05));
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.06),
-      0 12px 26px rgba(8, 16, 12, 0.18);
+      0 14px 26px rgba(8, 16, 12, 0.16);
   }
 
   .shell-nav-item-active {
     @apply text-white;
     border-color: rgba(140, 224, 82, 0.34);
     background:
-      linear-gradient(135deg, rgba(88, 185, 93, 0.24), rgba(242, 212, 106, 0.12)),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
+      linear-gradient(135deg, rgba(88, 185, 93, 0.34), rgba(242, 212, 106, 0.16)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.05));
     box-shadow:
       inset 0 0 0 1px rgba(140, 224, 82, 0.12),
-      0 18px 34px rgba(52, 96, 45, 0.22),
-      0 0 0 1px rgba(242, 212, 106, 0.08);
-    transform: translateX(2px);
+      0 18px 34px rgba(52, 96, 45, 0.26),
+      0 0 0 1px rgba(242, 212, 106, 0.08),
+      0 0 26px rgba(140, 224, 82, 0.12);
+    transform: translateX(3px);
   }
 
   .shell-nav-item__active-bar {
@@ -365,15 +576,71 @@
       0 10px 24px rgba(7, 12, 9, 0.18);
   }
 
+  .shell-nav-item:hover .shell-nav-item__icon-shell {
+    transform: translateY(-1px);
+  }
+
   .shell-nav-item-active .shell-nav-item__icon-shell {
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.24),
       0 14px 30px rgba(7, 12, 9, 0.26),
-      0 0 0 4px rgba(140, 224, 82, 0.08);
+      0 0 0 4px rgba(140, 224, 82, 0.08),
+      0 0 20px rgba(255, 255, 255, 0.08);
   }
 
   .shell-nav-badge {
     @apply inline-flex min-w-[2.6rem] items-center justify-center rounded-full border px-2.5 py-1 text-xs font-black tracking-[0.04em];
+  }
+
+  .sidebar-footer-card {
+    @apply relative overflow-hidden rounded-[1.9rem] border px-4 py-4;
+    border-color: rgba(255, 255, 255, 0.08);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.03));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.06),
+      0 16px 32px rgba(7, 12, 9, 0.14);
+  }
+
+  .sidebar-footer-card::after {
+    content: "";
+    position: absolute;
+    inset: auto auto -2rem 70%;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(242, 212, 106, 0.14), transparent 70%);
+    pointer-events: none;
+  }
+
+  .sidebar-footer-card__header {
+    @apply relative z-[1] flex items-start justify-between gap-3;
+  }
+
+  .sidebar-footer-card__value {
+    @apply mt-2 font-display text-[2.15rem] leading-none text-white;
+  }
+
+  .sidebar-footer-card__pill {
+    @apply inline-flex shrink-0 items-center rounded-full px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.12em];
+    background: rgba(242, 212, 106, 0.16);
+    color: #fff0bf;
+  }
+
+  .sidebar-footer-card__meter {
+    @apply relative z-[1] mt-4 h-2.5 overflow-hidden rounded-full bg-white/10;
+  }
+
+  .sidebar-footer-card__meter-fill {
+    display: block;
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #f2d46a 0%, #8ce052 100%);
+    box-shadow: 0 0 18px rgba(140, 224, 82, 0.2);
+  }
+
+  .sidebar-footer-card__copy {
+    @apply relative z-[1] mt-3 text-sm font-bold leading-6 text-white/74;
   }
 
   .shell-mobile-nav {
