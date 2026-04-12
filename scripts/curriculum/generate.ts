@@ -1,6 +1,7 @@
 import type {
   CurriculumIndex,
   LessonRole,
+  ListeningTask,
   LocalizedChoice,
   LocalizedText,
   MeaningDirection,
@@ -9,9 +10,11 @@ import type {
   RuntimeUnit,
   SourceAudioAsset,
   SourceDialogueLine,
+  SourceListeningItem,
   SourceUnit,
   SourceWorkbookExercise,
 } from "@/types/curriculum";
+import { resolveSourceListeningItems, type CurriculumWarning } from "./listening";
 import { runtimeUnitSchema, sourceUnitSchema } from "./schema";
 import {
   getGeneratedIndexPath,
@@ -46,6 +49,15 @@ type ManualLessonBlueprint = {
   exerciseIds: string[];
   extraTasks?: RuntimeTask[];
   taskOrdering?: "default" | "interleave_pairs";
+};
+type RuntimeBuildContext = {
+  lookups: Lookups;
+  audioAssetsById: Map<string, SourceAudioAsset>;
+  eligibleExercises: SourceWorkbookExercise[];
+  totalLessons: number;
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>;
+  listeningItemsById: Map<string, SourceListeningItem>;
+  warnings: CurriculumWarning[];
 };
 
 const STAGE_ORDER: Record<RuntimeTask["stage"], number> = {
@@ -639,8 +651,8 @@ function lesson(
 ): RuntimeLesson {
   const stableTasks = sortTasks(tasks);
 
-  if (stableTasks.length < 8 || stableTasks.length > 10) {
-    throw new Error(`${lessonId} must contain 8-10 tasks. Received ${stableTasks.length}.`);
+  if (stableTasks.length < 4 || stableTasks.length > 10) {
+    throw new Error(`${lessonId} must contain 4-10 tasks. Received ${stableTasks.length}.`);
   }
 
   return {
@@ -850,6 +862,147 @@ function lsImage(
   };
 }
 
+function getListeningTaskStage(
+  listeningType: SourceListeningItem["type"],
+): RuntimeTask["stage"] {
+  return listeningType === "fill_blank" || listeningType === "order_step"
+    ? "construction"
+    : "recognition";
+}
+
+function buildListeningTaskExplanation(
+  item: SourceListeningItem,
+): LocalizedText {
+  if (item.contextSummary) {
+    return item.contextSummary;
+  }
+
+  if (item.questionText) {
+    return item.questionText;
+  }
+
+  return item.prompt;
+}
+
+function listeningTask(
+  id: string,
+  item: SourceListeningItem,
+  audioUrl: string,
+  options?: {
+    source?: RuntimeTask["source"];
+    grammarTags?: string[];
+    prompt?: LocalizedText;
+  },
+): ListeningTask {
+  const stage = getListeningTaskStage(item.type);
+
+  return {
+    id,
+    type: "listening",
+    listeningType: item.type,
+    prompt: options?.prompt ?? item.prompt,
+    explanation: buildListeningTaskExplanation(item),
+    source: options?.source ?? "workbook",
+    stage,
+    grammarTags: options?.grammarTags ?? [],
+    srWeight: srWeight(stage, 0.05),
+    errorPatternKey: `${id}.listening`,
+    audioUrl,
+    ...(typeof item.clipStartMs === "number" ? { clipStartMs: item.clipStartMs } : {}),
+    ...(typeof item.clipEndMs === "number" ? { clipEndMs: item.clipEndMs } : {}),
+    ...(item.questionText ? { questionText: item.questionText } : {}),
+    ...(item.transcriptKo ? { transcriptKo: item.transcriptKo } : {}),
+    ...(item.translation ? { translation: item.translation } : {}),
+    ...(item.romanization ? { romanization: item.romanization } : {}),
+    ...(item.contextGroupId ? { contextGroupId: item.contextGroupId } : {}),
+    ...(item.contextTitle ? { contextTitle: item.contextTitle } : {}),
+    ...(item.contextSummary ? { contextSummary: item.contextSummary } : {}),
+    ...(item.choices
+      ? {
+          choices: item.choices.map((entry) =>
+            choice(entry.id, entry.text, entry.imagePath),
+          ),
+        }
+      : {}),
+    ...(item.correctChoiceId ? { correctChoiceId: item.correctChoiceId } : {}),
+    ...(item.correctText ? { correctText: item.correctText } : {}),
+    ...(item.acceptedAnswers?.length ? { acceptedAnswers: item.acceptedAnswers } : {}),
+    ...(item.correctOrderChoiceIds?.length
+      ? { correctOrderChoiceIds: item.correctOrderChoiceIds }
+      : {}),
+  };
+}
+
+function compileListeningItem(
+  unitId: string,
+  item: SourceListeningItem,
+  audioAssetsById: Map<string, SourceAudioAsset>,
+  options?: {
+    source?: RuntimeTask["source"];
+    grammarTags?: string[];
+    prompt?: LocalizedText;
+  },
+) {
+  const asset = audioAssetsById.get(item.audioAssetId);
+
+  if (!isReadyAudioAsset(asset)) {
+    throw new Error(`${item.id} references unavailable listening audio asset ${item.audioAssetId}.`);
+  }
+
+  return listeningTask(item.id, item, getAudioProxyPath(unitId, item.audioAssetId), options);
+}
+
+function getListeningItemsForExerciseIds(
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
+  exerciseIds: string[],
+) {
+  const seen = new Set<string>();
+  const items: SourceListeningItem[] = [];
+
+  exerciseIds.forEach((exerciseId) => {
+    (listeningItemsByExerciseId.get(exerciseId) ?? []).forEach((item) => {
+      if (seen.has(item.id)) {
+        return;
+      }
+
+      seen.add(item.id);
+      items.push(item);
+    });
+  });
+
+  return items;
+}
+
+function buildListeningLessonFromExercises(
+  source: SourceUnit,
+  audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
+  blueprint: Omit<ManualLessonBlueprint, "extraTasks" | "taskOrdering">,
+  order: number,
+  totalLessons: number,
+) {
+  const items = getListeningItemsForExerciseIds(listeningItemsByExerciseId, blueprint.exerciseIds);
+
+  if (items.length === 0) {
+    throw new Error(
+      `${blueprint.lessonId} could not resolve any listening items for ${blueprint.exerciseIds.join(", ")}.`,
+    );
+  }
+
+  return lesson(
+    blueprint.lessonId,
+    blueprint.lessonRole,
+    blueprint.title,
+    blueprint.summary,
+    blueprint.focusConcepts,
+    blueprint.exerciseIds,
+    Array.from(new Set(items.flatMap((item) => item.coverageTags))),
+    items.map((item) => compileListeningItem(source.unitId, item, audioAssetsById)),
+    order,
+    totalLessons,
+  );
+}
+
 function tr(
   id: string,
   direction: MeaningDirection,
@@ -1042,66 +1195,16 @@ function getExerciseVocabId(exercise: SourceWorkbookExercise) {
 function audioBackedTasks(
   unitId: string,
   exercise: SourceWorkbookExercise,
-  asset: SourceAudioAsset,
-  lookups: Lookups,
-  grammarTags: string[],
+  audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
 ) {
-  const audioUrl = getAudioProxyPath(unitId, asset.id);
+  const items = listeningItemsByExerciseId.get(exercise.id) ?? [];
 
-  if (exercise.options?.length) {
-    const choices = exercise.options.map((option) =>
-      choice(
-        `${exercise.id}-${option.id}`,
-        option.label ?? text(option.id, option.id),
-        option.imagePath,
-      ),
-    );
-    const correctOption = exercise.options.find((option) => option.correct);
-
-    if (!correctOption) {
-      return [];
-    }
-
-    return [
-      ls(
-        `${exercise.id}-1`,
-        asset.transcript ?? answerText(exercise.answer),
-        meaningFromExercise(exercise, lookups),
-        lookups.choicePool,
-        "workbook",
-        text(
-          "Nghe file audio thật từ QR rồi chọn đáp án đúng.",
-          "Listen to the real QR audio and choose the correct answer.",
-        ),
-        {
-          audioUrl,
-          choices,
-          answer: `${exercise.id}-${correctOption.id}`,
-          grammarTags,
-          supportText: exercise.prompt,
-        },
-      ),
-    ];
+  if (items.length === 0) {
+    return [];
   }
 
-  return [
-    fill(
-      `${exercise.id}-1`,
-      exercise.koreanText ?? "",
-      answerList(exercise.answer),
-      "workbook",
-      grammarTags,
-      text(
-        "Nghe file audio that tu QR roi dien phan con thieu.",
-        "Listen to the real QR audio and fill in the missing part.",
-      ),
-      exercise.localizedText,
-      {
-        audioText: asset.transcript,
-        audioUrl,
-      },
-    ),
-  ];
+  return items.map((item) => compileListeningItem(unitId, item, audioAssetsById));
 }
 
 function exerciseToTasks(
@@ -1109,8 +1212,8 @@ function exerciseToTasks(
   exercise: SourceWorkbookExercise,
   lookups: Lookups,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
 ) {
-  const meaning = meaningFromExercise(exercise, lookups);
   const grammarTags =
     typeof exercise.metadata.grammarTag === "string" ? [exercise.metadata.grammarTag] : [];
   const metadataChoices =
@@ -1119,14 +1222,8 @@ function exerciseToTasks(
       ? (exercise.metadata.choices as string[])
       : undefined;
 
-  if (exercise.audioAssetId) {
-    const asset = audioAssetsById.get(exercise.audioAssetId);
-
-    if (!asset || !asset.remoteUrl || asset.needsReview) {
-      return [];
-    }
-
-    return audioBackedTasks(unitId, exercise, asset, lookups, grammarTags);
+  if (exercise.audioAssetId || listeningItemsByExerciseId.has(exercise.id)) {
+    return audioBackedTasks(unitId, exercise, audioAssetsById, listeningItemsByExerciseId);
   }
 
   if (exercise.exerciseType === "matching") {
@@ -1142,7 +1239,7 @@ function exerciseToTasks(
           lookups.visualVocabPool,
           "workbook",
           text(
-            "Bắt đầu bằng nhận diện hình ảnh và chữ Hàn cùng lúc.",
+            "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
             "Start by matching the image card with the Korean word and meaning together.",
           ),
         ),
@@ -1153,8 +1250,8 @@ function exerciseToTasks(
           lookups.visualVocabPool,
           "workbook",
           text(
-            "Nghe lại từ này và chọn thẻ đúng để khóa âm và hình.",
-            "Hear the word again and choose the matching card to lock in sound and image.",
+            "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "Hear the word again and choose the matching card to lock sound and image.",
           ),
           {
             supportText: exercise.prompt,
@@ -1167,19 +1264,19 @@ function exerciseToTasks(
       wm(
         `${exercise.id}-1`,
         exercise.koreanText ?? answerText(exercise.answer),
-        meaning,
+        meaningFromExercise(exercise, lookups),
         lookups.choicePool,
         "workbook",
-        text("Bắt đầu bằng nhận diện ý nghĩa nhanh.", "Start with quick meaning recognition."),
+        text("Bat dau bang nhan dien y nghia nhanh.", "Start with quick meaning recognition."),
       ),
       ls(
         `${exercise.id}-2`,
         exercise.koreanText ?? answerText(exercise.answer),
-        meaning,
+        meaningFromExercise(exercise, lookups),
         lookups.choicePool,
         "workbook",
         text(
-          "Nghe lại cùng biểu hiện để khóa âm và nghĩa.",
+          "Nghe lai cung bieu hien de khoa am va nghia.",
           "Hear the same expression again to lock sound and meaning.",
         ),
       ),
@@ -1208,7 +1305,7 @@ function exerciseToTasks(
         "workbook",
         grammarTags,
         text(
-          "Điền lại đúng phần còn thiếu của mẫu câu.",
+          "Dien lai dung phan con thieu cua mau cau.",
           "Fill the missing part of the sentence pattern.",
         ),
         fillBlankConfig.clue,
@@ -1223,7 +1320,7 @@ function exerciseToTasks(
         answerText(exercise.answer).replace(".", ""),
         "workbook",
         text(
-          "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
+          "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
           "Choose the answer again to avoid mixing up the ending or key noun.",
         ),
         grammarTags,
@@ -1249,7 +1346,7 @@ function exerciseToTasks(
         "workbook",
         grammarTags,
         text(
-          "Xây lại câu theo đúng trật tự tự nhiên.",
+          "Xay lai cau theo dung trat tu tu nhien.",
           "Build the sentence back in natural order.",
         ),
       ),
@@ -1258,7 +1355,7 @@ function exerciseToTasks(
         answerText(exercise.answer),
         "workbook",
         text(
-          "Nói to câu vừa ghép để chuyển sang phản xạ nói.",
+          "Noi to cau vua ghep de chuyen sang phan xa noi.",
           "Say the rebuilt sentence aloud to move into speaking reflex.",
         ),
         grammarTags,
@@ -1276,7 +1373,7 @@ function exerciseToTasks(
           lookups.choicePool,
           "workbook",
           text(
-            "Nhận ý nghĩa trước rồi mới gõ lại.",
+            "Nhan y nghia truoc roi moi go lai.",
             "Recognize the meaning before typing it back.",
           ),
         ),
@@ -1288,7 +1385,7 @@ function exerciseToTasks(
           "workbook",
           "recall",
           grammarTags,
-          text("Gõ lại ý nghĩa bằng trí nhớ.", "Type the meaning from memory."),
+          text("Go lai y nghia bang tri nho.", "Type the meaning from memory."),
         ),
       ];
     }
@@ -1297,13 +1394,13 @@ function exerciseToTasks(
       tr(
         `${exercise.id}-1`,
         "meaning_to_ko",
-        meaning,
+        meaningFromExercise(exercise, lookups),
         answerText(exercise.answer),
         "workbook",
         "construction",
         grammarTags,
         text(
-          "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
+          "Dich y nghia thanh cau tieng Han day du.",
           "Translate the meaning into a full Korean sentence.",
         ),
       ),
@@ -1312,7 +1409,7 @@ function exerciseToTasks(
         answerText(exercise.answer),
         "workbook",
         text(
-          "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
+          "Noi lai cau vua dich de tang san sinh chu dong.",
           "Say the translated sentence aloud to strengthen active production.",
         ),
         grammarTags,
@@ -1321,28 +1418,48 @@ function exerciseToTasks(
   }
 
   if (exercise.exerciseType === "listening") {
+    const explicitChoices = exercise.options?.map((option) =>
+      choice(
+        `${exercise.id}-${option.id}`,
+        option.label ?? text(option.id, option.id),
+        option.imagePath,
+      ),
+    );
+    const correctOption = exercise.options?.find((option) => option.correct);
+
     return [
       ls(
         `${exercise.id}-1`,
         exercise.koreanText ?? answerText(exercise.answer),
-        meaning,
+        meaningFromExercise(exercise, lookups),
         lookups.choicePool,
         "workbook",
         text(
-          "Bài nghe ngắn nên ưu tiên nhận diện nhanh.",
-          "Short listening items begin with fast recognition.",
+          "Nghe lai cau ngan nay roi chon dap an dung.",
+          "Hear the short line again and choose the correct answer.",
         ),
+        explicitChoices && correctOption
+          ? {
+              choices: explicitChoices,
+              answer: `${exercise.id}-${correctOption.id}`,
+              grammarTags,
+              supportText: exercise.prompt,
+            }
+          : {
+              grammarTags,
+              supportText: exercise.prompt,
+            },
       ),
       tr(
         `${exercise.id}-2`,
         "ko_to_meaning",
-        meaning,
+        meaningFromExercise(exercise, lookups),
         exercise.koreanText ?? answerText(exercise.answer),
         "workbook",
         "recall",
         grammarTags,
         text(
-          "Sau khi nghe đúng, gõ lại ý nghĩa để khóa trí nhớ.",
+          "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
           "Once you hear it correctly, type the meaning to lock it in.",
         ),
       ),
@@ -1434,6 +1551,7 @@ function buildLessonFromExercises(
   source: SourceUnit,
   lookups: Lookups,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
   blueprint: ManualLessonBlueprint,
   order: number,
   totalLessons: number,
@@ -1441,7 +1559,13 @@ function buildLessonFromExercises(
   const exercises = blueprint.exerciseIds.map((id) => pickFrom(source.workbook.exercises, id));
   const coverageTags = Array.from(new Set(exercises.flatMap((exercise) => exercise.coverageTags)));
   const taskGroups = exercises.map((exercise) =>
-    exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+    exerciseToTasks(
+      source.unitId,
+      exercise,
+      lookups,
+      audioAssetsById,
+      listeningItemsByExerciseId,
+    ),
   );
   const exerciseTasks =
     blueprint.taskOrdering === "interleave_pairs"
@@ -1845,8 +1969,9 @@ function dialogueLesson(source: SourceUnit, lookups: Lookups, totalLessons: numb
 
 function buildUnit1QrLesson(
   source: SourceUnit,
-  lookups: Lookups,
+  _lookups: Lookups,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  _listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
   totalLessons: number,
 ) {
   const left = pickFrom(source.workbook.exercises, "wb-qr-listen-country-left");
@@ -1854,105 +1979,136 @@ function buildUnit1QrLesson(
   const leftAsset = audioAssetsById.get(left.audioAssetId ?? "");
   const rightAsset = audioAssetsById.get(right.audioAssetId ?? "");
 
-  if (!leftAsset || !rightAsset) {
+  if (!isReadyAudioAsset(leftAsset) || !isReadyAudioAsset(rightAsset)) {
     throw new Error("Unit 1 QR listening assets must be available.");
   }
 
-  return buildLessonFromExercises(
-    source,
-    lookups,
-    audioAssetsById,
-    {
-      lessonId: "unit-1-lesson-9",
-      lessonRole: "workbook_practice",
-      title: text("Nghe QR về quốc tịch", "QR listening: countries and flags"),
-      summary: text(
-        "Tách riêng bài nghe QR thành một lesson nghe tập trung có cờ, câu điền, và câu nói lặp lại.",
-        "Split the QR audio into a dedicated listening lesson with flag choice, fill tasks, and spoken repeats.",
-      ),
-      focusConcepts: ["qr-listening", "country", "flags", "self-introduction"],
-      exerciseIds: [left.id, right.id],
-      extraTasks: [
-        fill(
-          "u1-qr-left-fill-country",
-          "저는 ___ 사람이에요.",
-          ["러시아"],
-          "workbook",
-          ["qr-listening"],
-          text(
-            "Nghe lại file QR của Natasha rồi điền quốc tịch bằng tiếng Hàn.",
-            "Replay Natasha's QR audio and fill in the nationality in Korean.",
-          ),
-          left.localizedText,
-          {
-            audioText: leftAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, leftAsset.id),
-            choices: ["러시아", "한국", "미국"],
-          },
+  const buildChoices = (exercise: SourceWorkbookExercise) =>
+    (exercise.options ?? []).map((option) => ({
+      id: `${exercise.id}-${option.id}`,
+      text: option.label ?? text(option.id, option.id),
+      imagePath: option.imagePath,
+    }));
+  const getCorrectChoiceId = (exercise: SourceWorkbookExercise) => {
+    const correctOption = exercise.options?.find((option) => option.correct);
+    return correctOption ? `${exercise.id}-${correctOption.id}` : undefined;
+  };
+
+  const tasks = [
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u1-qr-left-flag",
+        sourceExerciseIds: [left.id],
+        audioAssetId: left.audioAssetId ?? "",
+        type: "choose_image",
+        prompt: left.prompt,
+        questionText: text("Natasha den tu nuoc nao?", "Which country is Natasha from?"),
+        contextGroupId: "u1-qr-country-left",
+        contextTitle: text("Natasha", "Natasha"),
+        choices: buildChoices(left),
+        correctChoiceId: getCorrectChoiceId(left),
+        coverageTags: left.coverageTags,
+        difficulty: "easy",
+        pages: left.pages,
+        sourceRef: left.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u1-qr-left-fill-country",
+        sourceExerciseIds: [left.id],
+        audioAssetId: left.audioAssetId ?? "",
+        type: "fill_blank",
+        prompt: text(
+          "Nghe lai roi dien quoc tich cua Natasha.",
+          "Listen again and fill Natasha's nationality.",
         ),
-        fill(
-          "u1-qr-right-fill-country",
-          "저는 ___ 사람이에요.",
-          ["한국"],
-          "workbook",
-          ["qr-listening"],
-          text(
-            "Nghe lại file QR của Gayoung rồi điền quốc tịch bằng tiếng Hàn.",
-            "Replay Gayoung's QR audio and fill in the nationality in Korean.",
-          ),
-          right.localizedText,
-          {
-            audioText: rightAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, rightAsset.id),
-            choices: ["한국", "러시아", "미국"],
-          },
+        questionText: text("jeoneun ___ saramieyo.", "I am from ___."),
+        contextGroupId: "u1-qr-country-left",
+        contextTitle: text("Natasha", "Natasha"),
+        correctText: "러시아",
+        acceptedAnswers: ["러시아"],
+        choices: [
+          { id: "u1-left-russia", text: text("러시아", "Russia") },
+          { id: "u1-left-korea", text: text("한국", "South Korea") },
+          { id: "u1-left-usa", text: text("미국", "United States") },
+        ],
+        coverageTags: left.coverageTags,
+        difficulty: "easy",
+        pages: left.pages,
+        sourceRef: left.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u1-qr-right-flag",
+        sourceExerciseIds: [right.id],
+        audioAssetId: right.audioAssetId ?? "",
+        type: "choose_image",
+        prompt: right.prompt,
+        questionText: text("Gayoung den tu nuoc nao?", "Which country is Gayoung from?"),
+        contextGroupId: "u1-qr-country-right",
+        contextTitle: text("Gayoung", "Gayoung"),
+        choices: buildChoices(right),
+        correctChoiceId: getCorrectChoiceId(right),
+        coverageTags: right.coverageTags,
+        difficulty: "easy",
+        pages: right.pages,
+        sourceRef: right.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u1-qr-right-fill-country",
+        sourceExerciseIds: [right.id],
+        audioAssetId: right.audioAssetId ?? "",
+        type: "fill_blank",
+        prompt: text(
+          "Nghe lai roi dien quoc tich cua Gayoung.",
+          "Listen again and fill Gayoung's nationality.",
         ),
-        arr(
-          "u1-qr-left-arrange",
-          text("Natasha là người Nga.", "Natasha is from Russia."),
-          ["저는", "러시아", "사람이에요."],
-          ["사람이에요.", "러시아", "저는"],
-          "workbook",
-          ["qr-listening"],
-          text(
-            "Sắp xếp lại câu trả lời xuất hiện trong file nghe QR bên trái.",
-            "Rebuild the answer line heard in the left-side QR audio.",
-          ),
-        ),
-        arr(
-          "u1-qr-right-arrange",
-          text("Gayoung là người Hàn Quốc.", "Gayoung is from South Korea."),
-          ["저는", "한국", "사람이에요."],
-          ["사람이에요.", "한국", "저는"],
-          "workbook",
-          ["qr-listening"],
-          text(
-            "Sắp xếp lại câu trả lời xuất hiện trong file nghe QR bên phải.",
-            "Rebuild the answer line heard in the right-side QR audio.",
-          ),
-        ),
-        speak(
-          "u1-qr-left-speak",
-          "저는 러시아 사람이에요.",
-          "workbook",
-          text(
-            "Nói lại câu giới thiệu quốc tịch của Natasha.",
-            "Say Natasha's nationality sentence aloud.",
-          ),
-          ["qr-listening"],
-        ),
-        speak(
-          "u1-qr-right-speak",
-          "저는 한국 사람이에요.",
-          "workbook",
-          text(
-            "Nói lại câu giới thiệu quốc tịch của Gayoung.",
-            "Say Gayoung's nationality sentence aloud.",
-          ),
-          ["qr-listening"],
-        ),
-      ],
-    },
+        questionText: text("jeoneun ___ saramieyo.", "I am from ___."),
+        contextGroupId: "u1-qr-country-right",
+        contextTitle: text("Gayoung", "Gayoung"),
+        correctText: "한국",
+        acceptedAnswers: ["한국"],
+        choices: [
+          { id: "u1-right-korea", text: text("한국", "South Korea") },
+          { id: "u1-right-russia", text: text("러시아", "Russia") },
+          { id: "u1-right-usa", text: text("미국", "United States") },
+        ],
+        coverageTags: right.coverageTags,
+        difficulty: "easy",
+        pages: right.pages,
+        sourceRef: right.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+  ];
+
+  return lesson(
+    "unit-1-lesson-9",
+    "workbook_practice",
+    text("Nghe QR ve quoc tich", "QR listening: countries and flags"),
+    text(
+      "Giu bai QR o dang atomic: moi luot nghe chi hoi mot muc tieu nho, du Unit 1 van dang dung full-audio fallback.",
+      "Keep the QR lesson atomic: each listen asks one small target, even while Unit 1 still uses full-audio fallback.",
+    ),
+    ["qr-listening", "country", "flags", "self-introduction"],
+    [left.id, right.id],
+    Array.from(new Set([...left.coverageTags, ...right.coverageTags])),
+    tasks,
     9,
     totalLessons,
   );
@@ -1962,6 +2118,7 @@ function buildUnit1WorkbookLessons(
   source: SourceUnit,
   lookups: Lookups,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
   totalLessons: number,
 ) {
   return [
@@ -1969,6 +2126,7 @@ function buildUnit1WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-1-lesson-4",
         lessonRole: "workbook_practice",
@@ -1992,6 +2150,7 @@ function buildUnit1WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-1-lesson-5",
         lessonRole: "workbook_practice",
@@ -2015,6 +2174,7 @@ function buildUnit1WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-1-lesson-6",
         lessonRole: "workbook_practice",
@@ -2038,6 +2198,7 @@ function buildUnit1WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-1-lesson-7",
         lessonRole: "workbook_practice",
@@ -2061,6 +2222,7 @@ function buildUnit1WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-1-lesson-8",
         lessonRole: "workbook_practice",
@@ -2081,7 +2243,13 @@ function buildUnit1WorkbookLessons(
       8,
       totalLessons,
     ),
-    buildUnit1QrLesson(source, lookups, audioAssetsById, totalLessons),
+    buildUnit1QrLesson(
+      source,
+      lookups,
+      audioAssetsById,
+      listeningItemsByExerciseId,
+      totalLessons,
+    ),
   ];
 }
 
@@ -2141,6 +2309,7 @@ function reviewLessons(
   startOrder: number,
   totalLessons: number,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
 ) {
   const reviewAIds = [
     "wb-fill-student-ending",
@@ -2174,7 +2343,7 @@ function reviewLessons(
     Array.from(new Set(reviewAExercises.flatMap((exercise) => exercise.coverageTags))),
     [
       ...reviewAExercises.flatMap((exercise) =>
-        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById, listeningItemsByExerciseId),
       ),
       arr(
         "review-a-extra",
@@ -2206,7 +2375,7 @@ function reviewLessons(
     Array.from(new Set(reviewBExercises.flatMap((exercise) => exercise.coverageTags))),
     [
       ...reviewBExercises.flatMap((exercise) =>
-        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById, listeningItemsByExerciseId),
       ),
       speak(
         "review-b-extra-1",
@@ -2602,198 +2771,49 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
 
 function buildUnit16QrLessons(
   source: SourceUnit,
-  lookups: Lookups,
+  _lookups: Lookups,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
   totalLessons: number,
 ) {
   const traffic = pickFrom(source.workbook.exercises, "wb16-qr-traffic-jam");
   const busNumber = pickFrom(source.workbook.exercises, "wb16-qr-seoul-bus-number");
   const distance = pickFrom(source.workbook.exercises, "wb16-qr-seoul-distance");
   const destination = pickFrom(source.workbook.exercises, "wb16-qr-destination");
-  const trafficAsset = audioAssetsById.get(traffic.audioAssetId ?? "");
-  const seoulAsset = audioAssetsById.get(busNumber.audioAssetId ?? "");
-  const airportAsset = audioAssetsById.get(destination.audioAssetId ?? "");
 
-  if (!trafficAsset || !seoulAsset || !airportAsset) {
-    throw new Error("Unit 16 QR listening assets must be available.");
-  }
-
-  const lesson8 = buildLessonFromExercises(
+  const lesson8 = buildListeningLessonFromExercises(
     source,
-    lookups,
     audioAssetsById,
+    listeningItemsByExerciseId,
     {
       lessonId: "unit-16-lesson-8",
       lessonRole: "workbook_practice",
       title: text("Nghe QR: ga Seoul", "QR listening: Seoul Station route"),
       summary: text(
-        "Tách QR nghe về tình huống giao thông và đường đến Seoul Station thành một lesson nghe riêng.",
-        "Split the traffic and Seoul Station QR audio into a dedicated listening lesson.",
+        "T?ch block QR ga Seoul th?nh c?c item nghe atomic: m?i clip ng?n g?n v?i ??ng m?t m?c ti?u.",
+        "Split the Seoul Station QR block into atomic listening items: each short clip maps to one clear goal.",
       ),
       focusConcepts: ["qr-listening", "directions", "bus-number", "distance"],
       exerciseIds: [traffic.id, busNumber.id, distance.id],
-      extraTasks: [
-        fill(
-          "u16-qr-traffic-fill",
-          "퇴근 시간이라 길이 ___.",
-          ["막힙니다"],
-          "workbook",
-          ["qr-listening"],
-          text(
-            "Nghe lại audio QR về giao thông và điền cụm kết thúc câu.",
-            "Replay the traffic QR audio and fill the sentence ending.",
-          ),
-          traffic.localizedText,
-          {
-            audioText: trafficAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, trafficAsset.id),
-            choices: ["막힙니다", "괜찮습니다", "가깝습니다"],
-          },
-        ),
-        fill(
-          "u16-qr-bus-fill",
-          "저기 정류장에서 ___번 버스를 타십시오.",
-          ["100"],
-          "workbook",
-          ["qr-listening", "directions"],
-          text(
-            "Điền số xe buýt được nghe trong hội thoại QR đến Seoul Station.",
-            "Fill in the bus number heard in the Seoul Station QR dialogue.",
-          ),
-          busNumber.localizedText,
-          {
-            audioText: seoulAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, seoulAsset.id),
-            choices: ["50", "100", "150"],
-          },
-        ),
-        arr(
-          "u16-qr-route-arrange",
-          text("Từ đây đến ga Seoul đi thế nào?", "How do I get to Seoul Station from here?"),
-          ["여기에서", "서울역까지", "어떻게", "가요?"],
-          ["가요?", "어떻게", "서울역까지", "여기에서"],
-          "workbook",
-          ["qr-listening", "directions"],
-          text(
-            "Sắp xếp lại câu hỏi lộ trình xuất hiện trong đoạn QR.",
-            "Rebuild the route question that appears in the QR dialogue.",
-          ),
-        ),
-        speak(
-          "u16-qr-bus-speak",
-          "저기 정류장에서 100번 버스를 타십시오.",
-          "workbook",
-          text(
-            "Nói lại câu chỉ đường lịch sự sau khi nghe audio QR.",
-            "Say the polite route instruction aloud after hearing the QR audio.",
-          ),
-          ["qr-listening", "-(으)십시오"],
-        ),
-        fill(
-          "u16-qr-distance-fill",
-          "아니요. ___ 않아요.",
-          ["멀지"],
-          "workbook",
-          ["qr-listening", "distance"],
-          text(
-            "Điền cụm mô tả khoảng cách trong câu trả lời của QR audio.",
-            "Fill the distance phrase from the QR audio answer.",
-          ),
-          distance.localizedText,
-          {
-            audioText: seoulAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, seoulAsset.id),
-            choices: ["멀지", "바쁘지", "늦지"],
-          },
-        ),
-      ],
     },
     8,
     totalLessons,
   );
 
-  const lesson9 = buildLessonFromExercises(
+  const lesson9 = buildListeningLessonFromExercises(
     source,
-    lookups,
     audioAssetsById,
+    listeningItemsByExerciseId,
     {
       lessonId: "unit-16-lesson-9",
       lessonRole: "workbook_practice",
-      title: text("Nghe QR: sân bay và câu tiếp nối", "QR listening: airport and follow-up"),
+      title: text("Nghe QR: s?n bay", "QR listening: airport"),
       summary: text(
-        "Tiếp tục section nghe bằng điểm đến cổng sân bay, lời khuyên di chuyển, và câu trả lời về khoảng cách.",
-        "Continue the listening section with the airport destination, travel advice, and distance follow-up lines.",
+        "Gi? ph?n s?n bay ? c?ng flow atomic: nghe clip ng?n, tr? l?i m?t vi?c, r?i chuy?n ti?p ngay.",
+        "Keep the airport scenario in the same atomic flow: hear a short clip, answer one thing, then move on.",
       ),
       focusConcepts: ["qr-listening", "destination", "travel", "directions"],
-      exerciseIds: [busNumber.id, distance.id, destination.id],
-      extraTasks: [
-        fill(
-          "u16-qr-destination-fill",
-          "지연 씨는 ___에 가려고 해요.",
-          ["공항"],
-          "workbook",
-          ["qr-listening", "destination"],
-          text(
-            "Nghe lại audio QR về điểm đến và điền nơi muốn đến.",
-            "Replay the destination QR audio and fill in the place she wants to reach.",
-          ),
-          destination.localizedText,
-          {
-            audioText: airportAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, airportAsset.id),
-            choices: ["공항", "서울역", "터미널"],
-          },
-        ),
-        fill(
-          "u16-qr-airport-bus-fill",
-          "여기에서 ___번 버스를 타고 가세요.",
-          ["600"],
-          "workbook",
-          ["qr-listening", "destination"],
-          text(
-            "Điền số xe buýt được gợi ý trong audio QR đi sân bay.",
-            "Fill in the bus number recommended in the airport QR audio.",
-          ),
-          destination.localizedText,
-          {
-            audioText: airportAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, airportAsset.id),
-            choices: ["100", "600", "900"],
-          },
-        ),
-        speak(
-          "u16-qr-airport-speak",
-          "여기에서 600번 버스를 타고 가세요.",
-          "workbook",
-          text(
-            "Nói lại lời khuyên đi sân bay để giữ section nghe vẫn có production.",
-            "Say the airport bus advice aloud so the listening section still includes production.",
-          ),
-          ["qr-listening", "destination"],
-        ),
-        arr(
-          "u16-qr-route-finish-arrange",
-          text("Xe buýt đó đi đến ga Seoul.", "That bus goes to Seoul Station."),
-          ["그", "버스가", "서울역까지", "갑니다."],
-          ["갑니다.", "서울역까지", "버스가", "그"],
-          "workbook",
-          ["qr-listening", "directions"],
-          text(
-            "Sắp xếp lại câu kết luận của đoạn QR Seoul Station.",
-            "Rebuild the closing route line from the Seoul Station QR dialogue.",
-          ),
-        ),
-        speak(
-          "u16-qr-distance-speak",
-          "아니요. 멀지 않아요.",
-          "workbook",
-          text(
-            "Kết lesson bằng câu trả lời ngắn về khoảng cách.",
-            "Close the lesson with the short distance-answer line.",
-          ),
-          ["qr-listening", "distance"],
-        ),
-      ],
+      exerciseIds: [destination.id],
     },
     9,
     totalLessons,
@@ -2806,6 +2826,7 @@ function buildUnit16WorkbookLessons(
   source: SourceUnit,
   lookups: Lookups,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
   totalLessons: number,
 ) {
   return [
@@ -2813,6 +2834,7 @@ function buildUnit16WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-16-lesson-4",
         lessonRole: "workbook_practice",
@@ -2838,6 +2860,7 @@ function buildUnit16WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-16-lesson-5",
         lessonRole: "workbook_practice",
@@ -2861,6 +2884,7 @@ function buildUnit16WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-16-lesson-6",
         lessonRole: "workbook_practice",
@@ -2884,6 +2908,7 @@ function buildUnit16WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-16-lesson-7",
         lessonRole: "workbook_practice",
@@ -2904,7 +2929,13 @@ function buildUnit16WorkbookLessons(
       7,
       totalLessons,
     ),
-    ...buildUnit16QrLessons(source, lookups, audioAssetsById, totalLessons),
+    ...buildUnit16QrLessons(
+      source,
+      lookups,
+      audioAssetsById,
+      listeningItemsByExerciseId,
+      totalLessons,
+    ),
   ];
 }
 
@@ -3335,213 +3366,304 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
 
 function buildUnit17QrLessons(
   source: SourceUnit,
-  lookups: Lookups,
+  _lookups: Lookups,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  _listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
   totalLessons: number,
 ) {
   const partyTime = pickFrom(source.workbook.exercises, "wb17-qr-party-time");
   const buyGifts = pickFrom(source.workbook.exercises, "wb17-qr-buy-gifts");
   const dialogueAsset = audioAssetsById.get(partyTime.audioAssetId ?? "");
 
-  if (!dialogueAsset) {
+  if (!isReadyAudioAsset(dialogueAsset)) {
     throw new Error("Unit 17 QR dialogue audio must be available.");
   }
 
-  const lesson8 = buildLessonFromExercises(
-    source,
-    lookups,
-    audioAssetsById,
-    {
-      lessonId: "unit-17-lesson-8",
-      lessonRole: "workbook_practice",
-      title: text("Nghe QR: giờ và hẹn gặp", "QR listening: time and meetup"),
-      summary: text(
-        "Tách đoạn nghe QR ra thành lesson riêng để khóa giờ bắt đầu và câu hẹn gặp.",
-        "Split the QR dialogue into its own lesson to lock in the party time and meetup line.",
-      ),
-      focusConcepts: ["qr-listening", "housewarming", "time", "meetup"],
-      exerciseIds: [partyTime.id, buyGifts.id],
-      extraTasks: [
-        fill(
-          "u17-qr-time-fill",
-          "집들이가 ___ 시예요.",
-          ["여섯"],
-          "workbook",
-          ["qr-listening", "time"],
-          text(
-            "Nghe lại đoạn QR và điền giờ diễn ra tiệc tân gia.",
-            "Replay the QR dialogue and fill in the housewarming time.",
-          ),
-          partyTime.localizedText,
-          {
-            audioText: dialogueAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, dialogueAsset.id),
-            choices: ["여섯", "일곱", "여덟"],
-          },
+  const partyChoices = (partyTime.options ?? []).map((option) => ({
+    id: `${partyTime.id}-${option.id}`,
+    text: option.label ?? text(option.id, option.id),
+  }));
+  const partyCorrectChoiceId = (() => {
+    const correctOption = partyTime.options?.find((option) => option.correct);
+    return correctOption ? `${partyTime.id}-${correctOption.id}` : undefined;
+  })();
+  const giftChoices = (buyGifts.options ?? []).map((option) => ({
+    id: `${buyGifts.id}-${option.id}`,
+    text: option.label ?? text(option.id, option.id),
+  }));
+  const giftCorrectChoiceId = (() => {
+    const correctOption = buyGifts.options?.find((option) => option.correct);
+    return correctOption ? `${buyGifts.id}-${correctOption.id}` : undefined;
+  })();
+
+  const lesson8Tasks = [
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-party-time-choice",
+        sourceExerciseIds: [partyTime.id],
+        audioAssetId: partyTime.audioAssetId ?? "",
+        type: "multiple_choice",
+        prompt: partyTime.prompt,
+        questionText: text("Jipdeuri ga myeot siyeyo?", "What time is the housewarming?"),
+        contextGroupId: "u17-qr-housewarming-dialogue",
+        contextTitle: text("Tiec tan gia", "Housewarming"),
+        choices: partyChoices,
+        correctChoiceId: partyCorrectChoiceId,
+        coverageTags: partyTime.coverageTags,
+        difficulty: "easy",
+        pages: partyTime.pages,
+        sourceRef: partyTime.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-party-time-fill",
+        sourceExerciseIds: [partyTime.id],
+        audioAssetId: partyTime.audioAssetId ?? "",
+        type: "fill_blank",
+        prompt: text(
+          "Nghe lai roi dien gio bat dau cua tiec.",
+          "Listen again and fill in the party time.",
         ),
-        speak(
-          "u17-qr-time-speak",
-          "저녁 여섯 시예요.",
-          "workbook",
-          text(
-            "Nói lại câu trả lời về giờ bắt đầu của tiệc tân gia.",
-            "Say the answer about the housewarming time aloud.",
-          ),
-          ["qr-listening", "time"],
+        questionText: text("jipdeuri ga ___ siyeyo.", "The housewarming is at ___."),
+        contextGroupId: "u17-qr-housewarming-dialogue",
+        contextTitle: text("Tiec tan gia", "Housewarming"),
+        correctText: "여섯",
+        acceptedAnswers: ["여섯"],
+        choices: [
+          { id: "u17-time-6", text: text("여섯", "six") },
+          { id: "u17-time-7", text: text("일곱", "seven") },
+          { id: "u17-time-8", text: text("여덟", "eight") },
+        ],
+        coverageTags: partyTime.coverageTags,
+        difficulty: "easy",
+        pages: partyTime.pages,
+        sourceRef: partyTime.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-meetup-fill",
+        sourceExerciseIds: [partyTime.id],
+        audioAssetId: partyTime.audioAssetId ?? "",
+        type: "fill_blank",
+        prompt: text(
+          "Nghe lai roi hoan thanh cau hen gap cuoi doan thoai.",
+          "Listen again and complete the closing meetup line.",
         ),
-        arr(
-          "u17-qr-time-arrange",
-          text("Tiệc tân gia mấy giờ?", "What time is the housewarming?"),
-          ["집들이가", "몇", "시예요?"],
-          ["시예요?", "몇", "집들이가"],
-          "workbook",
-          ["qr-listening", "time"],
-          text(
-            "Sắp xếp lại câu hỏi giờ giấc xuất hiện trong audio QR.",
-            "Rebuild the time question that appears in the QR audio.",
-          ),
+        questionText: text("geureom syaowi ssi jibeseo ___.", "Then let's ___ at Xiaowei's home."),
+        contextGroupId: "u17-qr-housewarming-dialogue",
+        contextTitle: text("Tiec tan gia", "Housewarming"),
+        correctText: "만나요",
+        acceptedAnswers: ["만나요"],
+        choices: [
+          { id: "u17-meet", text: text("만나요", "meet") },
+          { id: "u17-buy", text: text("사요", "buy") },
+          { id: "u17-help", text: text("도와요", "help") },
+        ],
+        coverageTags: [...partyTime.coverageTags, "meetup"],
+        difficulty: "easy",
+        pages: partyTime.pages,
+        sourceRef: partyTime.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-meetup-order",
+        sourceExerciseIds: [partyTime.id],
+        audioAssetId: partyTime.audioAssetId ?? "",
+        type: "order_step",
+        prompt: text(
+          "Nghe lai roi sap xep cau hen gap theo dung thu tu.",
+          "Listen again and order the meetup line correctly.",
         ),
-        fill(
-          "u17-qr-meetup-fill",
-          "그럼 샤오위 씨 집에서 ___.",
-          ["만나요"],
-          "workbook",
-          ["qr-listening", "meetup"],
-          text(
-            "Điền động từ cuối câu hẹn gặp trong đoạn QR.",
-            "Fill the final meetup verb from the QR dialogue.",
-          ),
-          text("chúng ta gặp ở nhà Xiaowei", "let's meet at Xiaowei's home"),
-          {
-            audioText: dialogueAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, dialogueAsset.id),
-            choices: ["만나요", "사요", "도와요"],
-          },
+        questionText: text(
+          "Vay thi gap o nha Xiaowei.",
+          "Then let's meet at Xiaowei's home.",
         ),
-        arr(
-          "u17-qr-meetup-arrange",
-          text("Vậy thì gặp ở nhà Xiaowei.", "Then let's meet at Xiaowei's home."),
-          ["그럼", "샤오위", "씨", "집에서", "만나요."],
-          ["만나요.", "집에서", "씨", "샤오위", "그럼"],
-          "workbook",
-          ["qr-listening", "meetup"],
-          text(
-            "Sắp xếp lại câu kết thúc của đoạn hội thoại QR.",
-            "Rebuild the closing line of the QR dialogue.",
-          ),
+        contextGroupId: "u17-qr-housewarming-dialogue",
+        contextTitle: text("Tiec tan gia", "Housewarming"),
+        choices: [
+          { id: "u17-order-geureom", text: text("그럼", "then") },
+          { id: "u17-order-house", text: text("샤오위 씨 집에서", "at Xiaowei's home") },
+          { id: "u17-order-meet", text: text("만나요", "meet") },
+        ],
+        correctOrderChoiceIds: [
+          "u17-order-geureom",
+          "u17-order-house",
+          "u17-order-meet",
+        ],
+        coverageTags: [...partyTime.coverageTags, "meetup"],
+        difficulty: "medium",
+        pages: partyTime.pages,
+        sourceRef: partyTime.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+  ];
+
+  const lesson9Tasks = [
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-buy-gifts-choice",
+        sourceExerciseIds: [buyGifts.id],
+        audioAssetId: buyGifts.audioAssetId ?? "",
+        type: "multiple_choice",
+        prompt: buyGifts.prompt,
+        questionText: text("Lisa neun mueoseul sa gayo?", "What will Lisa bring?"),
+        contextGroupId: "u17-qr-housewarming-dialogue",
+        contextTitle: text("Qua mang theo", "Bring-a-gift"),
+        choices: giftChoices,
+        correctChoiceId: giftCorrectChoiceId,
+        coverageTags: buyGifts.coverageTags,
+        difficulty: "easy",
+        pages: buyGifts.pages,
+        sourceRef: buyGifts.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-detergent-fill",
+        sourceExerciseIds: [buyGifts.id],
+        audioAssetId: buyGifts.audioAssetId ?? "",
+        type: "fill_blank",
+        prompt: text(
+          "Nghe lai roi dien mon qua dau tien duoc nhac toi.",
+          "Listen again and fill in the first gift item named.",
         ),
-        speak(
-          "u17-qr-meetup-speak",
-          "그럼 샤오위 씨 집에서 만나요.",
-          "workbook",
-          text(
-            "Kết lesson bằng câu hẹn gặp tự nhiên trong đoạn QR.",
-            "Close the lesson by saying the natural meetup line from the QR dialogue.",
-          ),
-          ["qr-listening", "meetup"],
+        questionText: text(
+          "botong ___ reul sa gago, hyujido sa gayo.",
+          "People usually bring ___ and tissue paper.",
         ),
-      ],
-    },
+        contextGroupId: "u17-qr-housewarming-dialogue",
+        contextTitle: text("Qua mang theo", "Bring-a-gift"),
+        correctText: "세제",
+        acceptedAnswers: ["세제"],
+        choices: [
+          { id: "u17-detergent", text: text("세제", "detergent") },
+          { id: "u17-flowers", text: text("꽃", "flowers") },
+          { id: "u17-card", text: text("초대장", "invitation card") },
+        ],
+        coverageTags: buyGifts.coverageTags,
+        difficulty: "easy",
+        pages: buyGifts.pages,
+        sourceRef: buyGifts.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-bring-fill",
+        sourceExerciseIds: [buyGifts.id],
+        audioAssetId: buyGifts.audioAssetId ?? "",
+        type: "fill_blank",
+        prompt: text(
+          "Nghe lai roi hoan thanh cau de nghi mang qua den.",
+          "Listen again and complete the offer-to-bring line.",
+        ),
+        questionText: text(
+          "geureom hyujihago seje reul jega ___?",
+          "Then shall I ___ tissue paper and detergent?",
+        ),
+        contextGroupId: "u17-qr-housewarming-dialogue",
+        contextTitle: text("Qua mang theo", "Bring-a-gift"),
+        correctText: "사 갈까요",
+        acceptedAnswers: ["사 갈까요"],
+        choices: [
+          { id: "u17-bring", text: text("사 갈까요", "bring / buy and bring") },
+          { id: "u17-eat", text: text("먹을까요", "eat") },
+          { id: "u17-go", text: text("갈까요", "go") },
+        ],
+        coverageTags: [...buyGifts.coverageTags, "response"],
+        difficulty: "medium",
+        pages: buyGifts.pages,
+        sourceRef: buyGifts.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-gifts-order",
+        sourceExerciseIds: [buyGifts.id],
+        audioAssetId: buyGifts.audioAssetId ?? "",
+        type: "order_step",
+        prompt: text(
+          "Nghe lai roi sap xep cau ve cac mon qua nen mang theo.",
+          "Listen again and order the line about what gifts to bring.",
+        ),
+        questionText: text(
+          "Thuong thi mang nuoc giat va khan giay.",
+          "Usually people bring detergent and tissue paper.",
+        ),
+        contextGroupId: "u17-qr-housewarming-dialogue",
+        contextTitle: text("Qua mang theo", "Bring-a-gift"),
+        choices: [
+          { id: "u17-gifts-usually", text: text("보통", "usually") },
+          { id: "u17-gifts-detergent", text: text("세제를 사 가고", "bring detergent") },
+          { id: "u17-gifts-tissue", text: text("휴지도 사 가요", "bring tissue paper too") },
+        ],
+        correctOrderChoiceIds: [
+          "u17-gifts-usually",
+          "u17-gifts-detergent",
+          "u17-gifts-tissue",
+        ],
+        coverageTags: buyGifts.coverageTags,
+        difficulty: "medium",
+        pages: buyGifts.pages,
+        sourceRef: buyGifts.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+  ];
+
+  const lesson8 = lesson(
+    "unit-17-lesson-8",
+    "workbook_practice",
+    text("Nghe QR: gio va hen gap", "QR listening: time and meetup"),
+    text(
+      "Giu lesson nay o dang listening atomic du source van dang di qua legacy full-audio adapter.",
+      "Keep this lesson in atomic listening form even while the source still runs through the legacy full-audio adapter.",
+    ),
+    ["qr-listening", "housewarming", "time", "meetup"],
+    [partyTime.id],
+    Array.from(new Set([...partyTime.coverageTags, "meetup"])),
+    lesson8Tasks,
     8,
     totalLessons,
   );
 
-  const lesson9 = buildLessonFromExercises(
-    source,
-    lookups,
-    audioAssetsById,
-    {
-      lessonId: "unit-17-lesson-9",
-      lessonRole: "workbook_practice",
-      title: text("Nghe QR: quà mang theo và phản hồi", "QR listening: gifts and response"),
-      summary: text(
-        "Tiếp tục QR section bằng phần mua quà mang đến và câu hỏi phản hồi lịch sự.",
-        "Continue the QR section with the gift discussion and the polite follow-up question.",
-      ),
-      focusConcepts: ["qr-listening", "gifts", "housewarming", "response"],
-      exerciseIds: [partyTime.id, buyGifts.id],
-      extraTasks: [
-        fill(
-          "u17-qr-detergent-fill",
-          "보통 ___를 사 가고, 휴지도 사 가요.",
-          ["세제"],
-          "workbook",
-          ["qr-listening", "gifts"],
-          text(
-            "Điền món quà xuất hiện đầu tiên trong câu trả lời của QR.",
-            "Fill in the first gift item named in the QR answer.",
-          ),
-          buyGifts.localizedText,
-          {
-            audioText: dialogueAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, dialogueAsset.id),
-            choices: ["세제", "꽃", "초대장"],
-          },
-        ),
-        fill(
-          "u17-qr-bring-fill",
-          "그럼 휴지하고 세제를 제가 ___?",
-          ["사 갈까요"],
-          "workbook",
-          ["qr-listening", "gifts"],
-          text(
-            "Điền cụm phản hồi lịch sự để đề nghị mua mang đến.",
-            "Fill the polite follow-up phrase that offers to bring the gifts.",
-          ),
-          text("Vậy tôi sẽ mua khăn giấy và chất tẩy nhé?", "Then shall I bring tissue paper and detergent?"),
-          {
-            audioText: dialogueAsset.transcript,
-            audioUrl: getAudioProxyPath(source.unitId, dialogueAsset.id),
-            choices: ["사 갈까요", "먹을까요", "갈까요"],
-          },
-        ),
-        speak(
-          "u17-qr-bring-speak",
-          "그럼 휴지하고 세제를 제가 사 갈까요?",
-          "workbook",
-          text(
-            "Nói lại câu đề nghị giúp đỡ trong audio QR.",
-            "Say the offer-to-help question from the QR audio aloud.",
-          ),
-          ["qr-listening", "gifts"],
-        ),
-        arr(
-          "u17-qr-gifts-arrange",
-          text("Thường thì mang chất tẩy và khăn giấy.", "Usually people bring detergent and tissue paper."),
-          ["보통", "세제를", "사", "가고,", "휴지도", "사", "가요."],
-          ["가요.", "사", "휴지도", "가고,", "사", "세제를", "보통"],
-          "workbook",
-          ["qr-listening", "gifts"],
-          text(
-            "Sắp xếp lại câu nói về những món quà nên mua đem theo.",
-            "Rebuild the line about what gifts people usually bring.",
-          ),
-        ),
-        tr(
-          "u17-qr-buy-question",
-          "meaning_to_ko",
-          text("Tôi nên mua gì mang đến tiệc tân gia?", "What should I buy for the housewarming?"),
-          "집들이에 뭘 사 가야 돼요?",
-          "workbook",
-          "construction",
-          ["qr-listening", "-아/어야 되다"],
-          text(
-            "Viết lại câu hỏi xuất hiện ở giữa đoạn hội thoại QR.",
-            "Write the question that appears in the middle of the QR dialogue.",
-          ),
-        ),
-        speak(
-          "u17-qr-buy-question-speak",
-          "집들이에 뭘 사 가야 돼요?",
-          "workbook",
-          text(
-            "Kết lesson bằng câu hỏi hỏi ý kiến về quà mang đến.",
-            "Close the lesson with the question that asks what to bring.",
-          ),
-          ["qr-listening", "-아/어야 되다"],
-        ),
-      ],
-    },
+  const lesson9 = lesson(
+    "unit-17-lesson-9",
+    "workbook_practice",
+    text("Nghe QR: qua mang theo", "QR listening: gifts and response"),
+    text(
+      "Giu lesson qua tan gia o dang atomic va de warning migration bao ro day van la legacy content chua co clip authoring.",
+      "Keep the gift lesson atomic and let migration warnings make it explicit that this is still legacy content without clip authoring.",
+    ),
+    ["qr-listening", "gifts", "housewarming", "response"],
+    [buyGifts.id],
+    Array.from(new Set([...buyGifts.coverageTags, "response"])),
+    lesson9Tasks,
     9,
     totalLessons,
   );
@@ -3553,6 +3675,7 @@ function buildUnit17WorkbookLessons(
   source: SourceUnit,
   lookups: Lookups,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
   totalLessons: number,
 ) {
   return [
@@ -3560,6 +3683,7 @@ function buildUnit17WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-17-lesson-4",
         lessonRole: "workbook_practice",
@@ -3583,6 +3707,7 @@ function buildUnit17WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-17-lesson-5",
         lessonRole: "workbook_practice",
@@ -3606,6 +3731,7 @@ function buildUnit17WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-17-lesson-6",
         lessonRole: "workbook_practice",
@@ -3630,6 +3756,7 @@ function buildUnit17WorkbookLessons(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-17-lesson-7",
         lessonRole: "workbook_practice",
@@ -3649,7 +3776,13 @@ function buildUnit17WorkbookLessons(
       7,
       totalLessons,
     ),
-    ...buildUnit17QrLessons(source, lookups, audioAssetsById, totalLessons),
+    ...buildUnit17QrLessons(
+      source,
+      lookups,
+      audioAssetsById,
+      listeningItemsByExerciseId,
+      totalLessons,
+    ),
   ];
 }
 
@@ -3711,6 +3844,7 @@ function reviewLessons17(
   startOrder: number,
   totalLessons: number,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
 ) {
   const reviewAIds = [
     "wb17-email-hi",
@@ -3752,10 +3886,10 @@ function reviewLessons17(
     ),
     [
       ...reviewAExercises.flatMap((exercise) =>
-        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById, listeningItemsByExerciseId),
       ),
       ...qrExercises.flatMap((exercise) =>
-        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById, listeningItemsByExerciseId),
       ),
     ],
     startOrder,
@@ -3775,7 +3909,7 @@ function reviewLessons17(
     Array.from(new Set(reviewBExercises.flatMap((exercise) => exercise.coverageTags))),
     [
       ...reviewBExercises.flatMap((exercise) =>
-        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById, listeningItemsByExerciseId),
       ),
       tr(
         "u17-review-b-email-do",
@@ -3812,6 +3946,7 @@ function reviewLessons17MainPath(
   source: SourceUnit,
   lookups: Lookups,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
   totalLessons: number,
 ) {
   return [
@@ -3819,6 +3954,7 @@ function reviewLessons17MainPath(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-17-lesson-10",
         lessonRole: "review",
@@ -3842,6 +3978,7 @@ function reviewLessons17MainPath(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-17-lesson-11",
         lessonRole: "review",
@@ -3879,10 +4016,31 @@ function buildRuntimeContext(source: SourceUnit) {
   const audioAssetsById = new Map(
     source.workbook.audioAssets.map((asset) => [asset.id, asset] as const),
   );
+  const {
+    items: resolvedListeningItems,
+    warnings,
+  } = resolveSourceListeningItems(source);
+  const listeningItems = resolvedListeningItems.filter(
+    (item) => !item.needsReview && isReadyAudioAsset(audioAssetsById.get(item.audioAssetId)),
+  );
+  const listeningItemsByExerciseId = new Map<string, SourceListeningItem[]>();
+  const listeningItemsById = new Map(
+    listeningItems.map((item) => [item.id, item] as const),
+  );
+
+  listeningItems.forEach((item) => {
+    item.sourceExerciseIds.forEach((exerciseId) => {
+      const existing = listeningItemsByExerciseId.get(exerciseId) ?? [];
+      existing.push(item);
+      listeningItemsByExerciseId.set(exerciseId, existing);
+    });
+  });
   const eligibleExercises = source.workbook.exercises.filter(
     (exercise) =>
       !exercise.needsReview &&
-      (!exercise.audioAssetId || isReadyAudioAsset(audioAssetsById.get(exercise.audioAssetId))),
+      (exercise.exerciseType === "listening" && exercise.audioAssetId
+        ? listeningItemsByExerciseId.has(exercise.id)
+        : !exercise.audioAssetId || isReadyAudioAsset(audioAssetsById.get(exercise.audioAssetId))),
   );
   const totalLessons = 11;
 
@@ -3897,17 +4055,36 @@ function buildRuntimeContext(source: SourceUnit) {
     audioAssetsById,
     eligibleExercises,
     totalLessons,
+    listeningItemsByExerciseId,
+    listeningItemsById,
+    warnings,
   };
 }
 
-export function buildRuntimeUnit(source: SourceUnit): RuntimeUnit {
-  const { lookups, audioAssetsById, totalLessons } = buildRuntimeContext(source);
+export function buildRuntimeUnit(
+  source: SourceUnit,
+  context: RuntimeBuildContext = buildRuntimeContext(source),
+): RuntimeUnit {
+  const { lookups, audioAssetsById, totalLessons, listeningItemsByExerciseId } = context;
   const lessons = [
     introLesson(source, lookups, totalLessons),
     grammarLesson(source, lookups, totalLessons),
     dialogueLesson(source, lookups, totalLessons),
-    ...buildUnit1WorkbookLessons(source, lookups, audioAssetsById, totalLessons),
-    ...reviewLessons(source, lookups, 10, totalLessons, audioAssetsById),
+    ...buildUnit1WorkbookLessons(
+      source,
+      lookups,
+      audioAssetsById,
+      listeningItemsByExerciseId,
+      totalLessons,
+    ),
+    ...reviewLessons(
+      source,
+      lookups,
+      10,
+      totalLessons,
+      audioAssetsById,
+      listeningItemsByExerciseId,
+    ),
   ];
   const sectioned = applySections(lessons, unit1Sections());
 
@@ -3933,6 +4110,7 @@ function reviewLessons16(
   startOrder: number,
   totalLessons: number,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
 ) {
   const qrIds = [
     "wb16-qr-traffic-jam",
@@ -3973,7 +4151,7 @@ function reviewLessons16(
     Array.from(new Set(qrExercises.flatMap((exercise) => exercise.coverageTags))),
     [
       ...qrExercises.flatMap((exercise) =>
-        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+        exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById, listeningItemsByExerciseId),
       ),
       tr(
         "u16-review-a-route-question",
@@ -4040,7 +4218,7 @@ function reviewLessons16(
     reviewBIds,
     Array.from(new Set(reviewBExercises.flatMap((exercise) => exercise.coverageTags))),
     reviewBExercises.flatMap((exercise) =>
-      exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById),
+      exerciseToTasks(source.unitId, exercise, lookups, audioAssetsById, listeningItemsByExerciseId),
     ),
     startOrder + 1,
     totalLessons,
@@ -4053,6 +4231,7 @@ function reviewLessons16MainPath(
   source: SourceUnit,
   lookups: Lookups,
   audioAssetsById: Map<string, SourceAudioAsset>,
+  listeningItemsByExerciseId: Map<string, SourceListeningItem[]>,
   totalLessons: number,
 ) {
   return [
@@ -4060,6 +4239,7 @@ function reviewLessons16MainPath(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-16-lesson-10",
         lessonRole: "review",
@@ -4084,6 +4264,7 @@ function reviewLessons16MainPath(
       source,
       lookups,
       audioAssetsById,
+      listeningItemsByExerciseId,
       {
         lessonId: "unit-16-lesson-11",
         lessonRole: "review",
@@ -4106,14 +4287,29 @@ function reviewLessons16MainPath(
   ];
 }
 
-export function buildRuntimeUnit16(source: SourceUnit): RuntimeUnit {
-  const { lookups, audioAssetsById, totalLessons } = buildRuntimeContext(source);
+export function buildRuntimeUnit16(
+  source: SourceUnit,
+  context: RuntimeBuildContext = buildRuntimeContext(source),
+): RuntimeUnit {
+  const { lookups, audioAssetsById, totalLessons, listeningItemsByExerciseId } = context;
   const lessons = [
     introLesson16(source, lookups, totalLessons),
     grammarLesson16(source, lookups, totalLessons),
     dialogueLesson16(source, lookups, totalLessons),
-    ...buildUnit16WorkbookLessons(source, lookups, audioAssetsById, totalLessons),
-    ...reviewLessons16MainPath(source, lookups, audioAssetsById, totalLessons),
+    ...buildUnit16WorkbookLessons(
+      source,
+      lookups,
+      audioAssetsById,
+      listeningItemsByExerciseId,
+      totalLessons,
+    ),
+    ...reviewLessons16MainPath(
+      source,
+      lookups,
+      audioAssetsById,
+      listeningItemsByExerciseId,
+      totalLessons,
+    ),
   ];
   const sectioned = applySections(lessons, unit16Sections());
 
@@ -4131,14 +4327,29 @@ export function buildRuntimeUnit16(source: SourceUnit): RuntimeUnit {
   };
 }
 
-export function buildRuntimeUnit17(source: SourceUnit): RuntimeUnit {
-  const { lookups, audioAssetsById, totalLessons } = buildRuntimeContext(source);
+export function buildRuntimeUnit17(
+  source: SourceUnit,
+  context: RuntimeBuildContext = buildRuntimeContext(source),
+): RuntimeUnit {
+  const { lookups, audioAssetsById, totalLessons, listeningItemsByExerciseId } = context;
   const lessons = [
     introLesson17(source, lookups, totalLessons),
     grammarLesson17(source, lookups, totalLessons),
     dialogueLesson17(source, lookups, totalLessons),
-    ...buildUnit17WorkbookLessons(source, lookups, audioAssetsById, totalLessons),
-    ...reviewLessons17MainPath(source, lookups, audioAssetsById, totalLessons),
+    ...buildUnit17WorkbookLessons(
+      source,
+      lookups,
+      audioAssetsById,
+      listeningItemsByExerciseId,
+      totalLessons,
+    ),
+    ...reviewLessons17MainPath(
+      source,
+      lookups,
+      audioAssetsById,
+      listeningItemsByExerciseId,
+      totalLessons,
+    ),
   ];
   const sectioned = applySections(lessons, unit17Sections());
 
@@ -4166,12 +4377,13 @@ export async function generateRuntimeUnit(options: GenerateOptions) {
     );
   }
 
+  const context = buildRuntimeContext(source);
   let runtimeUnit =
     source.unitId === "17"
-      ? buildRuntimeUnit17(source)
+      ? buildRuntimeUnit17(source, context)
       : source.unitId === "16"
-        ? buildRuntimeUnit16(source)
-        : buildRuntimeUnit(source);
+        ? buildRuntimeUnit16(source, context)
+        : buildRuntimeUnit(source, context);
   runtimeUnit = await maybeEnhanceRuntimeUnitWithOpenAI(runtimeUnit, {
     localOnly: options.localOnly ?? false,
   });
@@ -4192,5 +4404,5 @@ export async function generateRuntimeUnit(options: GenerateOptions) {
   await writeJsonFile(runtimePath, runtimeUnit);
   await writeJsonFile(indexPath, index);
 
-  return { runtimePath, indexPath, runtimeUnit };
+  return { runtimePath, indexPath, runtimeUnit, warnings: context.warnings };
 }

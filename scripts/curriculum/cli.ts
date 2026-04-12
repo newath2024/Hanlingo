@@ -22,6 +22,16 @@ async function run() {
   const command = process.argv[2];
   const unitId = getFlagValue("--unit") ?? "1";
   const localOnly = hasFlag("--local-only");
+  const printWarnings = (warnings?: Array<{ code: string; message: string }>) => {
+    if (!warnings?.length) {
+      return;
+    }
+
+    console.log("Warnings:");
+    warnings.forEach((warning) => {
+      console.log(`- [${warning.code}] ${warning.message}`);
+    });
+  };
 
   if (command === "extract") {
     const result = await extractUnit({
@@ -40,6 +50,7 @@ async function run() {
       localOnly,
     });
     console.log(`Generated runtime unit: ${result.runtimePath}`);
+    printWarnings(result.warnings);
     return;
   }
 
@@ -55,6 +66,7 @@ async function run() {
   if (command === "validate") {
     const result = await validateCurriculum({ unitId });
     console.log(`Validated curriculum artifacts for unit ${unitId}.`);
+    printWarnings(result.warnings);
     console.log(result);
     return;
   }
@@ -87,12 +99,14 @@ async function run() {
       unitId,
       localOnly,
     });
-    await validateCurriculum({ unitId });
+    const validateResult = await validateCurriculum({ unitId });
 
     console.log(`Pilot complete for unit ${unitId}.`);
     console.log(`Raw draft: ${extractResult.rawPath}`);
     console.log(`Draft source: ${extractResult.extractedPath}`);
     console.log(`Runtime unit: ${generateResult.runtimePath}`);
+    printWarnings(generateResult.warnings);
+    printWarnings(validateResult.warnings);
     return;
   }
 

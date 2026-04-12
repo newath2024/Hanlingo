@@ -14,6 +14,7 @@ import {
   runtimeUnitSchema,
   sourceUnitSchema,
 } from "./schema";
+import { resolveSourceListeningItems } from "./listening";
 
 type ValidateOptions = {
   unitId: string;
@@ -112,6 +113,23 @@ function validateChoiceAnswers(unit: RuntimeUnit) {
       ) {
         throw new Error(`${task.id} fill-blank answer is missing from choices.`);
       }
+
+      if (
+        task.type === "listening" &&
+        task.correctChoiceId &&
+        !task.choices?.some((choice) => choice.id === task.correctChoiceId)
+      ) {
+        throw new Error(`${task.id} listening correctChoiceId is missing from choices.`);
+      }
+
+      if (
+        task.type === "listening" &&
+        task.correctOrderChoiceIds?.some(
+          (choiceId) => !task.choices?.some((choice) => choice.id === choiceId),
+        )
+      ) {
+        throw new Error(`${task.id} listening correctOrderChoiceIds must exist in choices.`);
+      }
     });
   });
 }
@@ -158,13 +176,26 @@ function validateGrammarSelectSolvability(unit: RuntimeUnit) {
   });
 }
 
-function validateSourceContent(source: SourceUnit, options?: { requireCompileable?: boolean }) {
+function validateSourceContent(
+  source: SourceUnit,
+  options?: {
+    requireCompileable?: boolean;
+    compileableListeningExerciseIds?: Set<string>;
+  },
+) {
   if (source.textbook.vocab.length === 0 || source.textbook.grammar.length === 0 || source.textbook.dialogue.length === 0 || source.textbook.examples.length === 0) {
     throw new Error("Source unit must contain textbook vocab, grammar, dialogue, and examples.");
   }
 
   const exerciseCount = options?.requireCompileable
-    ? source.workbook.exercises.filter((exercise) => !exercise.needsReview).length
+    ? source.workbook.exercises.filter(
+        (exercise) =>
+          !exercise.needsReview &&
+          (exercise.exerciseType !== "listening" ||
+            !exercise.audioAssetId ||
+            options.compileableListeningExerciseIds?.has(exercise.id) ||
+            false),
+      ).length
     : source.workbook.exercises.length;
 
   if (exerciseCount < 18) {
@@ -321,7 +352,11 @@ function validateSections(unit: RuntimeUnit) {
   }
 }
 
-function validateCoverage(unit: RuntimeUnit, source: SourceUnit) {
+function validateCoverage(
+  unit: RuntimeUnit,
+  source: SourceUnit,
+  compileableListeningExerciseIds: Set<string>,
+) {
   const readyAudioAssetIds = new Set(
     source.workbook.audioAssets
       .filter((asset) => asset.remoteUrl && !asset.needsReview)
@@ -330,7 +365,9 @@ function validateCoverage(unit: RuntimeUnit, source: SourceUnit) {
   const eligibleExercises = source.workbook.exercises.filter(
     (exercise) =>
       !exercise.needsReview &&
-      (!exercise.audioAssetId || readyAudioAssetIds.has(exercise.audioAssetId)),
+      (exercise.exerciseType === "listening" && exercise.audioAssetId
+        ? compileableListeningExerciseIds.has(exercise.id)
+        : !exercise.audioAssetId || readyAudioAssetIds.has(exercise.audioAssetId)),
   );
   const coveredIds = new Set(unit.lessons.flatMap((lesson) => lesson.sourceExerciseIds));
   const missingExerciseIds = eligibleExercises
@@ -416,6 +453,73 @@ function validateListeningRuntime(unit: RuntimeUnit) {
       ) {
         throw new Error(`${task.id} must provide at least 2 image-capable choices.`);
       }
+
+      if (task.type !== "listening") {
+        return;
+      }
+
+      if (!task.audioUrl.startsWith("/api/audio/")) {
+        throw new Error(`${task.id} must use an internal audio proxy URL.`);
+      }
+
+      if (!task.prompt.vi.trim() || !task.prompt.en.trim()) {
+        throw new Error(`${task.id} is missing listening prompt text.`);
+      }
+
+      const hasStart = typeof task.clipStartMs === "number";
+      const hasEnd = typeof task.clipEndMs === "number";
+
+      if (hasStart !== hasEnd) {
+        throw new Error(`${task.id} must provide clipStartMs and clipEndMs together.`);
+      }
+
+      if (hasStart && hasEnd && task.clipStartMs! >= task.clipEndMs!) {
+        throw new Error(`${task.id} clipStartMs must be less than clipEndMs.`);
+      }
+
+      const answerTargetCount =
+        (task.correctChoiceId ? 1 : 0) +
+        ((task.correctText || task.acceptedAnswers?.length) ? 1 : 0) +
+        ((task.correctOrderChoiceIds?.length ?? 0) > 0 ? 1 : 0);
+
+      if (answerTargetCount !== 1) {
+        throw new Error(`${task.id} must define exactly one listening answer target.`);
+      }
+
+      if (
+        (task.listeningType === "multiple_choice" ||
+          task.listeningType === "choose_image" ||
+          task.listeningType === "yes_no") &&
+        (task.choices?.length ?? 0) < 2
+      ) {
+        throw new Error(`${task.id} must provide at least 2 listening choices.`);
+      }
+
+      if (task.listeningType === "yes_no" && (task.choices?.length ?? 0) !== 2) {
+        throw new Error(`${task.id} yes_no listening tasks must provide exactly 2 choices.`);
+      }
+
+      if (
+        task.listeningType === "choose_image" &&
+        task.choices?.some((choice) => !choice.imageUrl?.trim())
+      ) {
+        throw new Error(`${task.id} choose_image listening tasks require image choices.`);
+      }
+
+      if (
+        task.listeningType === "fill_blank" &&
+        !task.correctText?.trim() &&
+        !(task.acceptedAnswers?.length ?? 0)
+      ) {
+        throw new Error(`${task.id} fill_blank listening tasks require correctText or acceptedAnswers.`);
+      }
+
+      if (
+        task.listeningType === "order_step" &&
+        ((task.correctOrderChoiceIds?.length ?? 0) < 2 || (task.choices?.length ?? 0) < 2)
+      ) {
+        throw new Error(`${task.id} order_step listening tasks require choices and correct order schema.`);
+      }
     });
   });
 }
@@ -482,10 +586,25 @@ export async function validateCurriculum(options: ValidateOptions) {
   }
 
   const reviewedSource = sourceUnitSchema.parse(await readJsonFile<SourceUnit>(reviewedPath));
+  const resolvedListening = resolveSourceListeningItems(reviewedSource);
+  const readyAudioAssetIds = new Set(
+    reviewedSource.workbook.audioAssets
+      .filter((asset) => asset.remoteUrl && !asset.needsReview)
+      .map((asset) => asset.id),
+  );
+  const compileableListeningExerciseIds = new Set(
+    resolvedListening.items
+      .filter((item) => !item.needsReview && readyAudioAssetIds.has(item.audioAssetId))
+      .flatMap((item) => item.sourceExerciseIds),
+  );
+
   if (reviewedSource.needsReview) {
     throw new Error("Reviewed source file must have needsReview=false.");
   }
-  validateSourceContent(reviewedSource, { requireCompileable: true });
+  validateSourceContent(reviewedSource, {
+    requireCompileable: true,
+    compileableListeningExerciseIds,
+  });
   validateImageBackedVocabSource(reviewedSource);
 
   if (await exists(rawPath)) {
@@ -504,7 +623,7 @@ export async function validateCurriculum(options: ValidateOptions) {
   validateGrammarSelectSolvability(runtimeUnit);
   validateSections(runtimeUnit);
   validateLessonRoles(runtimeUnit);
-  validateCoverage(runtimeUnit, reviewedSource);
+  validateCoverage(runtimeUnit, reviewedSource, compileableListeningExerciseIds);
   validateQrListeningSections(runtimeUnit, reviewedSource);
   validateErrorPatternKeys(runtimeUnit);
   validateListeningRuntime(runtimeUnit);
@@ -520,5 +639,6 @@ export async function validateCurriculum(options: ValidateOptions) {
     reviewedPath,
     runtimePath,
     indexPath,
+    warnings: resolvedListening.warnings,
   };
 }

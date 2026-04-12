@@ -5,6 +5,8 @@ import type {
   FillBlankTask,
   GrammarSelectTask,
   InteractionMode,
+  ListeningExerciseType,
+  ListeningTask,
   ListenSelectTask,
   LocalizedChoice,
   LocalizedText,
@@ -28,7 +30,8 @@ export type SessionItemType =
   | "dialogue_reconstruct"
   | "dialogue_response"
   | "speaking"
-  | "listen_repeat";
+  | "listen_repeat"
+  | "listening";
 
 export type SessionDisplayText = LocalizedText | string;
 
@@ -139,6 +142,26 @@ export type ListenRepeatSessionItem = SessionItemBase & {
   };
 };
 
+export type ListeningSessionItem = SessionItemBase & {
+  type: "listening";
+  listeningType: ListeningExerciseType;
+  audioUrl: string;
+  clipStartMs?: number;
+  clipEndMs?: number;
+  questionText?: LocalizedText;
+  transcriptKo?: string;
+  translation?: LocalizedText;
+  romanization?: string;
+  contextGroupId?: string;
+  contextTitle?: LocalizedText;
+  contextSummary?: LocalizedText;
+  choices?: LocalizedChoice[];
+  correctChoiceId?: string;
+  correctText?: string;
+  acceptedAnswers?: string[];
+  correctOrderChoiceIds?: string[];
+};
+
 export type SessionItem =
   | LocalizedChoiceSessionItem
   | PairMatchSessionItem
@@ -147,7 +170,8 @@ export type SessionItem =
   | TextInputSessionItem
   | ArrangeSessionItem
   | SpeakingSessionItem
-  | ListenRepeatSessionItem;
+  | ListenRepeatSessionItem
+  | ListeningSessionItem;
 
 export type SessionItemResultStatus =
   | "correct"
@@ -186,4 +210,5 @@ export type SupportedRuntimeTask =
   | FillBlankTask
   | GrammarSelectTask
   | DialogueReconstructTask
-  | SpeakingTask;
+  | SpeakingTask
+  | ListeningTask;

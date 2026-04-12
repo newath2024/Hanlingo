@@ -93,6 +93,49 @@ const sourceExerciseOptionSchema = z.object({
   correct: z.boolean(),
 });
 
+const listeningExerciseTypeSchema = z.enum([
+  "yes_no",
+  "multiple_choice",
+  "choose_image",
+  "fill_blank",
+  "order_step",
+]);
+
+const listeningDifficultySchema = z.enum(["easy", "medium", "hard"]);
+
+const sourceListeningChoiceSchema = z.object({
+  id: z.string().min(1),
+  text: localizedTextSchema,
+  imagePath: z.string().min(1).optional(),
+});
+
+const sourceListeningItemSchema = z.object({
+  id: z.string().min(1),
+  sourceExerciseIds: z.array(z.string().min(1)).min(1),
+  audioAssetId: z.string().min(1),
+  clipStartMs: z.number().int().nonnegative().optional(),
+  clipEndMs: z.number().int().nonnegative().optional(),
+  type: listeningExerciseTypeSchema,
+  prompt: localizedTextSchema,
+  questionText: localizedTextSchema.optional(),
+  transcriptKo: z.string().min(1).optional(),
+  translation: localizedTextSchema.optional(),
+  romanization: z.string().min(1).optional(),
+  contextGroupId: z.string().min(1).optional(),
+  contextTitle: localizedTextSchema.optional(),
+  contextSummary: localizedTextSchema.optional(),
+  choices: z.array(sourceListeningChoiceSchema).min(2).optional(),
+  correctChoiceId: z.string().min(1).optional(),
+  correctText: z.string().min(1).optional(),
+  acceptedAnswers: z.array(z.string().min(1)).min(1).optional(),
+  correctOrderChoiceIds: z.array(z.string().min(1)).min(2).optional(),
+  coverageTags: z.array(z.string().min(1)).min(1),
+  difficulty: listeningDifficultySchema,
+  pages: pageRangeSchema,
+  sourceRef: sourceCaptureRefSchema,
+  needsReview: z.boolean(),
+});
+
 const workbookMetadataValueSchema = z.union([
   z.string(),
   z.number(),
@@ -148,6 +191,7 @@ export const sourceUnitSchema = z.object({
   workbook: z.object({
     audioAssets: z.array(sourceAudioAssetSchema),
     exercises: z.array(workbookExerciseSchema).min(1),
+    listeningItems: z.array(sourceListeningItemSchema).default([]),
   }),
   reviewNotes: z.array(z.string().min(1)),
 });
@@ -290,6 +334,26 @@ const speakingTaskSchema = runtimeTaskBaseSchema.extend({
   expectedSpeech: z.string().min(1),
 });
 
+const listeningTaskSchema = runtimeTaskBaseSchema.extend({
+  type: z.literal("listening"),
+  listeningType: listeningExerciseTypeSchema,
+  audioUrl: z.string().min(1),
+  clipStartMs: z.number().int().nonnegative().optional(),
+  clipEndMs: z.number().int().nonnegative().optional(),
+  questionText: localizedTextSchema.optional(),
+  transcriptKo: z.string().min(1).optional(),
+  translation: localizedTextSchema.optional(),
+  romanization: z.string().min(1).optional(),
+  contextGroupId: z.string().min(1).optional(),
+  contextTitle: localizedTextSchema.optional(),
+  contextSummary: localizedTextSchema.optional(),
+  choices: z.array(localizedChoiceSchema).min(2).optional(),
+  correctChoiceId: z.string().min(1).optional(),
+  correctText: z.string().min(1).optional(),
+  acceptedAnswers: z.array(z.string().min(1)).min(1).optional(),
+  correctOrderChoiceIds: z.array(z.string().min(1)).min(2).optional(),
+});
+
 export const runtimeTaskSchema = z.discriminatedUnion("type", [
   wordMatchTaskSchema,
   listenSelectTaskSchema,
@@ -299,6 +363,7 @@ export const runtimeTaskSchema = z.discriminatedUnion("type", [
   grammarSelectTaskSchema,
   dialogueReconstructTaskSchema,
   speakingTaskSchema,
+  listeningTaskSchema,
 ]);
 
 export const runtimeLessonSchema = z.object({
@@ -312,7 +377,7 @@ export const runtimeLessonSchema = z.object({
   focusConcepts: z.array(z.string().min(1)),
   sourceExerciseIds: z.array(z.string().min(1)),
   coverageTags: z.array(z.string().min(1)),
-  tasks: z.array(runtimeTaskSchema).min(8).max(10),
+  tasks: z.array(runtimeTaskSchema).min(4).max(10),
 });
 
 export const runtimeSectionSchema = z.object({

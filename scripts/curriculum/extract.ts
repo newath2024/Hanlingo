@@ -256,6 +256,15 @@ function applyListeningReviewState(source: SourceUnit) {
         }
       : exercise,
   );
+
+  source.workbook.listeningItems = source.workbook.listeningItems.map((item) =>
+    unresolvedAudioAssets.has(item.audioAssetId)
+      ? {
+          ...item,
+          needsReview: true,
+        }
+      : item,
+  );
 }
 
 function getSeedUnitConfig(unitId: string) {

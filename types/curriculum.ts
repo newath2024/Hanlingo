@@ -121,6 +121,48 @@ export type SourceExerciseOption = {
   correct: boolean;
 };
 
+export type ListeningExerciseType =
+  | "yes_no"
+  | "multiple_choice"
+  | "choose_image"
+  | "fill_blank"
+  | "order_step";
+
+export type ListeningDifficulty = "easy" | "medium" | "hard";
+
+export type SourceListeningChoice = {
+  id: string;
+  text: LocalizedText;
+  imagePath?: string;
+};
+
+export type SourceListeningItem = {
+  id: string;
+  sourceExerciseIds: string[];
+  audioAssetId: string;
+  clipStartMs?: number;
+  clipEndMs?: number;
+  type: ListeningExerciseType;
+  prompt: LocalizedText;
+  questionText?: LocalizedText;
+  transcriptKo?: string;
+  translation?: LocalizedText;
+  romanization?: string;
+  contextGroupId?: string;
+  contextTitle?: LocalizedText;
+  contextSummary?: LocalizedText;
+  choices?: SourceListeningChoice[];
+  correctChoiceId?: string;
+  correctText?: string;
+  acceptedAnswers?: string[];
+  correctOrderChoiceIds?: string[];
+  coverageTags: string[];
+  difficulty: ListeningDifficulty;
+  pages: SourcePageRange;
+  sourceRef: SourceCaptureRef;
+  needsReview: boolean;
+};
+
 export type WorkbookExerciseType =
   | "fill_blank"
   | "matching"
@@ -171,6 +213,7 @@ export type SourceUnit = {
   workbook: {
     audioAssets: SourceAudioAsset[];
     exercises: SourceWorkbookExercise[];
+    listeningItems: SourceListeningItem[];
   };
   reviewNotes: string[];
 };
@@ -310,6 +353,26 @@ export type SpeakingTask = RuntimeTaskBase & {
   expectedSpeech: string;
 };
 
+export type ListeningTask = RuntimeTaskBase & {
+  type: "listening";
+  listeningType: ListeningExerciseType;
+  audioUrl: string;
+  clipStartMs?: number;
+  clipEndMs?: number;
+  questionText?: LocalizedText;
+  transcriptKo?: string;
+  translation?: LocalizedText;
+  romanization?: string;
+  contextGroupId?: string;
+  contextTitle?: LocalizedText;
+  contextSummary?: LocalizedText;
+  choices?: LocalizedChoice[];
+  correctChoiceId?: string;
+  correctText?: string;
+  acceptedAnswers?: string[];
+  correctOrderChoiceIds?: string[];
+};
+
 export type RuntimeTask =
   | WordMatchTask
   | ListenSelectTask
@@ -318,7 +381,8 @@ export type RuntimeTask =
   | FillBlankTask
   | GrammarSelectTask
   | DialogueReconstructTask
-  | SpeakingTask;
+  | SpeakingTask
+  | ListeningTask;
 
 export type RuntimeLesson = {
   lessonId: string;

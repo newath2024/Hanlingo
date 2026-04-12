@@ -130,6 +130,10 @@ function getTaskPreview(task: RuntimeTask) {
     return `${task.type}: ${task.translation.vi}`;
   }
 
+  if (task.type === "listening") {
+    return `${task.type}: ${task.questionText?.vi ?? task.transcriptKo ?? task.prompt.vi}`;
+  }
+
   return `${task.type}: ${task.koreanText}`;
 }
 
@@ -193,6 +197,17 @@ function buildStemSignature(task: RuntimeTask) {
       speaker: normalize(task.speaker),
       translation: normalizeLocalizedText(task.translation),
       prompt: normalizeLocalizedText(task.prompt),
+    });
+  }
+
+  if (task.type === "listening") {
+    return JSON.stringify({
+      type: task.type,
+      listeningType: task.listeningType,
+      prompt: normalizeLocalizedText(task.prompt),
+      questionText: normalizeLocalizedText(task.questionText),
+      transcriptKo: normalize(task.transcriptKo),
+      contextGroupId: normalize(task.contextGroupId),
     });
   }
 
@@ -281,6 +296,26 @@ function buildExactSignature(task: RuntimeTask) {
       prompt: normalizeLocalizedText(task.prompt),
       answer: task.answer.map((value) => normalize(value)),
       wordBank: toSortedNormalizedArray(task.wordBank),
+    });
+  }
+
+  if (task.type === "listening") {
+    return JSON.stringify({
+      type: task.type,
+      listeningType: task.listeningType,
+      prompt: normalizeLocalizedText(task.prompt),
+      questionText: normalizeLocalizedText(task.questionText),
+      transcriptKo: normalize(task.transcriptKo),
+      contextGroupId: normalize(task.contextGroupId),
+      clipStartMs: task.clipStartMs ?? null,
+      clipEndMs: task.clipEndMs ?? null,
+      correctChoiceId: normalize(task.correctChoiceId),
+      correctText: normalize(task.correctText),
+      acceptedAnswers: toSortedNormalizedArray(task.acceptedAnswers),
+      correctOrderChoiceIds: toSortedNormalizedArray(task.correctOrderChoiceIds),
+      choices: [...(task.choices ?? [])]
+        .map((choice) => `${normalizeLocalizedText(choice.text)}:${normalize(choice.imageUrl)}`)
+        .sort(),
     });
   }
 
