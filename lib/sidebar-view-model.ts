@@ -3,7 +3,7 @@ import { getCompletedNodeCount, getCurrentNode, getCurrentUnit } from "@/lib/uni
 import type { ShellSidebarSummaryResponse } from "@/types/shell-sidebar";
 import type { NodeDefinition, UnitDefinition } from "@/types/unit";
 
-export const SIDEBAR_DAILY_GOAL_XP = 30;
+export const SIDEBAR_DAILY_GOAL_XP = 50;
 
 export type SidebarContinueTarget = {
   href: string;

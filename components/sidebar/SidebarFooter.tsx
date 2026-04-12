@@ -19,7 +19,7 @@ function getFooterCopy(
     return ui(
       locale,
       "Today's goal will settle in as soon as your sidebar summary loads.",
-      "Goal hom nay se hien ro khi sidebar summary tai xong.",
+      "Mục tiêu hôm nay sẽ hiện rõ khi sidebar summary tải xong.",
     );
   }
 
@@ -27,22 +27,22 @@ function getFooterCopy(
     return ui(
       locale,
       "Daily target reached. Anything extra now is pure momentum.",
-      "Target hom nay da dat. Them nua luc nay la momentum thuong.",
+      "Mục tiêu hôm nay đã đạt. Phần thêm lúc này là đà tiến thuần túy.",
     );
   }
 
   if (!goalProgress.hasStarted) {
     return ui(
       locale,
-      "A clean 30 XP day starts with one lesson.",
-      "Mot ngay 30 XP bat dau bang mot bai.",
+      `A clean ${goalProgress.goalXp} XP day starts with one lesson.`,
+      `Một ngày ${goalProgress.goalXp} XP bắt đầu bằng một bài.`,
     );
   }
 
   return ui(
     locale,
     `${goalProgress.remainingXp} XP left. One more lesson keeps the bar moving.`,
-    `Con ${goalProgress.remainingXp} XP nua. Them mot bai de day thanh tien do.`,
+    `Còn ${goalProgress.remainingXp} XP nữa. Thêm một bài để đẩy thanh tiến độ.`,
   );
 }
 
@@ -65,10 +65,10 @@ export default function SidebarFooter({
     <section className="sidebar-footer-card">
       <div className="sidebar-footer-card__header">
         <div className="min-w-0">
-          <p className="sidebar-panel__eyebrow">{ui(locale, "Daily goal", "Goal hom nay")}</p>
+          <p className="sidebar-panel__eyebrow">{ui(locale, "Daily goal", "Mục tiêu hôm nay")}</p>
           <p className="sidebar-footer-card__value">{progressValue}</p>
         </div>
-        <span className="sidebar-footer-card__pill">30 XP</span>
+        <span className="sidebar-footer-card__pill">{goalProgress.goalXp} XP</span>
       </div>
 
       <div className="sidebar-footer-card__meter">

@@ -56,6 +56,7 @@ export async function POST(request: Request) {
       userId: auth.user.id,
       sourceType: "lesson",
       sourceId: parsed.data.completionId,
+      xpDelta: parsed.data.awardedXp,
     });
 
     return NextResponse.json(

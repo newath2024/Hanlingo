@@ -308,7 +308,10 @@ export async function awardLeaderboardXp(input: AwardLeaderboardXpInput) {
 
   const entry = await findOrCreateLeaderboardEntryForUser(input.userId);
   const latestEntry = (await findLeaderboardEntryById(entry.id)) ?? entry;
-  const xpDelta = getLeaderboardReward(input.sourceType);
+  const xpDelta =
+    typeof input.xpDelta === "number"
+      ? Math.max(0, input.xpDelta)
+      : getLeaderboardReward(input.sourceType);
   const activityResult = await createLeaderboardActivityIfMissing({
     entryId: latestEntry.id,
     userId: input.userId,

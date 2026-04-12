@@ -76,4 +76,5 @@ export type AwardLeaderboardXpInput = {
   userId: string;
   sourceType: Extract<LeaderboardActivitySourceType, "lesson" | "practice">;
   sourceId: string;
+  xpDelta?: number;
 };

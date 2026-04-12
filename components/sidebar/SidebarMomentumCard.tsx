@@ -24,16 +24,16 @@ function getMomentumHeadline(
 ) {
   switch (momentumState) {
     case "loading":
-      return ui(locale, "Checking today's pace.", "Dang xem nhip hoc hom nay.");
+      return ui(locale, "Checking today's pace.", "Đang xem nhịp học hôm nay.");
     case "protect_streak":
-      return ui(locale, "Protect your streak.", "Giu streak hom nay.");
+      return ui(locale, "Protect your streak.", "Giữ streak hôm nay.");
     case "build_goal":
-      return ui(locale, "Keep today's run moving.", "Giu nhip hoc hom nay.");
+      return ui(locale, "Keep today's run moving.", "Giữ nhịp học hôm nay.");
     case "goal_complete":
-      return ui(locale, "Today's goal is done.", "Goal hom nay da xong.");
+      return ui(locale, "Today's goal is done.", "Mục tiêu hôm nay đã xong.");
     case "start_today":
     default:
-      return ui(locale, "Start today's run.", "Bat dau nhip hoc hom nay.");
+      return ui(locale, "Start today's run.", "Bắt đầu nhịp học hôm nay.");
   }
 }
 
@@ -41,38 +41,39 @@ function getMomentumCopy(
   locale: AppLocale,
   momentumState: ReturnType<typeof getSidebarMomentumState>,
   remainingXp: number,
+  goalXp: number,
 ) {
   switch (momentumState) {
     case "loading":
       return ui(
         locale,
         "Your next lesson, streak, and XP will settle in here in a moment.",
-        "Bai tiep theo, streak, va XP se hien ro tai day trong giay lat.",
+        "Bài tiếp theo, streak và XP sẽ hiện rõ tại đây trong giây lát.",
       );
     case "protect_streak":
       return ui(
         locale,
         "One lesson keeps the streak alive and starts today's XP.",
-        "Chi can mot bai de giu streak va mo XP hom nay.",
+        "Chỉ cần một bài để giữ streak và mở XP hôm nay.",
       );
     case "build_goal":
       return ui(
         locale,
-        `${remainingXp} XP left to finish today's 30 XP goal.`,
-        `Con ${remainingXp} XP nua de chot goal 30 XP hom nay.`,
+        `${remainingXp} XP left to finish today's ${goalXp} XP goal.`,
+        `Còn ${remainingXp} XP nữa để chạm mục tiêu ${goalXp} XP hôm nay.`,
       );
     case "goal_complete":
       return ui(
         locale,
         "You've banked today's target. A little extra now makes tomorrow easier.",
-        "Ban da chot target hom nay. Them mot chut nua se nhe hon cho ngay mai.",
+        "Bạn đã chạm mục tiêu hôm nay. Làm thêm một chút nữa sẽ nhẹ hơn cho ngày mai.",
       );
     case "start_today":
     default:
       return ui(
         locale,
         "Start with one lesson and turn the board green early.",
-        "Bat dau bang mot bai de mo nhip xanh cho hom nay.",
+        "Bắt đầu bằng một bài để mở nhịp xanh cho hôm nay.",
       );
   }
 }
@@ -83,7 +84,7 @@ function getDestinationLabel(
   destinationReady: boolean,
 ) {
   if (!destinationReady) {
-    return ui(locale, "Finding your next lesson...", "Dang tim bai tiep theo...");
+    return ui(locale, "Finding your next lesson...", "Đang tìm bài tiếp theo...");
   }
 
   if (destination.activeNode && destination.activeUnit) {
@@ -105,7 +106,7 @@ function getDestinationLabel(
   return ui(
     locale,
     "Open the guided path and pick up where you left off.",
-    "Mo lo trinh dan huong va hoc tiep.",
+    "Mở lộ trình dẫn hướng và học tiếp.",
   );
 }
 
@@ -115,18 +116,18 @@ function getCtaLabel(
   destinationReady: boolean,
 ) {
   if (!destinationReady) {
-    return ui(locale, "Open learn", "Mo hoc");
+    return ui(locale, "Open learn", "Mở học");
   }
 
   if (destination.activeNode) {
-    return ui(locale, "Continue lesson", "Tiep tuc bai");
+    return ui(locale, "Continue lesson", "Tiếp tục bài");
   }
 
   if (destination.activeUnit) {
-    return ui(locale, "Open unit", "Mo unit");
+    return ui(locale, "Open unit", "Mở unit");
   }
 
-  return ui(locale, "Start learning", "Bat dau hoc");
+  return ui(locale, "Start learning", "Bắt đầu học");
 }
 
 function getDestinationMeta(
@@ -141,7 +142,7 @@ function getDestinationMeta(
   return ui(
     locale,
     `${destination.progressPercent}% through the current unit`,
-    `${destination.progressPercent}% qua unit hien tai`,
+    `${destination.progressPercent}% qua unit hiện tại`,
   );
 }
 
@@ -174,7 +175,7 @@ export default function SidebarMomentumCard({
       <div className="sidebar-momentum-card__header">
         <div className="min-w-0">
           <p className="sidebar-panel__eyebrow">
-            {ui(locale, "Daily momentum", "Nhip hoc hom nay")}
+            {ui(locale, "Daily momentum", "Nhịp học hôm nay")}
           </p>
           <h2 className="sidebar-momentum-card__headline">
             {getMomentumHeadline(locale, momentumState)}
@@ -186,12 +187,12 @@ export default function SidebarMomentumCard({
       </div>
 
       <p className="sidebar-momentum-card__copy">
-        {getMomentumCopy(locale, momentumState, goalProgress.remainingXp)}
+        {getMomentumCopy(locale, momentumState, goalProgress.remainingXp, goalProgress.goalXp)}
       </p>
 
       <div className="sidebar-momentum-card__next">
         <p className="sidebar-momentum-card__next-label">
-          {ui(locale, "Up next", "Sap toi")}
+          {ui(locale, "Up next", "Sắp tới")}
         </p>
         <p className="sidebar-momentum-card__next-title">
           {getDestinationLabel(locale, destination, destinationReady)}
@@ -206,7 +207,7 @@ export default function SidebarMomentumCard({
           </span>
           <div className="min-w-0">
             <p className="sidebar-momentum-stat__label">{ui(locale, "Streak", "Streak")}</p>
-            <p className="sidebar-momentum-stat__meta">{ui(locale, "days", "ngay")}</p>
+            <p className="sidebar-momentum-stat__meta">{ui(locale, "days", "ngày")}</p>
           </div>
           <p className="sidebar-momentum-stat__value">{streakValue}</p>
         </div>
@@ -216,8 +217,8 @@ export default function SidebarMomentumCard({
             <MaskedStatusIcon path={SIDEBAR_ICON_PATHS.status.todayXp} size={18} color="currentColor" />
           </span>
           <div className="min-w-0">
-            <p className="sidebar-momentum-stat__label">{ui(locale, "Today XP", "XP hom nay")}</p>
-            <p className="sidebar-momentum-stat__meta">{ui(locale, "earned", "da kiem")}</p>
+            <p className="sidebar-momentum-stat__label">{ui(locale, "Today XP", "XP hôm nay")}</p>
+            <p className="sidebar-momentum-stat__meta">{ui(locale, "earned", "đã kiếm")}</p>
           </div>
           <p className="sidebar-momentum-stat__value sidebar-momentum-stat__value--accent">
             {todayXpValue}

@@ -19,6 +19,10 @@ function getTodayXp(
   const todayKey = formatDayKey(now, timeZone);
 
   return activities.reduce((total, activity) => {
+    if (activity.sourceType !== "lesson") {
+      return total;
+    }
+
     if (formatDayKey(activity.createdAt, timeZone) !== todayKey) {
       return total;
     }
