@@ -349,11 +349,11 @@ export default function SegmentedListeningQuestion({
             selectedTokenIds={selectedOrderChoiceIds}
             incorrectIndexes={incorrectIndexes}
             onToggleToken={handleOrderToggle}
-            answerLabel={ui("Your order", "Thứ tự của bạn")}
-            bankLabel={ui("Choices", "Lựa chọn")}
+            answerLabel={ui("Your sentence", "Câu của bạn")}
+            bankLabel={ui("Chunk bank", "Ngân cụm từ")}
             emptyState={ui(
-              "Tap the chunks below to build the correct order.",
-              "Chạm các mảnh bên dưới để sắp xếp đúng thứ tự.",
+              "Tap the chunks below to rebuild the sentence.",
+              "Chạm các cụm bên dưới để ghép lại câu.",
             )}
           />
         </motion.div>
@@ -362,8 +362,8 @@ export default function SegmentedListeningQuestion({
           <motion.div variants={itemVariants} className="feedback-incorrect space-y-2">
             <p>
               {ui(
-                "Most pieces are there, but the order is off.",
-                "Bạn đã có gần đủ ý, nhưng thứ tự vẫn chưa đúng.",
+                "Most chunks are there, but the sentence order is off.",
+                "Bạn đã có gần đủ cụm, nhưng thứ tự câu vẫn chưa đúng.",
               )}
             </p>
             <p className="font-semibold">
@@ -421,7 +421,10 @@ export default function SegmentedListeningQuestion({
                     ? ui("Listen and tap the matching image.", "Nghe rồi chọn hình phù hợp.")
                     : item.listeningType === "fill_blank"
                       ? ui("Listen and complete the missing part.", "Nghe rồi điền phần còn thiếu.")
-                      : ui("Listen and arrange the steps in order.", "Nghe rồi sắp xếp đúng thứ tự.")}
+                      : ui(
+                          "Listen and rebuild the sentence from the chunks.",
+                          "Nghe rồi ghép lại câu từ các cụm từ.",
+                        )}
             </h3>
           </div>
           <button type="button" onClick={() => void handlePlayAudio()} className="secondary-button">

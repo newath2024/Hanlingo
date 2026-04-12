@@ -2968,12 +2968,12 @@
       "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Nghe QR: tình huống dịch vụ",
-        "en": "QR listening: service scenes"
+        "vi": "Nghe QR: đường đến Seoul Station",
+        "en": "QR listening: route to Seoul Station"
       },
       "summary": {
-        "vi": "Tách bài tranh tình huống thành 8 item choose_image dùng TTS, mỗi câu nghe độc lập và map đúng vào hình textbook.",
-        "en": "Split the service-scene workbook page into 8 TTS-backed choose-image items, each sentence mapped to the correct textbook illustration."
+        "vi": "Chuyển hội thoại đường đi đến Seoul Station thành 4 item nghe ghép câu bằng TTS, mỗi item phát toàn câu rồi yêu cầu sắp xếp lại các cụm đúng thứ tự.",
+        "en": "Turn the Seoul Station route dialogue into 4 TTS sentence-rebuild listening items. Each item plays the full sentence and asks the learner to rebuild it from chunks."
       },
       "difficulty": {
         "vi": "Nhớ lại và xây câu",
@@ -2981,382 +2981,328 @@
       },
       "focusConcepts": [
         "qr-listening",
-        "service-scene",
-        "airport-counter",
-        "receptionist-help",
-        "passport-request",
-        "asking-about-person"
+        "build-sentence",
+        "directions",
+        "route-explanation",
+        "distance",
+        "time-answer",
+        "seoul-station"
       ],
       "sourceExerciseIds": [
-        "wb16-qr-service-scenes"
+        "wb16-qr-seoul-bus-number",
+        "wb16-qr-seoul-distance"
       ],
       "coverageTags": [
         "qr-listening",
-        "asking-about-person",
-        "person",
-        "receptionist-help",
-        "wait",
-        "airport-counter",
-        "ticket",
-        "passport-request",
-        "passport",
-        "phone-number",
-        "write-name",
-        "exercise",
-        "walking"
+        "build-sentence",
+        "asking-direction",
+        "seoul-station",
+        "transport",
+        "route-explanation",
+        "distance-question",
+        "distance-answer",
+        "time-answer"
       ],
       "tasks": [
         {
-          "id": "u16-qr-service-ask-min-guk",
+          "id": "u16-qr-seoul-ask-direction-order",
           "prompt": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "explanation": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "source": "workbook",
-          "stage": "recognition",
+          "stage": "construction",
           "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "u16-qr-service-ask-min-guk.listening",
-          "audioUrl": "/api/audio/tts/16/u16-qr-service-ask-min-guk",
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-qr-seoul-ask-direction-order.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-seoul-ask-direction-order",
           "type": "listening",
-          "listeningType": "choose_image",
+          "listeningType": "order_step",
           "tts": {
-            "text": "민국 씨 자리에 있습니까?",
-            "voice": "female",
+            "text": "실례합니다. 여기에서 서울역까지 어떻게 가요?",
+            "voice": "ko-KR",
             "speed": 0.9
           },
-          "transcriptKo": "민국 씨 자리에 있습니까?",
+          "transcriptKo": "실례합니다. 여기에서 서울역까지 어떻게 가요?",
           "choices": [
             {
-              "id": "a",
+              "id": "u16-seoul-ask-excuse-me",
               "text": {
-                "vi": "A",
-                "en": "A"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/asking-about-person.png"
+                "vi": "실례합니다",
+                "en": "실례합니다"
+              }
             },
             {
-              "id": "b",
+              "id": "u16-seoul-ask-here",
               "text": {
-                "vi": "B",
-                "en": "B"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/receptionist-help.png"
+                "vi": "여기에서",
+                "en": "여기에서"
+              }
+            },
+            {
+              "id": "u16-seoul-ask-station",
+              "text": {
+                "vi": "서울역까지",
+                "en": "서울역까지"
+              }
+            },
+            {
+              "id": "u16-seoul-ask-how",
+              "text": {
+                "vi": "어떻게 가요",
+                "en": "어떻게 가요"
+              }
+            },
+            {
+              "id": "u16-seoul-ask-bus",
+              "text": {
+                "vi": "100번 버스를",
+                "en": "100번 버스를"
+              }
+            },
+            {
+              "id": "u16-seoul-ask-far",
+              "text": {
+                "vi": "많이 멀어요",
+                "en": "많이 멀어요"
+              }
             }
           ],
-          "correctChoiceId": "a"
+          "correctOrderChoiceIds": [
+            "u16-seoul-ask-excuse-me",
+            "u16-seoul-ask-here",
+            "u16-seoul-ask-station",
+            "u16-seoul-ask-how"
+          ]
         },
         {
-          "id": "u16-qr-service-wait",
+          "id": "u16-qr-seoul-bus-route-order",
           "prompt": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "explanation": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "source": "workbook",
-          "stage": "recognition",
+          "stage": "construction",
           "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "u16-qr-service-wait.listening",
-          "audioUrl": "/api/audio/tts/16/u16-qr-service-wait",
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-qr-seoul-bus-route-order.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-seoul-bus-route-order",
           "type": "listening",
-          "listeningType": "choose_image",
+          "listeningType": "order_step",
           "tts": {
-            "text": "잠시만 기다리십시오.",
-            "voice": "male",
+            "text": "저기 버스 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다.",
+            "voice": "ko-KR",
             "speed": 0.9
           },
-          "transcriptKo": "잠시만 기다리십시오.",
+          "transcriptKo": "저기 버스 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다.",
           "choices": [
             {
-              "id": "a",
+              "id": "u16-seoul-route-stop",
               "text": {
-                "vi": "A",
-                "en": "A"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/asking-about-person.png"
+                "vi": "저기 버스 정류장에서",
+                "en": "저기 버스 정류장에서"
+              }
             },
             {
-              "id": "b",
+              "id": "u16-seoul-route-bus",
               "text": {
-                "vi": "B",
-                "en": "B"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/receptionist-help.png"
+                "vi": "100번 버스를",
+                "en": "100번 버스를"
+              }
+            },
+            {
+              "id": "u16-seoul-route-ride",
+              "text": {
+                "vi": "타십시오",
+                "en": "타십시오"
+              }
+            },
+            {
+              "id": "u16-seoul-route-that-bus",
+              "text": {
+                "vi": "그 버스가",
+                "en": "그 버스가"
+              }
+            },
+            {
+              "id": "u16-seoul-route-station",
+              "text": {
+                "vi": "서울역까지 갑니다",
+                "en": "서울역까지 갑니다"
+              }
+            },
+            {
+              "id": "u16-seoul-route-subway",
+              "text": {
+                "vi": "지하철을 타십시오",
+                "en": "지하철을 타십시오"
+              }
+            },
+            {
+              "id": "u16-seoul-route-school",
+              "text": {
+                "vi": "학교까지 갑니다",
+                "en": "학교까지 갑니다"
+              }
             }
           ],
-          "correctChoiceId": "b"
+          "correctOrderChoiceIds": [
+            "u16-seoul-route-stop",
+            "u16-seoul-route-bus",
+            "u16-seoul-route-ride",
+            "u16-seoul-route-that-bus",
+            "u16-seoul-route-station"
+          ]
         },
         {
-          "id": "u16-qr-service-book-ticket",
+          "id": "u16-qr-seoul-distance-question-order",
           "prompt": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "explanation": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "source": "workbook",
-          "stage": "recognition",
+          "stage": "construction",
           "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "u16-qr-service-book-ticket.listening",
-          "audioUrl": "/api/audio/tts/16/u16-qr-service-book-ticket",
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-qr-seoul-distance-question-order.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-seoul-distance-question-order",
           "type": "listening",
-          "listeningType": "choose_image",
+          "listeningType": "order_step",
           "tts": {
-            "text": "비행기 표를 예매하고 싶습니다.",
-            "voice": "male",
+            "text": "네, 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요?",
+            "voice": "ko-KR",
             "speed": 0.9
           },
-          "transcriptKo": "비행기 표를 예매하고 싶습니다.",
+          "transcriptKo": "네, 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요?",
           "choices": [
             {
-              "id": "a",
+              "id": "u16-seoul-distance-thanks",
               "text": {
-                "vi": "A",
-                "en": "A"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/airport-counter.png"
+                "vi": "네, 감사합니다",
+                "en": "네, 감사합니다"
+              }
             },
             {
-              "id": "b",
+              "id": "u16-seoul-distance-however",
               "text": {
-                "vi": "B",
-                "en": "B"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/restaurant-scene.png"
+                "vi": "그런데",
+                "en": "그런데"
+              }
+            },
+            {
+              "id": "u16-seoul-distance-route",
+              "text": {
+                "vi": "여기에서 서울역까지",
+                "en": "여기에서 서울역까지"
+              }
+            },
+            {
+              "id": "u16-seoul-distance-far",
+              "text": {
+                "vi": "많이 멀어요",
+                "en": "많이 멀어요"
+              }
+            },
+            {
+              "id": "u16-seoul-distance-bus",
+              "text": {
+                "vi": "100번 버스를",
+                "en": "100번 버스를"
+              }
+            },
+            {
+              "id": "u16-seoul-distance-30-minutes",
+              "text": {
+                "vi": "30분쯤 걸립니다",
+                "en": "30분쯤 걸립니다"
+              }
             }
           ],
-          "correctChoiceId": "a"
+          "correctOrderChoiceIds": [
+            "u16-seoul-distance-thanks",
+            "u16-seoul-distance-however",
+            "u16-seoul-distance-route",
+            "u16-seoul-distance-far"
+          ]
         },
         {
-          "id": "u16-qr-service-passport",
+          "id": "u16-qr-seoul-distance-answer-order",
           "prompt": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "explanation": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "source": "workbook",
-          "stage": "recognition",
+          "stage": "construction",
           "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "u16-qr-service-passport.listening",
-          "audioUrl": "/api/audio/tts/16/u16-qr-service-passport",
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-qr-seoul-distance-answer-order.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-seoul-distance-answer-order",
           "type": "listening",
-          "listeningType": "choose_image",
+          "listeningType": "order_step",
           "tts": {
-            "text": "그럼 여권을 주십시오.",
-            "voice": "male",
+            "text": "아니요, 멀지 않아요. 20분쯤 걸립니다.",
+            "voice": "ko-KR",
             "speed": 0.9
           },
-          "transcriptKo": "그럼 여권을 주십시오.",
+          "transcriptKo": "아니요, 멀지 않아요. 20분쯤 걸립니다.",
           "choices": [
             {
-              "id": "a",
+              "id": "u16-seoul-answer-no",
               "text": {
-                "vi": "A",
-                "en": "A"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/airport-counter.png"
+                "vi": "아니요",
+                "en": "아니요"
+              }
             },
             {
-              "id": "b",
+              "id": "u16-seoul-answer-not-far",
               "text": {
-                "vi": "B",
-                "en": "B"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/passport-request.png"
-            }
-          ],
-          "correctChoiceId": "b"
-        },
-        {
-          "id": "u16-qr-service-phone-number",
-          "prompt": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
-          },
-          "explanation": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "u16-qr-service-phone-number.listening",
-          "audioUrl": "/api/audio/tts/16/u16-qr-service-phone-number",
-          "type": "listening",
-          "listeningType": "choose_image",
-          "tts": {
-            "text": "전화번호는 어디에 써요?",
-            "voice": "female",
-            "speed": 0.9
-          },
-          "transcriptKo": "전화번호는 어디에 써요?",
-          "choices": [
-            {
-              "id": "a",
-              "text": {
-                "vi": "A",
-                "en": "A"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/receptionist-help.png"
+                "vi": "멀지 않아요",
+                "en": "멀지 않아요"
+              }
             },
             {
-              "id": "b",
+              "id": "u16-seoul-answer-20-minutes",
               "text": {
-                "vi": "B",
-                "en": "B"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/asking-about-person.png"
-            }
-          ],
-          "correctChoiceId": "a"
-        },
-        {
-          "id": "u16-qr-service-name-below",
-          "prompt": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
-          },
-          "explanation": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "u16-qr-service-name-below.listening",
-          "audioUrl": "/api/audio/tts/16/u16-qr-service-name-below",
-          "type": "listening",
-          "listeningType": "choose_image",
-          "tts": {
-            "text": "이름 아래에 쓰십시오.",
-            "voice": "male",
-            "speed": 0.9
-          },
-          "transcriptKo": "이름 아래에 쓰십시오.",
-          "choices": [
-            {
-              "id": "a",
-              "text": {
-                "vi": "A",
-                "en": "A"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/passport-request.png"
+                "vi": "20분쯤 걸립니다",
+                "en": "20분쯤 걸립니다"
+              }
             },
             {
-              "id": "b",
+              "id": "u16-seoul-answer-very-far",
               "text": {
-                "vi": "B",
-                "en": "B"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/receptionist-help.png"
-            }
-          ],
-          "correctChoiceId": "b"
-        },
-        {
-          "id": "u16-qr-service-which-exercise",
-          "prompt": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
-          },
-          "explanation": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "u16-qr-service-which-exercise.listening",
-          "audioUrl": "/api/audio/tts/16/u16-qr-service-which-exercise",
-          "type": "listening",
-          "listeningType": "choose_image",
-          "tts": {
-            "text": "무슨 운동이 좋을까요?",
-            "voice": "female",
-            "speed": 0.9
-          },
-          "transcriptKo": "무슨 운동이 좋을까요?",
-          "choices": [
-            {
-              "id": "a",
-              "text": {
-                "vi": "A",
-                "en": "A"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/asking-about-person.png"
+                "vi": "많이 멀어요",
+                "en": "많이 멀어요"
+              }
             },
             {
-              "id": "b",
+              "id": "u16-seoul-answer-30-minutes",
               "text": {
-                "vi": "B",
-                "en": "B"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/restaurant-scene.png"
+                "vi": "30분쯤 걸립니다",
+                "en": "30분쯤 걸립니다"
+              }
             }
           ],
-          "correctChoiceId": "a"
-        },
-        {
-          "id": "u16-qr-service-walk-daily",
-          "prompt": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
-          },
-          "explanation": {
-            "vi": "맞는 그림을 고르세요.",
-            "en": "맞는 그림을 고르세요."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "u16-qr-service-walk-daily.listening",
-          "audioUrl": "/api/audio/tts/16/u16-qr-service-walk-daily",
-          "type": "listening",
-          "listeningType": "choose_image",
-          "tts": {
-            "text": "매일 30분 걸으십시오.",
-            "voice": "male",
-            "speed": 0.9
-          },
-          "transcriptKo": "매일 30분 걸으십시오.",
-          "choices": [
-            {
-              "id": "a",
-              "text": {
-                "vi": "A",
-                "en": "A"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/receptionist-help.png"
-            },
-            {
-              "id": "b",
-              "text": {
-                "vi": "B",
-                "en": "B"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/asking-about-person.png"
-            }
-          ],
-          "correctChoiceId": "b"
+          "correctOrderChoiceIds": [
+            "u16-seoul-answer-no",
+            "u16-seoul-answer-not-far",
+            "u16-seoul-answer-20-minutes"
+          ]
         }
       ]
     },

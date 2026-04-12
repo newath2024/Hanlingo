@@ -2794,7 +2794,8 @@ function buildUnit16QrLessons(
 ) {
   const traffic = pickFrom(source.workbook.exercises, "wb16-qr-traffic-jam");
   const hotelDuration = pickFrom(source.workbook.exercises, "wb16-qr-hotel-duration");
-  const serviceScenes = pickFrom(source.workbook.exercises, "wb16-qr-service-scenes");
+  const seoulBusNumber = pickFrom(source.workbook.exercises, "wb16-qr-seoul-bus-number");
+  const seoulDistance = pickFrom(source.workbook.exercises, "wb16-qr-seoul-distance");
 
   const lesson8 = buildListeningLessonFromExercises(
     source,
@@ -2822,20 +2823,21 @@ function buildUnit16QrLessons(
     {
       lessonId: "unit-16-lesson-9",
       lessonRole: "workbook_practice",
-      title: text("Nghe QR: tình huống dịch vụ", "QR listening: service scenes"),
+      title: text("Nghe QR: đường đến Seoul Station", "QR listening: route to Seoul Station"),
       summary: text(
-        "Tách bài tranh tình huống thành 8 item choose_image dùng TTS, mỗi câu nghe độc lập và map đúng vào hình textbook.",
-        "Split the service-scene workbook page into 8 TTS-backed choose-image items, each sentence mapped to the correct textbook illustration.",
+        "Chuyển hội thoại đường đi đến Seoul Station thành 4 item nghe ghép câu bằng TTS, mỗi item phát toàn câu rồi yêu cầu sắp xếp lại các cụm đúng thứ tự.",
+        "Turn the Seoul Station route dialogue into 4 TTS sentence-rebuild listening items. Each item plays the full sentence and asks the learner to rebuild it from chunks.",
       ),
       focusConcepts: [
         "qr-listening",
-        "service-scene",
-        "airport-counter",
-        "receptionist-help",
-        "passport-request",
-        "asking-about-person",
+        "build-sentence",
+        "directions",
+        "route-explanation",
+        "distance",
+        "time-answer",
+        "seoul-station",
       ],
-      exerciseIds: [serviceScenes.id],
+      exerciseIds: [seoulBusNumber.id, seoulDistance.id],
     },
     9,
     totalLessons,
