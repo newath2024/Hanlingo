@@ -125,7 +125,7 @@ export function listUnlockedRuntimeTaskEntries(progress: ProgressState) {
 }
 
 export function inferRuntimeTaskErrorType(task: RuntimeTask): ErrorType {
-  if (task.type === "listen_select") {
+  if (task.type === "listen_select" || task.type === "listening") {
     return "listening";
   }
 

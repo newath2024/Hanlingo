@@ -18,6 +18,7 @@ import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 import PracticeSession, { type PracticeSessionFeedback } from "./PracticeSession";
 import ProgressBar from "./ProgressBar";
+import SegmentedListeningQuestion from "./SegmentedListeningQuestion";
 import SessionBuildSentenceQuestion from "./SessionBuildSentenceQuestion";
 import SessionChoiceQuestion from "./SessionChoiceQuestion";
 import SessionSpeakingQuestion from "./SessionSpeakingQuestion";
@@ -428,6 +429,16 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
       currentItem.presentation === "image_cards"
     ) {
       return <SessionVocabImageChoiceQuestion item={currentItem} onResolve={handleItemResolved} />;
+    }
+
+    if (currentItem.type === "listening") {
+      return (
+        <SegmentedListeningQuestion
+          key={currentItem.id}
+          item={currentItem}
+          onResolve={handleItemResolved}
+        />
+      );
     }
 
     if (

@@ -93,6 +93,7 @@ const JONGSEONG = [
 const FAST_RESPONSE_THRESHOLDS: Record<SessionItem["type"], number> = {
   word_match: 1400,
   listen_select: 1500,
+  listening: 1700,
   translate: 2500,
   translation_select: 1900,
   arrange_sentence: 3200,
@@ -263,12 +264,18 @@ function buildResult(
 function getChoiceTexts(question: SessionItem, answerOptionId?: string) {
   if (
     question.type === "listen_select" ||
+    (question.type === "listening" &&
+      (question.listeningType === "yes_no" ||
+        question.listeningType === "multiple_choice" ||
+        question.listeningType === "choose_image")) ||
     (question.type === "word_match" && "choices" in question)
   ) {
     const selectedOption = answerOptionId
-      ? question.choices.find((choice) => choice.id === answerOptionId)
+      ? question.choices?.find((choice) => choice.id === answerOptionId)
       : undefined;
-    const correctOption = question.choices.find((choice) => choice.id === question.answer);
+    const correctChoiceId =
+      question.type === "listening" ? question.correctChoiceId : question.answer;
+    const correctOption = question.choices?.find((choice) => choice.id === correctChoiceId);
 
     return {
       selectedOptionText: selectedOption?.text.en || selectedOption?.text.vi || "",
@@ -368,7 +375,8 @@ function classifyOrderingBreakdown(
     input.question.type !== "arrange_sentence" &&
     input.question.type !== "dialogue_reconstruct" &&
     input.question.type !== "sentence_build" &&
-    input.question.type !== "reorder_sentence"
+    input.question.type !== "reorder_sentence" &&
+    !(input.question.type === "listening" && input.question.listeningType === "order_step")
   ) {
     return null;
   }
@@ -376,7 +384,17 @@ function classifyOrderingBreakdown(
   const answerTokens = input.answerTokens?.length
     ? input.answerTokens
     : tokenizeText(input.userAnswer);
-  const correctTokens = input.question.answer;
+  let correctTokens: string[];
+
+  if (input.question.type === "listening") {
+    const listeningQuestion = input.question as Extract<SessionItem, { type: "listening" }>;
+    correctTokens = (listeningQuestion.correctOrderChoiceIds ?? []).map((choiceId) => {
+      const choiceEntry = listeningQuestion.choices?.find((choice) => choice.id === choiceId);
+      return choiceEntry?.text.en || choiceEntry?.text.vi || choiceId;
+    });
+  } else {
+    correctTokens = input.question.answer;
+  }
   const correctPositions = answerTokens.reduce((count, token, index) => {
     return count + (correctTokens[index] === token ? 1 : 0);
   }, 0);
@@ -410,7 +428,14 @@ function classifyListeningMishear(
   selectedOptionText: string,
   correctOptionText: string,
 ): MistakeAnalysisResult | null {
-  if (input.question.type !== "listen_select") {
+  const isListeningChoice =
+    input.question.type === "listen_select" ||
+    (input.question.type === "listening" &&
+      (input.question.listeningType === "yes_no" ||
+        input.question.listeningType === "multiple_choice" ||
+        input.question.listeningType === "choose_image"));
+
+  if (!isListeningChoice) {
     return null;
   }
 

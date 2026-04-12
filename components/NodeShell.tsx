@@ -27,6 +27,7 @@ import {
 } from "react";
 import PracticeSession, { type PracticeSessionFeedback } from "./PracticeSession";
 import ProgressBar from "./ProgressBar";
+import SegmentedListeningQuestion from "./SegmentedListeningQuestion";
 import SessionBuildSentenceQuestion from "./SessionBuildSentenceQuestion";
 import SessionChoiceQuestion from "./SessionChoiceQuestion";
 import SessionSpeakingQuestion from "./SessionSpeakingQuestion";
@@ -459,6 +460,16 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     ) {
       return (
         <SessionVocabImageChoiceQuestion
+          key={`${sessionKey}-${currentItem.id}`}
+          item={currentItem}
+          onResolve={handleItemResolved}
+        />
+      );
+    }
+
+    if (currentItem.type === "listening") {
+      return (
+        <SegmentedListeningQuestion
           key={`${sessionKey}-${currentItem.id}`}
           item={currentItem}
           onResolve={handleItemResolved}

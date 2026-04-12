@@ -10,6 +10,7 @@ import type { InteractionMode, RuntimeLesson, RuntimeTask } from "@/types/curric
 import type {
   ArrangeSessionItem,
   GrammarChoiceSessionItem,
+  ListeningSessionItem,
   LocalizedChoiceSessionItem,
   SessionDisplayText,
   SessionItem,
@@ -55,6 +56,28 @@ export function getRuntimeTaskCorrectAnswer(task: RuntimeTask): SessionDisplayTe
     return getImageCardCorrectAnswer(task);
   }
 
+  if (task.type === "listening") {
+    if (
+      task.listeningType === "yes_no" ||
+      task.listeningType === "multiple_choice" ||
+      task.listeningType === "choose_image"
+    ) {
+      const correctChoice = task.choices?.find((choice) => choice.id === task.correctChoiceId);
+      return correctChoice?.text ?? task.correctChoiceId ?? "";
+    }
+
+    if (task.listeningType === "fill_blank") {
+      return task.correctText ?? task.acceptedAnswers?.[0] ?? "";
+    }
+
+    const orderedChoices = (task.correctOrderChoiceIds ?? []).map((choiceId) => {
+      const choiceEntry = task.choices?.find((choice) => choice.id === choiceId);
+      return choiceEntry?.text.en || choiceEntry?.text.vi || choiceId;
+    });
+
+    return orderedChoices.join(" ");
+  }
+
   if (task.type === "translate") {
     if (task.direction === "ko_to_meaning") {
       return task.meaning;
@@ -93,6 +116,10 @@ export function getRuntimeTaskWeakLabel(task: RuntimeTask): SessionDisplayText {
 
   if (task.type === "listen_select") {
     return task.supportText ?? task.audioText ?? task.prompt;
+  }
+
+  if (task.type === "listening") {
+    return task.questionText ?? task.contextTitle ?? task.prompt;
   }
 
   if (task.type === "translate") {
@@ -139,6 +166,30 @@ export function createSessionItemFromTask(task: SupportedRuntimeTask): SessionIt
     interactionMode: task.interactionMode,
     sentenceKey: task.sentenceKey,
   } as const;
+
+  if (task.type === "listening") {
+    const item: ListeningSessionItem = {
+      ...base,
+      type: "listening",
+      listeningType: task.listeningType,
+      audioUrl: task.audioUrl,
+      clipStartMs: task.clipStartMs,
+      clipEndMs: task.clipEndMs,
+      questionText: task.questionText,
+      transcriptKo: task.transcriptKo,
+      translation: task.translation,
+      romanization: task.romanization,
+      contextGroupId: task.contextGroupId,
+      contextTitle: task.contextTitle,
+      contextSummary: task.contextSummary,
+      choices: task.choices,
+      correctChoiceId: task.correctChoiceId,
+      correctText: task.correctText,
+      acceptedAnswers: task.acceptedAnswers,
+      correctOrderChoiceIds: task.correctOrderChoiceIds,
+    };
+    return item;
+  }
 
   if (task.type === "word_match" || task.type === "listen_select") {
     const item: LocalizedChoiceSessionItem = {
@@ -269,6 +320,10 @@ export function getSessionItemTypeLabel(
 
   if (type === "listen_select") {
     return getLocalizedText({ en: "Listen", vi: "Nghe" }, locale);
+  }
+
+  if (type === "listening") {
+    return getLocalizedText({ en: "Listening", vi: "Nghe hiểu" }, locale);
   }
 
   if (type === "translate") {

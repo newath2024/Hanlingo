@@ -33,6 +33,8 @@ type KoreanSpeechOptions = {
 };
 
 type AudioPlaybackOptions = {
+  clipStartMs?: number;
+  clipEndMs?: number;
   onStart?: () => void;
   onEnd?: () => void;
   onError?: () => void;
@@ -51,6 +53,65 @@ const PREFERRED_KOREAN_VOICE_HINTS = [
   "microsoft sunhi",
   "yuna",
 ];
+const audioObjectUrlCache = new Map<string, Promise<string>>();
+
+let activeAudioElement: HTMLAudioElement | null = null;
+let activeAudioCleanup: (() => void) | null = null;
+
+async function getCachedAudioObjectUrl(url: string) {
+  const cached = audioObjectUrlCache.get(url);
+
+  if (cached) {
+    return cached;
+  }
+
+  const nextPromise = fetch(url)
+    .then(async (response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch audio: ${response.status}`);
+      }
+
+      const blob = await response.blob();
+      return URL.createObjectURL(blob);
+    })
+    .catch((error) => {
+      audioObjectUrlCache.delete(url);
+      throw error;
+    });
+
+  audioObjectUrlCache.set(url, nextPromise);
+  return nextPromise;
+}
+
+function stopActiveAudioPlayback() {
+  activeAudioCleanup?.();
+  activeAudioCleanup = null;
+  activeAudioElement = null;
+}
+
+function waitForAudioMetadata(audio: HTMLAudioElement) {
+  if (Number.isFinite(audio.duration) && audio.readyState >= 1) {
+    return Promise.resolve();
+  }
+
+  return new Promise<void>((resolve, reject) => {
+    const handleLoadedMetadata = () => {
+      cleanup();
+      resolve();
+    };
+    const handleError = () => {
+      cleanup();
+      reject(new Error("Audio metadata failed to load."));
+    };
+    const cleanup = () => {
+      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      audio.removeEventListener("error", handleError);
+    };
+
+    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
+    audio.addEventListener("error", handleError);
+  });
+}
 
 function getPreferredKoreanVoice(voices: SpeechSynthesisVoice[]) {
   const koreanVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("ko"));
@@ -124,13 +185,73 @@ export async function playAudioUrl(url: string, options: AudioPlaybackOptions = 
   }
 
   try {
-    const audio = new Audio(url);
+    stopActiveAudioPlayback();
+
+    const hasClipStart = typeof options.clipStartMs === "number";
+    const hasClipEnd = typeof options.clipEndMs === "number";
+    const sourceUrl =
+      hasClipStart || hasClipEnd ? await getCachedAudioObjectUrl(url) : url;
+    const audio = new Audio(sourceUrl);
+    const clipStartSeconds = hasClipStart ? Math.max(0, options.clipStartMs! / 1000) : 0;
+    const clipEndSeconds = hasClipEnd ? Math.max(clipStartSeconds, options.clipEndMs! / 1000) : null;
+    let settled = false;
+
+    const cleanup = () => {
+      audio.pause();
+      audio.ontimeupdate = null;
+      audio.onplay = null;
+      audio.onended = null;
+      audio.onerror = null;
+      if (activeAudioElement === audio) {
+        activeAudioElement = null;
+      }
+      if (activeAudioCleanup === cleanup) {
+        activeAudioCleanup = null;
+      }
+    };
+
+    const finish = () => {
+      if (settled) {
+        return;
+      }
+      settled = true;
+      cleanup();
+      options.onEnd?.();
+    };
+
+    const fail = () => {
+      if (settled) {
+        return;
+      }
+      settled = true;
+      cleanup();
+      options.onError?.();
+    };
+
     audio.onplay = () => options.onStart?.();
-    audio.onended = () => options.onEnd?.();
-    audio.onerror = () => options.onError?.();
+    audio.onended = () => finish();
+    audio.onerror = () => fail();
+
+    if (clipEndSeconds !== null) {
+      audio.ontimeupdate = () => {
+        if (audio.currentTime >= clipEndSeconds) {
+          finish();
+        }
+      };
+    }
+
+    activeAudioElement = audio;
+    activeAudioCleanup = cleanup;
+
+    if (hasClipStart || hasClipEnd) {
+      await waitForAudioMetadata(audio);
+      audio.currentTime = clipStartSeconds;
+    }
+
     await audio.play();
     return true;
   } catch {
+    stopActiveAudioPlayback();
     options.onError?.();
     return false;
   }

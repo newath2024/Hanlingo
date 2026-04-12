@@ -92,6 +92,7 @@ function includesListeningSignal(input: RuntimeHeatmapInput) {
 
   return (
     input.task.type === "listen_select" ||
+    input.task.type === "listening" ||
     tags.includes("listening") ||
     tags.includes("qr-listening")
   );
@@ -100,6 +101,22 @@ function includesListeningSignal(input: RuntimeHeatmapInput) {
 export function inferHeatmapQuestionFormat(
   task: RuntimeTask,
 ): HeatmapQuestionFormat {
+  if (task.type === "listening") {
+    if (
+      task.listeningType === "yes_no" ||
+      task.listeningType === "multiple_choice" ||
+      task.listeningType === "choose_image"
+    ) {
+      return "listening_select";
+    }
+
+    if (task.listeningType === "order_step") {
+      return "reorder";
+    }
+
+    return "typing";
+  }
+
   if (task.type === "listen_select") {
     return "listening_select";
   }
@@ -176,6 +193,39 @@ function buildVocabTargetLabel(task: RuntimeTask) {
 
   if (task.type === "fill_blank" && task.acceptedAnswers.length === 1) {
     return task.acceptedAnswers[0];
+  }
+
+  if (task.type === "listening") {
+    if (task.transcriptKo) {
+      return task.transcriptKo;
+    }
+
+    if (task.questionText) {
+      return stringifyDisplayText(task.questionText);
+    }
+
+    if (task.correctText) {
+      return task.correctText;
+    }
+
+    if (task.acceptedAnswers?.length === 1) {
+      return task.acceptedAnswers[0];
+    }
+
+    if (task.correctChoiceId) {
+      const correctChoice = task.choices?.find((choice) => choice.id === task.correctChoiceId);
+      return correctChoice?.text.en || correctChoice?.text.vi || "";
+    }
+
+    if (task.correctOrderChoiceIds?.length) {
+      return task.correctOrderChoiceIds
+        .map((choiceId) => {
+          const choiceEntry = task.choices?.find((choice) => choice.id === choiceId);
+          return choiceEntry?.text.en || choiceEntry?.text.vi || "";
+        })
+        .filter(Boolean)
+        .join(" ");
+    }
   }
 
   if (task.type === "listen_select") {
