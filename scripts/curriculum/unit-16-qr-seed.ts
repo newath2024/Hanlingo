@@ -1,10 +1,11 @@
 import type {
   LocalizedText,
+  ListeningTtsConfig,
   SourceAudioAsset,
   SourceListeningItem,
   SourceWorkbookExercise,
 } from "@/types/curriculum";
-import type { QrSeedFactoryArgs, UnitQrSeedDefinition } from "./qr-seed";
+import type { QrSeedFactoryArgs, SeededQrImageCrop, UnitQrSeedDefinition } from "./qr-seed";
 
 function page(startPage: number, endPage = startPage) {
   return { startPage, endPage };
@@ -22,6 +23,10 @@ function workbookExercise(
 
 function text(vi: string, en: string): LocalizedText {
   return { vi, en };
+}
+
+function koText(value: string): LocalizedText {
+  return text(value, value);
 }
 
 const TRAFFIC_OPTIONS = [
@@ -55,33 +60,81 @@ const DISTANCE_OPTIONS = [
   { id: "three-hours", label: text("mất ba tiếng", "it takes three hours"), correct: false },
 ];
 
-const DESTINATION_OPTIONS = [
-  { id: "airport", label: text("sân bay", "airport"), correct: true },
-  { id: "seoul-station", label: text("ga Seoul", "Seoul Station"), correct: false },
-  { id: "terminal", label: text("bến xe", "terminal"), correct: false },
-  { id: "harbor", label: text("cảng", "harbor"), correct: false },
-];
-
 const QR_269_TRANSCRIPT =
   "리사: 실례합니다. 여기에서 서울역까지 어떻게 가요? 남자: 저기 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다. 리사: 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요? 남자: 아니요. 멀지 않아요.";
-const QR_264_TRANSCRIPT =
-  "A: 선생님, 왜 안 와요? B: 미안해요. 지금 길이 많이 막혀요. A: 역에서 호텔까지 얼마나 걸려요? B: 버스를 타고 십오 분쯤 걸려요.";
+const QR_264_DIALOGUE_1 = "지금 길이 많이 막혀요";
+const QR_264_DIALOGUE_2 = "버스를 타고 십오 분쯤 걸려요";
+const QR_264_DIALOGUE_2_TIME = "십오 분쯤 걸려요";
+const BUILD_SENTENCE_PROMPT = "문장을 순서대로 만드세요.";
+const SERVICE_SCENE_PAGE = 268;
+
+// PDF page 269 corresponds to the printed workbook page 268 in the local source PDF.
+const SERVICE_SCENE_CROPS: readonly SeededQrImageCrop[] = [
+  {
+    id: "wb16-service-airport-counter",
+    label: "Airport counter scene",
+    page: 269,
+    imagePath: "/generated/listening-cards/unit-16/airport-counter.png",
+    bounds: { x: 88, y: 338, width: 400, height: 215 },
+    sourceItemId: "u16-qr-service-book-ticket",
+  },
+  {
+    id: "wb16-service-receptionist-help",
+    label: "Receptionist help scene",
+    page: 269,
+    imagePath: "/generated/listening-cards/unit-16/receptionist-help.png",
+    bounds: { x: 552, y: 338, width: 377, height: 215 },
+    sourceItemId: "u16-qr-service-wait",
+  },
+  {
+    id: "wb16-service-passport-request",
+    label: "Passport request scene",
+    page: 269,
+    imagePath: "/generated/listening-cards/unit-16/passport-request.png",
+    bounds: { x: 88, y: 670, width: 410, height: 185 },
+    sourceItemId: "u16-qr-service-passport",
+  },
+  {
+    id: "wb16-service-asking-about-person",
+    label: "Asking about a person scene",
+    page: 269,
+    imagePath: "/generated/listening-cards/unit-16/asking-about-person.png",
+    bounds: { x: 552, y: 670, width: 377, height: 185 },
+    sourceItemId: "u16-qr-service-ask-min-guk",
+  },
+  {
+    id: "wb16-service-restaurant-scene",
+    label: "Restaurant scene",
+    page: 269,
+    imagePath: "/generated/listening-cards/unit-16/restaurant-scene.png",
+    bounds: { x: 88, y: 1015, width: 410, height: 185 },
+    sourceItemId: "u16-qr-service-book-ticket",
+  },
+];
+
+function tts(
+  textValue: string,
+  voice: ListeningTtsConfig["voice"] = "ko-KR",
+): ListeningTtsConfig {
+  return {
+    text: textValue,
+    voice,
+    speed: 0.9,
+  };
+}
+
+function orderChoice(id: string, chunk: string) {
+  return {
+    id,
+    text: koText(chunk),
+  };
+}
 
 export const UNIT_16_QR_SEED: UnitQrSeedDefinition = {
-  listeningPages: [264, 269, 270, 271],
+  listeningPages: [269, 270, 271],
+  imageCrops: SERVICE_SCENE_CROPS,
   createAudioAssets(args: QrSeedFactoryArgs): SourceAudioAsset[] {
     return [
-      {
-        id: "wb16-qr-traffic-audio",
-        document: "workbook",
-        page: 264,
-        qrValue: "http://m.site.naver.com/0Yyb6",
-        transcript: QR_264_TRANSCRIPT,
-        transcriptConfidence: 0.75,
-        remoteUrl: "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_02.mp3",
-        mimeType: "audio/mpeg",
-        needsReview: args.needsReview,
-      },
       {
         id: "wb16-qr-seoul-station-audio",
         document: "workbook",
@@ -127,7 +180,6 @@ export const UNIT_16_QR_SEED: UnitQrSeedDefinition = {
           ),
           localizedText: args.text("đường đang tắc", "the road is jammed"),
           answer: "đường đang tắc",
-          audioAssetId: "wb16-qr-traffic-audio",
           options: TRAFFIC_OPTIONS.map((option) => ({
             id: option.id,
             label: option.label,
@@ -160,7 +212,6 @@ export const UNIT_16_QR_SEED: UnitQrSeedDefinition = {
             "take a bus for 15 minutes to the hotel",
           ),
           answer: "đi xe buýt 15 phút đến khách sạn",
-          audioAssetId: "wb16-qr-traffic-audio",
           options: HOTEL_DURATION_OPTIONS.map((option) => ({
             id: option.id,
             label: option.label,
@@ -242,30 +293,24 @@ export const UNIT_16_QR_SEED: UnitQrSeedDefinition = {
       ),
       workbookExercise(
         {
-          id: "wb16-qr-destination",
+          id: "wb16-qr-service-scenes",
           exerciseType: "listening",
           prompt: args.text(
-            "Nghe QR và chọn địa điểm mà Jiyeon muốn đến.",
-            "Listen to the QR audio and choose Jiyeon's destination.",
+            "Nghe từng câu và chọn đúng hình minh họa trong sách.",
+            "Listen to each sentence and choose the matching textbook illustration.",
           ),
-          localizedText: args.text("sân bay", "airport"),
-          answer: "sân bay",
-          audioAssetId: "wb16-qr-airport-audio",
-          options: DESTINATION_OPTIONS.map((option) => ({
-            id: option.id,
-            label: option.label,
-            correct: option.correct,
-          })),
+          localizedText: args.text("tình huống dịch vụ", "service scene"),
+          answer: "tình huống dịch vụ",
           metadata: {
             target: "qr_listening",
-            variant: "destination_choice",
+            variant: "service_scene_tts",
           },
-          coverageTags: ["qr-listening", "destination", "travel"],
-          pages: page(270),
+          coverageTags: ["qr-listening", "service-scene", "image-choice"],
+          pages: page(SERVICE_SCENE_PAGE),
           sourceRef: capture(
-            "wb16-qr-destination",
-            270,
-            "지연 씨는 공항에 가려고 해요.",
+            "wb16-qr-service-scenes",
+            SERVICE_SCENE_PAGE,
+            "Workbook page 268 service-scene listening. Match each fixed sentence to the correct textbook illustration.",
           ),
         },
         args.needsReview,
@@ -289,19 +334,17 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
     {
       id: "u16-qr-traffic-jam-image",
       sourceExerciseIds: ["wb16-qr-traffic-jam"],
-      audioAssetId: "wb16-qr-traffic-audio",
-      clipStartMs: 1700,
-      clipEndMs: 4100,
+      tts: tts(QR_264_DIALOGUE_1),
       type: "choose_image",
       prompt: args.text(
-        "Nghe đoạn ngắn rồi chọn hình đúng.",
-        "Listen to the short clip and choose the matching image.",
+        "Nghe câu ngắn rồi chọn hình đúng.",
+        "Listen to the short sentence and choose the matching image.",
       ),
       questionText: args.text(
-        "Tình huống giao thông nào đang được nhắc tới?",
+        "Tình huống giao thông nào đúng?",
         "Which traffic situation is mentioned?",
       ),
-      transcriptKo: "지금 길이 많이 막혀요.",
+      transcriptKo: QR_264_DIALOGUE_1,
       translation: args.text(
         "Bây giờ đường đang tắc nhiều.",
         "The road is very jammed right now.",
@@ -310,12 +353,12 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
         {
           id: "traffic-jam",
           text: args.text("đường đang tắc", "the road is jammed"),
-          imagePath: "/generated/listening-cards/unit-16/traffic-jam.svg",
+          imageId: "traffic_jam",
         },
         {
           id: "clear-road",
           text: args.text("đường đang thông", "the road is clear"),
-          imagePath: "/generated/listening-cards/unit-16/clear-road.svg",
+          imageId: "traffic_clear",
         },
       ],
       correctChoiceId: "traffic-jam",
@@ -325,26 +368,24 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
       sourceRef: capture(
         "u16-qr-traffic-jam-image",
         264,
-        "지금 길이 많이 막혀요. choose_image clip",
+        "지금 길이 많이 막혀요 choose_image tts",
       ),
       needsReview: args.needsReview,
     },
     {
       id: "u16-qr-traffic-reason-choice",
       sourceExerciseIds: ["wb16-qr-traffic-jam"],
-      audioAssetId: "wb16-qr-traffic-audio",
-      clipStartMs: 1700,
-      clipEndMs: 4100,
+      tts: tts(QR_264_DIALOGUE_1),
       type: "multiple_choice",
       prompt: args.text(
-        "Nghe đoạn ngắn rồi chọn đáp án đúng.",
-        "Listen to the short clip and choose the correct answer.",
+        "Nghe câu ngắn rồi chọn đáp án đúng.",
+        "Listen to the short sentence and choose the correct answer.",
       ),
       questionText: args.text(
         "Vì sao người đó chưa đến?",
         "Why has the person not arrived yet?",
       ),
-      transcriptKo: "지금 길이 많이 막혀요.",
+      transcriptKo: QR_264_DIALOGUE_1,
       translation: args.text(
         "Bây giờ đường đang tắc nhiều.",
         "The road is very jammed right now.",
@@ -370,26 +411,24 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
       sourceRef: capture(
         "u16-qr-traffic-reason-choice",
         264,
-        "지금 길이 많이 막혀요. multiple_choice clip",
+        "지금 길이 많이 막혀요 multiple_choice tts",
       ),
       needsReview: args.needsReview,
     },
     {
       id: "u16-qr-hotel-transport-time-image",
       sourceExerciseIds: ["wb16-qr-hotel-duration"],
-      audioAssetId: "wb16-qr-traffic-audio",
-      clipStartMs: 5200,
-      clipEndMs: 8400,
+      tts: tts(QR_264_DIALOGUE_2),
       type: "choose_image",
       prompt: args.text(
-        "Nghe đoạn ngắn rồi chọn hình đúng.",
-        "Listen to the short clip and choose the matching image.",
+        "Nghe câu ngắn rồi chọn hình đúng.",
+        "Listen to the short sentence and choose the matching image.",
       ),
       questionText: args.text(
         "Cách đi và thời gian nào được nhắc tới?",
         "Which transport and time are mentioned?",
       ),
-      transcriptKo: "버스를 타고 십오 분쯤 걸려요.",
+      transcriptKo: QR_264_DIALOGUE_2,
       translation: args.text(
         "Đi xe buýt thì mất khoảng 15 phút.",
         "It takes about 15 minutes by bus.",
@@ -398,12 +437,12 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
         {
           id: "bus-to-hotel-15",
           text: args.text("đi xe buýt 15 phút", "15 minutes by bus"),
-          imagePath: "/generated/listening-cards/unit-16/bus-hotel-15.svg",
+          imageId: "bus_hotel_15",
         },
         {
           id: "walk-to-hotel-15",
           text: args.text("đi bộ 15 phút", "15 minutes on foot"),
-          imagePath: "/generated/listening-cards/unit-16/walk-hotel-15.svg",
+          imageId: "walk_hotel_15",
         },
       ],
       correctChoiceId: "bus-to-hotel-15",
@@ -413,26 +452,24 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
       sourceRef: capture(
         "u16-qr-hotel-transport-time-image",
         264,
-        "버스를 타고 십오 분쯤 걸려요. choose_image clip",
+        "버스를 타고 십오 분쯤 걸려요 choose_image tts",
       ),
       needsReview: args.needsReview,
     },
     {
       id: "u16-qr-hotel-time-choice",
       sourceExerciseIds: ["wb16-qr-hotel-duration"],
-      audioAssetId: "wb16-qr-traffic-audio",
-      clipStartMs: 6200,
-      clipEndMs: 8400,
+      tts: tts(QR_264_DIALOGUE_2_TIME),
       type: "multiple_choice",
       prompt: args.text(
-        "Nghe đoạn ngắn rồi chọn đáp án đúng.",
-        "Listen to the short clip and choose the correct answer.",
+        "Nghe câu ngắn rồi chọn đáp án đúng.",
+        "Listen to the short sentence and choose the correct answer.",
       ),
       questionText: args.text(
         "Mất khoảng bao lâu?",
         "About how long does it take?",
       ),
-      transcriptKo: "십오 분쯤 걸려요.",
+      transcriptKo: QR_264_DIALOGUE_2_TIME,
       translation: args.text(
         "Mất khoảng 15 phút.",
         "It takes about 15 minutes.",
@@ -458,26 +495,24 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
       sourceRef: capture(
         "u16-qr-hotel-time-choice",
         264,
-        "십오 분쯤 걸려요. multiple_choice clip",
+        "십오 분쯤 걸려요 multiple_choice tts",
       ),
       needsReview: args.needsReview,
     },
     {
       id: "u16-qr-hotel-transport-choice",
       sourceExerciseIds: ["wb16-qr-hotel-duration"],
-      audioAssetId: "wb16-qr-traffic-audio",
-      clipStartMs: 5200,
-      clipEndMs: 8400,
+      tts: tts(QR_264_DIALOGUE_2),
       type: "multiple_choice",
       prompt: args.text(
-        "Nghe đoạn ngắn rồi chọn đáp án đúng.",
-        "Listen to the short clip and choose the correct answer.",
+        "Nghe câu ngắn rồi chọn đáp án đúng.",
+        "Listen to the short sentence and choose the correct answer.",
       ),
       questionText: args.text(
         "Đi bằng phương tiện gì?",
         "What do they take?",
       ),
-      transcriptKo: "버스를 타고 십오 분쯤 걸려요.",
+      transcriptKo: QR_264_DIALOGUE_2,
       translation: args.text(
         "Đi xe buýt thì mất khoảng 15 phút.",
         "It takes about 15 minutes by bus.",
@@ -503,191 +538,143 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
       sourceRef: capture(
         "u16-qr-hotel-transport-choice",
         264,
-        "버스를 타고 십오 분쯤 걸려요. multiple_choice clip",
+        "버스를 타고 십오 분쯤 걸려요 multiple_choice tts",
       ),
       needsReview: args.needsReview,
     },
     {
-      id: "u16-qr-airport-destination-image",
-      sourceExerciseIds: ["wb16-qr-destination"],
-      audioAssetId: "wb16-qr-airport-audio",
-      clipStartMs: 0,
-      clipEndMs: 2500,
-      type: "choose_image",
-      prompt: args.text(
-        "Nghe đoạn ngắn rồi chọn nơi Jiyeon muốn đến.",
-        "Listen to the short clip and choose Jiyeon's destination.",
-      ),
-      questionText: args.text(
-        "Jiyeon muốn đến đâu?",
-        "Where does Jiyeon want to go?",
-      ),
-      transcriptKo: "지연 씨는 공항에 가려고 해요.",
-      translation: args.text("Jiyeon muốn đi sân bay.", "Jiyeon wants to go to the airport."),
-      contextGroupId: "u16-qr-airport",
-      contextTitle: args.text("Đi sân bay", "Going to the airport"),
-      contextSummary: args.text(
-        "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-        "A short clip about a destination and bus advice.",
-      ),
-      choices: [
-        {
-          id: "airport",
-          text: args.text("sân bay", "airport"),
-          imagePath: "/generated/listening-cards/unit-16/airport.svg",
-        },
-        {
-          id: "seoul-station",
-          text: args.text("ga Seoul", "Seoul Station"),
-          imagePath: "/generated/listening-cards/unit-16/seoul-station.svg",
-        },
-        {
-          id: "terminal",
-          text: args.text("bến xe", "terminal"),
-          imagePath: "/generated/listening-cards/unit-16/terminal.svg",
-        },
-      ],
-      correctChoiceId: "airport",
-      coverageTags: ["qr-listening", "destination", "travel"],
-      difficulty: "easy",
-      pages: page(270),
-      sourceRef: capture(
-        "u16-qr-airport-destination-image",
-        270,
-        "지연 씨는 공항에 가려고 해요. choose_image clip",
-      ),
-      needsReview: args.needsReview,
-    },
-    {
-      id: "u16-qr-airport-destination-fill",
-      sourceExerciseIds: ["wb16-qr-destination"],
-      audioAssetId: "wb16-qr-airport-audio",
-      clipStartMs: 0,
-      clipEndMs: 2500,
-      type: "fill_blank",
-      prompt: args.text(
-        "Nghe đoạn ngắn rồi điền nơi muốn đến.",
-        "Listen to the short clip and fill in the destination.",
-      ),
-      questionText: args.text(
-        "Hoàn thành câu còn thiếu.",
-        "Complete the missing destination.",
-      ),
-      transcriptKo: "지연 씨는 공항에 가려고 해요.",
-      translation: args.text("Jiyeon muốn đi sân bay.", "Jiyeon wants to go to the airport."),
-      contextGroupId: "u16-qr-airport",
-      contextTitle: args.text("Đi sân bay", "Going to the airport"),
-      contextSummary: args.text(
-        "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-        "A short clip about a destination and bus advice.",
-      ),
-      choices: [
-        { id: "airport-fill", text: args.text("공항", "airport") },
-        { id: "station-fill", text: args.text("서울역", "Seoul Station") },
-        { id: "terminal-fill", text: args.text("터미널", "terminal") },
-      ],
-      correctText: "공항",
-      acceptedAnswers: ["공항"],
-      coverageTags: ["qr-listening", "destination", "fill-blank"],
-      difficulty: "easy",
-      pages: page(270),
-      sourceRef: capture(
-        "u16-qr-airport-destination-fill",
-        270,
-        "지연 씨는 ___에 가려고 해요. fill_blank clip",
-      ),
-      needsReview: args.needsReview,
-    },
-    {
-      id: "u16-qr-airport-bus-fill",
-      sourceExerciseIds: ["wb16-qr-destination"],
-      audioAssetId: "wb16-qr-airport-audio",
-      clipStartMs: 2100,
-      clipEndMs: 5000,
-      type: "fill_blank",
-      prompt: args.text(
-        "Nghe lời khuyên rồi điền số xe buýt.",
-        "Listen to the advice clip and fill in the bus number.",
-      ),
-      questionText: args.text(
-        "Điền số xe buýt được nhắc tới.",
-        "Fill in the bus number that is mentioned.",
-      ),
-      transcriptKo: "여기에서 600번 버스를 타고 가세요.",
-      translation: args.text(
-        "Hãy bắt xe buýt số 600 từ đây.",
-        "Take bus 600 from here.",
-      ),
-      contextGroupId: "u16-qr-airport",
-      contextTitle: args.text("Đi sân bay", "Going to the airport"),
-      contextSummary: args.text(
-        "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-        "A short clip about a destination and bus advice.",
-      ),
-      choices: [
-        { id: "bus-100-fill", text: args.text("100", "100") },
-        { id: "bus-600-fill", text: args.text("600", "600") },
-        { id: "bus-900-fill", text: args.text("900", "900") },
-      ],
-      correctText: "600",
-      acceptedAnswers: ["600"],
-      coverageTags: ["qr-listening", "destination", "bus-number"],
-      difficulty: "easy",
-      pages: page(270),
-      sourceRef: capture(
-        "u16-qr-airport-bus-fill",
-        270,
-        "여기에서 600번 버스를 타고 가세요. fill_blank clip",
-      ),
-      needsReview: args.needsReview,
-    },
-    {
-      id: "u16-qr-airport-order",
-      sourceExerciseIds: ["wb16-qr-destination"],
-      audioAssetId: "wb16-qr-airport-audio",
-      clipStartMs: 2100,
-      clipEndMs: 5000,
+      id: "u16-qr-seoul-ask-direction-order",
+      sourceExerciseIds: ["wb16-qr-seoul-bus-number"],
+      tts: tts("실례합니다. 여기에서 서울역까지 어떻게 가요?"),
       type: "order_step",
-      prompt: args.text(
-        "Nghe lời khuyên rồi sắp xếp lại câu chỉ đường.",
-        "Listen to the advice clip and arrange the sentence in order.",
-      ),
-      questionText: args.text(
-        "Sắp xếp lại câu xuất hiện trong audio.",
-        "Arrange the sentence that appears in the audio.",
-      ),
-      transcriptKo: "여기에서 600번 버스를 타고 가세요.",
-      translation: args.text(
-        "Hãy bắt xe buýt số 600 từ đây.",
-        "Take bus 600 from here.",
-      ),
-      contextGroupId: "u16-qr-airport",
-      contextTitle: args.text("Đi sân bay", "Going to the airport"),
-      contextSummary: args.text(
-        "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-        "A short clip about a destination and bus advice.",
-      ),
+      prompt: koText(BUILD_SENTENCE_PROMPT),
+      transcriptKo: "실례합니다. 여기에서 서울역까지 어떻게 가요?",
       choices: [
-        { id: "airport-order-1", text: args.text("여기에서", "from here") },
-        { id: "airport-order-2", text: args.text("600번", "bus 600") },
-        { id: "airport-order-3", text: args.text("버스를", "the bus") },
-        { id: "airport-order-4", text: args.text("타고", "take and") },
-        { id: "airport-order-5", text: args.text("가세요.", "go please") },
+        orderChoice("u16-seoul-ask-excuse-me", "실례합니다"),
+        orderChoice("u16-seoul-ask-here", "여기에서"),
+        orderChoice("u16-seoul-ask-station", "서울역까지"),
+        orderChoice("u16-seoul-ask-how", "어떻게 가요"),
+        orderChoice("u16-seoul-ask-bus", "100번 버스를"),
+        orderChoice("u16-seoul-ask-far", "많이 멀어요"),
       ],
       correctOrderChoiceIds: [
-        "airport-order-1",
-        "airport-order-2",
-        "airport-order-3",
-        "airport-order-4",
-        "airport-order-5",
+        "u16-seoul-ask-excuse-me",
+        "u16-seoul-ask-here",
+        "u16-seoul-ask-station",
+        "u16-seoul-ask-how",
       ],
-      coverageTags: ["qr-listening", "destination", "route-advice"],
+      coverageTags: ["qr-listening", "build-sentence", "asking-direction", "seoul-station"],
       difficulty: "easy",
-      pages: page(270),
+      pages: page(269),
       sourceRef: capture(
-        "u16-qr-airport-order",
-        270,
-        "여기에서 600번 버스를 타고 가세요. order_step clip",
+        "u16-qr-seoul-ask-direction-order",
+        269,
+        "실례합니다. 여기에서 서울역까지 어떻게 가요? order_step tts",
+      ),
+      needsReview: args.needsReview,
+    },
+    {
+      id: "u16-qr-seoul-bus-route-order",
+      sourceExerciseIds: ["wb16-qr-seoul-bus-number"],
+      tts: tts("저기 버스 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다."),
+      type: "order_step",
+      prompt: koText(BUILD_SENTENCE_PROMPT),
+      transcriptKo: "저기 버스 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다.",
+      choices: [
+        orderChoice("u16-seoul-route-stop", "저기 버스 정류장에서"),
+        orderChoice("u16-seoul-route-bus", "100번 버스를"),
+        orderChoice("u16-seoul-route-ride", "타십시오"),
+        orderChoice("u16-seoul-route-that-bus", "그 버스가"),
+        orderChoice("u16-seoul-route-station", "서울역까지 갑니다"),
+        orderChoice("u16-seoul-route-subway", "지하철을 타십시오"),
+        orderChoice("u16-seoul-route-school", "학교까지 갑니다"),
+      ],
+      correctOrderChoiceIds: [
+        "u16-seoul-route-stop",
+        "u16-seoul-route-bus",
+        "u16-seoul-route-ride",
+        "u16-seoul-route-that-bus",
+        "u16-seoul-route-station",
+      ],
+      coverageTags: [
+        "qr-listening",
+        "build-sentence",
+        "transport",
+        "route-explanation",
+        "seoul-station",
+      ],
+      difficulty: "easy",
+      pages: page(269),
+      sourceRef: capture(
+        "u16-qr-seoul-bus-route-order",
+        269,
+        "저기 버스 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다. order_step tts",
+      ),
+      needsReview: args.needsReview,
+    },
+    {
+      id: "u16-qr-seoul-distance-question-order",
+      sourceExerciseIds: ["wb16-qr-seoul-distance"],
+      tts: tts("네, 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요?"),
+      type: "order_step",
+      prompt: koText(BUILD_SENTENCE_PROMPT),
+      transcriptKo: "네, 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요?",
+      choices: [
+        orderChoice("u16-seoul-distance-thanks", "네, 감사합니다"),
+        orderChoice("u16-seoul-distance-however", "그런데"),
+        orderChoice("u16-seoul-distance-route", "여기에서 서울역까지"),
+        orderChoice("u16-seoul-distance-far", "많이 멀어요"),
+        orderChoice("u16-seoul-distance-bus", "100번 버스를"),
+        orderChoice("u16-seoul-distance-30-minutes", "30분쯤 걸립니다"),
+      ],
+      correctOrderChoiceIds: [
+        "u16-seoul-distance-thanks",
+        "u16-seoul-distance-however",
+        "u16-seoul-distance-route",
+        "u16-seoul-distance-far",
+      ],
+      coverageTags: ["qr-listening", "build-sentence", "distance-question", "seoul-station"],
+      difficulty: "easy",
+      pages: page(269),
+      sourceRef: capture(
+        "u16-qr-seoul-distance-question-order",
+        269,
+        "네, 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요? order_step tts",
+      ),
+      needsReview: args.needsReview,
+    },
+    {
+      id: "u16-qr-seoul-distance-answer-order",
+      sourceExerciseIds: ["wb16-qr-seoul-distance"],
+      tts: tts("아니요, 멀지 않아요. 20분쯤 걸립니다."),
+      type: "order_step",
+      prompt: koText(BUILD_SENTENCE_PROMPT),
+      transcriptKo: "아니요, 멀지 않아요. 20분쯤 걸립니다.",
+      choices: [
+        orderChoice("u16-seoul-answer-no", "아니요"),
+        orderChoice("u16-seoul-answer-not-far", "멀지 않아요"),
+        orderChoice("u16-seoul-answer-20-minutes", "20분쯤 걸립니다"),
+        orderChoice("u16-seoul-answer-very-far", "많이 멀어요"),
+        orderChoice("u16-seoul-answer-30-minutes", "30분쯤 걸립니다"),
+      ],
+      correctOrderChoiceIds: [
+        "u16-seoul-answer-no",
+        "u16-seoul-answer-not-far",
+        "u16-seoul-answer-20-minutes",
+      ],
+      coverageTags: [
+        "qr-listening",
+        "build-sentence",
+        "distance-answer",
+        "time-answer",
+        "seoul-station",
+      ],
+      difficulty: "easy",
+      pages: page(269),
+      sourceRef: capture(
+        "u16-qr-seoul-distance-answer-order",
+        269,
+        "아니요, 멀지 않아요. 20분쯤 걸립니다. order_step tts",
       ),
       needsReview: args.needsReview,
     },

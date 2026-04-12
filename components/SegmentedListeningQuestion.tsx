@@ -25,6 +25,10 @@ function normalizeAnswer(value: string) {
     .replace(/\s+/g, " ");
 }
 
+function normalizeDisplayText(value: string) {
+  return value.trim().replace(/\s+/g, " ");
+}
+
 function getChoiceLabel(
   choice: NonNullable<ListeningSessionItem["choices"]>[number],
   locale: "en" | "vi",
@@ -72,6 +76,12 @@ export default function SegmentedListeningQuestion({
   const explanation = getLocalizedText(item.explanation, locale);
   const contextTitle = item.contextTitle ? getLocalizedText(item.contextTitle, locale) : "";
   const contextSummary = item.contextSummary ? getLocalizedText(item.contextSummary, locale) : "";
+  const shouldHideRedundantIntro =
+    item.listeningType === "order_step" &&
+    !questionText &&
+    !contextTitle &&
+    !contextSummary &&
+    normalizeDisplayText(prompt) === normalizeDisplayText(explanation);
   const hasChoiceFill =
     item.listeningType === "fill_blank" && (item.choices?.length ?? 0) >= 2;
   const orderTokens = useMemo(() => buildOrderTokens(item, locale), [item, locale]);
@@ -349,11 +359,11 @@ export default function SegmentedListeningQuestion({
             selectedTokenIds={selectedOrderChoiceIds}
             incorrectIndexes={incorrectIndexes}
             onToggleToken={handleOrderToggle}
-            answerLabel={ui("Your order", "Thứ tự của bạn")}
-            bankLabel={ui("Choices", "Lựa chọn")}
+            answerLabel={ui("Your sentence", "Câu của bạn")}
+            bankLabel={ui("Chunk bank", "Ngân cụm từ")}
             emptyState={ui(
-              "Tap the chunks below to build the correct order.",
-              "Chạm các mảnh bên dưới để sắp xếp đúng thứ tự.",
+              "Tap the chunks below to rebuild the sentence.",
+              "Chạm các cụm bên dưới để ghép lại câu.",
             )}
           />
         </motion.div>
@@ -362,8 +372,8 @@ export default function SegmentedListeningQuestion({
           <motion.div variants={itemVariants} className="feedback-incorrect space-y-2">
             <p>
               {ui(
-                "Most pieces are there, but the order is off.",
-                "Bạn đã có gần đủ ý, nhưng thứ tự vẫn chưa đúng.",
+                "Most chunks are there, but the sentence order is off.",
+                "Bạn đã có gần đủ cụm, nhưng thứ tự câu vẫn chưa đúng.",
               )}
             </p>
             <p className="font-semibold">
@@ -421,7 +431,10 @@ export default function SegmentedListeningQuestion({
                     ? ui("Listen and tap the matching image.", "Nghe rồi chọn hình phù hợp.")
                     : item.listeningType === "fill_blank"
                       ? ui("Listen and complete the missing part.", "Nghe rồi điền phần còn thiếu.")
-                      : ui("Listen and arrange the steps in order.", "Nghe rồi sắp xếp đúng thứ tự.")}
+                      : ui(
+                          "Listen and rebuild the sentence from the chunks.",
+                          "Nghe rồi ghép lại câu từ các cụm từ.",
+                        )}
             </h3>
           </div>
           <button type="button" onClick={() => void handlePlayAudio()} className="secondary-button">
@@ -430,37 +443,39 @@ export default function SegmentedListeningQuestion({
         </motion.div>
 
         <motion.article className="lesson-card space-y-5" variants={itemVariants}>
-          <motion.div
-            variants={itemVariants}
-            className="rounded-[2rem] bg-card-soft p-6 shadow-[0_14px_30px_rgba(47,92,51,0.08)]"
-          >
-            {(contextTitle || contextSummary) && (
-              <div className="mb-4 rounded-[1.4rem] bg-white/85 px-4 py-3">
-                {contextTitle ? (
-                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
-                    {contextTitle}
+          {!shouldHideRedundantIntro ? (
+            <motion.div
+              variants={itemVariants}
+              className="rounded-[2rem] bg-card-soft p-6 shadow-[0_14px_30px_rgba(47,92,51,0.08)]"
+            >
+              {(contextTitle || contextSummary) && (
+                <div className="mb-4 rounded-[1.4rem] bg-white/85 px-4 py-3">
+                  {contextTitle ? (
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                      {contextTitle}
+                    </p>
+                  ) : null}
+                  {contextSummary ? (
+                    <p className="mt-1 text-sm font-bold text-foreground">{contextSummary}</p>
+                  ) : null}
+                </div>
+              )}
+
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
+                {prompt}
+              </p>
+
+              {questionText ? (
+                <div className="mt-4 rounded-[1.8rem] bg-white/80 px-5 py-5 shadow-[0_10px_24px_rgba(47,92,51,0.06)]">
+                  <p className="text-lg font-extrabold leading-tight text-foreground sm:text-2xl">
+                    {questionText}
                   </p>
-                ) : null}
-                {contextSummary ? (
-                  <p className="mt-1 text-sm font-bold text-foreground">{contextSummary}</p>
-                ) : null}
-              </div>
-            )}
+                </div>
+              ) : null}
 
-            <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
-              {prompt}
-            </p>
-
-            {questionText ? (
-              <div className="mt-4 rounded-[1.8rem] bg-white/80 px-5 py-5 shadow-[0_10px_24px_rgba(47,92,51,0.06)]">
-                <p className="text-lg font-extrabold leading-tight text-foreground sm:text-2xl">
-                  {questionText}
-                </p>
-              </div>
-            ) : null}
-
-            <p className="mt-4 text-sm font-bold text-muted-foreground">{explanation}</p>
-          </motion.div>
+              <p className="mt-4 text-sm font-bold text-muted-foreground">{explanation}</p>
+            </motion.div>
+          ) : null}
 
           {renderAnswerArea()}
         </motion.article>

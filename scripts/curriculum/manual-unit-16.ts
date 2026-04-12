@@ -1042,7 +1042,7 @@ export function createUnit16SourceSeed(
     reviewNotes: [
       "Unit 16 is manually normalized from textbook pages 208-218 and workbook pages 261-276.",
       "Workbook normalization keeps the closed-form transport drills, QR listening, reading cloze, and scaffolded extension prompts with canonical answers.",
-      "QR audio uses the shared remote resolver so Nuri assets that require GET fallback can still compile into runtime listening tasks.",
+      "Page 264 QR listening is re-authored as item-level Korean TTS, while the later QR pages still use the shared remote resolver for workbook audio.",
     ],
   };
 }

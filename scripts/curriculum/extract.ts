@@ -258,7 +258,7 @@ function applyListeningReviewState(source: SourceUnit) {
   );
 
   source.workbook.listeningItems = source.workbook.listeningItems.map((item) =>
-    unresolvedAudioAssets.has(item.audioAssetId)
+    item.audioAssetId && unresolvedAudioAssets.has(item.audioAssetId)
       ? {
           ...item,
           needsReview: true,

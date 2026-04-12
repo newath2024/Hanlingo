@@ -6,7 +6,7 @@
     "en": "How do I get to Seoul Station from here?"
   },
   "subtitle": {
-    "vi": "Mo bai bang tu vung giao thong, khoa lai 에서/까지 va -으십시오/-십시오, roi on bang nghe duong di va bai doc du lich.",
+    "vi": "Mở bài bằng từ vựng giao thông, khóa lại 에서/까지 và -으십시오/-십시오, rồi ôn bằng nghe đường đi và bài đọc du lịch.",
     "en": "Open with transport vocabulary, lock in 에서/까지 and -으십시오/-십시오, then review with route listening and travel reading."
   },
   "reviewWords": [
@@ -815,7 +815,7 @@
         "en": "Ask directions and give instructions"
       },
       "summary": {
-        "vi": "Ghep lai hoi duong, loi chi duong, va cac menh lenh lich su bang -으십시오/-십시오.",
+        "vi": "Ghép lại câu hỏi đường, lời chỉ đường, và các mệnh lệnh lịch sự bằng -으십시오/-십시오.",
         "en": "Rebuild direction questions, route instructions, and polite commands with -으십시오/-십시오."
       },
       "difficulty": {
@@ -1878,7 +1878,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -1912,7 +1912,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -1946,7 +1946,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2136,7 +2136,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2172,7 +2172,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2208,7 +2208,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2244,7 +2244,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2471,7 +2471,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2507,7 +2507,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2543,7 +2543,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2579,7 +2579,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2615,7 +2615,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2656,8 +2656,8 @@
         "en": "QR listening: traffic and hotel"
       },
       "summary": {
-        "vi": "Tách bài QR trang 264 thành 5 item nghe atomic, mỗi item chỉ giữ một tín hiệu nghe cốt lõi.",
-        "en": "Split the page 264 QR exercise into 5 atomic listening items, each built around one core listening signal."
+        "vi": "Tách bài trang 264 thành 5 item nghe atomic bằng TTS tiếng Hàn, mỗi item chỉ giữ một tín hiệu nghe cốt lõi.",
+        "en": "Split the page 264 exercise into 5 Korean TTS-backed atomic listening items, each built around one core listening signal."
       },
       "difficulty": {
         "vi": "Nhớ lại và xây câu",
@@ -2688,11 +2688,11 @@
         {
           "id": "u16-qr-traffic-jam-image",
           "prompt": {
-            "vi": "Nghe đoạn ngắn rồi chọn hình đúng.",
-            "en": "Listen to the short clip and choose the matching image."
+            "vi": "Nghe câu ngắn rồi chọn hình đúng.",
+            "en": "Listen to the short sentence and choose the matching image."
           },
           "explanation": {
-            "vi": "Tình huống giao thông nào đang được nhắc tới?",
+            "vi": "Tình huống giao thông nào đúng?",
             "en": "Which traffic situation is mentioned?"
           },
           "source": "workbook",
@@ -2700,16 +2700,19 @@
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "u16-qr-traffic-jam-image.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-traffic-audio",
+          "audioUrl": "/api/audio/tts/16/u16-qr-traffic-jam-image",
           "type": "listening",
           "listeningType": "choose_image",
-          "clipStartMs": 1700,
-          "clipEndMs": 4100,
+          "tts": {
+            "text": "지금 길이 많이 막혀요",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
           "questionText": {
-            "vi": "Tình huống giao thông nào đang được nhắc tới?",
+            "vi": "Tình huống giao thông nào đúng?",
             "en": "Which traffic situation is mentioned?"
           },
-          "transcriptKo": "지금 길이 많이 막혀요.",
+          "transcriptKo": "지금 길이 많이 막혀요",
           "translation": {
             "vi": "Bây giờ đường đang tắc nhiều.",
             "en": "The road is very jammed right now."
@@ -2737,8 +2740,8 @@
         {
           "id": "u16-qr-traffic-reason-choice",
           "prompt": {
-            "vi": "Nghe đoạn ngắn rồi chọn đáp án đúng.",
-            "en": "Listen to the short clip and choose the correct answer."
+            "vi": "Nghe câu ngắn rồi chọn đáp án đúng.",
+            "en": "Listen to the short sentence and choose the correct answer."
           },
           "explanation": {
             "vi": "Vì sao người đó chưa đến?",
@@ -2749,16 +2752,19 @@
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "u16-qr-traffic-reason-choice.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-traffic-audio",
+          "audioUrl": "/api/audio/tts/16/u16-qr-traffic-reason-choice",
           "type": "listening",
           "listeningType": "multiple_choice",
-          "clipStartMs": 1700,
-          "clipEndMs": 4100,
+          "tts": {
+            "text": "지금 길이 많이 막혀요",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
           "questionText": {
             "vi": "Vì sao người đó chưa đến?",
             "en": "Why has the person not arrived yet?"
           },
-          "transcriptKo": "지금 길이 많이 막혀요.",
+          "transcriptKo": "지금 길이 많이 막혀요",
           "translation": {
             "vi": "Bây giờ đường đang tắc nhiều.",
             "en": "The road is very jammed right now."
@@ -2791,8 +2797,8 @@
         {
           "id": "u16-qr-hotel-transport-time-image",
           "prompt": {
-            "vi": "Nghe đoạn ngắn rồi chọn hình đúng.",
-            "en": "Listen to the short clip and choose the matching image."
+            "vi": "Nghe câu ngắn rồi chọn hình đúng.",
+            "en": "Listen to the short sentence and choose the matching image."
           },
           "explanation": {
             "vi": "Cách đi và thời gian nào được nhắc tới?",
@@ -2803,16 +2809,19 @@
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "u16-qr-hotel-transport-time-image.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-traffic-audio",
+          "audioUrl": "/api/audio/tts/16/u16-qr-hotel-transport-time-image",
           "type": "listening",
           "listeningType": "choose_image",
-          "clipStartMs": 5200,
-          "clipEndMs": 8400,
+          "tts": {
+            "text": "버스를 타고 십오 분쯤 걸려요",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
           "questionText": {
             "vi": "Cách đi và thời gian nào được nhắc tới?",
             "en": "Which transport and time are mentioned?"
           },
-          "transcriptKo": "버스를 타고 십오 분쯤 걸려요.",
+          "transcriptKo": "버스를 타고 십오 분쯤 걸려요",
           "translation": {
             "vi": "Đi xe buýt thì mất khoảng 15 phút.",
             "en": "It takes about 15 minutes by bus."
@@ -2840,8 +2849,8 @@
         {
           "id": "u16-qr-hotel-time-choice",
           "prompt": {
-            "vi": "Nghe đoạn ngắn rồi chọn đáp án đúng.",
-            "en": "Listen to the short clip and choose the correct answer."
+            "vi": "Nghe câu ngắn rồi chọn đáp án đúng.",
+            "en": "Listen to the short sentence and choose the correct answer."
           },
           "explanation": {
             "vi": "Mất khoảng bao lâu?",
@@ -2852,16 +2861,19 @@
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "u16-qr-hotel-time-choice.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-traffic-audio",
+          "audioUrl": "/api/audio/tts/16/u16-qr-hotel-time-choice",
           "type": "listening",
           "listeningType": "multiple_choice",
-          "clipStartMs": 6200,
-          "clipEndMs": 8400,
+          "tts": {
+            "text": "십오 분쯤 걸려요",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
           "questionText": {
             "vi": "Mất khoảng bao lâu?",
             "en": "About how long does it take?"
           },
-          "transcriptKo": "십오 분쯤 걸려요.",
+          "transcriptKo": "십오 분쯤 걸려요",
           "translation": {
             "vi": "Mất khoảng 15 phút.",
             "en": "It takes about 15 minutes."
@@ -2894,8 +2906,8 @@
         {
           "id": "u16-qr-hotel-transport-choice",
           "prompt": {
-            "vi": "Nghe đoạn ngắn rồi chọn đáp án đúng.",
-            "en": "Listen to the short clip and choose the correct answer."
+            "vi": "Nghe câu ngắn rồi chọn đáp án đúng.",
+            "en": "Listen to the short sentence and choose the correct answer."
           },
           "explanation": {
             "vi": "Đi bằng phương tiện gì?",
@@ -2906,16 +2918,19 @@
           "grammarTags": [],
           "srWeight": 1.15,
           "errorPatternKey": "u16-qr-hotel-transport-choice.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-traffic-audio",
+          "audioUrl": "/api/audio/tts/16/u16-qr-hotel-transport-choice",
           "type": "listening",
           "listeningType": "multiple_choice",
-          "clipStartMs": 5200,
-          "clipEndMs": 8400,
+          "tts": {
+            "text": "버스를 타고 십오 분쯤 걸려요",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
           "questionText": {
             "vi": "Đi bằng phương tiện gì?",
             "en": "What do they take?"
           },
-          "transcriptKo": "버스를 타고 십오 분쯤 걸려요.",
+          "transcriptKo": "버스를 타고 십오 분쯤 걸려요",
           "translation": {
             "vi": "Đi xe buýt thì mất khoảng 15 phút.",
             "en": "It takes about 15 minutes by bus."
@@ -2953,12 +2968,12 @@
       "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Nghe QR: s?n bay",
-        "en": "QR listening: airport"
+        "vi": "Nghe QR: đường đến Seoul Station",
+        "en": "QR listening: route to Seoul Station"
       },
       "summary": {
-        "vi": "Gi? ph?n s?n bay ? c?ng flow atomic: nghe clip ng?n, tr? l?i m?t vi?c, r?i chuy?n ti?p ngay.",
-        "en": "Keep the airport scenario in the same atomic flow: hear a short clip, answer one thing, then move on."
+        "vi": "Chuyển hội thoại đường đi đến Seoul Station thành 4 item nghe ghép câu bằng TTS, mỗi item phát toàn câu rồi yêu cầu sắp xếp lại các cụm đúng thứ tự.",
+        "en": "Turn the Seoul Station route dialogue into 4 TTS sentence-rebuild listening items. Each item plays the full sentence and asks the learner to rebuild it from chunks."
       },
       "difficulty": {
         "vi": "Nhớ lại và xây câu",
@@ -2966,301 +2981,327 @@
       },
       "focusConcepts": [
         "qr-listening",
-        "destination",
-        "travel",
-        "directions"
+        "build-sentence",
+        "directions",
+        "route-explanation",
+        "distance",
+        "time-answer",
+        "seoul-station"
       ],
       "sourceExerciseIds": [
-        "wb16-qr-destination"
+        "wb16-qr-seoul-bus-number",
+        "wb16-qr-seoul-distance"
       ],
       "coverageTags": [
         "qr-listening",
-        "destination",
-        "travel",
-        "fill-blank",
-        "bus-number",
-        "route-advice"
+        "build-sentence",
+        "asking-direction",
+        "seoul-station",
+        "transport",
+        "route-explanation",
+        "distance-question",
+        "distance-answer",
+        "time-answer"
       ],
       "tasks": [
         {
-          "id": "u16-qr-airport-destination-image",
+          "id": "u16-qr-seoul-ask-direction-order",
           "prompt": {
-            "vi": "Nghe đoạn ngắn rồi chọn nơi Jiyeon muốn đến.",
-            "en": "Listen to the short clip and choose Jiyeon's destination."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "explanation": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "u16-qr-airport-destination-image.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-airport-audio",
-          "type": "listening",
-          "listeningType": "choose_image",
-          "clipStartMs": 0,
-          "clipEndMs": 2500,
-          "questionText": {
-            "vi": "Jiyeon muốn đến đâu?",
-            "en": "Where does Jiyeon want to go?"
-          },
-          "transcriptKo": "지연 씨는 공항에 가려고 해요.",
-          "translation": {
-            "vi": "Jiyeon muốn đi sân bay.",
-            "en": "Jiyeon wants to go to the airport."
-          },
-          "contextGroupId": "u16-qr-airport",
-          "contextTitle": {
-            "vi": "Đi sân bay",
-            "en": "Going to the airport"
-          },
-          "contextSummary": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
-          "choices": [
-            {
-              "id": "airport",
-              "text": {
-                "vi": "sân bay",
-                "en": "airport"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/airport.svg"
-            },
-            {
-              "id": "seoul-station",
-              "text": {
-                "vi": "ga Seoul",
-                "en": "Seoul Station"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/seoul-station.svg"
-            },
-            {
-              "id": "terminal",
-              "text": {
-                "vi": "bến xe",
-                "en": "terminal"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/terminal.svg"
-            }
-          ],
-          "correctChoiceId": "airport"
-        },
-        {
-          "id": "u16-qr-airport-destination-fill",
-          "prompt": {
-            "vi": "Nghe đoạn ngắn rồi điền nơi muốn đến.",
-            "en": "Listen to the short clip and fill in the destination."
-          },
-          "explanation": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "source": "workbook",
           "stage": "construction",
           "grammarTags": [],
           "srWeight": 1.75,
-          "errorPatternKey": "u16-qr-airport-destination-fill.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-airport-audio",
-          "type": "listening",
-          "listeningType": "fill_blank",
-          "clipStartMs": 0,
-          "clipEndMs": 2500,
-          "questionText": {
-            "vi": "Hoàn thành câu còn thiếu.",
-            "en": "Complete the missing destination."
-          },
-          "transcriptKo": "지연 씨는 공항에 가려고 해요.",
-          "translation": {
-            "vi": "Jiyeon muốn đi sân bay.",
-            "en": "Jiyeon wants to go to the airport."
-          },
-          "contextGroupId": "u16-qr-airport",
-          "contextTitle": {
-            "vi": "Đi sân bay",
-            "en": "Going to the airport"
-          },
-          "contextSummary": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
-          "choices": [
-            {
-              "id": "airport-fill",
-              "text": {
-                "vi": "공항",
-                "en": "airport"
-              }
-            },
-            {
-              "id": "station-fill",
-              "text": {
-                "vi": "서울역",
-                "en": "Seoul Station"
-              }
-            },
-            {
-              "id": "terminal-fill",
-              "text": {
-                "vi": "터미널",
-                "en": "terminal"
-              }
-            }
-          ],
-          "correctText": "공항",
-          "acceptedAnswers": [
-            "공항"
-          ]
-        },
-        {
-          "id": "u16-qr-airport-bus-fill",
-          "prompt": {
-            "vi": "Nghe lời khuyên rồi điền số xe buýt.",
-            "en": "Listen to the advice clip and fill in the bus number."
-          },
-          "explanation": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
-          "source": "workbook",
-          "stage": "construction",
-          "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "u16-qr-airport-bus-fill.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-airport-audio",
-          "type": "listening",
-          "listeningType": "fill_blank",
-          "clipStartMs": 2100,
-          "clipEndMs": 5000,
-          "questionText": {
-            "vi": "Điền số xe buýt được nhắc tới.",
-            "en": "Fill in the bus number that is mentioned."
-          },
-          "transcriptKo": "여기에서 600번 버스를 타고 가세요.",
-          "translation": {
-            "vi": "Hãy bắt xe buýt số 600 từ đây.",
-            "en": "Take bus 600 from here."
-          },
-          "contextGroupId": "u16-qr-airport",
-          "contextTitle": {
-            "vi": "Đi sân bay",
-            "en": "Going to the airport"
-          },
-          "contextSummary": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
-          "choices": [
-            {
-              "id": "bus-100-fill",
-              "text": {
-                "vi": "100",
-                "en": "100"
-              }
-            },
-            {
-              "id": "bus-600-fill",
-              "text": {
-                "vi": "600",
-                "en": "600"
-              }
-            },
-            {
-              "id": "bus-900-fill",
-              "text": {
-                "vi": "900",
-                "en": "900"
-              }
-            }
-          ],
-          "correctText": "600",
-          "acceptedAnswers": [
-            "600"
-          ]
-        },
-        {
-          "id": "u16-qr-airport-order",
-          "prompt": {
-            "vi": "Nghe lời khuyên rồi sắp xếp lại câu chỉ đường.",
-            "en": "Listen to the advice clip and arrange the sentence in order."
-          },
-          "explanation": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
-          "source": "workbook",
-          "stage": "construction",
-          "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "u16-qr-airport-order.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-airport-audio",
+          "errorPatternKey": "u16-qr-seoul-ask-direction-order.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-seoul-ask-direction-order",
           "type": "listening",
           "listeningType": "order_step",
-          "clipStartMs": 2100,
-          "clipEndMs": 5000,
-          "questionText": {
-            "vi": "Sắp xếp lại câu xuất hiện trong audio.",
-            "en": "Arrange the sentence that appears in the audio."
+          "tts": {
+            "text": "실례합니다. 여기에서 서울역까지 어떻게 가요?",
+            "voice": "ko-KR",
+            "speed": 0.9
           },
-          "transcriptKo": "여기에서 600번 버스를 타고 가세요.",
-          "translation": {
-            "vi": "Hãy bắt xe buýt số 600 từ đây.",
-            "en": "Take bus 600 from here."
-          },
-          "contextGroupId": "u16-qr-airport",
-          "contextTitle": {
-            "vi": "Đi sân bay",
-            "en": "Going to the airport"
-          },
-          "contextSummary": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
+          "transcriptKo": "실례합니다. 여기에서 서울역까지 어떻게 가요?",
           "choices": [
             {
-              "id": "airport-order-1",
+              "id": "u16-seoul-ask-excuse-me",
+              "text": {
+                "vi": "실례합니다",
+                "en": "실례합니다"
+              }
+            },
+            {
+              "id": "u16-seoul-ask-here",
               "text": {
                 "vi": "여기에서",
-                "en": "from here"
+                "en": "여기에서"
               }
             },
             {
-              "id": "airport-order-2",
+              "id": "u16-seoul-ask-station",
               "text": {
-                "vi": "600번",
-                "en": "bus 600"
+                "vi": "서울역까지",
+                "en": "서울역까지"
               }
             },
             {
-              "id": "airport-order-3",
+              "id": "u16-seoul-ask-how",
               "text": {
-                "vi": "버스를",
-                "en": "the bus"
+                "vi": "어떻게 가요",
+                "en": "어떻게 가요"
               }
             },
             {
-              "id": "airport-order-4",
+              "id": "u16-seoul-ask-bus",
               "text": {
-                "vi": "타고",
-                "en": "take and"
+                "vi": "100번 버스를",
+                "en": "100번 버스를"
               }
             },
             {
-              "id": "airport-order-5",
+              "id": "u16-seoul-ask-far",
               "text": {
-                "vi": "가세요.",
-                "en": "go please"
+                "vi": "많이 멀어요",
+                "en": "많이 멀어요"
               }
             }
           ],
           "correctOrderChoiceIds": [
-            "airport-order-1",
-            "airport-order-2",
-            "airport-order-3",
-            "airport-order-4",
-            "airport-order-5"
+            "u16-seoul-ask-excuse-me",
+            "u16-seoul-ask-here",
+            "u16-seoul-ask-station",
+            "u16-seoul-ask-how"
+          ]
+        },
+        {
+          "id": "u16-qr-seoul-bus-route-order",
+          "prompt": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "explanation": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-qr-seoul-bus-route-order.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-seoul-bus-route-order",
+          "type": "listening",
+          "listeningType": "order_step",
+          "tts": {
+            "text": "저기 버스 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다.",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
+          "transcriptKo": "저기 버스 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다.",
+          "choices": [
+            {
+              "id": "u16-seoul-route-stop",
+              "text": {
+                "vi": "저기 버스 정류장에서",
+                "en": "저기 버스 정류장에서"
+              }
+            },
+            {
+              "id": "u16-seoul-route-bus",
+              "text": {
+                "vi": "100번 버스를",
+                "en": "100번 버스를"
+              }
+            },
+            {
+              "id": "u16-seoul-route-ride",
+              "text": {
+                "vi": "타십시오",
+                "en": "타십시오"
+              }
+            },
+            {
+              "id": "u16-seoul-route-that-bus",
+              "text": {
+                "vi": "그 버스가",
+                "en": "그 버스가"
+              }
+            },
+            {
+              "id": "u16-seoul-route-station",
+              "text": {
+                "vi": "서울역까지 갑니다",
+                "en": "서울역까지 갑니다"
+              }
+            },
+            {
+              "id": "u16-seoul-route-subway",
+              "text": {
+                "vi": "지하철을 타십시오",
+                "en": "지하철을 타십시오"
+              }
+            },
+            {
+              "id": "u16-seoul-route-school",
+              "text": {
+                "vi": "학교까지 갑니다",
+                "en": "학교까지 갑니다"
+              }
+            }
+          ],
+          "correctOrderChoiceIds": [
+            "u16-seoul-route-stop",
+            "u16-seoul-route-bus",
+            "u16-seoul-route-ride",
+            "u16-seoul-route-that-bus",
+            "u16-seoul-route-station"
+          ]
+        },
+        {
+          "id": "u16-qr-seoul-distance-question-order",
+          "prompt": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "explanation": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-qr-seoul-distance-question-order.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-seoul-distance-question-order",
+          "type": "listening",
+          "listeningType": "order_step",
+          "tts": {
+            "text": "네, 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요?",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
+          "transcriptKo": "네, 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요?",
+          "choices": [
+            {
+              "id": "u16-seoul-distance-thanks",
+              "text": {
+                "vi": "네, 감사합니다",
+                "en": "네, 감사합니다"
+              }
+            },
+            {
+              "id": "u16-seoul-distance-however",
+              "text": {
+                "vi": "그런데",
+                "en": "그런데"
+              }
+            },
+            {
+              "id": "u16-seoul-distance-route",
+              "text": {
+                "vi": "여기에서 서울역까지",
+                "en": "여기에서 서울역까지"
+              }
+            },
+            {
+              "id": "u16-seoul-distance-far",
+              "text": {
+                "vi": "많이 멀어요",
+                "en": "많이 멀어요"
+              }
+            },
+            {
+              "id": "u16-seoul-distance-bus",
+              "text": {
+                "vi": "100번 버스를",
+                "en": "100번 버스를"
+              }
+            },
+            {
+              "id": "u16-seoul-distance-30-minutes",
+              "text": {
+                "vi": "30분쯤 걸립니다",
+                "en": "30분쯤 걸립니다"
+              }
+            }
+          ],
+          "correctOrderChoiceIds": [
+            "u16-seoul-distance-thanks",
+            "u16-seoul-distance-however",
+            "u16-seoul-distance-route",
+            "u16-seoul-distance-far"
+          ]
+        },
+        {
+          "id": "u16-qr-seoul-distance-answer-order",
+          "prompt": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "explanation": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "u16-qr-seoul-distance-answer-order.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-seoul-distance-answer-order",
+          "type": "listening",
+          "listeningType": "order_step",
+          "tts": {
+            "text": "아니요, 멀지 않아요. 20분쯤 걸립니다.",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
+          "transcriptKo": "아니요, 멀지 않아요. 20분쯤 걸립니다.",
+          "choices": [
+            {
+              "id": "u16-seoul-answer-no",
+              "text": {
+                "vi": "아니요",
+                "en": "아니요"
+              }
+            },
+            {
+              "id": "u16-seoul-answer-not-far",
+              "text": {
+                "vi": "멀지 않아요",
+                "en": "멀지 않아요"
+              }
+            },
+            {
+              "id": "u16-seoul-answer-20-minutes",
+              "text": {
+                "vi": "20분쯤 걸립니다",
+                "en": "20분쯤 걸립니다"
+              }
+            },
+            {
+              "id": "u16-seoul-answer-very-far",
+              "text": {
+                "vi": "많이 멀어요",
+                "en": "많이 멀어요"
+              }
+            },
+            {
+              "id": "u16-seoul-answer-30-minutes",
+              "text": {
+                "vi": "30분쯤 걸립니다",
+                "en": "30분쯤 걸립니다"
+              }
+            }
+          ],
+          "correctOrderChoiceIds": [
+            "u16-seoul-answer-no",
+            "u16-seoul-answer-not-far",
+            "u16-seoul-answer-20-minutes"
           ]
         }
       ]
@@ -3453,7 +3494,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3487,7 +3528,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3521,7 +3562,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3555,7 +3596,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3589,7 +3630,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3782,7 +3823,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",

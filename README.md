@@ -19,8 +19,8 @@ HANLINGO_DEV_FILE_STORE="false"
 Notes:
 
 - `DATABASE_URL` is for the running app. With Neon, use the pooled connection string.
-- `DATABASE_URL` is also the first URL Prisma CLI will use for migrations in this repo.
-- `DIRECT_URL` is an optional fallback if `DATABASE_URL` is missing.
+- Prisma CLI in this repo prefers `DIRECT_URL` first for migrations and other Prisma commands.
+- `DIRECT_URL` should be the direct Neon connection string, not the pooler URL.
 - `HANLINGO_DEV_FILE_STORE="false"` switches the app away from `.local-data/dev-auth-store.json`.
 - Local `.env` is ignored by git. Configure the same values manually on every machine.
 

@@ -4,6 +4,7 @@ out/
 build/
 dist/
 coverage/
+.cache/
 *.log
 *.tsbuildinfo
 .tmp-plan-pages-hi/

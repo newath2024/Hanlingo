@@ -2,6 +2,7 @@ import type {
   CurriculumIndex,
   LessonRole,
   ListeningTask,
+  ListeningTtsConfig,
   LocalizedChoice,
   LocalizedText,
   MeaningDirection,
@@ -14,7 +15,12 @@ import type {
   SourceUnit,
   SourceWorkbookExercise,
 } from "@/types/curriculum";
-import { resolveSourceListeningItems, type CurriculumWarning } from "./listening";
+import {
+  isCompileableListeningItem,
+  resolveSourceListeningItems,
+  type CurriculumWarning,
+} from "./listening";
+import { resolveListeningChoiceImagePath } from "./listening-images";
 import { runtimeUnitSchema, sourceUnitSchema } from "./schema";
 import {
   getGeneratedIndexPath,
@@ -633,6 +639,10 @@ function getAudioProxyPath(unitId: string, assetId: string) {
   return `/api/audio/${unitId}/${assetId}`;
 }
 
+function getTtsAudioProxyPath(unitId: string, itemId: string) {
+  return `/api/audio/tts/${unitId}/${itemId}`;
+}
+
 function isReadyAudioAsset(asset: SourceAudioAsset | undefined) {
   return Boolean(asset && asset.remoteUrl && !asset.needsReview);
 }
@@ -895,6 +905,7 @@ function listeningTask(
   },
 ): ListeningTask {
   const stage = getListeningTaskStage(item.type);
+  const tts: ListeningTtsConfig | undefined = item.tts ? { ...item.tts } : undefined;
 
   return {
     id,
@@ -908,6 +919,7 @@ function listeningTask(
     srWeight: srWeight(stage, 0.05),
     errorPatternKey: `${id}.listening`,
     audioUrl,
+    ...(tts ? { tts } : {}),
     ...(typeof item.clipStartMs === "number" ? { clipStartMs: item.clipStartMs } : {}),
     ...(typeof item.clipEndMs === "number" ? { clipEndMs: item.clipEndMs } : {}),
     ...(item.questionText ? { questionText: item.questionText } : {}),
@@ -920,7 +932,7 @@ function listeningTask(
     ...(item.choices
       ? {
           choices: item.choices.map((entry) =>
-            choice(entry.id, entry.text, entry.imagePath),
+            choice(entry.id, entry.text, resolveListeningChoiceImagePath(entry)),
           ),
         }
       : {}),
@@ -943,10 +955,14 @@ function compileListeningItem(
     prompt?: LocalizedText;
   },
 ) {
-  const asset = audioAssetsById.get(item.audioAssetId);
+  if (item.tts) {
+    return listeningTask(item.id, item, getTtsAudioProxyPath(unitId, item.id), options);
+  }
 
-  if (!isReadyAudioAsset(asset)) {
-    throw new Error(`${item.id} references unavailable listening audio asset ${item.audioAssetId}.`);
+  const asset = item.audioAssetId ? audioAssetsById.get(item.audioAssetId) : undefined;
+
+  if (!item.audioAssetId || !isReadyAudioAsset(asset)) {
+    throw new Error(`${item.id} references unavailable listening audio source.`);
   }
 
   return listeningTask(item.id, item, getAudioProxyPath(unitId, item.audioAssetId), options);
@@ -1305,7 +1321,7 @@ function exerciseToTasks(
         "workbook",
         grammarTags,
         text(
-          "Dien lai dung phan con thieu cua mau cau.",
+          "Điền lại đúng phần còn thiếu của mẫu câu.",
           "Fill the missing part of the sentence pattern.",
         ),
         fillBlankConfig.clue,
@@ -2662,7 +2678,7 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
     "dialogue",
     text("Hỏi đường và hướng dẫn", "Ask directions and give instructions"),
     text(
-      "Ghep lai hoi duong, loi chi duong, va cac menh lenh lich su bang -으십시오/-십시오.",
+      "Ghép lại câu hỏi đường, lời chỉ đường, và các mệnh lệnh lịch sự bằng -으십시오/-십시오.",
       "Rebuild direction questions, route instructions, and polite commands with -으십시오/-십시오.",
     ),
     ["dialogue", "directions", "-으십시오/-십시오", "정류장"],
@@ -2778,7 +2794,8 @@ function buildUnit16QrLessons(
 ) {
   const traffic = pickFrom(source.workbook.exercises, "wb16-qr-traffic-jam");
   const hotelDuration = pickFrom(source.workbook.exercises, "wb16-qr-hotel-duration");
-  const destination = pickFrom(source.workbook.exercises, "wb16-qr-destination");
+  const seoulBusNumber = pickFrom(source.workbook.exercises, "wb16-qr-seoul-bus-number");
+  const seoulDistance = pickFrom(source.workbook.exercises, "wb16-qr-seoul-distance");
 
   const lesson8 = buildListeningLessonFromExercises(
     source,
@@ -2789,8 +2806,8 @@ function buildUnit16QrLessons(
       lessonRole: "workbook_practice",
       title: text("Nghe QR: kẹt xe và khách sạn", "QR listening: traffic and hotel"),
       summary: text(
-        "Tách bài QR trang 264 thành 5 item nghe atomic, mỗi item chỉ giữ một tín hiệu nghe cốt lõi.",
-        "Split the page 264 QR exercise into 5 atomic listening items, each built around one core listening signal.",
+        "Tách bài trang 264 thành 5 item nghe atomic bằng TTS tiếng Hàn, mỗi item chỉ giữ một tín hiệu nghe cốt lõi.",
+        "Split the page 264 exercise into 5 Korean TTS-backed atomic listening items, each built around one core listening signal.",
       ),
       focusConcepts: ["qr-listening", "traffic", "reason", "hotel", "transport", "duration"],
       exerciseIds: [traffic.id, hotelDuration.id],
@@ -2806,13 +2823,21 @@ function buildUnit16QrLessons(
     {
       lessonId: "unit-16-lesson-9",
       lessonRole: "workbook_practice",
-      title: text("Nghe QR: s?n bay", "QR listening: airport"),
+      title: text("Nghe QR: đường đến Seoul Station", "QR listening: route to Seoul Station"),
       summary: text(
-        "Gi? ph?n s?n bay ? c?ng flow atomic: nghe clip ng?n, tr? l?i m?t vi?c, r?i chuy?n ti?p ngay.",
-        "Keep the airport scenario in the same atomic flow: hear a short clip, answer one thing, then move on.",
+        "Chuyển hội thoại đường đi đến Seoul Station thành 4 item nghe ghép câu bằng TTS, mỗi item phát toàn câu rồi yêu cầu sắp xếp lại các cụm đúng thứ tự.",
+        "Turn the Seoul Station route dialogue into 4 TTS sentence-rebuild listening items. Each item plays the full sentence and asks the learner to rebuild it from chunks.",
       ),
-      focusConcepts: ["qr-listening", "destination", "travel", "directions"],
-      exerciseIds: [destination.id],
+      focusConcepts: [
+        "qr-listening",
+        "build-sentence",
+        "directions",
+        "route-explanation",
+        "distance",
+        "time-answer",
+        "seoul-station",
+      ],
+      exerciseIds: [seoulBusNumber.id, seoulDistance.id],
     },
     9,
     totalLessons,
@@ -3153,7 +3178,7 @@ function grammarLesson17(source: SourceUnit, lookups: Lookups, totalLessons: num
         "workbook",
         ["-아/어야 되다"],
         text(
-          "Dien cach noi nghia vu voi dong tu `하다`.",
+          "Điền cách nói nghĩa vụ với động từ `하다`.",
           "Fill the obligation form for the verb `하다`.",
         ),
         text("phải học tiếng Hàn", "have to study Korean"),
@@ -3301,7 +3326,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
         offer,
         "blended",
         text(
-          "Ghep lai cau de nghi giup do de noi liền mach hoi thoai.",
+          "Ghép lại câu đề nghị giúp đỡ để nối liền mạch hội thoại.",
           "Rebuild the offer-to-help line so the dialogue flows naturally.",
         ),
       ),
@@ -3312,7 +3337,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
         "workbook",
         ["-고요"],
         text(
-          "Dien them mot y bo sung bang -고요.",
+          "Điền thêm một ý bổ sung bằng -고요.",
           "Add one more supporting point with -고요.",
         ),
         text("đồ ăn cũng ngon", "the food is tasty too"),
@@ -3327,7 +3352,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
         "workbook",
         ["-고요"],
         text(
-          "Dung -고요 de bo sung them mot loi ich nua.",
+          "Dùng -고요 để bổ sung thêm một lợi ích nữa.",
           "Use -고요 to add one more benefit.",
         ),
         text("cũng có thể kết bạn", "you can make friends too"),
@@ -3352,7 +3377,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
         `${activities.korean} ${offer.korean}`,
         "blended",
         text(
-          "Ket lesson bang mot cum hoi thoai ngan co -고요 va loi de nghi giup do.",
+          "Kết lesson bằng một cụm hội thoại ngắn có -고요 và lời đề nghị giúp đỡ.",
           "Close the lesson with a short dialogue chunk using -고요 and a help offer.",
         ),
         ["-고요"],
@@ -3800,7 +3825,7 @@ function unit17Sections() {
       sectionId: "unit-17-section-2",
       title: text("Phần 2: Hội thoại", "Section 2: dialogue and forms"),
       summary: text(
-        "Ghep hoi thoai, -고요, va day tiep bang workbook form-change.",
+        "Ghép hội thoại, củng cố -고요, rồi đẩy tiếp sang workbook đổi dạng.",
         "Rebuild the dialogue, reinforce -고요, and extend it with workbook form changes.",
       ),
       lessonIds: ["unit-17-lesson-3", "unit-17-lesson-4"],
@@ -3928,7 +3953,7 @@ function reviewLessons17(
         emailFood.korean,
         "blended",
         text(
-          "Ket unit bang mot cau hoi tu nhien ve mon an can chuan bi.",
+          "Kết unit bằng một câu hỏi tự nhiên về món ăn cần chuẩn bị.",
           "Close the unit with a natural question about what food to prepare.",
         ),
         ["-아/어야 되다"],
@@ -3983,7 +4008,7 @@ function reviewLessons17MainPath(
         lessonRole: "review",
         title: text("Ôn tập sản sinh", "Production review"),
         summary: text(
-          "Ket unit bang bai san sinh co khung tu dialogue, -고요, va travel prompt.",
+          "Kết unit bằng bài sản sinh có khung từ dialogue, -고요, và travel prompt.",
           "Finish the unit with scaffolded production drawn from dialogue, -고요, and the travel prompt.",
         ),
         focusConcepts: ["production", "dialogue", "goyo", "travel"],
@@ -4019,8 +4044,8 @@ function buildRuntimeContext(source: SourceUnit) {
     items: resolvedListeningItems,
     warnings,
   } = resolveSourceListeningItems(source);
-  const listeningItems = resolvedListeningItems.filter(
-    (item) => !item.needsReview && isReadyAudioAsset(audioAssetsById.get(item.audioAssetId)),
+  const listeningItems = resolvedListeningItems.filter((item) =>
+    isCompileableListeningItem(item, audioAssetsById),
   );
   const listeningItemsByExerciseId = new Map<string, SourceListeningItem[]>();
   const listeningItemsById = new Map(
@@ -4037,7 +4062,7 @@ function buildRuntimeContext(source: SourceUnit) {
   const eligibleExercises = source.workbook.exercises.filter(
     (exercise) =>
       !exercise.needsReview &&
-      (exercise.exerciseType === "listening" && exercise.audioAssetId
+      (exercise.exerciseType === "listening"
         ? listeningItemsByExerciseId.has(exercise.id)
         : !exercise.audioAssetId || isReadyAudioAsset(audioAssetsById.get(exercise.audioAssetId))),
   );
@@ -4115,7 +4140,7 @@ function reviewLessons16(
     "wb16-qr-traffic-jam",
     "wb16-qr-seoul-bus-number",
     "wb16-qr-seoul-distance",
-    "wb16-qr-destination",
+    "wb16-qr-service-scenes",
   ];
   const reviewBIds = [
     "wb16-reading-train",
@@ -4186,7 +4211,7 @@ function reviewLessons16(
         "blended",
         [],
         text(
-          "Ghep lai cau hoi duong di mot lan nua truoc khi sang phan tong hop.",
+          "Ghép lại câu hỏi đường đi một lần nữa trước khi sang phần tổng hợp.",
           "Rebuild the directions question once more before the cumulative section.",
         ),
       ),
@@ -4317,7 +4342,7 @@ export function buildRuntimeUnit16(
     unitNumber: source.unitNumber,
     title: source.title,
     subtitle: text(
-      "Mo bai bang tu vung giao thong, khoa lai 에서/까지 va -으십시오/-십시오, roi on bang nghe duong di va bai doc du lich.",
+      "Mở bài bằng từ vựng giao thông, khóa lại 에서/까지 và -으십시오/-십시오, rồi ôn bằng nghe đường đi và bài đọc du lịch.",
       "Open with transport vocabulary, lock in 에서/까지 and -으십시오/-십시오, then review with route listening and travel reading.",
     ),
     reviewWords: reviewWords(source),
@@ -4357,7 +4382,7 @@ export function buildRuntimeUnit17(
     unitNumber: source.unitNumber,
     title: source.title,
     subtitle: text(
-      "Mo bai bang tu vung tan gia, di sau vao -아/어야 되다 va -고요, roi khoa lai bang email va hoi thoai co khung.",
+      "Mở bài bằng từ vựng tân gia, đi sâu vào -아/어야 되다 và -고요, rồi khóa lại bằng email và hội thoại có khung.",
       "Open with housewarming vocabulary, push through -아/어야 되다 and -고요, then close with scaffolded email and dialogue work.",
     ),
     reviewWords: reviewWords(source),

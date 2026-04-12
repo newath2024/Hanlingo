@@ -6,6 +6,7 @@ import type {
   GrammarSelectTask,
   InteractionMode,
   ListeningExerciseType,
+  ListeningTtsConfig,
   ListeningTask,
   ListenSelectTask,
   LocalizedChoice,
@@ -146,6 +147,7 @@ export type ListeningSessionItem = SessionItemBase & {
   type: "listening";
   listeningType: ListeningExerciseType;
   audioUrl: string;
+  tts?: ListeningTtsConfig;
   clipStartMs?: number;
   clipEndMs?: number;
   questionText?: LocalizedText;

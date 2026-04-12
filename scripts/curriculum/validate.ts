@@ -14,7 +14,7 @@ import {
   runtimeUnitSchema,
   sourceUnitSchema,
 } from "./schema";
-import { resolveSourceListeningItems } from "./listening";
+import { isCompileableListeningItem, resolveSourceListeningItems } from "./listening";
 
 type ValidateOptions = {
   unitId: string;
@@ -192,7 +192,6 @@ function validateSourceContent(
         (exercise) =>
           !exercise.needsReview &&
           (exercise.exerciseType !== "listening" ||
-            !exercise.audioAssetId ||
             options.compileableListeningExerciseIds?.has(exercise.id) ||
             false),
       ).length
@@ -365,7 +364,7 @@ function validateCoverage(
   const eligibleExercises = source.workbook.exercises.filter(
     (exercise) =>
       !exercise.needsReview &&
-      (exercise.exerciseType === "listening" && exercise.audioAssetId
+      (exercise.exerciseType === "listening"
         ? compileableListeningExerciseIds.has(exercise.id)
         : !exercise.audioAssetId || readyAudioAssetIds.has(exercise.audioAssetId)),
   );
@@ -586,14 +585,12 @@ export async function validateCurriculum(options: ValidateOptions) {
 
   const reviewedSource = sourceUnitSchema.parse(await readJsonFile<SourceUnit>(reviewedPath));
   const resolvedListening = resolveSourceListeningItems(reviewedSource);
-  const readyAudioAssetIds = new Set(
-    reviewedSource.workbook.audioAssets
-      .filter((asset) => asset.remoteUrl && !asset.needsReview)
-      .map((asset) => asset.id),
+  const audioAssetsById = new Map(
+    reviewedSource.workbook.audioAssets.map((asset) => [asset.id, asset] as const),
   );
   const compileableListeningExerciseIds = new Set(
     resolvedListening.items
-      .filter((item) => !item.needsReview && readyAudioAssetIds.has(item.audioAssetId))
+      .filter((item) => isCompileableListeningItem(item, audioAssetsById))
       .flatMap((item) => item.sourceExerciseIds),
   );
 

@@ -664,13 +664,13 @@
       "needsReview": true
     },
     {
-      "id": "wb16-qr-destination-seed",
+      "id": "wb16-qr-service-scenes-seed",
       "document": "workbook",
-      "page": 270,
+      "page": 268,
       "kind": "exercise",
-      "text": "지연 씨는 공항에 가려고 해요.",
+      "text": "Workbook page 268 service-scene listening. Match each fixed sentence to the correct textbook illustration.",
       "confidence": 0.98,
-      "sourceItemId": "wb16-qr-destination",
+      "sourceItemId": "wb16-qr-service-scenes",
       "needsReview": true
     },
     {
@@ -719,11 +719,11 @@
       "needsReview": true
     },
     {
-      "id": "workbook-page-268-placeholder",
+      "id": "workbook-page-270-placeholder",
       "document": "workbook",
-      "page": 268,
+      "page": 270,
       "kind": "unknown",
-      "text": "Page 268 captured but not normalized yet.",
+      "text": "Page 270 captured but not normalized yet.",
       "confidence": 0,
       "needsReview": true
     },
@@ -781,13 +781,84 @@
       "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_04_02.mp3"
     }
   ],
-  "imageCrops": [],
-  "pageIssues": [
+  "imageCrops": [
     {
+      "id": "wb16-service-airport-counter",
       "document": "workbook",
-      "page": 264,
-      "reason": "Expected a listening QR on this workbook page but none was decoded."
+      "page": 269,
+      "label": "Airport counter scene",
+      "imagePath": "/generated/listening-cards/unit-16/airport-counter.png",
+      "bounds": {
+        "x": 88,
+        "y": 338,
+        "width": 400,
+        "height": 215
+      },
+      "sourceItemId": "u16-qr-service-book-ticket",
+      "needsReview": false
     },
+    {
+      "id": "wb16-service-receptionist-help",
+      "document": "workbook",
+      "page": 269,
+      "label": "Receptionist help scene",
+      "imagePath": "/generated/listening-cards/unit-16/receptionist-help.png",
+      "bounds": {
+        "x": 552,
+        "y": 338,
+        "width": 377,
+        "height": 215
+      },
+      "sourceItemId": "u16-qr-service-wait",
+      "needsReview": false
+    },
+    {
+      "id": "wb16-service-passport-request",
+      "document": "workbook",
+      "page": 269,
+      "label": "Passport request scene",
+      "imagePath": "/generated/listening-cards/unit-16/passport-request.png",
+      "bounds": {
+        "x": 88,
+        "y": 670,
+        "width": 410,
+        "height": 185
+      },
+      "sourceItemId": "u16-qr-service-passport",
+      "needsReview": false
+    },
+    {
+      "id": "wb16-service-asking-about-person",
+      "document": "workbook",
+      "page": 269,
+      "label": "Asking about a person scene",
+      "imagePath": "/generated/listening-cards/unit-16/asking-about-person.png",
+      "bounds": {
+        "x": 552,
+        "y": 670,
+        "width": 377,
+        "height": 185
+      },
+      "sourceItemId": "u16-qr-service-ask-min-guk",
+      "needsReview": false
+    },
+    {
+      "id": "wb16-service-restaurant-scene",
+      "document": "workbook",
+      "page": 269,
+      "label": "Restaurant scene",
+      "imagePath": "/generated/listening-cards/unit-16/restaurant-scene.png",
+      "bounds": {
+        "x": 88,
+        "y": 1015,
+        "width": 410,
+        "height": 185
+      },
+      "sourceItemId": "u16-qr-service-book-ticket",
+      "needsReview": false
+    }
+  ],
+  "pageIssues": [
     {
       "document": "textbook",
       "page": 212,
@@ -815,7 +886,7 @@
     },
     {
       "document": "workbook",
-      "page": 268,
+      "page": 270,
       "reason": "No normalized items mapped to this page yet."
     },
     {

@@ -6,6 +6,7 @@ import type {
   SourceUnit,
   SourceWorkbookExercise,
 } from "@/types/curriculum";
+import { resolveListeningChoiceImagePath } from "./listening-images";
 
 export type CurriculumWarning = {
   code: string;
@@ -61,7 +62,18 @@ function getClipDurationMs(item: SourceListeningItem) {
 }
 
 function assertListeningItemAudio(item: SourceListeningItem, source: SourceUnit) {
-  if (!source.workbook.audioAssets.some((asset) => asset.id === item.audioAssetId)) {
+  if (item.audioAssetId && item.tts) {
+    throw new Error(`${item.id} must not define both audioAssetId and tts.`);
+  }
+
+  if (!item.audioAssetId && !item.tts) {
+    throw new Error(`${item.id} must define exactly one listening audio source.`);
+  }
+
+  if (
+    item.audioAssetId &&
+    !source.workbook.audioAssets.some((asset) => asset.id === item.audioAssetId)
+  ) {
     throw new Error(`${item.id} references missing audio asset ${item.audioAssetId}.`);
   }
 }
@@ -96,7 +108,10 @@ function assertListeningChoices(item: SourceListeningItem) {
     }
   }
 
-  if (item.type === "choose_image" && item.choices?.some((choice) => !choice.imagePath)) {
+  if (
+    item.type === "choose_image" &&
+    item.choices?.some((choice) => !resolveListeningChoiceImagePath(choice))
+  ) {
     throw new Error(`${item.id} choose_image items require image-backed choices.`);
   }
 
@@ -144,6 +159,10 @@ function assertListeningPrompt(item: SourceListeningItem) {
 }
 
 function assertListeningClipBounds(item: SourceListeningItem) {
+  if (item.tts && (typeof item.clipStartMs === "number" || typeof item.clipEndMs === "number")) {
+    throw new Error(`${item.id} TTS-backed items must not define clip bounds.`);
+  }
+
   const hasStart = typeof item.clipStartMs === "number";
   const hasEnd = typeof item.clipEndMs === "number";
 
@@ -200,7 +219,7 @@ function adaptLegacyListeningExercise(
   return {
     id: `${exercise.id}-legacy`,
     sourceExerciseIds: [exercise.id],
-    audioAssetId: exercise.audioAssetId ?? "",
+    audioAssetId: exercise.audioAssetId,
     type: listeningType,
     prompt: exercise.prompt,
     transcriptKo: audioAsset?.transcript,
@@ -289,10 +308,10 @@ function collectListeningWarnings(
   }
 
   items.forEach((item) => {
-    const audioAsset = audioAssetsById.get(item.audioAssetId);
+    const audioAsset = item.audioAssetId ? audioAssetsById.get(item.audioAssetId) : undefined;
     const clipDurationMs = getClipDurationMs(item);
 
-    if (hasMissingClipBounds(item)) {
+    if (item.audioAssetId && hasMissingClipBounds(item)) {
       warnings.push(
         createWarning(
           "listening-full-audio-fallback",
@@ -308,7 +327,7 @@ function collectListeningWarnings(
       );
     }
 
-    if (!hasText(item.transcriptKo) && !hasText(audioAsset?.transcript)) {
+    if (!hasText(item.transcriptKo) && !hasText(audioAsset?.transcript) && !hasText(item.tts?.text)) {
       warnings.push(
         createWarning(
           "listening-missing-transcript",
@@ -333,6 +352,25 @@ function collectListeningWarnings(
   });
 
   return warnings;
+}
+
+export function isCompileableListeningItem(
+  item: SourceListeningItem,
+  audioAssetsById: Map<string, SourceAudioAsset>,
+) {
+  if (item.needsReview) {
+    return false;
+  }
+
+  if (item.tts) {
+    return true;
+  }
+
+  return Boolean(item.audioAssetId && isReadyAudioAsset(audioAssetsById.get(item.audioAssetId)));
+}
+
+function isReadyAudioAsset(asset: SourceAudioAsset | undefined) {
+  return Boolean(asset && asset.remoteUrl && !asset.needsReview);
 }
 
 export function resolveSourceListeningItems(source: SourceUnit): ResolvedListeningItems {

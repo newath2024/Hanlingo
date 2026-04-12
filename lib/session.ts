@@ -173,6 +173,7 @@ export function createSessionItemFromTask(task: SupportedRuntimeTask): SessionIt
       type: "listening",
       listeningType: task.listeningType,
       audioUrl: task.audioUrl,
+      tts: task.tts,
       clipStartMs: task.clipStartMs,
       clipEndMs: task.clipEndMs,
       questionText: task.questionText,
