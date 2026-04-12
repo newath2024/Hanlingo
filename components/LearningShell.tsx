@@ -59,7 +59,7 @@ export default function LearningShell({ children }: LearningShellProps) {
             isLoading={isSidebarSummaryLoading}
           />
 
-          <nav className="mt-7 flex flex-1 flex-col gap-6">
+          <nav className="mt-7 flex flex-col gap-6">
             {SIDEBAR_NAV_SECTIONS.map((section) => (
               <SidebarNavSection
                 key={section.id}
@@ -71,7 +71,13 @@ export default function LearningShell({ children }: LearningShellProps) {
             ))}
           </nav>
 
-          <SidebarFooter locale={locale} summary={sidebarSummary} isLoading={isSidebarSummaryLoading} />
+          <div className="mt-6">
+            <SidebarFooter
+              locale={locale}
+              summary={sidebarSummary}
+              isLoading={isSidebarSummaryLoading}
+            />
+          </div>
         </aside>
 
         <div className="flex min-h-screen min-w-0 flex-1 flex-col">
