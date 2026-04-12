@@ -115,26 +115,26 @@ export default function SessionBuildSentenceQuestion({
         <motion.div className="space-y-2" variants={itemVariants}>
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
             {item.isRetry
-              ? ui("Retry question", "Cau hoi lam lai")
+              ? ui("Retry question", "Câu hỏi làm lại")
               : isAdaptiveWordBank
-                ? ui("Sentence Builder", "Ghep cau")
+                ? ui("Sentence Builder", "Ghép câu")
                 : item.type === "dialogue_reconstruct"
-                  ? ui("Dialogue Reconstruct", "Ghep lai hoi thoai")
+                  ? ui("Dialogue Reconstruct", "Ghép lại hội thoại")
                   : item.type === "sentence_build"
-                    ? ui("Sentence Builder", "Ghep cau")
+                    ? ui("Sentence Builder", "Ghép câu")
                     : item.type === "reorder_sentence"
-                      ? ui("Reorder Sentence", "Sap xep lai cau")
-                      : ui("Arrange Sentence", "Sap xep cau")}
+                      ? ui("Reorder Sentence", "Sắp xếp lại câu")
+                      : ui("Arrange Sentence", "Sắp xếp câu")}
           </p>
           <h3 className="font-display text-3xl text-foreground sm:text-4xl">
             {isAdaptiveWordBank
               ? ui(
                   "Tap the Korean chunks to build the full sentence.",
-                  "Cham vao cac cum tieng Han de ghep thanh cau hoan chinh.",
+                  "Chạm vào các cụm tiếng Hàn để ghép thành câu hoàn chỉnh.",
                 )
               : ui(
                   "Tap the Korean chunks to build the target sentence.",
-                  "Cham vao cac cum tieng Han de ghep thanh cau dich.",
+                  "Chạm vào các cụm tiếng Hàn để ghép thành câu đích.",
                 )}
           </h3>
         </motion.div>
@@ -179,11 +179,11 @@ export default function SessionBuildSentenceQuestion({
               selectedTokenIds={selectedTokenIds}
               incorrectIndexes={incorrectIndexes}
               onToggleToken={handleToggleWord}
-              answerLabel={ui("Your sentence", "Cau cua ban")}
-              bankLabel={ui("Word bank", "Ngan tu")}
+              answerLabel={ui("Your sentence", "Câu của bạn")}
+              bankLabel={ui("Word bank", "Ngân từ")}
               emptyState={ui(
                 "Tap words below to build the answer.",
-                "Cham vao cac tu ben duoi de ghep cau tra loi.",
+                "Chạm vào các từ bên dưới để ghép câu trả lời.",
               )}
             />
           </motion.div>
@@ -193,16 +193,16 @@ export default function SessionBuildSentenceQuestion({
               <p>
                 {ui(
                   "A few chunks are out of place. Watch the word order.",
-                  "Mot vai cum dang sai vi tri. Hay de y thu tu tu.",
+                  "Một vài cụm đang sai vị trí. Hãy để ý thứ tự từ.",
                 )}
               </p>
               <p className="font-semibold">
-                {ui("Correct order", "Thu tu dung")}: {item.answer.join(" ")}
+                {ui("Correct order", "Thứ tự đúng")}: {item.answer.join(" ")}
               </p>
               <p className="text-sm font-bold text-danger/90">
                 {ui(
                   "Hint: start from the subject and rebuild the sentence one chunk at a time.",
-                  "Goi y: bat dau tu chu ngu roi ghep lai tung cum mot.",
+                  "Gợi ý: bắt đầu từ chủ ngữ rồi ghép lại từng cụm một.",
                 )}
               </p>
             </motion.div>
@@ -215,10 +215,10 @@ export default function SessionBuildSentenceQuestion({
               disabled={selectedTokenIds.length === 0}
               className="secondary-button w-full"
             >
-              {ui("Clear", "Xoa")}
+              {ui("Clear", "Xóa")}
             </button>
             <CheckButton
-              label={ui("Check answer", "Kiem tra dap an")}
+              label={ui("Check answer", "Kiểm tra đáp án")}
               onClick={handleCheckAnswer}
               disabled={selectedTokenIds.length === 0}
               fullWidth

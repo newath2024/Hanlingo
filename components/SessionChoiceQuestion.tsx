@@ -49,7 +49,7 @@ function getInstruction(
     return getLocalizedText(
       {
         en: "Listen, then choose the best answer.",
-        vi: "Nghe roi chon dap an phu hop nhat.",
+        vi: "Nghe rồi chọn đáp án phù hợp nhất.",
       },
       locale,
     );
@@ -59,7 +59,7 @@ function getInstruction(
     return getLocalizedText(
       {
         en: "Read the Korean line, then choose the best meaning.",
-        vi: "Doc cau tieng Han, roi chon nghia phu hop nhat.",
+        vi: "Đọc câu tiếng Hàn, rồi chọn nghĩa phù hợp nhất.",
       },
       locale,
     );
@@ -69,7 +69,7 @@ function getInstruction(
     return getLocalizedText(
       {
         en: "Read the dialogue and choose the best response.",
-        vi: "Doc hoi thoai va chon cau dap phu hop nhat.",
+        vi: "Đọc hội thoại và chọn câu đáp phù hợp nhất.",
       },
       locale,
     );
@@ -79,7 +79,7 @@ function getInstruction(
     return getLocalizedText(
       {
         en: "Choose the Korean chunk that completes the sentence.",
-        vi: "Chon cum tieng Han de hoan thanh cau.",
+        vi: "Chọn cụm tiếng Hàn để hoàn thành câu.",
       },
       locale,
     );
@@ -89,7 +89,7 @@ function getInstruction(
     return getLocalizedText(
       {
         en: "Choose the Korean answer that matches the meaning.",
-        vi: "Chon dap an tieng Han khop voi nghia.",
+        vi: "Chọn đáp án tiếng Hàn khớp với nghĩa.",
       },
       locale,
     );
@@ -98,7 +98,7 @@ function getInstruction(
   return getLocalizedText(
     {
       en: "Choose the answer that matches the prompt.",
-      vi: "Chon dap an khop voi de bai.",
+      vi: "Chọn đáp án khớp với đề bài.",
     },
     locale,
   );
@@ -109,26 +109,26 @@ function getSessionItemLabel(
   item: SessionChoiceQuestionProps["item"],
 ) {
   if (item.type === "listen_select") {
-    return getLocalizedText({ en: "Listen & Select", vi: "Nghe va chon" }, locale);
+    return getLocalizedText({ en: "Listen & Select", vi: "Nghe và chọn" }, locale);
   }
 
   if (item.interactionMode === "hybrid") {
-    return getLocalizedText({ en: "Complete Sentence", vi: "Hoan thanh cau" }, locale);
+    return getLocalizedText({ en: "Complete Sentence", vi: "Hoàn thành câu" }, locale);
   }
 
   if (item.type === "grammar_select") {
-    return getLocalizedText({ en: "Grammar", vi: "Ngu phap" }, locale);
+    return getLocalizedText({ en: "Grammar", vi: "Ngữ pháp" }, locale);
   }
 
   if (item.type === "translation_select") {
-    return getLocalizedText({ en: "Select Translation", vi: "Chon nghia" }, locale);
+    return getLocalizedText({ en: "Select Translation", vi: "Chọn nghĩa" }, locale);
   }
 
   if (item.type === "dialogue_response") {
-    return getLocalizedText({ en: "Dialogue Response", vi: "Dap hoi thoai" }, locale);
+    return getLocalizedText({ en: "Dialogue Response", vi: "Đáp hội thoại" }, locale);
   }
 
-  return getLocalizedText({ en: "Word Match", vi: "Noi tu" }, locale);
+  return getLocalizedText({ en: "Word Match", vi: "Nối từ" }, locale);
 }
 
 function getPromptReplayText(item: SessionChoiceQuestionProps["item"]) {
@@ -170,7 +170,7 @@ export default function SessionChoiceQuestion({
   const ui = (en: string, vi: string) => getLocalizedText({ en, vi }, locale);
   const supportLabel =
     supportText && item.type === "grammar_select"
-      ? `${ui("Meaning", "Nghia")}: ${supportText}`
+      ? `${ui("Meaning", "Nghĩa")}: ${supportText}`
       : supportText;
   const choiceItem = isLocalizedChoiceItem(item) ? item : null;
   const selectItem = isSelectItem(item) ? item : null;
@@ -281,7 +281,7 @@ export default function SessionChoiceQuestion({
           <div className="space-y-2">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
               {item.isRetry
-                ? ui("Retry question", "Cau hoi lam lai")
+                ? ui("Retry question", "Câu hỏi làm lại")
                 : getSessionItemLabel(locale, item)}
             </p>
             <h3 className="font-display text-3xl text-foreground sm:text-4xl">
@@ -290,11 +290,11 @@ export default function SessionChoiceQuestion({
           </div>
           {hasAudio && !isVocabQuestion ? (
             <button type="button" onClick={() => void handlePlayAudio()} className="secondary-button">
-              {isPlaying ? ui("Playing...", "Dang phat...") : ui("Play audio", "Phat audio")}
+              {isPlaying ? ui("Playing...", "Đang phát...") : ui("Play audio", "Phát audio")}
             </button>
           ) : (
             <span className="pill bg-card-strong text-foreground">
-              {item.isRetry ? ui("Retry", "Lam lai") : ui("Fresh question", "Cau hoi moi")}
+              {item.isRetry ? ui("Retry", "Làm lại") : ui("Fresh question", "Câu hỏi mới")}
             </span>
           )}
         </motion.div>
@@ -315,7 +315,7 @@ export default function SessionChoiceQuestion({
                   <button
                     type="button"
                     onClick={() => void handlePlayAudio()}
-                    aria-label={ui("Replay Korean audio", "Phat lai audio tieng Han")}
+                    aria-label={ui("Replay Korean audio", "Phát lại audio tiếng Hàn")}
                     className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent/15 bg-white text-xl text-accent-strong shadow-[0_10px_24px_rgba(47,92,51,0.08)] transition hover:border-accent hover:bg-card-strong"
                   >
                     <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
@@ -408,7 +408,7 @@ export default function SessionChoiceQuestion({
           </motion.div>
 
           <CheckButton
-            label={ui("Check answer", "Kiem tra dap an")}
+            label={ui("Check answer", "Kiểm tra đáp án")}
             onClick={handleCheckAnswer}
             disabled={!selectedOption}
             fullWidth

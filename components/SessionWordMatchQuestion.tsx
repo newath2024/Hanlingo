@@ -89,12 +89,12 @@ export default function SessionWordMatchQuestion({
       <motion.div className="space-y-6" variants={containerVariants}>
         <motion.div className="space-y-2" variants={itemVariants}>
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
-            {item.isRetry ? ui("Retry question", "Cau hoi lam lai") : ui("Word Match", "Noi tu")}
+            {item.isRetry ? ui("Retry question", "Câu hỏi làm lại") : ui("Word Match", "Nối từ")}
           </p>
           <h3 className="font-display text-3xl text-foreground sm:text-4xl">
             {ui(
               "Tap a Korean item, then tap its meaning.",
-              "Cham vao muc tieng Han, roi cham vao nghia cua no.",
+              "Chạm vào mục tiếng Hàn, rồi chạm vào nghĩa của nó.",
             )}
           </h3>
         </motion.div>
@@ -110,7 +110,7 @@ export default function SessionWordMatchQuestion({
             <p className="mt-4 text-sm font-bold text-muted-foreground">{explanation}</p>
             {selectedLeft ? (
               <div className="mt-4 rounded-[1.4rem] bg-white/80 px-4 py-3 text-sm font-bold text-foreground">
-                {ui("Selected Korean item", "Muc tieng Han da chon")}: {selectedLeft}
+                {ui("Selected Korean item", "Mục tiếng Hàn đã chọn")}: {selectedLeft}
               </div>
             ) : null}
           </motion.div>
@@ -118,7 +118,7 @@ export default function SessionWordMatchQuestion({
           {matches.length > 0 ? (
             <motion.div variants={itemVariants} className="space-y-3">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
-                {ui("Current matches", "Cac cap da noi")}
+                {ui("Current matches", "Các cặp đã nối")}
               </p>
               <div className="flex flex-wrap gap-3">
                 {matches.map((pair) => (
@@ -138,7 +138,7 @@ export default function SessionWordMatchQuestion({
           <motion.div variants={itemVariants} className="grid gap-4 lg:grid-cols-2">
             <div className="space-y-3">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
-                {ui("Korean", "Tieng Han")}
+                {ui("Korean", "Tiếng Hàn")}
               </p>
               <div className="grid gap-3">
                 {item.pairs.map((pair) => {
@@ -167,7 +167,7 @@ export default function SessionWordMatchQuestion({
 
             <div className="space-y-3">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
-                {ui("Meanings", "Nghia")}
+                {ui("Meanings", "Nghĩa")}
               </p>
               <div className="grid gap-3">
                 {item.rightOptions.map((right) => {
@@ -202,10 +202,10 @@ export default function SessionWordMatchQuestion({
               disabled={matches.length === 0 && !selectedLeft}
               className="secondary-button w-full"
             >
-              {ui("Clear", "Xoa")}
+              {ui("Clear", "Xóa")}
             </button>
             <CheckButton
-              label={ui("Check answer", "Kiem tra dap an")}
+              label={ui("Check answer", "Kiểm tra đáp án")}
               onClick={handleCheckAnswer}
               disabled={matches.length !== item.answer.length}
               fullWidth

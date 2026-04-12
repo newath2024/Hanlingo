@@ -60,19 +60,19 @@ function getSourceLabel(
 ) {
   if (source === "due_review") {
     return errorCount > 1
-      ? getLocalizedText({ en: "Repeated mistake", vi: "Loi lap lai" }, locale)
-      : getLocalizedText({ en: "Due review", vi: "On den han" }, locale);
+      ? getLocalizedText({ en: "Repeated mistake", vi: "Lỗi lặp lại" }, locale)
+      : getLocalizedText({ en: "Due review", vi: "Ôn đến hạn" }, locale);
   }
 
   if (source === "weak_reinforcement") {
-    return getLocalizedText({ en: "Weak point", vi: "Diem yeu" }, locale);
+    return getLocalizedText({ en: "Weak point", vi: "Điểm yếu" }, locale);
   }
 
   if (source === "confidence_builder") {
-    return getLocalizedText({ en: "Confidence builder", vi: "Cau de lay lai nhip" }, locale);
+    return getLocalizedText({ en: "Confidence builder", vi: "Câu để lấy lại nhịp" }, locale);
   }
 
-  return getLocalizedText({ en: "Progression", vi: "Tien do hien tai" }, locale);
+  return getLocalizedText({ en: "Progression", vi: "Tiến độ hiện tại" }, locale);
 }
 
 function getModeCopy(
@@ -83,29 +83,29 @@ function getModeCopy(
 ) {
   if (mode === "weak_points") {
     return {
-      eyebrow: getLocalizedText({ en: "Practice Mistakes", vi: "Luyen loi sai" }, locale),
+      eyebrow: getLocalizedText({ en: "Practice Mistakes", vi: "Luyện lỗi sai" }, locale),
       title: getLocalizedText(
         {
           en: "Return to the weakest concepts before they harden into habits.",
-          vi: "Quay lai cac diem yeu truoc khi chung tro thanh thoi quen sai.",
+          vi: "Quay lại các điểm yếu trước khi chúng trở thành thói quen sai.",
         },
         locale,
       ),
       summary: getLocalizedText(
         {
           en: "This run stays mostly on due mistakes, then adds a small layer of easier recovery questions.",
-          vi: "Buoi nay tap trung vao loi den han, sau do chen them mot it cau de lay lai nhip.",
+          vi: "Buổi này tập trung vào lỗi đến hạn, sau đó chèn thêm một ít câu để lấy lại nhịp.",
         },
         locale,
       ),
       emptyTitle: getLocalizedText(
-        { en: "No due mistakes right now.", vi: "Hien tai chua co loi den han." },
+        { en: "No due mistakes right now.", vi: "Hiện tại chưa có lỗi đến hạn." },
         locale,
       ),
       emptySummary: getLocalizedText(
         {
           en: "Clear a few more lessons or come back later when the error queue is due again.",
-          vi: "Hoc them vai bai nua hoac quay lai sau khi hang doi loi sai den han.",
+          vi: "Học thêm vài bài nữa hoặc quay lại sau khi hàng đợi lỗi sai đến hạn.",
         },
         locale,
       ),
@@ -114,7 +114,7 @@ function getModeCopy(
 
   if (mode === "focused_review") {
     return {
-      eyebrow: getLocalizedText({ en: "Focused Review", vi: "On tap co trong tam" }, locale),
+      eyebrow: getLocalizedText({ en: "Focused Review", vi: "Ôn tập có trọng tâm" }, locale),
       title: getLocalizedText(
         {
           en: targetLessonId
@@ -123,10 +123,10 @@ function getModeCopy(
               ? `Review the weak spots around Unit ${targetUnitId}.`
               : "Review the weak spots around your current path.",
           vi: targetLessonId
-            ? "On lai cac diem yeu quanh bai hoc nay."
+            ? "Ôn lại các điểm yếu quanh bài học này."
             : targetUnitId
-              ? `On lai cac diem yeu quanh Unit ${targetUnitId}.`
-              : "On lai cac diem yeu quanh lo trinh hien tai.",
+              ? `Ôn lại các điểm yếu quanh Unit ${targetUnitId}.`
+              : "Ôn lại các điểm yếu quanh lộ trình hiện tại.",
         },
         locale,
       ),
@@ -136,13 +136,13 @@ function getModeCopy(
             ? "This run mixes nearby lesson content, due mistakes, and related weak concepts from the selected lesson."
             : "This run mixes nearby progression, due mistakes, and related weak concepts from the selected unit.",
           vi: targetLessonId
-            ? "Buoi nay tron giua noi dung bai hoc gan nhat, loi den han, va cac khai niem yeu lien quan trong bai da chon."
-            : "Buoi nay tron giua tien do gan nhat, loi den han, va cac khai niem yeu lien quan trong unit da chon.",
+            ? "Buổi này trộn giữa nội dung bài học gần nhất, lỗi đến hạn, và các khái niệm yếu liên quan trong bài đã chọn."
+            : "Buổi này trộn giữa tiến độ gần nhất, lỗi đến hạn, và các khái niệm yếu liên quan trong unit đã chọn.",
         },
         locale,
       ),
       emptyTitle: getLocalizedText(
-        { en: "No focused review is available yet.", vi: "Chua co buoi on tap trong tam." },
+        { en: "No focused review is available yet.", vi: "Chưa có buổi ôn tập trọng tâm." },
         locale,
       ),
       emptySummary: getLocalizedText(
@@ -151,8 +151,8 @@ function getModeCopy(
             ? "Finish a few more lessons or answer a few more questions in this lesson first."
             : "Unlock or finish a few more lessons in this unit first.",
           vi: targetLessonId
-            ? "Hay hoc them vai bai hoac tra loi them mot it cau trong bai nay truoc."
-            : "Hay mo khoa hoac hoan thanh them vai bai trong unit nay truoc.",
+            ? "Hãy học thêm vài bài hoặc trả lời thêm một ít câu trong bài này trước."
+            : "Hãy mở khóa hoặc hoàn thành thêm vài bài trong unit này trước.",
         },
         locale,
       ),
@@ -160,29 +160,29 @@ function getModeCopy(
   }
 
   return {
-    eyebrow: getLocalizedText({ en: "Adaptive Continue", vi: "Tiep tuc theo dang thich ung" }, locale),
+    eyebrow: getLocalizedText({ en: "Adaptive Continue", vi: "Tiếp tục theo dạng thích ứng" }, locale),
     title: getLocalizedText(
       {
         en: "Keep momentum with a balanced run tuned to your current path and weak zones.",
-        vi: "Giu nhip hoc voi mot buoi can bang duoc chinh theo lo trinh va diem yeu hien tai.",
+        vi: "Giữ nhịp học với một buổi cân bằng được chỉnh theo lộ trình và điểm yếu hiện tại.",
       },
       locale,
     ),
     summary: getLocalizedText(
       {
         en: "You still move forward, but due mistakes and weak concepts get pulled in at higher weight.",
-        vi: "Ban van di tiep, nhung loi den han va khai niem yeu se duoc uu tien cao hon.",
+        vi: "Bạn vẫn đi tiếp, nhưng lỗi đến hạn và khái niệm yếu sẽ được ưu tiên cao hơn.",
       },
       locale,
     ),
     emptyTitle: getLocalizedText(
-      { en: "No mixed practice is available yet.", vi: "Chua co luot luyen tap tong hop." },
+      { en: "No mixed practice is available yet.", vi: "Chưa có lượt luyện tập tổng hợp." },
       locale,
     ),
     emptySummary: getLocalizedText(
       {
         en: "Unlock a few lessons first, then come back here for a blended review run.",
-        vi: "Mo khoa them vai bai hoc truoc, roi quay lai day de lam luot tong hop.",
+        vi: "Mở khóa thêm vài bài học trước, rồi quay lại đây để làm lượt tổng hợp.",
       },
       locale,
     ),
@@ -191,14 +191,14 @@ function getModeCopy(
 
 function getSessionLabelFallback(mode: AdaptiveSessionMode) {
   if (mode === "weak_points") {
-    return { en: "Weak points practice", vi: "Luyen tap diem yeu" };
+    return { en: "Weak points practice", vi: "Luyện tập điểm yếu" };
   }
 
   if (mode === "focused_review") {
-    return { en: "Focused review", vi: "On tap co trong tam" };
+    return { en: "Focused review", vi: "Ôn tập có trọng tâm" };
   }
 
-  return { en: "Balanced progress session", vi: "Buoi hoc can bang tien do" };
+  return { en: "Balanced progress session", vi: "Buổi học cân bằng tiến độ" };
 }
 
 export default function PracticeSessionShell({ mode }: PracticeSessionShellProps) {
@@ -481,9 +481,9 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
       status: result.status,
       title:
         result.status === "correct"
-          ? ui("Locked in.", "Da chot.")
-          : ui("Review it once more.", "Xem lai mot lan nua."),
-      eyebrow: ui("Answer checked", "Da kiem tra dap an"),
+          ? ui("Locked in.", "Đã chốt.")
+          : ui("Review it once more.", "Xem lại một lần nữa."),
+      eyebrow: ui("Answer checked", "Đã kiểm tra đáp án"),
       badges: (
         <>
           <span className="pill bg-card-strong text-foreground">
@@ -492,17 +492,17 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
           {item.variantType !== "exact" ? (
             <span className="pill bg-card-soft text-muted-foreground">
               {item.variantType === "interaction_mode_variant"
-                ? ui("Harder format", "Tang do kho")
+                ? ui("Harder format", "Tăng độ khó")
                 : item.variantType === "related_task_variant"
-                  ? ui("Related variant", "Bien the lien quan")
-                  : ui("Fallback repeat", "Lap lai du phong")}
+                  ? ui("Related variant", "Biến thể liên quan")
+                  : ui("Fallback repeat", "Lặp lại dự phòng")}
             </span>
           ) : null}
           {(answer?.repeated || item.errorCount > 1) && (
             <span className="pill bg-danger-soft text-danger">
               {ui(
                 `Repeated x${answer?.errorCount ?? item.errorCount}`,
-                `Lap lai x${answer?.errorCount ?? item.errorCount}`,
+                `Lặp lại x${answer?.errorCount ?? item.errorCount}`,
               )}
             </span>
           )}
@@ -514,22 +514,22 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
             {answer?.nextReviewAt
               ? ui(
                   "This mistake is now pushed back for a later review window.",
-                  "Loi sai nay da duoc day lui sang mot moc on tap muon hon.",
+                  "Lỗi sai này đã được đẩy lùi sang một mốc ôn tập muộn hơn.",
                 )
               : ui(
                   "Correct. This item stays out of the queue for now.",
-                  "Dung. Muc nay tam thoi khong nam trong hang doi.",
+                  "Đúng. Mục này tạm thời không nằm trong hàng đợi.",
                 )}
           </p>
         ) : (
           <div className="space-y-2">
             <p>
-              {ui("Correct answer", "Dap an dung")}: {correctAnswer}
+              {ui("Correct answer", "Đáp án đúng")}: {correctAnswer}
             </p>
             <p className="font-semibold">
               {ui(
                 "This item is scheduled back into your mistake queue.",
-                "Muc nay da duoc dua tro lai vao hang doi loi sai.",
+                "Mục này đã được đưa trở lại vào hàng đợi lỗi sai.",
               )}
             </p>
           </div>
@@ -538,7 +538,7 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
         result.status === "incorrect"
           ? ui(
               "One fast correction now is better than repeating the same pattern later.",
-              "Sua nhanh ngay bay gio se tot hon viec lap lai cung mot loi o lan sau.",
+              "Sửa nhanh ngay bây giờ sẽ tốt hơn việc lặp lại cùng một lỗi ở lần sau.",
             )
           : undefined,
       detail:
@@ -546,7 +546,7 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
           <div className="space-y-2">
             {answer?.nextReviewAt ? (
               <p>
-                {ui("Next review", "Lan on tiep theo")}:{" "}
+                {ui("Next review", "Lần ôn tiếp theo")}:{" "}
                 {new Intl.DateTimeFormat(locale === "vi" ? "vi-VN" : "en-US", {
                   dateStyle: "medium",
                   timeStyle: "short",
@@ -563,9 +563,9 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
       onContinue: handleAdvance,
       actionLabel:
         currentIndex >= items.length - 1
-          ? ui("Finish practice", "Ket thuc luyen tap")
-          : ui("Next", "Tiep theo"),
-      actionLoadingLabel: ui("Saving session...", "Dang luu buoi hoc..."),
+          ? ui("Finish practice", "Kết thúc luyện tập")
+          : ui("Next", "Tiếp theo"),
+      actionLoadingLabel: ui("Saving session...", "Đang lưu buổi học..."),
       isContinuing: isCompletingSession,
       showCelebration: result.status === "correct",
       widthClassName: "max-w-4xl",
@@ -581,28 +581,28 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
           </span>
           <div className="space-y-2">
             <h3 className="font-display text-4xl text-foreground sm:text-5xl">
-              {ui("Practice run complete.", "Da xong luot luyen tap.")}
+              {ui("Practice run complete.", "Đã xong lượt luyện tập.")}
             </h3>
             <p className="text-lg font-bold text-muted-foreground">
               {ui(
                 `${correctCount}/${items.length} answers landed correctly.`,
-                `${correctCount}/${items.length} cau tra loi dung.`,
+                `${correctCount}/${items.length} câu trả lời đúng.`,
               )}
             </p>
           </div>
 
           {isCompletingSession ? (
             <div className="rounded-[1.7rem] bg-card-soft px-4 py-3 text-sm font-bold text-muted-foreground">
-              {ui("Finalizing adaptive session...", "Dang chot buoi hoc thich ung...")}
+              {ui("Finalizing adaptive session...", "Đang chốt buổi học thích ứng...")}
             </div>
           ) : null}
 
           <div className="grid gap-3 sm:grid-cols-2">
             <button type="button" onClick={handleReplay} className="primary-button w-full">
-              {ui("Run again", "Lam lai")}
+              {ui("Run again", "Làm lại")}
             </button>
             <Link href={backHref} className="secondary-button w-full">
-              {ui("Back to practice", "Ve luyen tap")}
+              {ui("Back to practice", "Về luyện tập")}
             </Link>
           </div>
 
@@ -642,15 +642,15 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
             {currentItem.variantType !== "exact" ? (
               <span className="pill bg-card-soft text-muted-foreground">
                 {currentItem.variantType === "interaction_mode_variant"
-                  ? ui("Harder format", "Tang do kho")
-                  : currentItem.variantType === "related_task_variant"
-                    ? ui("Related variant", "Bien the lien quan")
-                    : ui("Fallback repeat", "Lap lai du phong")}
+                ? ui("Harder format", "Tăng độ khó")
+                : currentItem.variantType === "related_task_variant"
+                    ? ui("Related variant", "Biến thể liên quan")
+                    : ui("Fallback repeat", "Lặp lại dự phòng")}
               </span>
             ) : null}
             {currentItem.errorCount > 1 ? (
               <span className="pill bg-danger-soft text-danger">
-                {ui(`Repeated x${currentItem.errorCount}`, `Lap lai x${currentItem.errorCount}`)}
+                {ui(`Repeated x${currentItem.errorCount}`, `Lặp lại x${currentItem.errorCount}`)}
               </span>
             ) : null}
           </div>
@@ -667,7 +667,7 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
               {copy.eyebrow}
             </span>
             <h1 className="font-display text-4xl text-foreground sm:text-5xl">
-              {ui("Building your next practice run.", "Dang tao luot luyen tap tiep theo.")}
+              {ui("Building your next practice run.", "Đang tạo lượt luyện tập tiếp theo.")}
             </h1>
             <p className="text-base font-bold text-muted-foreground">{copy.summary}</p>
           </div>
@@ -685,15 +685,15 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
               {copy.eyebrow}
             </span>
             <h1 className="font-display text-4xl text-foreground sm:text-5xl">
-              {ui("Practice could not start.", "Khong the bat dau luot luyen tap.")}
+              {ui("Practice could not start.", "Không thể bắt đầu lượt luyện tập.")}
             </h1>
             <div className="feedback-incorrect">{loadError}</div>
             <div className="grid gap-3 sm:grid-cols-2">
               <button type="button" onClick={handleReplay} className="primary-button w-full">
-                {ui("Try again", "Thu lai")}
+                {ui("Try again", "Thử lại")}
               </button>
               <Link href={backHref} className="secondary-button w-full">
-                {ui("Back to practice", "Ve luyen tap")}
+                {ui("Back to practice", "Về luyện tập")}
               </Link>
             </div>
           </div>
@@ -716,10 +716,10 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
             <p className="text-base font-bold text-muted-foreground">{copy.emptySummary}</p>
             <div className="grid gap-3 sm:grid-cols-2">
               <button type="button" onClick={handleReplay} className="primary-button w-full">
-                {ui("Refresh queue", "Tai lai hang doi")}
+                {ui("Refresh queue", "Tải lại hàng đợi")}
               </button>
               <Link href={backHref} className="secondary-button w-full">
-                {ui("Back to practice", "Ve luyen tap")}
+                {ui("Back to practice", "Về luyện tập")}
               </Link>
             </div>
           </div>
@@ -744,10 +744,10 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
 
           <div className="flex flex-wrap gap-3 sm:justify-end">
             <Link href={backHref} className="secondary-button">
-              {ui("Practice hub", "Hub luyen tap")}
+              {ui("Practice hub", "Hub luyện tập")}
             </Link>
             <button type="button" onClick={handleReplay} className="secondary-button">
-              {ui("Reload set", "Tai lai bo cau hoi")}
+              {ui("Reload set", "Tải lại bộ câu hỏi")}
             </button>
           </div>
         </div>
@@ -768,7 +768,7 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
                   </p>
                   <p className="mt-2 text-muted-foreground">{entry.reason}</p>
                   <p className="mt-2 text-xs font-bold text-muted-foreground/80">
-                    {ui("Score", "Diem")}: {entry.weightBreakdown.totalScore} | W: {entry.weightBreakdown.weaknessWeight} | D: {entry.weightBreakdown.recencyDueWeight} | R: {entry.weightBreakdown.repeatedErrorWeight} | F: {entry.weightBreakdown.fingerprintPriorityWeight} | P: {entry.weightBreakdown.progressionRelevanceWeight} | O: {entry.weightBreakdown.overexposurePenalty}
+                    {ui("Score", "Điểm")}: {entry.weightBreakdown.totalScore} | W: {entry.weightBreakdown.weaknessWeight} | D: {entry.weightBreakdown.recencyDueWeight} | R: {entry.weightBreakdown.repeatedErrorWeight} | F: {entry.weightBreakdown.fingerprintPriorityWeight} | P: {entry.weightBreakdown.progressionRelevanceWeight} | O: {entry.weightBreakdown.overexposurePenalty}
                   </p>
                 </div>
               ))}

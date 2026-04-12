@@ -153,24 +153,24 @@ export default function SessionVocabImageChoiceQuestion({
           <div className="space-y-2">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
               {item.isRetry
-                ? ui("Retry image card", "The hinh anh lam lai")
+                ? ui("Retry image card", "Thẻ hình ảnh làm lại")
                 : isListenCard
-                  ? ui("Listen and choose", "Nghe va chon")
-                  : ui("Image vocab", "Tu vung hinh anh")}
+                  ? ui("Listen and choose", "Nghe và chọn")
+                  : ui("Image vocab", "Từ vựng hình ảnh")}
             </p>
             <h3 className="font-display text-3xl text-foreground sm:text-4xl">
               {isListenCard
-                ? ui("Listen and pick the matching Korean card.", "Nghe va chon the tieng Han phu hop.")
-                : ui("Tap the Korean card that matches this meaning.", "Chon the tieng Han khop voi y nghia nay.")}
+                ? ui("Listen and pick the matching Korean card.", "Nghe và chọn thẻ tiếng Hàn phù hợp.")
+                : ui("Tap the Korean card that matches this meaning.", "Chọn thẻ tiếng Hàn khớp với ý nghĩa này.")}
             </h3>
           </div>
           {hasAudio ? (
             <button type="button" onClick={() => void handlePlayAudio()} className="secondary-button">
-              {isPlaying ? ui("Playing...", "Dang phat...") : ui("Replay audio", "Phat lai audio")}
+              {isPlaying ? ui("Playing...", "Đang phát...") : ui("Replay audio", "Phát lại audio")}
             </button>
           ) : (
             <span className="pill bg-card-strong text-foreground">
-              {item.isRetry ? ui("Retry", "Lam lai") : ui("Fresh question", "Cau hoi moi")}
+              {item.isRetry ? ui("Retry", "Làm lại") : ui("Fresh question", "Câu hỏi mới")}
             </span>
           )}
         </motion.div>
@@ -195,7 +195,7 @@ export default function SessionVocabImageChoiceQuestion({
                 <p className="text-base font-bold text-foreground">
                   {ui(
                     "Listen to the Korean word, then choose the matching card below.",
-                    "Nghe tu tieng Han roi chon the dung o ben duoi.",
+                    "Nghe từ tiếng Hàn rồi chọn thẻ đúng ở bên dưới.",
                   )}
                 </p>
               </div>
@@ -218,7 +218,7 @@ export default function SessionVocabImageChoiceQuestion({
                   type="button"
                   onClick={() => handleOptionSelect(option.id, koreanLabel)}
                   aria-pressed={isSelected}
-                  aria-label={`${koreanLabel} - ${meaningLabel}${isSelected ? `, ${ui("selected", "da chon")}` : ""}`}
+                  aria-label={`${koreanLabel} - ${meaningLabel}${isSelected ? `, ${ui("selected", "đã chọn")}` : ""}`}
                   whileHover={{ scale: 1.03, y: -3 }}
                   whileTap={{ scale: 0.98 }}
                   transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -251,7 +251,7 @@ export default function SessionVocabImageChoiceQuestion({
           </motion.div>
 
           <CheckButton
-            label={ui("Check answer", "Kiem tra dap an")}
+            label={ui("Check answer", "Kiểm tra đáp án")}
             onClick={handleCheckAnswer}
             disabled={!selectedOption}
             fullWidth

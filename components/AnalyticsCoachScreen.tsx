@@ -38,8 +38,8 @@ function formatDeltaValue(value: number) {
 
 function getPriorityLabel(priority: PriorityLevel, locale: AppLocale) {
   return priority === "urgent"
-    ? ui(locale, "Urgent", "Can ngay")
-    : ui(locale, "Recommended", "Nen lam");
+    ? ui(locale, "Urgent", "Cần ngay")
+    : ui(locale, "Recommended", "Nên làm");
 }
 
 function getPriorityTone(priority: PriorityLevel) {
@@ -63,44 +63,44 @@ function getTrendTone(direction: AccuracyTrend["direction"] | StreakTrend["direc
 function getAccuracyTrendLabel(locale: AppLocale, trend: AccuracyTrend) {
   if (trend.deltaPercent === null) {
     if (trend.label === "No answers yet today") {
-      return ui(locale, "No answers yet today", "Hom nay ban chua tra loi.");
+      return ui(locale, "No answers yet today", "Hôm nay bạn chưa trả lời.");
     }
 
-    return ui(locale, "First active day", "Ngay dau co du lieu.");
+    return ui(locale, "First active day", "Ngày đầu có dữ liệu.");
   }
 
   if (trend.direction === "stable") {
-    return ui(locale, "Same as yesterday", "Bang hom qua");
+    return ui(locale, "Same as yesterday", "Bằng hôm qua");
   }
 
   return ui(
     locale,
     `${trend.deltaPercent > 0 ? "+" : ""}${formatDeltaValue(trend.deltaPercent)}% from yesterday`,
-    `${trend.deltaPercent > 0 ? "+" : ""}${formatDeltaValue(trend.deltaPercent)}% so voi hom qua`,
+    `${trend.deltaPercent > 0 ? "+" : ""}${formatDeltaValue(trend.deltaPercent)}% so với hôm qua`,
   );
 }
 
 function getStreakTrendLabel(locale: AppLocale, trend: StreakTrend) {
   if (trend.deltaDays === null) {
     if (trend.label === "Keep it alive today") {
-      return ui(locale, "Keep it alive today", "Giu chuoi hoc trong hom nay");
+      return ui(locale, "Keep it alive today", "Giữ chuỗi học trong hôm nay");
     }
 
     if (trend.label === "Streak starts today") {
-      return ui(locale, "Streak starts today", "Chuoi hoc bat dau hom nay");
+      return ui(locale, "Streak starts today", "Chuỗi học bắt đầu hôm nay");
     }
 
-    return ui(locale, "Start a streak today", "Bat dau chuoi hoc hom nay");
+    return ui(locale, "Start a streak today", "Bắt đầu chuỗi học hôm nay");
   }
 
   if (trend.direction === "stable") {
-    return ui(locale, "Same as yesterday", "Bang hom qua");
+    return ui(locale, "Same as yesterday", "Bằng hôm qua");
   }
 
   return ui(
     locale,
     `${trend.deltaDays > 0 ? "+" : ""}${trend.deltaDays} day${Math.abs(trend.deltaDays) === 1 ? "" : "s"} vs yesterday`,
-    `${trend.deltaDays > 0 ? "+" : ""}${trend.deltaDays} ngay so voi hom qua`,
+    `${trend.deltaDays > 0 ? "+" : ""}${trend.deltaDays} ngày so với hôm qua`,
   );
 }
 
@@ -119,7 +119,7 @@ function getWeakSkillInsight(entry: UserErrorHeatmapEntry, locale: AppLocale) {
     return ui(
       locale,
       "Grammar is slowing you down right now.",
-      "Ngu phap dang lam ban cham lai luc nay.",
+      "Ngữ pháp đang làm bạn chậm lại lúc này.",
     );
   }
 
@@ -127,14 +127,14 @@ function getWeakSkillInsight(entry: UserErrorHeatmapEntry, locale: AppLocale) {
     return ui(
       locale,
       "You are mixing these words too often.",
-      "Ban dang nham nhung tu nay qua nhieu.",
+      "Bạn đang nhầm những từ này quá nhiều.",
     );
   }
 
   return ui(
     locale,
     `${entry.wrongCount} misses so far.`,
-    `${entry.wrongCount} loi sai da duoc ghi lai.`,
+    `${entry.wrongCount} lỗi sai đã được ghi lại.`,
   );
 }
 
@@ -143,14 +143,14 @@ function getMistakeInsight(entry: UserErrorHeatmapEntry, locale: AppLocale) {
     return ui(
       locale,
       `This has slipped ${entry.repeatedFailureStreak} times in a row.`,
-      `Muc nay da truot ${entry.repeatedFailureStreak} lan lien tiep.`,
+      `Mục này đã trượt ${entry.repeatedFailureStreak} lần liên tiếp.`,
     );
   }
 
   return ui(
     locale,
     "You are mixing this often.",
-    "Ban dang nham muc nay kha thuong xuyen.",
+    "Bạn đang nhầm mục này khá thường xuyên.",
   );
 }
 
@@ -206,17 +206,17 @@ function AnalyticsHero({ locale }: { locale: AppLocale }) {
   return (
     <div className="relative z-10 space-y-4">
       <span className="pill bg-white/12 text-white">
-        {ui(locale, "Analytics", "Phan tich")}
+        {ui(locale, "Analytics", "Phân tích")}
       </span>
       <div className="space-y-3">
         <h1 className="max-w-3xl font-display text-4xl leading-tight text-white sm:text-6xl">
-          {ui(locale, "Know your next move.", "Biet ngay buoc tiep theo.")}
+          {ui(locale, "Know your next move.", "Biết ngay bước tiếp theo.")}
         </h1>
         <p className="max-w-2xl text-lg font-bold text-white/72">
           {ui(
             locale,
             "Fix what slips, practice it now, then keep the path moving.",
-            "Sua diem truot, luyen ngay, roi tiep tuc lo trinh.",
+            "Sửa điểm trượt, luyện ngay, rồi tiếp tục lộ trình.",
           )}
         </p>
       </div>
@@ -226,11 +226,11 @@ function AnalyticsHero({ locale }: { locale: AppLocale }) {
 
 function LearningLoopStrip({ locale }: { locale: AppLocale }) {
   const steps = [
-    ui(locale, "Learn", "Hoc"),
+    ui(locale, "Learn", "Học"),
     ui(locale, "Miss", "Sai"),
-    ui(locale, "Practice", "Luyen"),
-    ui(locale, "Improve", "Tien bo"),
-    ui(locale, "Continue", "Di tiep"),
+    ui(locale, "Practice", "Luyện"),
+    ui(locale, "Improve", "Tiến bộ"),
+    ui(locale, "Continue", "Đi tiếp"),
   ];
 
   return (
@@ -311,20 +311,20 @@ function NextActionCard({
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.18em] text-muted-foreground">
-            {ui(locale, "Next action", "Buoc tiep theo")}
+            {ui(locale, "Next action", "Bước tiếp theo")}
           </p>
           <h2 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">
-            {ui(locale, "What should you do next?", "Ban nen lam gi tiep theo?")}
+            {ui(locale, "What should you do next?", "Bạn nên làm gì tiếp theo?")}
           </h2>
         </div>
         <span className="pill bg-card-soft text-foreground">
-          {ui(locale, "Do this first", "Lam muc nay truoc")}
+          {ui(locale, "Do this first", "Làm mục này trước")}
         </span>
       </div>
 
       {isLoading ? (
         <div className="mt-5 rounded-[2rem] bg-card-soft px-5 py-5 text-base font-bold text-muted-foreground">
-          {ui(locale, "Loading your next move...", "Dang tim buoc tiep theo cho ban...")}
+          {ui(locale, "Loading your next move...", "Đang tìm bước tiếp theo cho bạn...")}
         </div>
       ) : null}
 
@@ -341,11 +341,11 @@ function NextActionCard({
               ))
             ) : (
               <CoachEmptyState
-                title={ui(locale, "You have one clear move.", "Ban dang co mot huong di rat ro.")}
+                title={ui(locale, "You have one clear move.", "Bạn đang có một hướng đi rất rõ.")}
                 summary={ui(
                   locale,
                   "Finish that first, then the next recommendation will update here.",
-                  "Hoan thanh muc nay truoc, roi goi y tiep theo se cap nhat tai day.",
+                  "Hoàn thành mục này trước, rồi gợi ý tiếp theo sẽ cập nhật tại đây.",
                 )}
               />
             )}
@@ -356,14 +356,14 @@ function NextActionCard({
       {!isLoading && !error && !primaryAction ? (
         <div className="mt-5">
           <CoachEmptyState
-            title={ui(locale, "Start with a practice set.", "Bat dau bang mot bo luyen tap.")}
+            title={ui(locale, "Start with a practice set.", "Bắt đầu bằng một bộ luyện tập.")}
             summary={ui(
               locale,
               "You need a few answers before this screen can coach you well.",
-              "Ban can tra loi them mot vai cau de man nay co the huan luyen tot hon.",
+              "Bạn cần trả lời thêm một vài câu để màn này có thể huấn luyện tốt hơn.",
             )}
             actionHref="/practice/session"
-            actionLabel={ui(locale, "Start practice", "Bat dau luyen tap")}
+            actionLabel={ui(locale, "Start practice", "Bắt đầu luyện tập")}
           />
         </div>
       ) : null}
@@ -398,10 +398,10 @@ function ProgressSummaryCard({
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.18em] text-muted-foreground">
-              {ui(locale, "Progress summary", "Tong quan tien do")}
+              {ui(locale, "Progress summary", "Tổng quan tiến độ")}
             </p>
             <h2 className="mt-2 font-display text-3xl text-foreground sm:text-4xl">
-              {ui(locale, "Keep this momentum alive.", "Giu nhip tien bo nay.")}
+              {ui(locale, "Keep this momentum alive.", "Giữ nhịp tiến bộ này.")}
             </h2>
           </div>
           {typeof totalAttempts === "number" ? (
@@ -409,7 +409,7 @@ function ProgressSummaryCard({
               {ui(
                 locale,
                 `${totalAttempts} answers tracked`,
-                `${totalAttempts} cau tra loi da duoc ghi lai`,
+                `${totalAttempts} câu trả lời đã được ghi lại`,
               )}
             </span>
           ) : null}
@@ -417,7 +417,7 @@ function ProgressSummaryCard({
 
         {isLoading ? (
           <div className="rounded-[2rem] bg-card-soft px-5 py-5 text-base font-bold text-muted-foreground">
-            {ui(locale, "Loading progress summary...", "Dang tai tong quan tien do...")}
+            {ui(locale, "Loading progress summary...", "Đang tải tổng quan tiến độ...")}
           </div>
         ) : null}
 
@@ -428,7 +428,7 @@ function ProgressSummaryCard({
             <div className="grid gap-5 md:grid-cols-3">
               <div className="rounded-[1.8rem] bg-card-soft p-5">
                 <p className="text-sm font-black uppercase tracking-[0.16em] text-muted-foreground">
-                  {ui(locale, "Accuracy", "Do chinh xac")}
+                  {ui(locale, "Accuracy", "Độ chính xác")}
                 </p>
                 <p className="mt-3 font-display text-5xl text-foreground">
                   {typeof accuracy === "number" ? formatPercent(accuracy) : "--"}
@@ -444,7 +444,7 @@ function ProgressSummaryCard({
 
               <div className="rounded-[1.8rem] bg-white p-5 shadow-[0_12px_26px_rgba(47,92,51,0.06)]">
                 <p className="text-sm font-black uppercase tracking-[0.16em] text-muted-foreground">
-                  {ui(locale, "Streak", "Chuoi hoc")}
+                  {ui(locale, "Streak", "Chuỗi học")}
                 </p>
                 <p className="mt-3 font-display text-5xl text-accent-strong">
                   {typeof streakDays === "number" ? streakDays : "--"}
@@ -467,7 +467,7 @@ function ProgressSummaryCard({
                 </p>
                 <div className="mt-3">
                   <TrendBadge direction="up">
-                    {ui(locale, "Keep stacking today", "Tiep tuc cong don hom nay")}
+                    {ui(locale, "Keep stacking today", "Tiếp tục cộng dồn hôm nay")}
                   </TrendBadge>
                 </div>
               </div>
@@ -495,16 +495,16 @@ function WeakSkillsCard({
       <div className="space-y-5">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.18em] text-muted-foreground">
-            {ui(locale, "Weak skills", "Ky nang dang yeu")}
+            {ui(locale, "Weak skills", "Kỹ năng đang yếu")}
           </p>
           <h2 className="mt-2 font-display text-3xl text-foreground">
-            {ui(locale, "Fix the skill that keeps slipping.", "Sua ky nang van dang bi truot.")}
+            {ui(locale, "Fix the skill that keeps slipping.", "Sửa kỹ năng vẫn đang bị trượt.")}
           </h2>
         </div>
 
         {isLoading ? (
           <div className="rounded-[2rem] bg-card-soft px-5 py-5 text-base font-bold text-muted-foreground">
-            {ui(locale, "Looking for weak skills...", "Dang tim ky nang can sua...")}
+            {ui(locale, "Looking for weak skills...", "Đang tìm kỹ năng cần sửa...")}
           </div>
         ) : null}
 
@@ -521,7 +521,7 @@ function WeakSkillsCard({
                   <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                     <div className="space-y-2">
                       <span className="pill bg-white text-foreground">
-                        {formatPercent(entry.accuracy)} {ui(locale, "accuracy", "do chinh xac")}
+                        {formatPercent(entry.accuracy)} {ui(locale, "accuracy", "độ chính xác")}
                       </span>
                       <h3 className="font-display text-3xl text-foreground">{entry.label}</h3>
                       <p className="text-sm font-bold text-muted-foreground">
@@ -530,7 +530,7 @@ function WeakSkillsCard({
                     </div>
 
                     <Link href="/practice/mistakes" className="primary-button w-full md:w-auto">
-                      {ui(locale, "Fix now", "Sua ngay")}
+                      {ui(locale, "Fix now", "Sửa ngay")}
                     </Link>
                   </div>
                 </article>
@@ -538,14 +538,14 @@ function WeakSkillsCard({
             </div>
           ) : (
             <CoachEmptyState
-              title={ui(locale, "No clear weak skill yet.", "Chua co ky nang yeu ro rang.")}
+              title={ui(locale, "No clear weak skill yet.", "Chưa có kỹ năng yếu rõ ràng.")}
               summary={ui(
                 locale,
                 "Finish a few more answers and this card will point to the next fix.",
-                "Tra loi them mot vai cau nua va card nay se chi ra diem can sua tiep theo.",
+                "Trả lời thêm một vài câu nữa và card này sẽ chỉ ra điểm cần sửa tiếp theo.",
               )}
               actionHref="/practice/session"
-              actionLabel={ui(locale, "Start practice", "Bat dau luyen tap")}
+              actionLabel={ui(locale, "Start practice", "Bắt đầu luyện tập")}
             />
           )
         ) : null}
@@ -570,16 +570,16 @@ function CommonMistakesCard({
       <div className="space-y-5">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.18em] text-muted-foreground">
-            {ui(locale, "Common mistakes", "Loi lap lai")}
+            {ui(locale, "Common mistakes", "Lỗi lặp lại")}
           </p>
           <h2 className="mt-2 font-display text-3xl text-foreground">
-            {ui(locale, "These are worth fixing next.", "Nhung muc nay nen sua tiep theo.")}
+            {ui(locale, "These are worth fixing next.", "Những mục này nên sửa tiếp theo.")}
           </h2>
         </div>
 
         {isLoading ? (
           <div className="rounded-[2rem] bg-card-soft px-5 py-5 text-base font-bold text-muted-foreground">
-            {ui(locale, "Loading repeated mistakes...", "Dang tai cac loi lap lai...")}
+            {ui(locale, "Loading repeated mistakes...", "Đang tải các lỗi lặp lại...")}
           </div>
         ) : null}
 
@@ -596,7 +596,7 @@ function CommonMistakesCard({
                   <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                     <div className="space-y-2">
                       <span className="pill bg-danger-soft text-danger">
-                        {ui(locale, "Often mixed up", "Hay bi nham")}
+                        {ui(locale, "Often mixed up", "Hay bị nhầm")}
                       </span>
                       <h3 className="font-display text-3xl text-foreground">{entry.label}</h3>
                       <p className="text-sm font-bold text-muted-foreground">
@@ -605,7 +605,7 @@ function CommonMistakesCard({
                     </div>
 
                     <Link href="/practice/mistakes" className="primary-button w-full md:w-auto">
-                      {ui(locale, "Fix now", "Sua ngay")}
+                      {ui(locale, "Fix now", "Sửa ngay")}
                     </Link>
                   </div>
                 </article>
@@ -613,14 +613,14 @@ function CommonMistakesCard({
             </div>
           ) : (
             <CoachEmptyState
-              title={ui(locale, "No repeated mistake yet.", "Chua co loi lap lai ro rang.")}
+              title={ui(locale, "No repeated mistake yet.", "Chưa có lỗi lặp lại rõ ràng.")}
               summary={ui(
                 locale,
                 "That is a good sign. Keep learning and this area will stay clean.",
-                "Day la dau hieu tot. Tiep tuc hoc de khu vuc nay giu duoc su sach se.",
+                "Đây là dấu hiệu tốt. Tiếp tục học để khu vực này giữ được sự sạch sẽ.",
               )}
               actionHref="/practice/session"
-              actionLabel={ui(locale, "Continue learning", "Tiep tuc hoc")}
+              actionLabel={ui(locale, "Continue learning", "Tiếp tục học")}
             />
           )
         ) : null}
@@ -655,14 +655,14 @@ export default function AnalyticsCoachScreen() {
     if ((practiceData?.dueMistakeCount ?? 0) > 0) {
       actions.push({
         id: "due-mistakes",
-        title: ui(locale, "Fix your due mistakes first.", "Sua loi sai den han truoc."),
+        title: ui(locale, "Fix your due mistakes first.", "Sửa lỗi sai đến hạn trước."),
         summary: ui(
           locale,
           `${practiceData?.dueMistakeCount ?? 0} items are waiting. Clear them before they stick.`,
-          `${practiceData?.dueMistakeCount ?? 0} muc dang cho. Xu ly ngay truoc khi chung dinh lai.`,
+          `${practiceData?.dueMistakeCount ?? 0} mục đang chờ. Xử lý ngay trước khi chúng dính lại.`,
         ),
         href: "/practice/mistakes",
-        cta: ui(locale, "Practice now", "Luyen ngay"),
+        cta: ui(locale, "Practice now", "Luyện ngay"),
         priority: "urgent",
       });
     }
@@ -676,14 +676,14 @@ export default function AnalyticsCoachScreen() {
 
       actions.push({
         id: "weak-lesson",
-        title: ui(locale, "Retry this lesson.", "Hoc lai bai nay."),
+        title: ui(locale, "Retry this lesson.", "Học lại bài này."),
         summary: ui(
           locale,
           `${lesson.label} is still weak at ${formatPercent(lesson.accuracy)} accuracy.`,
-          `${lesson.label} van dang yeu voi ${formatPercent(lesson.accuracy)} do chinh xac.`,
+          `${lesson.label} vẫn đang yếu với ${formatPercent(lesson.accuracy)} độ chính xác.`,
         ),
         href: `/practice/session?lessonId=${encodeURIComponent(lesson.scopeId)}`,
-        cta: ui(locale, "Retry", "Hoc lai"),
+        cta: ui(locale, "Retry", "Học lại"),
         priority: isUrgent ? "urgent" : "recommended",
       });
     }
@@ -693,18 +693,18 @@ export default function AnalyticsCoachScreen() {
         ? getLocalizedText(activeNode.title, locale)
         : activeUnit
           ? getLocalizedText(activeUnit.title, locale)
-          : ui(locale, "your current unit", "unit hien tai");
+          : ui(locale, "your current unit", "unit hiện tại");
 
       actions.push({
         id: "continue-review",
-        title: ui(locale, "Continue your current review.", "Tiep tuc phan on tap hien tai."),
+        title: ui(locale, "Continue your current review.", "Tiếp tục phần ôn tập hiện tại."),
         summary: ui(
           locale,
           `Go back to ${activeTitle} and keep the path moving.`,
-          `Quay lai ${activeTitle} va giu lo trinh tiep tuc di len.`,
+          `Quay lại ${activeTitle} và giữ lộ trình tiếp tục đi lên.`,
         ),
         href: activeUnit ? `/practice/session?unitId=${encodeURIComponent(activeUnit.id)}` : "/practice/session",
-        cta: ui(locale, "Continue review", "Tiep tuc on tap"),
+        cta: ui(locale, "Continue review", "Tiếp tục ôn tập"),
         priority: "recommended",
       });
     }
@@ -712,14 +712,14 @@ export default function AnalyticsCoachScreen() {
     if (!actions.length) {
       actions.push({
         id: "start-practice",
-        title: ui(locale, "Start a practice set.", "Bat dau mot bo luyen tap."),
+        title: ui(locale, "Start a practice set.", "Bắt đầu một bộ luyện tập."),
         summary: ui(
           locale,
           "You need a few answers before this screen can coach you well.",
-          "Ban can tra loi them mot vai cau de man nay co the huan luyen tot hon.",
+          "Bạn cần trả lời thêm một vài câu để màn này có thể huấn luyện tốt hơn.",
         ),
         href: "/practice/session",
-        cta: ui(locale, "Start practice", "Bat dau luyen tap"),
+        cta: ui(locale, "Start practice", "Bắt đầu luyện tập"),
         priority: "recommended",
       });
     }

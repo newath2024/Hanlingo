@@ -62,14 +62,14 @@ export default function SessionSpeakingQuestion({
   const blockedMicMessage = getLocalizedText(
     {
       en: "Microphone access is blocked. Allow mic permission in your browser, then try again.",
-      vi: "Microphone dang bi chan. Hay cap quyen mic trong trinh duyet roi thu lai.",
+      vi: "Microphone đang bị chặn. Hãy cấp quyền mic trong trình duyệt rồi thử lại.",
     },
     locale,
   );
   const speechErrorLabel = getLocalizedText(
     {
       en: "Speech recognition error",
-      vi: "Loi nhan dang giong noi",
+      vi: "Lỗi nhận dạng giọng nói",
     },
     locale,
   );
@@ -188,7 +188,7 @@ export default function SessionSpeakingQuestion({
       startKoreanSpeechRecognition(recognitionRef.current);
     } catch {
       setListening(false);
-      setErrorMessage(ui("Speech recognition is already running.", "Nhan dang giong noi dang chay san."));
+      setErrorMessage(ui("Speech recognition is already running.", "Nhận dạng giọng nói đang chạy sẵn."));
     }
   }
 
@@ -212,8 +212,8 @@ export default function SessionSpeakingQuestion({
       correctAnswer: item.correctAnswer,
       explanation: item.explanation,
       detail: transcript
-        ? `${ui("Transcript", "Ban ghi")}: ${transcript}`
-        : ui("No transcript was captured.", "Khong co ban ghi nao duoc thu."),
+        ? `${ui("Transcript", "Bản ghi")}: ${transcript}`
+        : ui("No transcript was captured.", "Không có bản ghi nào được thu."),
     });
   }
 
@@ -233,11 +233,11 @@ export default function SessionSpeakingQuestion({
       detail: speechSupported
         ? ui(
             "You skipped the mic check for this speaking prompt.",
-            "Ban da bo qua buoc kiem tra mic cho cau noi nay.",
+            "Bạn đã bỏ qua bước kiểm tra mic cho câu nói này.",
           )
         : ui(
             "Speech recognition is unavailable, so this speaking prompt counts as practice only.",
-            "Khong co nhan dang giong noi, vi vay cau noi nay chi tinh la luyen tap.",
+            "Không có nhận dạng giọng nói, vì vậy câu nói này chỉ tính là luyện tập.",
           ),
     });
   }
@@ -254,21 +254,21 @@ export default function SessionSpeakingQuestion({
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
             {item.isRetry
               ? isListenRepeat
-                ? ui("Retry listen & repeat", "Nghe va lap lai")
-                : ui("Retry speaking", "Noi lai")
+                ? ui("Retry listen & repeat", "Nghe và lặp lại")
+                : ui("Retry speaking", "Nói lại")
               : isListenRepeat
-                ? ui("Listen & Repeat", "Nghe va lap lai")
-                : ui("Speaking", "Noi")}
+                ? ui("Listen & Repeat", "Nghe và lặp lại")
+                : ui("Speaking", "Nói")}
           </p>
           <h3 className="font-display text-3xl text-foreground sm:text-4xl">
             {isListenRepeat
               ? ui(
                   "Play the model audio, then repeat the Korean chunks out loud.",
-                  "Phat audio mau, roi lap lai cac cum tieng Han thanh tieng.",
+                  "Phát audio mẫu, rồi lặp lại các cụm tiếng Hàn thành tiếng.",
                 )
               : ui(
                   "Say the Korean prompt out loud, then check the transcript.",
-                  "Doc cau tieng Han thanh tieng, roi kiem tra ban ghi.",
+                  "Đọc câu tiếng Hàn thành tiếng, rồi kiểm tra bản ghi.",
                 )}
           </h3>
         </motion.div>
@@ -276,8 +276,8 @@ export default function SessionSpeakingQuestion({
         <motion.article className="lesson-card space-y-5 text-center" variants={itemVariants}>
           <span className="pill mx-auto bg-accent-cool text-accent-strong">
             {speechSupported
-              ? ui("Speech recognition ready", "San sang nhan dang giong noi")
-              : ui("Practice-only fallback", "Che do luyen tap")}
+              ? ui("Speech recognition ready", "Sẵn sàng nhận dạng giọng nói")
+              : ui("Practice-only fallback", "Chế độ luyện tập")}
           </span>
 
           <div className="space-y-2">
@@ -297,15 +297,15 @@ export default function SessionSpeakingQuestion({
           <div className="flex justify-center">
             <button type="button" onClick={handlePlayModelAudio} className="secondary-button">
               {isPlayingModel
-                ? ui("Playing model...", "Dang phat mau...")
-                : ui("Play model audio", "Phat audio mau")}
+                ? ui("Playing model...", "Đang phát mẫu...")
+                : ui("Play model audio", "Phát audio mẫu")}
             </button>
           </div>
 
           {isListenRepeat ? (
             <div className="rounded-[1.8rem] bg-card-soft p-5 text-left">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
-                {ui("Target chunks", "Cum muc tieu")}
+                {ui("Target chunks", "Cụm mục tiêu")}
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
                 {chunkState.map((chunk) => (
@@ -324,27 +324,27 @@ export default function SessionSpeakingQuestion({
                 ))}
               </div>
               <p className="mt-4 text-sm font-bold text-muted-foreground">
-                {ui("Pass rule", "Dieu kien dat")}: {item.passRule.min_correct_chunks}/
-                {item.expectedChunks.length} {ui("chunks", "cum")}
+                {ui("Pass rule", "Điều kiện đạt")}: {item.passRule.min_correct_chunks}/
+                {item.expectedChunks.length} {ui("chunks", "cụm")}
               </p>
             </div>
           ) : (
             <p className="text-base font-bold leading-7 text-muted-foreground">
-              {ui("Target scaffold", "Khung cau dich")}: {expectedSpeech}
+              {ui("Target scaffold", "Khung câu đích")}: {expectedSpeech}
             </p>
           )}
 
           <div className="rounded-[1.8rem] bg-card-soft p-5 text-left">
             <div className="flex items-center justify-between gap-3">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
-                {ui("Transcript", "Ban ghi")}
+                {ui("Transcript", "Bản ghi")}
               </p>
               <span className="pill bg-white text-muted-foreground">
                 {speechSupported
                   ? listening
-                    ? ui("Listening", "Dang nghe")
-                    : ui("Ready", "San sang")
-                  : ui("Mic unavailable", "Khong co mic")}
+                    ? ui("Listening", "Đang nghe")
+                    : ui("Ready", "Sẵn sàng")
+                  : ui("Mic unavailable", "Không có mic")}
               </span>
             </div>
             <p className="mt-2 text-base font-bold text-foreground">
@@ -352,11 +352,11 @@ export default function SessionSpeakingQuestion({
                 (speechSupported
                   ? ui(
                       "Your spoken transcript will appear here.",
-                      "Ban ghi giong noi cua ban se hien o day.",
+                      "Bản ghi giọng nói của bạn sẽ hiện ở đây.",
                     )
                   : ui(
                       "You can still practice out loud and move on without the mic.",
-                      "Ban van co the doc thanh tieng va di tiep ma khong can mic.",
+                      "Bạn vẫn có thể đọc thành tiếng và đi tiếp mà không cần mic.",
                     ))}
             </p>
           </div>
@@ -367,20 +367,20 @@ export default function SessionSpeakingQuestion({
                 ? isListenRepeat
                   ? ui(
                       "Nice! You matched enough chunks from the target sentence.",
-                      "Tot! Ban da khop du so cum cua cau muc tieu.",
+                      "Tốt! Bạn đã khớp đủ số cụm của câu mục tiêu.",
                     )
                   : ui(
                       "Nice! The transcript is close enough to the target scaffold.",
-                      "Tot! Ban ghi da du gan voi khung cau muc tieu.",
+                      "Tốt! Bản ghi đã đủ gần với khung câu mục tiêu.",
                     )
                 : isListenRepeat
                   ? ui(
                       "Not enough chunks matched yet. Submit it now to retry later in this run.",
-                      "So cum khop chua du. Gui bay gio de gap lai muc nay ve sau trong luot hoc.",
+                      "Số cụm khớp chưa đủ. Gửi bây giờ để gặp lại mục này về sau trong lượt học.",
                     )
                   : ui(
                       "Not quite yet. Submit it now to see the target again later in this run.",
-                      "Chua dat. Gui bay gio de gap lai muc nay ve sau trong luot hoc.",
+                      "Chưa đạt. Gửi bây giờ để gặp lại mục này về sau trong lượt học.",
                     )}
             </div>
           ) : null}
@@ -391,7 +391,7 @@ export default function SessionSpeakingQuestion({
             {speechSupported ? (
               listening ? (
                 <CheckButton
-                  label={ui("Stop microphone", "Dung microphone")}
+                  label={ui("Stop microphone", "Dừng microphone")}
                   onClick={() => recognitionRef.current?.stop()}
                   fullWidth
                 />
@@ -399,22 +399,22 @@ export default function SessionSpeakingQuestion({
                 <CheckButton
                   label={
                     isListenRepeat
-                      ? ui("Check repetition", "Kiem tra lap lai")
-                      : ui("Check speaking", "Kiem tra phan noi")
+                      ? ui("Check repetition", "Kiểm tra lặp lại")
+                      : ui("Check speaking", "Kiểm tra phần nói")
                   }
                   onClick={handleSubmitAttempt}
                   fullWidth
                 />
               ) : (
                 <CheckButton
-                  label={ui("Start microphone", "Bat dau microphone")}
+                  label={ui("Start microphone", "Bắt đầu microphone")}
                   onClick={handleStartSpeaking}
                   fullWidth
                 />
               )
             ) : (
               <CheckButton
-                label={ui("Practice without mic", "Luyen tap khong can mic")}
+                label={ui("Practice without mic", "Luyện tập không cần mic")}
                 onClick={handleSkip}
                 fullWidth
               />
@@ -426,13 +426,13 @@ export default function SessionSpeakingQuestion({
                 onClick={handleRetryCapture}
                 className="secondary-button w-full"
               >
-                {ui("Retry capture", "Thu ghi lai")}
+                {ui("Retry capture", "Thử ghi lại")}
               </button>
             ) : null}
 
             {!listening ? (
               <button type="button" onClick={handleSkip} className="secondary-button w-full">
-                {ui("No mic right now, continue", "Khong dung mic luc nay, di tiep")}
+                {ui("No mic right now, continue", "Không dùng mic lúc này, đi tiếp")}
               </button>
             ) : null}
           </div>

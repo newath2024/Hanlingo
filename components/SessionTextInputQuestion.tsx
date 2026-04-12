@@ -148,24 +148,24 @@ export default function SessionTextInputQuestion({
           <div className="space-y-2">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-muted-foreground">
               {item.isRetry
-                ? ui("Retry question", "Cau hoi lam lai")
+                ? ui("Retry question", "Câu hỏi làm lại")
                 : isAdaptiveTyping
-                  ? ui("Type Sentence", "Nhap cau")
+                  ? ui("Type Sentence", "Nhập câu")
                   : item.type === "fill_blank"
-                    ? ui("Fill Blank", "Dien khuyet")
-                    : ui("Translate", "Dich")}
+                    ? ui("Fill Blank", "Điền khuyết")
+                    : ui("Translate", "Dịch")}
             </p>
             <h3 className="font-display text-3xl text-foreground sm:text-4xl">
               {isAdaptiveTyping
-                ? ui("Type the full Korean sentence.", "Nhap toan bo cau tieng Han.")
+                ? ui("Type the full Korean sentence.", "Nhập toàn bộ câu tiếng Hàn.")
                 : hasChoiceOptions
-                  ? ui("Choose the missing answer.", "Chon dap an con thieu.")
-                  : ui("Type the missing answer.", "Nhap dap an con thieu.")}
+                  ? ui("Choose the missing answer.", "Chọn đáp án còn thiếu.")
+                  : ui("Type the missing answer.", "Nhập đáp án còn thiếu.")}
             </h3>
           </div>
           {hasAudio ? (
             <button type="button" onClick={handlePlayAudio} className="secondary-button">
-              {isPlaying ? ui("Playing...", "Dang phat...") : ui("Play audio", "Phat audio")}
+              {isPlaying ? ui("Playing...", "Đang phát...") : ui("Play audio", "Phát audio")}
             </button>
           ) : null}
         </motion.div>
@@ -231,14 +231,14 @@ export default function SessionTextInputQuestion({
               <input
                 value={inputValue}
                 onChange={(event) => setInputValue(event.target.value)}
-                placeholder={placeholder || ui("Type your answer", "Nhap cau tra loi")}
+                placeholder={placeholder || ui("Type your answer", "Nhập câu trả lời")}
                 className="w-full rounded-[1.8rem] border border-accent/15 bg-white px-5 py-4 text-xl font-bold text-foreground outline-none transition focus:border-accent"
               />
             </motion.div>
           )}
 
           <CheckButton
-            label={ui("Check answer", "Kiem tra dap an")}
+            label={ui("Check answer", "Kiểm tra đáp án")}
             onClick={handleCheckAnswer}
             disabled={hasChoiceOptions ? !selectedChoice : !inputValue.trim()}
             fullWidth

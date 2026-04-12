@@ -7,11 +7,11 @@ import LeaderboardRow from "@/components/leaderboard/LeaderboardRow";
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { getLocalizedText } from "@/lib/localized";
 import { LEAGUE_TONES, STATUS_ICON_USAGE, ZONE_TONES } from "@/lib/status-icons";
+import type { AppLocale } from "@/types/app-locale";
 import type {
   LeaderboardResponse,
   LeaderboardZoneStatus,
 } from "@/types/leaderboard";
-import type { AppLocale } from "@/types/app-locale";
 
 function ui(locale: AppLocale, en: string, vi: string) {
   return getLocalizedText({ en, vi }, locale);
@@ -19,12 +19,12 @@ function ui(locale: AppLocale, en: string, vi: string) {
 
 function formatLeagueLabel(locale: AppLocale, league: string) {
   const label = `${league.charAt(0).toUpperCase()}${league.slice(1)}`;
-  return ui(locale, `${label} League`, `Hang ${label}`);
+  return ui(locale, `${label} League`, `Hạng ${label}`);
 }
 
 function formatLeagueBadgeLabel(locale: AppLocale, league: string) {
   const label = `${league.charAt(0).toUpperCase()}${league.slice(1)}`;
-  return ui(locale, `${label} tier`, `Cap ${label}`);
+  return ui(locale, `${label} tier`, `Cấp ${label}`);
 }
 
 function formatTimeRemaining(locale: AppLocale, ms: number) {
@@ -33,34 +33,34 @@ function formatTimeRemaining(locale: AppLocale, ms: number) {
   const hours = totalHours % 24;
 
   if (days > 0) {
-    return ui(locale, `${days}d ${hours}h left`, `Con ${days} ngay ${hours} gio`);
+    return ui(locale, `${days}d ${hours}h left`, `Còn ${days} ngày ${hours} giờ`);
   }
 
-  return ui(locale, `${hours}h left`, `Con ${hours} gio`);
+  return ui(locale, `${hours}h left`, `Còn ${hours} giờ`);
 }
 
 function getZoneCopy(locale: AppLocale, zoneStatus: LeaderboardZoneStatus) {
   if (zoneStatus === "promotion") {
-    return ui(locale, "You are in the promotion zone", "Ban dang o vung thang hang");
+    return ui(locale, "You are in the promotion zone", "Bạn đang ở vùng thăng hạng");
   }
 
   if (zoneStatus === "demotion") {
-    return ui(locale, "You are in the demotion zone", "Ban dang o vung xuong hang");
+    return ui(locale, "You are in the demotion zone", "Bạn đang ở vùng xuống hạng");
   }
 
-  return ui(locale, "You are safe", "Ban dang an toan");
+  return ui(locale, "You are safe", "Bạn đang an toàn");
 }
 
 function getZoneLabel(locale: AppLocale, zoneStatus: LeaderboardZoneStatus) {
   if (zoneStatus === "promotion") {
-    return ui(locale, "Promotion zone", "Vung thang hang");
+    return ui(locale, "Promotion zone", "Vùng thăng hạng");
   }
 
   if (zoneStatus === "demotion") {
-    return ui(locale, "Demotion zone", "Vung xuong hang");
+    return ui(locale, "Demotion zone", "Vùng xuống hạng");
   }
 
-  return ui(locale, "Safe zone", "Vung an toan");
+  return ui(locale, "Safe zone", "Vùng an toàn");
 }
 
 function getLowDataCopy(locale: AppLocale, participantCount: number) {
@@ -68,14 +68,14 @@ function getLowDataCopy(locale: AppLocale, participantCount: number) {
     return ui(
       locale,
       "You are the first participant in this group this week. The board is live now and will fill as more real users play.",
-      "Ban la nguoi dau tien trong nhom nay tuan nay. Bang xep hang da hoat dong va se day dan khi co them nguoi choi that.",
+      "Bạn là người đầu tiên trong nhóm này tuần này. Bảng xếp hạng đã hoạt động và sẽ đầy dần khi có thêm người chơi thật.",
     );
   }
 
   return ui(
     locale,
     `${participantCount} real players are in this group so far. Promotion and demotion zones scale down automatically while the group is still small.`,
-    `Hien co ${participantCount} nguoi choi that trong nhom nay. Vung thang hang va xuong hang se tu dong thu gon khi nhom con nho.`,
+    `Hiện có ${participantCount} người chơi thật trong nhóm này. Vùng thăng hạng và xuống hạng sẽ tự động thu gọn khi nhóm còn nhỏ.`,
   );
 }
 
@@ -170,16 +170,16 @@ export default function LeaderboardScreen() {
         <section className="panel">
           <div className="lesson-card space-y-4 text-center">
             <span className="pill mx-auto bg-card-strong text-foreground">
-              {ui(locale, "Leaderboard", "Bang xep hang")}
+              {ui(locale, "Leaderboard", "Bảng xếp hạng")}
             </span>
             <h1 className="font-display text-4xl text-foreground sm:text-5xl">
-              {ui(locale, "Loading the current weekly board.", "Dang tai bang xep hang tuan nay.")}
+              {ui(locale, "Loading the current weekly board.", "Đang tải bảng xếp hạng tuần này.")}
             </h1>
             <p className="text-base font-bold text-muted-foreground">
               {ui(
                 locale,
                 "Checking the active week, your group, and the latest rank order.",
-                "Dang kiem tra tuan dang chay, nhom cua ban, va thu tu xep hang moi nhat.",
+                "Đang kiểm tra tuần đang chạy, nhóm của bạn, và thứ tự xếp hạng mới nhất.",
               )}
             </p>
           </div>
@@ -194,20 +194,20 @@ export default function LeaderboardScreen() {
         <section className="panel">
           <div className="lesson-card space-y-5 text-center">
             <span className="pill mx-auto bg-danger-soft text-danger">
-              {ui(locale, "Leaderboard", "Bang xep hang")}
+              {ui(locale, "Leaderboard", "Bảng xếp hạng")}
             </span>
             <h1 className="font-display text-4xl text-foreground sm:text-5xl">
-              {ui(locale, "Leaderboard could not load.", "Khong the tai bang xep hang.")}
+              {ui(locale, "Leaderboard could not load.", "Không thể tải bảng xếp hạng.")}
             </h1>
             <div className="feedback-incorrect">
-              {error ?? ui(locale, "Unknown error.", "Loi khong xac dinh.")}
+              {error ?? ui(locale, "Unknown error.", "Lỗi không xác định.")}
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               <Link href="/leaderboard" className="primary-button w-full">
-                {ui(locale, "Retry", "Thu lai")}
+                {ui(locale, "Retry", "Thử lại")}
               </Link>
               <Link href="/" className="secondary-button w-full">
-                {ui(locale, "Back to Learn", "Ve Hoc")}
+                {ui(locale, "Back to Learn", "Về Học")}
               </Link>
             </div>
           </div>
@@ -222,7 +222,7 @@ export default function LeaderboardScreen() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
           <div className="space-y-4">
             <span className="pill bg-accent text-white">
-              {ui(locale, "Leaderboard", "Bang xep hang")}
+              {ui(locale, "Leaderboard", "Bảng xếp hạng")}
             </span>
             <div className="space-y-3">
               <div className="flex flex-wrap items-center gap-3">
@@ -249,7 +249,7 @@ export default function LeaderboardScreen() {
                 {ui(
                   locale,
                   `Group ${data.group.groupNumber} closes ${formatTimeRemaining(locale, data.meta.timeRemainingMs)}.`,
-                  `Nhom ${data.group.groupNumber} dong sau ${formatTimeRemaining(locale, data.meta.timeRemainingMs)}.`,
+                  `Nhóm ${data.group.groupNumber} đóng sau ${formatTimeRemaining(locale, data.meta.timeRemainingMs)}.`,
                 )}
               </p>
             </div>
@@ -257,7 +257,7 @@ export default function LeaderboardScreen() {
 
           <div className="w-full max-w-[380px] rounded-[2rem] bg-[#18261d] p-5 text-white shadow-[0_24px_64px_rgba(20,35,27,0.22)]">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-white/58">
-              {ui(locale, "Current status", "Trang thai hien tai")}
+              {ui(locale, "Current status", "Trạng thái hiện tại")}
             </p>
             <h2 className="mt-4 font-display text-4xl leading-tight text-white">
               {getZoneCopy(locale, data.currentUser.zoneStatus)}
@@ -282,25 +282,25 @@ export default function LeaderboardScreen() {
                 ? ui(
                     locale,
                     "You are currently leading this group.",
-                    "Ban dang dan dau nhom nay.",
+                    "Bạn đang dẫn đầu nhóm này.",
                   )
                 : ui(
                     locale,
                     `${data.currentUser.xpToNextRank} XP needed to overtake the next player.`,
-                    `Can ${data.currentUser.xpToNextRank} XP de vuot nguoi dung tren.`,
+                    `Còn ${data.currentUser.xpToNextRank} XP để vượt người đứng trên.`,
                   )}
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
               <div className="rounded-[1.4rem] bg-white/10 px-4 py-3">
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-white/58">
-                  {ui(locale, "Rank", "Hang")}
+                  {ui(locale, "Rank", "Hạng")}
                 </p>
                 <p className="mt-2 font-display text-4xl text-white">{data.currentUser.rank}</p>
               </div>
               <div className="rounded-[1.4rem] bg-white/10 px-4 py-3">
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-white/58">
-                  {ui(locale, "Weekly XP", "XP tuan")}
+                  {ui(locale, "Weekly XP", "XP tuần")}
                 </p>
                 <p className="mt-2 font-display text-4xl text-[#8ce052]">
                   {data.currentUser.weeklyXp}
@@ -308,7 +308,7 @@ export default function LeaderboardScreen() {
               </div>
               <div className="rounded-[1.4rem] bg-white/10 px-4 py-3">
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-white/58">
-                  {ui(locale, "Lessons", "Bai hoc")}
+                  {ui(locale, "Lessons", "Bài học")}
                 </p>
                 <p className="mt-2 text-2xl font-extrabold text-white">
                   {data.currentUser.lessonsCompleted}
@@ -316,7 +316,7 @@ export default function LeaderboardScreen() {
               </div>
               <div className="rounded-[1.4rem] bg-white/10 px-4 py-3">
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-white/58">
-                  {ui(locale, "Practice", "Luyen tap")}
+                  {ui(locale, "Practice", "Luyện tập")}
                 </p>
                 <p className="mt-2 text-2xl font-extrabold text-white">
                   {data.currentUser.practicesCompleted}
@@ -338,17 +338,21 @@ export default function LeaderboardScreen() {
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.2em] text-muted-foreground">
-                {ui(locale, "Weekly group", "Nhom tuan nay")}
+                {ui(locale, "Weekly group", "Nhóm tuần này")}
               </p>
               <h2 className="mt-2 font-display text-3xl text-foreground">
-                {ui(locale, "Promotion and demotion are marked directly in the list.", "Vung thang hang va xuong hang duoc danh dau ngay trong danh sach.")}
+                {ui(
+                  locale,
+                  "Promotion and demotion are marked directly in the list.",
+                  "Vùng thăng hạng và xuống hạng được đánh dấu ngay trong danh sách.",
+                )}
               </h2>
             </div>
             <span className="pill bg-card-strong text-foreground">
               {ui(
                 locale,
                 `${data.meta.totalParticipants} participants`,
-                `${data.meta.totalParticipants} nguoi tham gia`,
+                `${data.meta.totalParticipants} người tham gia`,
               )}
             </span>
           </div>

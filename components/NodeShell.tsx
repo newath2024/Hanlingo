@@ -68,14 +68,14 @@ function useClientReady() {
 
 function getWeakReasonLabel(locale: "en" | "vi", reason: WeakSessionItem["reason"]) {
   if (reason === "incorrect") {
-    return getLocalizedText({ en: "Needs retry", vi: "Can lam lai" }, locale);
+    return getLocalizedText({ en: "Needs retry", vi: "Cần làm lại" }, locale);
   }
 
   if (reason === "skipped") {
-    return getLocalizedText({ en: "Skipped", vi: "Da bo qua" }, locale);
+    return getLocalizedText({ en: "Skipped", vi: "Đã bỏ qua" }, locale);
   }
 
-  return getLocalizedText({ en: "Practice only", vi: "Chi luyen tap" }, locale);
+  return getLocalizedText({ en: "Practice only", vi: "Chỉ luyện tập" }, locale);
 }
 
 function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
@@ -529,9 +529,9 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     const nextLabel =
       currentIndex === sessionItems.length - 1
         ? isSavingCompletion
-          ? ui("Saving lesson...", "Dang luu bai hoc...")
-          : ui("Save lesson summary", "Luu tong ket bai hoc")
-        : ui("Next", "Tiep theo");
+          ? ui("Saving lesson...", "Đang lưu bài học...")
+          : ui("Save lesson summary", "Lưu tổng kết bài học")
+        : ui("Next", "Tiếp theo");
     const explanation = result.explanation ? getLocalizedText(result.explanation, locale) : "";
     const correctAnswer = result.correctAnswer
       ? getLocalizedValue(result.correctAnswer, locale)
@@ -547,19 +547,19 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
       status: result.status,
       title:
         result.status === "correct"
-          ? ui("Nice!", "Tot!")
+          ? ui("Nice!", "Tốt!")
           : result.status === "incorrect"
-            ? ui("Not quite.", "Chua dung.")
+            ? ui("Not quite.", "Chưa đúng.")
             : result.status === "skipped"
-              ? ui("Skipped for now.", "Tam thoi bo qua.")
-              : ui("Practice saved.", "Da luu luot luyen tap."),
+              ? ui("Skipped for now.", "Tạm thời bỏ qua.")
+              : ui("Practice saved.", "Đã lưu lượt luyện tập."),
       eyebrow: item.isRetry
-        ? ui("Retry checked", "Da kiem tra lan lam lai")
-        : ui("Question checked", "Da kiem tra cau hoi"),
+        ? ui("Retry checked", "Đã kiểm tra lần làm lại")
+        : ui("Question checked", "Đã kiểm tra câu hỏi"),
       badges: (
         <>
           <span className="pill bg-card-strong text-foreground">
-            {item.isRetry ? ui("Retry item", "Muc lam lai") : ui("First pass", "Luot dau")}
+            {item.isRetry ? ui("Retry item", "Mục làm lại") : ui("First pass", "Lượt đầu")}
           </span>
           {result.status === "correct" && awardedXp > 0 ? (
             <span className="pill bg-success-soft text-accent-strong">+{awardedXp} XP</span>
@@ -572,27 +572,27 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
             {awardedXp > 0
               ? ui(
                   `+${awardedXp} XP earned on this first-pass answer.`,
-                  `+${awardedXp} XP cho cau tra loi dung o luot dau.`,
+                  `+${awardedXp} XP cho câu trả lời đúng ở lượt đầu.`,
                 )
               : ui(
                   "Correct on the retry. No bonus XP is added on replay items.",
-                  "Dung o lan lam lai. Khong cong them XP cho muc quay lai.",
+                  "Đúng ở lần làm lại. Không cộng thêm XP cho mục quay lại.",
                 )}
           </p>
         ) : result.status === "incorrect" ? (
           <div className="space-y-2">
             <p>
-              {ui("Correct answer", "Dap an dung")}: {correctAnswer}
+              {ui("Correct answer", "Đáp án đúng")}: {correctAnswer}
             </p>
             <p className="font-semibold">
               {queuedRetry
                 ? ui(
                     "This question will return once later in the lesson run.",
-                    "Cau hoi nay se quay lai mot lan nua ve sau trong luot hoc.",
+                    "Câu hỏi này sẽ quay lại một lần nữa về sau trong lượt học.",
                   )
                 : ui(
                     "This question will stay in your weak-items summary.",
-                    "Cau hoi nay se duoc giu trong tong ket muc yeu.",
+                    "Câu hỏi này sẽ được giữ trong tổng kết mục yếu.",
                   )}
             </p>
           </div>
@@ -602,7 +602,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
             <p className="font-semibold">
               {ui(
                 "No XP for this mic-free pass. It stays in weak items for review.",
-                "Khong co XP cho lan bo qua mic nay. Muc nay van o lai trong danh sach can xem lai.",
+                "Không có XP cho lần bỏ qua mic này. Mục này vẫn ở lại trong danh sách cần xem lại.",
               )}
             </p>
           </div>
@@ -611,7 +611,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
         result.status === "incorrect"
           ? ui(
               "Correct it once now so the retry later feels automatic.",
-              "Sua lai ngay bay gio de lan gap lai sau nay tro nen tu dong hon.",
+              "Sửa lại ngay bây giờ để lần gặp lại sau này trở nên tự động hơn.",
             )
           : undefined,
       detail: result.detail || undefined,
@@ -621,7 +621,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
       errorMessage: saveError,
       onContinue: () => void handleAdvance(),
       actionLabel: nextLabel,
-      actionLoadingLabel: ui("Saving lesson...", "Dang luu bai hoc..."),
+      actionLoadingLabel: ui("Saving lesson...", "Đang lưu bài học..."),
       isContinuing: isSavingCompletion,
       showCelebration: result.status === "correct",
       widthClassName: "max-w-3xl",
@@ -640,16 +640,16 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
           <div className="space-y-2">
             <span className="pill mx-auto bg-success-soft text-accent-strong">
               {node.type === "review"
-                ? ui("Review lesson complete", "Da xong bai on tap")
-                : ui("Lesson complete", "Da xong bai hoc")}
+                ? ui("Review lesson complete", "Đã xong bài ôn tập")
+                : ui("Lesson complete", "Đã xong bài học")}
             </span>
             <h3 className="font-display text-4xl text-foreground sm:text-5xl">
-              {nodeTitle} {ui("cleared.", "da hoan thanh.")}
+              {nodeTitle} {ui("cleared.", "đã hoàn thành.")}
             </h3>
             <p className="text-lg font-bold text-muted-foreground">
               {ui(
                 "First-pass score is based on the authored lesson flow only.",
-                "Diem luot dau chi tinh theo luong bai hoc duoc bien soan san.",
+                "Điểm lượt đầu chỉ tính theo luồng bài học được biên soạn sẵn.",
               )}
             </p>
           </div>
@@ -657,7 +657,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="rounded-[1.8rem] bg-card-strong p-5">
               <p className="text-sm font-bold text-muted-foreground">
-                {ui("Score", "Diem")}
+                {ui("Score", "Điểm")}
               </p>
               <p className="mt-2 font-display text-4xl text-foreground">
                 {firstPassScore}/{node.sessionLength}
@@ -665,7 +665,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
             </div>
             <div className="rounded-[1.8rem] bg-white p-5">
               <p className="text-sm font-bold text-muted-foreground">
-                {ui("Run XP", "XP luot hoc")}
+                {ui("Run XP", "XP lượt học")}
               </p>
               <p className="mt-2 font-display text-4xl text-accent-strong">
                 +{sessionXpEarned}
@@ -673,7 +673,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
             </div>
             <div className="rounded-[1.8rem] bg-white p-5">
               <p className="text-sm font-bold text-muted-foreground">
-                {ui("Retry Items", "Muc lam lai")}
+                {ui("Retry Items", "Mục làm lại")}
               </p>
               <p className="mt-2 font-display text-4xl text-foreground">
                 {sessionItems.length - node.sessionLength}
@@ -683,7 +683,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
 
           <div className="rounded-[1.8rem] bg-card-soft p-5 text-left">
             <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
-              {ui("Weak items", "Muc yeu")}
+              {ui("Weak items", "Mục yếu")}
             </p>
             {weakItems.length > 0 ? (
               <div className="mt-4 space-y-3">
@@ -717,7 +717,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
               <p className="mt-4 text-base font-bold text-muted-foreground">
                 {ui(
                   "No weak items this run. Clean lesson clear.",
-                  "Khong co muc yeu nao trong luot nay. Bai hoc rat sach.",
+                  "Không có mục yếu nào trong lượt này. Bài học rất sạch.",
                 )}
               </p>
             )}
@@ -733,11 +733,11 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
             {nodeRun?.weak
               ? ui(
                   "This lesson is marked weak because the first-pass score landed under 60%.",
-                  "Bai hoc nay bi danh dau la yeu vi diem luot dau duoi 60%.",
+                  "Bài học này bị đánh dấu là yếu vì điểm lượt đầu dưới 60%.",
                 )
               : ui(
                   "This lesson is in a healthy state for now.",
-                  "Bai hoc nay dang o trang thai on dinh.",
+                  "Bài học này đang ở trạng thái ổn định.",
                 )}
           </div>
 
@@ -746,15 +746,15 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
               {nextNode.type === "review"
                 ? ui(
                     "The final review lesson is now unlocked.",
-                    "Bai on tap cuoi cung da duoc mo khoa.",
+                    "Bài ôn tập cuối cùng đã được mở khóa.",
                   )
-                : `${getLocalizedText(nextNode.title, locale)} ${ui("is now unlocked.", "da duoc mo khoa.")}`}
+                : `${getLocalizedText(nextNode.title, locale)} ${ui("is now unlocked.", "đã được mở khóa.")}`}
             </div>
           ) : null}
 
           {(unitCompletedNow || unitIsComplete) && node.type === "review" ? (
             <div className="rounded-[1.8rem] bg-success-soft px-5 py-4 text-base font-bold text-accent-strong">
-              {ui("The full unit is now complete.", "Toan bo unit da hoan thanh.")}
+              {ui("The full unit is now complete.", "Toàn bộ unit đã hoàn thành.")}
             </div>
           ) : null}
 
@@ -766,29 +766,29 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
             }`}
           >
             {nodeCompletedNow
-              ? ui("Lesson completion saved to your account.", "Tien do bai hoc da duoc luu vao tai khoan.")
+              ? ui("Lesson completion saved to your account.", "Tiến độ bài học đã được lưu vào tài khoản.")
               : completedAtSessionStart
                 ? ui(
                     "This lesson was already completed before this run.",
-                    "Bai hoc nay da duoc hoan thanh truoc luot hoc nay.",
+                    "Bài học này đã được hoàn thành trước lượt học này.",
                   )
                 : unitCompletedAtSessionStart
                   ? ui(
                       "The unit was already complete before this replay.",
-                      "Unit da hoan thanh truoc khi ban hoc lai.",
+                      "Unit đã hoàn thành trước khi bạn học lại.",
                     )
                   : ui(
                       "Progress is synced to your account.",
-                      "Tien do dang duoc dong bo vao tai khoan cua ban.",
+                      "Tiến độ đang được đồng bộ vào tài khoản của bạn.",
                     )}
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
             <button type="button" onClick={handleReplay} className="primary-button w-full">
-              {ui("Replay lesson", "Hoc lai bai")}
+              {ui("Replay lesson", "Học lại bài")}
             </button>
             <Link href={`/unit/${unit.id}`} className="secondary-button w-full">
-              {ui("Back to unit", "Ve unit")}
+              {ui("Back to unit", "Về unit")}
             </Link>
           </div>
         </div>
@@ -818,15 +818,15 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
         <section className="panel">
           <div className="lesson-card space-y-4 text-center">
             <span className="pill mx-auto bg-card-strong text-foreground">
-              {ui("Syncing account", "Dang dong bo tai khoan")}
+              {ui("Syncing account", "Đang đồng bộ tài khoản")}
             </span>
             <h3 className="font-display text-3xl text-foreground">
-              {ui("Preparing your lesson run.", "Dang chuan bi luot hoc cua ban.")}
+              {ui("Preparing your lesson run.", "Đang chuẩn bị lượt học của bạn.")}
             </h3>
             <p className="text-base font-bold text-muted-foreground">
               {ui(
                 "Fetching progress, review memory, and adaptive sentence exposure data.",
-                "Dang lay tien do, du lieu on tap, va du lieu tan suat gap cau.",
+                "Đang lấy tiến độ, dữ liệu ôn tập, và dữ liệu tần suất gặp câu.",
               )}
             </p>
             {progressError ? <div className="feedback-incorrect">{progressError}</div> : null}
@@ -850,7 +850,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
             <p className="text-sm font-bold text-muted-foreground">
               {ui(
                 "Finish the current unlocked lesson on the unit map before entering this one.",
-                "Hoan thanh bai dang mo tren ban do unit truoc khi vao bai nay.",
+                "Hoàn thành bài đang mở trên bản đồ unit trước khi vào bài này.",
               )}
             </p>
           </div>
@@ -859,19 +859,19 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
         <section className="panel">
           <div className="lesson-card space-y-5 text-center">
             <span className="pill mx-auto bg-card-strong text-foreground">
-              {ui("Locked lesson", "Bai hoc dang khoa")}
+              {ui("Locked lesson", "Bài học đang khóa")}
             </span>
             <h3 className="font-display text-3xl text-foreground">
-              {ui("This lesson is not unlocked yet.", "Bai hoc nay chua duoc mo khoa.")}
+              {ui("This lesson is not unlocked yet.", "Bài học này chưa được mở khóa.")}
             </h3>
             <p className="text-base font-bold text-muted-foreground">
               {ui(
                 "Go back to the unit map and clear the current lesson first.",
-                "Quay lai ban do unit va hoan thanh bai hien tai truoc.",
+                "Quay lại bản đồ unit và hoàn thành bài hiện tại trước.",
               )}
             </p>
             <Link href={`/unit/${unit.id}`} className="primary-button w-full">
-              {ui("Back to unit", "Ve unit")}
+              {ui("Back to unit", "Về unit")}
             </Link>
           </div>
         </section>
@@ -885,7 +885,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-2">
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-muted-foreground">
-              {ui("Unit", "Unit")} {unit.unitNumber} - {ui("Lesson", "Bai")} {node.order}
+              {ui("Unit", "Unit")} {unit.unitNumber} - {ui("Lesson", "Bài")} {node.order}
             </p>
             <h1 className="font-display text-4xl text-foreground sm:text-5xl">
               {getLocalizedText(node.title, locale)}
@@ -894,21 +894,21 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
               {feedbackState
                 ? ui(
                     "Feedback locked in. Take the next step when you are ready.",
-                    "Phan hoi da duoc chot. Di tiep khi ban san sang.",
+                    "Phản hồi đã được chốt. Đi tiếp khi bạn sẵn sàng.",
                   )
                 : ui(
                     `${node.sessionLength} authored tasks, up to +${node.sessionLength * SESSION_XP_PER_CORRECT} XP, and up to 5 retry items.`,
-                    `${node.sessionLength} tac vu duoc bien soan, toi da +${node.sessionLength * SESSION_XP_PER_CORRECT} XP, va toi da 5 muc lam lai.`,
+                    `${node.sessionLength} tác vụ được biên soạn, tối đa +${node.sessionLength * SESSION_XP_PER_CORRECT} XP, và tối đa 5 mục làm lại.`,
                   )}
             </p>
           </div>
 
           <div className="flex flex-wrap gap-3 sm:justify-end">
             <span className="pill bg-accent-warm/70 text-foreground">
-              {ui("Run XP", "XP luot hoc")} +{sessionXpEarned}
+              {ui("Run XP", "XP lượt học")} +{sessionXpEarned}
             </span>
             <Link href={`/unit/${unit.id}`} className="secondary-button">
-              {ui("Exit lesson", "Thoat bai hoc")}
+              {ui("Exit lesson", "Thoát bài học")}
             </Link>
           </div>
         </div>
