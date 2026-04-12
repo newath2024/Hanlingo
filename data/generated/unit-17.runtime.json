@@ -487,7 +487,24 @@
           "errorPatternKey": "u17-l1-speak-title.speaking",
           "type": "speaking",
           "koreanText": "집들이에 뭘 사 가야 돼요?",
-          "expectedSpeech": "집들이에 뭘 사 가야 돼요?"
+          "expectedSpeech": "집들이에 뭘 사 가야 돼요?",
+          "glossSegments": [
+            {
+              "textKo": "집들이에",
+              "meaningEn": "for the housewarming",
+              "meaningVi": "cho tiệc tân gia"
+            },
+            {
+              "textKo": "뭘",
+              "meaningEn": "what",
+              "meaningVi": "gì"
+            },
+            {
+              "textKo": "사 가야 돼요?",
+              "meaningEn": "should I buy and bring?",
+              "meaningVi": "nên mua mang đi?"
+            }
+          ]
         }
       ]
     },
@@ -753,7 +770,24 @@
           "errorPatternKey": "u17-l2-speak-title.speaking",
           "type": "speaking",
           "koreanText": "집들이에 뭘 사 가야 돼요?",
-          "expectedSpeech": "집들이에 뭘 사 가야 돼요?"
+          "expectedSpeech": "집들이에 뭘 사 가야 돼요?",
+          "glossSegments": [
+            {
+              "textKo": "집들이에",
+              "meaningEn": "for the housewarming",
+              "meaningVi": "cho tiệc tân gia"
+            },
+            {
+              "textKo": "뭘",
+              "meaningEn": "what",
+              "meaningVi": "gì"
+            },
+            {
+              "textKo": "사 가야 돼요?",
+              "meaningEn": "should I buy and bring?",
+              "meaningVi": "nên mua mang đi?"
+            }
+          ]
         },
         {
           "id": "u17-l2-speak-swimcap",
@@ -774,7 +808,24 @@
           "errorPatternKey": "u17-l2-speak-swimcap.speaking",
           "type": "speaking",
           "koreanText": "그리고 수영 모자도 가져가야 해요.",
-          "expectedSpeech": "그리고 수영 모자도 가져가야 해요."
+          "expectedSpeech": "그리고 수영 모자도 가져가야 해요.",
+          "glossSegments": [
+            {
+              "textKo": "그리고",
+              "meaningEn": "and",
+              "meaningVi": "và"
+            },
+            {
+              "textKo": "수영 모자도",
+              "meaningEn": "a swim cap too",
+              "meaningVi": "cả mũ bơi nữa"
+            },
+            {
+              "textKo": "가져가야 해요.",
+              "meaningEn": "need to bring",
+              "meaningVi": "phải mang theo"
+            }
+          ]
         }
       ]
     },
@@ -1083,7 +1134,29 @@
           "errorPatternKey": "u17-l3-speak-activities.speaking",
           "type": "speaking",
           "koreanText": "집을 구경해요. 같이 식사도 하고요. 그럼요. 제가 좀 도와줄까요?",
-          "expectedSpeech": "집을 구경해요. 같이 식사도 하고요. 그럼요. 제가 좀 도와줄까요?"
+          "expectedSpeech": "집을 구경해요. 같이 식사도 하고요. 그럼요. 제가 좀 도와줄까요?",
+          "glossSegments": [
+            {
+              "textKo": "집을 구경해요.",
+              "meaningEn": "we look around the house",
+              "meaningVi": "mọi người tham quan nhà"
+            },
+            {
+              "textKo": "같이 식사도 하고요.",
+              "meaningEn": "and eat together",
+              "meaningVi": "và cùng ăn uống"
+            },
+            {
+              "textKo": "그럼요.",
+              "meaningEn": "of course",
+              "meaningVi": "tất nhiên rồi"
+            },
+            {
+              "textKo": "제가 좀 도와줄까요?",
+              "meaningEn": "shall I help a bit?",
+              "meaningVi": "để tôi giúp một chút nhé?"
+            }
+          ]
         }
       ]
     },
@@ -1334,7 +1407,14 @@
           "errorPatternKey": "wb17-write-housewarming-2.speaking",
           "type": "speaking",
           "koreanText": "집들이",
-          "expectedSpeech": "집들이"
+          "expectedSpeech": "집들이",
+          "glossSegments": [
+            {
+              "textKo": "집들이",
+              "meaningEn": "housewarming",
+              "meaningVi": "tiệc tân gia"
+            }
+          ]
         },
         {
           "id": "wb17-write-invite-2",
@@ -1353,7 +1433,14 @@
           "errorPatternKey": "wb17-write-invite-2.speaking",
           "type": "speaking",
           "koreanText": "초대",
-          "expectedSpeech": "초대"
+          "expectedSpeech": "초대",
+          "glossSegments": [
+            {
+              "textKo": "초대",
+              "meaningEn": "invitation",
+              "meaningVi": "lời mời"
+            }
+          ]
         }
       ]
     },

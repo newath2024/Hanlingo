@@ -252,6 +252,7 @@ export function createSessionItemFromTask(task: SupportedRuntimeTask): SessionIt
     type: task.type,
     koreanText: task.koreanText,
     expectedSpeech: task.expectedSpeech,
+    glossSegments: task.glossSegments,
   };
 
   return item;

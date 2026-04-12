@@ -14,6 +14,7 @@ import type {
   SpeakingTask,
   TranslateTask,
   WordMatchTask,
+  type GlossSegment,
 } from "./curriculum";
 import type { FingerprintSummary } from "./error-fingerprint";
 
@@ -129,6 +130,7 @@ export type SpeakingSessionItem = SessionItemBase & {
   type: "speaking";
   koreanText: string;
   expectedSpeech: string;
+  glossSegments?: GlossSegment[];
 };
 
 export type ListenRepeatSessionItem = SessionItemBase & {

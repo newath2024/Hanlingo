@@ -274,6 +274,12 @@ export type LocalizedChoice = {
   koreanLabel?: string;
 };
 
+export type GlossSegment = {
+  textKo: string;
+  meaningEn: string;
+  meaningVi: string;
+};
+
 export type RuntimeTaskBase = {
   id: string;
   prompt: LocalizedText;
@@ -351,6 +357,7 @@ export type SpeakingTask = RuntimeTaskBase & {
   type: "speaking";
   koreanText: string;
   expectedSpeech: string;
+  glossSegments?: GlossSegment[];
 };
 
 export type ListeningTask = RuntimeTaskBase & {
