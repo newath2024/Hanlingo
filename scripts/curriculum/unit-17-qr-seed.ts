@@ -24,19 +24,19 @@ function text(vi: string, en: string): LocalizedText {
 }
 
 const PARTY_TIME_OPTIONS = [
-  { id: "six-pm", label: text("6 gio toi", "6 PM"), correct: true },
-  { id: "seven-pm", label: text("7 gio toi", "7 PM"), correct: false },
-  { id: "eight-pm", label: text("8 gio toi", "8 PM"), correct: false },
+  { id: "six-pm", label: text("6 giờ tối", "6 PM"), correct: true },
+  { id: "seven-pm", label: text("7 giờ tối", "7 PM"), correct: false },
+  { id: "eight-pm", label: text("8 giờ tối", "8 PM"), correct: false },
 ];
 
 const GIFT_OPTIONS = [
   { id: "flowers", label: text("hoa", "flowers"), correct: false },
   {
     id: "tissue-detergent",
-    label: text("khan giay va nuoc giat", "tissue paper and detergent"),
+    label: text("khăn giấy và nước giặt", "tissue paper and detergent"),
     correct: true,
   },
-  { id: "invitation-card", label: text("thiep moi", "invitation card"), correct: false },
+  { id: "invitation-card", label: text("thiệp mời", "invitation card"), correct: false },
 ];
 
 const QR_DIALOGUE_TRANSCRIPT =
@@ -73,11 +73,11 @@ export const UNIT_17_QR_SEED: UnitQrSeedDefinition = {
           id: "wb17-qr-party-time",
           exerciseType: "listening",
           prompt: args.text(
-            "Nghe hoi thoai QR va chon gio dien ra tiệc tan gia.",
+            "Nghe hội thoại QR và chọn giờ diễn ra tiệc tân gia.",
             "Listen to the QR dialogue and choose the housewarming time.",
           ),
-          localizedText: args.text("6 gio toi", "6 PM"),
-          answer: "6 gio toi",
+          localizedText: args.text("6 giờ tối", "6 PM"),
+          answer: "6 giờ tối",
           audioAssetId: "wb17-qr-dialogue-audio",
           options: PARTY_TIME_OPTIONS.map((option) => ({
             id: option.id,
@@ -103,11 +103,11 @@ export const UNIT_17_QR_SEED: UnitQrSeedDefinition = {
           id: "wb17-qr-buy-gifts",
           exerciseType: "listening",
           prompt: args.text(
-            "Nghe hoi thoai QR va chon nhung thu Lisa se mua mang den.",
+            "Nghe hội thoại QR và chọn những thứ Lisa sẽ mua mang đến.",
             "Listen to the QR dialogue and choose what Lisa will bring.",
           ),
-          localizedText: args.text("khan giay va nuoc giat", "tissue paper and detergent"),
-          answer: "khan giay va nuoc giat",
+          localizedText: args.text("khăn giấy và nước giặt", "tissue paper and detergent"),
+          answer: "khăn giấy và nước giặt",
           audioAssetId: "wb17-qr-dialogue-audio",
           options: GIFT_OPTIONS.map((option) => ({
             id: option.id,

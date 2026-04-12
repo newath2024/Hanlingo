@@ -2,7 +2,7 @@
   "unitId": "17",
   "unitNumber": 17,
   "title": {
-    "vi": "Toi nen mang gi den tiec tan gia?",
+    "vi": "Tôi nên mang gì đến tiệc tân gia?",
     "en": "What should I bring to the housewarming?"
   },
   "subtitle": {
@@ -36,11 +36,11 @@
       "sectionId": "unit-17-section-1",
       "order": 1,
       "title": {
-        "vi": "Section 1: Housewarming",
+        "vi": "Phần 1: Tân gia",
         "en": "Section 1: housewarming basics"
       },
       "summary": {
-        "vi": "Mo bai bang tu vung tiec tan gia va mau cau nghia vu co ban.",
+        "vi": "Mở bài bằng từ vựng tiệc tân gia và mẫu câu nghĩa vụ cơ bản.",
         "en": "Open with housewarming vocabulary and the first obligation patterns."
       },
       "lessonIds": [
@@ -52,7 +52,7 @@
       "sectionId": "unit-17-section-2",
       "order": 2,
       "title": {
-        "vi": "Section 2: Dialogue",
+        "vi": "Phần 2: Hội thoại",
         "en": "Section 2: dialogue and forms"
       },
       "summary": {
@@ -68,11 +68,11 @@
       "sectionId": "unit-17-section-3",
       "order": 3,
       "title": {
-        "vi": "Section 3: Workbook Core",
+        "vi": "Phần 3: Trọng tâm workbook",
         "en": "Section 3: workbook core"
       },
       "summary": {
-        "vi": "Ba lesson de giu tron picture vocab, shopping chat, va must-do drills cua workbook.",
+        "vi": "Ba lesson để giữ trọn picture vocab, shopping chat, và must-do drills của workbook.",
         "en": "Three lessons to preserve the picture vocab, shopping chat, and must-do drills from the workbook."
       },
       "lessonIds": [
@@ -85,11 +85,11 @@
       "sectionId": "unit-17-section-4",
       "order": 4,
       "title": {
-        "vi": "Section 4: QR Listening",
+        "vi": "Phần 4: Nghe QR",
         "en": "Section 4: QR listening"
       },
       "summary": {
-        "vi": "Don toan bo bai nghe QR ve gio giac va qua mang den vao mot block nghe rieng.",
+        "vi": "Dồn toàn bộ bài nghe QR về giờ giấc và quà mang đến vào một block nghe riêng.",
         "en": "Move the full QR audio about time and gifts into its own listening block."
       },
       "lessonIds": [
@@ -101,11 +101,11 @@
       "sectionId": "unit-17-section-5",
       "order": 5,
       "title": {
-        "vi": "Section 5: Email",
+        "vi": "Phần 5: Email",
         "en": "Section 5: email and production"
       },
       "summary": {
-        "vi": "Ket unit bang email va phan san sinh, khong tron QR vao section cuoi.",
+        "vi": "Kết unit bằng email và phần sản sinh, không trộn QR vào section cuối.",
         "en": "Finish with email work and production, without mixing QR back into the final section."
       },
       "lessonIds": [
@@ -121,15 +121,15 @@
       "sectionOrder": 1,
       "lessonRole": "intro",
       "title": {
-        "vi": "Mo bai tiec tan gia",
+        "vi": "Mở bài tiệc tân gia",
         "en": "Open the housewarming topic"
       },
       "summary": {
-        "vi": "Lam quen voi tu vung cot loi, loi nho giup do, va cau hoi mo bai cua bai 17.",
+        "vi": "Làm quen với từ vựng cốt lõi, lời nhờ giúp đỡ, và câu hỏi mở bài của bài 17.",
         "en": "Start Unit 17 with the core housewarming words, help expressions, and the title question."
       },
       "difficulty": {
-        "vi": "Nhan dien va lam quen",
+        "vi": "Nhận diện và làm quen",
         "en": "Recognition and warm-up"
       },
       "focusConcepts": [
@@ -154,11 +154,11 @@
         {
           "id": "u17-l1-housewarming",
           "prompt": {
-            "vi": "Chon the dung voi y nghia nay.",
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
             "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Day la danh tu trung tam cua ca bai 17.",
+            "vi": "Đây là danh từ trung tâm của cả bài 17.",
             "en": "This is the central noun of Unit 17."
           },
           "source": "textbook",
@@ -172,7 +172,7 @@
             {
               "id": "u17-l1-housewarming-correct",
               "text": {
-                "vi": "tiec tan gia",
+                "vi": "tiệc tân gia",
                 "en": "housewarming party"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
@@ -181,7 +181,7 @@
             {
               "id": "u17-l1-housewarming-d1",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -190,7 +190,7 @@
             {
               "id": "u17-l1-housewarming-d2",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -199,7 +199,7 @@
             {
               "id": "u17-l1-housewarming-d3",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -209,18 +209,18 @@
           "answer": "u17-l1-housewarming-correct",
           "presentation": "image_cards",
           "questionText": {
-            "vi": "tiec tan gia",
+            "vi": "tiệc tân gia",
             "en": "housewarming party"
           }
         },
         {
           "id": "u17-l1-invitation-card",
           "prompt": {
-            "vi": "Chon the dung voi y nghia nay.",
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
             "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Vat dung nay xuat hien ngay tu phan mo bai workbook.",
+            "vi": "Vật dụng này xuất hiện ngay từ phần mở bài workbook.",
             "en": "This item appears immediately in the workbook warm-up."
           },
           "source": "textbook",
@@ -234,7 +234,7 @@
             {
               "id": "u17-l1-invitation-card-correct",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -243,7 +243,7 @@
             {
               "id": "u17-l1-invitation-card-d1",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -252,7 +252,7 @@
             {
               "id": "u17-l1-invitation-card-d2",
               "text": {
-                "vi": "tiec tan gia",
+                "vi": "tiệc tân gia",
                 "en": "housewarming party"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
@@ -261,7 +261,7 @@
             {
               "id": "u17-l1-invitation-card-d3",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -271,18 +271,18 @@
           "answer": "u17-l1-invitation-card-correct",
           "presentation": "image_cards",
           "questionText": {
-            "vi": "thiep moi",
+            "vi": "thiệp mời",
             "en": "invitation card"
           }
         },
         {
           "id": "u17-l1-prepare",
           "prompt": {
-            "vi": "Chon the dung voi y nghia nay.",
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
             "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Dong tu nay noi voi viec chuan bi do an va tiec.",
+            "vi": "Động từ này nối với việc chuẩn bị đồ ăn và tiệc.",
             "en": "This verb connects directly to preparing food and the party."
           },
           "source": "workbook",
@@ -296,7 +296,7 @@
             {
               "id": "u17-l1-prepare-correct",
               "text": {
-                "vi": "chuan bi",
+                "vi": "chuẩn bị",
                 "en": "prepare"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
@@ -305,7 +305,7 @@
             {
               "id": "u17-l1-prepare-d1",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -314,7 +314,7 @@
             {
               "id": "u17-l1-prepare-d2",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -323,7 +323,7 @@
             {
               "id": "u17-l1-prepare-d3",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -333,18 +333,18 @@
           "answer": "u17-l1-prepare-correct",
           "presentation": "image_cards",
           "questionText": {
-            "vi": "chuan bi",
+            "vi": "chuẩn bị",
             "en": "prepare"
           }
         },
         {
           "id": "u17-l1-help-request",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Hieu dung cau nho giup do truoc khi tu noi lai.",
+            "vi": "Hiểu đúng câu nhờ giúp đỡ trước khi tự nói lại.",
             "en": "Understand the help-request expression before producing it yourself."
           },
           "source": "textbook",
@@ -357,23 +357,23 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "Ban co the giup toi mot chut duoc khong?",
+            "vi": "Bạn có thể giúp tôi một chút được không?",
             "en": "Could you help me a bit?"
           },
           "koreanText": "저 좀 도와줄 수 있어요?",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "u17-l1-help-offer",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Doi tu y nghia sang cau de nghi giup do lich su.",
+            "vi": "Đổi từ ý nghĩa sang câu đề nghị giúp đỡ lịch sự.",
             "en": "Convert the meaning into the polite offer-to-help sentence."
           },
           "source": "textbook",
@@ -386,25 +386,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "De toi giup ban.",
+            "vi": "Để tôi giúp bạn.",
             "en": "I will help you."
           },
           "acceptedAnswers": [
             "제가 도와 드릴게요."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "u17-l1-fill-card",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien dung vat dung duoc dung de moi ban be.",
+            "vi": "Điền đúng vật dụng được dùng để mời bạn bè.",
             "en": "Fill in the item used to invite friends."
           },
           "source": "textbook",
@@ -423,22 +423,22 @@
             "세제"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "thiep moi",
+            "vi": "thiệp mời",
             "en": "invitation card"
           }
         },
         {
           "id": "u17-l1-arr-help",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Sap xep lai cau nho giup do de quen trat tu.",
+            "vi": "Sắp xếp lại câu nhờ giúp đỡ để quen trật tự.",
             "en": "Rebuild the help-request sentence to lock in its word order."
           },
           "source": "blended",
@@ -450,7 +450,7 @@
           "errorPatternKey": "u17-l1-arr-help.arrange",
           "type": "arrange_sentence",
           "meaning": {
-            "vi": "Ban co the giup toi mot chut duoc khong?",
+            "vi": "Bạn có thể giúp tôi một chút được không?",
             "en": "Could you help me a bit?"
           },
           "wordBank": [
@@ -471,11 +471,11 @@
         {
           "id": "u17-l1-speak-title",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Ket lesson bang cau hoi cot loi cua bai 17.",
+            "vi": "Kết lesson bằng câu hỏi cốt lõi của bài 17.",
             "en": "Close the lesson with Unit 17's core title question."
           },
           "source": "textbook",
@@ -497,15 +497,15 @@
       "sectionOrder": 1,
       "lessonRole": "grammar",
       "title": {
-        "vi": "Tap trung -아/어야 되다",
+        "vi": "Tập trung -아/어야 되다",
         "en": "Focus on -아/어야 되다"
       },
       "summary": {
-        "vi": "Khoa mau nghia vu bang dang bien doi dong tu va cac cau can phai lam.",
+        "vi": "Khóa mẫu nghĩa vụ bằng dạng biến đổi động từ và các câu cần phải làm.",
         "en": "Lock in the obligation pattern through verb-form changes and must-do sentences."
       },
       "difficulty": {
-        "vi": "Nhan dien va lam quen",
+        "vi": "Nhận diện và làm quen",
         "en": "Recognition and warm-up"
       },
       "focusConcepts": [
@@ -531,11 +531,11 @@
         {
           "id": "u17-l2-form",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Bat dau bang dang bien doi cot loi cua mau nghia vu.",
+            "vi": "Bắt đầu bằng dạng biến đổi cốt lõi của mẫu nghĩa vụ.",
             "en": "Start with the core conjugation pattern for obligation."
           },
           "source": "workbook",
@@ -546,7 +546,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "u17-l2-form.grammar",
           "supportText": {
-            "vi": "phai an",
+            "vi": "phải ăn",
             "en": "have to eat"
           },
           "type": "grammar_select",
@@ -561,7 +561,7 @@
         {
           "id": "u17-l2-study",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
@@ -586,18 +586,18 @@
             "해요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "phai hoc tieng Han",
+            "vi": "phải học tiếng Hàn",
             "en": "have to study Korean"
           }
         },
         {
           "id": "u17-l2-meet",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
@@ -622,22 +622,22 @@
             "만나요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "phai gap ban",
+            "vi": "phải gặp bạn",
             "en": "have to meet a friend"
           }
         },
         {
           "id": "u17-l2-hospital",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Noi viec bat buoc phai di den mot noi nao do.",
+            "vi": "Nói việc bắt buộc phải đi đến một nơi nào đó.",
             "en": "State that you must go somewhere."
           },
           "source": "workbook",
@@ -658,22 +658,22 @@
             "가요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "phai den benh vien",
+            "vi": "phải đến bệnh viện",
             "en": "have to go to the hospital"
           }
         },
         {
           "id": "u17-l2-food",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dich cau nghia vu goc cua bai 17 sang tieng Han.",
+            "vi": "Dịch câu nghĩa vụ gốc của bài 17 sang tiếng Hàn.",
             "en": "Translate Unit 17's central obligation sentence into Korean."
           },
           "source": "textbook",
@@ -686,25 +686,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Phai lam do an.",
+            "vi": "Phải làm đồ ăn.",
             "en": "I have to make food."
           },
           "acceptedAnswers": [
             "음식을 만들어야 돼요."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "u17-l2-arrange-swimcap",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Sap xep lai cau can phai mang theo do dung.",
+            "vi": "Sắp xếp lại câu cần phải mang theo đồ dùng.",
             "en": "Rebuild the sentence about something you have to bring."
           },
           "source": "workbook",
@@ -716,7 +716,7 @@
           "errorPatternKey": "u17-l2-arrange-swimcap.arrange",
           "type": "arrange_sentence",
           "meaning": {
-            "vi": "Va cung phai mang theo mu boi nua.",
+            "vi": "Và cũng phải mang theo mũ bơi nữa.",
             "en": "And I also have to bring a swim cap."
           },
           "wordBank": [
@@ -737,11 +737,11 @@
         {
           "id": "u17-l2-speak-title",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Lap lai cau hoi phai lam gi de tao phan xa.",
+            "vi": "Lặp lại câu hỏi phải làm gì để tạo phản xạ.",
             "en": "Say the core must-do question aloud to build reflex."
           },
           "source": "textbook",
@@ -758,11 +758,11 @@
         {
           "id": "u17-l2-speak-swimcap",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Ket lesson bang mot cau nghia vu dai hon.",
+            "vi": "Kết lesson bằng một câu nghĩa vụ dài hơn.",
             "en": "Finish the lesson with a slightly longer obligation sentence."
           },
           "source": "blended",
@@ -784,7 +784,7 @@
       "sectionOrder": 2,
       "lessonRole": "dialogue",
       "title": {
-        "vi": "Ghep hoi thoai va -고요",
+        "vi": "Ghép hội thoại và -고요",
         "en": "Rebuild dialogue and -고요"
       },
       "summary": {
@@ -792,7 +792,7 @@
         "en": "Work through dialogue turns and extend information with -고요."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -817,11 +817,11 @@
         {
           "id": "u17-l3-usual-question",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Hieu cau hoi ve tiec tan gia truoc khi ghep lai phan tra loi.",
+            "vi": "Hiểu câu hỏi về tiệc tân gia trước khi ghép lại phần trả lời.",
             "en": "Understand the housewarming question before rebuilding the answer."
           },
           "source": "textbook",
@@ -832,23 +832,23 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "Jihun, o tiec tan gia thuong lam gi?",
+            "vi": "Jihun, ở tiệc tân gia thường làm gì?",
             "en": "Jihun, what do people usually do at a housewarming?"
           },
           "koreanText": "지훈 씨, 집들이에서 보통 뭘 해요?",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "u17-l3-activities",
           "prompt": {
-            "vi": "Ghep lai cau hoi thoai.",
+            "vi": "Ghép lại câu hội thoại.",
             "en": "Rebuild the dialogue line."
           },
           "explanation": {
-            "vi": "Ghep lai luot thoai ve cac hoat dong trong tiec tan gia.",
+            "vi": "Ghép lại lượt thoại về các hoạt động trong tiệc tân gia.",
             "en": "Rebuild the line about what people do at the housewarming."
           },
           "source": "textbook",
@@ -859,7 +859,7 @@
           "type": "dialogue_reconstruct",
           "speaker": "Lisa",
           "translation": {
-            "vi": "Moi nguoi xem nha, va cung an cung nhau nua.",
+            "vi": "Mọi người xem nhà, và cùng ăn cùng nhau nữa.",
             "en": "People look around the house, and they eat together too."
           },
           "wordBank": [
@@ -880,11 +880,11 @@
         {
           "id": "u17-l3-invite",
           "prompt": {
-            "vi": "Ghep lai cau hoi thoai.",
+            "vi": "Ghép lại câu hội thoại.",
             "en": "Rebuild the dialogue line."
           },
           "explanation": {
-            "vi": "Ghep lai cau moi den tiec tan gia vao cuoi tuan.",
+            "vi": "Ghép lại câu mời đến tiệc tân gia vào cuối tuần.",
             "en": "Rebuild the invitation to the weekend housewarming."
           },
           "source": "textbook",
@@ -895,7 +895,7 @@
           "type": "dialogue_reconstruct",
           "speaker": "Jihun",
           "translation": {
-            "vi": "Lisa, cuoi tuan nay toi dinh to chuc tiec tan gia. Ban co the den duoc khong?",
+            "vi": "Lisa, cuối tuần này tôi định tổ chức tiệc tân gia. Bạn có thể đến được không?",
             "en": "Lisa, I am planning a housewarming this weekend. Can you come?"
           },
           "wordBank": [
@@ -924,7 +924,7 @@
         {
           "id": "u17-l3-offer",
           "prompt": {
-            "vi": "Ghep lai cau hoi thoai.",
+            "vi": "Ghép lại câu hội thoại.",
             "en": "Rebuild the dialogue line."
           },
           "explanation": {
@@ -939,7 +939,7 @@
           "type": "dialogue_reconstruct",
           "speaker": "Lisa",
           "translation": {
-            "vi": "Tat nhien roi. Toi co the giup mot chut khong?",
+            "vi": "Tất nhiên rồi. Tôi có thể giúp một chút không?",
             "en": "Of course. Should I help a little?"
           },
           "wordBank": [
@@ -958,7 +958,7 @@
         {
           "id": "u17-l3-school-food",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
@@ -983,18 +983,18 @@
             "맛있어요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "do an cung ngon",
+            "vi": "đồ ăn cũng ngon",
             "en": "the food is tasty too"
           }
         },
         {
           "id": "u17-l3-friends",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
@@ -1019,22 +1019,22 @@
             "있어요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "cung co the ket ban",
+            "vi": "cũng có thể kết bạn",
             "en": "you can make friends too"
           }
         },
         {
           "id": "u17-l3-arrange-activities",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Sap xep lai cau noi hai hoat dong lien tiep.",
+            "vi": "Sắp xếp lại câu nói hai hoạt động liên tiếp.",
             "en": "Arrange the line that links two activities together."
           },
           "source": "workbook",
@@ -1046,7 +1046,7 @@
           "errorPatternKey": "u17-l3-arrange-activities.arrange",
           "type": "arrange_sentence",
           "meaning": {
-            "vi": "Moi nguoi xem nha, va cung an cung nhau nua.",
+            "vi": "Mọi người xem nhà, và cùng ăn cùng nhau nữa.",
             "en": "People look around the house, and they eat together too."
           },
           "wordBank": [
@@ -1067,7 +1067,7 @@
         {
           "id": "u17-l3-speak-activities",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
@@ -1093,15 +1093,15 @@
       "sectionOrder": 2,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Grammar forms in workbook",
+        "vi": "Mẫu ngữ pháp trong workbook",
         "en": "Workbook grammar forms"
       },
       "summary": {
-        "vi": "Day nhanh qua workbook form-change truoc khi vao cum bai tap dai hon.",
+        "vi": "Đẩy nhanh qua workbook form-change trước khi vào cụm bài tập dài hơn.",
         "en": "Move quickly through the workbook form-change drills before the longer practice block."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -1130,11 +1130,11 @@
         {
           "id": "wb17-must-form-eat-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -1145,7 +1145,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-must-form-eat-2.grammar",
           "supportText": {
-            "vi": "phai an",
+            "vi": "phải ăn",
             "en": "have to eat"
           },
           "type": "grammar_select",
@@ -1160,11 +1160,11 @@
         {
           "id": "wb17-goyo-form-make-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -1175,7 +1175,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-goyo-form-make-2.grammar",
           "supportText": {
-            "vi": "va lam",
+            "vi": "và làm",
             "en": "and make"
           },
           "type": "grammar_select",
@@ -1190,11 +1190,11 @@
         {
           "id": "wb17-write-housewarming-1",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Viet lai cau dich tu nghia da biet.",
+            "vi": "Viết lại câu dịch từ nghĩa đã biết.",
             "en": "Rewrite the target sentence from the known meaning."
           },
           "source": "workbook",
@@ -1212,18 +1212,18 @@
             "집들이"
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "wb17-write-invite-1",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Viet lai cau dich tu nghia da biet.",
+            "vi": "Viết lại câu dịch từ nghĩa đã biết.",
             "en": "Rewrite the target sentence from the known meaning."
           },
           "source": "workbook",
@@ -1234,25 +1234,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "loi moi",
+            "vi": "lời mời",
             "en": "invitation"
           },
           "acceptedAnswers": [
             "초대"
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "wb17-must-form-eat-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -1273,22 +1273,22 @@
             "먹어요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "phai an",
+            "vi": "phải ăn",
             "en": "have to eat"
           }
         },
         {
           "id": "wb17-goyo-form-make-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -1309,22 +1309,22 @@
             "만들어요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "va lam",
+            "vi": "và làm",
             "en": "and make"
           }
         },
         {
           "id": "wb17-write-housewarming-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Doc to cau vua viet de xay phan xa noi.",
+            "vi": "Đọc to câu vừa viết để xây phản xạ nói.",
             "en": "Read the written sentence aloud to build speaking reflex."
           },
           "source": "workbook",
@@ -1339,11 +1339,11 @@
         {
           "id": "wb17-write-invite-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Doc to cau vua viet de xay phan xa noi.",
+            "vi": "Đọc to câu vừa viết để xây phản xạ nói.",
             "en": "Read the written sentence aloud to build speaking reflex."
           },
           "source": "workbook",
@@ -1363,15 +1363,15 @@
       "sectionOrder": 3,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Picture vocab drills",
-        "en": "Picture vocab drills"
+        "vi": "Luyện từ vựng bằng tranh",
+        "en": "Luyện từ vựng bằng tranh"
       },
       "summary": {
-        "vi": "Giu du phan tu vung hinh anh cua workbook thay vi cat bot.",
+        "vi": "Giữ đủ phần từ vựng hình ảnh của workbook thay vì cắt bớt.",
         "en": "Keep the full picture-vocabulary block from the workbook instead of trimming it down."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -1398,11 +1398,11 @@
         {
           "id": "wb17-match-housewarming-picture-1",
           "prompt": {
-            "vi": "Chon the dung voi y nghia nay.",
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
             "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "vi": "Bắt đầu bằng nhận diện hình ảnh và chữ Hàn cùng lúc.",
             "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
@@ -1416,7 +1416,7 @@
             {
               "id": "wb17-match-housewarming-picture-1-correct",
               "text": {
-                "vi": "tiec tan gia",
+                "vi": "tiệc tân gia",
                 "en": "housewarming party"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
@@ -1425,7 +1425,7 @@
             {
               "id": "wb17-match-housewarming-picture-1-d1",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -1434,7 +1434,7 @@
             {
               "id": "wb17-match-housewarming-picture-1-d2",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -1443,7 +1443,7 @@
             {
               "id": "wb17-match-housewarming-picture-1-d3",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -1453,18 +1453,18 @@
           "answer": "wb17-match-housewarming-picture-1-correct",
           "presentation": "image_cards",
           "questionText": {
-            "vi": "tiec tan gia",
+            "vi": "tiệc tân gia",
             "en": "housewarming party"
           }
         },
         {
           "id": "wb17-match-housewarming-picture-2",
           "prompt": {
-            "vi": "Nghe roi chon the phu hop.",
+            "vi": "Nghe rồi chọn thẻ phù hợp.",
             "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "vi": "Nghe lại từ này và chọn thẻ đúng để khóa âm và hình.",
             "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
@@ -1473,7 +1473,7 @@
           "srWeight": 1.15,
           "errorPatternKey": "wb17-match-housewarming-picture-2.listen",
           "supportText": {
-            "vi": "Xem tranh va noi voi tu dung.",
+            "vi": "Xem tranh và nối với từ đúng.",
             "en": "Look at the picture and match it with the correct word."
           },
           "audioText": "집들이",
@@ -1482,7 +1482,7 @@
             {
               "id": "wb17-match-housewarming-picture-2-correct",
               "text": {
-                "vi": "tiec tan gia",
+                "vi": "tiệc tân gia",
                 "en": "housewarming party"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
@@ -1491,7 +1491,7 @@
             {
               "id": "wb17-match-housewarming-picture-2-d1",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -1500,7 +1500,7 @@
             {
               "id": "wb17-match-housewarming-picture-2-d2",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -1509,7 +1509,7 @@
             {
               "id": "wb17-match-housewarming-picture-2-d3",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -1522,11 +1522,11 @@
         {
           "id": "wb17-match-invitation-card-picture-1",
           "prompt": {
-            "vi": "Chon the dung voi y nghia nay.",
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
             "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "vi": "Bắt đầu bằng nhận diện hình ảnh và chữ Hàn cùng lúc.",
             "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
@@ -1540,7 +1540,7 @@
             {
               "id": "wb17-match-invitation-card-picture-1-correct",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -1549,7 +1549,7 @@
             {
               "id": "wb17-match-invitation-card-picture-1-d1",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -1558,7 +1558,7 @@
             {
               "id": "wb17-match-invitation-card-picture-1-d2",
               "text": {
-                "vi": "tiec tan gia",
+                "vi": "tiệc tân gia",
                 "en": "housewarming party"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
@@ -1567,7 +1567,7 @@
             {
               "id": "wb17-match-invitation-card-picture-1-d3",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -1577,18 +1577,18 @@
           "answer": "wb17-match-invitation-card-picture-1-correct",
           "presentation": "image_cards",
           "questionText": {
-            "vi": "thiep moi",
+            "vi": "thiệp mời",
             "en": "invitation card"
           }
         },
         {
           "id": "wb17-match-invitation-card-picture-2",
           "prompt": {
-            "vi": "Nghe roi chon the phu hop.",
+            "vi": "Nghe rồi chọn thẻ phù hợp.",
             "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "vi": "Nghe lại từ này và chọn thẻ đúng để khóa âm và hình.",
             "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
@@ -1597,7 +1597,7 @@
           "srWeight": 1.15,
           "errorPatternKey": "wb17-match-invitation-card-picture-2.listen",
           "supportText": {
-            "vi": "Xem tranh va noi voi tu dung.",
+            "vi": "Xem tranh và nối với từ đúng.",
             "en": "Look at the picture and match it with the correct word."
           },
           "audioText": "초대장",
@@ -1606,7 +1606,7 @@
             {
               "id": "wb17-match-invitation-card-picture-2-correct",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -1615,7 +1615,7 @@
             {
               "id": "wb17-match-invitation-card-picture-2-d1",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -1624,7 +1624,7 @@
             {
               "id": "wb17-match-invitation-card-picture-2-d2",
               "text": {
-                "vi": "tiec tan gia",
+                "vi": "tiệc tân gia",
                 "en": "housewarming party"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
@@ -1633,7 +1633,7 @@
             {
               "id": "wb17-match-invitation-card-picture-2-d3",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -1646,11 +1646,11 @@
         {
           "id": "wb17-match-tissue-picture-1",
           "prompt": {
-            "vi": "Chon the dung voi y nghia nay.",
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
             "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "vi": "Bắt đầu bằng nhận diện hình ảnh và chữ Hàn cùng lúc.",
             "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
@@ -1664,7 +1664,7 @@
             {
               "id": "wb17-match-tissue-picture-1-correct",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -1673,7 +1673,7 @@
             {
               "id": "wb17-match-tissue-picture-1-d1",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -1682,7 +1682,7 @@
             {
               "id": "wb17-match-tissue-picture-1-d2",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -1691,7 +1691,7 @@
             {
               "id": "wb17-match-tissue-picture-1-d3",
               "text": {
-                "vi": "chuan bi",
+                "vi": "chuẩn bị",
                 "en": "prepare"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
@@ -1701,18 +1701,18 @@
           "answer": "wb17-match-tissue-picture-1-correct",
           "presentation": "image_cards",
           "questionText": {
-            "vi": "khan giay",
+            "vi": "khăn giấy",
             "en": "tissue paper"
           }
         },
         {
           "id": "wb17-match-tissue-picture-2",
           "prompt": {
-            "vi": "Nghe roi chon the phu hop.",
+            "vi": "Nghe rồi chọn thẻ phù hợp.",
             "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "vi": "Nghe lại từ này và chọn thẻ đúng để khóa âm và hình.",
             "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
@@ -1721,7 +1721,7 @@
           "srWeight": 1.15,
           "errorPatternKey": "wb17-match-tissue-picture-2.listen",
           "supportText": {
-            "vi": "Xem tranh va noi voi tu dung.",
+            "vi": "Xem tranh và nối với từ đúng.",
             "en": "Look at the picture and match it with the correct word."
           },
           "audioText": "휴지",
@@ -1730,7 +1730,7 @@
             {
               "id": "wb17-match-tissue-picture-2-correct",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -1739,7 +1739,7 @@
             {
               "id": "wb17-match-tissue-picture-2-d1",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -1748,7 +1748,7 @@
             {
               "id": "wb17-match-tissue-picture-2-d2",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -1757,7 +1757,7 @@
             {
               "id": "wb17-match-tissue-picture-2-d3",
               "text": {
-                "vi": "chuan bi",
+                "vi": "chuẩn bị",
                 "en": "prepare"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
@@ -1770,11 +1770,11 @@
         {
           "id": "wb17-match-detergent-picture-1",
           "prompt": {
-            "vi": "Chon the dung voi y nghia nay.",
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
             "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "vi": "Bắt đầu bằng nhận diện hình ảnh và chữ Hàn cùng lúc.",
             "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
@@ -1788,7 +1788,7 @@
             {
               "id": "wb17-match-detergent-picture-1-correct",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -1797,7 +1797,7 @@
             {
               "id": "wb17-match-detergent-picture-1-d1",
               "text": {
-                "vi": "chuan bi",
+                "vi": "chuẩn bị",
                 "en": "prepare"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
@@ -1806,7 +1806,7 @@
             {
               "id": "wb17-match-detergent-picture-1-d2",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -1815,7 +1815,7 @@
             {
               "id": "wb17-match-detergent-picture-1-d3",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -1825,18 +1825,18 @@
           "answer": "wb17-match-detergent-picture-1-correct",
           "presentation": "image_cards",
           "questionText": {
-            "vi": "nuoc giat",
+            "vi": "nước giặt",
             "en": "detergent"
           }
         },
         {
           "id": "wb17-match-detergent-picture-2",
           "prompt": {
-            "vi": "Nghe roi chon the phu hop.",
+            "vi": "Nghe rồi chọn thẻ phù hợp.",
             "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "vi": "Nghe lại từ này và chọn thẻ đúng để khóa âm và hình.",
             "en": "Hear the word again and choose the matching card to lock in sound and image."
           },
           "source": "workbook",
@@ -1845,7 +1845,7 @@
           "srWeight": 1.15,
           "errorPatternKey": "wb17-match-detergent-picture-2.listen",
           "supportText": {
-            "vi": "Xem tranh va noi voi tu dung.",
+            "vi": "Xem tranh và nối với từ đúng.",
             "en": "Look at the picture and match it with the correct word."
           },
           "audioText": "세제",
@@ -1854,7 +1854,7 @@
             {
               "id": "wb17-match-detergent-picture-2-correct",
               "text": {
-                "vi": "nuoc giat",
+                "vi": "nước giặt",
                 "en": "detergent"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
@@ -1863,7 +1863,7 @@
             {
               "id": "wb17-match-detergent-picture-2-d1",
               "text": {
-                "vi": "chuan bi",
+                "vi": "chuẩn bị",
                 "en": "prepare"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
@@ -1872,7 +1872,7 @@
             {
               "id": "wb17-match-detergent-picture-2-d2",
               "text": {
-                "vi": "khan giay",
+                "vi": "khăn giấy",
                 "en": "tissue paper"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
@@ -1881,7 +1881,7 @@
             {
               "id": "wb17-match-detergent-picture-2-d3",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               },
               "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
@@ -1899,15 +1899,15 @@
       "sectionOrder": 3,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Shopping dialogue drills",
+        "vi": "Luyện hội thoại mua sắm",
         "en": "Shopping dialogue drills"
       },
       "summary": {
-        "vi": "Gom du chat, hoi, va cau de nghi giup do trong workbook vao cung mot lesson.",
+        "vi": "Gồm đủ chat, hỏi, và câu đề nghị giúp đỡ trong workbook vào cùng một lesson.",
         "en": "Group the workbook shopping chat, questions, and help-offer lines into one lesson."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -1937,11 +1937,11 @@
         {
           "id": "wb17-chat-housewarming-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -1965,11 +1965,11 @@
         {
           "id": "wb17-chat-detergent-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -1978,7 +1978,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-chat-detergent-2.grammar",
           "supportText": {
-            "vi": "nuoc giat",
+            "vi": "nước giặt",
             "en": "detergent"
           },
           "type": "grammar_select",
@@ -1993,11 +1993,11 @@
         {
           "id": "wb17-chat-tissue-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2006,7 +2006,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-chat-tissue-2.grammar",
           "supportText": {
-            "vi": "khan giay",
+            "vi": "khăn giấy",
             "en": "tissue paper"
           },
           "type": "grammar_select",
@@ -2021,11 +2021,11 @@
         {
           "id": "wb17-dialogue-help-request-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2034,7 +2034,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-dialogue-help-request-2.grammar",
           "supportText": {
-            "vi": "Ban co the giup toi mot chut duoc khong?",
+            "vi": "Bạn có thể giúp tôi một chút được không?",
             "en": "Could you help me a bit?"
           },
           "type": "grammar_select",
@@ -2049,11 +2049,11 @@
         {
           "id": "wb17-dialogue-help-offer-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2062,7 +2062,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-dialogue-help-offer-2.grammar",
           "supportText": {
-            "vi": "De toi giup ban.",
+            "vi": "Để tôi giúp bạn.",
             "en": "I will help you."
           },
           "type": "grammar_select",
@@ -2077,11 +2077,11 @@
         {
           "id": "wb17-chat-housewarming-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2100,7 +2100,7 @@
             "세제"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
@@ -2111,11 +2111,11 @@
         {
           "id": "wb17-chat-detergent-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2134,22 +2134,22 @@
             "초대장"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "nuoc giat",
+            "vi": "nước giặt",
             "en": "detergent"
           }
         },
         {
           "id": "wb17-chat-tissue-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2168,22 +2168,22 @@
             "집들이"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "khan giay",
+            "vi": "khăn giấy",
             "en": "tissue paper"
           }
         },
         {
           "id": "wb17-dialogue-help-request-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2202,22 +2202,22 @@
             "초대할까요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Ban co the giup toi mot chut duoc khong?",
+            "vi": "Bạn có thể giúp tôi một chút được không?",
             "en": "Could you help me a bit?"
           }
         },
         {
           "id": "wb17-dialogue-help-offer-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2236,11 +2236,11 @@
             "초대할게요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "De toi giup ban.",
+            "vi": "Để tôi giúp bạn.",
             "en": "I will help you."
           }
         }
@@ -2252,15 +2252,15 @@
       "sectionOrder": 3,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Must-do drills",
+        "vi": "Bài luyện bắt buộc",
         "en": "Must-do drills"
       },
       "summary": {
-        "vi": "Giu tron cum bai phai lam cua workbook truoc khi sang section nghe QR.",
+        "vi": "Giữ trọn cụm bài phải làm của workbook trước khi sang section nghe QR.",
         "en": "Keep the full workbook obligation drills before moving into the QR listening section."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -2287,11 +2287,11 @@
         {
           "id": "wb17-must-study-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2302,7 +2302,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-must-study-2.grammar",
           "supportText": {
-            "vi": "phai hoc tieng Han",
+            "vi": "phải học tiếng Hàn",
             "en": "have to study Korean"
           },
           "type": "grammar_select",
@@ -2317,11 +2317,11 @@
         {
           "id": "wb17-must-meet-friend-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2332,7 +2332,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-must-meet-friend-2.grammar",
           "supportText": {
-            "vi": "phai gap ban",
+            "vi": "phải gặp bạn",
             "en": "have to meet a friend"
           },
           "type": "grammar_select",
@@ -2347,11 +2347,11 @@
         {
           "id": "wb17-must-go-hospital-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2362,7 +2362,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-must-go-hospital-2.grammar",
           "supportText": {
-            "vi": "phai den benh vien",
+            "vi": "phải đến bệnh viện",
             "en": "have to go to the hospital"
           },
           "type": "grammar_select",
@@ -2377,11 +2377,11 @@
         {
           "id": "wb17-must-practice-speaking-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2392,7 +2392,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-must-practice-speaking-2.grammar",
           "supportText": {
-            "vi": "phai luyen noi tieng Han",
+            "vi": "phải luyện nói tiếng Hàn",
             "en": "have to practice speaking Korean"
           },
           "type": "grammar_select",
@@ -2407,11 +2407,11 @@
         {
           "id": "wb17-must-study-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2432,22 +2432,22 @@
             "해요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "phai hoc tieng Han",
+            "vi": "phải học tiếng Hàn",
             "en": "have to study Korean"
           }
         },
         {
           "id": "wb17-must-meet-friend-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2468,22 +2468,22 @@
             "만나요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "phai gap ban",
+            "vi": "phải gặp bạn",
             "en": "have to meet a friend"
           }
         },
         {
           "id": "wb17-must-go-hospital-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2504,22 +2504,22 @@
             "가요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "phai den benh vien",
+            "vi": "phải đến bệnh viện",
             "en": "have to go to the hospital"
           }
         },
         {
           "id": "wb17-must-practice-speaking-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2540,11 +2540,11 @@
             "연습해요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "phai luyen noi tieng Han",
+            "vi": "phải luyện nói tiếng Hàn",
             "en": "have to practice speaking Korean"
           }
         }
@@ -2556,15 +2556,15 @@
       "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "QR nghe: time and meetup",
+        "vi": "Nghe QR: giờ và hẹn gặp",
         "en": "QR listening: time and meetup"
       },
       "summary": {
-        "vi": "Tach doan nghe QR ra thanh lesson rieng de khoa gio bat dau va cau hen gap.",
+        "vi": "Tách đoạn nghe QR ra thành lesson riêng để khóa giờ bắt đầu và câu hẹn gặp.",
         "en": "Split the QR dialogue into its own lesson to lock in the party time and meetup line."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -2587,11 +2587,11 @@
         {
           "id": "wb17-qr-party-time-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "vi": "Nghe file audio thật từ QR rồi chọn đáp án đúng.",
             "en": "Listen to the real QR audio and choose the correct answer."
           },
           "source": "workbook",
@@ -2600,7 +2600,7 @@
           "srWeight": 1.15,
           "errorPatternKey": "wb17-qr-party-time-1.listen",
           "supportText": {
-            "vi": "Nghe hoi thoai QR va chon gio dien ra tiệc tan gia.",
+            "vi": "Nghe hội thoại QR và chọn giờ diễn ra tiệc tân gia.",
             "en": "Listen to the QR dialogue and choose the housewarming time."
           },
           "audioText": "지훈: 내일 샤오위 씨, 집들이가 몇 시예요? 리사: 저녁 여섯 시예요. 그런데 집들이에 뭘 사 가야 돼요? 지훈: 보통 세제를 사 가고, 휴지도 사 가요. 리사: 그럼 휴지하고 세제를 제가 사 갈까요? 지훈: 좋아요. 그럼 샤오위 씨 집에서 만나요.",
@@ -2610,21 +2610,21 @@
             {
               "id": "wb17-qr-party-time-six-pm",
               "text": {
-                "vi": "6 gio toi",
+                "vi": "6 giờ tối",
                 "en": "6 PM"
               }
             },
             {
               "id": "wb17-qr-party-time-seven-pm",
               "text": {
-                "vi": "7 gio toi",
+                "vi": "7 giờ tối",
                 "en": "7 PM"
               }
             },
             {
               "id": "wb17-qr-party-time-eight-pm",
               "text": {
-                "vi": "8 gio toi",
+                "vi": "8 giờ tối",
                 "en": "8 PM"
               }
             }
@@ -2634,11 +2634,11 @@
         {
           "id": "wb17-qr-buy-gifts-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "vi": "Nghe file audio thật từ QR rồi chọn đáp án đúng.",
             "en": "Listen to the real QR audio and choose the correct answer."
           },
           "source": "workbook",
@@ -2647,7 +2647,7 @@
           "srWeight": 1.15,
           "errorPatternKey": "wb17-qr-buy-gifts-1.listen",
           "supportText": {
-            "vi": "Nghe hoi thoai QR va chon nhung thu Lisa se mua mang den.",
+            "vi": "Nghe hội thoại QR và chọn những thứ Lisa sẽ mua mang đến.",
             "en": "Listen to the QR dialogue and choose what Lisa will bring."
           },
           "audioText": "지훈: 내일 샤오위 씨, 집들이가 몇 시예요? 리사: 저녁 여섯 시예요. 그런데 집들이에 뭘 사 가야 돼요? 지훈: 보통 세제를 사 가고, 휴지도 사 가요. 리사: 그럼 휴지하고 세제를 제가 사 갈까요? 지훈: 좋아요. 그럼 샤오위 씨 집에서 만나요.",
@@ -2664,14 +2664,14 @@
             {
               "id": "wb17-qr-buy-gifts-tissue-detergent",
               "text": {
-                "vi": "khan giay va nuoc giat",
+                "vi": "khăn giấy và nước giặt",
                 "en": "tissue paper and detergent"
               }
             },
             {
               "id": "wb17-qr-buy-gifts-invitation-card",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               }
             }
@@ -2681,11 +2681,11 @@
         {
           "id": "u17-qr-time-fill",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Nghe lai doan QR va dien gio dien ra tiec tan gia.",
+            "vi": "Nghe lại đoạn QR và điền giờ diễn ra tiệc tân gia.",
             "en": "Replay the QR dialogue and fill in the housewarming time."
           },
           "source": "workbook",
@@ -2709,22 +2709,22 @@
             "여덟"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "6 gio toi",
+            "vi": "6 giờ tối",
             "en": "6 PM"
           }
         },
         {
           "id": "u17-qr-time-arrange",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Sap xep lai cau hoi gio giac xuat hien trong audio QR.",
+            "vi": "Sắp xếp lại câu hỏi giờ giấc xuất hiện trong audio QR.",
             "en": "Rebuild the time question that appears in the QR audio."
           },
           "source": "workbook",
@@ -2754,11 +2754,11 @@
         {
           "id": "u17-qr-meetup-fill",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien dong tu cuoi cau hen gap trong doan QR.",
+            "vi": "Điền động từ cuối câu hẹn gặp trong đoạn QR.",
             "en": "Fill the final meetup verb from the QR dialogue."
           },
           "source": "workbook",
@@ -2782,7 +2782,7 @@
             "도와요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
@@ -2793,11 +2793,11 @@
         {
           "id": "u17-qr-meetup-arrange",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Sap xep lai cau ket thuc cua doan hoi thoai QR.",
+            "vi": "Sắp xếp lại câu kết thúc của đoạn hội thoại QR.",
             "en": "Rebuild the closing line of the QR dialogue."
           },
           "source": "workbook",
@@ -2831,11 +2831,11 @@
         {
           "id": "u17-qr-time-speak",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi lai cau tra loi ve gio bat dau cua tiec tan gia.",
+            "vi": "Nói lại câu trả lời về giờ bắt đầu của tiệc tân gia.",
             "en": "Say the answer about the housewarming time aloud."
           },
           "source": "workbook",
@@ -2853,11 +2853,11 @@
         {
           "id": "u17-qr-meetup-speak",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Ket lesson bang cau hen gap tu nhien trong doan QR.",
+            "vi": "Kết lesson bằng câu hẹn gặp tự nhiên trong đoạn QR.",
             "en": "Close the lesson by saying the natural meetup line from the QR dialogue."
           },
           "source": "workbook",
@@ -2880,15 +2880,15 @@
       "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "QR nghe: gifts and response",
+        "vi": "Nghe QR: quà mang theo và phản hồi",
         "en": "QR listening: gifts and response"
       },
       "summary": {
-        "vi": "Tiep tuc QR section bang phan mua qua mang den va cau hoi phan hoi lich su.",
+        "vi": "Tiếp tục QR section bằng phần mua quà mang đến và câu hỏi phản hồi lịch sự.",
         "en": "Continue the QR section with the gift discussion and the polite follow-up question."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -2911,11 +2911,11 @@
         {
           "id": "wb17-qr-party-time-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "vi": "Nghe file audio thật từ QR rồi chọn đáp án đúng.",
             "en": "Listen to the real QR audio and choose the correct answer."
           },
           "source": "workbook",
@@ -2924,7 +2924,7 @@
           "srWeight": 1.15,
           "errorPatternKey": "wb17-qr-party-time-1.listen",
           "supportText": {
-            "vi": "Nghe hoi thoai QR va chon gio dien ra tiệc tan gia.",
+            "vi": "Nghe hội thoại QR và chọn giờ diễn ra tiệc tân gia.",
             "en": "Listen to the QR dialogue and choose the housewarming time."
           },
           "audioText": "지훈: 내일 샤오위 씨, 집들이가 몇 시예요? 리사: 저녁 여섯 시예요. 그런데 집들이에 뭘 사 가야 돼요? 지훈: 보통 세제를 사 가고, 휴지도 사 가요. 리사: 그럼 휴지하고 세제를 제가 사 갈까요? 지훈: 좋아요. 그럼 샤오위 씨 집에서 만나요.",
@@ -2934,21 +2934,21 @@
             {
               "id": "wb17-qr-party-time-six-pm",
               "text": {
-                "vi": "6 gio toi",
+                "vi": "6 giờ tối",
                 "en": "6 PM"
               }
             },
             {
               "id": "wb17-qr-party-time-seven-pm",
               "text": {
-                "vi": "7 gio toi",
+                "vi": "7 giờ tối",
                 "en": "7 PM"
               }
             },
             {
               "id": "wb17-qr-party-time-eight-pm",
               "text": {
-                "vi": "8 gio toi",
+                "vi": "8 giờ tối",
                 "en": "8 PM"
               }
             }
@@ -2958,11 +2958,11 @@
         {
           "id": "wb17-qr-buy-gifts-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "vi": "Nghe file audio thật từ QR rồi chọn đáp án đúng.",
             "en": "Listen to the real QR audio and choose the correct answer."
           },
           "source": "workbook",
@@ -2971,7 +2971,7 @@
           "srWeight": 1.15,
           "errorPatternKey": "wb17-qr-buy-gifts-1.listen",
           "supportText": {
-            "vi": "Nghe hoi thoai QR va chon nhung thu Lisa se mua mang den.",
+            "vi": "Nghe hội thoại QR và chọn những thứ Lisa sẽ mua mang đến.",
             "en": "Listen to the QR dialogue and choose what Lisa will bring."
           },
           "audioText": "지훈: 내일 샤오위 씨, 집들이가 몇 시예요? 리사: 저녁 여섯 시예요. 그런데 집들이에 뭘 사 가야 돼요? 지훈: 보통 세제를 사 가고, 휴지도 사 가요. 리사: 그럼 휴지하고 세제를 제가 사 갈까요? 지훈: 좋아요. 그럼 샤오위 씨 집에서 만나요.",
@@ -2988,14 +2988,14 @@
             {
               "id": "wb17-qr-buy-gifts-tissue-detergent",
               "text": {
-                "vi": "khan giay va nuoc giat",
+                "vi": "khăn giấy và nước giặt",
                 "en": "tissue paper and detergent"
               }
             },
             {
               "id": "wb17-qr-buy-gifts-invitation-card",
               "text": {
-                "vi": "thiep moi",
+                "vi": "thiệp mời",
                 "en": "invitation card"
               }
             }
@@ -3005,11 +3005,11 @@
         {
           "id": "u17-qr-detergent-fill",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien mon qua xuat hien dau tien trong cau tra loi cua QR.",
+            "vi": "Điền món quà xuất hiện đầu tiên trong câu trả lời của QR.",
             "en": "Fill in the first gift item named in the QR answer."
           },
           "source": "workbook",
@@ -3033,22 +3033,22 @@
             "초대장"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "khan giay va nuoc giat",
+            "vi": "khăn giấy và nước giặt",
             "en": "tissue paper and detergent"
           }
         },
         {
           "id": "u17-qr-bring-fill",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien cum phan hoi lich su de de nghi mua mang den.",
+            "vi": "Điền cụm phản hồi lịch sự để đề nghị mua mang đến.",
             "en": "Fill the polite follow-up phrase that offers to bring the gifts."
           },
           "source": "workbook",
@@ -3072,7 +3072,7 @@
             "갈까요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
@@ -3083,11 +3083,11 @@
         {
           "id": "u17-qr-gifts-arrange",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Sap xep lai cau noi ve nhung mon qua nen mua dem theo.",
+            "vi": "Sắp xếp lại câu nói về những món quà nên mua đem theo.",
             "en": "Rebuild the line about what gifts people usually bring."
           },
           "source": "workbook",
@@ -3125,11 +3125,11 @@
         {
           "id": "u17-qr-buy-question",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Viet lai cau hoi xuat hien o giua doan hoi thoai QR.",
+            "vi": "Viết lại câu hỏi xuất hiện ở giữa đoạn hội thoại QR.",
             "en": "Write the question that appears in the middle of the QR dialogue."
           },
           "source": "workbook",
@@ -3150,18 +3150,18 @@
             "집들이에 뭘 사 가야 돼요?"
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "u17-qr-bring-speak",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi lai cau de nghi giup do trong audio QR.",
+            "vi": "Nói lại câu đề nghị giúp đỡ trong audio QR.",
             "en": "Say the offer-to-help question from the QR audio aloud."
           },
           "source": "workbook",
@@ -3179,11 +3179,11 @@
         {
           "id": "u17-qr-buy-question-speak",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Ket lesson bang cau hoi hoi y kien ve qua mang den.",
+            "vi": "Kết lesson bằng câu hỏi hỏi ý kiến về quà mang đến.",
             "en": "Close the lesson with the question that asks what to bring."
           },
           "source": "workbook",
@@ -3206,15 +3206,15 @@
       "sectionOrder": 5,
       "lessonRole": "review",
       "title": {
-        "vi": "Email review",
+        "vi": "Ôn email",
         "en": "Email review"
       },
       "summary": {
-        "vi": "Khoa phan email cua workbook thanh mot lesson rieng khong tron QR listening.",
+        "vi": "Khóa phần email của workbook thành một lesson riêng không trộn QR listening.",
         "en": "Close the workbook email sequence in its own review lesson without mixing QR listening back in."
       },
       "difficulty": {
-        "vi": "On tap tong hop",
+        "vi": "Ôn tập tổng hợp",
         "en": "Cumulative production"
       },
       "focusConcepts": [
@@ -3243,11 +3243,11 @@
         {
           "id": "wb17-email-hi-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3256,7 +3256,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-email-hi-2.grammar",
           "supportText": {
-            "vi": "Lau roi khong gap",
+            "vi": "Lâu rồi không gặp",
             "en": "Long time no see"
           },
           "type": "grammar_select",
@@ -3272,11 +3272,11 @@
         {
           "id": "wb17-email-do-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3287,7 +3287,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-email-do-2.grammar",
           "supportText": {
-            "vi": "Can phai lam gi o tiec tan gia?",
+            "vi": "Cần phải làm gì ở tiệc tân gia?",
             "en": "What should I do at the housewarming?"
           },
           "type": "grammar_select",
@@ -3302,11 +3302,11 @@
         {
           "id": "wb17-email-food-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3317,7 +3317,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-email-food-2.grammar",
           "supportText": {
-            "vi": "Can chuan bi mon an gi?",
+            "vi": "Cần chuẩn bị món ăn gì?",
             "en": "What food should I prepare?"
           },
           "type": "grammar_select",
@@ -3332,11 +3332,11 @@
         {
           "id": "wb17-email-message-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3347,7 +3347,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-email-message-2.grammar",
           "supportText": {
-            "vi": "Tin nhan cung duoc",
+            "vi": "Tin nhắn cũng được",
             "en": "A message is fine too"
           },
           "type": "grammar_select",
@@ -3362,11 +3362,11 @@
         {
           "id": "wb17-email-hi-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3385,22 +3385,22 @@
             "되고요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Lau roi khong gap",
+            "vi": "Lâu rồi không gặp",
             "en": "Long time no see"
           }
         },
         {
           "id": "wb17-email-do-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3421,22 +3421,22 @@
             "해요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Can phai lam gi o tiec tan gia?",
+            "vi": "Cần phải làm gì ở tiệc tân gia?",
             "en": "What should I do at the housewarming?"
           }
         },
         {
           "id": "wb17-email-food-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3457,22 +3457,22 @@
             "준비해요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Can chuan bi mon an gi?",
+            "vi": "Cần chuẩn bị món ăn gì?",
             "en": "What food should I prepare?"
           }
         },
         {
           "id": "wb17-email-message-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3493,11 +3493,11 @@
             "가고요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Tin nhan cung duoc",
+            "vi": "Tin nhắn cũng được",
             "en": "A message is fine too"
           }
         }
@@ -3509,7 +3509,7 @@
       "sectionOrder": 5,
       "lessonRole": "review",
       "title": {
-        "vi": "Output review",
+        "vi": "Ôn tập sản sinh",
         "en": "Production review"
       },
       "summary": {
@@ -3517,7 +3517,7 @@
         "en": "Finish the unit with scaffolded production drawn from dialogue, -고요, and the travel prompt."
       },
       "difficulty": {
-        "vi": "On tap tong hop",
+        "vi": "Ôn tập tổng hợp",
         "en": "Cumulative production"
       },
       "focusConcepts": [
@@ -3549,11 +3549,11 @@
         {
           "id": "wb17-goyo-school-food-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3564,7 +3564,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-goyo-school-food-2.grammar",
           "supportText": {
-            "vi": "do an cung ngon",
+            "vi": "đồ ăn cũng ngon",
             "en": "the food is tasty too"
           },
           "type": "grammar_select",
@@ -3579,11 +3579,11 @@
         {
           "id": "wb17-goyo-make-friends-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3594,7 +3594,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-goyo-make-friends-2.grammar",
           "supportText": {
-            "vi": "cung co the ket ban",
+            "vi": "cũng có thể kết bạn",
             "en": "you can make friends too"
           },
           "type": "grammar_select",
@@ -3609,11 +3609,11 @@
         {
           "id": "wb17-dialogue-help-request-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3622,7 +3622,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-dialogue-help-request-2.grammar",
           "supportText": {
-            "vi": "Ban co the giup toi mot chut duoc khong?",
+            "vi": "Bạn có thể giúp tôi một chút được không?",
             "en": "Could you help me a bit?"
           },
           "type": "grammar_select",
@@ -3637,11 +3637,11 @@
         {
           "id": "wb17-dialogue-help-offer-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3650,7 +3650,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-dialogue-help-offer-2.grammar",
           "supportText": {
-            "vi": "De toi giup ban.",
+            "vi": "Để tôi giúp bạn.",
             "en": "I will help you."
           },
           "type": "grammar_select",
@@ -3665,11 +3665,11 @@
         {
           "id": "wb17-travel-place-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3680,7 +3680,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb17-travel-place-2.grammar",
           "supportText": {
-            "vi": "Toi cung muon den Busan nua",
+            "vi": "Tôi cũng muốn đến Busan nữa",
             "en": "I also want to go to Busan"
           },
           "type": "grammar_select",
@@ -3695,11 +3695,11 @@
         {
           "id": "wb17-goyo-school-food-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3720,22 +3720,22 @@
             "맛있어요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "do an cung ngon",
+            "vi": "đồ ăn cũng ngon",
             "en": "the food is tasty too"
           }
         },
         {
           "id": "wb17-goyo-make-friends-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3756,22 +3756,22 @@
             "있어요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "cung co the ket ban",
+            "vi": "cũng có thể kết bạn",
             "en": "you can make friends too"
           }
         },
         {
           "id": "wb17-dialogue-help-request-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3790,22 +3790,22 @@
             "초대할까요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Ban co the giup toi mot chut duoc khong?",
+            "vi": "Bạn có thể giúp tôi một chút được không?",
             "en": "Could you help me a bit?"
           }
         },
         {
           "id": "wb17-dialogue-help-offer-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3824,22 +3824,22 @@
             "초대할게요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "De toi giup ban.",
+            "vi": "Để tôi giúp bạn.",
             "en": "I will help you."
           }
         },
         {
           "id": "wb17-travel-place-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3860,11 +3860,11 @@
             "부산에 가요"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Toi cung muon den Busan nua",
+            "vi": "Tôi cũng muốn đến Busan nữa",
             "en": "I also want to go to Busan"
           }
         }

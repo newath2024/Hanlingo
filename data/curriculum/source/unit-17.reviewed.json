@@ -2,7 +2,7 @@
   "unitId": "17",
   "unitNumber": 17,
   "title": {
-    "vi": "Toi nen mang gi den tiec tan gia?",
+    "vi": "Tôi nên mang gì đến tiệc tân gia?",
     "en": "What should I bring to the housewarming?"
   },
   "needsReview": false,
@@ -37,7 +37,7 @@
         "id": "v-housewarming",
         "korean": "집들이",
         "translations": {
-          "vi": "tiec tan gia",
+          "vi": "tiệc tân gia",
           "en": "housewarming party"
         },
         "romanization": "jipdeuri",
@@ -58,7 +58,7 @@
         "id": "v-invitation",
         "korean": "초대",
         "translations": {
-          "vi": "loi moi",
+          "vi": "lời mời",
           "en": "invitation"
         },
         "romanization": "chodae",
@@ -78,7 +78,7 @@
         "id": "v-invitation-card",
         "korean": "초대장",
         "translations": {
-          "vi": "thiep moi",
+          "vi": "thiệp mời",
           "en": "invitation card"
         },
         "romanization": "chodaejang",
@@ -99,7 +99,7 @@
         "id": "v-tissue",
         "korean": "휴지",
         "translations": {
-          "vi": "khan giay",
+          "vi": "khăn giấy",
           "en": "tissue paper"
         },
         "romanization": "hyuji",
@@ -120,7 +120,7 @@
         "id": "v-detergent",
         "korean": "세제",
         "translations": {
-          "vi": "nuoc giat",
+          "vi": "nước giặt",
           "en": "detergent"
         },
         "romanization": "seje",
@@ -141,7 +141,7 @@
         "id": "v-move",
         "korean": "이사하다",
         "translations": {
-          "vi": "chuyen nha",
+          "vi": "chuyển nhà",
           "en": "move house"
         },
         "romanization": "isahada",
@@ -161,7 +161,7 @@
         "id": "v-help",
         "korean": "도와주다",
         "translations": {
-          "vi": "giup do",
+          "vi": "giúp đỡ",
           "en": "help"
         },
         "romanization": "dowajuda",
@@ -181,7 +181,7 @@
         "id": "v-invite-verb",
         "korean": "초대하다",
         "translations": {
-          "vi": "moi",
+          "vi": "mời",
           "en": "invite"
         },
         "romanization": "chodaehada",
@@ -201,7 +201,7 @@
         "id": "v-prepare",
         "korean": "준비하다",
         "translations": {
-          "vi": "chuan bi",
+          "vi": "chuẩn bị",
           "en": "prepare"
         },
         "romanization": "junbihada",
@@ -224,7 +224,7 @@
         "id": "g-must-do",
         "pattern": "동사 + -아/어야 되다",
         "explanation": {
-          "vi": "Dien ta nghia vu, viec can phai lam, hoac su can thiet trong tinh huong nao do.",
+          "vi": "Diễn tả nghĩa vụ, việc cần phải làm, hoặc sự cần thiết trong tình huống nào đó.",
           "en": "Expresses obligation, necessity, or something that must be done in a situation."
         },
         "exampleIds": [
@@ -248,7 +248,7 @@
         "id": "g-goyo",
         "pattern": "동사 + -고요",
         "explanation": {
-          "vi": "Dung de noi tiep noi hoac bo sung them mot y nua trong cung luot noi.",
+          "vi": "Dùng để nói tiếp nối hoặc bổ sung thêm một ý nữa trong cùng lượt nói.",
           "en": "Used to continue speaking or add one more connected point in the same turn."
         },
         "exampleIds": [
@@ -275,7 +275,7 @@
         "speaker": "Jihun",
         "korean": "지훈 씨, 집들이에서 보통 뭘 해요?",
         "translations": {
-          "vi": "Jihun, o tiec tan gia thuong lam gi?",
+          "vi": "Jihun, ở tiệc tân gia thường làm gì?",
           "en": "Jihun, what do people usually do at a housewarming?"
         },
         "pages": {
@@ -295,7 +295,7 @@
         "speaker": "Lisa",
         "korean": "집을 구경해요. 같이 식사도 하고요.",
         "translations": {
-          "vi": "Moi nguoi xem nha, va cung an cung nhau nua.",
+          "vi": "Mọi người xem nhà, và cùng ăn cùng nhau nữa.",
           "en": "People look around the house, and they eat together too."
         },
         "pages": {
@@ -315,7 +315,7 @@
         "speaker": "Jihun",
         "korean": "리사 씨, 주말에 집들이를 하려고 해요. 올 수 있어요?",
         "translations": {
-          "vi": "Lisa, cuoi tuan nay toi dinh to chuc tiec tan gia. Ban co the den duoc khong?",
+          "vi": "Lisa, cuối tuần này tôi định tổ chức tiệc tân gia. Bạn có thể đến được không?",
           "en": "Lisa, I am planning a housewarming this weekend. Can you come?"
         },
         "pages": {
@@ -335,7 +335,7 @@
         "speaker": "Lisa",
         "korean": "그럼요. 제가 좀 도와줄까요?",
         "translations": {
-          "vi": "Tat nhien roi. Toi co the giup mot chut khong?",
+          "vi": "Tất nhiên rồi. Tôi có thể giúp một chút không?",
           "en": "Of course. Should I help a little?"
         },
         "pages": {
@@ -355,7 +355,7 @@
         "speaker": "Jihun",
         "korean": "고마워요. 음식을 만들어야 돼요.",
         "translations": {
-          "vi": "Cam on ban. Toi phai lam do an.",
+          "vi": "Cảm ơn bạn. Tôi phải làm đồ ăn.",
           "en": "Thanks. I have to make food."
         },
         "pages": {
@@ -375,7 +375,7 @@
         "speaker": "Jihun",
         "korean": "그럼 좀 일찍 오세요.",
         "translations": {
-          "vi": "Vay thi ban den som mot chut nhe.",
+          "vi": "Vậy thì bạn đến sớm một chút nhé.",
           "en": "Then please come a little early."
         },
         "pages": {
@@ -396,7 +396,7 @@
         "id": "ex-help-request",
         "korean": "저 좀 도와줄 수 있어요?",
         "translations": {
-          "vi": "Ban co the giup toi mot chut duoc khong?",
+          "vi": "Bạn có thể giúp tôi một chút được không?",
           "en": "Could you help me a bit?"
         },
         "grammarTags": [
@@ -418,7 +418,7 @@
         "id": "ex-help-offer",
         "korean": "제가 도와 드릴게요.",
         "translations": {
-          "vi": "De toi giup ban.",
+          "vi": "Để tôi giúp bạn.",
           "en": "I will help you."
         },
         "grammarTags": [
@@ -440,7 +440,7 @@
         "id": "ex-must-buy",
         "korean": "집들이에 뭘 사 가야 돼요?",
         "translations": {
-          "vi": "Toi nen mua gi de mang den tiec tan gia?",
+          "vi": "Tôi nên mua gì để mang đến tiệc tân gia?",
           "en": "What should I buy and bring to the housewarming?"
         },
         "grammarTags": [
@@ -462,7 +462,7 @@
         "id": "ex-must-make-food",
         "korean": "음식을 만들어야 돼요.",
         "translations": {
-          "vi": "Phai lam do an.",
+          "vi": "Phải làm đồ ăn.",
           "en": "I have to make food."
         },
         "grammarTags": [
@@ -484,7 +484,7 @@
         "id": "ex-healthy-too",
         "korean": "건강에도 좋고요.",
         "translations": {
-          "vi": "Cung tot cho suc khoe nua.",
+          "vi": "Cũng tốt cho sức khỏe nữa.",
           "en": "It is good for your health too."
         },
         "grammarTags": [
@@ -506,7 +506,7 @@
         "id": "ex-delicious-too",
         "korean": "경치가 예뻐요. 음식도 맛있고요.",
         "translations": {
-          "vi": "Phong canh dep, va do an cung ngon nua.",
+          "vi": "Phong cảnh đẹp, và đồ ăn cũng ngon nữa.",
           "en": "The scenery is beautiful, and the food is tasty too."
         },
         "grammarTags": [
@@ -528,7 +528,7 @@
         "id": "ex-look-around",
         "korean": "집을 구경해요. 같이 식사도 하고요.",
         "translations": {
-          "vi": "Moi nguoi xem nha, va cung an cung nhau nua.",
+          "vi": "Mọi người xem nhà, và cùng ăn cùng nhau nữa.",
           "en": "People look around the house, and they eat together too."
         },
         "grammarTags": [
@@ -550,7 +550,7 @@
         "id": "ex-email-what-do",
         "korean": "집들이에서 뭘 해야 돼요?",
         "translations": {
-          "vi": "Toi can lam gi o tiec tan gia?",
+          "vi": "Tôi cần làm gì ở tiệc tân gia?",
           "en": "What should I do at the housewarming?"
         },
         "grammarTags": [
@@ -572,7 +572,7 @@
         "id": "ex-email-what-food",
         "korean": "집들이에 어떤 음식을 준비해야 돼요?",
         "translations": {
-          "vi": "Toi can chuan bi mon an gi cho tiec tan gia?",
+          "vi": "Tôi cần chuẩn bị món ăn gì cho tiệc tân gia?",
           "en": "What food should I prepare for the housewarming?"
         },
         "grammarTags": [
@@ -594,7 +594,7 @@
         "id": "ex-must-bring-swim-cap",
         "korean": "그리고 수영 모자도 가져가야 해요.",
         "translations": {
-          "vi": "Va cung phai mang theo mu boi nua.",
+          "vi": "Và cũng phải mang theo mũ bơi nữa.",
           "en": "And I also have to bring a swim cap."
         },
         "grammarTags": [
@@ -616,7 +616,7 @@
         "id": "ex-travel-place",
         "korean": "서울에 가고 싶어요. 부산도 가고요.",
         "translations": {
-          "vi": "Toi muon di Seoul, va cung muon di Busan nua.",
+          "vi": "Tôi muốn đi Seoul, và cũng muốn đi Busan nữa.",
           "en": "I want to go to Seoul, and I want to go to Busan too."
         },
         "grammarTags": [
@@ -664,7 +664,7 @@
         "id": "wb17-write-housewarming",
         "exerciseType": "writing",
         "prompt": {
-          "vi": "Viet tu 'tiệc tân gia' bang tieng Han.",
+          "vi": "Viết từ 'tiệc tân gia' bằng tiếng Hàn.",
           "en": "Write the word 'housewarming party' in Korean."
         },
         "localizedText": {
@@ -696,11 +696,11 @@
         "id": "wb17-write-invite",
         "exerciseType": "writing",
         "prompt": {
-          "vi": "Viet tu 'loi moi' bang tieng Han.",
+          "vi": "Viết từ 'lời mời' bằng tiếng Hàn.",
           "en": "Write the word 'invitation' in Korean."
         },
         "localizedText": {
-          "vi": "loi moi",
+          "vi": "lời mời",
           "en": "invitation"
         },
         "answer": "초대",
@@ -728,12 +728,12 @@
         "id": "wb17-must-form-eat",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh dang -아/어야 되다 cua dong tu.",
+          "vi": "Hoàn thành dạng -아/어야 되다 của động từ.",
           "en": "Complete the -아/어야 되다 form of the verb."
         },
         "koreanText": "먹다 -> ___",
         "localizedText": {
-          "vi": "phai an",
+          "vi": "phải ăn",
           "en": "have to eat"
         },
         "answer": "먹어야 되다",
@@ -767,12 +767,12 @@
         "id": "wb17-goyo-form-make",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh dang -고요 cua dong tu.",
+          "vi": "Hoàn thành dạng -고요 của động từ.",
           "en": "Complete the -고요 form of the verb."
         },
         "koreanText": "만들다 -> ___",
         "localizedText": {
-          "vi": "va lam",
+          "vi": "và làm",
           "en": "and make"
         },
         "answer": "만들고요",
@@ -806,7 +806,7 @@
         "id": "wb17-match-housewarming-picture",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Xem tranh va noi voi tu dung.",
+          "vi": "Xem tranh và nối với từ đúng.",
           "en": "Look at the picture and match it with the correct word."
         },
         "koreanText": "집들이",
@@ -840,15 +840,15 @@
         "id": "wb17-match-invitation-card-picture",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Xem tranh va noi voi tu dung.",
+          "vi": "Xem tranh và nối với từ đúng.",
           "en": "Look at the picture and match it with the correct word."
         },
         "koreanText": "초대장",
         "localizedText": {
-          "vi": "thiep moi",
+          "vi": "thiệp mời",
           "en": "invitation card"
         },
-        "answer": "thiep moi",
+        "answer": "thiệp mời",
         "metadata": {
           "target": "vocab",
           "vocabId": "v-invitation-card"
@@ -874,15 +874,15 @@
         "id": "wb17-match-tissue-picture",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Xem tranh va noi voi tu dung.",
+          "vi": "Xem tranh và nối với từ đúng.",
           "en": "Look at the picture and match it with the correct word."
         },
         "koreanText": "휴지",
         "localizedText": {
-          "vi": "khan giay",
+          "vi": "khăn giấy",
           "en": "tissue paper"
         },
-        "answer": "khan giay",
+        "answer": "khăn giấy",
         "metadata": {
           "target": "vocab",
           "vocabId": "v-tissue"
@@ -908,15 +908,15 @@
         "id": "wb17-match-detergent-picture",
         "exerciseType": "matching",
         "prompt": {
-          "vi": "Xem tranh va noi voi tu dung.",
+          "vi": "Xem tranh và nối với từ đúng.",
           "en": "Look at the picture and match it with the correct word."
         },
         "koreanText": "세제",
         "localizedText": {
-          "vi": "nuoc giat",
+          "vi": "nước giặt",
           "en": "detergent"
         },
-        "answer": "nuoc giat",
+        "answer": "nước giặt",
         "metadata": {
           "target": "vocab",
           "vocabId": "v-detergent"
@@ -942,7 +942,7 @@
         "id": "wb17-chat-housewarming",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien tu thich hop vao hoi thoai.",
+          "vi": "Điền từ thích hợp vào hội thoại.",
           "en": "Fill the correct word into the dialogue."
         },
         "koreanText": "내일 ___에 뭘 사 갈까요?",
@@ -980,12 +980,12 @@
         "id": "wb17-chat-detergent",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien tu thich hop vao hoi thoai.",
+          "vi": "Điền từ thích hợp vào hội thoại.",
           "en": "Fill the correct word into the dialogue."
         },
         "koreanText": "보통 ___을/를 사 가요. 휴지도 좋고요.",
         "localizedText": {
-          "vi": "nuoc giat",
+          "vi": "nước giặt",
           "en": "detergent"
         },
         "answer": "세제",
@@ -1018,12 +1018,12 @@
         "id": "wb17-chat-tissue",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien tu thich hop vao hoi thoai.",
+          "vi": "Điền từ thích hợp vào hội thoại.",
           "en": "Fill the correct word into the dialogue."
         },
         "koreanText": "그럼 ___을/를 사 갑시다. 내일 봐요.",
         "localizedText": {
-          "vi": "khan giay",
+          "vi": "khăn giấy",
           "en": "tissue paper"
         },
         "answer": "휴지",
@@ -1056,12 +1056,12 @@
         "id": "wb17-dialogue-help-request",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh loi nho giup do trong hoi thoai.",
+          "vi": "Hoàn thành lời nhờ giúp đỡ trong hội thoại.",
           "en": "Complete the help-request line in the dialogue."
         },
         "koreanText": "죄송하지만 저 좀 ___?",
         "localizedText": {
-          "vi": "Ban co the giup toi mot chut duoc khong?",
+          "vi": "Bạn có thể giúp tôi một chút được không?",
           "en": "Could you help me a bit?"
         },
         "answer": "도와줄 수 있어요",
@@ -1094,12 +1094,12 @@
         "id": "wb17-dialogue-help-offer",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh loi de nghi giup do trong hoi thoai.",
+          "vi": "Hoàn thành lời đề nghị giúp đỡ trong hội thoại.",
           "en": "Complete the help-offer line in the dialogue."
         },
         "koreanText": "네, 제가 ___.",
         "localizedText": {
-          "vi": "De toi giup ban.",
+          "vi": "Để tôi giúp bạn.",
           "en": "I will help you."
         },
         "answer": "도와 드릴게요",
@@ -1132,12 +1132,12 @@
         "id": "wb17-must-study",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien dang -아/어야 되다 vao cho trong.",
+          "vi": "Điền dạng -아/어야 되다 vào chỗ trống.",
           "en": "Fill in the correct -아/어야 되다 form."
         },
         "koreanText": "안 돼요. 한국어 공부를 ___.",
         "localizedText": {
-          "vi": "phai hoc tieng Han",
+          "vi": "phải học tiếng Hàn",
           "en": "have to study Korean"
         },
         "answer": "해야 돼요",
@@ -1171,12 +1171,12 @@
         "id": "wb17-must-meet-friend",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien dang -아/어야 되다 vao cho trong.",
+          "vi": "Điền dạng -아/어야 되다 vào chỗ trống.",
           "en": "Fill in the correct -아/어야 되다 form."
         },
         "koreanText": "친구들 약속이 있어요. 친구를 ___.",
         "localizedText": {
-          "vi": "phai gap ban",
+          "vi": "phải gặp bạn",
           "en": "have to meet a friend"
         },
         "answer": "만나야 돼요",
@@ -1210,12 +1210,12 @@
         "id": "wb17-must-go-hospital",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien dang -아/어야 되다 vao cho trong.",
+          "vi": "Điền dạng -아/어야 되다 vào chỗ trống.",
           "en": "Fill in the correct -아/어야 되다 form."
         },
         "koreanText": "몸이 안 좋아서 병원에 ___.",
         "localizedText": {
-          "vi": "phai den benh vien",
+          "vi": "phải đến bệnh viện",
           "en": "have to go to the hospital"
         },
         "answer": "가야 돼요",
@@ -1249,12 +1249,12 @@
         "id": "wb17-must-practice-speaking",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien dang -아/어야 되다 vao cho trong.",
+          "vi": "Điền dạng -아/어야 되다 vào chỗ trống.",
           "en": "Fill in the correct -아/어야 되다 form."
         },
         "koreanText": "그래서 한국어 말하기를 ___.",
         "localizedText": {
-          "vi": "phai luyen noi tieng Han",
+          "vi": "phải luyện nói tiếng Hàn",
           "en": "have to practice speaking Korean"
         },
         "answer": "연습해야 돼요",
@@ -1288,12 +1288,12 @@
         "id": "wb17-goyo-school-food",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien dang -고요 vao cho trong.",
+          "vi": "Điền dạng -고요 vào chỗ trống.",
           "en": "Fill in the correct -고요 form."
         },
         "koreanText": "직원들이 친절해요. 음식도 ___.",
         "localizedText": {
-          "vi": "do an cung ngon",
+          "vi": "đồ ăn cũng ngon",
           "en": "the food is tasty too"
         },
         "answer": "맛있고요",
@@ -1327,12 +1327,12 @@
         "id": "wb17-goyo-make-friends",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Dien dang -고요 vao cho trong.",
+          "vi": "Điền dạng -고요 vào chỗ trống.",
           "en": "Fill in the correct -고요 form."
         },
         "koreanText": "재미있어요. 친구도 사귈 수 ___.",
         "localizedText": {
-          "vi": "cung co the ket ban",
+          "vi": "cũng có thể kết bạn",
           "en": "you can make friends too"
         },
         "answer": "있고요",
@@ -1366,12 +1366,12 @@
         "id": "wb17-email-hi",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh email moi du tiec tan gia.",
+          "vi": "Hoàn thành email mời dự tiệc tân gia.",
           "en": "Complete the housewarming invitation email."
         },
         "koreanText": "지연 씨, ___ 잘 지냈어요?",
         "localizedText": {
-          "vi": "Lau roi khong gap",
+          "vi": "Lâu rồi không gặp",
           "en": "Long time no see"
         },
         "answer": "오랜만이에요",
@@ -1405,12 +1405,12 @@
         "id": "wb17-email-do",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh email moi du tiec tan gia.",
+          "vi": "Hoàn thành email mời dự tiệc tân gia.",
           "en": "Complete the housewarming invitation email."
         },
         "koreanText": "집들이에서 뭘 ___?",
         "localizedText": {
-          "vi": "Can phai lam gi o tiec tan gia?",
+          "vi": "Cần phải làm gì ở tiệc tân gia?",
           "en": "What should I do at the housewarming?"
         },
         "answer": "해야 돼요",
@@ -1444,12 +1444,12 @@
         "id": "wb17-email-food",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh email moi du tiec tan gia.",
+          "vi": "Hoàn thành email mời dự tiệc tân gia.",
           "en": "Complete the housewarming invitation email."
         },
         "koreanText": "집들이에 어떤 음식을 ___?",
         "localizedText": {
-          "vi": "Can chuan bi mon an gi?",
+          "vi": "Cần chuẩn bị món ăn gì?",
           "en": "What food should I prepare?"
         },
         "answer": "준비해야 돼요",
@@ -1483,12 +1483,12 @@
         "id": "wb17-email-message",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh email moi du tiec tan gia.",
+          "vi": "Hoàn thành email mời dự tiệc tân gia.",
           "en": "Complete the housewarming invitation email."
         },
         "koreanText": "메일 주세요. 메시지도 ___.",
         "localizedText": {
-          "vi": "Tin nhan cung duoc",
+          "vi": "Tin nhắn cũng được",
           "en": "A message is fine too"
         },
         "answer": "되고요",
@@ -1522,12 +1522,12 @@
         "id": "wb17-travel-place",
         "exerciseType": "fill_blank",
         "prompt": {
-          "vi": "Hoan thanh cau -고요 khi noi ve ke hoach di choi.",
+          "vi": "Hoàn thành câu -고요 khi nói về kế hoạch đi chơi.",
           "en": "Complete the -고요 sentence about a travel plan."
         },
         "koreanText": "서울에 가고 싶어요. ___.",
         "localizedText": {
-          "vi": "Toi cung muon den Busan nua",
+          "vi": "Tôi cũng muốn đến Busan nữa",
           "en": "I also want to go to Busan"
         },
         "answer": "부산도 가고요",
@@ -1561,20 +1561,20 @@
         "id": "wb17-qr-party-time",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe hoi thoai QR va chon gio dien ra tiệc tan gia.",
+          "vi": "Nghe hội thoại QR và chọn giờ diễn ra tiệc tân gia.",
           "en": "Listen to the QR dialogue and choose the housewarming time."
         },
         "localizedText": {
-          "vi": "6 gio toi",
+          "vi": "6 giờ tối",
           "en": "6 PM"
         },
-        "answer": "6 gio toi",
+        "answer": "6 giờ tối",
         "audioAssetId": "wb17-qr-dialogue-audio",
         "options": [
           {
             "id": "six-pm",
             "label": {
-              "vi": "6 gio toi",
+              "vi": "6 giờ tối",
               "en": "6 PM"
             },
             "correct": true
@@ -1582,7 +1582,7 @@
           {
             "id": "seven-pm",
             "label": {
-              "vi": "7 gio toi",
+              "vi": "7 giờ tối",
               "en": "7 PM"
             },
             "correct": false
@@ -1590,7 +1590,7 @@
           {
             "id": "eight-pm",
             "label": {
-              "vi": "8 gio toi",
+              "vi": "8 giờ tối",
               "en": "8 PM"
             },
             "correct": false
@@ -1621,14 +1621,14 @@
         "id": "wb17-qr-buy-gifts",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe hoi thoai QR va chon nhung thu Lisa se mua mang den.",
+          "vi": "Nghe hội thoại QR và chọn những thứ Lisa sẽ mua mang đến.",
           "en": "Listen to the QR dialogue and choose what Lisa will bring."
         },
         "localizedText": {
-          "vi": "khan giay va nuoc giat",
+          "vi": "khăn giấy và nước giặt",
           "en": "tissue paper and detergent"
         },
-        "answer": "khan giay va nuoc giat",
+        "answer": "khăn giấy và nước giặt",
         "audioAssetId": "wb17-qr-dialogue-audio",
         "options": [
           {
@@ -1642,7 +1642,7 @@
           {
             "id": "tissue-detergent",
             "label": {
-              "vi": "khan giay va nuoc giat",
+              "vi": "khăn giấy và nước giặt",
               "en": "tissue paper and detergent"
             },
             "correct": true
@@ -1650,7 +1650,7 @@
           {
             "id": "invitation-card",
             "label": {
-              "vi": "thiep moi",
+              "vi": "thiệp mời",
               "en": "invitation card"
             },
             "correct": false

@@ -24,28 +24,28 @@ function text(vi: string, en: string): LocalizedText {
 }
 
 const TRAFFIC_OPTIONS = [
-  { id: "clear-road", label: text("duong vang xe", "the road is clear"), correct: false },
-  { id: "traffic-jam", label: text("duong dang tac", "the road is jammed"), correct: true },
+  { id: "clear-road", label: text("đường vắng xe", "the road is clear"), correct: false },
+  { id: "traffic-jam", label: text("đường đang tắc", "the road is jammed"), correct: true },
 ];
 
 const BUS_NUMBER_OPTIONS = [
-  { id: "50", label: text("xe buyt 50", "bus 50"), correct: false },
-  { id: "100", label: text("xe buyt 100", "bus 100"), correct: true },
-  { id: "150", label: text("xe buyt 150", "bus 150"), correct: false },
-  { id: "200", label: text("xe buyt 200", "bus 200"), correct: false },
+  { id: "50", label: text("xe buýt 50", "bus 50"), correct: false },
+  { id: "100", label: text("xe buýt 100", "bus 100"), correct: true },
+  { id: "150", label: text("xe buýt 150", "bus 150"), correct: false },
+  { id: "200", label: text("xe buýt 200", "bus 200"), correct: false },
 ];
 
 const DISTANCE_OPTIONS = [
-  { id: "far", label: text("rat xa", "very far"), correct: false },
-  { id: "not-far", label: text("khong xa", "not far"), correct: true },
-  { id: "three-hours", label: text("mat ba tieng", "it takes three hours"), correct: false },
+  { id: "far", label: text("rất xa", "very far"), correct: false },
+  { id: "not-far", label: text("không xa", "not far"), correct: true },
+  { id: "three-hours", label: text("mất ba tiếng", "it takes three hours"), correct: false },
 ];
 
 const DESTINATION_OPTIONS = [
-  { id: "airport", label: text("san bay", "airport"), correct: true },
+  { id: "airport", label: text("sân bay", "airport"), correct: true },
   { id: "seoul-station", label: text("ga Seoul", "Seoul Station"), correct: false },
-  { id: "terminal", label: text("ben xe", "terminal"), correct: false },
-  { id: "harbor", label: text("cang", "harbor"), correct: false },
+  { id: "terminal", label: text("bến xe", "terminal"), correct: false },
+  { id: "harbor", label: text("cảng", "harbor"), correct: false },
 ];
 
 const QR_269_TRANSCRIPT =
@@ -104,11 +104,11 @@ export const UNIT_16_QR_SEED: UnitQrSeedDefinition = {
           id: "wb16-qr-traffic-jam",
           exerciseType: "listening",
           prompt: args.text(
-            "Nghe QR va chon tinh huong giao thong dung.",
+            "Nghe QR và chọn tình huống giao thông đúng.",
             "Listen to the QR audio and choose the correct traffic situation.",
           ),
-          localizedText: args.text("duong dang tac", "the road is jammed"),
-          answer: "duong dang tac",
+          localizedText: args.text("đường đang tắc", "the road is jammed"),
+          answer: "đường đang tắc",
           audioAssetId: "wb16-qr-traffic-audio",
           options: TRAFFIC_OPTIONS.map((option) => ({
             id: option.id,
@@ -134,11 +134,11 @@ export const UNIT_16_QR_SEED: UnitQrSeedDefinition = {
           id: "wb16-qr-seoul-bus-number",
           exerciseType: "listening",
           prompt: args.text(
-            "Nghe hoi thoai QR va chon so xe buyt can di.",
+            "Nghe hội thoại QR và chọn số xe buýt cần đi.",
             "Listen to the QR dialogue and choose the bus number to take.",
           ),
-          localizedText: args.text("xe buyt 100", "bus 100"),
-          answer: "xe buyt 100",
+          localizedText: args.text("xe buýt 100", "bus 100"),
+          answer: "xe buýt 100",
           audioAssetId: "wb16-qr-seoul-station-audio",
           options: BUS_NUMBER_OPTIONS.map((option) => ({
             id: option.id,
@@ -164,11 +164,11 @@ export const UNIT_16_QR_SEED: UnitQrSeedDefinition = {
           id: "wb16-qr-seoul-distance",
           exerciseType: "listening",
           prompt: args.text(
-            "Nghe hoi thoai QR va chon cach mo ta khoang cach dung.",
+            "Nghe hội thoại QR và chọn cách mô tả khoảng cách đúng.",
             "Listen to the QR dialogue and choose the correct distance description.",
           ),
-          localizedText: args.text("khong xa", "not far"),
-          answer: "khong xa",
+          localizedText: args.text("không xa", "not far"),
+          answer: "không xa",
           audioAssetId: "wb16-qr-seoul-station-audio",
           options: DISTANCE_OPTIONS.map((option) => ({
             id: option.id,
@@ -194,11 +194,11 @@ export const UNIT_16_QR_SEED: UnitQrSeedDefinition = {
           id: "wb16-qr-destination",
           exerciseType: "listening",
           prompt: args.text(
-            "Nghe QR va chon dia diem ma Jiyeon muon den.",
+            "Nghe QR và chọn địa điểm mà Jiyeon muốn đến.",
             "Listen to the QR audio and choose Jiyeon's destination.",
           ),
-          localizedText: args.text("san bay", "airport"),
-          answer: "san bay",
+          localizedText: args.text("sân bay", "airport"),
+          answer: "sân bay",
           audioAssetId: "wb16-qr-airport-audio",
           options: DESTINATION_OPTIONS.map((option) => ({
             id: option.id,

@@ -79,10 +79,10 @@ export function createUnit16SourceSeed(
         id: "wb16-write-transport",
         exerciseType: "translation",
         prompt: text(
-          "Viet cum 'phuong tien giao thong' bang tieng Han.",
+          "Viết cụm 'phương tiện giao thông' bằng tiếng Hàn.",
           "Write the phrase 'means of transportation' in Korean.",
         ),
-        localizedText: text("phuong tien giao thong", "means of transportation"),
+        localizedText: text("phương tiện giao thông", "means of transportation"),
         answer: "교통수단",
         metadata: {
           direction: "meaning_to_ko",
@@ -98,10 +98,10 @@ export function createUnit16SourceSeed(
         id: "wb16-write-transport-use",
         exerciseType: "translation",
         prompt: text(
-          "Viet cum 'su dung phuong tien giao thong' bang tieng Han.",
+          "Viết cụm 'sử dụng phương tiện giao thông' bằng tiếng Hàn.",
           "Write the phrase 'using transportation' in Korean.",
         ),
-        localizedText: text("su dung phuong tien giao thong", "using transportation"),
+        localizedText: text("sử dụng phương tiện giao thông", "using transportation"),
         answer: "교통수단 이용",
         metadata: {
           direction: "meaning_to_ko",
@@ -116,10 +116,10 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-match-bus",
         exerciseType: "matching",
-        prompt: text("Noi tranh voi tu dung.", "Match the picture with the correct word."),
+        prompt: text("Nối tranh với từ đúng.", "Match the picture with the correct word."),
         koreanText: "버스",
-        localizedText: text("xe buyt", "bus"),
-        answer: "xe buyt",
+        localizedText: text("xe buýt", "bus"),
+        answer: "xe buýt",
         metadata: { target: "vocab", vocabId: "v-bus" },
         coverageTags: ["transport", "vocab", "bus", "picture"],
         pages: page(262),
@@ -131,10 +131,10 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-match-train",
         exerciseType: "matching",
-        prompt: text("Noi tranh voi tu dung.", "Match the picture with the correct word."),
+        prompt: text("Nối tranh với từ đúng.", "Match the picture with the correct word."),
         koreanText: "기차",
-        localizedText: text("tau hoa", "train"),
-        answer: "tau hoa",
+        localizedText: text("tàu hỏa", "train"),
+        answer: "tàu hỏa",
         metadata: { target: "vocab", vocabId: "v-train" },
         coverageTags: ["transport", "vocab", "train", "picture"],
         pages: page(262),
@@ -146,10 +146,10 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-match-subway",
         exerciseType: "matching",
-        prompt: text("Noi tranh voi tu dung.", "Match the picture with the correct word."),
+        prompt: text("Nối tranh với từ đúng.", "Match the picture with the correct word."),
         koreanText: "지하철",
-        localizedText: text("tau dien ngam", "subway"),
-        answer: "tau dien ngam",
+        localizedText: text("tàu điện ngầm", "subway"),
+        answer: "tàu điện ngầm",
         metadata: { target: "vocab", vocabId: "v-subway" },
         coverageTags: ["transport", "vocab", "subway", "picture"],
         pages: page(262),
@@ -161,10 +161,10 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-match-airplane",
         exerciseType: "matching",
-        prompt: text("Noi tranh voi tu dung.", "Match the picture with the correct word."),
+        prompt: text("Nối tranh với từ đúng.", "Match the picture with the correct word."),
         koreanText: "비행기",
-        localizedText: text("may bay", "airplane"),
-        answer: "may bay",
+        localizedText: text("máy bay", "airplane"),
+        answer: "máy bay",
         metadata: { target: "vocab", vocabId: "v-airplane" },
         coverageTags: ["transport", "vocab", "airplane", "picture"],
         pages: page(262),
@@ -176,7 +176,7 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-match-station",
         exerciseType: "matching",
-        prompt: text("Noi tranh voi tu dung.", "Match the picture with the correct word."),
+        prompt: text("Nối tranh với từ đúng.", "Match the picture with the correct word."),
         koreanText: "역",
         localizedText: text("ga", "station"),
         answer: "ga",
@@ -191,10 +191,10 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-match-bus-stop",
         exerciseType: "matching",
-        prompt: text("Noi tranh voi tu dung.", "Match the picture with the correct word."),
+        prompt: text("Nối tranh với từ đúng.", "Match the picture with the correct word."),
         koreanText: "정류장",
-        localizedText: text("tram xe buyt", "bus stop"),
-        answer: "tram xe buyt",
+        localizedText: text("trạm xe buýt", "bus stop"),
+        answer: "trạm xe buýt",
         metadata: { target: "vocab", vocabId: "v-bus-stop" },
         coverageTags: ["transport-use", "vocab", "bus-stop", "picture"],
         pages: page(262),
@@ -207,11 +207,11 @@ export function createUnit16SourceSeed(
         id: "wb16-future-transfer",
         exerciseType: "fill_blank",
         prompt: text(
-          "Chon cum thich hop de dien vao cho trong.",
+          "Chọn cụm thích hợp để điền vào chỗ trống.",
           "Fill in the blank with the correct phrase.",
         ),
         koreanText: "이 비행기는 한국까지 바로 가지 않아서 비행기를 ___.",
-        localizedText: text("toi se phai chuyen may bay", "I will have to transfer planes"),
+        localizedText: text("tôi sẽ phải chuyển máy bay", "I will have to transfer planes"),
         answer: "갈아탈 거예요",
         metadata: {
           target: "grammar",
@@ -228,11 +228,11 @@ export function createUnit16SourceSeed(
         id: "wb16-walk-school",
         exerciseType: "fill_blank",
         prompt: text(
-          "Chon cum thich hop de dien vao cho trong.",
+          "Chọn cụm thích hợp để điền vào chỗ trống.",
           "Fill in the blank with the correct phrase.",
         ),
         koreanText: "저는 운동하러 학교까지 ___.",
-        localizedText: text("toi di bo den truong de tap the duc", "I walk to school for exercise"),
+        localizedText: text("tôi đi bộ đến trường để tập thể dục", "I walk to school for exercise"),
         answer: "걸어가요",
         metadata: {
           target: "grammar",
@@ -249,11 +249,11 @@ export function createUnit16SourceSeed(
         id: "wb16-bike-ride",
         exerciseType: "fill_blank",
         prompt: text(
-          "Chon cum thich hop de dien vao cho trong.",
+          "Chọn cụm thích hợp để điền vào chỗ trống.",
           "Fill in the blank with the correct phrase.",
         ),
         koreanText: "저는 자전거를 ___.",
-        localizedText: text("toi co the di xe dap", "I can ride a bicycle"),
+        localizedText: text("tôi có thể đi xe đạp", "I can ride a bicycle"),
         answer: "탈 수 있어요",
         metadata: {
           target: "grammar",
@@ -269,9 +269,9 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-library-from",
         exerciseType: "fill_blank",
-        prompt: text("Dien tro tu dung vao cho trong.", "Fill in the correct particle."),
+        prompt: text("Điền trợ từ đúng vào chỗ trống.", "Fill in the correct particle."),
         koreanText: "도서관___ 식당까지 버스를 타고 가요.",
-        localizedText: text("tu thu vien den nha hang", "from the library to the restaurant"),
+        localizedText: text("từ thư viện đến nhà hàng", "from the library to the restaurant"),
         answer: "에서",
         metadata: {
           target: "grammar",
@@ -288,9 +288,9 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-restaurant-to",
         exerciseType: "fill_blank",
-        prompt: text("Dien tro tu dung vao cho trong.", "Fill in the correct particle."),
+        prompt: text("Điền trợ từ đúng vào chỗ trống.", "Fill in the correct particle."),
         koreanText: "도서관에서 식당___ 버스를 타고 가요.",
-        localizedText: text("den nha hang", "to the restaurant"),
+        localizedText: text("đến nhà hàng", "to the restaurant"),
         answer: "까지",
         metadata: {
           target: "grammar",
@@ -307,10 +307,10 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-subway-from",
         exerciseType: "fill_blank",
-        prompt: text("Dien tro tu dung vao cho trong.", "Fill in the correct particle."),
+        prompt: text("Điền trợ từ đúng vào chỗ trống.", "Fill in the correct particle."),
         koreanText: "지하철역___ 여행사까지 걸어가요.",
         localizedText: text(
-          "tu ga tau dien ngam den cong ty du lich",
+          "từ ga tàu điện ngầm đến công ty du lịch",
           "from the subway station to the travel agency",
         ),
         answer: "에서",
@@ -329,9 +329,9 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-agency-to",
         exerciseType: "fill_blank",
-        prompt: text("Dien tro tu dung vao cho trong.", "Fill in the correct particle."),
+        prompt: text("Điền trợ từ đúng vào chỗ trống.", "Fill in the correct particle."),
         koreanText: "지하철역에서 여행사___ 걸어가요.",
-        localizedText: text("den cong ty du lich", "to the travel agency"),
+        localizedText: text("đến công ty du lịch", "to the travel agency"),
         answer: "까지",
         metadata: {
           target: "grammar",
@@ -348,10 +348,10 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-company-from",
         exerciseType: "fill_blank",
-        prompt: text("Dien tro tu dung vao cho trong.", "Fill in the correct particle."),
+        prompt: text("Điền trợ từ đúng vào chỗ trống.", "Fill in the correct particle."),
         koreanText: "회사___ 공원까지 가까워요.",
         localizedText: text(
-          "tu cong ty den cong vien thi gan",
+          "từ công ty đến công viên thì gần",
           "it is close from the company to the park",
         ),
         answer: "에서",
@@ -370,9 +370,9 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-park-to",
         exerciseType: "fill_blank",
-        prompt: text("Dien tro tu dung vao cho trong.", "Fill in the correct particle."),
+        prompt: text("Điền trợ từ đúng vào chỗ trống.", "Fill in the correct particle."),
         koreanText: "회사에서 공원___ 가까워요.",
-        localizedText: text("den cong vien", "to the park"),
+        localizedText: text("đến công viên", "to the park"),
         answer: "까지",
         metadata: {
           target: "grammar",
@@ -389,9 +389,9 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-command-wash",
         exerciseType: "fill_blank",
-        prompt: text("Hoan thanh menh lenh lich su.", "Complete the polite command."),
+        prompt: text("Hoàn thành mệnh lệnh lịch sự.", "Complete the polite command."),
         koreanText: "먼저 야채들을 ___.",
-        localizedText: text("hay rua rau truoc", "wash the vegetables first"),
+        localizedText: text("hãy rửa rau trước", "wash the vegetables first"),
         answer: "씻으십시오",
         metadata: {
           target: "grammar",
@@ -408,9 +408,9 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-command-walk-museum",
         exerciseType: "fill_blank",
-        prompt: text("Hoan thanh menh lenh lich su.", "Complete the polite command."),
+        prompt: text("Hoàn thành mệnh lệnh lịch sự.", "Complete the polite command."),
         koreanText: "박물관이 여기에서 가깝습니다. ___.",
-        localizedText: text("hay di bo den bao tang", "walk to the museum"),
+        localizedText: text("hãy đi bộ đến bảo tàng", "walk to the museum"),
         answer: "걸어가십시오",
         metadata: {
           target: "grammar",
@@ -431,9 +431,9 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-command-listen",
         exerciseType: "fill_blank",
-        prompt: text("Hoan thanh menh lenh lich su.", "Complete the polite command."),
+        prompt: text("Hoàn thành mệnh lệnh lịch sự.", "Complete the polite command."),
         koreanText: "그럼 한국 노래를 많이 ___.",
-        localizedText: text("hay nghe nhieu bai hat Han Quoc", "listen to a lot of Korean songs"),
+        localizedText: text("hãy nghe nhiều bài hát Hàn Quốc", "listen to a lot of Korean songs"),
         answer: "들으십시오",
         metadata: {
           target: "grammar",
@@ -450,9 +450,9 @@ export function createUnit16SourceSeed(
       {
         id: "wb16-command-lie-down",
         exerciseType: "fill_blank",
-        prompt: text("Hoan thanh menh lenh lich su.", "Complete the polite command."),
+        prompt: text("Hoàn thành mệnh lệnh lịch sự.", "Complete the polite command."),
         koreanText: "한번 봅시다. 여기에 ___.",
-        localizedText: text("hay nam xuong o day", "lie down here"),
+        localizedText: text("hãy nằm xuống ở đây", "lie down here"),
         answer: "누우십시오",
         metadata: {
           target: "grammar",
@@ -470,11 +470,11 @@ export function createUnit16SourceSeed(
         id: "wb16-reading-train",
         exerciseType: "fill_blank",
         prompt: text(
-          "Dien dong tu qua khu thich hop vao cho trong.",
+          "Điền động từ quá khứ thích hợp vào chỗ trống.",
           "Fill in the correct past-tense verb.",
         ),
         koreanText: "서울역에서 기차를 ___.",
-        localizedText: text("toi da di tau o ga Seoul", "I took a train at Seoul Station"),
+        localizedText: text("tôi đã đi tàu ở ga Seoul", "I took a train at Seoul Station"),
         answer: "탔습니다",
         metadata: {
           target: "reading",
@@ -491,12 +491,12 @@ export function createUnit16SourceSeed(
         id: "wb16-reading-time",
         exerciseType: "fill_blank",
         prompt: text(
-          "Dien dong tu qua khu thich hop vao cho trong.",
+          "Điền động từ quá khứ thích hợp vào chỗ trống.",
           "Fill in the correct past-tense verb.",
         ),
         koreanText: "부산역까지 세 시간 ___.",
         localizedText: text(
-          "da mat ba tieng den ga Busan",
+          "đã mất ba tiếng đến ga Busan",
           "it took three hours to Busan Station",
         ),
         answer: "걸렸습니다",
@@ -515,12 +515,12 @@ export function createUnit16SourceSeed(
         id: "wb16-reading-transfer",
         exerciseType: "fill_blank",
         prompt: text(
-          "Dien dong tu qua khu thich hop vao cho trong.",
+          "Điền động từ quá khứ thích hợp vào chỗ trống.",
           "Fill in the correct past-tense verb.",
         ),
         koreanText: "서면역에서 한 번 ___.",
         localizedText: text(
-          "toi da chuyen tau mot lan o ga Seomyeon",
+          "tôi đã chuyển tàu một lần ở ga Seomyeon",
           "I transferred once at Seomyeon Station",
         ),
         answer: "갈아탔습니다",
@@ -539,12 +539,12 @@ export function createUnit16SourceSeed(
         id: "wb16-reading-gyeongju-bus",
         exerciseType: "fill_blank",
         prompt: text(
-          "Dua vao bai doc va dien dap an dung.",
+          "Dựa vào bài đọc và điền đáp án đúng.",
           "Use the reading passage to fill in the correct answer.",
         ),
         koreanText: "서울에서 경주까지 ___를 타고 갔습니다.",
         localizedText: text(
-          "nguoi nay da di Gyeongju bang xe buyt",
+          "người này đã đi Gyeongju bằng xe buýt",
           "the person went to Gyeongju by bus",
         ),
         answer: "버스",
@@ -567,12 +567,12 @@ export function createUnit16SourceSeed(
         id: "wb16-reading-not-used",
         exerciseType: "fill_blank",
         prompt: text(
-          "Dua vao bai doc va dien dap an dung.",
+          "Dựa vào bài đọc và điền đáp án đúng.",
           "Use the reading passage to fill in the correct answer.",
         ),
         koreanText: "이 사람이 이용하지 않은 교통수단은 ___입니다.",
         localizedText: text(
-          "phuong tien nguoi nay khong dung la tau dien ngam",
+          "phương tiện người này không dùng là tàu điện ngầm",
           "the transport this person did not use was the subway",
         ),
         answer: "지하철",
@@ -595,11 +595,11 @@ export function createUnit16SourceSeed(
         id: "wb16-extension-line3",
         exerciseType: "translation",
         prompt: text(
-          "Viet cau huong dan duong di den Gyeongbokgung.",
+          "Viết câu hướng dẫn đường đi đến Gyeongbokgung.",
           "Write the route instruction to Gyeongbokgung.",
         ),
         localizedText: text(
-          "Hay di tau dien ngam tuyen 3 va xuong o Gyeongbokgung.",
+          "Hãy đi tàu điện ngầm tuyến 3 và xuống ở Gyeongbokgung.",
           "Take Line 3 and get off at Gyeongbokgung.",
         ),
         answer: "지하철 3호선을 타고 경복궁에서 내리십시오.",
@@ -621,11 +621,11 @@ export function createUnit16SourceSeed(
         id: "wb16-extension-songs",
         exerciseType: "translation",
         prompt: text(
-          "Viet mot loi khuyen lich su cho nguoi muon hoc tieng Han.",
+          "Viết một lời khuyên lịch sự cho người muốn học tiếng Hàn.",
           "Write a polite suggestion for someone who wants to study Korean.",
         ),
         localizedText: text(
-          "Hay nghe nhieu bai hat Han Quoc.",
+          "Hãy nghe nhiều bài hát Hàn Quốc.",
           "Listen to a lot of Korean songs.",
         ),
         answer: "한국 노래를 많이 들으십시오.",
@@ -643,11 +643,11 @@ export function createUnit16SourceSeed(
         id: "wb16-extension-find-hotel",
         exerciseType: "translation",
         prompt: text(
-          "Viet mot loi khuyen cho nguoi ban di du lich nuoc ngoai lan dau.",
+          "Viết một lời khuyên cho người bạn đi du lịch nước ngoài lần đầu.",
           "Write a suggestion for a friend traveling abroad for the first time.",
         ),
         localizedText: text(
-          "Hay tim cho o truoc.",
+          "Hãy tìm chỗ ở trước.",
           "Find accommodation in advance.",
         ),
         answer: "미리 숙소를 찾으십시오.",
@@ -667,7 +667,7 @@ export function createUnit16SourceSeed(
     unitId: "16",
     unitNumber: 16,
     title: text(
-      "Tu day den ga Seoul bang cach nao?",
+      "Từ đây đến ga Seoul bằng cách nào?",
       "How do I get to Seoul Station from here?",
     ),
     needsReview,
@@ -678,7 +678,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-bus",
           korean: "버스",
-          translations: text("xe buyt", "bus"),
+          translations: text("xe buýt", "bus"),
           romanization: "beoseu",
           imagePath: vocabIcon("v-bus"),
           pages: page(208),
@@ -688,7 +688,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-subway",
           korean: "지하철",
-          translations: text("tau dien ngam", "subway"),
+          translations: text("tàu điện ngầm", "subway"),
           romanization: "jihacheol",
           imagePath: vocabIcon("v-subway"),
           pages: page(208),
@@ -698,7 +698,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-train",
           korean: "기차",
-          translations: text("tau hoa", "train"),
+          translations: text("tàu hỏa", "train"),
           romanization: "gicha",
           imagePath: vocabIcon("v-train"),
           pages: page(208),
@@ -708,7 +708,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-airplane",
           korean: "비행기",
-          translations: text("may bay", "airplane"),
+          translations: text("máy bay", "airplane"),
           romanization: "bihaenggi",
           imagePath: vocabIcon("v-airplane"),
           pages: page(208),
@@ -718,7 +718,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-boat",
           korean: "배",
-          translations: text("thuyen", "boat"),
+          translations: text("thuyền", "boat"),
           romanization: "bae",
           pages: page(208),
           sourceRef: capture("v-boat", 208, "배"),
@@ -737,7 +737,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-bus-stop",
           korean: "정류장",
-          translations: text("tram xe buyt", "bus stop"),
+          translations: text("trạm xe buýt", "bus stop"),
           romanization: "jeongnyujang",
           imagePath: vocabIcon("v-bus-stop"),
           pages: page(208),
@@ -747,7 +747,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-terminal",
           korean: "터미널",
-          translations: text("ben xe", "terminal"),
+          translations: text("bến xe", "terminal"),
           romanization: "teomineol",
           pages: page(208),
           sourceRef: capture("v-terminal", 208, "터미널"),
@@ -756,7 +756,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-ride",
           korean: "타다",
-          translations: text("di bang, len xe", "ride, take"),
+          translations: text("đi bằng, lên xe", "ride, take"),
           romanization: "tada",
           pages: page(208),
           sourceRef: capture("v-ride", 208, "타다"),
@@ -765,7 +765,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-walk",
           korean: "걸어가다",
-          translations: text("di bo", "walk"),
+          translations: text("đi bộ", "walk"),
           romanization: "georeogada",
           pages: page(208),
           sourceRef: capture("v-walk", 208, "걸어가다"),
@@ -774,7 +774,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-transfer",
           korean: "갈아타다",
-          translations: text("chuyen xe, chuyen tau", "transfer"),
+          translations: text("chuyến xe, chuyến tàu", "transfer"),
           romanization: "garatada",
           pages: page(208),
           sourceRef: capture("v-transfer", 208, "갈아타다"),
@@ -783,7 +783,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-distance",
           korean: "거리",
-          translations: text("khoang cach", "distance"),
+          translations: text("khoảng cách", "distance"),
           romanization: "geori",
           pages: page(209),
           sourceRef: capture("v-distance", 209, "거리"),
@@ -801,7 +801,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-near",
           korean: "가깝다",
-          translations: text("gan", "be near"),
+          translations: text("gần", "be near"),
           romanization: "gakkapda",
           pages: page(209),
           sourceRef: capture("v-near", 209, "가깝다"),
@@ -810,7 +810,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-how-long",
           korean: "얼마나",
-          translations: text("bao lau, bao xa", "how long, how far"),
+          translations: text("bao lâu, bao xa", "how long, how far"),
           romanization: "eolmana",
           pages: page(209),
           sourceRef: capture("v-how-long", 209, "얼마나"),
@@ -819,7 +819,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-traffic-jam",
           korean: "길이 막히다",
-          translations: text("duong bi tac", "the road is jammed"),
+          translations: text("đường bị tắc", "the road is jammed"),
           romanization: "giri makhida",
           pages: page(209),
           sourceRef: capture("v-traffic-jam", 209, "길이 막히다"),
@@ -828,7 +828,7 @@ export function createUnit16SourceSeed(
         {
           id: "v-take-time",
           korean: "(시간이) 걸리다",
-          translations: text("mat thoi gian", "take time"),
+          translations: text("mất thời gian", "take time"),
           romanization: "sigani geollida",
           pages: page(209),
           sourceRef: capture("v-take-time", 209, "(시간이) 걸리다"),
@@ -840,7 +840,7 @@ export function createUnit16SourceSeed(
           id: "g-from-to",
           pattern: "명사 + 에서, 까지",
           explanation: text(
-            "Dung de noi diem bat dau va diem ket thuc cua duong di hoac pham vi di chuyen.",
+            "Dùng để nói điểm bắt đầu và điểm kết thúc của đường đi hoặc phạm vi di chuyển.",
             "Used to mark the starting point and ending point of a route or movement range.",
           ),
           exampleIds: ["ex-home-school-time", "ex-busan-trip", "ex-busan-transfer"],
@@ -852,7 +852,7 @@ export function createUnit16SourceSeed(
           id: "g-command",
           pattern: "동사 + -으십시오/-십시오",
           explanation: text(
-            "Dung de dua ra huong dan, menh lenh lich su, hoac loi khuyen trang trong.",
+            "Dùng để đưa ra hướng dẫn, mệnh lệnh lịch sự, hoặc lời khuyên trang trọng.",
             "Used for polite instructions, commands, or formal suggestions.",
           ),
           exampleIds: ["ex-airport-shuttle", "ex-wait", "ex-come-tomorrow"],
@@ -867,7 +867,7 @@ export function createUnit16SourceSeed(
           speaker: "Lisa",
           korean: "여기에서 서울역까지 어떻게 가요?",
           translations: text(
-            "Tu day den ga Seoul bang cach nao?",
+            "Từ đây đến ga Seoul bằng cách nào?",
             "How do I get to Seoul Station from here?",
           ),
           pages: page(214),
@@ -879,7 +879,7 @@ export function createUnit16SourceSeed(
           speaker: "Man",
           korean: "저기 정류장에서 100번 버스를 타십시오.",
           translations: text(
-            "Hay di den tram xe buyt dang kia va len xe buyt so 100.",
+            "Hãy đi đến trạm xe buýt đằng kia và lên xe buýt số 100.",
             "Take bus 100 at that bus stop over there.",
           ),
           pages: page(214),
@@ -895,7 +895,7 @@ export function createUnit16SourceSeed(
           speaker: "Man",
           korean: "그 버스가 서울역까지 갑니다.",
           translations: text(
-            "Chiec xe buyt do di den tan ga Seoul.",
+            "Chiếc xe buýt đó đi đến tận ga Seoul.",
             "That bus goes all the way to Seoul Station.",
           ),
           pages: page(214),
@@ -907,7 +907,7 @@ export function createUnit16SourceSeed(
           speaker: "Lisa",
           korean: "여기에서 서울역까지 많이 멀어요?",
           translations: text(
-            "Tu day den ga Seoul co xa lam khong?",
+            "Từ đây đến ga Seoul có xa lắm không?",
             "Is it very far from here to Seoul Station?",
           ),
           pages: page(214),
@@ -918,7 +918,7 @@ export function createUnit16SourceSeed(
           id: "d-distance-answer",
           speaker: "Man",
           korean: "아니요. 멀지 않아요.",
-          translations: text("Khong dau. Khong xa.", "No. It is not far."),
+          translations: text("Không đâu. Không xa.", "No. It is not far."),
           pages: page(214),
           sourceRef: capture("d-distance-answer", 214, "아니요. 멀지 않아요."),
           needsReview,
@@ -928,7 +928,7 @@ export function createUnit16SourceSeed(
           speaker: "Clerk",
           korean: "이 종이를 쓰십시오. 그리고 여기에 똑같이 쓰십시오.",
           translations: text(
-            "Hay viet vao to giay nay, roi viet lai y nhu vay o day.",
+            "Hãy viết vào tờ giấy này, rồi viết lại y như vậy ở đây.",
             "Fill out this paper, and then write the same thing here.",
           ),
           pages: page(213),
@@ -944,7 +944,7 @@ export function createUnit16SourceSeed(
           speaker: "Clerk",
           korean: "여기 통장입니다. 받으십시오.",
           translations: text(
-            "Day la so ngan hang cua ban. Xin hay nhan lay.",
+            "Đây là sổ ngân hàng của bạn. Xin hãy nhận lấy.",
             "Here is your bankbook. Please take it.",
           ),
           pages: page(213),
@@ -957,7 +957,7 @@ export function createUnit16SourceSeed(
           id: "ex-home-school-time",
           korean: "집에서 학교까지 시간이 얼마나 걸려요?",
           translations: text(
-            "Tu nha den truong mat bao lau?",
+            "Từ nhà đến trường mất bao lâu?",
             "How long does it take from home to school?",
           ),
           grammarTags: ["에서, 까지"],
@@ -968,7 +968,7 @@ export function createUnit16SourceSeed(
         {
           id: "ex-thirty-minutes",
           korean: "30분 걸려요.",
-          translations: text("Mat 30 phut.", "It takes 30 minutes."),
+          translations: text("Mất 30 phút.", "It takes 30 minutes."),
           grammarTags: ["에서, 까지"],
           pages: page(210),
           sourceRef: capture("ex-thirty-minutes", 210, "30분 걸려요."),
@@ -978,7 +978,7 @@ export function createUnit16SourceSeed(
           id: "ex-airport-shuttle",
           korean: "공항 셔틀을 타십시오.",
           translations: text(
-            "Hay len xe dua don san bay.",
+            "Hãy lên xe đưa đón sân bay.",
             "Please take the airport shuttle.",
           ),
           grammarTags: ["-으십시오/-십시오"],
@@ -989,7 +989,7 @@ export function createUnit16SourceSeed(
         {
           id: "ex-wait",
           korean: "잠시만 기다리십시오.",
-          translations: text("Hay doi mot chut.", "Please wait a moment."),
+          translations: text("Hãy đợi một chút.", "Please wait a moment."),
           grammarTags: ["-으십시오/-십시오"],
           pages: page(211),
           sourceRef: capture("ex-wait", 211, "잠시만 기다리십시오."),
@@ -999,7 +999,7 @@ export function createUnit16SourceSeed(
           id: "ex-come-tomorrow",
           korean: "내일 다시 오십시오.",
           translations: text(
-            "Hay quay lai vao ngay mai.",
+            "Hãy quay lại vào ngày mai.",
             "Please come again tomorrow.",
           ),
           grammarTags: ["-으십시오/-십시오"],
@@ -1011,7 +1011,7 @@ export function createUnit16SourceSeed(
           id: "ex-busan-trip",
           korean: "서울역에서 기차를 탔습니다.",
           translations: text(
-            "Toi da len tau tai ga Seoul.",
+            "Tôi đã lên tàu tại ga Seoul.",
             "I took a train at Seoul Station.",
           ),
           grammarTags: ["에서, 까지", "travel"],
@@ -1023,7 +1023,7 @@ export function createUnit16SourceSeed(
           id: "ex-busan-transfer",
           korean: "서면역에서 한 번 갈아탔습니다.",
           translations: text(
-            "Toi da chuyen tau mot lan o ga Seomyeon.",
+            "Tôi đã chuyển tàu một lần ở ga Seomyeon.",
             "I transferred once at Seomyeon Station.",
           ),
           grammarTags: ["에서, 까지", "travel"],

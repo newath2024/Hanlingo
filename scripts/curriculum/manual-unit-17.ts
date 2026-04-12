@@ -79,7 +79,7 @@ export function createUnit17SourceSeed(
         id: "wb17-write-housewarming",
         exerciseType: "writing",
         prompt: text(
-          "Viet tu 'tiệc tân gia' bang tieng Han.",
+          "Viết từ 'tiệc tân gia' bằng tiếng Hàn.",
           "Write the word 'housewarming party' in Korean.",
         ),
         localizedText: text("tiệc tân gia", "housewarming party"),
@@ -95,8 +95,8 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-write-invite",
         exerciseType: "writing",
-        prompt: text("Viet tu 'loi moi' bang tieng Han.", "Write the word 'invitation' in Korean."),
-        localizedText: text("loi moi", "invitation"),
+        prompt: text("Viết từ 'lời mời' bằng tiếng Hàn.", "Write the word 'invitation' in Korean."),
+        localizedText: text("lời mời", "invitation"),
         answer: "초대",
         metadata: { target: "vocab" },
         coverageTags: ["invitation", "review", "writing"],
@@ -110,11 +110,11 @@ export function createUnit17SourceSeed(
         id: "wb17-must-form-eat",
         exerciseType: "fill_blank",
         prompt: text(
-          "Hoan thanh dang -아/어야 되다 cua dong tu.",
+          "Hoàn thành dạng -아/어야 되다 của động từ.",
           "Complete the -아/어야 되다 form of the verb.",
         ),
         koreanText: "먹다 -> ___",
-        localizedText: text("phai an", "have to eat"),
+        localizedText: text("phải ăn", "have to eat"),
         answer: "먹어야 되다",
         metadata: {
           target: "grammar",
@@ -131,9 +131,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-goyo-form-make",
         exerciseType: "fill_blank",
-        prompt: text("Hoan thanh dang -고요 cua dong tu.", "Complete the -고요 form of the verb."),
+        prompt: text("Hoàn thành dạng -고요 của động từ.", "Complete the -고요 form of the verb."),
         koreanText: "만들다 -> ___",
-        localizedText: text("va lam", "and make"),
+        localizedText: text("và làm", "and make"),
         answer: "만들고요",
         metadata: {
           target: "grammar",
@@ -150,7 +150,7 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-match-housewarming-picture",
         exerciseType: "matching",
-        prompt: text("Xem tranh va noi voi tu dung.", "Look at the picture and match it with the correct word."),
+        prompt: text("Xem tranh và nối với từ đúng.", "Look at the picture and match it with the correct word."),
         koreanText: "집들이",
         localizedText: text("tiệc tân gia", "housewarming party"),
         answer: "tiệc tân gia",
@@ -165,10 +165,10 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-match-invitation-card-picture",
         exerciseType: "matching",
-        prompt: text("Xem tranh va noi voi tu dung.", "Look at the picture and match it with the correct word."),
+        prompt: text("Xem tranh và nối với từ đúng.", "Look at the picture and match it with the correct word."),
         koreanText: "초대장",
-        localizedText: text("thiep moi", "invitation card"),
-        answer: "thiep moi",
+        localizedText: text("thiệp mời", "invitation card"),
+        answer: "thiệp mời",
         metadata: { target: "vocab", vocabId: "v-invitation-card" },
         coverageTags: ["invitation-card", "vocab", "picture"],
         pages: page(279),
@@ -180,10 +180,10 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-match-tissue-picture",
         exerciseType: "matching",
-        prompt: text("Xem tranh va noi voi tu dung.", "Look at the picture and match it with the correct word."),
+        prompt: text("Xem tranh và nối với từ đúng.", "Look at the picture and match it with the correct word."),
         koreanText: "휴지",
-        localizedText: text("khan giay", "tissue paper"),
-        answer: "khan giay",
+        localizedText: text("khăn giấy", "tissue paper"),
+        answer: "khăn giấy",
         metadata: { target: "vocab", vocabId: "v-tissue" },
         coverageTags: ["tissue", "vocab", "picture"],
         pages: page(279),
@@ -195,10 +195,10 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-match-detergent-picture",
         exerciseType: "matching",
-        prompt: text("Xem tranh va noi voi tu dung.", "Look at the picture and match it with the correct word."),
+        prompt: text("Xem tranh và nối với từ đúng.", "Look at the picture and match it with the correct word."),
         koreanText: "세제",
-        localizedText: text("nuoc giat", "detergent"),
-        answer: "nuoc giat",
+        localizedText: text("nước giặt", "detergent"),
+        answer: "nước giặt",
         metadata: { target: "vocab", vocabId: "v-detergent" },
         coverageTags: ["detergent", "vocab", "picture"],
         pages: page(279),
@@ -210,7 +210,7 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-chat-housewarming",
         exerciseType: "fill_blank",
-        prompt: text("Dien tu thich hop vao hoi thoai.", "Fill the correct word into the dialogue."),
+        prompt: text("Điền từ thích hợp vào hội thoại.", "Fill the correct word into the dialogue."),
         koreanText: "내일 ___에 뭘 사 갈까요?",
         localizedText: text("tiệc tân gia", "housewarming party"),
         answer: "집들이",
@@ -228,9 +228,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-chat-detergent",
         exerciseType: "fill_blank",
-        prompt: text("Dien tu thich hop vao hoi thoai.", "Fill the correct word into the dialogue."),
+        prompt: text("Điền từ thích hợp vào hội thoại.", "Fill the correct word into the dialogue."),
         koreanText: "보통 ___을/를 사 가요. 휴지도 좋고요.",
-        localizedText: text("nuoc giat", "detergent"),
+        localizedText: text("nước giặt", "detergent"),
         answer: "세제",
         metadata: {
           target: "dialogue",
@@ -246,9 +246,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-chat-tissue",
         exerciseType: "fill_blank",
-        prompt: text("Dien tu thich hop vao hoi thoai.", "Fill the correct word into the dialogue."),
+        prompt: text("Điền từ thích hợp vào hội thoại.", "Fill the correct word into the dialogue."),
         koreanText: "그럼 ___을/를 사 갑시다. 내일 봐요.",
-        localizedText: text("khan giay", "tissue paper"),
+        localizedText: text("khăn giấy", "tissue paper"),
         answer: "휴지",
         metadata: {
           target: "dialogue",
@@ -265,11 +265,11 @@ export function createUnit17SourceSeed(
         id: "wb17-dialogue-help-request",
         exerciseType: "fill_blank",
         prompt: text(
-          "Hoan thanh loi nho giup do trong hoi thoai.",
+          "Hoàn thành lời nhờ giúp đỡ trong hội thoại.",
           "Complete the help-request line in the dialogue.",
         ),
         koreanText: "죄송하지만 저 좀 ___?",
-        localizedText: text("Ban co the giup toi mot chut duoc khong?", "Could you help me a bit?"),
+        localizedText: text("Bạn có thể giúp tôi một chút được không?", "Could you help me a bit?"),
         answer: "도와줄 수 있어요",
         metadata: {
           target: "dialogue",
@@ -286,11 +286,11 @@ export function createUnit17SourceSeed(
         id: "wb17-dialogue-help-offer",
         exerciseType: "fill_blank",
         prompt: text(
-          "Hoan thanh loi de nghi giup do trong hoi thoai.",
+          "Hoàn thành lời đề nghị giúp đỡ trong hội thoại.",
           "Complete the help-offer line in the dialogue.",
         ),
         koreanText: "네, 제가 ___.",
-        localizedText: text("De toi giup ban.", "I will help you."),
+        localizedText: text("Để tôi giúp bạn.", "I will help you."),
         answer: "도와 드릴게요",
         metadata: {
           target: "dialogue",
@@ -306,9 +306,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-must-study",
         exerciseType: "fill_blank",
-        prompt: text("Dien dang -아/어야 되다 vao cho trong.", "Fill in the correct -아/어야 되다 form."),
+        prompt: text("Điền dạng -아/어야 되다 vào chỗ trống.", "Fill in the correct -아/어야 되다 form."),
         koreanText: "안 돼요. 한국어 공부를 ___.",
-        localizedText: text("phai hoc tieng Han", "have to study Korean"),
+        localizedText: text("phải học tiếng Hàn", "have to study Korean"),
         answer: "해야 돼요",
         metadata: {
           target: "grammar",
@@ -325,9 +325,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-must-meet-friend",
         exerciseType: "fill_blank",
-        prompt: text("Dien dang -아/어야 되다 vao cho trong.", "Fill in the correct -아/어야 되다 form."),
+        prompt: text("Điền dạng -아/어야 되다 vào chỗ trống.", "Fill in the correct -아/어야 되다 form."),
         koreanText: "친구들 약속이 있어요. 친구를 ___.",
-        localizedText: text("phai gap ban", "have to meet a friend"),
+        localizedText: text("phải gặp bạn", "have to meet a friend"),
         answer: "만나야 돼요",
         metadata: {
           target: "grammar",
@@ -344,9 +344,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-must-go-hospital",
         exerciseType: "fill_blank",
-        prompt: text("Dien dang -아/어야 되다 vao cho trong.", "Fill in the correct -아/어야 되다 form."),
+        prompt: text("Điền dạng -아/어야 되다 vào chỗ trống.", "Fill in the correct -아/어야 되다 form."),
         koreanText: "몸이 안 좋아서 병원에 ___.",
-        localizedText: text("phai den benh vien", "have to go to the hospital"),
+        localizedText: text("phải đến bệnh viện", "have to go to the hospital"),
         answer: "가야 돼요",
         metadata: {
           target: "grammar",
@@ -363,9 +363,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-must-practice-speaking",
         exerciseType: "fill_blank",
-        prompt: text("Dien dang -아/어야 되다 vao cho trong.", "Fill in the correct -아/어야 되다 form."),
+        prompt: text("Điền dạng -아/어야 되다 vào chỗ trống.", "Fill in the correct -아/어야 되다 form."),
         koreanText: "그래서 한국어 말하기를 ___.",
-        localizedText: text("phai luyen noi tieng Han", "have to practice speaking Korean"),
+        localizedText: text("phải luyện nói tiếng Hàn", "have to practice speaking Korean"),
         answer: "연습해야 돼요",
         metadata: {
           target: "grammar",
@@ -382,9 +382,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-goyo-school-food",
         exerciseType: "fill_blank",
-        prompt: text("Dien dang -고요 vao cho trong.", "Fill in the correct -고요 form."),
+        prompt: text("Điền dạng -고요 vào chỗ trống.", "Fill in the correct -고요 form."),
         koreanText: "직원들이 친절해요. 음식도 ___.",
-        localizedText: text("do an cung ngon", "the food is tasty too"),
+        localizedText: text("đồ ăn cũng ngon", "the food is tasty too"),
         answer: "맛있고요",
         metadata: {
           target: "grammar",
@@ -401,9 +401,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-goyo-make-friends",
         exerciseType: "fill_blank",
-        prompt: text("Dien dang -고요 vao cho trong.", "Fill in the correct -고요 form."),
+        prompt: text("Điền dạng -고요 vào chỗ trống.", "Fill in the correct -고요 form."),
         koreanText: "재미있어요. 친구도 사귈 수 ___.",
-        localizedText: text("cung co the ket ban", "you can make friends too"),
+        localizedText: text("cũng có thể kết bạn", "you can make friends too"),
         answer: "있고요",
         metadata: {
           target: "grammar",
@@ -420,9 +420,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-email-hi",
         exerciseType: "fill_blank",
-        prompt: text("Hoan thanh email moi du tiec tan gia.", "Complete the housewarming invitation email."),
+        prompt: text("Hoàn thành email mời dự tiệc tân gia.", "Complete the housewarming invitation email."),
         koreanText: "지연 씨, ___ 잘 지냈어요?",
-        localizedText: text("Lau roi khong gap", "Long time no see"),
+        localizedText: text("Lâu rồi không gặp", "Long time no see"),
         answer: "오랜만이에요",
         metadata: {
           target: "email",
@@ -438,9 +438,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-email-do",
         exerciseType: "fill_blank",
-        prompt: text("Hoan thanh email moi du tiec tan gia.", "Complete the housewarming invitation email."),
+        prompt: text("Hoàn thành email mời dự tiệc tân gia.", "Complete the housewarming invitation email."),
         koreanText: "집들이에서 뭘 ___?",
-        localizedText: text("Can phai lam gi o tiec tan gia?", "What should I do at the housewarming?"),
+        localizedText: text("Cần phải làm gì ở tiệc tân gia?", "What should I do at the housewarming?"),
         answer: "해야 돼요",
         metadata: {
           target: "email",
@@ -457,9 +457,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-email-food",
         exerciseType: "fill_blank",
-        prompt: text("Hoan thanh email moi du tiec tan gia.", "Complete the housewarming invitation email."),
+        prompt: text("Hoàn thành email mời dự tiệc tân gia.", "Complete the housewarming invitation email."),
         koreanText: "집들이에 어떤 음식을 ___?",
-        localizedText: text("Can chuan bi mon an gi?", "What food should I prepare?"),
+        localizedText: text("Cần chuẩn bị món ăn gì?", "What food should I prepare?"),
         answer: "준비해야 돼요",
         metadata: {
           target: "email",
@@ -476,9 +476,9 @@ export function createUnit17SourceSeed(
       {
         id: "wb17-email-message",
         exerciseType: "fill_blank",
-        prompt: text("Hoan thanh email moi du tiec tan gia.", "Complete the housewarming invitation email."),
+        prompt: text("Hoàn thành email mời dự tiệc tân gia.", "Complete the housewarming invitation email."),
         koreanText: "메일 주세요. 메시지도 ___.",
-        localizedText: text("Tin nhan cung duoc", "A message is fine too"),
+        localizedText: text("Tin nhắn cũng được", "A message is fine too"),
         answer: "되고요",
         metadata: {
           target: "email",
@@ -496,11 +496,11 @@ export function createUnit17SourceSeed(
         id: "wb17-travel-place",
         exerciseType: "fill_blank",
         prompt: text(
-          "Hoan thanh cau -고요 khi noi ve ke hoach di choi.",
+          "Hoàn thành câu -고요 khi nói về kế hoạch đi chơi.",
           "Complete the -고요 sentence about a travel plan.",
         ),
         koreanText: "서울에 가고 싶어요. ___.",
-        localizedText: text("Toi cung muon den Busan nua", "I also want to go to Busan"),
+        localizedText: text("Tôi cũng muốn đến Busan nữa", "I also want to go to Busan"),
         answer: "부산도 가고요",
         metadata: {
           target: "travel",
@@ -520,7 +520,7 @@ export function createUnit17SourceSeed(
     unitId: "17",
     unitNumber: 17,
     title: text(
-      "Toi nen mang gi den tiec tan gia?",
+      "Tôi nên mang gì đến tiệc tân gia?",
       "What should I bring to the housewarming?",
     ),
     needsReview,
@@ -531,7 +531,7 @@ export function createUnit17SourceSeed(
         {
           id: "v-housewarming",
           korean: "집들이",
-          translations: text("tiec tan gia", "housewarming party"),
+          translations: text("tiệc tân gia", "housewarming party"),
           romanization: "jipdeuri",
           imagePath: vocabIcon("v-housewarming"),
           pages: page(221),
@@ -541,7 +541,7 @@ export function createUnit17SourceSeed(
         {
           id: "v-invitation",
           korean: "초대",
-          translations: text("loi moi", "invitation"),
+          translations: text("lời mời", "invitation"),
           romanization: "chodae",
           pages: page(221),
           sourceRef: capture("v-invitation", 221, "초대"),
@@ -550,7 +550,7 @@ export function createUnit17SourceSeed(
         {
           id: "v-invitation-card",
           korean: "초대장",
-          translations: text("thiep moi", "invitation card"),
+          translations: text("thiệp mời", "invitation card"),
           romanization: "chodaejang",
           imagePath: vocabIcon("v-invitation-card"),
           pages: page(221),
@@ -560,7 +560,7 @@ export function createUnit17SourceSeed(
         {
           id: "v-tissue",
           korean: "휴지",
-          translations: text("khan giay", "tissue paper"),
+          translations: text("khăn giấy", "tissue paper"),
           romanization: "hyuji",
           imagePath: vocabIcon("v-tissue"),
           pages: page(221),
@@ -570,7 +570,7 @@ export function createUnit17SourceSeed(
         {
           id: "v-detergent",
           korean: "세제",
-          translations: text("nuoc giat", "detergent"),
+          translations: text("nước giặt", "detergent"),
           romanization: "seje",
           imagePath: vocabIcon("v-detergent"),
           pages: page(221),
@@ -580,7 +580,7 @@ export function createUnit17SourceSeed(
         {
           id: "v-move",
           korean: "이사하다",
-          translations: text("chuyen nha", "move house"),
+          translations: text("chuyển nhà", "move house"),
           romanization: "isahada",
           pages: page(221),
           sourceRef: capture("v-move", 221, "새집으로 이사해서 기분이 좋아요."),
@@ -589,7 +589,7 @@ export function createUnit17SourceSeed(
         {
           id: "v-help",
           korean: "도와주다",
-          translations: text("giup do", "help"),
+          translations: text("giúp đỡ", "help"),
           romanization: "dowajuda",
           pages: page(221),
           sourceRef: capture("v-help", 221, "짐 좀 도와줄 수 있어요?"),
@@ -598,7 +598,7 @@ export function createUnit17SourceSeed(
         {
           id: "v-invite-verb",
           korean: "초대하다",
-          translations: text("moi", "invite"),
+          translations: text("mời", "invite"),
           romanization: "chodaehada",
           pages: page(221),
           sourceRef: capture("v-invite-verb", 221, "생일 파티에 누구를 초대하고 싶어요?"),
@@ -607,7 +607,7 @@ export function createUnit17SourceSeed(
         {
           id: "v-prepare",
           korean: "준비하다",
-          translations: text("chuan bi", "prepare"),
+          translations: text("chuẩn bị", "prepare"),
           romanization: "junbihada",
           imagePath: vocabIcon("v-prepare"),
           pages: page(221),
@@ -620,7 +620,7 @@ export function createUnit17SourceSeed(
           id: "g-must-do",
           pattern: "동사 + -아/어야 되다",
           explanation: text(
-            "Dien ta nghia vu, viec can phai lam, hoac su can thiet trong tinh huong nao do.",
+            "Diễn tả nghĩa vụ, việc cần phải làm, hoặc sự cần thiết trong tình huống nào đó.",
             "Expresses obligation, necessity, or something that must be done in a situation.",
           ),
           exampleIds: [
@@ -636,7 +636,7 @@ export function createUnit17SourceSeed(
           id: "g-goyo",
           pattern: "동사 + -고요",
           explanation: text(
-            "Dung de noi tiep noi hoac bo sung them mot y nua trong cung luot noi.",
+            "Dùng để nói tiếp nối hoặc bổ sung thêm một ý nữa trong cùng lượt nói.",
             "Used to continue speaking or add one more connected point in the same turn.",
           ),
           exampleIds: ["ex-look-around", "ex-healthy-too", "ex-travel-place"],
@@ -651,7 +651,7 @@ export function createUnit17SourceSeed(
           speaker: "Jihun",
           korean: "지훈 씨, 집들이에서 보통 뭘 해요?",
           translations: text(
-            "Jihun, o tiec tan gia thuong lam gi?",
+            "Jihun, ở tiệc tân gia thường làm gì?",
             "Jihun, what do people usually do at a housewarming?",
           ),
           pages: page(224),
@@ -663,7 +663,7 @@ export function createUnit17SourceSeed(
           speaker: "Lisa",
           korean: "집을 구경해요. 같이 식사도 하고요.",
           translations: text(
-            "Moi nguoi xem nha, va cung an cung nhau nua.",
+            "Mọi người xem nhà, và cùng ăn cùng nhau nữa.",
             "People look around the house, and they eat together too.",
           ),
           pages: page(224),
@@ -675,7 +675,7 @@ export function createUnit17SourceSeed(
           speaker: "Jihun",
           korean: "리사 씨, 주말에 집들이를 하려고 해요. 올 수 있어요?",
           translations: text(
-            "Lisa, cuoi tuan nay toi dinh to chuc tiec tan gia. Ban co the den duoc khong?",
+            "Lisa, cuối tuần này tôi định tổ chức tiệc tân gia. Bạn có thể đến được không?",
             "Lisa, I am planning a housewarming this weekend. Can you come?",
           ),
           pages: page(223),
@@ -687,7 +687,7 @@ export function createUnit17SourceSeed(
           speaker: "Lisa",
           korean: "그럼요. 제가 좀 도와줄까요?",
           translations: text(
-            "Tat nhien roi. Toi co the giup mot chut khong?",
+            "Tất nhiên rồi. Tôi có thể giúp một chút không?",
             "Of course. Should I help a little?",
           ),
           pages: page(223),
@@ -699,7 +699,7 @@ export function createUnit17SourceSeed(
           speaker: "Jihun",
           korean: "고마워요. 음식을 만들어야 돼요.",
           translations: text(
-            "Cam on ban. Toi phai lam do an.",
+            "Cảm ơn bạn. Tôi phải làm đồ ăn.",
             "Thanks. I have to make food.",
           ),
           pages: page(223),
@@ -711,7 +711,7 @@ export function createUnit17SourceSeed(
           speaker: "Jihun",
           korean: "그럼 좀 일찍 오세요.",
           translations: text(
-            "Vay thi ban den som mot chut nhe.",
+            "Vậy thì bạn đến sớm một chút nhé.",
             "Then please come a little early.",
           ),
           pages: page(223),
@@ -723,7 +723,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-help-request",
           korean: "저 좀 도와줄 수 있어요?",
-          translations: text("Ban co the giup toi mot chut duoc khong?", "Could you help me a bit?"),
+          translations: text("Bạn có thể giúp tôi một chút được không?", "Could you help me a bit?"),
           grammarTags: ["help expression"],
           pages: page(222),
           sourceRef: capture("ex-help-request", 222, "저 좀 도와줄 수 있어요?"),
@@ -732,7 +732,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-help-offer",
           korean: "제가 도와 드릴게요.",
-          translations: text("De toi giup ban.", "I will help you."),
+          translations: text("Để tôi giúp bạn.", "I will help you."),
           grammarTags: ["help expression"],
           pages: page(222),
           sourceRef: capture("ex-help-offer", 222, "제가 도와 드릴게요."),
@@ -741,7 +741,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-must-buy",
           korean: "집들이에 뭘 사 가야 돼요?",
-          translations: text("Toi nen mua gi de mang den tiec tan gia?", "What should I buy and bring to the housewarming?"),
+          translations: text("Tôi nên mua gì để mang đến tiệc tân gia?", "What should I buy and bring to the housewarming?"),
           grammarTags: ["-아/어야 되다"],
           pages: page(220),
           sourceRef: capture("ex-must-buy", 220, "집들이에 뭘 사 가야 돼요?"),
@@ -750,7 +750,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-must-make-food",
           korean: "음식을 만들어야 돼요.",
-          translations: text("Phai lam do an.", "I have to make food."),
+          translations: text("Phải làm đồ ăn.", "I have to make food."),
           grammarTags: ["-아/어야 되다"],
           pages: page(223),
           sourceRef: capture("ex-must-make-food", 223, "음식을 만들어야 돼요."),
@@ -759,7 +759,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-healthy-too",
           korean: "건강에도 좋고요.",
-          translations: text("Cung tot cho suc khoe nua.", "It is good for your health too."),
+          translations: text("Cũng tốt cho sức khỏe nữa.", "It is good for your health too."),
           grammarTags: ["-고요"],
           pages: page(224),
           sourceRef: capture("ex-healthy-too", 224, "건강에도 좋고요."),
@@ -768,7 +768,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-delicious-too",
           korean: "경치가 예뻐요. 음식도 맛있고요.",
-          translations: text("Phong canh dep, va do an cung ngon nua.", "The scenery is beautiful, and the food is tasty too."),
+          translations: text("Phong cảnh đẹp, và đồ ăn cũng ngon nữa.", "The scenery is beautiful, and the food is tasty too."),
           grammarTags: ["-고요"],
           pages: page(224),
           sourceRef: capture("ex-delicious-too", 224, "경치가 예뻐요. 음식도 맛있고요."),
@@ -777,7 +777,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-look-around",
           korean: "집을 구경해요. 같이 식사도 하고요.",
-          translations: text("Moi nguoi xem nha, va cung an cung nhau nua.", "People look around the house, and they eat together too."),
+          translations: text("Mọi người xem nhà, và cùng ăn cùng nhau nữa.", "People look around the house, and they eat together too."),
           grammarTags: ["-고요"],
           pages: page(224),
           sourceRef: capture("ex-look-around", 224, "집을 구경해요. 같이 식사도 하고요."),
@@ -786,7 +786,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-email-what-do",
           korean: "집들이에서 뭘 해야 돼요?",
-          translations: text("Toi can lam gi o tiec tan gia?", "What should I do at the housewarming?"),
+          translations: text("Tôi cần làm gì ở tiệc tân gia?", "What should I do at the housewarming?"),
           grammarTags: ["-아/어야 되다"],
           pages: page(229),
           sourceRef: capture("ex-email-what-do", 229, "집들이에서 뭘 해야 돼요?"),
@@ -795,7 +795,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-email-what-food",
           korean: "집들이에 어떤 음식을 준비해야 돼요?",
-          translations: text("Toi can chuan bi mon an gi cho tiec tan gia?", "What food should I prepare for the housewarming?"),
+          translations: text("Tôi cần chuẩn bị món ăn gì cho tiệc tân gia?", "What food should I prepare for the housewarming?"),
           grammarTags: ["-아/어야 되다"],
           pages: page(229),
           sourceRef: capture("ex-email-what-food", 229, "집들이에 어떤 음식을 준비해야 돼요?"),
@@ -804,7 +804,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-must-bring-swim-cap",
           korean: "그리고 수영 모자도 가져가야 해요.",
-          translations: text("Va cung phai mang theo mu boi nua.", "And I also have to bring a swim cap."),
+          translations: text("Và cũng phải mang theo mũ bơi nữa.", "And I also have to bring a swim cap."),
           grammarTags: ["-아/어야 되다"],
           pages: page(291),
           sourceRef: capture("ex-must-bring-swim-cap", 291, "그리고 수영 모자도 가져가야 해요."),
@@ -813,7 +813,7 @@ export function createUnit17SourceSeed(
         {
           id: "ex-travel-place",
           korean: "서울에 가고 싶어요. 부산도 가고요.",
-          translations: text("Toi muon di Seoul, va cung muon di Busan nua.", "I want to go to Seoul, and I want to go to Busan too."),
+          translations: text("Tôi muốn đi Seoul, và cũng muốn đi Busan nữa.", "I want to go to Seoul, and I want to go to Busan too."),
           grammarTags: ["-고요"],
           pages: page(293),
           sourceRef: capture("ex-travel-place", 293, "서울에 가고 싶어요. 부산도 가고요."),

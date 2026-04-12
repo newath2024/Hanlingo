@@ -147,8 +147,8 @@ function getFillBlankSlotKind(koreanText: string): FillBlankSlotKind {
 
 function fillBlankPrompt(hasChoices: boolean) {
   return hasChoices
-    ? text("Hoan thanh cau sau.", "Complete the sentence.")
-    : text("Dien vao cho trong.", "Fill in the blank.");
+    ? text("Hoàn thành câu sau.", "Complete the sentence.")
+    : text("Điền vào chỗ trống.", "Fill in the blank.");
 }
 
 function maybeMeaningFromKorean(lookups: Lookups, koreanText: string) {
@@ -652,10 +652,10 @@ function lesson(
     summary,
     difficulty:
       order <= 2
-        ? text("Nhan dien va lam quen", "Recognition and warm-up")
+        ? text("Nhận diện và làm quen", "Recognition and warm-up")
         : order >= total - 1
-          ? text("On tap tong hop", "Cumulative production")
-          : text("Nho lai va xay cau", "Recall and construction"),
+          ? text("Ôn tập tổng hợp", "Cumulative production")
+          : text("Nhớ lại và xây câu", "Recall and construction"),
     focusConcepts,
     sourceExerciseIds,
     coverageTags,
@@ -736,7 +736,7 @@ function wm(
     id,
     type: "word_match",
     prompt: text(
-      "Noi tu tieng Han voi dung y nghia.",
+      "Nối từ tiếng Hàn với đúng ý nghĩa.",
       "Match the Korean word with the correct meaning.",
     ),
     explanation,
@@ -762,7 +762,7 @@ function wmImage(
     id,
     type: "word_match",
     prompt: text(
-      "Chon the dung voi y nghia nay.",
+      "Chọn thẻ đúng với ý nghĩa này.",
       "Choose the card that matches this meaning.",
     ),
     explanation,
@@ -798,7 +798,7 @@ function ls(
   return {
     id,
     type: "listen_select",
-    prompt: options?.prompt ?? text("Nghe roi chon dap an dung.", "Listen and choose the correct answer."),
+    prompt: options?.prompt ?? text("Nghe rồi chọn đáp án đúng.", "Listen and choose the correct answer."),
     explanation,
     source,
     stage: "recognition",
@@ -833,7 +833,7 @@ function lsImage(
     type: "listen_select",
     prompt:
       options?.prompt ??
-      text("Nghe roi chon the phu hop.", "Listen and choose the matching card."),
+      text("Nghe rồi chọn thẻ phù hợp.", "Listen and choose the matching card."),
     explanation,
     source,
     stage: "recognition",
@@ -866,8 +866,8 @@ function tr(
     id,
     type: "translate",
     prompt: meaningToKo
-      ? text("Dich y nghia sang tieng Han.", "Translate the meaning into Korean.")
-      : text("Dich cau tieng Han sang y nghia.", "Translate the Korean into its meaning."),
+      ? text("Dịch ý nghĩa sang tiếng Hàn.", "Translate the meaning into Korean.")
+      : text("Dịch câu tiếng Hàn sang ý nghĩa.", "Translate the Korean into its meaning."),
     explanation,
     source,
     stage,
@@ -879,8 +879,8 @@ function tr(
     koreanText: meaningToKo ? undefined : koreanText,
     acceptedAnswers: meaningToKo ? [koreanText] : undefined,
     placeholder: meaningToKo
-      ? text("Nhap cau tieng Han", "Type the Korean sentence")
-      : text("Nhap y nghia", "Type the meaning"),
+      ? text("Nhập câu tiếng Hàn", "Type the Korean sentence")
+      : text("Nhập ý nghĩa", "Type the meaning"),
   };
 }
 
@@ -896,7 +896,7 @@ function arr(
   return {
     id,
     type: "arrange_sentence",
-    prompt: text("Sap xep lai cau hoan chinh.", "Arrange the words into a complete sentence."),
+    prompt: text("Sắp xếp lại câu hoàn chỉnh.", "Arrange the words into a complete sentence."),
     explanation,
     source,
     stage: "construction",
@@ -928,7 +928,7 @@ function fill(
   return {
     id,
     type: "fill_blank",
-    prompt: options?.prompt ?? text("Dien vao cho trong.", "Fill in the blank."),
+    prompt: options?.prompt ?? text("Điền vào chỗ trống.", "Fill in the blank."),
     explanation,
     source,
     stage: "construction",
@@ -940,7 +940,7 @@ function fill(
     ...(options?.choices?.length ? { choices: options.choices } : {}),
     ...(options?.audioText ? { audioText: options.audioText } : {}),
     ...(options?.audioUrl ? { audioUrl: options.audioUrl } : {}),
-    placeholder: options?.placeholder ?? text("Nhap phan con thieu", "Type the missing part"),
+    placeholder: options?.placeholder ?? text("Nhập phần còn thiếu", "Type the missing part"),
     clue,
   };
 }
@@ -958,7 +958,7 @@ function gram(
   return {
     id,
     type: "grammar_select",
-    prompt: text("Chon dap an dung.", "Choose the correct answer."),
+    prompt: text("Chọn đáp án đúng.", "Choose the correct answer."),
     explanation,
     source,
     stage: "recall",
@@ -981,7 +981,7 @@ function dial(
   return {
     id,
     type: "dialogue_reconstruct",
-    prompt: text("Ghep lai cau hoi thoai.", "Rebuild the dialogue line."),
+    prompt: text("Ghép lại câu hội thoại.", "Rebuild the dialogue line."),
     explanation,
     source,
     stage: "construction",
@@ -1005,7 +1005,7 @@ function speak(
   return {
     id,
     type: "speaking",
-    prompt: text("Noi to cau nay.", "Say this sentence aloud."),
+    prompt: text("Nói to câu này.", "Say this sentence aloud."),
     explanation,
     source,
     stage: "production",
@@ -1070,7 +1070,7 @@ function audioBackedTasks(
         lookups.choicePool,
         "workbook",
         text(
-          "Nghe file audio that tu QR roi chon dap an dung.",
+          "Nghe file audio thật từ QR rồi chọn đáp án đúng.",
           "Listen to the real QR audio and choose the correct answer.",
         ),
         {
@@ -1142,7 +1142,7 @@ function exerciseToTasks(
           lookups.visualVocabPool,
           "workbook",
           text(
-            "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "Bắt đầu bằng nhận diện hình ảnh và chữ Hàn cùng lúc.",
             "Start by matching the image card with the Korean word and meaning together.",
           ),
         ),
@@ -1153,7 +1153,7 @@ function exerciseToTasks(
           lookups.visualVocabPool,
           "workbook",
           text(
-            "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "Nghe lại từ này và chọn thẻ đúng để khóa âm và hình.",
             "Hear the word again and choose the matching card to lock in sound and image.",
           ),
           {
@@ -1170,7 +1170,7 @@ function exerciseToTasks(
         meaning,
         lookups.choicePool,
         "workbook",
-        text("Bat dau bang nhan dien y nghia nhanh.", "Start with quick meaning recognition."),
+        text("Bắt đầu bằng nhận diện ý nghĩa nhanh.", "Start with quick meaning recognition."),
       ),
       ls(
         `${exercise.id}-2`,
@@ -1179,7 +1179,7 @@ function exerciseToTasks(
         lookups.choicePool,
         "workbook",
         text(
-          "Nghe lai cung bieu hien de khoa am va nghia.",
+          "Nghe lại cùng biểu hiện để khóa âm và nghĩa.",
           "Hear the same expression again to lock sound and meaning.",
         ),
       ),
@@ -1208,7 +1208,7 @@ function exerciseToTasks(
         "workbook",
         grammarTags,
         text(
-          "Dien lai dung phan con thieu cua mau cau.",
+          "Điền lại đúng phần còn thiếu của mẫu câu.",
           "Fill the missing part of the sentence pattern.",
         ),
         fillBlankConfig.clue,
@@ -1223,7 +1223,7 @@ function exerciseToTasks(
         answerText(exercise.answer).replace(".", ""),
         "workbook",
         text(
-          "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+          "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
           "Choose the answer again to avoid mixing up the ending or key noun.",
         ),
         grammarTags,
@@ -1249,7 +1249,7 @@ function exerciseToTasks(
         "workbook",
         grammarTags,
         text(
-          "Xay lai cau theo dung trat tu tu nhien.",
+          "Xây lại câu theo đúng trật tự tự nhiên.",
           "Build the sentence back in natural order.",
         ),
       ),
@@ -1258,7 +1258,7 @@ function exerciseToTasks(
         answerText(exercise.answer),
         "workbook",
         text(
-          "Noi to cau vua ghep de chuyen sang phan xa noi.",
+          "Nói to câu vừa ghép để chuyển sang phản xạ nói.",
           "Say the rebuilt sentence aloud to move into speaking reflex.",
         ),
         grammarTags,
@@ -1276,7 +1276,7 @@ function exerciseToTasks(
           lookups.choicePool,
           "workbook",
           text(
-            "Nhan y nghia truoc roi moi go lai.",
+            "Nhận ý nghĩa trước rồi mới gõ lại.",
             "Recognize the meaning before typing it back.",
           ),
         ),
@@ -1288,7 +1288,7 @@ function exerciseToTasks(
           "workbook",
           "recall",
           grammarTags,
-          text("Go lai y nghia bang tri nho.", "Type the meaning from memory."),
+          text("Gõ lại ý nghĩa bằng trí nhớ.", "Type the meaning from memory."),
         ),
       ];
     }
@@ -1303,7 +1303,7 @@ function exerciseToTasks(
         "construction",
         grammarTags,
         text(
-          "Dich y nghia thanh cau tieng Han day du.",
+          "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
           "Translate the meaning into a full Korean sentence.",
         ),
       ),
@@ -1312,7 +1312,7 @@ function exerciseToTasks(
         answerText(exercise.answer),
         "workbook",
         text(
-          "Noi lai cau vua dich de tang san sinh chu dong.",
+          "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
           "Say the translated sentence aloud to strengthen active production.",
         ),
         grammarTags,
@@ -1329,7 +1329,7 @@ function exerciseToTasks(
         lookups.choicePool,
         "workbook",
         text(
-          "Bai nghe ngan nen uu tien nhan dien nhanh.",
+          "Bài nghe ngắn nên ưu tiên nhận diện nhanh.",
           "Short listening items begin with fast recognition.",
         ),
       ),
@@ -1342,7 +1342,7 @@ function exerciseToTasks(
         "recall",
         grammarTags,
         text(
-          "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
+          "Sau khi nghe đúng, gõ lại ý nghĩa để khóa trí nhớ.",
           "Once you hear it correctly, type the meaning to lock it in.",
         ),
       ),
@@ -1359,7 +1359,7 @@ function exerciseToTasks(
         answer,
         "workbook",
         text(
-          "Nhac lai duoi cau lich su cot loi cua Unit 1.",
+          "Nhắc lại đuôi câu lịch sự cốt lõi của Unit 1.",
           "Revisit the core polite ending for Unit 1.",
         ),
         ["N + copula"],
@@ -1371,7 +1371,7 @@ function exerciseToTasks(
         [answer, `${answer}.`],
         "workbook",
         ["N + copula"],
-        text("Dien lai mo hinh N + copula.", "Fill the N + copula pattern again."),
+        text("Điền lại mô hình N + copula.", "Fill the N + copula pattern again."),
       ),
     ];
   }
@@ -1380,13 +1380,13 @@ function exerciseToTasks(
     return [
       arr(
         `${exercise.id}-1`,
-        text("Tu gioi thieu ngan", "Short self-introduction"),
+        text("Tự giới thiệu ngắn", "Short self-introduction"),
         splitWords(exercise.answer),
         splitWords(exercise.answer),
         "workbook",
         ["N + 저는"],
         text(
-          "Ghep lai cum cau tu gioi thieu ngan.",
+          "Ghép lại cụm câu tự giới thiệu ngắn.",
           "Rebuild the short self-introduction script.",
         ),
       ),
@@ -1395,7 +1395,7 @@ function exerciseToTasks(
         answerText(exercise.answer),
         "workbook",
         text(
-          "Noi tron mini script de mo phong speaking.",
+          "Nói trọn mini script để mô phỏng speaking.",
           "Say the full mini script to simulate a speaking prompt.",
         ),
         ["N + 저는"],
@@ -1413,7 +1413,7 @@ function exerciseToTasks(
       "construction",
       grammarTags,
       text(
-        "Viet lai cau dich tu nghia da biet.",
+        "Viết lại câu dịch từ nghĩa đã biết.",
         "Rewrite the target sentence from the known meaning.",
       ),
     ),
@@ -1422,7 +1422,7 @@ function exerciseToTasks(
       answerText(exercise.answer),
       "workbook",
       text(
-        "Doc to cau vua viet de xay phan xa noi.",
+        "Đọc to câu vừa viết để xây phản xạ nói.",
         "Read the written sentence aloud to build speaking reflex.",
       ),
       grammarTags,
@@ -1477,9 +1477,9 @@ function introLesson(source: SourceUnit, lookups: Lookups, totalLessons: number)
   return lesson(
     "unit-1-lesson-1",
     "intro",
-    text("Bat dau chao hoi", "Start with greetings"),
+    text("Bắt đầu chào hỏi", "Start with greetings"),
     text(
-      "Mo unit bang loi chao, dai tu khiem nhuong, va mau cau gioi thieu ngan.",
+      "Mở unit bằng lời chào, đại từ khiêm nhường, và mẫu câu giới thiệu ngắn.",
       "Open the unit with greetings, the humble pronoun, and a short introduction.",
     ),
     ["안녕하세요", "저", "학생", "저는"],
@@ -1491,14 +1491,14 @@ function introLesson(source: SourceUnit, lookups: Lookups, totalLessons: number)
         helloVisual,
         lookups.visualVocabPool,
         "textbook",
-        text("Day la loi chao cot loi cua unit.", "This is the core greeting for the unit."),
+        text("Đây là lời chào cốt lõi của unit.", "This is the core greeting for the unit."),
       ),
       wmImage(
         "l1-jeo",
         humbleIVisual,
         lookups.visualVocabPool,
         "textbook",
-        text("`저` la cach xung ho lich su.", "`저` is the polite way to say I/me."),
+        text("`저` là cách xưng hô lịch sự.", "`저` is the polite way to say I/me."),
       ),
       wmImage(
         "l1-student",
@@ -1506,7 +1506,7 @@ function introLesson(source: SourceUnit, lookups: Lookups, totalLessons: number)
         lookups.visualVocabPool,
         "workbook",
         text(
-          "Danh tu nay lap lai nhieu lan trong workbook.",
+          "Danh từ này lặp lại nhiều lần trong workbook.",
           "This noun repeats throughout the workbook.",
         ),
       ),
@@ -1517,7 +1517,7 @@ function introLesson(source: SourceUnit, lookups: Lookups, totalLessons: number)
         lookups.visualVocabPool,
         "textbook",
         text(
-          "Nghe cum chao khi gap mat de quen am.",
+          "Nghe cụm chào khi gặp mặt để quen âm.",
           "Hear the meeting greeting first to get used to the sound.",
         ),
       ),
@@ -1530,7 +1530,7 @@ function introLesson(source: SourceUnit, lookups: Lookups, totalLessons: number)
         "recall",
         [],
         text(
-          "Doi loi chao sang y nghia ngay sau khi nhan dien.",
+          "Đổi lời chào sang ý nghĩa ngay sau khi nhận diện.",
           "Switch the greeting into its meaning right after recognition.",
         ),
       ),
@@ -1543,7 +1543,7 @@ function introLesson(source: SourceUnit, lookups: Lookups, totalLessons: number)
         "construction",
         ["N + 저는"],
         text(
-          "Ghep loi chao voi phan gioi thieu ten.",
+          "Ghép lời chào với phần giới thiệu tên.",
           "Combine the greeting with the name introduction.",
         ),
       ),
@@ -1555,7 +1555,7 @@ function introLesson(source: SourceUnit, lookups: Lookups, totalLessons: number)
         "blended",
         ["N + 저는"],
         text(
-          "Sap xep lai cau gioi thieu dau tien.",
+          "Sắp xếp lại câu giới thiệu đầu tiên.",
           "Arrange the first introduction sentence.",
         ),
       ),
@@ -1563,7 +1563,7 @@ function introLesson(source: SourceUnit, lookups: Lookups, totalLessons: number)
         "l1-speak",
         hello.korean,
         "textbook",
-        text("Ket lesson bang mot cau chao ngan.", "Close the lesson with one short greeting."),
+        text("Kết lesson bằng một câu chào ngắn.", "Close the lesson with one short greeting."),
       ),
     ],
     1,
@@ -1593,9 +1593,9 @@ function grammarLesson(source: SourceUnit, lookups: Lookups, totalLessons: numbe
   return lesson(
     "unit-1-lesson-2",
     "grammar",
-    text("Lap cau voi copula", "Build with the copula"),
+    text("Lập câu với copula", "Build with the copula"),
     text(
-      "Cung co mau N + copula bang cau ve hoc sinh va nghe nghiep.",
+      "Củng cố mẫu N + copula bằng câu về học sinh và nghề nghiệp.",
       "Reinforce the noun + copula pattern with student and job sentences.",
     ),
     ["N + copula", "입니다", "학생", "회사원"],
@@ -1614,7 +1614,7 @@ function grammarLesson(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         copula,
         "workbook",
         text(
-          "Sau danh tu, Unit 1 dung cung mot duoi cau lich su.",
+          "Sau danh từ, Unit 1 dùng cùng một đuôi câu lịch sự.",
           "After a noun, Unit 1 uses one core polite ending.",
         ),
         ["N + copula"],
@@ -1626,7 +1626,7 @@ function grammarLesson(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         copula,
         "workbook",
         text(
-          "Lap lai cung pattern o che do recall.",
+          "Lặp lại cùng pattern ở chế độ recall.",
           "Repeat the same pattern in recall mode.",
         ),
         ["N + copula"],
@@ -1639,7 +1639,7 @@ function grammarLesson(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "workbook",
         ["N + copula"],
         text(
-          "Dien lai dung duoi cau sau danh tu.",
+          "Điền lại đúng đuôi câu sau danh từ.",
           "Fill the correct polite ending after the noun.",
         ),
       ),
@@ -1650,7 +1650,7 @@ function grammarLesson(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "workbook",
         ["N + copula"],
         text(
-          "Doi nghe nghiep nhung giu nguyen khung cau.",
+          "Đổi nghề nghiệp nhưng giữ nguyên khung câu.",
           "Swap the job noun while keeping the sentence frame.",
         ),
         officeFillConfig.clue,
@@ -1668,7 +1668,7 @@ function grammarLesson(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "construction",
         ["N + copula"],
         text(
-          "Dich mau cau co ban nhat cua unit.",
+          "Dịch mẫu câu cơ bản nhất của unit.",
           "Translate the unit's most basic model sentence.",
         ),
       ),
@@ -1680,7 +1680,7 @@ function grammarLesson(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "textbook",
         ["N + copula"],
         text(
-          "Lap lai cau nghe nghiep cung ngu phap.",
+          "Lặp lại câu nghề nghiệp cùng ngữ pháp.",
           "Build a job sentence with the same grammar.",
         ),
       ),
@@ -1689,7 +1689,7 @@ function grammarLesson(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         student.korean,
         "textbook",
         text(
-          "Noi lai mau cau hoc sinh de tao phan xa.",
+          "Nói lại mẫu câu học sinh để tạo phản xạ.",
           "Say the student sentence aloud so it becomes automatic.",
         ),
         ["N + copula"],
@@ -1699,7 +1699,7 @@ function grammarLesson(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         office.korean,
         "blended",
         text(
-          "Doi danh tu nhung van giu duoi cau lich su dung.",
+          "Đổi danh từ nhưng vẫn giữ đuôi câu lịch sự đúng.",
           "Swap the noun while keeping the polite ending correct.",
         ),
         ["N + copula"],
@@ -1731,9 +1731,9 @@ function dialogueLesson(source: SourceUnit, lookups: Lookups, totalLessons: numb
   return lesson(
     "unit-1-lesson-3",
     "dialogue",
-    text("Ghep lai doan hoi thoai", "Rebuild the dialogue"),
+    text("Ghép lại đoạn hội thoại", "Rebuild the dialogue"),
     text(
-      "Nghe, ghep, va noi lai cac luot thoai chao hoi cot loi.",
+      "Nghe, ghép, và nói lại các lượt thoại chào hỏi cốt lõi.",
       "Listen, rebuild, and say the core greeting dialogue turns.",
     ),
     ["dialogue", "reply", "self-introduction", "translation"],
@@ -1754,7 +1754,7 @@ function dialogueLesson(source: SourceUnit, lookups: Lookups, totalLessons: numb
         lookups.choicePool,
         "workbook",
         text(
-          "Nghe cau dap truoc de bat nhip hoi thoai.",
+          "Nghe câu đáp trước để bắt nhịp hội thoại.",
           "Hear the reply first to catch the dialogue rhythm.",
         ),
       ),
@@ -1767,7 +1767,7 @@ function dialogueLesson(source: SourceUnit, lookups: Lookups, totalLessons: numb
         "recall",
         [],
         text(
-          "Nho lai y nghia cua loi chao khi gap mat.",
+          "Nhớ lại ý nghĩa của lời chào khi gặp mặt.",
           "Recall the meaning of the meeting greeting.",
         ),
       ),
@@ -1791,14 +1791,14 @@ function dialogueLesson(source: SourceUnit, lookups: Lookups, totalLessons: numb
         "l3-jisu",
         jisuHello,
         "textbook",
-        text("Ghep lai cau gioi thieu cua Jisu.", "Rebuild Jisu's introduction line."),
+        text("Ghép lại câu giới thiệu của Jisu.", "Rebuild Jisu's introduction line."),
       ),
       dial(
         "l3-reply",
         jisuReply,
         "blended",
         text(
-          "Ghep luon cau dap de tao thanh cap thoai.",
+          "Ghép luôn câu đáp để tạo thành cặp thoại.",
           "Rebuild the reply to create a full exchange.",
         ),
       ),
@@ -1810,7 +1810,7 @@ function dialogueLesson(source: SourceUnit, lookups: Lookups, totalLessons: numb
         "workbook",
         ["N + 저는"],
         text(
-          "Tach nho cau gioi thieu thanh mot bai sap xep nhanh.",
+          "Tách nhỏ câu giới thiệu thành một bài sắp xếp nhanh.",
           "Break the introduction into a quicker ordering task.",
         ),
       ),
@@ -1823,7 +1823,7 @@ function dialogueLesson(source: SourceUnit, lookups: Lookups, totalLessons: numb
         "construction",
         ["N + 저는"],
         text(
-          "Viet lai toan bo cau gioi thieu cua Jisu.",
+          "Viết lại toàn bộ câu giới thiệu của Jisu.",
           "Write Jisu's full introduction again.",
         ),
       ),
@@ -1832,7 +1832,7 @@ function dialogueLesson(source: SourceUnit, lookups: Lookups, totalLessons: numb
         `${jisuHello.korean} ${jisuReply.korean}`,
         "blended",
         text(
-          "Ket lesson bang mot luot thoai hoan chinh.",
+          "Kết lesson bằng một lượt thoại hoàn chỉnh.",
           "Finish the lesson with one complete dialogue turn.",
         ),
         ["N + 저는"],
@@ -1865,9 +1865,9 @@ function buildUnit1QrLesson(
     {
       lessonId: "unit-1-lesson-9",
       lessonRole: "workbook_practice",
-      title: text("Nghe QR ve quoc tich", "QR listening: countries and flags"),
+      title: text("Nghe QR về quốc tịch", "QR listening: countries and flags"),
       summary: text(
-        "Tach rieng bai nghe QR thanh mot lesson nghe tap trung co co, cau dien, va cau noi lap lai.",
+        "Tách riêng bài nghe QR thành một lesson nghe tập trung có cờ, câu điền, và câu nói lặp lại.",
         "Split the QR audio into a dedicated listening lesson with flag choice, fill tasks, and spoken repeats.",
       ),
       focusConcepts: ["qr-listening", "country", "flags", "self-introduction"],
@@ -1880,7 +1880,7 @@ function buildUnit1QrLesson(
           "workbook",
           ["qr-listening"],
           text(
-            "Nghe lai file QR cua Natasha roi dien quoc tich bang tieng Han.",
+            "Nghe lại file QR của Natasha rồi điền quốc tịch bằng tiếng Hàn.",
             "Replay Natasha's QR audio and fill in the nationality in Korean.",
           ),
           left.localizedText,
@@ -1897,7 +1897,7 @@ function buildUnit1QrLesson(
           "workbook",
           ["qr-listening"],
           text(
-            "Nghe lai file QR cua Gayoung roi dien quoc tich bang tieng Han.",
+            "Nghe lại file QR của Gayoung rồi điền quốc tịch bằng tiếng Hàn.",
             "Replay Gayoung's QR audio and fill in the nationality in Korean.",
           ),
           right.localizedText,
@@ -1915,7 +1915,7 @@ function buildUnit1QrLesson(
           "workbook",
           ["qr-listening"],
           text(
-            "Sap xep lai cau tra loi xuat hien trong file nghe QR ben trai.",
+            "Sắp xếp lại câu trả lời xuất hiện trong file nghe QR bên trái.",
             "Rebuild the answer line heard in the left-side QR audio.",
           ),
         ),
@@ -1927,7 +1927,7 @@ function buildUnit1QrLesson(
           "workbook",
           ["qr-listening"],
           text(
-            "Sap xep lai cau tra loi xuat hien trong file nghe QR ben phai.",
+            "Sắp xếp lại câu trả lời xuất hiện trong file nghe QR bên phải.",
             "Rebuild the answer line heard in the right-side QR audio.",
           ),
         ),
@@ -1936,7 +1936,7 @@ function buildUnit1QrLesson(
           "저는 러시아 사람이에요.",
           "workbook",
           text(
-            "Noi lai cau gioi thieu quoc tich cua Natasha.",
+            "Nói lại câu giới thiệu quốc tịch của Natasha.",
             "Say Natasha's nationality sentence aloud.",
           ),
           ["qr-listening"],
@@ -1946,7 +1946,7 @@ function buildUnit1QrLesson(
           "저는 한국 사람이에요.",
           "workbook",
           text(
-            "Noi lai cau gioi thieu quoc tich cua Gayoung.",
+            "Nói lại câu giới thiệu quốc tịch của Gayoung.",
             "Say Gayoung's nationality sentence aloud.",
           ),
           ["qr-listening"],
@@ -1972,9 +1972,9 @@ function buildUnit1WorkbookLessons(
       {
         lessonId: "unit-1-lesson-4",
         lessonRole: "workbook_practice",
-        title: text("Dung copula trong workbook", "Workbook: copula in use"),
+        title: text("Dùng copula trong workbook", "Workbook: copula in use"),
         summary: text(
-          "Chuyen tu textbook sang workbook bang cac bai match va dien khuyet co ban.",
+          "Chuyển từ textbook sang workbook bằng các bài match và điền khuyết cơ bản.",
           "Move from textbook input into workbook matching and core fill-in drills.",
         ),
         focusConcepts: ["copula", "greeting", "self-introduction", "student"],
@@ -1995,9 +1995,9 @@ function buildUnit1WorkbookLessons(
       {
         lessonId: "unit-1-lesson-5",
         lessonRole: "workbook_practice",
-        title: text("Identity drills 1", "Identity drills 1"),
+        title: text("Luyện tự giới thiệu 1", "Identity drills 1"),
         summary: text(
-          "Luyen dich, nghe, va chon duoi cau lich su trong cum bai tu gioi thieu.",
+          "Luyện dịch, nghe, và chọn đuôi câu lịch sự trong cụm bài tự giới thiệu.",
           "Drill translation, listening, and polite endings around self-introduction sentences.",
         ),
         focusConcepts: ["translation", "copula", "dialogue", "student"],
@@ -2018,9 +2018,9 @@ function buildUnit1WorkbookLessons(
       {
         lessonId: "unit-1-lesson-6",
         lessonRole: "workbook_practice",
-        title: text("Identity drills 2", "Identity drills 2"),
+        title: text("Luyện tự giới thiệu 2", "Identity drills 2"),
         summary: text(
-          "Tiep tuc workbook bang cau dap, sap xep, va cau gioi thieu co ten rieng.",
+          "Tiếp tục workbook bằng câu đáp, sắp xếp, và câu giới thiệu có tên riêng.",
           "Continue the workbook path with replies, ordering, and named self-introductions.",
         ),
         focusConcepts: ["reply", "name", "translation", "construction"],
@@ -2041,9 +2041,9 @@ function buildUnit1WorkbookLessons(
       {
         lessonId: "unit-1-lesson-7",
         lessonRole: "workbook_practice",
-        title: text("Role and name drills", "Role and name drills"),
+        title: text("Luyện tên và vai trò", "Role and name drills"),
         summary: text(
-          "Khoa lai ten, nghe nghiep, va duoi cau copula bang chuoi bai tap ngan.",
+          "Khóa lại tên, nghề nghiệp, và đuôi câu copula bằng chuỗi bài tập ngắn.",
           "Lock in names, jobs, and polite copula endings through a tight workbook run.",
         ),
         focusConcepts: ["name", "role", "copula", "office-worker"],
@@ -2064,9 +2064,9 @@ function buildUnit1WorkbookLessons(
       {
         lessonId: "unit-1-lesson-8",
         lessonRole: "workbook_practice",
-        title: text("Nghe va tu gioi thieu", "Listening and self-introduction"),
+        title: text("Nghe và tự giới thiệu", "Listening and self-introduction"),
         summary: text(
-          "Gom bai nghe workbook va bai viet tu gioi thieu truoc khi vao QR listening rieng.",
+          "Gồm bài nghe workbook và bài viết tự giới thiệu trước khi vào QR listening riêng.",
           "Collect the workbook listening and self-introduction writing before the dedicated QR lesson.",
         ),
         focusConcepts: ["listening", "self-introduction", "doctor", "office-worker"],
@@ -2089,45 +2089,45 @@ function unit1Sections() {
   return [
     {
       sectionId: "unit-1-section-1",
-      title: text("Section 1: Greetings", "Section 1: greetings"),
+      title: text("Phần 1: Chào hỏi", "Section 1: greetings"),
       summary: text(
-        "Nen tang chao hoi, dai tu xung ho, va cau copula co ban.",
+        "Nền tảng chào hỏi, đại từ xưng hô, và câu copula cơ bản.",
         "Greeting foundations, polite self-reference, and the core copula frame.",
       ),
       lessonIds: ["unit-1-lesson-1", "unit-1-lesson-2"],
     },
     {
       sectionId: "unit-1-section-2",
-      title: text("Section 2: Dialogue", "Section 2: dialogue and use"),
+      title: text("Phần 2: Hội thoại", "Section 2: dialogue and use"),
       summary: text(
-        "Ghep lai hoi thoai va dua ngu phap vao bai workbook dau tien.",
+        "Ghép lại hội thoại và đưa ngữ pháp vào bài workbook đầu tiên.",
         "Rebuild the dialogue and move the grammar into the first workbook lesson.",
       ),
       lessonIds: ["unit-1-lesson-3", "unit-1-lesson-4"],
     },
     {
       sectionId: "unit-1-section-3",
-      title: text("Section 3: Workbook Core", "Section 3: workbook core"),
+      title: text("Phần 3: Trọng tâm workbook", "Section 3: workbook core"),
       summary: text(
-        "Ba lesson lien tiep de day du cac bai identity va role drills cua workbook.",
+        "Ba lesson liên tiếp để phủ đủ các bài identity và role drills của workbook.",
         "Three straight lessons to keep the identity and role drills fully covered.",
       ),
       lessonIds: ["unit-1-lesson-5", "unit-1-lesson-6", "unit-1-lesson-7"],
     },
     {
       sectionId: "unit-1-section-4",
-      title: text("Section 4: Listening", "Section 4: listening and QR"),
+      title: text("Phần 4: Nghe", "Section 4: listening and QR"),
       summary: text(
-        "Tach nghe workbook va bai nghe QR thanh cum listening rieng.",
+        "Tách nghe workbook và bài nghe QR thành cụm listening riêng.",
         "Split workbook listening and QR listening into their own focused block.",
       ),
       lessonIds: ["unit-1-lesson-8", "unit-1-lesson-9"],
     },
     {
       sectionId: "unit-1-section-5",
-      title: text("Section 5: Review", "Section 5: review and output"),
+      title: text("Phần 5: Ôn tập", "Section 5: review and output"),
       summary: text(
-        "On tap cuoi unit bang bai tong hop va bai san sinh co khung.",
+        "Ôn tập cuối unit bằng bài tổng hợp và bài sản sinh có khung.",
         "Finish with a review checkpoint and a more output-heavy close.",
       ),
       lessonIds: ["unit-1-lesson-10", "unit-1-lesson-11"],
@@ -2164,9 +2164,9 @@ function reviewLessons(
   const review1 = lesson(
     `unit-1-lesson-${startOrder}`,
     "review",
-    text("On workbook 1", "Review checkpoint 1"),
+    text("Ôn workbook 1", "Review checkpoint 1"),
     text(
-      "On lai cac loi hay gap truoc khi vao phan tong hop cuoi.",
+      "Ôn lại các lỗi hay gặp trước khi vào phần tổng hợp cuối.",
       "Review common mistake patterns before the final cumulative pass.",
     ),
     ["review", "copula", "translation", "workbook"],
@@ -2184,7 +2184,7 @@ function reviewLessons(
         "blended",
         ["N + 저는"],
         text(
-          "Keo lai cau gioi thieu goc de noi sang phan tong hop.",
+          "Kéo lại câu giới thiệu gốc để nối sang phần tổng hợp.",
           "Bring back the original introduction to bridge into the cumulative section.",
         ),
       ),
@@ -2196,9 +2196,9 @@ function reviewLessons(
   const review2 = lesson(
     `unit-1-lesson-${startOrder + 1}`,
     "review",
-    text("On tap tong hop", "Cumulative review"),
+    text("Ôn tập tổng hợp", "Cumulative review"),
     text(
-      "Khoa lai Unit 1 bang nhieu cau phai tu go va tu noi hon.",
+      "Khóa lại Unit 1 bằng nhiều câu phải tự gõ và tự nói hơn.",
       "Lock in Unit 1 with more prompts that require typing and speaking on your own.",
     ),
     ["review", "production", "self-introduction", "dialogue"],
@@ -2213,7 +2213,7 @@ function reviewLessons(
         minsu.korean,
         "blended",
         text(
-          "Noi tron loi chao va ten voi do tu dong cao hon.",
+          "Nói trọn lời chào và tên với độ tự động cao hơn.",
           "Say the full greeting and name with more automaticity.",
         ),
         ["N + 저는"],
@@ -2223,7 +2223,7 @@ function reviewLessons(
         `${hello.korean} ${student.korean} ${nice.korean}`,
         "blended",
         text(
-          "Ket unit bang mot mini self-introduction day du hon.",
+          "Kết unit bằng một mini self-introduction đầy đủ hơn.",
           "Close the unit with a fuller mini self-introduction.",
         ),
         ["N + copula"],
@@ -2247,9 +2247,9 @@ function introLesson16(source: SourceUnit, lookups: Lookups, totalLessons: numbe
   return lesson(
     "unit-16-lesson-1",
     "intro",
-    text("Mo bai di duong", "Open the directions topic"),
+    text("Mở bài đi đường", "Open the directions topic"),
     text(
-      "Lam quen voi phuong tien giao thong cot loi va cau hoi trung tam cua bai 16.",
+      "Làm quen với phương tiện giao thông cốt lõi và câu hỏi trung tâm của bài 16.",
       "Start Unit 16 with the core transport words and its central directions question.",
     ),
     ["버스", "지하철", "역", "정류장"],
@@ -2267,28 +2267,28 @@ function introLesson16(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         busVisual,
         lookups.visualVocabPool,
         "textbook",
-        text("Bat dau bang phuong tien quen thuoc nhat.", "Start with the most familiar vehicle."),
+        text("Bắt đầu bằng phương tiện quen thuộc nhất.", "Start with the most familiar vehicle."),
       ),
       wmImage(
         "u16-l1-subway",
         subwayVisual,
         lookups.visualVocabPool,
         "textbook",
-        text("Tau dien ngam se lap lai nhieu trong phan hoi duong.", "The subway repeats often in directions."),
+        text("Tàu điện ngầm sẽ lặp lại nhiều trong phần hỏi đường.", "The subway repeats often in directions."),
       ),
       wmImage(
         "u16-l1-station",
         stationVisual,
         lookups.visualVocabPool,
         "workbook",
-        text("Danh tu dia diem nay la moc neo cua unit.", "This place noun anchors the whole unit."),
+        text("Danh từ địa điểm này là mốc neo của unit.", "This place noun anchors the whole unit."),
       ),
       wmImage(
         "u16-l1-bus-stop",
         busStopVisual,
         lookups.visualVocabPool,
         "workbook",
-        text("Nho tu nay de doc duoc huong dan di xe buyt.", "Know this word to follow bus directions."),
+        text("Nhớ từ này để đọc được hướng dẫn đi xe buýt.", "Know this word to follow bus directions."),
       ),
       tr(
         "u16-l1-title-meaning",
@@ -2299,7 +2299,7 @@ function introLesson16(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "recall",
         [],
         text(
-          "Hieu cau hoi duong di truoc khi bat dau ghep lo trinh.",
+          "Hiểu câu hỏi đường đi trước khi bắt đầu ghép lộ trình.",
           "Understand the route question before building the route itself.",
         ),
       ),
@@ -2310,7 +2310,7 @@ function introLesson16(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "textbook",
         [],
         text(
-          "Dien dia diem len xe buyt vao cau huong dan.",
+          "Điền địa điểm lên xe buýt vào câu hướng dẫn.",
           "Fill in the place where you board the bus.",
         ),
         busStop.translations,
@@ -2326,7 +2326,7 @@ function introLesson16(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "blended",
         [],
         text(
-          "Sap xep lai cau hoi duong di trung tam cua bai.",
+          "Sắp xếp lại câu hỏi đường đi trung tâm của bài.",
           "Rebuild the central directions question of the unit.",
         ),
       ),
@@ -2335,7 +2335,7 @@ function introLesson16(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         titleQuestion.korean,
         "textbook",
         text(
-          "Ket lesson bang cau hoi duong di cot loi.",
+          "Kết lesson bằng câu hỏi đường đi cốt lõi.",
           "Close the lesson with the core directions question.",
         ),
       ),
@@ -2352,9 +2352,9 @@ function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: num
   return lesson(
     "unit-16-lesson-2",
     "grammar",
-    text("Tap trung 에서, 까지", "Focus on 에서, 까지"),
+    text("Tập trung 에서, 까지", "Focus on 에서, 까지"),
     text(
-      "Khoa mau chi diem bat dau va diem ket thuc, dong thoi giu duoc cau hoi thoi gian di lai.",
+      "Khóa mẫu chỉ điểm bắt đầu và điểm kết thúc, đồng thời giữ được câu hỏi thời gian đi lại.",
       "Lock in start-point and endpoint marking while keeping the travel-time question active.",
     ),
     ["에서, 까지", "집에서", "학교까지", "얼마나"],
@@ -2377,7 +2377,7 @@ function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: num
         "recall",
         ["에서, 까지"],
         text(
-          "Bat dau bang cau hoi thoi gian di lai quen thuoc.",
+          "Bắt đầu bằng câu hỏi thời gian đi lại quen thuộc.",
           "Start from the familiar route-time question.",
         ),
       ),
@@ -2390,7 +2390,7 @@ function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: num
         "construction",
         ["에서, 까지"],
         text(
-          "Doi y nghia sang cau tra loi ngan va tu nhien.",
+          "Đổi ý nghĩa sang câu trả lời ngắn và tự nhiên.",
           "Convert the meaning into a short natural answer.",
         ),
       ),
@@ -2400,12 +2400,12 @@ function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: num
         "에서",
         "workbook",
         text(
-          "Chon tro tu chi diem bat dau cua lo trinh.",
+          "Chọn trợ từ chỉ điểm bắt đầu của lộ trình.",
           "Choose the particle that marks the starting point of the route.",
         ),
         ["에서, 까지"],
         ["에서", "까지"],
-        text("tu thu vien den nha hang", "from the library to the restaurant"),
+        text("từ thư viện đến nhà hàng", "from the library to the restaurant"),
       ),
       gram(
         "u16-l2-to",
@@ -2413,12 +2413,12 @@ function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: num
         "까지",
         "workbook",
         text(
-          "Chon tro tu chi diem ket thuc cua lo trinh.",
+          "Chọn trợ từ chỉ điểm kết thúc của lộ trình.",
           "Choose the particle that marks the destination.",
         ),
         ["에서, 까지"],
         ["에서", "까지"],
-        text("den nha hang", "to the restaurant"),
+        text("đến nhà hàng", "to the restaurant"),
       ),
       fill(
         "u16-l2-subway-from",
@@ -2427,10 +2427,10 @@ function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: num
         "workbook",
         ["에서, 까지"],
         text(
-          "Dien tro tu cho phan diem xuat phat.",
+          "Điền trợ từ cho phần điểm xuất phát.",
           "Fill in the particle for the departure point.",
         ),
-        text("tu ga tau dien ngam", "from the subway station"),
+        text("từ ga tàu điện ngầm", "from the subway station"),
         {
           choices: ["에서", "까지"],
         },
@@ -2442,10 +2442,10 @@ function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: num
         "workbook",
         ["에서, 까지"],
         text(
-          "Dien tro tu cho diem den cua cau.",
+          "Điền trợ từ cho điểm đến của câu.",
           "Fill in the particle for the destination.",
         ),
-        text("den cong ty du lich", "to the travel agency"),
+        text("đến công ty du lịch", "to the travel agency"),
         {
           choices: ["에서", "까지"],
         },
@@ -2453,7 +2453,7 @@ function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: num
       arr(
         "u16-l2-arrange-route",
         text(
-          "Tu thu vien den nha hang di xe buyt.",
+          "Từ thư viện đến nhà hàng đi xe buýt.",
           "Go by bus from the library to the restaurant.",
         ),
         ["도서관에서", "식당까지", "버스를", "타고", "가요"],
@@ -2461,7 +2461,7 @@ function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: num
         "workbook",
         ["에서, 까지"],
         text(
-          "Sap xep lai mot cau lo trinh day du voi ca diem di va diem den.",
+          "Sắp xếp lại một câu lộ trình đầy đủ với cả điểm đi và điểm đến.",
           "Rebuild a full route sentence with both start and end points.",
         ),
       ),
@@ -2470,7 +2470,7 @@ function grammarLesson16(source: SourceUnit, lookups: Lookups, totalLessons: num
         homeSchool.korean,
         "textbook",
         text(
-          "Noi tron cau hoi thoi gian de tao phan xa nhanh.",
+          "Nói trọn câu hỏi thời gian để tạo phản xạ nhanh.",
           "Say the route-time question aloud to build quick recall.",
         ),
         ["에서, 까지"],
@@ -2491,7 +2491,7 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
   return lesson(
     "unit-16-lesson-3",
     "dialogue",
-    text("Hoi duong va huong dan", "Ask directions and give instructions"),
+    text("Hỏi đường và hướng dẫn", "Ask directions and give instructions"),
     text(
       "Ghep lai hoi duong, loi chi duong, va cac menh lenh lich su bang -으십시오/-십시오.",
       "Rebuild direction questions, route instructions, and polite commands with -으십시오/-십시오.",
@@ -2514,7 +2514,7 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
         "recall",
         ["-으십시오/-십시오"],
         text(
-          "Hieu dung cau chi duong lich su truoc khi tu ghep lai.",
+          "Hiểu đúng câu chỉ đường lịch sự trước khi tự ghép lại.",
           "Understand the polite direction first before rebuilding it.",
         ),
       ),
@@ -2523,7 +2523,7 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
         titleQuestion,
         "textbook",
         text(
-          "Ghep lai cau hoi duong di mo dau cuoc hoi thoai.",
+          "Ghép lại câu hỏi đường đi mở đầu cuộc hội thoại.",
           "Rebuild the question that opens the directions dialogue.",
         ),
       ),
@@ -2532,7 +2532,7 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
         instruction,
         "textbook",
         text(
-          "Ghep lai cau len xe buyt co menh lenh lich su.",
+          "Ghép lại câu lên xe buýt có mệnh lệnh lịch sự.",
           "Rebuild the polite instruction for taking the bus.",
         ),
       ),
@@ -2541,7 +2541,7 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
         route,
         "textbook",
         text(
-          "Ghep lai cau noi xe buyt se di den dau.",
+          "Ghép lại câu nói xe buýt sẽ đi đến đâu.",
           "Rebuild the line that states where the bus goes.",
         ),
       ),
@@ -2550,7 +2550,7 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
         bankPaper,
         "blended",
         text(
-          "Ghep lai chuoi huong dan ngan trong ngan hang.",
+          "Ghép lại chuỗi hướng dẫn ngắn trong ngân hàng.",
           "Rebuild the short bank instruction sequence.",
         ),
       ),
@@ -2561,10 +2561,10 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
         "workbook",
         ["-으십시오/-십시오"],
         text(
-          "Dien menh lenh lich su cho buoc dau tien trong cong viec nau an.",
+          "Điền mệnh lệnh lịch sự cho bước đầu tiên trong công việc nấu ăn.",
           "Fill the polite command for the first step in cooking.",
         ),
-        text("hay rua rau truoc", "wash the vegetables first"),
+        text("hãy rửa rau trước", "wash the vegetables first"),
         {
           choices: ["씻으십시오", "들으십시오", "누우십시오"],
         },
@@ -2576,10 +2576,10 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
         "workbook",
         ["-으십시오/-십시오"],
         text(
-          "Dien loi khuyen lich su cho nguoi hoc tieng Han.",
+          "Điền lời khuyên lịch sự cho người học tiếng Hàn.",
           "Fill the polite suggestion for someone studying Korean.",
         ),
-        text("hay nghe nhieu bai hat Han Quoc", "listen to a lot of Korean songs"),
+        text("hãy nghe nhiều bài hát Hàn Quốc", "listen to a lot of Korean songs"),
         {
           choices: ["들으십시오", "씻으십시오", "오십시오"],
         },
@@ -2589,7 +2589,7 @@ function dialogueLesson16(source: SourceUnit, lookups: Lookups, totalLessons: nu
         bankFinish.korean,
         "textbook",
         text(
-          "Ket lesson bang mot cau ket thuc lich su va tu nhien.",
+          "Kết lesson bằng một câu kết thúc lịch sự và tự nhiên.",
           "Close the lesson with a natural polite closing line.",
         ),
         ["-으십시오/-십시오"],
@@ -2625,9 +2625,9 @@ function buildUnit16QrLessons(
     {
       lessonId: "unit-16-lesson-8",
       lessonRole: "workbook_practice",
-      title: text("QR nghe: Seoul Station", "QR listening: Seoul Station route"),
+      title: text("Nghe QR: ga Seoul", "QR listening: Seoul Station route"),
       summary: text(
-        "Tach QR nghe ve tinh huong giao thong va duong den Seoul Station thanh mot lesson nghe rieng.",
+        "Tách QR nghe về tình huống giao thông và đường đến Seoul Station thành một lesson nghe riêng.",
         "Split the traffic and Seoul Station QR audio into a dedicated listening lesson.",
       ),
       focusConcepts: ["qr-listening", "directions", "bus-number", "distance"],
@@ -2640,7 +2640,7 @@ function buildUnit16QrLessons(
           "workbook",
           ["qr-listening"],
           text(
-            "Nghe lai audio QR ve giao thong va dien cum ket thuc cau.",
+            "Nghe lại audio QR về giao thông và điền cụm kết thúc câu.",
             "Replay the traffic QR audio and fill the sentence ending.",
           ),
           traffic.localizedText,
@@ -2657,7 +2657,7 @@ function buildUnit16QrLessons(
           "workbook",
           ["qr-listening", "directions"],
           text(
-            "Dien so xe buyt duoc nghe trong hoi thoai QR den Seoul Station.",
+            "Điền số xe buýt được nghe trong hội thoại QR đến Seoul Station.",
             "Fill in the bus number heard in the Seoul Station QR dialogue.",
           ),
           busNumber.localizedText,
@@ -2675,7 +2675,7 @@ function buildUnit16QrLessons(
           "workbook",
           ["qr-listening", "directions"],
           text(
-            "Sap xep lai cau hoi lo trinh xuat hien trong doan QR.",
+            "Sắp xếp lại câu hỏi lộ trình xuất hiện trong đoạn QR.",
             "Rebuild the route question that appears in the QR dialogue.",
           ),
         ),
@@ -2684,7 +2684,7 @@ function buildUnit16QrLessons(
           "저기 정류장에서 100번 버스를 타십시오.",
           "workbook",
           text(
-            "Noi lai cau chi duong lich su sau khi nghe audio QR.",
+            "Nói lại câu chỉ đường lịch sự sau khi nghe audio QR.",
             "Say the polite route instruction aloud after hearing the QR audio.",
           ),
           ["qr-listening", "-(으)십시오"],
@@ -2696,7 +2696,7 @@ function buildUnit16QrLessons(
           "workbook",
           ["qr-listening", "distance"],
           text(
-            "Dien cum mo ta khoang cach trong cau tra loi cua QR audio.",
+            "Điền cụm mô tả khoảng cách trong câu trả lời của QR audio.",
             "Fill the distance phrase from the QR audio answer.",
           ),
           distance.localizedText,
@@ -2719,9 +2719,9 @@ function buildUnit16QrLessons(
     {
       lessonId: "unit-16-lesson-9",
       lessonRole: "workbook_practice",
-      title: text("QR nghe: Airport and follow-up", "QR listening: airport and follow-up"),
+      title: text("Nghe QR: sân bay và câu tiếp nối", "QR listening: airport and follow-up"),
       summary: text(
-        "Tiep tuc section nghe bang diem den cong san bay, loi khuyen di chuyen, va cau tra loi ve khoang cach.",
+        "Tiếp tục section nghe bằng điểm đến cổng sân bay, lời khuyên di chuyển, và câu trả lời về khoảng cách.",
         "Continue the listening section with the airport destination, travel advice, and distance follow-up lines.",
       ),
       focusConcepts: ["qr-listening", "destination", "travel", "directions"],
@@ -2734,7 +2734,7 @@ function buildUnit16QrLessons(
           "workbook",
           ["qr-listening", "destination"],
           text(
-            "Nghe lai audio QR ve diem den va dien noi muon den.",
+            "Nghe lại audio QR về điểm đến và điền nơi muốn đến.",
             "Replay the destination QR audio and fill in the place she wants to reach.",
           ),
           destination.localizedText,
@@ -2751,7 +2751,7 @@ function buildUnit16QrLessons(
           "workbook",
           ["qr-listening", "destination"],
           text(
-            "Dien so xe buyt duoc goi y trong audio QR di san bay.",
+            "Điền số xe buýt được gợi ý trong audio QR đi sân bay.",
             "Fill in the bus number recommended in the airport QR audio.",
           ),
           destination.localizedText,
@@ -2766,20 +2766,20 @@ function buildUnit16QrLessons(
           "여기에서 600번 버스를 타고 가세요.",
           "workbook",
           text(
-            "Noi lai loi khuyen di san bay de giu section nghe van co production.",
+            "Nói lại lời khuyên đi sân bay để giữ section nghe vẫn có production.",
             "Say the airport bus advice aloud so the listening section still includes production.",
           ),
           ["qr-listening", "destination"],
         ),
         arr(
           "u16-qr-route-finish-arrange",
-          text("Xe buyt đó đi đến ga Seoul.", "That bus goes to Seoul Station."),
+          text("Xe buýt đó đi đến ga Seoul.", "That bus goes to Seoul Station."),
           ["그", "버스가", "서울역까지", "갑니다."],
           ["갑니다.", "서울역까지", "버스가", "그"],
           "workbook",
           ["qr-listening", "directions"],
           text(
-            "Sap xep lai cau ket luan cua doan QR Seoul Station.",
+            "Sắp xếp lại câu kết luận của đoạn QR Seoul Station.",
             "Rebuild the closing route line from the Seoul Station QR dialogue.",
           ),
         ),
@@ -2788,7 +2788,7 @@ function buildUnit16QrLessons(
           "아니요. 멀지 않아요.",
           "workbook",
           text(
-            "Ket lesson bang cau tra loi ngan ve khoang cach.",
+            "Kết lesson bằng câu trả lời ngắn về khoảng cách.",
             "Close the lesson with the short distance-answer line.",
           ),
           ["qr-listening", "distance"],
@@ -2816,9 +2816,9 @@ function buildUnit16WorkbookLessons(
       {
         lessonId: "unit-16-lesson-4",
         lessonRole: "workbook_practice",
-        title: text("Transport basics", "Transport basics in workbook"),
+        title: text("Cơ bản về phương tiện", "Transport basics in workbook"),
         summary: text(
-          "Bat dau cum workbook bang tu vung phuong tien va cach su dung noi di chuyen.",
+          "Bắt đầu cụm workbook bằng từ vựng phương tiện và cách sử dụng khi di chuyển.",
           "Open the workbook block with transport vocabulary and basic usage phrases.",
         ),
         focusConcepts: ["transport", "bus", "train", "subway"],
@@ -2841,18 +2841,17 @@ function buildUnit16WorkbookLessons(
       {
         lessonId: "unit-16-lesson-5",
         lessonRole: "workbook_practice",
-        title: text("Route setup", "Route setup drills"),
+        title: text("Di chuyển và chuyển chặng", "Movement and transfer drills"),
         summary: text(
-          "Tiep tuc bang dia diem len xuong, chuyen tuong lai, va di bo trong workbook.",
-          "Continue with stations, bus stops, transfer language, and walking routes in the workbook.",
+          "Tập trung vào máy bay, chuyển chặng, đạp xe, và đi bộ trong workbook.",
+          "Focus on airplanes, transfers, riding, and walking in the workbook.",
         ),
-        focusConcepts: ["station", "bus-stop", "transfer", "movement"],
+        focusConcepts: ["airplane", "transfer", "movement", "ability"],
         exerciseIds: [
           "wb16-match-airplane",
-          "wb16-match-station",
-          "wb16-match-bus-stop",
           "wb16-future-transfer",
           "wb16-walk-school",
+          "wb16-bike-ride",
         ],
       },
       5,
@@ -2865,14 +2864,13 @@ function buildUnit16WorkbookLessons(
       {
         lessonId: "unit-16-lesson-6",
         lessonRole: "workbook_practice",
-        title: text("From-to drills 1", "From-to drills 1"),
+        title: text("Luyện từ-đến 1", "From-to drills 1"),
         summary: text(
-          "Gom nam bai tuyen duong de giu moi lesson trong section nay o muc 8-10 task.",
-          "Group five route exercises so this section stays within the 8-10 task window.",
+          "Giữ bốn bài tuyến đường cốt lõi để section này đi thẳng vào mẫu 에서, 까지.",
+          "Keep four core route exercises so this section stays focused on the 에서, 까지 pattern.",
         ),
         focusConcepts: ["from-to", "library", "subway", "agency"],
         exerciseIds: [
-          "wb16-bike-ride",
           "wb16-library-from",
           "wb16-restaurant-to",
           "wb16-subway-from",
@@ -2889,7 +2887,7 @@ function buildUnit16WorkbookLessons(
       {
         lessonId: "unit-16-lesson-7",
         lessonRole: "workbook_practice",
-        title: text("From-to drills 2", "From-to drills 2 and commands"),
+        title: text("Luyện từ-đến 2", "From-to drills 2 and commands"),
         summary: text(
           "Khóa phần workbook route drills rồi nối sang mệnh lệnh lịch sự để chuẩn bị cho review cuối unit.",
           "Close the route-drill block and bridge into polite commands before the final review.",
@@ -2914,45 +2912,45 @@ function unit16Sections() {
   return [
     {
       sectionId: "unit-16-section-1",
-      title: text("Section 1: Basics", "Section 1: transport basics"),
+      title: text("Phần 1: Cơ bản", "Section 1: transport basics"),
       summary: text(
-        "Tu vung giao thong va mau ngu phap from-to cot loi cua unit.",
+        "Từ vựng giao thông và mẫu ngữ pháp from-to cốt lõi của unit.",
         "Transport vocabulary and the core from-to grammar of the unit.",
       ),
       lessonIds: ["unit-16-lesson-1", "unit-16-lesson-2"],
     },
     {
       sectionId: "unit-16-section-2",
-      title: text("Section 2: Dialogue", "Section 2: dialogue and command"),
+      title: text("Phần 2: Hội thoại", "Section 2: dialogue and command"),
       summary: text(
-        "Hoi duong, nghe chi duong, va dua phan workbook phuong tien vao main path.",
+        "Hỏi đường, nghe chỉ đường, và đưa phần workbook phương tiện vào main path.",
         "Ask for directions, listen to instructions, and fold the first transport workbook lesson into the path.",
       ),
       lessonIds: ["unit-16-lesson-3", "unit-16-lesson-4"],
     },
     {
       sectionId: "unit-16-section-3",
-      title: text("Section 3: Route Drills", "Section 3: route drills"),
+      title: text("Phần 3: Luyện chỉ đường", "Section 3: route drills"),
       summary: text(
-        "Ba lesson workbook lien tiep de phu het bai route drill cua sach bai tap.",
+        "Ba lesson workbook liên tiếp để phủ hết bài route drill của sách bài tập.",
         "Three workbook lessons in a row to keep the full route drills from the workbook.",
       ),
       lessonIds: ["unit-16-lesson-5", "unit-16-lesson-6", "unit-16-lesson-7"],
     },
     {
       sectionId: "unit-16-section-4",
-      title: text("Section 4: QR Listening", "Section 4: QR listening"),
+      title: text("Phần 4: Nghe QR", "Section 4: QR listening"),
       summary: text(
-        "Don toan bo bai nghe QR vao mot block rieng de nghe, dien, sap xep, va lap lai.",
+        "Dồn toàn bộ bài nghe QR vào một block riêng để nghe, điền, sắp xếp, và lặp lại.",
         "Move every QR listening exercise into its own block for listening, fill, ordering, and speaking follow-up.",
       ),
       lessonIds: ["unit-16-lesson-8", "unit-16-lesson-9"],
     },
     {
       sectionId: "unit-16-section-5",
-      title: text("Section 5: Review", "Section 5: reading and production"),
+      title: text("Phần 5: Ôn tập", "Section 5: reading and production"),
       summary: text(
-        "Ket unit bang doc hieu va san sinh, khong tron QR vao phan review cuoi.",
+        "Kết unit bằng đọc hiểu và sản sinh, không trộn QR vào phần review cuối.",
         "Finish with reading and production, without mixing QR audio back into the final review.",
       ),
       lessonIds: ["unit-16-lesson-10", "unit-16-lesson-11"],
@@ -2972,9 +2970,9 @@ function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: numbe
   return lesson(
     "unit-17-lesson-1",
     "intro",
-    text("Mo bai tiec tan gia", "Open the housewarming topic"),
+    text("Mở bài tiệc tân gia", "Open the housewarming topic"),
     text(
-      "Lam quen voi tu vung cot loi, loi nho giup do, va cau hoi mo bai cua bai 17.",
+      "Làm quen với từ vựng cốt lõi, lời nhờ giúp đỡ, và câu hỏi mở bài của bài 17.",
       "Start Unit 17 with the core housewarming words, help expressions, and the title question.",
     ),
     ["집들이", "초대장", "준비하다", "도와주다"],
@@ -2991,7 +2989,7 @@ function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         housewarmingVisual,
         lookups.visualVocabPool,
         "textbook",
-        text("Day la danh tu trung tam cua ca bai 17.", "This is the central noun of Unit 17."),
+        text("Đây là danh từ trung tâm của cả bài 17.", "This is the central noun of Unit 17."),
       ),
       wmImage(
         "u17-l1-invitation-card",
@@ -2999,7 +2997,7 @@ function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         lookups.visualVocabPool,
         "textbook",
         text(
-          "Vat dung nay xuat hien ngay tu phan mo bai workbook.",
+          "Vật dụng này xuất hiện ngay từ phần mở bài workbook.",
           "This item appears immediately in the workbook warm-up.",
         ),
       ),
@@ -3009,7 +3007,7 @@ function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         lookups.visualVocabPool,
         "workbook",
         text(
-          "Dong tu nay noi voi viec chuan bi do an va tiec.",
+          "Động từ này nối với việc chuẩn bị đồ ăn và tiệc.",
           "This verb connects directly to preparing food and the party.",
         ),
       ),
@@ -3022,7 +3020,7 @@ function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "recall",
         ["help expression"],
         text(
-          "Hieu dung cau nho giup do truoc khi tu noi lai.",
+          "Hiểu đúng câu nhờ giúp đỡ trước khi tự nói lại.",
           "Understand the help-request expression before producing it yourself.",
         ),
       ),
@@ -3035,7 +3033,7 @@ function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "construction",
         ["help expression"],
         text(
-          "Doi tu y nghia sang cau de nghi giup do lich su.",
+          "Đổi từ ý nghĩa sang câu đề nghị giúp đỡ lịch sự.",
           "Convert the meaning into the polite offer-to-help sentence.",
         ),
       ),
@@ -3046,7 +3044,7 @@ function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "textbook",
         [],
         text(
-          "Dien dung vat dung duoc dung de moi ban be.",
+          "Điền đúng vật dụng được dùng để mời bạn bè.",
           "Fill in the item used to invite friends.",
         ),
         invitationCard.translations,
@@ -3062,7 +3060,7 @@ function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         "blended",
         ["help expression"],
         text(
-          "Sap xep lai cau nho giup do de quen trat tu.",
+          "Sắp xếp lại câu nhờ giúp đỡ để quen trật tự.",
           "Rebuild the help-request sentence to lock in its word order.",
         ),
       ),
@@ -3071,7 +3069,7 @@ function introLesson17(source: SourceUnit, lookups: Lookups, totalLessons: numbe
         titleQuestion.korean,
         "textbook",
         text(
-          "Ket lesson bang cau hoi cot loi cua bai 17.",
+          "Kết lesson bằng câu hỏi cốt lõi của bài 17.",
           "Close the lesson with Unit 17's core title question.",
         ),
         ["-아/어야 되다"],
@@ -3090,9 +3088,9 @@ function grammarLesson17(source: SourceUnit, lookups: Lookups, totalLessons: num
   return lesson(
     "unit-17-lesson-2",
     "grammar",
-    text("Tap trung -아/어야 되다", "Focus on -아/어야 되다"),
+    text("Tập trung -아/어야 되다", "Focus on -아/어야 되다"),
     text(
-      "Khoa mau nghia vu bang dang bien doi dong tu va cac cau can phai lam.",
+      "Khóa mẫu nghĩa vụ bằng dạng biến đổi động từ và các câu cần phải làm.",
       "Lock in the obligation pattern through verb-form changes and must-do sentences.",
     ),
     ["-아/어야 되다", "해야 돼요", "가야 돼요", "연습해야 돼요"],
@@ -3111,12 +3109,12 @@ function grammarLesson17(source: SourceUnit, lookups: Lookups, totalLessons: num
         "먹어야 되다",
         "workbook",
         text(
-          "Bat dau bang dang bien doi cot loi cua mau nghia vu.",
+          "Bắt đầu bằng dạng biến đổi cốt lõi của mẫu nghĩa vụ.",
           "Start with the core conjugation pattern for obligation.",
         ),
         ["-아/어야 되다"],
         ["먹어야 되다", "먹고요", "먹어요"],
-        text("phai an", "have to eat"),
+        text("phải ăn", "have to eat"),
       ),
       fill(
         "u17-l2-study",
@@ -3128,7 +3126,7 @@ function grammarLesson17(source: SourceUnit, lookups: Lookups, totalLessons: num
           "Dien cach noi nghia vu voi dong tu `하다`.",
           "Fill the obligation form for the verb `하다`.",
         ),
-        text("phai hoc tieng Han", "have to study Korean"),
+        text("phải học tiếng Hàn", "have to study Korean"),
         {
           choices: ["해야 돼요", "하고요", "해요"],
         },
@@ -3143,7 +3141,7 @@ function grammarLesson17(source: SourceUnit, lookups: Lookups, totalLessons: num
           "Doi tinh huong sang dong tu `만나다` nhung giu nguyen mau nghia vu.",
           "Switch to the verb `만나다` while keeping the same obligation pattern.",
         ),
-        text("phai gap ban", "have to meet a friend"),
+        text("phải gặp bạn", "have to meet a friend"),
         {
           choices: ["만나야 돼요", "만나고요", "만나요"],
         },
@@ -3155,10 +3153,10 @@ function grammarLesson17(source: SourceUnit, lookups: Lookups, totalLessons: num
         "workbook",
         ["-아/어야 되다"],
         text(
-          "Noi viec bat buoc phai di den mot noi nao do.",
+          "Nói việc bắt buộc phải đi đến một nơi nào đó.",
           "State that you must go somewhere.",
         ),
-        text("phai den benh vien", "have to go to the hospital"),
+        text("phải đến bệnh viện", "have to go to the hospital"),
         {
           choices: ["가야 돼요", "가고요", "가요"],
         },
@@ -3172,7 +3170,7 @@ function grammarLesson17(source: SourceUnit, lookups: Lookups, totalLessons: num
         "construction",
         ["-아/어야 되다"],
         text(
-          "Dich cau nghia vu goc cua bai 17 sang tieng Han.",
+          "Dịch câu nghĩa vụ gốc của bài 17 sang tiếng Hàn.",
           "Translate Unit 17's central obligation sentence into Korean.",
         ),
       ),
@@ -3184,7 +3182,7 @@ function grammarLesson17(source: SourceUnit, lookups: Lookups, totalLessons: num
         "workbook",
         ["-아/어야 되다"],
         text(
-          "Sap xep lai cau can phai mang theo do dung.",
+          "Sắp xếp lại câu cần phải mang theo đồ dùng.",
           "Rebuild the sentence about something you have to bring.",
         ),
       ),
@@ -3193,7 +3191,7 @@ function grammarLesson17(source: SourceUnit, lookups: Lookups, totalLessons: num
         mustBuy.korean,
         "textbook",
         text(
-          "Lap lai cau hoi phai lam gi de tao phan xa.",
+          "Lặp lại câu hỏi phải làm gì để tạo phản xạ.",
           "Say the core must-do question aloud to build reflex.",
         ),
         ["-아/어야 되다"],
@@ -3203,7 +3201,7 @@ function grammarLesson17(source: SourceUnit, lookups: Lookups, totalLessons: num
         swimCap.korean,
         "blended",
         text(
-          "Ket lesson bang mot cau nghia vu dai hon.",
+          "Kết lesson bằng một câu nghĩa vụ dài hơn.",
           "Finish the lesson with a slightly longer obligation sentence.",
         ),
         ["-아/어야 되다"],
@@ -3223,7 +3221,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
   return lesson(
     "unit-17-lesson-3",
     "dialogue",
-    text("Ghep hoi thoai va -고요", "Rebuild dialogue and -고요"),
+    text("Ghép hội thoại và -고요", "Rebuild dialogue and -고요"),
     text(
       "Nghe y nghia, ghep lai luot thoai, va mo rong thong tin bang -고요.",
       "Work through dialogue turns and extend information with -고요.",
@@ -3246,7 +3244,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
         "recall",
         [],
         text(
-          "Hieu cau hoi ve tiec tan gia truoc khi ghep lai phan tra loi.",
+          "Hiểu câu hỏi về tiệc tân gia trước khi ghép lại phần trả lời.",
           "Understand the housewarming question before rebuilding the answer.",
         ),
       ),
@@ -3255,7 +3253,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
         activities,
         "textbook",
         text(
-          "Ghep lai luot thoai ve cac hoat dong trong tiec tan gia.",
+          "Ghép lại lượt thoại về các hoạt động trong tiệc tân gia.",
           "Rebuild the line about what people do at the housewarming.",
         ),
       ),
@@ -3264,7 +3262,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
         invite,
         "textbook",
         text(
-          "Ghep lai cau moi den tiec tan gia vao cuoi tuan.",
+          "Ghép lại câu mời đến tiệc tân gia vào cuối tuần.",
           "Rebuild the invitation to the weekend housewarming.",
         ),
       ),
@@ -3287,7 +3285,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
           "Dien them mot y bo sung bang -고요.",
           "Add one more supporting point with -고요.",
         ),
-        text("do an cung ngon", "the food is tasty too"),
+        text("đồ ăn cũng ngon", "the food is tasty too"),
         {
           choices: ["맛있고요", "맛있어야 돼요", "맛있어요"],
         },
@@ -3302,7 +3300,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
           "Dung -고요 de bo sung them mot loi ich nua.",
           "Use -고요 to add one more benefit.",
         ),
-        text("cung co the ket ban", "you can make friends too"),
+        text("cũng có thể kết bạn", "you can make friends too"),
         {
           choices: ["있고요", "있어야 돼요", "있어요"],
         },
@@ -3315,7 +3313,7 @@ function dialogueLesson17(source: SourceUnit, lookups: Lookups, totalLessons: nu
         "workbook",
         ["-고요"],
         text(
-          "Sap xep lai cau noi hai hoat dong lien tiep.",
+          "Sắp xếp lại câu nói hai hoạt động liên tiếp.",
           "Arrange the line that links two activities together.",
         ),
       ),
@@ -3356,9 +3354,9 @@ function buildUnit17QrLessons(
     {
       lessonId: "unit-17-lesson-8",
       lessonRole: "workbook_practice",
-      title: text("QR nghe: time and meetup", "QR listening: time and meetup"),
+      title: text("Nghe QR: giờ và hẹn gặp", "QR listening: time and meetup"),
       summary: text(
-        "Tach doan nghe QR ra thanh lesson rieng de khoa gio bat dau va cau hen gap.",
+        "Tách đoạn nghe QR ra thành lesson riêng để khóa giờ bắt đầu và câu hẹn gặp.",
         "Split the QR dialogue into its own lesson to lock in the party time and meetup line.",
       ),
       focusConcepts: ["qr-listening", "housewarming", "time", "meetup"],
@@ -3371,7 +3369,7 @@ function buildUnit17QrLessons(
           "workbook",
           ["qr-listening", "time"],
           text(
-            "Nghe lai doan QR va dien gio dien ra tiec tan gia.",
+            "Nghe lại đoạn QR và điền giờ diễn ra tiệc tân gia.",
             "Replay the QR dialogue and fill in the housewarming time.",
           ),
           partyTime.localizedText,
@@ -3386,7 +3384,7 @@ function buildUnit17QrLessons(
           "저녁 여섯 시예요.",
           "workbook",
           text(
-            "Noi lai cau tra loi ve gio bat dau cua tiec tan gia.",
+            "Nói lại câu trả lời về giờ bắt đầu của tiệc tân gia.",
             "Say the answer about the housewarming time aloud.",
           ),
           ["qr-listening", "time"],
@@ -3399,7 +3397,7 @@ function buildUnit17QrLessons(
           "workbook",
           ["qr-listening", "time"],
           text(
-            "Sap xep lai cau hoi gio giac xuat hien trong audio QR.",
+            "Sắp xếp lại câu hỏi giờ giấc xuất hiện trong audio QR.",
             "Rebuild the time question that appears in the QR audio.",
           ),
         ),
@@ -3410,7 +3408,7 @@ function buildUnit17QrLessons(
           "workbook",
           ["qr-listening", "meetup"],
           text(
-            "Dien dong tu cuoi cau hen gap trong doan QR.",
+            "Điền động từ cuối câu hẹn gặp trong đoạn QR.",
             "Fill the final meetup verb from the QR dialogue.",
           ),
           text("chúng ta gặp ở nhà Xiaowei", "let's meet at Xiaowei's home"),
@@ -3428,7 +3426,7 @@ function buildUnit17QrLessons(
           "workbook",
           ["qr-listening", "meetup"],
           text(
-            "Sap xep lai cau ket thuc cua doan hoi thoai QR.",
+            "Sắp xếp lại câu kết thúc của đoạn hội thoại QR.",
             "Rebuild the closing line of the QR dialogue.",
           ),
         ),
@@ -3437,7 +3435,7 @@ function buildUnit17QrLessons(
           "그럼 샤오위 씨 집에서 만나요.",
           "workbook",
           text(
-            "Ket lesson bang cau hen gap tu nhien trong doan QR.",
+            "Kết lesson bằng câu hẹn gặp tự nhiên trong đoạn QR.",
             "Close the lesson by saying the natural meetup line from the QR dialogue.",
           ),
           ["qr-listening", "meetup"],
@@ -3455,9 +3453,9 @@ function buildUnit17QrLessons(
     {
       lessonId: "unit-17-lesson-9",
       lessonRole: "workbook_practice",
-      title: text("QR nghe: gifts and response", "QR listening: gifts and response"),
+      title: text("Nghe QR: quà mang theo và phản hồi", "QR listening: gifts and response"),
       summary: text(
-        "Tiep tuc QR section bang phan mua qua mang den va cau hoi phan hoi lich su.",
+        "Tiếp tục QR section bằng phần mua quà mang đến và câu hỏi phản hồi lịch sự.",
         "Continue the QR section with the gift discussion and the polite follow-up question.",
       ),
       focusConcepts: ["qr-listening", "gifts", "housewarming", "response"],
@@ -3470,7 +3468,7 @@ function buildUnit17QrLessons(
           "workbook",
           ["qr-listening", "gifts"],
           text(
-            "Dien mon qua xuat hien dau tien trong cau tra loi cua QR.",
+            "Điền món quà xuất hiện đầu tiên trong câu trả lời của QR.",
             "Fill in the first gift item named in the QR answer.",
           ),
           buyGifts.localizedText,
@@ -3487,7 +3485,7 @@ function buildUnit17QrLessons(
           "workbook",
           ["qr-listening", "gifts"],
           text(
-            "Dien cum phan hoi lich su de de nghi mua mang den.",
+            "Điền cụm phản hồi lịch sự để đề nghị mua mang đến.",
             "Fill the polite follow-up phrase that offers to bring the gifts.",
           ),
           text("Vậy tôi sẽ mua khăn giấy và chất tẩy nhé?", "Then shall I bring tissue paper and detergent?"),
@@ -3502,7 +3500,7 @@ function buildUnit17QrLessons(
           "그럼 휴지하고 세제를 제가 사 갈까요?",
           "workbook",
           text(
-            "Noi lai cau de nghi giup do trong audio QR.",
+            "Nói lại câu đề nghị giúp đỡ trong audio QR.",
             "Say the offer-to-help question from the QR audio aloud.",
           ),
           ["qr-listening", "gifts"],
@@ -3515,7 +3513,7 @@ function buildUnit17QrLessons(
           "workbook",
           ["qr-listening", "gifts"],
           text(
-            "Sap xep lai cau noi ve nhung mon qua nen mua dem theo.",
+            "Sắp xếp lại câu nói về những món quà nên mua đem theo.",
             "Rebuild the line about what gifts people usually bring.",
           ),
         ),
@@ -3528,7 +3526,7 @@ function buildUnit17QrLessons(
           "construction",
           ["qr-listening", "-아/어야 되다"],
           text(
-            "Viet lai cau hoi xuat hien o giua doan hoi thoai QR.",
+            "Viết lại câu hỏi xuất hiện ở giữa đoạn hội thoại QR.",
             "Write the question that appears in the middle of the QR dialogue.",
           ),
         ),
@@ -3537,7 +3535,7 @@ function buildUnit17QrLessons(
           "집들이에 뭘 사 가야 돼요?",
           "workbook",
           text(
-            "Ket lesson bang cau hoi hoi y kien ve qua mang den.",
+            "Kết lesson bằng câu hỏi hỏi ý kiến về quà mang đến.",
             "Close the lesson with the question that asks what to bring.",
           ),
           ["qr-listening", "-아/어야 되다"],
@@ -3565,9 +3563,9 @@ function buildUnit17WorkbookLessons(
       {
         lessonId: "unit-17-lesson-4",
         lessonRole: "workbook_practice",
-        title: text("Grammar forms in workbook", "Workbook grammar forms"),
+        title: text("Mẫu ngữ pháp trong workbook", "Workbook grammar forms"),
         summary: text(
-          "Day nhanh qua workbook form-change truoc khi vao cum bai tap dai hon.",
+          "Đẩy nhanh qua workbook form-change trước khi vào cụm bài tập dài hơn.",
           "Move quickly through the workbook form-change drills before the longer practice block.",
         ),
         focusConcepts: ["must", "goyo", "writing", "invitation"],
@@ -3588,9 +3586,9 @@ function buildUnit17WorkbookLessons(
       {
         lessonId: "unit-17-lesson-5",
         lessonRole: "workbook_practice",
-        title: text("Picture vocab drills", "Picture vocab drills"),
+        title: text("Luyện từ vựng bằng tranh", "Luyện từ vựng bằng tranh"),
         summary: text(
-          "Giu du phan tu vung hinh anh cua workbook thay vi cat bot.",
+          "Giữ đủ phần từ vựng hình ảnh của workbook thay vì cắt bớt.",
           "Keep the full picture-vocabulary block from the workbook instead of trimming it down.",
         ),
         focusConcepts: ["vocab", "housewarming", "tissue", "detergent"],
@@ -3611,9 +3609,9 @@ function buildUnit17WorkbookLessons(
       {
         lessonId: "unit-17-lesson-6",
         lessonRole: "workbook_practice",
-        title: text("Shopping dialogue drills", "Shopping dialogue drills"),
+        title: text("Luyện hội thoại mua sắm", "Shopping dialogue drills"),
         summary: text(
-          "Gom du chat, hoi, va cau de nghi giup do trong workbook vao cung mot lesson.",
+          "Gồm đủ chat, hỏi, và câu đề nghị giúp đỡ trong workbook vào cùng một lesson.",
           "Group the workbook shopping chat, questions, and help-offer lines into one lesson.",
         ),
         focusConcepts: ["dialogue", "shopping", "help", "housewarming"],
@@ -3635,9 +3633,9 @@ function buildUnit17WorkbookLessons(
       {
         lessonId: "unit-17-lesson-7",
         lessonRole: "workbook_practice",
-        title: text("Must-do drills", "Must-do drills"),
+        title: text("Bài luyện bắt buộc", "Must-do drills"),
         summary: text(
-          "Giu tron cum bai phai lam cua workbook truoc khi sang section nghe QR.",
+          "Giữ trọn cụm bài phải làm của workbook trước khi sang section nghe QR.",
           "Keep the full workbook obligation drills before moving into the QR listening section.",
         ),
         focusConcepts: ["must", "study", "hospital", "speaking"],
@@ -3659,16 +3657,16 @@ function unit17Sections() {
   return [
     {
       sectionId: "unit-17-section-1",
-      title: text("Section 1: Housewarming", "Section 1: housewarming basics"),
+      title: text("Phần 1: Tân gia", "Section 1: housewarming basics"),
       summary: text(
-        "Mo bai bang tu vung tiec tan gia va mau cau nghia vu co ban.",
+        "Mở bài bằng từ vựng tiệc tân gia và mẫu câu nghĩa vụ cơ bản.",
         "Open with housewarming vocabulary and the first obligation patterns.",
       ),
       lessonIds: ["unit-17-lesson-1", "unit-17-lesson-2"],
     },
     {
       sectionId: "unit-17-section-2",
-      title: text("Section 2: Dialogue", "Section 2: dialogue and forms"),
+      title: text("Phần 2: Hội thoại", "Section 2: dialogue and forms"),
       summary: text(
         "Ghep hoi thoai, -고요, va day tiep bang workbook form-change.",
         "Rebuild the dialogue, reinforce -고요, and extend it with workbook form changes.",
@@ -3677,27 +3675,27 @@ function unit17Sections() {
     },
     {
       sectionId: "unit-17-section-3",
-      title: text("Section 3: Workbook Core", "Section 3: workbook core"),
+      title: text("Phần 3: Trọng tâm workbook", "Section 3: workbook core"),
       summary: text(
-        "Ba lesson de giu tron picture vocab, shopping chat, va must-do drills cua workbook.",
+        "Ba lesson để giữ trọn picture vocab, shopping chat, và must-do drills của workbook.",
         "Three lessons to preserve the picture vocab, shopping chat, and must-do drills from the workbook.",
       ),
       lessonIds: ["unit-17-lesson-5", "unit-17-lesson-6", "unit-17-lesson-7"],
     },
     {
       sectionId: "unit-17-section-4",
-      title: text("Section 4: QR Listening", "Section 4: QR listening"),
+      title: text("Phần 4: Nghe QR", "Section 4: QR listening"),
       summary: text(
-        "Don toan bo bai nghe QR ve gio giac va qua mang den vao mot block nghe rieng.",
+        "Dồn toàn bộ bài nghe QR về giờ giấc và quà mang đến vào một block nghe riêng.",
         "Move the full QR audio about time and gifts into its own listening block.",
       ),
       lessonIds: ["unit-17-lesson-8", "unit-17-lesson-9"],
     },
     {
       sectionId: "unit-17-section-5",
-      title: text("Section 5: Email", "Section 5: email and production"),
+      title: text("Phần 5: Email", "Section 5: email and production"),
       summary: text(
-        "Ket unit bang email va phan san sinh, khong tron QR vao section cuoi.",
+        "Kết unit bằng email và phần sản sinh, không trộn QR vào section cuối.",
         "Finish with email work and production, without mixing QR back into the final section.",
       ),
       lessonIds: ["unit-17-lesson-10", "unit-17-lesson-11"],
@@ -3740,7 +3738,7 @@ function reviewLessons17(
   const review1 = lesson(
     `unit-17-lesson-${startOrder}`,
     "review",
-    text("On tap email va nghe", "Email and listening review"),
+    text("Ôn tập email và nghe", "Email and listening review"),
     text(
       "Gom lai email hoi loi khuyen, cau nghia vu, va them bai nghe QR neu asset san sang.",
       "Review the advice email, obligation questions, and QR listening if the asset is ready.",
@@ -3767,7 +3765,7 @@ function reviewLessons17(
   const review2 = lesson(
     `unit-17-lesson-${startOrder + 1}`,
     "review",
-    text("Noi va viet co khung", "Scaffolded speaking and writing"),
+    text("Nói và viết có khung", "Scaffolded speaking and writing"),
     text(
       "Khoa bai 17 bang cau noi, cau viet, va phan ung co khung de tu san sinh hon.",
       "Close Unit 17 with scaffolded speaking and writing prompts for more independent output.",
@@ -3824,9 +3822,9 @@ function reviewLessons17MainPath(
       {
         lessonId: "unit-17-lesson-10",
         lessonRole: "review",
-        title: text("Email review", "Email review"),
+        title: text("Ôn email", "Email review"),
         summary: text(
-          "Khoa phan email cua workbook thanh mot lesson rieng khong tron QR listening.",
+          "Khóa phần email của workbook thành một lesson riêng không trộn QR listening.",
           "Close the workbook email sequence in its own review lesson without mixing QR listening back in.",
         ),
         focusConcepts: ["email", "writing", "must", "goyo"],
@@ -3847,7 +3845,7 @@ function reviewLessons17MainPath(
       {
         lessonId: "unit-17-lesson-11",
         lessonRole: "review",
-        title: text("Output review", "Production review"),
+        title: text("Ôn tập sản sinh", "Production review"),
         summary: text(
           "Ket unit bang bai san sinh co khung tu dialogue, -고요, va travel prompt.",
           "Finish the unit with scaffolded production drawn from dialogue, -고요, and the travel prompt.",
@@ -3918,7 +3916,7 @@ export function buildRuntimeUnit(source: SourceUnit): RuntimeUnit {
     unitNumber: source.unitNumber,
     title: source.title,
     subtitle: text(
-      "Bat dau bang textbook input, day nang workbook practice, va giu listening hoat dong xuyen suot unit.",
+      "Bắt đầu bằng textbook input, đẩy mạnh workbook practice, và giữ listening hoạt động xuyên suốt unit.",
       "Start with textbook input, lean into workbook practice, and keep listening active throughout the unit.",
     ),
     reviewWords: reviewWords(source),
@@ -3965,7 +3963,7 @@ function reviewLessons16(
   const review1 = lesson(
     `unit-16-lesson-${startOrder}`,
     "review",
-    text("On nghe va chi duong", "Listening and route review"),
+    text("Ôn nghe và chỉ đường", "Listening and route review"),
     text(
       "Gom lai cac bai nghe QR va cac cau hoi duong di cot loi cua bai 16.",
       "Pull together the QR listening tasks and the core route prompts from Unit 16.",
@@ -4033,7 +4031,7 @@ function reviewLessons16(
   const review2 = lesson(
     `unit-16-lesson-${startOrder + 1}`,
     "review",
-    text("On doc va san sinh", "Reading and production review"),
+    text("Ôn đọc và sản sinh", "Reading and production review"),
     text(
       "Khoa bai 16 bang bai doc du lich, cau hoan thanh thong tin, va cac loi khuyen co khung.",
       "Close Unit 16 with travel reading, information completion, and scaffolded advice prompts.",
@@ -4065,9 +4063,9 @@ function reviewLessons16MainPath(
       {
         lessonId: "unit-16-lesson-10",
         lessonRole: "review",
-        title: text("Reading review", "Reading review"),
+        title: text("Ôn đọc hiểu", "Reading review"),
         summary: text(
-          "Don phan doc hieu du lich vao review rieng, khong tron lai QR listening.",
+          "Dồn phần đọc hiểu du lịch vào review riêng, không trộn lại QR listening.",
           "Move the travel reading block into its own review lesson without mixing the QR listening back in.",
         ),
         focusConcepts: ["reading", "travel", "train", "bus"],
@@ -4089,9 +4087,9 @@ function reviewLessons16MainPath(
       {
         lessonId: "unit-16-lesson-11",
         lessonRole: "review",
-        title: text("Production review", "Production review"),
+        title: text("Ôn tập sản sinh", "Production review"),
         summary: text(
-          "Ket unit bang advice va san sinh, dong thoi giu lai mot command workbook con thieu.",
+          "Kết unit bằng advice và sản sinh, đồng thời giữ lại một command workbook còn thiếu.",
           "Finish the unit with advice and production while keeping the remaining workbook command exercise.",
         ),
         focusConcepts: ["production", "commands", "travel", "extension"],

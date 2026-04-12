@@ -98,7 +98,7 @@ export function createUnit1SourceSeed(
       {
         id: "wb-fill-student-ending",
         exerciseType: "fill_blank",
-        prompt: text("Dien duoi cau lich su con thieu.", "Fill in the missing polite ending."),
+        prompt: text("Điền đuôi câu lịch sự còn thiếu.", "Fill in the missing polite ending."),
         koreanText: "저는 학생___",
         answer: "입니다.",
         metadata: {
@@ -115,10 +115,10 @@ export function createUnit1SourceSeed(
       {
         id: "wb-match-hello",
         exerciseType: "matching",
-        prompt: text("Noi bieu thuc voi y nghia dung.", "Match the expression to the correct meaning."),
+        prompt: text("Nối biểu thức với ý nghĩa đúng.", "Match the expression to the correct meaning."),
         koreanText: "안녕하세요",
-        localizedText: text("xin chao", "hello"),
-        answer: "xin chao",
+        localizedText: text("xin chào", "hello"),
+        answer: "xin chào",
         metadata: {
           target: "vocab",
         },
@@ -132,10 +132,10 @@ export function createUnit1SourceSeed(
       {
         id: "wb-match-jeo",
         exerciseType: "matching",
-        prompt: text("Noi tu voi y nghia cua no.", "Match the word with its meaning."),
+        prompt: text("Nối từ với ý nghĩa của nó.", "Match the word with its meaning."),
         koreanText: "저",
-        localizedText: text("toi, em (khiem nhuong)", "I, me (humble)"),
-        answer: "toi, em (khiem nhuong)",
+        localizedText: text("tôi, em (khiêm nhường)", "I, me (humble)"),
+        answer: "tôi, em (khiêm nhường)",
         metadata: {
           target: "vocab",
         },
@@ -149,10 +149,10 @@ export function createUnit1SourceSeed(
       {
         id: "wb-match-student",
         exerciseType: "matching",
-        prompt: text("Noi danh tu voi y nghia dung.", "Match the noun to the correct meaning."),
+        prompt: text("Nối danh từ với ý nghĩa đúng.", "Match the noun to the correct meaning."),
         koreanText: "학생",
-        localizedText: text("hoc sinh, sinh vien", "student"),
-        answer: "hoc sinh, sinh vien",
+        localizedText: text("học sinh, sinh viên", "student"),
+        answer: "học sinh, sinh viên",
         metadata: {
           target: "vocab",
         },
@@ -166,8 +166,8 @@ export function createUnit1SourceSeed(
       {
         id: "wb-translate-student",
         exerciseType: "translation",
-        prompt: text("Dich sang tieng Han.", "Translate into Korean."),
-        localizedText: text("Toi la hoc sinh.", "I am a student."),
+        prompt: text("Dịch sang tiếng Hàn.", "Translate into Korean."),
+        localizedText: text("Tôi là học sinh.", "I am a student."),
         answer: "저는 학생입니다.",
         metadata: {
           direction: "meaning_to_ko",
@@ -182,9 +182,9 @@ export function createUnit1SourceSeed(
       {
         id: "wb-translate-hello",
         exerciseType: "translation",
-        prompt: text("Dich sang y nghia.", "Translate into the meaning."),
+        prompt: text("Dịch sang ý nghĩa.", "Translate into the meaning."),
         koreanText: "안녕하세요.",
-        answer: "Xin chao.",
+        answer: "Xin chào.",
         metadata: {
           direction: "ko_to_meaning",
         },
@@ -198,7 +198,7 @@ export function createUnit1SourceSeed(
       {
         id: "wb-grammar-copula-choice",
         exerciseType: "writing",
-        prompt: text("Chon duoi cau dung sau danh tu.", "Choose the correct ending after the noun."),
+        prompt: text("Chọn đuôi câu đúng sau danh từ.", "Choose the correct ending after the noun."),
         koreanText: "학생 + ___",
         answer: "입니다",
         metadata: {
@@ -216,10 +216,10 @@ export function createUnit1SourceSeed(
       {
         id: "wb-listen-too",
         exerciseType: "listening",
-        prompt: text("Nghe va chon y nghia dung.", "Listen and choose the correct meaning."),
+        prompt: text("Nghe và chọn ý nghĩa đúng.", "Listen and choose the correct meaning."),
         koreanText: "저도 반갑습니다.",
-        localizedText: text("Toi cung rat vui duoc gap ban.", "Nice to meet you too."),
-        answer: "Toi cung rat vui duoc gap ban.",
+        localizedText: text("Tôi cũng rất vui được gặp bạn.", "Nice to meet you too."),
+        answer: "Tôi cũng rất vui được gặp bạn.",
         metadata: {
           target: "listening",
         },
@@ -233,7 +233,7 @@ export function createUnit1SourceSeed(
       {
         id: "wb-fill-nice",
         exerciseType: "fill_blank",
-        prompt: text("Dien bieu thuc con thieu.", "Fill in the missing expression."),
+        prompt: text("Điền biểu thức còn thiếu.", "Fill in the missing expression."),
         koreanText: "저도 ___",
         answer: "반갑습니다.",
         metadata: {
@@ -250,7 +250,7 @@ export function createUnit1SourceSeed(
       {
         id: "wb-order-jisu",
         exerciseType: "sentence_ordering",
-        prompt: text("Sap xep cau gioi thieu cua Jisu.", "Arrange Jisu's introduction."),
+        prompt: text("Sắp xếp câu giới thiệu của Jisu.", "Arrange Jisu's introduction."),
         answer: ["저는", "지수입니다."],
         metadata: {
           wordBank: ["저는", "지수입니다.", "반갑습니다.", "안녕하세요."],
@@ -266,8 +266,8 @@ export function createUnit1SourceSeed(
       {
         id: "wb-translate-jisu",
         exerciseType: "translation",
-        prompt: text("Dich sang tieng Han.", "Translate into Korean."),
-        localizedText: text("Toi la Jisu.", "I am Jisu."),
+        prompt: text("Dịch sang tiếng Hàn.", "Translate into Korean."),
+        localizedText: text("Tôi là Jisu.", "I am Jisu."),
         answer: "저는 지수입니다.",
         metadata: {
           direction: "meaning_to_ko",
@@ -282,9 +282,9 @@ export function createUnit1SourceSeed(
       {
         id: "wb-translate-nice",
         exerciseType: "translation",
-        prompt: text("Dich sang y nghia.", "Translate into the meaning."),
+        prompt: text("Dịch sang ý nghĩa.", "Translate into the meaning."),
         koreanText: "반갑습니다.",
-        answer: "Rat vui duoc gap ban.",
+        answer: "Rất vui được gặp bạn.",
         metadata: {
           direction: "ko_to_meaning",
         },
@@ -298,7 +298,7 @@ export function createUnit1SourceSeed(
       {
         id: "wb-fill-name-line",
         exerciseType: "fill_blank",
-        prompt: text("Dien duoi cau vao mau gioi thieu ten.", "Fill in the ending for the name-introduction pattern."),
+        prompt: text("Điền đuôi câu vào mẫu giới thiệu tên.", "Fill in the ending for the name-introduction pattern."),
         koreanText: "저는 지수___",
         answer: "입니다.",
         metadata: {
@@ -314,7 +314,7 @@ export function createUnit1SourceSeed(
       {
         id: "wb-grammar-ending",
         exerciseType: "writing",
-        prompt: text("Chon duoi cau phu hop sau danh tu.", "Choose the correct sentence ending after the noun."),
+        prompt: text("Chọn đuôi câu phù hợp sau danh từ.", "Choose the correct sentence ending after the noun."),
         koreanText: "학생 + ___",
         answer: "입니다",
         metadata: {
@@ -331,7 +331,7 @@ export function createUnit1SourceSeed(
       {
         id: "wb-fill-office-worker",
         exerciseType: "fill_blank",
-        prompt: text("Dien nghe nghiep con thieu.", "Fill in the missing job noun."),
+        prompt: text("Điền nghề nghiệp còn thiếu.", "Fill in the missing job noun."),
         koreanText: "저는 ___입니다.",
         answer: "회사원",
         metadata: {
@@ -348,7 +348,7 @@ export function createUnit1SourceSeed(
       {
         id: "wb-order-office-worker",
         exerciseType: "sentence_ordering",
-        prompt: text("Sap xep cau ve nghe nghiep.", "Arrange the sentence about the job."),
+        prompt: text("Sắp xếp câu về nghề nghiệp.", "Arrange the sentence about the job."),
         answer: ["저는", "회사원입니다."],
         metadata: {
           wordBank: ["저는", "회사원입니다.", "안녕하세요.", "반갑습니다."],
@@ -364,8 +364,8 @@ export function createUnit1SourceSeed(
       {
         id: "wb-translate-office-worker",
         exerciseType: "translation",
-        prompt: text("Dich sang tieng Han.", "Translate into Korean."),
-        localizedText: text("Toi la nhan vien cong ty.", "I am an office worker."),
+        prompt: text("Dịch sang tiếng Hàn.", "Translate into Korean."),
+        localizedText: text("Tôi là nhân viên công ty.", "I am an office worker."),
         answer: "저는 회사원입니다.",
         metadata: {
           direction: "meaning_to_ko",
@@ -380,10 +380,10 @@ export function createUnit1SourceSeed(
       {
         id: "wb-listen-student",
         exerciseType: "listening",
-        prompt: text("Nghe va chon y nghia dung.", "Listen and choose the correct meaning."),
+        prompt: text("Nghe và chọn ý nghĩa đúng.", "Listen and choose the correct meaning."),
         koreanText: "저는 학생입니다.",
-        localizedText: text("Toi la hoc sinh.", "I am a student."),
-        answer: "Toi la hoc sinh.",
+        localizedText: text("Tôi là học sinh.", "I am a student."),
+        answer: "Tôi là học sinh.",
         metadata: {
           target: "listening",
         },
@@ -397,7 +397,7 @@ export function createUnit1SourceSeed(
       {
         id: "wb-write-doctor",
         exerciseType: "writing",
-        prompt: text("Viet cau: Toi la bac si.", "Write: I am a doctor."),
+        prompt: text("Viết câu: Tôi là bác sĩ.", "Write: I am a doctor."),
         answer: "저는 의사입니다.",
         metadata: {
           target: "writing",
@@ -412,9 +412,9 @@ export function createUnit1SourceSeed(
       {
         id: "wb-fill-intro-name",
         exerciseType: "fill_blank",
-        prompt: text("Dien tu con thieu trong cau gioi thieu.", "Fill in the missing word in the introduction."),
+        prompt: text("Điền từ còn thiếu trong câu giới thiệu.", "Fill in the missing word in the introduction."),
         koreanText: "___ 민수입니다.",
-        localizedText: text("Toi la Minsu.", "I am Minsu."),
+        localizedText: text("Tôi là Minsu.", "I am Minsu."),
         answer: "저는",
         metadata: {
           target: "pattern",
@@ -430,9 +430,9 @@ export function createUnit1SourceSeed(
       {
         id: "wb-translate-doctor",
         exerciseType: "translation",
-        prompt: text("Dich sang y nghia.", "Translate into the meaning."),
+        prompt: text("Dịch sang ý nghĩa.", "Translate into the meaning."),
         koreanText: "저는 의사입니다.",
-        answer: "Toi la bac si.",
+        answer: "Tôi là bác sĩ.",
         metadata: {
           direction: "ko_to_meaning",
         },
@@ -447,7 +447,7 @@ export function createUnit1SourceSeed(
         id: "wb-guided-selfintro",
         exerciseType: "writing",
         prompt: text(
-          "Viet gioi thieu ngan gom loi chao va ten.",
+          "Viết giới thiệu ngắn gồm lời chào và tên.",
           "Write a short self-introduction with a greeting and your name.",
         ),
         answer: ["안녕하세요.", "저는 지수입니다."],
@@ -465,10 +465,10 @@ export function createUnit1SourceSeed(
       {
         id: "wb-listen-greeting",
         exerciseType: "listening",
-        prompt: text("Nghe va chon loi chao dung.", "Listen and choose the correct greeting."),
+        prompt: text("Nghe và chọn lời chào đúng.", "Listen and choose the correct greeting."),
         koreanText: "안녕하세요",
-        localizedText: text("xin chao", "hello"),
-        answer: "xin chao",
+        localizedText: text("xin chào", "hello"),
+        answer: "xin chào",
         metadata: {
           target: "listening",
         },
@@ -484,7 +484,7 @@ export function createUnit1SourceSeed(
   return {
     unitId: "1",
     unitNumber: 1,
-    title: text("Chao hoi va gioi thieu", "Greetings and introductions"),
+    title: text("Chào hỏi và giới thiệu", "Greetings and introductions"),
     needsReview,
     extractionMode: needsReview ? "seeded_raw_blocks" : "manual_seed",
     sourceDocuments: documents,
@@ -493,7 +493,7 @@ export function createUnit1SourceSeed(
         {
           id: "v-hello",
           korean: "안녕하세요",
-          translations: text("xin chao", "hello"),
+          translations: text("xin chào", "hello"),
           romanization: "annyeonghaseyo",
           imagePath: vocabIcon("v-hello"),
           pages: page(18),
@@ -503,7 +503,7 @@ export function createUnit1SourceSeed(
         {
           id: "v-i-humble",
           korean: "저",
-          translations: text("toi, em (khiem nhuong)", "I, me (humble)"),
+          translations: text("tôi, em (khiêm nhường)", "I, me (humble)"),
           romanization: "jeo",
           imagePath: vocabIcon("v-i-humble"),
           pages: page(18),
@@ -513,7 +513,7 @@ export function createUnit1SourceSeed(
         {
           id: "v-first-time",
           korean: "처음",
-          translations: text("lan dau", "first time"),
+          translations: text("lần đầu", "first time"),
           romanization: "cheoeum",
           pages: page(19),
           sourceRef: sourceRefFor("v-first-time", 19, "처음"),
@@ -522,7 +522,7 @@ export function createUnit1SourceSeed(
         {
           id: "v-nice-to-meet",
           korean: "반갑습니다",
-          translations: text("rat vui duoc gap ban", "nice to meet you"),
+          translations: text("rất vui được gặp bạn", "nice to meet you"),
           romanization: "bangapseumnida",
           imagePath: vocabIcon("v-nice-to-meet"),
           pages: page(19),
@@ -532,7 +532,7 @@ export function createUnit1SourceSeed(
         {
           id: "v-student",
           korean: "학생",
-          translations: text("hoc sinh, sinh vien", "student"),
+          translations: text("học sinh, sinh viên", "student"),
           romanization: "haksaeng",
           imagePath: vocabIcon("v-student"),
           pages: page(21),
@@ -542,7 +542,7 @@ export function createUnit1SourceSeed(
         {
           id: "v-is-formal",
           korean: "입니다",
-          translations: text("la, la ... a", "am, is, are (formal polite)"),
+          translations: text("là, là ... ạ", "am, is, are (formal polite)"),
           romanization: "imnida",
           pages: page(21),
           sourceRef: sourceRefFor("v-is-formal", 21, "입니다"),
@@ -554,7 +554,7 @@ export function createUnit1SourceSeed(
           id: "g-copula-imnida",
           pattern: "N + 입니다",
           explanation: text(
-            "Gan `입니다` sau danh tu de gioi thieu ban than hoac noi nghiep nghiep mot cach lich su.",
+            "Gắn `입니다` sau danh từ để giới thiệu bản thân hoặc nói nghề nghiệp một cách lịch sự.",
             "Attach `입니다` after a noun to introduce someone or state identity politely.",
           ),
           exampleIds: ["ex-student", "ex-office-worker", "ex-doctor"],
@@ -568,7 +568,7 @@ export function createUnit1SourceSeed(
           id: "d-minsu-hello",
           speaker: "Minsu",
           korean: "안녕하세요. 저는 민수입니다.",
-          translations: text("Xin chao. Toi la Minsu.", "Hello. I am Minsu."),
+          translations: text("Xin chào. Tôi là Minsu.", "Hello. I am Minsu."),
           pages: page(18),
           sourceRef: sourceRefFor("d-minsu-hello", 18, "안녕하세요. 저는 민수입니다."),
           needsReview,
@@ -577,7 +577,7 @@ export function createUnit1SourceSeed(
           id: "d-jisu-hello",
           speaker: "Jisu",
           korean: "안녕하세요. 저는 지수입니다.",
-          translations: text("Xin chao. Toi la Jisu.", "Hello. I am Jisu."),
+          translations: text("Xin chào. Tôi là Jisu.", "Hello. I am Jisu."),
           pages: page(18),
           sourceRef: sourceRefFor("d-jisu-hello", 18, "안녕하세요. 저는 지수입니다."),
           needsReview,
@@ -586,7 +586,7 @@ export function createUnit1SourceSeed(
           id: "d-minsu-nice",
           speaker: "Minsu",
           korean: "처음 뵙겠습니다.",
-          translations: text("Lan dau gap ban, rat han hanh.", "It is my first time meeting you."),
+          translations: text("Lần đầu gặp bạn, rất hân hạnh.", "It is my first time meeting you."),
           pages: page(19),
           sourceRef: sourceRefFor("d-minsu-nice", 19, "처음 뵙겠습니다."),
           needsReview,
@@ -595,7 +595,7 @@ export function createUnit1SourceSeed(
           id: "d-jisu-too",
           speaker: "Jisu",
           korean: "저도 반갑습니다.",
-          translations: text("Toi cung rat vui duoc gap ban.", "Nice to meet you too."),
+          translations: text("Tôi cũng rất vui được gặp bạn.", "Nice to meet you too."),
           pages: page(19),
           sourceRef: sourceRefFor("d-jisu-too", 19, "저도 반갑습니다."),
           needsReview,
@@ -604,7 +604,7 @@ export function createUnit1SourceSeed(
           id: "d-minsu-student",
           speaker: "Minsu",
           korean: "저는 학생입니다.",
-          translations: text("Toi la hoc sinh.", "I am a student."),
+          translations: text("Tôi là học sinh.", "I am a student."),
           pages: page(21),
           sourceRef: sourceRefFor("d-minsu-student", 21, "저는 학생입니다."),
           needsReview,
@@ -614,7 +614,7 @@ export function createUnit1SourceSeed(
         {
           id: "ex-student",
           korean: "저는 학생입니다.",
-          translations: text("Toi la hoc sinh.", "I am a student."),
+          translations: text("Tôi là học sinh.", "I am a student."),
           grammarTags: ["N + copula"],
           pages: page(21),
           sourceRef: sourceRefFor("ex-student", 21, "저는 학생입니다."),
@@ -623,7 +623,7 @@ export function createUnit1SourceSeed(
         {
           id: "ex-office-worker",
           korean: "저는 회사원입니다.",
-          translations: text("Toi la nhan vien cong ty.", "I am an office worker."),
+          translations: text("Tôi là nhân viên công ty.", "I am an office worker."),
           grammarTags: ["N + copula"],
           pages: page(22),
           sourceRef: sourceRefFor("ex-office-worker", 22, "저는 회사원입니다."),
@@ -632,7 +632,7 @@ export function createUnit1SourceSeed(
         {
           id: "ex-doctor",
           korean: "저는 의사입니다.",
-          translations: text("Toi la bac si.", "I am a doctor."),
+          translations: text("Tôi là bác sĩ.", "I am a doctor."),
           grammarTags: ["N + copula"],
           pages: page(22),
           sourceRef: sourceRefFor("ex-doctor", 22, "저는 의사입니다."),

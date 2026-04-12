@@ -1,6 +1,7 @@
 import { extractUnit } from "./extract";
 import { generateExerciseSet, validateExerciseSet } from "./exercise-set";
 import { generateRuntimeUnit } from "./generate";
+import { auditDuplicateLessons } from "./audit-duplicates";
 import { validateCurriculum } from "./validate";
 
 function hasFlag(flag: string) {
@@ -68,6 +69,14 @@ async function run() {
     return;
   }
 
+  if (command === "audit-duplicates") {
+    const result = await auditDuplicateLessons({
+      unitId: getFlagValue("--unit") ?? undefined,
+    });
+    console.log(JSON.stringify(result, null, 2));
+    return;
+  }
+
   if (command === "pilot") {
     const extractResult = await extractUnit({
       cwd: process.cwd(),
@@ -88,7 +97,7 @@ async function run() {
   }
 
   throw new Error(
-    "Unknown command. Use one of: extract, generate, generate-exercise-set, validate, validate-exercise-set, pilot.",
+    "Unknown command. Use one of: extract, generate, generate-exercise-set, validate, validate-exercise-set, audit-duplicates, pilot.",
   );
 }
 

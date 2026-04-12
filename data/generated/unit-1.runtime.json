@@ -2,11 +2,11 @@
   "unitId": "1",
   "unitNumber": 1,
   "title": {
-    "vi": "Chao hoi va gioi thieu",
+    "vi": "Chào hỏi và giới thiệu",
     "en": "Greetings and introductions"
   },
   "subtitle": {
-    "vi": "Bat dau bang textbook input, day nang workbook practice, va giu listening hoat dong xuyen suot unit.",
+    "vi": "Bắt đầu bằng textbook input, đẩy mạnh workbook practice, và giữ listening hoạt động xuyên suốt unit.",
     "en": "Start with textbook input, lean into workbook practice, and keep listening active throughout the unit."
   },
   "reviewWords": [
@@ -25,11 +25,11 @@
       "sectionId": "unit-1-section-1",
       "order": 1,
       "title": {
-        "vi": "Section 1: Greetings",
+        "vi": "Phần 1: Chào hỏi",
         "en": "Section 1: greetings"
       },
       "summary": {
-        "vi": "Nen tang chao hoi, dai tu xung ho, va cau copula co ban.",
+        "vi": "Nền tảng chào hỏi, đại từ xưng hô, và câu copula cơ bản.",
         "en": "Greeting foundations, polite self-reference, and the core copula frame."
       },
       "lessonIds": [
@@ -41,11 +41,11 @@
       "sectionId": "unit-1-section-2",
       "order": 2,
       "title": {
-        "vi": "Section 2: Dialogue",
+        "vi": "Phần 2: Hội thoại",
         "en": "Section 2: dialogue and use"
       },
       "summary": {
-        "vi": "Ghep lai hoi thoai va dua ngu phap vao bai workbook dau tien.",
+        "vi": "Ghép lại hội thoại và đưa ngữ pháp vào bài workbook đầu tiên.",
         "en": "Rebuild the dialogue and move the grammar into the first workbook lesson."
       },
       "lessonIds": [
@@ -57,11 +57,11 @@
       "sectionId": "unit-1-section-3",
       "order": 3,
       "title": {
-        "vi": "Section 3: Workbook Core",
+        "vi": "Phần 3: Trọng tâm workbook",
         "en": "Section 3: workbook core"
       },
       "summary": {
-        "vi": "Ba lesson lien tiep de day du cac bai identity va role drills cua workbook.",
+        "vi": "Ba lesson liên tiếp để phủ đủ các bài identity và role drills của workbook.",
         "en": "Three straight lessons to keep the identity and role drills fully covered."
       },
       "lessonIds": [
@@ -74,11 +74,11 @@
       "sectionId": "unit-1-section-4",
       "order": 4,
       "title": {
-        "vi": "Section 4: Listening",
+        "vi": "Phần 4: Nghe",
         "en": "Section 4: listening and QR"
       },
       "summary": {
-        "vi": "Tach nghe workbook va bai nghe QR thanh cum listening rieng.",
+        "vi": "Tách nghe workbook và bài nghe QR thành cụm listening riêng.",
         "en": "Split workbook listening and QR listening into their own focused block."
       },
       "lessonIds": [
@@ -90,11 +90,11 @@
       "sectionId": "unit-1-section-5",
       "order": 5,
       "title": {
-        "vi": "Section 5: Review",
+        "vi": "Phần 5: Ôn tập",
         "en": "Section 5: review and output"
       },
       "summary": {
-        "vi": "On tap cuoi unit bang bai tong hop va bai san sinh co khung.",
+        "vi": "Ôn tập cuối unit bằng bài tổng hợp và bài sản sinh có khung.",
         "en": "Finish with a review checkpoint and a more output-heavy close."
       },
       "lessonIds": [
@@ -110,15 +110,15 @@
       "sectionOrder": 1,
       "lessonRole": "intro",
       "title": {
-        "vi": "Bat dau chao hoi",
+        "vi": "Bắt đầu chào hỏi",
         "en": "Start with greetings"
       },
       "summary": {
-        "vi": "Mo unit bang loi chao, dai tu khiem nhuong, va mau cau gioi thieu ngan.",
+        "vi": "Mở unit bằng lời chào, đại từ khiêm nhường, và mẫu câu giới thiệu ngắn.",
         "en": "Open the unit with greetings, the humble pronoun, and a short introduction."
       },
       "difficulty": {
-        "vi": "Nhan dien va lam quen",
+        "vi": "Nhận diện và làm quen",
         "en": "Recognition and warm-up"
       },
       "focusConcepts": [
@@ -141,11 +141,11 @@
         {
           "id": "l1-hello",
           "prompt": {
-            "vi": "Chon the dung voi y nghia nay.",
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
             "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Day la loi chao cot loi cua unit.",
+            "vi": "Đây là lời chào cốt lõi của unit.",
             "en": "This is the core greeting for the unit."
           },
           "source": "textbook",
@@ -159,7 +159,7 @@
             {
               "id": "l1-hello-correct",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-hello.svg",
@@ -168,7 +168,7 @@
             {
               "id": "l1-hello-d1",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-student.svg",
@@ -177,7 +177,7 @@
             {
               "id": "l1-hello-d2",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-i-humble.svg",
@@ -186,7 +186,7 @@
             {
               "id": "l1-hello-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
+                "vi": "rất vui được gặp bạn",
                 "en": "nice to meet you"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-nice-to-meet.svg",
@@ -196,18 +196,18 @@
           "answer": "l1-hello-correct",
           "presentation": "image_cards",
           "questionText": {
-            "vi": "xin chao",
+            "vi": "xin chào",
             "en": "hello"
           }
         },
         {
           "id": "l1-jeo",
           "prompt": {
-            "vi": "Chon the dung voi y nghia nay.",
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
             "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "`저` la cach xung ho lich su.",
+            "vi": "`저` là cách xưng hô lịch sự.",
             "en": "`저` is the polite way to say I/me."
           },
           "source": "textbook",
@@ -221,7 +221,7 @@
             {
               "id": "l1-jeo-correct",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-i-humble.svg",
@@ -230,7 +230,7 @@
             {
               "id": "l1-jeo-d1",
               "text": {
-                "vi": "rat vui duoc gap ban",
+                "vi": "rất vui được gặp bạn",
                 "en": "nice to meet you"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-nice-to-meet.svg",
@@ -239,7 +239,7 @@
             {
               "id": "l1-jeo-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-student.svg",
@@ -248,7 +248,7 @@
             {
               "id": "l1-jeo-d3",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-hello.svg",
@@ -258,18 +258,18 @@
           "answer": "l1-jeo-correct",
           "presentation": "image_cards",
           "questionText": {
-            "vi": "toi, em (khiem nhuong)",
+            "vi": "tôi, em (khiêm nhường)",
             "en": "I, me (humble)"
           }
         },
         {
           "id": "l1-student",
           "prompt": {
-            "vi": "Chon the dung voi y nghia nay.",
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
             "en": "Choose the card that matches this meaning."
           },
           "explanation": {
-            "vi": "Danh tu nay lap lai nhieu lan trong workbook.",
+            "vi": "Danh từ này lặp lại nhiều lần trong workbook.",
             "en": "This noun repeats throughout the workbook."
           },
           "source": "workbook",
@@ -283,7 +283,7 @@
             {
               "id": "l1-student-correct",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-student.svg",
@@ -292,7 +292,7 @@
             {
               "id": "l1-student-d1",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-hello.svg",
@@ -301,7 +301,7 @@
             {
               "id": "l1-student-d2",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-i-humble.svg",
@@ -310,7 +310,7 @@
             {
               "id": "l1-student-d3",
               "text": {
-                "vi": "rat vui duoc gap ban",
+                "vi": "rất vui được gặp bạn",
                 "en": "nice to meet you"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-nice-to-meet.svg",
@@ -320,18 +320,18 @@
           "answer": "l1-student-correct",
           "presentation": "image_cards",
           "questionText": {
-            "vi": "hoc sinh, sinh vien",
+            "vi": "học sinh, sinh viên",
             "en": "student"
           }
         },
         {
           "id": "l1-nice",
           "prompt": {
-            "vi": "Nghe roi chon the phu hop.",
+            "vi": "Nghe rồi chọn thẻ phù hợp.",
             "en": "Listen and choose the matching card."
           },
           "explanation": {
-            "vi": "Nghe cum chao khi gap mat de quen am.",
+            "vi": "Nghe cụm chào khi gặp mặt để quen âm.",
             "en": "Hear the meeting greeting first to get used to the sound."
           },
           "source": "textbook",
@@ -345,7 +345,7 @@
             {
               "id": "l1-nice-correct",
               "text": {
-                "vi": "rat vui duoc gap ban",
+                "vi": "rất vui được gặp bạn",
                 "en": "nice to meet you"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-nice-to-meet.svg",
@@ -354,7 +354,7 @@
             {
               "id": "l1-nice-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-i-humble.svg",
@@ -363,7 +363,7 @@
             {
               "id": "l1-nice-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-student.svg",
@@ -372,7 +372,7 @@
             {
               "id": "l1-nice-d3",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               },
               "imageUrl": "/generated/vocab-icons/unit-1/v-hello.svg",
@@ -385,11 +385,11 @@
         {
           "id": "l1-hello-meaning",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Doi loi chao sang y nghia ngay sau khi nhan dien.",
+            "vi": "Đổi lời chào sang ý nghĩa ngay sau khi nhận diện.",
             "en": "Switch the greeting into its meaning right after recognition."
           },
           "source": "workbook",
@@ -400,23 +400,23 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "xin chao",
+            "vi": "xin chào",
             "en": "hello"
           },
           "koreanText": "안녕하세요",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "l1-minsu",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Ghep loi chao voi phan gioi thieu ten.",
+            "vi": "Ghép lời chào với phần giới thiệu tên.",
             "en": "Combine the greeting with the name introduction."
           },
           "source": "textbook",
@@ -429,25 +429,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Xin chao. Toi la Minsu.",
+            "vi": "Xin chào. Tôi là Minsu.",
             "en": "Hello. I am Minsu."
           },
           "acceptedAnswers": [
             "안녕하세요. 저는 민수입니다."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "l1-arrange",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Sap xep lai cau gioi thieu dau tien.",
+            "vi": "Sắp xếp lại câu giới thiệu đầu tiên.",
             "en": "Arrange the first introduction sentence."
           },
           "source": "blended",
@@ -459,7 +459,7 @@
           "errorPatternKey": "l1-arrange.arrange",
           "type": "arrange_sentence",
           "meaning": {
-            "vi": "Xin chao. Toi la Minsu.",
+            "vi": "Xin chào. Tôi là Minsu.",
             "en": "Hello. I am Minsu."
           },
           "wordBank": [
@@ -476,11 +476,11 @@
         {
           "id": "l1-speak",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Ket lesson bang mot cau chao ngan.",
+            "vi": "Kết lesson bằng một câu chào ngắn.",
             "en": "Close the lesson with one short greeting."
           },
           "source": "textbook",
@@ -500,15 +500,15 @@
       "sectionOrder": 1,
       "lessonRole": "grammar",
       "title": {
-        "vi": "Lap cau voi copula",
+        "vi": "Lập câu với copula",
         "en": "Build with the copula"
       },
       "summary": {
-        "vi": "Cung co mau N + copula bang cau ve hoc sinh va nghe nghiep.",
+        "vi": "Củng cố mẫu N + copula bằng câu về học sinh và nghề nghiệp.",
         "en": "Reinforce the noun + copula pattern with student and job sentences."
       },
       "difficulty": {
-        "vi": "Nhan dien va lam quen",
+        "vi": "Nhận diện và làm quen",
         "en": "Recognition and warm-up"
       },
       "focusConcepts": [
@@ -534,11 +534,11 @@
         {
           "id": "l2-g1",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Sau danh tu, Unit 1 dung cung mot duoi cau lich su.",
+            "vi": "Sau danh từ, Unit 1 dùng cùng một đuôi câu lịch sự.",
             "en": "After a noun, Unit 1 uses one core polite ending."
           },
           "source": "workbook",
@@ -560,11 +560,11 @@
         {
           "id": "l2-g2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Lap lai cung pattern o che do recall.",
+            "vi": "Lặp lại cùng pattern ở chế độ recall.",
             "en": "Repeat the same pattern in recall mode."
           },
           "source": "workbook",
@@ -586,11 +586,11 @@
         {
           "id": "l2-fill-student",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien lai dung duoi cau sau danh tu.",
+            "vi": "Điền lại đúng đuôi câu sau danh từ.",
             "en": "Fill the correct polite ending after the noun."
           },
           "source": "workbook",
@@ -607,18 +607,18 @@
             "입니다."
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           }
         },
         {
           "id": "l2-fill-office",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Doi nghe nghiep nhung giu nguyen khung cau.",
+            "vi": "Đổi nghề nghiệp nhưng giữ nguyên khung câu.",
             "en": "Swap the job noun while keeping the sentence frame."
           },
           "source": "workbook",
@@ -641,22 +641,22 @@
             "의사"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Toi la nhan vien cong ty.",
+            "vi": "Tôi là nhân viên công ty.",
             "en": "I am an office worker."
           }
         },
         {
           "id": "l2-tr-student",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dich mau cau co ban nhat cua unit.",
+            "vi": "Dịch mẫu câu cơ bản nhất của unit.",
             "en": "Translate the unit's most basic model sentence."
           },
           "source": "workbook",
@@ -669,25 +669,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Toi la hoc sinh.",
+            "vi": "Tôi là học sinh.",
             "en": "I am a student."
           },
           "acceptedAnswers": [
             "저는 학생입니다."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "l2-arr-office",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Lap lai cau nghe nghiep cung ngu phap.",
+            "vi": "Lặp lại câu nghề nghiệp cùng ngữ pháp.",
             "en": "Build a job sentence with the same grammar."
           },
           "source": "textbook",
@@ -699,7 +699,7 @@
           "errorPatternKey": "l2-arr-office.arrange",
           "type": "arrange_sentence",
           "meaning": {
-            "vi": "Toi la nhan vien cong ty.",
+            "vi": "Tôi là nhân viên công ty.",
             "en": "I am an office worker."
           },
           "wordBank": [
@@ -714,11 +714,11 @@
         {
           "id": "l2-speak-student",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi lai mau cau hoc sinh de tao phan xa.",
+            "vi": "Nói lại mẫu câu học sinh để tạo phản xạ.",
             "en": "Say the student sentence aloud so it becomes automatic."
           },
           "source": "textbook",
@@ -735,11 +735,11 @@
         {
           "id": "l2-speak-office",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Doi danh tu nhung van giu duoi cau lich su dung.",
+            "vi": "Đổi danh từ nhưng vẫn giữ đuôi câu lịch sự đúng.",
             "en": "Swap the noun while keeping the polite ending correct."
           },
           "source": "blended",
@@ -761,15 +761,15 @@
       "sectionOrder": 2,
       "lessonRole": "dialogue",
       "title": {
-        "vi": "Ghep lai doan hoi thoai",
+        "vi": "Ghép lại đoạn hội thoại",
         "en": "Rebuild the dialogue"
       },
       "summary": {
-        "vi": "Nghe, ghep, va noi lai cac luot thoai chao hoi cot loi.",
+        "vi": "Nghe, ghép, và nói lại các lượt thoại chào hỏi cốt lõi.",
         "en": "Listen, rebuild, and say the core greeting dialogue turns."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -796,11 +796,11 @@
         {
           "id": "l3-reply-listen",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe cau dap truoc de bat nhip hoi thoai.",
+            "vi": "Nghe câu đáp trước để bắt nhịp hội thoại.",
             "en": "Hear the reply first to catch the dialogue rhythm."
           },
           "source": "workbook",
@@ -814,28 +814,28 @@
             {
               "id": "l3-reply-listen-correct",
               "text": {
-                "vi": "Toi cung rat vui duoc gap ban.",
+                "vi": "Tôi cũng rất vui được gặp bạn.",
                 "en": "Nice to meet you too."
               }
             },
             {
               "id": "l3-reply-listen-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             },
             {
               "id": "l3-reply-listen-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "l3-reply-listen-d3",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             }
@@ -845,11 +845,11 @@
         {
           "id": "l3-nice",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Nho lai y nghia cua loi chao khi gap mat.",
+            "vi": "Nhớ lại ý nghĩa của lời chào khi gặp mặt.",
             "en": "Recall the meaning of the meeting greeting."
           },
           "source": "workbook",
@@ -860,19 +860,19 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "rat vui duoc gap ban",
+            "vi": "rất vui được gặp bạn",
             "en": "nice to meet you"
           },
           "koreanText": "반갑습니다",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "l3-fill",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
@@ -896,22 +896,22 @@
             "회사원입니다"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Toi cung rat vui duoc gap ban.",
+            "vi": "Tôi cũng rất vui được gặp bạn.",
             "en": "Nice to meet you too."
           }
         },
         {
           "id": "l3-jisu",
           "prompt": {
-            "vi": "Ghep lai cau hoi thoai.",
+            "vi": "Ghép lại câu hội thoại.",
             "en": "Rebuild the dialogue line."
           },
           "explanation": {
-            "vi": "Ghep lai cau gioi thieu cua Jisu.",
+            "vi": "Ghép lại câu giới thiệu của Jisu.",
             "en": "Rebuild Jisu's introduction line."
           },
           "source": "textbook",
@@ -922,7 +922,7 @@
           "type": "dialogue_reconstruct",
           "speaker": "Jisu",
           "translation": {
-            "vi": "Xin chao. Toi la Jisu.",
+            "vi": "Xin chào. Tôi là Jisu.",
             "en": "Hello. I am Jisu."
           },
           "wordBank": [
@@ -939,11 +939,11 @@
         {
           "id": "l3-reply",
           "prompt": {
-            "vi": "Ghep lai cau hoi thoai.",
+            "vi": "Ghép lại câu hội thoại.",
             "en": "Rebuild the dialogue line."
           },
           "explanation": {
-            "vi": "Ghep luon cau dap de tao thanh cap thoai.",
+            "vi": "Ghép luôn câu đáp để tạo thành cặp thoại.",
             "en": "Rebuild the reply to create a full exchange."
           },
           "source": "blended",
@@ -954,7 +954,7 @@
           "type": "dialogue_reconstruct",
           "speaker": "Jisu",
           "translation": {
-            "vi": "Toi cung rat vui duoc gap ban.",
+            "vi": "Tôi cũng rất vui được gặp bạn.",
             "en": "Nice to meet you too."
           },
           "wordBank": [
@@ -969,11 +969,11 @@
         {
           "id": "l3-arrange",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Tach nho cau gioi thieu thanh mot bai sap xep nhanh.",
+            "vi": "Tách nhỏ câu giới thiệu thành một bài sắp xếp nhanh.",
             "en": "Break the introduction into a quicker ordering task."
           },
           "source": "workbook",
@@ -985,7 +985,7 @@
           "errorPatternKey": "l3-arrange.arrange",
           "type": "arrange_sentence",
           "meaning": {
-            "vi": "Xin chao. Toi la Jisu.",
+            "vi": "Xin chào. Tôi là Jisu.",
             "en": "Hello. I am Jisu."
           },
           "wordBank": [
@@ -1002,11 +1002,11 @@
         {
           "id": "l3-tr-jisu",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Viet lai toan bo cau gioi thieu cua Jisu.",
+            "vi": "Viết lại toàn bộ câu giới thiệu của Jisu.",
             "en": "Write Jisu's full introduction again."
           },
           "source": "workbook",
@@ -1019,25 +1019,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Xin chao. Toi la Jisu.",
+            "vi": "Xin chào. Tôi là Jisu.",
             "en": "Hello. I am Jisu."
           },
           "acceptedAnswers": [
             "안녕하세요. 저는 지수입니다."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "l3-speak",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Ket lesson bang mot luot thoai hoan chinh.",
+            "vi": "Kết lesson bằng một lượt thoại hoàn chỉnh.",
             "en": "Finish the lesson with one complete dialogue turn."
           },
           "source": "blended",
@@ -1059,15 +1059,15 @@
       "sectionOrder": 2,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Dung copula trong workbook",
+        "vi": "Dùng copula trong workbook",
         "en": "Workbook: copula in use"
       },
       "summary": {
-        "vi": "Chuyen tu textbook sang workbook bang cac bai match va dien khuyet co ban.",
+        "vi": "Chuyển từ textbook sang workbook bằng các bài match và điền khuyết cơ bản.",
         "en": "Move from textbook input into workbook matching and core fill-in drills."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -1094,11 +1094,11 @@
         {
           "id": "wb-match-hello-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "vi": "Nối từ tiếng Hàn với đúng ý nghĩa.",
             "en": "Match the Korean word with the correct meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "vi": "Bắt đầu bằng nhận diện ý nghĩa nhanh.",
             "en": "Start with quick meaning recognition."
           },
           "source": "workbook",
@@ -1112,28 +1112,28 @@
             {
               "id": "wb-match-hello-1-correct",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               }
             },
             {
               "id": "wb-match-hello-1-d1",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             },
             {
               "id": "wb-match-hello-1-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-match-hello-1-d3",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             }
@@ -1143,11 +1143,11 @@
         {
           "id": "wb-match-hello-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "vi": "Nghe lại cùng biểu hiện để khóa âm và nghĩa.",
             "en": "Hear the same expression again to lock sound and meaning."
           },
           "source": "workbook",
@@ -1161,28 +1161,28 @@
             {
               "id": "wb-match-hello-2-correct",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               }
             },
             {
               "id": "wb-match-hello-2-d1",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             },
             {
               "id": "wb-match-hello-2-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-match-hello-2-d3",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             }
@@ -1192,11 +1192,11 @@
         {
           "id": "wb-match-jeo-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "vi": "Nối từ tiếng Hàn với đúng ý nghĩa.",
             "en": "Match the Korean word with the correct meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "vi": "Bắt đầu bằng nhận diện ý nghĩa nhanh.",
             "en": "Start with quick meaning recognition."
           },
           "source": "workbook",
@@ -1210,28 +1210,28 @@
             {
               "id": "wb-match-jeo-1-correct",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             },
             {
               "id": "wb-match-jeo-1-d1",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-match-jeo-1-d2",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             },
             {
               "id": "wb-match-jeo-1-d3",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               }
             }
@@ -1241,11 +1241,11 @@
         {
           "id": "wb-match-jeo-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "vi": "Nghe lại cùng biểu hiện để khóa âm và nghĩa.",
             "en": "Hear the same expression again to lock sound and meaning."
           },
           "source": "workbook",
@@ -1259,28 +1259,28 @@
             {
               "id": "wb-match-jeo-2-correct",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             },
             {
               "id": "wb-match-jeo-2-d1",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-match-jeo-2-d2",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             },
             {
               "id": "wb-match-jeo-2-d3",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               }
             }
@@ -1290,11 +1290,11 @@
         {
           "id": "wb-match-student-1",
           "prompt": {
-            "vi": "Noi tu tieng Han voi dung y nghia.",
+            "vi": "Nối từ tiếng Hàn với đúng ý nghĩa.",
             "en": "Match the Korean word with the correct meaning."
           },
           "explanation": {
-            "vi": "Bat dau bang nhan dien y nghia nhanh.",
+            "vi": "Bắt đầu bằng nhận diện ý nghĩa nhanh.",
             "en": "Start with quick meaning recognition."
           },
           "source": "workbook",
@@ -1308,28 +1308,28 @@
             {
               "id": "wb-match-student-1-correct",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-match-student-1-d1",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               }
             },
             {
               "id": "wb-match-student-1-d2",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             },
             {
               "id": "wb-match-student-1-d3",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             }
@@ -1339,11 +1339,11 @@
         {
           "id": "wb-match-student-2",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe lai cung bieu hien de khoa am va nghia.",
+            "vi": "Nghe lại cùng biểu hiện để khóa âm và nghĩa.",
             "en": "Hear the same expression again to lock sound and meaning."
           },
           "source": "workbook",
@@ -1357,28 +1357,28 @@
             {
               "id": "wb-match-student-2-correct",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-match-student-2-d1",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               }
             },
             {
               "id": "wb-match-student-2-d2",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             },
             {
               "id": "wb-match-student-2-d3",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             }
@@ -1388,11 +1388,11 @@
         {
           "id": "wb-fill-student-ending-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -1414,11 +1414,11 @@
         {
           "id": "wb-fill-student-ending-1",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -1434,11 +1434,11 @@
             "입니다."
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Toi la hoc sinh.",
+            "vi": "Tôi là học sinh.",
             "en": "I am a student."
           }
         }
@@ -1450,15 +1450,15 @@
       "sectionOrder": 3,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Identity drills 1",
+        "vi": "Luyện tự giới thiệu 1",
         "en": "Identity drills 1"
       },
       "summary": {
-        "vi": "Luyen dich, nghe, va chon duoi cau lich su trong cum bai tu gioi thieu.",
+        "vi": "Luyện dịch, nghe, và chọn đuôi câu lịch sự trong cụm bài tự giới thiệu.",
         "en": "Drill translation, listening, and polite endings around self-introduction sentences."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -1487,11 +1487,11 @@
         {
           "id": "wb-translate-hello-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhan y nghia truoc roi moi go lai.",
+            "vi": "Nhận ý nghĩa trước rồi mới gõ lại.",
             "en": "Recognize the meaning before typing it back."
           },
           "source": "workbook",
@@ -1505,28 +1505,28 @@
             {
               "id": "wb-translate-hello-1-correct",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               }
             },
             {
               "id": "wb-translate-hello-1-d1",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             },
             {
               "id": "wb-translate-hello-1-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-translate-hello-1-d3",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             }
@@ -1536,11 +1536,11 @@
         {
           "id": "wb-listen-too-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Bai nghe ngan nen uu tien nhan dien nhanh.",
+            "vi": "Bài nghe ngắn nên ưu tiên nhận diện nhanh.",
             "en": "Short listening items begin with fast recognition."
           },
           "source": "workbook",
@@ -1554,28 +1554,28 @@
             {
               "id": "wb-listen-too-1-correct",
               "text": {
-                "vi": "Toi cung rat vui duoc gap ban.",
+                "vi": "Tôi cũng rất vui được gặp bạn.",
                 "en": "Nice to meet you too."
               }
             },
             {
               "id": "wb-listen-too-1-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             },
             {
               "id": "wb-listen-too-1-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-listen-too-1-d3",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             }
@@ -1585,11 +1585,11 @@
         {
           "id": "wb-translate-hello-2",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Go lai y nghia bang tri nho.",
+            "vi": "Gõ lại ý nghĩa bằng trí nhớ.",
             "en": "Type the meaning from memory."
           },
           "source": "workbook",
@@ -1600,23 +1600,23 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "xin chao",
+            "vi": "xin chào",
             "en": "hello"
           },
           "koreanText": "안녕하세요.",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "wb-grammar-copula-choice-1",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhac lai duoi cau lich su cot loi cua Unit 1.",
+            "vi": "Nhắc lại đuôi câu lịch sự cốt lõi của Unit 1.",
             "en": "Revisit the core polite ending for Unit 1."
           },
           "source": "workbook",
@@ -1638,11 +1638,11 @@
         {
           "id": "wb-listen-too-2",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
+            "vi": "Sau khi nghe đúng, gõ lại ý nghĩa để khóa trí nhớ.",
             "en": "Once you hear it correctly, type the meaning to lock it in."
           },
           "source": "workbook",
@@ -1653,23 +1653,23 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "Toi cung rat vui duoc gap ban.",
+            "vi": "Tôi cũng rất vui được gặp bạn.",
             "en": "Nice to meet you too."
           },
           "koreanText": "저도 반갑습니다.",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "wb-translate-student-1",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "vi": "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
             "en": "Translate the meaning into a full Korean sentence."
           },
           "source": "workbook",
@@ -1680,25 +1680,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Toi la hoc sinh.",
+            "vi": "Tôi là học sinh.",
             "en": "I am a student."
           },
           "acceptedAnswers": [
             "저는 학생입니다."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "wb-grammar-copula-choice-2",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien lai mo hinh N + copula.",
+            "vi": "Điền lại mô hình N + copula.",
             "en": "Fill the N + copula pattern again."
           },
           "source": "workbook",
@@ -1715,18 +1715,18 @@
             "입니다."
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           }
         },
         {
           "id": "wb-translate-student-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "vi": "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
             "en": "Say the translated sentence aloud to strengthen active production."
           },
           "source": "workbook",
@@ -1746,15 +1746,15 @@
       "sectionOrder": 3,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Identity drills 2",
+        "vi": "Luyện tự giới thiệu 2",
         "en": "Identity drills 2"
       },
       "summary": {
-        "vi": "Tiep tuc workbook bang cau dap, sap xep, va cau gioi thieu co ten rieng.",
+        "vi": "Tiếp tục workbook bằng câu đáp, sắp xếp, và câu giới thiệu có tên riêng.",
         "en": "Continue the workbook path with replies, ordering, and named self-introductions."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -1783,11 +1783,11 @@
         {
           "id": "wb-translate-nice-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhan y nghia truoc roi moi go lai.",
+            "vi": "Nhận ý nghĩa trước rồi mới gõ lại.",
             "en": "Recognize the meaning before typing it back."
           },
           "source": "workbook",
@@ -1801,28 +1801,28 @@
             {
               "id": "wb-translate-nice-1-correct",
               "text": {
-                "vi": "rat vui duoc gap ban",
+                "vi": "rất vui được gặp bạn",
                 "en": "nice to meet you"
               }
             },
             {
               "id": "wb-translate-nice-1-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             },
             {
               "id": "wb-translate-nice-1-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-translate-nice-1-d3",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             }
@@ -1832,11 +1832,11 @@
         {
           "id": "wb-fill-nice-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -1845,7 +1845,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb-fill-nice-2.grammar",
           "supportText": {
-            "vi": "Toi cung rat vui duoc gap ban.",
+            "vi": "Tôi cũng rất vui được gặp bạn.",
             "en": "Nice to meet you too."
           },
           "type": "grammar_select",
@@ -1860,11 +1860,11 @@
         {
           "id": "wb-translate-nice-2",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Go lai y nghia bang tri nho.",
+            "vi": "Gõ lại ý nghĩa bằng trí nhớ.",
             "en": "Type the meaning from memory."
           },
           "source": "workbook",
@@ -1875,23 +1875,23 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "rat vui duoc gap ban",
+            "vi": "rất vui được gặp bạn",
             "en": "nice to meet you"
           },
           "koreanText": "반갑습니다.",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "wb-fill-nice-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -1910,22 +1910,22 @@
             "회사원입니다"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Toi cung rat vui duoc gap ban.",
+            "vi": "Tôi cũng rất vui được gặp bạn.",
             "en": "Nice to meet you too."
           }
         },
         {
           "id": "wb-order-jisu-1",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Xay lai cau theo dung trat tu tu nhien.",
+            "vi": "Xây lại câu theo đúng trật tự tự nhiên.",
             "en": "Build the sentence back in natural order."
           },
           "source": "workbook",
@@ -1952,11 +1952,11 @@
         {
           "id": "wb-translate-jisu-1",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "vi": "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
             "en": "Translate the meaning into a full Korean sentence."
           },
           "source": "workbook",
@@ -1967,25 +1967,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Toi la Jisu.",
+            "vi": "Tôi là Jisu.",
             "en": "I am Jisu."
           },
           "acceptedAnswers": [
             "저는 지수입니다."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "wb-order-jisu-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi to cau vua ghep de chuyen sang phan xa noi.",
+            "vi": "Nói to câu vừa ghép để chuyển sang phản xạ nói.",
             "en": "Say the rebuilt sentence aloud to move into speaking reflex."
           },
           "source": "workbook",
@@ -2000,11 +2000,11 @@
         {
           "id": "wb-translate-jisu-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "vi": "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
             "en": "Say the translated sentence aloud to strengthen active production."
           },
           "source": "workbook",
@@ -2024,15 +2024,15 @@
       "sectionOrder": 3,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Role and name drills",
+        "vi": "Luyện tên và vai trò",
         "en": "Role and name drills"
       },
       "summary": {
-        "vi": "Khoa lai ten, nghe nghiep, va duoi cau copula bang chuoi bai tap ngan.",
+        "vi": "Khóa lại tên, nghề nghiệp, và đuôi câu copula bằng chuỗi bài tập ngắn.",
         "en": "Lock in names, jobs, and polite copula endings through a tight workbook run."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -2060,11 +2060,11 @@
         {
           "id": "wb-fill-name-line-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2084,11 +2084,11 @@
         {
           "id": "wb-grammar-ending-1",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhac lai duoi cau lich su cot loi cua Unit 1.",
+            "vi": "Nhắc lại đuôi câu lịch sự cốt lõi của Unit 1.",
             "en": "Revisit the core polite ending for Unit 1."
           },
           "source": "workbook",
@@ -2110,11 +2110,11 @@
         {
           "id": "wb-fill-office-worker-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2123,7 +2123,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb-fill-office-worker-2.grammar",
           "supportText": {
-            "vi": "Toi la nhan vien cong ty.",
+            "vi": "Tôi là nhân viên công ty.",
             "en": "I am an office worker."
           },
           "type": "grammar_select",
@@ -2138,11 +2138,11 @@
         {
           "id": "wb-fill-name-line-1",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2156,18 +2156,18 @@
             "입니다."
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           }
         },
         {
           "id": "wb-grammar-ending-2",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien lai mo hinh N + copula.",
+            "vi": "Điền lại mô hình N + copula.",
             "en": "Fill the N + copula pattern again."
           },
           "source": "workbook",
@@ -2184,18 +2184,18 @@
             "입니다."
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           }
         },
         {
           "id": "wb-fill-office-worker-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2214,22 +2214,22 @@
             "의사"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Toi la nhan vien cong ty.",
+            "vi": "Tôi là nhân viên công ty.",
             "en": "I am an office worker."
           }
         },
         {
           "id": "wb-order-office-worker-1",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Xay lai cau theo dung trat tu tu nhien.",
+            "vi": "Xây lại câu theo đúng trật tự tự nhiên.",
             "en": "Build the sentence back in natural order."
           },
           "source": "workbook",
@@ -2239,7 +2239,7 @@
           "errorPatternKey": "wb-order-office-worker-1.arrange",
           "type": "arrange_sentence",
           "meaning": {
-            "vi": "Toi la nhan vien cong ty.",
+            "vi": "Tôi là nhân viên công ty.",
             "en": "I am an office worker."
           },
           "wordBank": [
@@ -2256,11 +2256,11 @@
         {
           "id": "wb-order-office-worker-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi to cau vua ghep de chuyen sang phan xa noi.",
+            "vi": "Nói to câu vừa ghép để chuyển sang phản xạ nói.",
             "en": "Say the rebuilt sentence aloud to move into speaking reflex."
           },
           "source": "workbook",
@@ -2280,15 +2280,15 @@
       "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Nghe va tu gioi thieu",
+        "vi": "Nghe và tự giới thiệu",
         "en": "Listening and self-introduction"
       },
       "summary": {
-        "vi": "Gom bai nghe workbook va bai viet tu gioi thieu truoc khi vao QR listening rieng.",
+        "vi": "Gồm bài nghe workbook và bài viết tự giới thiệu trước khi vào QR listening riêng.",
         "en": "Collect the workbook listening and self-introduction writing before the dedicated QR lesson."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -2321,11 +2321,11 @@
         {
           "id": "wb-listen-student-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Bai nghe ngan nen uu tien nhan dien nhanh.",
+            "vi": "Bài nghe ngắn nên ưu tiên nhận diện nhanh.",
             "en": "Short listening items begin with fast recognition."
           },
           "source": "workbook",
@@ -2339,28 +2339,28 @@
             {
               "id": "wb-listen-student-1-correct",
               "text": {
-                "vi": "Toi la hoc sinh.",
+                "vi": "Tôi là học sinh.",
                 "en": "I am a student."
               }
             },
             {
               "id": "wb-listen-student-1-d1",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-listen-student-1-d2",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             },
             {
               "id": "wb-listen-student-1-d3",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             }
@@ -2370,11 +2370,11 @@
         {
           "id": "wb-listen-greeting-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Bai nghe ngan nen uu tien nhan dien nhanh.",
+            "vi": "Bài nghe ngắn nên ưu tiên nhận diện nhanh.",
             "en": "Short listening items begin with fast recognition."
           },
           "source": "workbook",
@@ -2388,28 +2388,28 @@
             {
               "id": "wb-listen-greeting-1-correct",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               }
             },
             {
               "id": "wb-listen-greeting-1-d1",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             },
             {
               "id": "wb-listen-greeting-1-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-listen-greeting-1-d3",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             }
@@ -2419,11 +2419,11 @@
         {
           "id": "wb-listen-student-2",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
+            "vi": "Sau khi nghe đúng, gõ lại ý nghĩa để khóa trí nhớ.",
             "en": "Once you hear it correctly, type the meaning to lock it in."
           },
           "source": "workbook",
@@ -2434,23 +2434,23 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "Toi la hoc sinh.",
+            "vi": "Tôi là học sinh.",
             "en": "I am a student."
           },
           "koreanText": "저는 학생입니다.",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "wb-fill-intro-name-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -2459,7 +2459,7 @@
           "srWeight": 1.35,
           "errorPatternKey": "wb-fill-intro-name-2.grammar",
           "supportText": {
-            "vi": "Toi la Minsu.",
+            "vi": "Tôi là Minsu.",
             "en": "I am Minsu."
           },
           "type": "grammar_select",
@@ -2474,11 +2474,11 @@
         {
           "id": "wb-listen-greeting-2",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Sau khi nghe dung, go lai y nghia de khoa tri nho.",
+            "vi": "Sau khi nghe đúng, gõ lại ý nghĩa để khóa trí nhớ.",
             "en": "Once you hear it correctly, type the meaning to lock it in."
           },
           "source": "workbook",
@@ -2489,23 +2489,23 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "xin chao",
+            "vi": "xin chào",
             "en": "hello"
           },
           "koreanText": "안녕하세요",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "wb-translate-office-worker-1",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "vi": "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
             "en": "Translate the meaning into a full Korean sentence."
           },
           "source": "workbook",
@@ -2516,25 +2516,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Toi la nhan vien cong ty.",
+            "vi": "Tôi là nhân viên công ty.",
             "en": "I am an office worker."
           },
           "acceptedAnswers": [
             "저는 회사원입니다."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "wb-write-doctor-1",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Viet lai cau dich tu nghia da biet.",
+            "vi": "Viết lại câu dịch từ nghĩa đã biết.",
             "en": "Rewrite the target sentence from the known meaning."
           },
           "source": "workbook",
@@ -2545,25 +2545,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Toi la bac si.",
+            "vi": "Tôi là bác sĩ.",
             "en": "I am a doctor."
           },
           "acceptedAnswers": [
             "저는 의사입니다."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "wb-fill-intro-name-1",
           "prompt": {
-            "vi": "Hoan thanh cau sau.",
+            "vi": "Hoàn thành câu sau.",
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2582,22 +2582,22 @@
             "학생은"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Toi la Minsu.",
+            "vi": "Tôi là Minsu.",
             "en": "I am Minsu."
           }
         },
         {
           "id": "wb-translate-office-worker-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "vi": "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
             "en": "Say the translated sentence aloud to strengthen active production."
           },
           "source": "workbook",
@@ -2612,11 +2612,11 @@
         {
           "id": "wb-write-doctor-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Doc to cau vua viet de xay phan xa noi.",
+            "vi": "Đọc to câu vừa viết để xây phản xạ nói.",
             "en": "Read the written sentence aloud to build speaking reflex."
           },
           "source": "workbook",
@@ -2636,15 +2636,15 @@
       "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Nghe QR ve quoc tich",
+        "vi": "Nghe QR về quốc tịch",
         "en": "QR listening: countries and flags"
       },
       "summary": {
-        "vi": "Tach rieng bai nghe QR thanh mot lesson nghe tap trung co co, cau dien, va cau noi lap lai.",
+        "vi": "Tách riêng bài nghe QR thành một lesson nghe tập trung có cờ, câu điền, và câu nói lặp lại.",
         "en": "Split the QR audio into a dedicated listening lesson with flag choice, fill tasks, and spoken repeats."
       },
       "difficulty": {
-        "vi": "Nho lai va xay cau",
+        "vi": "Nhớ lại và xây câu",
         "en": "Recall and construction"
       },
       "focusConcepts": [
@@ -2667,11 +2667,11 @@
         {
           "id": "wb-qr-listen-country-left-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "vi": "Nghe file audio thật từ QR rồi chọn đáp án đúng.",
             "en": "Listen to the real QR audio and choose the correct answer."
           },
           "source": "workbook",
@@ -2680,7 +2680,7 @@
           "srWeight": 1.15,
           "errorPatternKey": "wb-qr-listen-country-left-1.listen",
           "supportText": {
-            "vi": "Nghe hoi thoai va chon la co quoc gia cua Natasha.",
+            "vi": "Nghe hội thoại và chọn lá cờ quốc gia của Natasha.",
             "en": "Listen to the dialogue and choose Natasha's country flag."
           },
           "audioText": "듣고 말하기 1. 두 사람이 처음 만났습니다. 대화를 듣고 빈 칸에 알맞은 말을 쓰세요. 안녕하세요. 저는 지훈이에요. 안녕하세요. 저는 나타샤예요. 나타샤 씨는 어느 나라 사람이에요? 저는 러시아 사람이에요. 저는 한국 사람이에요. 학생이에요.",
@@ -2690,7 +2690,7 @@
             {
               "id": "wb-qr-listen-country-left-south-korea",
               "text": {
-                "vi": "Han Quoc",
+                "vi": "Hàn Quốc",
                 "en": "South Korea"
               },
               "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-korea.png"
@@ -2698,7 +2698,7 @@
             {
               "id": "wb-qr-listen-country-left-united-states",
               "text": {
-                "vi": "My",
+                "vi": "Mỹ",
                 "en": "United States"
               },
               "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-usa.png"
@@ -2706,7 +2706,7 @@
             {
               "id": "wb-qr-listen-country-left-vietnam",
               "text": {
-                "vi": "Viet Nam",
+                "vi": "Việt Nam",
                 "en": "Vietnam"
               },
               "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-vietnam.png"
@@ -2725,11 +2725,11 @@
         {
           "id": "wb-qr-listen-country-right-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nghe file audio that tu QR roi chon dap an dung.",
+            "vi": "Nghe file audio thật từ QR rồi chọn đáp án đúng.",
             "en": "Listen to the real QR audio and choose the correct answer."
           },
           "source": "workbook",
@@ -2738,7 +2738,7 @@
           "srWeight": 1.15,
           "errorPatternKey": "wb-qr-listen-country-right-1.listen",
           "supportText": {
-            "vi": "Nghe hoi thoai va chon la co quoc gia cua Gayoung.",
+            "vi": "Nghe hội thoại và chọn lá cờ quốc gia của Gayoung.",
             "en": "Listen to the dialogue and choose Gayoung's country flag."
           },
           "audioText": "듣고 말하기 2. 다음을 듣고 무름에 답하세요. 안녕하세요. 저는 리사예요. 이름이 뭐예요? 안녕하세요. 저는 가영이에요. 가영 씨는 어느 나라 사람이에요? 저는 한국 사람이에요. 저는 미국 사람이에요. 영어 선생님이에요.",
@@ -2748,7 +2748,7 @@
             {
               "id": "wb-qr-listen-country-right-south-korea",
               "text": {
-                "vi": "Han Quoc",
+                "vi": "Hàn Quốc",
                 "en": "South Korea"
               },
               "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-korea.png"
@@ -2756,7 +2756,7 @@
             {
               "id": "wb-qr-listen-country-right-united-states",
               "text": {
-                "vi": "My",
+                "vi": "Mỹ",
                 "en": "United States"
               },
               "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-usa.png"
@@ -2764,7 +2764,7 @@
             {
               "id": "wb-qr-listen-country-right-vietnam",
               "text": {
-                "vi": "Viet Nam",
+                "vi": "Việt Nam",
                 "en": "Vietnam"
               },
               "imageUrl": "/generated/curriculum/unit-1/workbook/page-20/flag-vietnam.png"
@@ -2783,11 +2783,11 @@
         {
           "id": "u1-qr-left-fill-country",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Nghe lai file QR cua Natasha roi dien quoc tich bang tieng Han.",
+            "vi": "Nghe lại file QR của Natasha rồi điền quốc tịch bằng tiếng Hàn.",
             "en": "Replay Natasha's QR audio and fill in the nationality in Korean."
           },
           "source": "workbook",
@@ -2810,7 +2810,7 @@
             "미국"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
@@ -2821,11 +2821,11 @@
         {
           "id": "u1-qr-right-fill-country",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Nghe lai file QR cua Gayoung roi dien quoc tich bang tieng Han.",
+            "vi": "Nghe lại file QR của Gayoung rồi điền quốc tịch bằng tiếng Hàn.",
             "en": "Replay Gayoung's QR audio and fill in the nationality in Korean."
           },
           "source": "workbook",
@@ -2848,22 +2848,22 @@
             "미국"
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Han Quoc",
+            "vi": "Hàn Quốc",
             "en": "South Korea"
           }
         },
         {
           "id": "u1-qr-left-arrange",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Sap xep lai cau tra loi xuat hien trong file nghe QR ben trai.",
+            "vi": "Sắp xếp lại câu trả lời xuất hiện trong file nghe QR bên trái.",
             "en": "Rebuild the answer line heard in the left-side QR audio."
           },
           "source": "workbook",
@@ -2892,11 +2892,11 @@
         {
           "id": "u1-qr-right-arrange",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Sap xep lai cau tra loi xuat hien trong file nghe QR ben phai.",
+            "vi": "Sắp xếp lại câu trả lời xuất hiện trong file nghe QR bên phải.",
             "en": "Rebuild the answer line heard in the right-side QR audio."
           },
           "source": "workbook",
@@ -2925,11 +2925,11 @@
         {
           "id": "u1-qr-left-speak",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi lai cau gioi thieu quoc tich cua Natasha.",
+            "vi": "Nói lại câu giới thiệu quốc tịch của Natasha.",
             "en": "Say Natasha's nationality sentence aloud."
           },
           "source": "workbook",
@@ -2946,11 +2946,11 @@
         {
           "id": "u1-qr-right-speak",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi lai cau gioi thieu quoc tich cua Gayoung.",
+            "vi": "Nói lại câu giới thiệu quốc tịch của Gayoung.",
             "en": "Say Gayoung's nationality sentence aloud."
           },
           "source": "workbook",
@@ -2972,15 +2972,15 @@
       "sectionOrder": 5,
       "lessonRole": "review",
       "title": {
-        "vi": "On workbook 1",
+        "vi": "Ôn workbook 1",
         "en": "Review checkpoint 1"
       },
       "summary": {
-        "vi": "On lai cac loi hay gap truoc khi vao phan tong hop cuoi.",
+        "vi": "Ôn lại các lỗi hay gặp trước khi vào phần tổng hợp cuối.",
         "en": "Review common mistake patterns before the final cumulative pass."
       },
       "difficulty": {
-        "vi": "On tap tong hop",
+        "vi": "Ôn tập tổng hợp",
         "en": "Cumulative production"
       },
       "focusConcepts": [
@@ -3006,11 +3006,11 @@
         {
           "id": "wb-translate-hello-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhan y nghia truoc roi moi go lai.",
+            "vi": "Nhận ý nghĩa trước rồi mới gõ lại.",
             "en": "Recognize the meaning before typing it back."
           },
           "source": "workbook",
@@ -3024,28 +3024,28 @@
             {
               "id": "wb-translate-hello-1-correct",
               "text": {
-                "vi": "xin chao",
+                "vi": "xin chào",
                 "en": "hello"
               }
             },
             {
               "id": "wb-translate-hello-1-d1",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             },
             {
               "id": "wb-translate-hello-1-d2",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             },
             {
               "id": "wb-translate-hello-1-d3",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             }
@@ -3055,11 +3055,11 @@
         {
           "id": "wb-fill-student-ending-2",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+            "vi": "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
             "en": "Choose the answer again to avoid mixing up the ending or key noun."
           },
           "source": "workbook",
@@ -3081,11 +3081,11 @@
         {
           "id": "wb-translate-hello-2",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Go lai y nghia bang tri nho.",
+            "vi": "Gõ lại ý nghĩa bằng trí nhớ.",
             "en": "Type the meaning from memory."
           },
           "source": "workbook",
@@ -3096,23 +3096,23 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "xin chao",
+            "vi": "xin chào",
             "en": "hello"
           },
           "koreanText": "안녕하세요.",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "wb-grammar-ending-1",
           "prompt": {
-            "vi": "Chon dap an dung.",
+            "vi": "Chọn đáp án đúng.",
             "en": "Choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhac lai duoi cau lich su cot loi cua Unit 1.",
+            "vi": "Nhắc lại đuôi câu lịch sự cốt lõi của Unit 1.",
             "en": "Revisit the core polite ending for Unit 1."
           },
           "source": "workbook",
@@ -3134,11 +3134,11 @@
         {
           "id": "wb-fill-student-ending-1",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3154,22 +3154,22 @@
             "입니다."
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           },
           "clue": {
-            "vi": "Toi la hoc sinh.",
+            "vi": "Tôi là học sinh.",
             "en": "I am a student."
           }
         },
         {
           "id": "wb-translate-student-1",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "vi": "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
             "en": "Translate the meaning into a full Korean sentence."
           },
           "source": "workbook",
@@ -3180,25 +3180,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Toi la hoc sinh.",
+            "vi": "Tôi là học sinh.",
             "en": "I am a student."
           },
           "acceptedAnswers": [
             "저는 학생입니다."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "wb-grammar-ending-2",
           "prompt": {
-            "vi": "Dien vao cho trong.",
+            "vi": "Điền vào chỗ trống.",
             "en": "Fill in the blank."
           },
           "explanation": {
-            "vi": "Dien lai mo hinh N + copula.",
+            "vi": "Điền lại mô hình N + copula.",
             "en": "Fill the N + copula pattern again."
           },
           "source": "workbook",
@@ -3215,18 +3215,18 @@
             "입니다."
           ],
           "placeholder": {
-            "vi": "Nhap phan con thieu",
+            "vi": "Nhập phần còn thiếu",
             "en": "Type the missing part"
           }
         },
         {
           "id": "review-a-extra",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Keo lai cau gioi thieu goc de noi sang phan tong hop.",
+            "vi": "Kéo lại câu giới thiệu gốc để nối sang phần tổng hợp.",
             "en": "Bring back the original introduction to bridge into the cumulative section."
           },
           "source": "blended",
@@ -3238,7 +3238,7 @@
           "errorPatternKey": "review-a-extra.arrange",
           "type": "arrange_sentence",
           "meaning": {
-            "vi": "Xin chao. Toi la Minsu.",
+            "vi": "Xin chào. Tôi là Minsu.",
             "en": "Hello. I am Minsu."
           },
           "wordBank": [
@@ -3255,11 +3255,11 @@
         {
           "id": "wb-translate-student-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "vi": "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
             "en": "Say the translated sentence aloud to strengthen active production."
           },
           "source": "workbook",
@@ -3279,15 +3279,15 @@
       "sectionOrder": 5,
       "lessonRole": "review",
       "title": {
-        "vi": "On tap tong hop",
+        "vi": "Ôn tập tổng hợp",
         "en": "Cumulative review"
       },
       "summary": {
-        "vi": "Khoa lai Unit 1 bang nhieu cau phai tu go va tu noi hon.",
+        "vi": "Khóa lại Unit 1 bằng nhiều câu phải tự gõ và tự nói hơn.",
         "en": "Lock in Unit 1 with more prompts that require typing and speaking on your own."
       },
       "difficulty": {
-        "vi": "On tap tong hop",
+        "vi": "Ôn tập tổng hợp",
         "en": "Cumulative production"
       },
       "focusConcepts": [
@@ -3315,11 +3315,11 @@
         {
           "id": "wb-translate-doctor-1",
           "prompt": {
-            "vi": "Nghe roi chon dap an dung.",
+            "vi": "Nghe rồi chọn đáp án đúng.",
             "en": "Listen and choose the correct answer."
           },
           "explanation": {
-            "vi": "Nhan y nghia truoc roi moi go lai.",
+            "vi": "Nhận ý nghĩa trước rồi mới gõ lại.",
             "en": "Recognize the meaning before typing it back."
           },
           "source": "workbook",
@@ -3333,28 +3333,28 @@
             {
               "id": "wb-translate-doctor-1-correct",
               "text": {
-                "vi": "Toi la bac si.",
+                "vi": "Tôi là bác sĩ.",
                 "en": "I am a doctor."
               }
             },
             {
               "id": "wb-translate-doctor-1-d1",
               "text": {
-                "vi": "toi, em (khiem nhuong)",
+                "vi": "tôi, em (khiêm nhường)",
                 "en": "I, me (humble)"
               }
             },
             {
               "id": "wb-translate-doctor-1-d2",
               "text": {
-                "vi": "lan dau",
+                "vi": "lần đầu",
                 "en": "first time"
               }
             },
             {
               "id": "wb-translate-doctor-1-d3",
               "text": {
-                "vi": "hoc sinh, sinh vien",
+                "vi": "học sinh, sinh viên",
                 "en": "student"
               }
             }
@@ -3364,11 +3364,11 @@
         {
           "id": "wb-translate-doctor-2",
           "prompt": {
-            "vi": "Dich cau tieng Han sang y nghia.",
+            "vi": "Dịch câu tiếng Hàn sang ý nghĩa.",
             "en": "Translate the Korean into its meaning."
           },
           "explanation": {
-            "vi": "Go lai y nghia bang tri nho.",
+            "vi": "Gõ lại ý nghĩa bằng trí nhớ.",
             "en": "Type the meaning from memory."
           },
           "source": "workbook",
@@ -3379,23 +3379,23 @@
           "type": "translate",
           "direction": "ko_to_meaning",
           "meaning": {
-            "vi": "Toi la bac si.",
+            "vi": "Tôi là bác sĩ.",
             "en": "I am a doctor."
           },
           "koreanText": "저는 의사입니다.",
           "placeholder": {
-            "vi": "Nhap y nghia",
+            "vi": "Nhập ý nghĩa",
             "en": "Type the meaning"
           }
         },
         {
           "id": "wb-translate-office-worker-1",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Dich y nghia thanh cau tieng Han day du.",
+            "vi": "Dịch ý nghĩa thành câu tiếng Hàn đầy đủ.",
             "en": "Translate the meaning into a full Korean sentence."
           },
           "source": "workbook",
@@ -3406,25 +3406,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Toi la nhan vien cong ty.",
+            "vi": "Tôi là nhân viên công ty.",
             "en": "I am an office worker."
           },
           "acceptedAnswers": [
             "저는 회사원입니다."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "wb-write-doctor-1",
           "prompt": {
-            "vi": "Dich y nghia sang tieng Han.",
+            "vi": "Dịch ý nghĩa sang tiếng Hàn.",
             "en": "Translate the meaning into Korean."
           },
           "explanation": {
-            "vi": "Viet lai cau dich tu nghia da biet.",
+            "vi": "Viết lại câu dịch từ nghĩa đã biết.",
             "en": "Rewrite the target sentence from the known meaning."
           },
           "source": "workbook",
@@ -3435,25 +3435,25 @@
           "type": "translate",
           "direction": "meaning_to_ko",
           "meaning": {
-            "vi": "Toi la bac si.",
+            "vi": "Tôi là bác sĩ.",
             "en": "I am a doctor."
           },
           "acceptedAnswers": [
             "저는 의사입니다."
           ],
           "placeholder": {
-            "vi": "Nhap cau tieng Han",
+            "vi": "Nhập câu tiếng Hàn",
             "en": "Type the Korean sentence"
           }
         },
         {
           "id": "wb-guided-selfintro-1",
           "prompt": {
-            "vi": "Sap xep lai cau hoan chinh.",
+            "vi": "Sắp xếp lại câu hoàn chỉnh.",
             "en": "Arrange the words into a complete sentence."
           },
           "explanation": {
-            "vi": "Ghep lai cum cau tu gioi thieu ngan.",
+            "vi": "Ghép lại cụm câu tự giới thiệu ngắn.",
             "en": "Rebuild the short self-introduction script."
           },
           "source": "workbook",
@@ -3465,7 +3465,7 @@
           "errorPatternKey": "wb-guided-selfintro-1.arrange",
           "type": "arrange_sentence",
           "meaning": {
-            "vi": "Tu gioi thieu ngan",
+            "vi": "Tự giới thiệu ngắn",
             "en": "Short self-introduction"
           },
           "wordBank": [
@@ -3482,11 +3482,11 @@
         {
           "id": "wb-translate-office-worker-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi lai cau vua dich de tang san sinh chu dong.",
+            "vi": "Nói lại câu vừa dịch để tăng sản sinh chủ động.",
             "en": "Say the translated sentence aloud to strengthen active production."
           },
           "source": "workbook",
@@ -3501,11 +3501,11 @@
         {
           "id": "wb-write-doctor-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Doc to cau vua viet de xay phan xa noi.",
+            "vi": "Đọc to câu vừa viết để xây phản xạ nói.",
             "en": "Read the written sentence aloud to build speaking reflex."
           },
           "source": "workbook",
@@ -3520,11 +3520,11 @@
         {
           "id": "wb-guided-selfintro-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi tron mini script de mo phong speaking.",
+            "vi": "Nói trọn mini script để mô phỏng speaking.",
             "en": "Say the full mini script to simulate a speaking prompt."
           },
           "source": "workbook",
@@ -3541,11 +3541,11 @@
         {
           "id": "review-b-extra-1",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Noi tron loi chao va ten voi do tu dong cao hon.",
+            "vi": "Nói trọn lời chào và tên với độ tự động cao hơn.",
             "en": "Say the full greeting and name with more automaticity."
           },
           "source": "blended",
@@ -3562,11 +3562,11 @@
         {
           "id": "review-b-extra-2",
           "prompt": {
-            "vi": "Noi to cau nay.",
+            "vi": "Nói to câu này.",
             "en": "Say this sentence aloud."
           },
           "explanation": {
-            "vi": "Ket unit bang mot mini self-introduction day du hon.",
+            "vi": "Kết unit bằng một mini self-introduction đầy đủ hơn.",
             "en": "Close the unit with a fuller mini self-introduction."
           },
           "source": "blended",

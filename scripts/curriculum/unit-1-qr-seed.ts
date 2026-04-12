@@ -62,17 +62,17 @@ const PAGE_20_FLAG_CROPS: readonly SeededQrImageCrop[] = [
 const COUNTRY_FLAG_OPTIONS = [
   {
     id: "south-korea",
-    label: text("Han Quoc", "South Korea"),
+    label: text("Hàn Quốc", "South Korea"),
     imagePath: "/generated/curriculum/unit-1/workbook/page-20/flag-korea.png",
   },
   {
     id: "united-states",
-    label: text("My", "United States"),
+    label: text("Mỹ", "United States"),
     imagePath: "/generated/curriculum/unit-1/workbook/page-20/flag-usa.png",
   },
   {
     id: "vietnam",
-    label: text("Viet Nam", "Vietnam"),
+    label: text("Việt Nam", "Vietnam"),
     imagePath: "/generated/curriculum/unit-1/workbook/page-20/flag-vietnam.png",
   },
   {
@@ -122,7 +122,7 @@ export const UNIT_1_QR_SEED: UnitQrSeedDefinition = {
           id: "wb-qr-listen-country-left",
           exerciseType: "listening",
           prompt: args.text(
-            "Nghe hoi thoai va chon la co quoc gia cua Natasha.",
+            "Nghe hội thoại và chọn lá cờ quốc gia của Natasha.",
             "Listen to the dialogue and choose Natasha's country flag.",
           ),
           localizedText: args.text("Nga", "Russia"),
@@ -153,11 +153,11 @@ export const UNIT_1_QR_SEED: UnitQrSeedDefinition = {
           id: "wb-qr-listen-country-right",
           exerciseType: "listening",
           prompt: args.text(
-            "Nghe hoi thoai va chon la co quoc gia cua Gayoung.",
+            "Nghe hội thoại và chọn lá cờ quốc gia của Gayoung.",
             "Listen to the dialogue and choose Gayoung's country flag.",
           ),
-          localizedText: args.text("Han Quoc", "South Korea"),
-          answer: "Han Quoc",
+          localizedText: args.text("Hàn Quốc", "South Korea"),
+          answer: "Hàn Quốc",
           audioAssetId: "wb-qr-country-2-audio",
           options: COUNTRY_FLAG_OPTIONS.map((option) => ({
             id: option.id,
