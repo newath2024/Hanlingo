@@ -15,7 +15,7 @@ import type { AuthUser } from "@/types/auth";
 type AuthContextValue = {
   user: AuthUser | null;
   isLoading: boolean;
-  login: (input: { email: string; password: string }) => Promise<AuthUser>;
+  login: (input: { identifier: string; password: string }) => Promise<AuthUser>;
   register: (input: { email: string; username: string; password: string }) => Promise<AuthUser>;
   logout: () => Promise<void>;
   refresh: () => Promise<AuthUser | null>;
@@ -93,7 +93,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, [pathname, refresh, router]);
 
-  async function login(input: { email: string; password: string }) {
+  async function login(input: { identifier: string; password: string }) {
     const response = await fetch("/api/auth/login", {
       method: "POST",
       headers: {

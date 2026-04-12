@@ -1,11 +1,12 @@
 import { NextResponse } from "next/server";
 import { loginSchema } from "@/lib/api-schemas";
 import { createApiErrorResponse } from "@/lib/server/api-error-response";
-import { findUserByEmail } from "@/lib/server/data-store";
+import { findUserByEmailOrUsername } from "@/lib/server/data-store";
 import {
   applySessionCookie,
   createUserSession,
   normalizeEmail,
+  normalizeUsername,
   toAuthUser,
   verifyPassword,
 } from "@/lib/server/auth";
@@ -26,13 +27,16 @@ export async function POST(request: Request) {
       );
     }
 
-    const email = normalizeEmail(parsed.data.email);
-    const user = await findUserByEmail(email);
+    const rawIdentifier = parsed.data.identifier.trim();
+    const identifier = rawIdentifier.includes("@")
+      ? normalizeEmail(rawIdentifier)
+      : normalizeUsername(rawIdentifier);
+    const user = await findUserByEmailOrUsername(identifier);
 
     if (!user) {
       return NextResponse.json(
         {
-          error: "Email or password is incorrect.",
+          error: "Invalid credentials.",
         },
         { status: 401 },
       );
@@ -43,7 +47,7 @@ export async function POST(request: Request) {
     if (!passwordMatches) {
       return NextResponse.json(
         {
-          error: "Email or password is incorrect.",
+          error: "Invalid credentials.",
         },
         { status: 401 },
       );

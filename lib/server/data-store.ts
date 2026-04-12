@@ -837,6 +837,24 @@ export async function findUserByEmail(email: string) {
   return user ? toUserRecord(user) : null;
 }
 
+export async function findUserByEmailOrUsername(identifier: string) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    return prisma.user.findFirst({
+      where: {
+        OR: [{ email: identifier }, { username: identifier }],
+      },
+    });
+  }
+
+  const store = await readFileStore();
+  const user = store.users.find(
+    (entry) => entry.email === identifier || entry.username === identifier,
+  );
+  return user ? toUserRecord(user) : null;
+}
+
 export async function findUserById(id: string) {
   assertEnvLoaded();
 
