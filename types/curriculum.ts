@@ -6,6 +6,25 @@ export type LocalizedText = {
 export type MeaningDirection = "meaning_to_ko" | "ko_to_meaning";
 export type InteractionMode = "word_bank" | "hybrid" | "full_input";
 export type ChoicePresentation = "default" | "image_cards";
+export type GlossQuestionType =
+  | "speaking_prompt"
+  | "speaking_scaffold"
+  | "lesson_example"
+  | "grammar_example"
+  | "vocabulary_intro"
+  | "dialogue_example"
+  | "reading_support"
+  | "lesson_content"
+  | "review_light"
+  | "translation_quiz"
+  | "meaning_quiz"
+  | "listening_quiz"
+  | "fill_blank_test"
+  | "active_recall"
+  | "exam_mode"
+  | "challenge_mode"
+  | "hard_review"
+  | "matching_meaning";
 
 export type SourceBoundaryMode = "configured_page_spans" | "pdf_text_layer";
 export type ExtractionMode =
@@ -294,6 +313,8 @@ export type RuntimeTaskBase = {
   audioUrl?: string;
   interactionMode?: InteractionMode;
   sentenceKey?: string;
+  supportsGloss?: boolean;
+  questionType?: GlossQuestionType;
 };
 
 export type WordMatchTask = RuntimeTaskBase & {

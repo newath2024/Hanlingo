@@ -50,6 +50,8 @@ export default function SessionSpeakingQuestion({
   const speechSupported = useSpeechRecognitionSupport();
   const prompt = getLocalizedText(item.prompt, locale);
   const isListenRepeat = item.type === "listen_repeat";
+  const speakingQuestionType =
+    item.questionType ?? (item.stage === "production" ? "speaking_prompt" : "speaking_scaffold");
 
   const [listening, setListening] = useState(false);
   const [transcript, setTranscript] = useState("");
@@ -290,6 +292,8 @@ export default function SessionSpeakingQuestion({
             text={isListenRepeat ? item.text : item.koreanText}
             locale={locale}
             segments={!isListenRepeat ? item.glossSegments : undefined}
+            supportsGloss={item.supportsGloss}
+            questionType={speakingQuestionType}
             textClassName="korean-display"
             lang={DEFAULT_KOREAN_SPEECH_LANG}
           />

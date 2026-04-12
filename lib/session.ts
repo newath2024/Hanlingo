@@ -165,6 +165,8 @@ export function createSessionItemFromTask(task: SupportedRuntimeTask): SessionIt
     tracksServerState: true,
     interactionMode: task.interactionMode,
     sentenceKey: task.sentenceKey,
+    supportsGloss: task.supportsGloss,
+    questionType: task.questionType,
   } as const;
 
   if (task.type === "listening") {

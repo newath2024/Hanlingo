@@ -15,6 +15,7 @@ import type {
   TranslateTask,
   WordMatchTask,
   type GlossSegment,
+  type GlossQuestionType,
 } from "./curriculum";
 import type { FingerprintSummary } from "./error-fingerprint";
 
@@ -55,6 +56,8 @@ type SessionItemBase = {
   tracksServerState: boolean;
   interactionMode?: InteractionMode;
   sentenceKey?: string;
+  supportsGloss?: boolean;
+  questionType?: GlossQuestionType;
 };
 
 export type LocalizedChoiceSessionItem = SessionItemBase & {

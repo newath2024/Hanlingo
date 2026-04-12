@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppLocale } from "@/hooks/useAppLocale";
+import { getPromptGlossSegments } from "@/lib/gloss";
 import { getLocalizedText } from "@/lib/localized";
 import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import { speakIfKoreanText, speakKoreanText } from "@/lib/speech";
@@ -8,6 +9,7 @@ import { motion } from "framer-motion";
 import type { SessionItemResult, TextInputSessionItem } from "@/types/session";
 import { useEffect, useRef, useState } from "react";
 import CheckButton from "./CheckButton";
+import KoreanTextWithGloss from "./KoreanTextWithGloss";
 
 type SessionTextInputQuestionProps = {
   item: TextInputSessionItem;
@@ -46,6 +48,8 @@ export default function SessionTextInputQuestion({
   const expectedAnswers = expectsLocalizedMeaning
     ? [meaning]
     : item.acceptedAnswers ?? [];
+  const promptGlossSegments =
+    item.type === "fill_blank" && item.koreanText ? getPromptGlossSegments(item.koreanText) : [];
 
   useEffect(() => {
     return () => {
@@ -193,7 +197,22 @@ export default function SessionTextInputQuestion({
               </div>
             ) : null}
 
-            {item.koreanText ? <p className="mt-4 korean-display">{item.koreanText}</p> : null}
+            {item.koreanText ? (
+              promptGlossSegments.length > 0 ? (
+                <div className="mt-4">
+                  <KoreanTextWithGloss
+                    text={item.koreanText}
+                    locale={locale}
+                    segments={promptGlossSegments}
+                    supportsGloss
+                    showSentenceMeaning={false}
+                    textClassName="korean-display"
+                  />
+                </div>
+              ) : (
+                <p className="mt-4 korean-display">{item.koreanText}</p>
+              )
+            ) : null}
 
             {clue && !hasChoiceOptions ? (
               <div className="mt-4 rounded-[1.4rem] bg-white/80 px-4 py-3 text-left">
