@@ -11,12 +11,16 @@ type AuthFormProps = {
   mode: AuthFormMode;
 };
 
-type FieldErrors = Partial<Record<"email" | "username" | "password", string>>;
+type FieldErrors = Partial<Record<"identifier" | "email" | "username" | "password", string>>;
 
 function validate(mode: AuthFormMode, values: Record<string, string>) {
   const nextErrors: FieldErrors = {};
 
-  if (!values.email.trim()) {
+  if (mode === "login" && !values.identifier.trim()) {
+    nextErrors.identifier = "Email or username is required.";
+  }
+
+  if (mode === "register" && !values.email.trim()) {
     nextErrors.email = "Email is required.";
   }
 
@@ -37,6 +41,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
   const router = useRouter();
   const { login, register, isLoading: authLoading } = useAuth();
   const [values, setValues] = useState({
+    identifier: "",
     email: "",
     username: "",
     password: "",
@@ -87,7 +92,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
     try {
       if (mode === "login") {
         await login({
-          email: values.email,
+          identifier: values.identifier,
           password: values.password,
         });
       } else {
@@ -156,18 +161,28 @@ export default function AuthForm({ mode }: AuthFormProps) {
           {formError ? <div className="feedback-incorrect">{formError}</div> : null}
 
           <label className="space-y-2">
-            <span className="text-sm font-bold text-muted-foreground">Email</span>
+            <span className="text-sm font-bold text-muted-foreground">
+              {mode === "login" ? "Email or Username" : "Email"}
+            </span>
             <input
-              type="email"
-              value={values.email}
+              type={mode === "login" ? "text" : "email"}
+              value={mode === "login" ? values.identifier : values.email}
               onChange={(event) =>
-                setValues((current) => ({ ...current, email: event.target.value }))
+                setValues((current) => ({
+                  ...current,
+                  [mode === "login" ? "identifier" : "email"]: event.target.value,
+                }))
               }
               className="auth-input"
-              placeholder="you@example.com"
-              autoComplete="email"
+              placeholder={mode === "login" ? "Nhập email hoặc username" : "you@example.com"}
+              autoComplete={mode === "login" ? "username" : "email"}
             />
-            {fieldErrors.email ? <p className="text-sm font-bold text-danger">{fieldErrors.email}</p> : null}
+            {mode === "login" && fieldErrors.identifier ? (
+              <p className="text-sm font-bold text-danger">{fieldErrors.identifier}</p>
+            ) : null}
+            {mode === "register" && fieldErrors.email ? (
+              <p className="text-sm font-bold text-danger">{fieldErrors.email}</p>
+            ) : null}
           </label>
 
           {mode === "register" ? (

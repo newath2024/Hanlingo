@@ -74,6 +74,13 @@ export default function SessionSpeakingQuestion({
     locale,
   );
 
+  function resetCaptureState() {
+    setTranscript("");
+    setAttemptFinished(false);
+    setErrorMessage("");
+    setChunkState(createInitialChunks(item));
+  }
+
   useEffect(() => {
     const Recognition = getSpeechRecognitionConstructor();
 
@@ -175,13 +182,13 @@ export default function SessionSpeakingQuestion({
 
   function handleStartSpeaking() {
     if (!recognitionRef.current) {
+      setListening(false);
+      setAttemptFinished(false);
+      setErrorMessage(ui("Speech recognition is unavailable here.", "Nhận dạng giọng nói không khả dụng ở đây."));
       return;
     }
 
-    setErrorMessage("");
-    setTranscript("");
-    setAttemptFinished(false);
-    setChunkState(createInitialChunks(item));
+    resetCaptureState();
 
     try {
       setListening(true);
@@ -193,12 +200,7 @@ export default function SessionSpeakingQuestion({
   }
 
   function handleRetryCapture() {
-    recognitionRef.current?.stop();
-    setListening(false);
-    setTranscript("");
-    setAttemptFinished(false);
-    setErrorMessage("");
-    setChunkState(createInitialChunks(item));
+    handleStartSpeaking();
   }
 
   function handleSubmitAttempt() {
