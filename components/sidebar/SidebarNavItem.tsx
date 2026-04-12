@@ -42,7 +42,6 @@ export default function SidebarNavItem({
       aria-current={active ? "page" : undefined}
       className={`shell-nav-item ${active ? "shell-nav-item-active" : ""}`}
     >
-      <span className="shell-nav-item__active-bar" />
       <span className="shell-nav-item__icon-shell" style={getNavIconShellStyle(item, active)}>
         <MaskedStatusIcon path={item.iconPath} size={20} color="currentColor" />
       </span>

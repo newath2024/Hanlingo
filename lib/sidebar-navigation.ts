@@ -100,8 +100,8 @@ export const SIDEBAR_ICON_SOURCES = {
 
 const SIDEBAR_TONES: Record<SidebarNavItemId, SidebarTone> = {
   learn: {
-    iconColor: "#3f9446",
-    iconBackground: "rgba(88, 185, 93, 0.18)",
+    iconColor: "#d9f5dd",
+    iconBackground: "rgba(88, 185, 93, 0.24)",
     iconActiveColor: "#ffffff",
     iconActiveBackground: "#58b95d",
     badgeBackground: "rgba(88, 185, 93, 0.18)",
@@ -109,8 +109,8 @@ const SIDEBAR_TONES: Record<SidebarNavItemId, SidebarTone> = {
     badgeText: "#dff6e2",
   },
   practice: {
-    iconColor: "#9a6a10",
-    iconBackground: "rgba(242, 212, 106, 0.2)",
+    iconColor: "#f5e1ab",
+    iconBackground: "rgba(242, 212, 106, 0.24)",
     iconActiveColor: "#5b4310",
     iconActiveBackground: "#f2d46a",
     badgeBackground: "rgba(242, 212, 106, 0.18)",
@@ -118,8 +118,8 @@ const SIDEBAR_TONES: Record<SidebarNavItemId, SidebarTone> = {
     badgeText: "#fff3d2",
   },
   analytics: {
-    iconColor: "#2d6876",
-    iconBackground: "rgba(83, 147, 160, 0.18)",
+    iconColor: "#cdebf2",
+    iconBackground: "rgba(83, 147, 160, 0.24)",
     iconActiveColor: "#ffffff",
     iconActiveBackground: "#2d6876",
     badgeBackground: "rgba(83, 147, 160, 0.16)",
@@ -127,8 +127,8 @@ const SIDEBAR_TONES: Record<SidebarNavItemId, SidebarTone> = {
     badgeText: "#ddf2f5",
   },
   leaderboard: {
-    iconColor: "#9d6812",
-    iconBackground: "rgba(242, 212, 106, 0.22)",
+    iconColor: "#f7e0a2",
+    iconBackground: "rgba(242, 212, 106, 0.25)",
     iconActiveColor: "#5f4510",
     iconActiveBackground: "#f1cf69",
     badgeBackground: "rgba(242, 212, 106, 0.18)",
@@ -136,10 +136,10 @@ const SIDEBAR_TONES: Record<SidebarNavItemId, SidebarTone> = {
     badgeText: "#fff5db",
   },
   profile: {
-    iconColor: "#355a45",
-    iconBackground: "rgba(223, 246, 226, 0.18)",
+    iconColor: "#e7fcef",
+    iconBackground: "rgba(207, 244, 218, 0.26)",
     iconActiveColor: "#1d3a20",
-    iconActiveBackground: "#dff6e2",
+    iconActiveBackground: "#ebf9ef",
     badgeBackground: "rgba(223, 246, 226, 0.15)",
     badgeBorder: "rgba(223, 246, 226, 0.28)",
     badgeText: "#e8f8ea",
