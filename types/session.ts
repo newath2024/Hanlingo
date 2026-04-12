@@ -15,8 +15,8 @@ import type {
   SpeakingTask,
   TranslateTask,
   WordMatchTask,
-  type GlossSegment,
-  type GlossQuestionType,
+  GlossSegment,
+  GlossQuestionType,
 } from "./curriculum";
 import type { FingerprintSummary } from "./error-fingerprint";
 
