@@ -65,7 +65,7 @@ const DESTINATION_OPTIONS = [
 const QR_269_TRANSCRIPT =
   "리사: 실례합니다. 여기에서 서울역까지 어떻게 가요? 남자: 저기 정류장에서 100번 버스를 타십시오. 그 버스가 서울역까지 갑니다. 리사: 감사합니다. 그런데 여기에서 서울역까지 많이 멀어요? 남자: 아니요. 멀지 않아요.";
 const QR_264_TRANSCRIPT =
-  "1번, 선생님, 왜 안 와요? 미안해요. 지금 길이 많이 막혀요. 2번, 역에서 호텔까지 얼마나 걸려요? 버스를 타고 십오 분쯤 걸려요.";
+  "A: 선생님, 왜 안 와요? B: 미안해요. 지금 길이 많이 막혀요. A: 역에서 호텔까지 얼마나 걸려요? B: 버스를 타고 십오 분쯤 걸려요.";
 
 export const UNIT_16_QR_SEED: UnitQrSeedDefinition = {
   listeningPages: [264, 269, 270, 271],
@@ -290,21 +290,21 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
       id: "u16-qr-traffic-jam-image",
       sourceExerciseIds: ["wb16-qr-traffic-jam"],
       audioAssetId: "wb16-qr-traffic-audio",
-      clipStartMs: 0,
-      clipEndMs: 4200,
+      clipStartMs: 1700,
+      clipEndMs: 4100,
       type: "choose_image",
       prompt: args.text(
         "Nghe đoạn ngắn rồi chọn hình đúng.",
         "Listen to the short clip and choose the matching image.",
       ),
       questionText: args.text(
-        "Đoạn 1 nhắc tới tình huống giao thông nào?",
-        "Which traffic situation is mentioned in clip 1?",
+        "Tình huống giao thông nào đang được nhắc tới?",
+        "Which traffic situation is mentioned?",
       ),
-      transcriptKo: "선생님, 왜 안 와요? 미안해요. 지금 길이 많이 막혀요.",
+      transcriptKo: "지금 길이 많이 막혀요.",
       translation: args.text(
-        "Sao thầy vẫn chưa đến? Xin lỗi. Bây giờ đường đang tắc nhiều.",
-        "Why haven't you arrived yet? Sorry. The road is very jammed right now.",
+        "Bây giờ đường đang tắc nhiều.",
+        "The road is very jammed right now.",
       ),
       choices: [
         {
@@ -325,29 +325,74 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
       sourceRef: capture(
         "u16-qr-traffic-jam-image",
         264,
-        "퇴근 시간이라 길이 막힙니다. choose_image clip",
+        "지금 길이 많이 막혀요. choose_image clip",
       ),
       needsReview: args.needsReview,
     },
     {
-      id: "u16-qr-hotel-duration-image",
+      id: "u16-qr-traffic-reason-choice",
+      sourceExerciseIds: ["wb16-qr-traffic-jam"],
+      audioAssetId: "wb16-qr-traffic-audio",
+      clipStartMs: 1700,
+      clipEndMs: 4100,
+      type: "multiple_choice",
+      prompt: args.text(
+        "Nghe đoạn ngắn rồi chọn đáp án đúng.",
+        "Listen to the short clip and choose the correct answer.",
+      ),
+      questionText: args.text(
+        "Vì sao người đó chưa đến?",
+        "Why has the person not arrived yet?",
+      ),
+      transcriptKo: "지금 길이 많이 막혀요.",
+      translation: args.text(
+        "Bây giờ đường đang tắc nhiều.",
+        "The road is very jammed right now.",
+      ),
+      choices: [
+        {
+          id: "reason-traffic",
+          text: args.text("đường đang tắc nhiều", "the road is very jammed"),
+        },
+        {
+          id: "reason-bus",
+          text: args.text("đi xe buýt", "by bus"),
+        },
+        {
+          id: "reason-fifteen",
+          text: args.text("khoảng 15 phút", "about 15 minutes"),
+        },
+      ],
+      correctChoiceId: "reason-traffic",
+      coverageTags: ["qr-listening", "traffic", "reason"],
+      difficulty: "easy",
+      pages: page(264),
+      sourceRef: capture(
+        "u16-qr-traffic-reason-choice",
+        264,
+        "지금 길이 많이 막혀요. multiple_choice clip",
+      ),
+      needsReview: args.needsReview,
+    },
+    {
+      id: "u16-qr-hotel-transport-time-image",
       sourceExerciseIds: ["wb16-qr-hotel-duration"],
       audioAssetId: "wb16-qr-traffic-audio",
-      clipStartMs: 4300,
-      clipEndMs: 8200,
+      clipStartMs: 5200,
+      clipEndMs: 8400,
       type: "choose_image",
       prompt: args.text(
         "Nghe đoạn ngắn rồi chọn hình đúng.",
         "Listen to the short clip and choose the matching image.",
       ),
       questionText: args.text(
-        "Đoạn 2 nói đi từ ga đến khách sạn như thế nào?",
-        "How does clip 2 describe going from the station to the hotel?",
+        "Cách đi và thời gian nào được nhắc tới?",
+        "Which transport and time are mentioned?",
       ),
-      transcriptKo: "역에서 호텔까지 얼마나 걸려요? 버스를 타고 십오 분쯤 걸려요.",
+      transcriptKo: "버스를 타고 십오 분쯤 걸려요.",
       translation: args.text(
-        "Từ ga đến khách sạn mất bao lâu? Đi xe buýt thì mất khoảng 15 phút.",
-        "How long does it take from the station to the hotel? It takes about 15 minutes by bus.",
+        "Đi xe buýt thì mất khoảng 15 phút.",
+        "It takes about 15 minutes by bus.",
       ),
       choices: [
         {
@@ -362,13 +407,103 @@ export function createUnit16QrListeningItems(args: QrSeedFactoryArgs): SourceLis
         },
       ],
       correctChoiceId: "bus-to-hotel-15",
+      coverageTags: ["qr-listening", "hotel", "transport", "duration"],
+      difficulty: "easy",
+      pages: page(264),
+      sourceRef: capture(
+        "u16-qr-hotel-transport-time-image",
+        264,
+        "버스를 타고 십오 분쯤 걸려요. choose_image clip",
+      ),
+      needsReview: args.needsReview,
+    },
+    {
+      id: "u16-qr-hotel-time-choice",
+      sourceExerciseIds: ["wb16-qr-hotel-duration"],
+      audioAssetId: "wb16-qr-traffic-audio",
+      clipStartMs: 6200,
+      clipEndMs: 8400,
+      type: "multiple_choice",
+      prompt: args.text(
+        "Nghe đoạn ngắn rồi chọn đáp án đúng.",
+        "Listen to the short clip and choose the correct answer.",
+      ),
+      questionText: args.text(
+        "Mất khoảng bao lâu?",
+        "About how long does it take?",
+      ),
+      transcriptKo: "십오 분쯤 걸려요.",
+      translation: args.text(
+        "Mất khoảng 15 phút.",
+        "It takes about 15 minutes.",
+      ),
+      choices: [
+        {
+          id: "time-5",
+          text: args.text("5 phút", "5 minutes"),
+        },
+        {
+          id: "time-15",
+          text: args.text("15 phút", "15 minutes"),
+        },
+        {
+          id: "time-30",
+          text: args.text("30 phút", "30 minutes"),
+        },
+      ],
+      correctChoiceId: "time-15",
       coverageTags: ["qr-listening", "hotel", "duration"],
       difficulty: "easy",
       pages: page(264),
       sourceRef: capture(
-        "u16-qr-hotel-duration-image",
+        "u16-qr-hotel-time-choice",
         264,
-        "역에서 호텔까지 얼마나 걸려요? 버스를 타고 십오 분쯤 걸려요. choose_image clip",
+        "십오 분쯤 걸려요. multiple_choice clip",
+      ),
+      needsReview: args.needsReview,
+    },
+    {
+      id: "u16-qr-hotel-transport-choice",
+      sourceExerciseIds: ["wb16-qr-hotel-duration"],
+      audioAssetId: "wb16-qr-traffic-audio",
+      clipStartMs: 5200,
+      clipEndMs: 8400,
+      type: "multiple_choice",
+      prompt: args.text(
+        "Nghe đoạn ngắn rồi chọn đáp án đúng.",
+        "Listen to the short clip and choose the correct answer.",
+      ),
+      questionText: args.text(
+        "Đi bằng phương tiện gì?",
+        "What do they take?",
+      ),
+      transcriptKo: "버스를 타고 십오 분쯤 걸려요.",
+      translation: args.text(
+        "Đi xe buýt thì mất khoảng 15 phút.",
+        "It takes about 15 minutes by bus.",
+      ),
+      choices: [
+        {
+          id: "transport-bus",
+          text: args.text("xe buýt", "bus"),
+        },
+        {
+          id: "transport-walk",
+          text: args.text("đi bộ", "walking"),
+        },
+        {
+          id: "transport-subway",
+          text: args.text("tàu điện ngầm", "subway"),
+        },
+      ],
+      correctChoiceId: "transport-bus",
+      coverageTags: ["qr-listening", "hotel", "transport"],
+      difficulty: "easy",
+      pages: page(264),
+      sourceRef: capture(
+        "u16-qr-hotel-transport-choice",
+        264,
+        "버스를 타고 십오 분쯤 걸려요. multiple_choice clip",
       ),
       needsReview: args.needsReview,
     },

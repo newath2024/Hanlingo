@@ -2789,10 +2789,10 @@ function buildUnit16QrLessons(
       lessonRole: "workbook_practice",
       title: text("Nghe QR: kẹt xe và khách sạn", "QR listening: traffic and hotel"),
       summary: text(
-        "Tách bài QR trang 264 thành 2 clip ngắn, mỗi clip đi với đúng một câu chọn hình.",
-        "Split the page 264 QR exercise into 2 short clips, each paired with one image-choice question.",
+        "Tách bài QR trang 264 thành 5 item nghe atomic, mỗi item chỉ giữ một tín hiệu nghe cốt lõi.",
+        "Split the page 264 QR exercise into 5 atomic listening items, each built around one core listening signal.",
       ),
-      focusConcepts: ["qr-listening", "traffic", "hotel", "duration"],
+      focusConcepts: ["qr-listening", "traffic", "reason", "hotel", "transport", "duration"],
       exerciseIds: [traffic.id, hotelDuration.id],
     },
     8,
