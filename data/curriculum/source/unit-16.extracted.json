@@ -2063,70 +2063,35 @@
         "needsReview": true
       },
       {
-        "id": "wb16-qr-destination",
+        "id": "wb16-qr-service-scenes",
         "exerciseType": "listening",
         "prompt": {
-          "vi": "Nghe QR và chọn địa điểm mà Jiyeon muốn đến.",
-          "en": "Listen to the QR audio and choose Jiyeon's destination."
+          "vi": "Nghe từng câu và chọn đúng hình minh họa trong sách.",
+          "en": "Listen to each sentence and choose the matching textbook illustration."
         },
         "localizedText": {
-          "vi": "sân bay",
-          "en": "airport"
+          "vi": "tình huống dịch vụ",
+          "en": "service scene"
         },
-        "answer": "sân bay",
-        "audioAssetId": "wb16-qr-airport-audio",
-        "options": [
-          {
-            "id": "airport",
-            "label": {
-              "vi": "sân bay",
-              "en": "airport"
-            },
-            "correct": true
-          },
-          {
-            "id": "seoul-station",
-            "label": {
-              "vi": "ga Seoul",
-              "en": "Seoul Station"
-            },
-            "correct": false
-          },
-          {
-            "id": "terminal",
-            "label": {
-              "vi": "bến xe",
-              "en": "terminal"
-            },
-            "correct": false
-          },
-          {
-            "id": "harbor",
-            "label": {
-              "vi": "cảng",
-              "en": "harbor"
-            },
-            "correct": false
-          }
-        ],
+        "answer": "tình huống dịch vụ",
         "metadata": {
           "target": "qr_listening",
-          "variant": "destination_choice"
+          "variant": "service_scene_tts"
         },
         "coverageTags": [
           "qr-listening",
-          "destination",
-          "travel"
+          "service-scene",
+          "image-choice"
         ],
         "pages": {
-          "startPage": 270,
-          "endPage": 270
+          "startPage": 268,
+          "endPage": 268
         },
         "sourceRef": {
-          "rawText": "지연 씨는 공항에 가려고 해요.",
+          "rawText": "Workbook page 268 service-scene listening. Match each fixed sentence to the correct textbook illustration.",
           "confidence": 0.98,
-          "sourceBlockId": "wb16-qr-destination-seed",
-          "page": 270
+          "sourceBlockId": "wb16-qr-service-scenes-seed",
+          "page": 268
         },
         "needsReview": true
       }
@@ -2454,323 +2419,426 @@
         "needsReview": true
       },
       {
-        "id": "u16-qr-airport-destination-image",
+        "id": "u16-qr-service-ask-min-guk",
         "sourceExerciseIds": [
-          "wb16-qr-destination"
+          "wb16-qr-service-scenes"
         ],
-        "audioAssetId": "wb16-qr-airport-audio",
-        "clipStartMs": 0,
-        "clipEndMs": 2500,
+        "tts": {
+          "text": "민국 씨 자리에 있습니까?",
+          "voice": "female",
+          "speed": 0.9
+        },
         "type": "choose_image",
         "prompt": {
-          "vi": "Nghe đoạn ngắn rồi chọn nơi Jiyeon muốn đến.",
-          "en": "Listen to the short clip and choose Jiyeon's destination."
+          "vi": "맞는 그림을 고르세요.",
+          "en": "맞는 그림을 고르세요."
         },
-        "questionText": {
-          "vi": "Jiyeon muốn đến đâu?",
-          "en": "Where does Jiyeon want to go?"
-        },
-        "transcriptKo": "지연 씨는 공항에 가려고 해요.",
-        "translation": {
-          "vi": "Jiyeon muốn đi sân bay.",
-          "en": "Jiyeon wants to go to the airport."
-        },
-        "contextGroupId": "u16-qr-airport",
-        "contextTitle": {
-          "vi": "Đi sân bay",
-          "en": "Going to the airport"
-        },
-        "contextSummary": {
-          "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-          "en": "A short clip about a destination and bus advice."
-        },
+        "transcriptKo": "민국 씨 자리에 있습니까?",
         "choices": [
           {
-            "id": "airport",
+            "id": "a",
             "text": {
-              "vi": "sân bay",
-              "en": "airport"
+              "vi": "A",
+              "en": "A"
             },
-            "imagePath": "/generated/listening-cards/unit-16/airport.svg"
+            "imageId": "asking_about_person"
           },
           {
-            "id": "seoul-station",
+            "id": "b",
             "text": {
-              "vi": "ga Seoul",
-              "en": "Seoul Station"
+              "vi": "B",
+              "en": "B"
             },
-            "imagePath": "/generated/listening-cards/unit-16/seoul-station.svg"
-          },
-          {
-            "id": "terminal",
-            "text": {
-              "vi": "bến xe",
-              "en": "terminal"
-            },
-            "imagePath": "/generated/listening-cards/unit-16/terminal.svg"
+            "imageId": "receptionist_help"
           }
         ],
-        "correctChoiceId": "airport",
+        "correctChoiceId": "a",
         "coverageTags": [
           "qr-listening",
-          "destination",
-          "travel"
+          "asking-about-person",
+          "person"
         ],
         "difficulty": "easy",
         "pages": {
-          "startPage": 270,
-          "endPage": 270
+          "startPage": 268,
+          "endPage": 268
         },
         "sourceRef": {
-          "rawText": "지연 씨는 공항에 가려고 해요. choose_image clip",
+          "rawText": "민국 씨 자리에 있습니까? choose_image tts",
           "confidence": 0.98,
-          "sourceBlockId": "u16-qr-airport-destination-image-seed",
-          "page": 270
+          "sourceBlockId": "u16-qr-service-ask-min-guk-seed",
+          "page": 268
         },
         "needsReview": true
       },
       {
-        "id": "u16-qr-airport-destination-fill",
+        "id": "u16-qr-service-wait",
         "sourceExerciseIds": [
-          "wb16-qr-destination"
+          "wb16-qr-service-scenes"
         ],
-        "audioAssetId": "wb16-qr-airport-audio",
-        "clipStartMs": 0,
-        "clipEndMs": 2500,
-        "type": "fill_blank",
+        "tts": {
+          "text": "잠시만 기다리십시오.",
+          "voice": "male",
+          "speed": 0.9
+        },
+        "type": "choose_image",
         "prompt": {
-          "vi": "Nghe đoạn ngắn rồi điền nơi muốn đến.",
-          "en": "Listen to the short clip and fill in the destination."
+          "vi": "맞는 그림을 고르세요.",
+          "en": "맞는 그림을 고르세요."
         },
-        "questionText": {
-          "vi": "Hoàn thành câu còn thiếu.",
-          "en": "Complete the missing destination."
-        },
-        "transcriptKo": "지연 씨는 공항에 가려고 해요.",
-        "translation": {
-          "vi": "Jiyeon muốn đi sân bay.",
-          "en": "Jiyeon wants to go to the airport."
-        },
-        "contextGroupId": "u16-qr-airport",
-        "contextTitle": {
-          "vi": "Đi sân bay",
-          "en": "Going to the airport"
-        },
-        "contextSummary": {
-          "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-          "en": "A short clip about a destination and bus advice."
-        },
+        "transcriptKo": "잠시만 기다리십시오.",
         "choices": [
           {
-            "id": "airport-fill",
+            "id": "a",
             "text": {
-              "vi": "공항",
-              "en": "airport"
-            }
+              "vi": "A",
+              "en": "A"
+            },
+            "imageId": "asking_about_person"
           },
           {
-            "id": "station-fill",
+            "id": "b",
             "text": {
-              "vi": "서울역",
-              "en": "Seoul Station"
-            }
-          },
-          {
-            "id": "terminal-fill",
-            "text": {
-              "vi": "터미널",
-              "en": "terminal"
-            }
+              "vi": "B",
+              "en": "B"
+            },
+            "imageId": "receptionist_help"
           }
         ],
-        "correctText": "공항",
-        "acceptedAnswers": [
-          "공항"
-        ],
+        "correctChoiceId": "b",
         "coverageTags": [
           "qr-listening",
-          "destination",
-          "fill-blank"
+          "receptionist-help",
+          "wait"
         ],
         "difficulty": "easy",
         "pages": {
-          "startPage": 270,
-          "endPage": 270
+          "startPage": 268,
+          "endPage": 268
         },
         "sourceRef": {
-          "rawText": "지연 씨는 ___에 가려고 해요. fill_blank clip",
+          "rawText": "잠시만 기다리십시오. choose_image tts",
           "confidence": 0.98,
-          "sourceBlockId": "u16-qr-airport-destination-fill-seed",
-          "page": 270
+          "sourceBlockId": "u16-qr-service-wait-seed",
+          "page": 268
         },
         "needsReview": true
       },
       {
-        "id": "u16-qr-airport-bus-fill",
+        "id": "u16-qr-service-book-ticket",
         "sourceExerciseIds": [
-          "wb16-qr-destination"
+          "wb16-qr-service-scenes"
         ],
-        "audioAssetId": "wb16-qr-airport-audio",
-        "clipStartMs": 2100,
-        "clipEndMs": 5000,
-        "type": "fill_blank",
+        "tts": {
+          "text": "비행기 표를 예매하고 싶습니다.",
+          "voice": "male",
+          "speed": 0.9
+        },
+        "type": "choose_image",
         "prompt": {
-          "vi": "Nghe lời khuyên rồi điền số xe buýt.",
-          "en": "Listen to the advice clip and fill in the bus number."
+          "vi": "맞는 그림을 고르세요.",
+          "en": "맞는 그림을 고르세요."
         },
-        "questionText": {
-          "vi": "Điền số xe buýt được nhắc tới.",
-          "en": "Fill in the bus number that is mentioned."
-        },
-        "transcriptKo": "여기에서 600번 버스를 타고 가세요.",
-        "translation": {
-          "vi": "Hãy bắt xe buýt số 600 từ đây.",
-          "en": "Take bus 600 from here."
-        },
-        "contextGroupId": "u16-qr-airport",
-        "contextTitle": {
-          "vi": "Đi sân bay",
-          "en": "Going to the airport"
-        },
-        "contextSummary": {
-          "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-          "en": "A short clip about a destination and bus advice."
-        },
+        "transcriptKo": "비행기 표를 예매하고 싶습니다.",
         "choices": [
           {
-            "id": "bus-100-fill",
+            "id": "a",
             "text": {
-              "vi": "100",
-              "en": "100"
-            }
+              "vi": "A",
+              "en": "A"
+            },
+            "imageId": "airport_counter"
           },
           {
-            "id": "bus-600-fill",
+            "id": "b",
             "text": {
-              "vi": "600",
-              "en": "600"
-            }
-          },
-          {
-            "id": "bus-900-fill",
-            "text": {
-              "vi": "900",
-              "en": "900"
-            }
+              "vi": "B",
+              "en": "B"
+            },
+            "imageId": "restaurant_scene"
           }
         ],
-        "correctText": "600",
-        "acceptedAnswers": [
-          "600"
-        ],
+        "correctChoiceId": "a",
         "coverageTags": [
           "qr-listening",
-          "destination",
-          "bus-number"
+          "airport-counter",
+          "ticket"
         ],
         "difficulty": "easy",
         "pages": {
-          "startPage": 270,
-          "endPage": 270
+          "startPage": 268,
+          "endPage": 268
         },
         "sourceRef": {
-          "rawText": "여기에서 600번 버스를 타고 가세요. fill_blank clip",
+          "rawText": "비행기 표를 예매하고 싶습니다. choose_image tts",
           "confidence": 0.98,
-          "sourceBlockId": "u16-qr-airport-bus-fill-seed",
-          "page": 270
+          "sourceBlockId": "u16-qr-service-book-ticket-seed",
+          "page": 268
         },
         "needsReview": true
       },
       {
-        "id": "u16-qr-airport-order",
+        "id": "u16-qr-service-passport",
         "sourceExerciseIds": [
-          "wb16-qr-destination"
+          "wb16-qr-service-scenes"
         ],
-        "audioAssetId": "wb16-qr-airport-audio",
-        "clipStartMs": 2100,
-        "clipEndMs": 5000,
-        "type": "order_step",
+        "tts": {
+          "text": "그럼 여권을 주십시오.",
+          "voice": "male",
+          "speed": 0.9
+        },
+        "type": "choose_image",
         "prompt": {
-          "vi": "Nghe lời khuyên rồi sắp xếp lại câu chỉ đường.",
-          "en": "Listen to the advice clip and arrange the sentence in order."
+          "vi": "맞는 그림을 고르세요.",
+          "en": "맞는 그림을 고르세요."
         },
-        "questionText": {
-          "vi": "Sắp xếp lại câu xuất hiện trong audio.",
-          "en": "Arrange the sentence that appears in the audio."
-        },
-        "transcriptKo": "여기에서 600번 버스를 타고 가세요.",
-        "translation": {
-          "vi": "Hãy bắt xe buýt số 600 từ đây.",
-          "en": "Take bus 600 from here."
-        },
-        "contextGroupId": "u16-qr-airport",
-        "contextTitle": {
-          "vi": "Đi sân bay",
-          "en": "Going to the airport"
-        },
-        "contextSummary": {
-          "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-          "en": "A short clip about a destination and bus advice."
-        },
+        "transcriptKo": "그럼 여권을 주십시오.",
         "choices": [
           {
-            "id": "airport-order-1",
+            "id": "a",
             "text": {
-              "vi": "여기에서",
-              "en": "from here"
-            }
+              "vi": "A",
+              "en": "A"
+            },
+            "imageId": "airport_counter"
           },
           {
-            "id": "airport-order-2",
+            "id": "b",
             "text": {
-              "vi": "600번",
-              "en": "bus 600"
-            }
-          },
-          {
-            "id": "airport-order-3",
-            "text": {
-              "vi": "버스를",
-              "en": "the bus"
-            }
-          },
-          {
-            "id": "airport-order-4",
-            "text": {
-              "vi": "타고",
-              "en": "take and"
-            }
-          },
-          {
-            "id": "airport-order-5",
-            "text": {
-              "vi": "가세요.",
-              "en": "go please"
-            }
+              "vi": "B",
+              "en": "B"
+            },
+            "imageId": "passport_request"
           }
         ],
-        "correctOrderChoiceIds": [
-          "airport-order-1",
-          "airport-order-2",
-          "airport-order-3",
-          "airport-order-4",
-          "airport-order-5"
-        ],
+        "correctChoiceId": "b",
         "coverageTags": [
           "qr-listening",
-          "destination",
-          "route-advice"
+          "passport-request",
+          "passport"
         ],
         "difficulty": "easy",
         "pages": {
-          "startPage": 270,
-          "endPage": 270
+          "startPage": 268,
+          "endPage": 268
         },
         "sourceRef": {
-          "rawText": "여기에서 600번 버스를 타고 가세요. order_step clip",
+          "rawText": "그럼 여권을 주십시오. choose_image tts",
           "confidence": 0.98,
-          "sourceBlockId": "u16-qr-airport-order-seed",
-          "page": 270
+          "sourceBlockId": "u16-qr-service-passport-seed",
+          "page": 268
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-service-phone-number",
+        "sourceExerciseIds": [
+          "wb16-qr-service-scenes"
+        ],
+        "tts": {
+          "text": "전화번호는 어디에 써요?",
+          "voice": "female",
+          "speed": 0.9
+        },
+        "type": "choose_image",
+        "prompt": {
+          "vi": "맞는 그림을 고르세요.",
+          "en": "맞는 그림을 고르세요."
+        },
+        "transcriptKo": "전화번호는 어디에 써요?",
+        "choices": [
+          {
+            "id": "a",
+            "text": {
+              "vi": "A",
+              "en": "A"
+            },
+            "imageId": "receptionist_help"
+          },
+          {
+            "id": "b",
+            "text": {
+              "vi": "B",
+              "en": "B"
+            },
+            "imageId": "asking_about_person"
+          }
+        ],
+        "correctChoiceId": "a",
+        "coverageTags": [
+          "qr-listening",
+          "receptionist-help",
+          "phone-number"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 268,
+          "endPage": 268
+        },
+        "sourceRef": {
+          "rawText": "전화번호는 어디에 써요? choose_image tts",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-service-phone-number-seed",
+          "page": 268
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-service-name-below",
+        "sourceExerciseIds": [
+          "wb16-qr-service-scenes"
+        ],
+        "tts": {
+          "text": "이름 아래에 쓰십시오.",
+          "voice": "male",
+          "speed": 0.9
+        },
+        "type": "choose_image",
+        "prompt": {
+          "vi": "맞는 그림을 고르세요.",
+          "en": "맞는 그림을 고르세요."
+        },
+        "transcriptKo": "이름 아래에 쓰십시오.",
+        "choices": [
+          {
+            "id": "a",
+            "text": {
+              "vi": "A",
+              "en": "A"
+            },
+            "imageId": "passport_request"
+          },
+          {
+            "id": "b",
+            "text": {
+              "vi": "B",
+              "en": "B"
+            },
+            "imageId": "receptionist_help"
+          }
+        ],
+        "correctChoiceId": "b",
+        "coverageTags": [
+          "qr-listening",
+          "receptionist-help",
+          "write-name"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 268,
+          "endPage": 268
+        },
+        "sourceRef": {
+          "rawText": "이름 아래에 쓰십시오. choose_image tts",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-service-name-below-seed",
+          "page": 268
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-service-which-exercise",
+        "sourceExerciseIds": [
+          "wb16-qr-service-scenes"
+        ],
+        "tts": {
+          "text": "무슨 운동이 좋을까요?",
+          "voice": "female",
+          "speed": 0.9
+        },
+        "type": "choose_image",
+        "prompt": {
+          "vi": "맞는 그림을 고르세요.",
+          "en": "맞는 그림을 고르세요."
+        },
+        "transcriptKo": "무슨 운동이 좋을까요?",
+        "choices": [
+          {
+            "id": "a",
+            "text": {
+              "vi": "A",
+              "en": "A"
+            },
+            "imageId": "asking_about_person"
+          },
+          {
+            "id": "b",
+            "text": {
+              "vi": "B",
+              "en": "B"
+            },
+            "imageId": "restaurant_scene"
+          }
+        ],
+        "correctChoiceId": "a",
+        "coverageTags": [
+          "qr-listening",
+          "asking-about-person",
+          "exercise"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 268,
+          "endPage": 268
+        },
+        "sourceRef": {
+          "rawText": "무슨 운동이 좋을까요? choose_image tts",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-service-which-exercise-seed",
+          "page": 268
+        },
+        "needsReview": true
+      },
+      {
+        "id": "u16-qr-service-walk-daily",
+        "sourceExerciseIds": [
+          "wb16-qr-service-scenes"
+        ],
+        "tts": {
+          "text": "매일 30분 걸으십시오.",
+          "voice": "male",
+          "speed": 0.9
+        },
+        "type": "choose_image",
+        "prompt": {
+          "vi": "맞는 그림을 고르세요.",
+          "en": "맞는 그림을 고르세요."
+        },
+        "transcriptKo": "매일 30분 걸으십시오.",
+        "choices": [
+          {
+            "id": "a",
+            "text": {
+              "vi": "A",
+              "en": "A"
+            },
+            "imageId": "receptionist_help"
+          },
+          {
+            "id": "b",
+            "text": {
+              "vi": "B",
+              "en": "B"
+            },
+            "imageId": "asking_about_person"
+          }
+        ],
+        "correctChoiceId": "b",
+        "coverageTags": [
+          "qr-listening",
+          "asking-about-person",
+          "walking"
+        ],
+        "difficulty": "easy",
+        "pages": {
+          "startPage": 268,
+          "endPage": 268
+        },
+        "sourceRef": {
+          "rawText": "매일 30분 걸으십시오. choose_image tts",
+          "confidence": 0.98,
+          "sourceBlockId": "u16-qr-service-walk-daily-seed",
+          "page": 268
         },
         "needsReview": true
       }

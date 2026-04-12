@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { SourceListeningItem } from "@/types/curriculum";
+import type { ListeningTtsVoice, SourceListeningItem } from "@/types/curriculum";
 import { loadReviewedSourceUnit } from "@/lib/server/curriculum-source";
 import { getServerEnv } from "@/lib/server/env";
 
@@ -21,12 +21,23 @@ function getListeningItemById(
   return items.find((item) => item.id === itemId);
 }
 
-function resolveProviderVoice(ttsVoice: "ko-KR", providerVoice?: string) {
-  if (ttsVoice === "ko-KR") {
-    return providerVoice ?? "alloy";
+function resolveProviderVoice(
+  ttsVoice: ListeningTtsVoice,
+  options: {
+    defaultVoice?: string;
+    maleVoice?: string;
+    femaleVoice?: string;
+  },
+) {
+  if (ttsVoice === "male") {
+    return options.maleVoice ?? options.defaultVoice ?? "alloy";
   }
 
-  return providerVoice ?? "alloy";
+  if (ttsVoice === "female") {
+    return options.femaleVoice ?? options.defaultVoice ?? "alloy";
+  }
+
+  return options.defaultVoice ?? "alloy";
 }
 
 function getCacheKey(
@@ -123,7 +134,11 @@ export async function GET(_: Request, context: RouteContext) {
   }
 
   const model = env.OPENAI_TTS_MODEL ?? "gpt-4o-mini-tts";
-  const providerVoice = resolveProviderVoice(ttsConfig.voice, env.OPENAI_TTS_KO_VOICE);
+  const providerVoice = resolveProviderVoice(ttsConfig.voice, {
+    defaultVoice: env.OPENAI_TTS_KO_VOICE,
+    maleVoice: env.OPENAI_TTS_KO_MALE_VOICE,
+    femaleVoice: env.OPENAI_TTS_KO_FEMALE_VOICE,
+  });
   const cacheKey = getCacheKey(unitId, itemId, ttsConfig, model, providerVoice);
   const cachePath = getCachePath(unitId, itemId, cacheKey);
   const cachedAudio = await readCachedAudio(cachePath);

@@ -130,9 +130,11 @@ export type ListeningExerciseType =
 
 export type ListeningDifficulty = "easy" | "medium" | "hard";
 
+export type ListeningTtsVoice = "ko-KR" | "male" | "female";
+
 export type ListeningTtsConfig = {
   text: string;
-  voice: "ko-KR";
+  voice: ListeningTtsVoice;
   speed: number;
 };
 

@@ -6,7 +6,7 @@
     "en": "How do I get to Seoul Station from here?"
   },
   "subtitle": {
-    "vi": "Mo bai bang tu vung giao thong, khoa lai 에서/까지 va -으십시오/-십시오, roi on bang nghe duong di va bai doc du lich.",
+    "vi": "Mở bài bằng từ vựng giao thông, khóa lại 에서/까지 và -으십시오/-십시오, rồi ôn bằng nghe đường đi và bài đọc du lịch.",
     "en": "Open with transport vocabulary, lock in 에서/까지 and -으십시오/-십시오, then review with route listening and travel reading."
   },
   "reviewWords": [
@@ -815,7 +815,7 @@
         "en": "Ask directions and give instructions"
       },
       "summary": {
-        "vi": "Ghep lai hoi duong, loi chi duong, va cac menh lenh lich su bang -으십시오/-십시오.",
+        "vi": "Ghép lại câu hỏi đường, lời chỉ đường, và các mệnh lệnh lịch sự bằng -으십시오/-십시오.",
         "en": "Rebuild direction questions, route instructions, and polite commands with -으십시오/-십시오."
       },
       "difficulty": {
@@ -1878,7 +1878,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -1912,7 +1912,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -1946,7 +1946,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2136,7 +2136,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2172,7 +2172,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2208,7 +2208,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2244,7 +2244,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2471,7 +2471,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2507,7 +2507,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2543,7 +2543,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2579,7 +2579,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2615,7 +2615,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -2968,12 +2968,12 @@
       "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Nghe QR: s?n bay",
-        "en": "QR listening: airport"
+        "vi": "Nghe QR: tình huống dịch vụ",
+        "en": "QR listening: service scenes"
       },
       "summary": {
-        "vi": "Gi? ph?n s?n bay ? c?ng flow atomic: nghe clip ng?n, tr? l?i m?t vi?c, r?i chuy?n ti?p ngay.",
-        "en": "Keep the airport scenario in the same atomic flow: hear a short clip, answer one thing, then move on."
+        "vi": "Tách bài tranh tình huống thành 8 item choose_image dùng TTS, mỗi câu nghe độc lập và map đúng vào hình textbook.",
+        "en": "Split the service-scene workbook page into 8 TTS-backed choose-image items, each sentence mapped to the correct textbook illustration."
       },
       "difficulty": {
         "vi": "Nhớ lại và xây câu",
@@ -2981,302 +2981,382 @@
       },
       "focusConcepts": [
         "qr-listening",
-        "destination",
-        "travel",
-        "directions"
+        "service-scene",
+        "airport-counter",
+        "receptionist-help",
+        "passport-request",
+        "asking-about-person"
       ],
       "sourceExerciseIds": [
-        "wb16-qr-destination"
+        "wb16-qr-service-scenes"
       ],
       "coverageTags": [
         "qr-listening",
-        "destination",
-        "travel",
-        "fill-blank",
-        "bus-number",
-        "route-advice"
+        "asking-about-person",
+        "person",
+        "receptionist-help",
+        "wait",
+        "airport-counter",
+        "ticket",
+        "passport-request",
+        "passport",
+        "phone-number",
+        "write-name",
+        "exercise",
+        "walking"
       ],
       "tasks": [
         {
-          "id": "u16-qr-airport-destination-image",
+          "id": "u16-qr-service-ask-min-guk",
           "prompt": {
-            "vi": "Nghe đoạn ngắn rồi chọn nơi Jiyeon muốn đến.",
-            "en": "Listen to the short clip and choose Jiyeon's destination."
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
           },
           "explanation": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
-          "errorPatternKey": "u16-qr-airport-destination-image.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-airport-audio",
+          "errorPatternKey": "u16-qr-service-ask-min-guk.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-service-ask-min-guk",
           "type": "listening",
           "listeningType": "choose_image",
-          "clipStartMs": 0,
-          "clipEndMs": 2500,
-          "questionText": {
-            "vi": "Jiyeon muốn đến đâu?",
-            "en": "Where does Jiyeon want to go?"
+          "tts": {
+            "text": "민국 씨 자리에 있습니까?",
+            "voice": "female",
+            "speed": 0.9
           },
-          "transcriptKo": "지연 씨는 공항에 가려고 해요.",
-          "translation": {
-            "vi": "Jiyeon muốn đi sân bay.",
-            "en": "Jiyeon wants to go to the airport."
-          },
-          "contextGroupId": "u16-qr-airport",
-          "contextTitle": {
-            "vi": "Đi sân bay",
-            "en": "Going to the airport"
-          },
-          "contextSummary": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
+          "transcriptKo": "민국 씨 자리에 있습니까?",
           "choices": [
             {
-              "id": "airport",
+              "id": "a",
               "text": {
-                "vi": "sân bay",
-                "en": "airport"
+                "vi": "A",
+                "en": "A"
               },
-              "imageUrl": "/generated/listening-cards/unit-16/airport.svg"
+              "imageUrl": "/generated/listening-cards/unit-16/asking-about-person.png"
             },
             {
-              "id": "seoul-station",
+              "id": "b",
               "text": {
-                "vi": "ga Seoul",
-                "en": "Seoul Station"
+                "vi": "B",
+                "en": "B"
               },
-              "imageUrl": "/generated/listening-cards/unit-16/seoul-station.svg"
-            },
-            {
-              "id": "terminal",
-              "text": {
-                "vi": "bến xe",
-                "en": "terminal"
-              },
-              "imageUrl": "/generated/listening-cards/unit-16/terminal.svg"
+              "imageUrl": "/generated/listening-cards/unit-16/receptionist-help.png"
             }
           ],
-          "correctChoiceId": "airport"
+          "correctChoiceId": "a"
         },
         {
-          "id": "u16-qr-airport-destination-fill",
+          "id": "u16-qr-service-wait",
           "prompt": {
-            "vi": "Nghe đoạn ngắn rồi điền nơi muốn đến.",
-            "en": "Listen to the short clip and fill in the destination."
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
           },
           "explanation": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
           },
           "source": "workbook",
-          "stage": "construction",
+          "stage": "recognition",
           "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "u16-qr-airport-destination-fill.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-airport-audio",
+          "srWeight": 1.15,
+          "errorPatternKey": "u16-qr-service-wait.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-service-wait",
           "type": "listening",
-          "listeningType": "fill_blank",
-          "clipStartMs": 0,
-          "clipEndMs": 2500,
-          "questionText": {
-            "vi": "Hoàn thành câu còn thiếu.",
-            "en": "Complete the missing destination."
+          "listeningType": "choose_image",
+          "tts": {
+            "text": "잠시만 기다리십시오.",
+            "voice": "male",
+            "speed": 0.9
           },
-          "transcriptKo": "지연 씨는 공항에 가려고 해요.",
-          "translation": {
-            "vi": "Jiyeon muốn đi sân bay.",
-            "en": "Jiyeon wants to go to the airport."
-          },
-          "contextGroupId": "u16-qr-airport",
-          "contextTitle": {
-            "vi": "Đi sân bay",
-            "en": "Going to the airport"
-          },
-          "contextSummary": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
+          "transcriptKo": "잠시만 기다리십시오.",
           "choices": [
             {
-              "id": "airport-fill",
+              "id": "a",
               "text": {
-                "vi": "공항",
-                "en": "airport"
-              }
+                "vi": "A",
+                "en": "A"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/asking-about-person.png"
             },
             {
-              "id": "station-fill",
+              "id": "b",
               "text": {
-                "vi": "서울역",
-                "en": "Seoul Station"
-              }
-            },
-            {
-              "id": "terminal-fill",
-              "text": {
-                "vi": "터미널",
-                "en": "terminal"
-              }
+                "vi": "B",
+                "en": "B"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/receptionist-help.png"
             }
           ],
-          "correctText": "공항",
-          "acceptedAnswers": [
-            "공항"
-          ]
+          "correctChoiceId": "b"
         },
         {
-          "id": "u16-qr-airport-bus-fill",
+          "id": "u16-qr-service-book-ticket",
           "prompt": {
-            "vi": "Nghe lời khuyên rồi điền số xe buýt.",
-            "en": "Listen to the advice clip and fill in the bus number."
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
           },
           "explanation": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
           },
           "source": "workbook",
-          "stage": "construction",
+          "stage": "recognition",
           "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "u16-qr-airport-bus-fill.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-airport-audio",
+          "srWeight": 1.15,
+          "errorPatternKey": "u16-qr-service-book-ticket.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-service-book-ticket",
           "type": "listening",
-          "listeningType": "fill_blank",
-          "clipStartMs": 2100,
-          "clipEndMs": 5000,
-          "questionText": {
-            "vi": "Điền số xe buýt được nhắc tới.",
-            "en": "Fill in the bus number that is mentioned."
+          "listeningType": "choose_image",
+          "tts": {
+            "text": "비행기 표를 예매하고 싶습니다.",
+            "voice": "male",
+            "speed": 0.9
           },
-          "transcriptKo": "여기에서 600번 버스를 타고 가세요.",
-          "translation": {
-            "vi": "Hãy bắt xe buýt số 600 từ đây.",
-            "en": "Take bus 600 from here."
-          },
-          "contextGroupId": "u16-qr-airport",
-          "contextTitle": {
-            "vi": "Đi sân bay",
-            "en": "Going to the airport"
-          },
-          "contextSummary": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
+          "transcriptKo": "비행기 표를 예매하고 싶습니다.",
           "choices": [
             {
-              "id": "bus-100-fill",
+              "id": "a",
               "text": {
-                "vi": "100",
-                "en": "100"
-              }
+                "vi": "A",
+                "en": "A"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/airport-counter.png"
             },
             {
-              "id": "bus-600-fill",
+              "id": "b",
               "text": {
-                "vi": "600",
-                "en": "600"
-              }
-            },
-            {
-              "id": "bus-900-fill",
-              "text": {
-                "vi": "900",
-                "en": "900"
-              }
+                "vi": "B",
+                "en": "B"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/restaurant-scene.png"
             }
           ],
-          "correctText": "600",
-          "acceptedAnswers": [
-            "600"
-          ]
+          "correctChoiceId": "a"
         },
         {
-          "id": "u16-qr-airport-order",
+          "id": "u16-qr-service-passport",
           "prompt": {
-            "vi": "Nghe lời khuyên rồi sắp xếp lại câu chỉ đường.",
-            "en": "Listen to the advice clip and arrange the sentence in order."
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
           },
           "explanation": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
           },
           "source": "workbook",
-          "stage": "construction",
+          "stage": "recognition",
           "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "u16-qr-airport-order.listening",
-          "audioUrl": "/api/audio/16/wb16-qr-airport-audio",
+          "srWeight": 1.15,
+          "errorPatternKey": "u16-qr-service-passport.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-service-passport",
           "type": "listening",
-          "listeningType": "order_step",
-          "clipStartMs": 2100,
-          "clipEndMs": 5000,
-          "questionText": {
-            "vi": "Sắp xếp lại câu xuất hiện trong audio.",
-            "en": "Arrange the sentence that appears in the audio."
+          "listeningType": "choose_image",
+          "tts": {
+            "text": "그럼 여권을 주십시오.",
+            "voice": "male",
+            "speed": 0.9
           },
-          "transcriptKo": "여기에서 600번 버스를 타고 가세요.",
-          "translation": {
-            "vi": "Hãy bắt xe buýt số 600 từ đây.",
-            "en": "Take bus 600 from here."
-          },
-          "contextGroupId": "u16-qr-airport",
-          "contextTitle": {
-            "vi": "Đi sân bay",
-            "en": "Going to the airport"
-          },
-          "contextSummary": {
-            "vi": "Một đoạn nhắc tới điểm đến và lời khuyên bắt xe buýt.",
-            "en": "A short clip about a destination and bus advice."
-          },
+          "transcriptKo": "그럼 여권을 주십시오.",
           "choices": [
             {
-              "id": "airport-order-1",
+              "id": "a",
               "text": {
-                "vi": "여기에서",
-                "en": "from here"
-              }
+                "vi": "A",
+                "en": "A"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/airport-counter.png"
             },
             {
-              "id": "airport-order-2",
+              "id": "b",
               "text": {
-                "vi": "600번",
-                "en": "bus 600"
-              }
-            },
-            {
-              "id": "airport-order-3",
-              "text": {
-                "vi": "버스를",
-                "en": "the bus"
-              }
-            },
-            {
-              "id": "airport-order-4",
-              "text": {
-                "vi": "타고",
-                "en": "take and"
-              }
-            },
-            {
-              "id": "airport-order-5",
-              "text": {
-                "vi": "가세요.",
-                "en": "go please"
-              }
+                "vi": "B",
+                "en": "B"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/passport-request.png"
             }
           ],
-          "correctOrderChoiceIds": [
-            "airport-order-1",
-            "airport-order-2",
-            "airport-order-3",
-            "airport-order-4",
-            "airport-order-5"
-          ]
+          "correctChoiceId": "b"
+        },
+        {
+          "id": "u16-qr-service-phone-number",
+          "prompt": {
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
+          },
+          "explanation": {
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "u16-qr-service-phone-number.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-service-phone-number",
+          "type": "listening",
+          "listeningType": "choose_image",
+          "tts": {
+            "text": "전화번호는 어디에 써요?",
+            "voice": "female",
+            "speed": 0.9
+          },
+          "transcriptKo": "전화번호는 어디에 써요?",
+          "choices": [
+            {
+              "id": "a",
+              "text": {
+                "vi": "A",
+                "en": "A"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/receptionist-help.png"
+            },
+            {
+              "id": "b",
+              "text": {
+                "vi": "B",
+                "en": "B"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/asking-about-person.png"
+            }
+          ],
+          "correctChoiceId": "a"
+        },
+        {
+          "id": "u16-qr-service-name-below",
+          "prompt": {
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
+          },
+          "explanation": {
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "u16-qr-service-name-below.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-service-name-below",
+          "type": "listening",
+          "listeningType": "choose_image",
+          "tts": {
+            "text": "이름 아래에 쓰십시오.",
+            "voice": "male",
+            "speed": 0.9
+          },
+          "transcriptKo": "이름 아래에 쓰십시오.",
+          "choices": [
+            {
+              "id": "a",
+              "text": {
+                "vi": "A",
+                "en": "A"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/passport-request.png"
+            },
+            {
+              "id": "b",
+              "text": {
+                "vi": "B",
+                "en": "B"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/receptionist-help.png"
+            }
+          ],
+          "correctChoiceId": "b"
+        },
+        {
+          "id": "u16-qr-service-which-exercise",
+          "prompt": {
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
+          },
+          "explanation": {
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "u16-qr-service-which-exercise.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-service-which-exercise",
+          "type": "listening",
+          "listeningType": "choose_image",
+          "tts": {
+            "text": "무슨 운동이 좋을까요?",
+            "voice": "female",
+            "speed": 0.9
+          },
+          "transcriptKo": "무슨 운동이 좋을까요?",
+          "choices": [
+            {
+              "id": "a",
+              "text": {
+                "vi": "A",
+                "en": "A"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/asking-about-person.png"
+            },
+            {
+              "id": "b",
+              "text": {
+                "vi": "B",
+                "en": "B"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/restaurant-scene.png"
+            }
+          ],
+          "correctChoiceId": "a"
+        },
+        {
+          "id": "u16-qr-service-walk-daily",
+          "prompt": {
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
+          },
+          "explanation": {
+            "vi": "맞는 그림을 고르세요.",
+            "en": "맞는 그림을 고르세요."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "u16-qr-service-walk-daily.listening",
+          "audioUrl": "/api/audio/tts/16/u16-qr-service-walk-daily",
+          "type": "listening",
+          "listeningType": "choose_image",
+          "tts": {
+            "text": "매일 30분 걸으십시오.",
+            "voice": "male",
+            "speed": 0.9
+          },
+          "transcriptKo": "매일 30분 걸으십시오.",
+          "choices": [
+            {
+              "id": "a",
+              "text": {
+                "vi": "A",
+                "en": "A"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/receptionist-help.png"
+            },
+            {
+              "id": "b",
+              "text": {
+                "vi": "B",
+                "en": "B"
+              },
+              "imageUrl": "/generated/listening-cards/unit-16/asking-about-person.png"
+            }
+          ],
+          "correctChoiceId": "b"
         }
       ]
     },
@@ -3468,7 +3548,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3502,7 +3582,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3536,7 +3616,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3570,7 +3650,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3604,7 +3684,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",
@@ -3797,7 +3877,7 @@
             "en": "Complete the sentence."
           },
           "explanation": {
-            "vi": "Dien lai dung phan con thieu cua mau cau.",
+            "vi": "Điền lại đúng phần còn thiếu của mẫu câu.",
             "en": "Fill the missing part of the sentence pattern."
           },
           "source": "workbook",

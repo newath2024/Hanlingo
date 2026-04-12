@@ -105,7 +105,7 @@ const listeningDifficultySchema = z.enum(["easy", "medium", "hard"]);
 
 const listeningTtsConfigSchema = z.object({
   text: z.string().min(1),
-  voice: z.literal("ko-KR"),
+  voice: z.enum(["ko-KR", "male", "female"]),
   speed: z.number().positive(),
 });
 
