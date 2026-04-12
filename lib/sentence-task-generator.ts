@@ -80,6 +80,28 @@ function uniqueValues(values: string[]) {
   return [...new Set(values.filter((value) => value.trim()))];
 }
 
+function buildWordBankValues(chunks: string[], distractors: string[]) {
+  const wordBank = [...chunks];
+  const seenNormalizedValues = new Set(chunks.map((chunk) => normalizeSentenceKey(chunk)));
+
+  distractors.forEach((distractor) => {
+    if (!distractor.trim()) {
+      return;
+    }
+
+    const normalizedDistractor = normalizeSentenceKey(distractor);
+
+    if (seenNormalizedValues.has(normalizedDistractor)) {
+      return;
+    }
+
+    seenNormalizedValues.add(normalizedDistractor);
+    wordBank.push(distractor);
+  });
+
+  return wordBank;
+}
+
 function hashString(value: string) {
   let hash = 0;
 
@@ -307,7 +329,7 @@ function createWordBankTask(
     input.distractorPool,
   );
   const wordBank = deterministicShuffle(
-    uniqueValues([...chunks, ...distractors]),
+    buildWordBankValues(chunks, distractors),
     `${input.sentenceKey}:word-bank`,
   );
 
