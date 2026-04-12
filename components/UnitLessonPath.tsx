@@ -42,22 +42,22 @@ function getLessonRoleLabel(
   locale: AppLocale,
 ) {
   if (role === "intro") {
-    return ui(locale, "Textbook", "Giao trinh");
+    return ui(locale, "Textbook", "Giáo trình");
   }
 
   if (role === "grammar") {
-    return ui(locale, "Grammar", "Ngu phap");
+    return ui(locale, "Grammar", "Ngữ pháp");
   }
 
   if (role === "dialogue") {
-    return ui(locale, "Dialogue", "Hoi thoai");
+    return ui(locale, "Dialogue", "Hội thoại");
   }
 
   if (role === "workbook_practice") {
     return "Workbook";
   }
 
-  return ui(locale, "Review", "On tap");
+  return ui(locale, "Review", "Ôn tập");
 }
 
 function NodeStatusGlyph({ state }: { state: PathNodeState }) {
@@ -169,7 +169,7 @@ export default function UnitLessonPath({
                     {ui(locale, "Section", "Section")} {section.order}
                   </span>
                   <span className="pill bg-card-strong text-foreground">
-                    {ui(locale, `${sectionNodes.length} lessons`, `${sectionNodes.length} bai hoc`)}
+                    {ui(locale, `${sectionNodes.length} lessons`, `${sectionNodes.length} bài học`)}
                   </span>
                 </div>
                 <h3 className="mt-3 font-display text-3xl text-foreground">
@@ -197,14 +197,14 @@ export default function UnitLessonPath({
                   >
                     {state === "current" ? (
                       <span className="rounded-full bg-[#18261d] px-3 py-1 text-xs font-black uppercase tracking-[0.18em] text-white shadow-[0_10px_24px_rgba(20,35,27,0.18)]">
-                        {ui(locale, "Start lesson", "Vao bai")}
+                        {ui(locale, "Start lesson", "Vào bài")}
                       </span>
                     ) : null}
 
                     {state === "locked" ? (
                       <div
                         className={`path-node-circle ${tone.circle}`}
-                        aria-label={ui(locale, "Locked lesson", "Bai da khoa")}
+                        aria-label={ui(locale, "Locked lesson", "Bài đã khóa")}
                       >
                         <NodeStatusGlyph state={state} />
                       </div>
@@ -216,7 +216,7 @@ export default function UnitLessonPath({
                         aria-label={ui(
                           locale,
                           `${state === "current" ? "Current" : state === "completed" ? "Completed" : "Available"} lesson: ${getLocalizedText(node.title, locale)}`,
-                          `${state === "current" ? "Bai hien tai" : state === "completed" ? "Bai da xong" : "Bai co the hoc"}: ${getLocalizedText(node.title, locale)}`,
+                          `${state === "current" ? "Bài hiện tại" : state === "completed" ? "Bài đã xong" : "Bài có thể học"}: ${getLocalizedText(node.title, locale)}`,
                         )}
                       >
                         <NodeStatusGlyph state={state} />
@@ -226,7 +226,7 @@ export default function UnitLessonPath({
                     <div className={`w-full rounded-[1.5rem] border px-4 py-3 shadow-[0_10px_22px_rgba(47,92,51,0.06)] ${tone.card}`}>
                       <div className="flex flex-wrap items-center gap-2">
                         <span className={`pill ${tone.chip}`}>
-                          {ui(locale, "Lesson", "Bai")} {node.order}
+                          {ui(locale, "Lesson", "Bài")} {node.order}
                         </span>
                         <span className="pill bg-white text-muted-foreground">
                           {getLessonRoleLabel(node.lessonRole, locale)}

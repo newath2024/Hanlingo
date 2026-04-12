@@ -45,7 +45,7 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
                 {ui(locale, "Unit", "Unit")} {unit.unitNumber}
               </span>
               <span className="pill bg-muted text-muted-foreground">
-                {ui(locale, "Locked", "Bi khoa")}
+                {ui(locale, "Locked", "Bị khóa")}
               </span>
             </div>
 
@@ -63,13 +63,13 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
         <section className="panel">
           <div className="lesson-card space-y-6 text-center">
             <span className="pill mx-auto bg-card-strong text-foreground">
-              {ui(locale, "Sequential unlock", "Mo khoa tuan tu")}
+              {ui(locale, "Sequential unlock", "Mở khóa tuần tự")}
             </span>
             <h2 className="font-display text-4xl text-foreground sm:text-5xl">
               {ui(
                 locale,
                 "This unit opens only after the previous one is complete.",
-                "Unit nay chi mo sau khi ban hoan thanh unit truoc.",
+                "Unit này chỉ mở sau khi bạn hoàn thành unit trước.",
               )}
             </h2>
             <p className="text-base font-bold text-muted-foreground">
@@ -77,19 +77,19 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
                 ? ui(
                     locale,
                     `Finish Unit ${previousUnit.unitNumber} first, then come back here.`,
-                    `Hay hoan thanh Unit ${previousUnit.unitNumber} truoc, roi quay lai day.`,
+                    `Hãy hoàn thành Unit ${previousUnit.unitNumber} trước, rồi quay lại đây.`,
                   )
                 : ui(
                     locale,
                     "Start from the first unit and move forward in order.",
-                    "Hay bat dau tu unit dau tien va di tiep theo dung thu tu.",
+                    "Hãy bắt đầu từ unit đầu tiên và đi tiếp theo đúng thứ tự.",
                   )}
             </p>
 
             {currentUnit ? (
               <div className="rounded-[1.8rem] bg-card-soft px-5 py-4 text-left">
                 <p className="text-sm font-black uppercase tracking-[0.16em] text-muted-foreground">
-                  {ui(locale, "Current unlocked unit", "Unit dang mo")}
+                  {ui(locale, "Current unlocked unit", "Unit đang mở")}
                 </p>
                 <p className="mt-2 text-2xl font-extrabold text-foreground">
                   {ui(locale, "Unit", "Unit")} {currentUnit.unitNumber}:{" "}
@@ -103,10 +103,10 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
                 href={currentUnit ? `/unit/${currentUnit.id}` : "/"}
                 className="primary-button w-full"
               >
-                {ui(locale, "Go to current unit", "Toi unit hien tai")}
+                {ui(locale, "Go to current unit", "Tới unit hiện tại")}
               </Link>
               <Link href="/" className="secondary-button w-full">
-                {ui(locale, "Back to learn", "Ve trang hoc")}
+                {ui(locale, "Back to learn", "Về trang học")}
               </Link>
             </div>
 
@@ -146,7 +146,7 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
                   {ui(
                     locale,
                     `${completedNodeCount}/${unit.nodes.length} lessons complete`,
-                    `${completedNodeCount}/${unit.nodes.length} bai da xong`,
+                    `${completedNodeCount}/${unit.nodes.length} bài đã xong`,
                   )}
                 </span>
                 <span>{progressPercent}%</span>
@@ -162,18 +162,18 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
 
           <div className="w-full max-w-[360px] rounded-[2rem] bg-[#18261d] p-5 text-white shadow-[0_24px_64px_rgba(20,35,27,0.22)]">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-white/58">
-              {ui(locale, "Next lesson", "Bai tiep theo")}
+              {ui(locale, "Next lesson", "Bài tiếp theo")}
             </p>
             <h2 className="mt-4 font-display text-4xl leading-tight text-white">
               {currentNode
                 ? getLocalizedText(currentNode.title, locale)
-                : ui(locale, "This unit is ready to review.", "Unit nay san sang de on lai.")}
+                : ui(locale, "This unit is ready to review.", "Unit này sẵn sàng để ôn lại.")}
             </h2>
             <p className="mt-3 text-sm font-bold text-white/68">
               {ui(
                 locale,
                 "Open the highlighted node and keep momentum through the path.",
-                "Mo node dang duoc to sang va giu nhip di tiep tren duong hoc.",
+                "Mở node đang được tô sáng và giữ nhịp đi tiếp trên đường học.",
               )}
             </p>
 
@@ -182,13 +182,13 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
                 href={currentNode ? `/node/${currentNode.id}` : `/unit/${unit.id}`}
                 className="primary-button w-full border-0 bg-[#8ce052] text-[#14231b] hover:bg-[#9bea66]"
               >
-                {ui(locale, "Continue", "Tiep tuc")}
+                {ui(locale, "Continue", "Tiếp tục")}
               </Link>
               <Link
                 href="/practice"
                 className="inline-flex w-full items-center justify-center rounded-full border border-white/12 bg-white/8 px-6 py-3.5 text-base font-extrabold text-white transition hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/12"
               >
-                {ui(locale, "Practice later", "Luyen tap sau")}
+                {ui(locale, "Practice later", "Luyện tập sau")}
               </Link>
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
 
         {isLoading ? (
           <div className="mt-6 rounded-[1.8rem] bg-card-soft px-5 py-4 text-base font-bold text-muted-foreground">
-            {ui(locale, "Loading your unit path...", "Dang tai lo trinh unit...")}
+            {ui(locale, "Loading your unit path...", "Đang tải lộ trình unit...")}
           </div>
         ) : null}
 
@@ -208,14 +208,14 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-black uppercase tracking-[0.2em] text-muted-foreground">
-                {ui(locale, "Lesson path", "Duong bai hoc")}
+                {ui(locale, "Lesson path", "Đường bài học")}
               </p>
               <h2 className="mt-2 font-display text-3xl text-foreground">
-                {ui(locale, "Follow the next node, one lesson at a time.", "Di theo node tiep theo, tung bai mot.")}
+                {ui(locale, "Follow the next node, one lesson at a time.", "Đi theo node tiếp theo, từng bài một.")}
               </h2>
             </div>
             <span className="pill bg-card-strong text-foreground">
-              {ui(locale, "Current node is pulsing", "Node hien tai dang phat sang")}
+              {ui(locale, "Current node is pulsing", "Node hiện tại đang phát sáng")}
             </span>
           </div>
 

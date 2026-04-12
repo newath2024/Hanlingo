@@ -174,20 +174,20 @@ function buildAdaptivePrompt(mode: InteractionMode): LocalizedText {
   if (mode === "word_bank") {
     return {
       en: "Arrange the Korean chunks into the full sentence.",
-      vi: "Sap xep cac cum tieng Han thanh cau hoan chinh.",
+      vi: "Sắp xếp các cụm tiếng Hàn thành câu hoàn chỉnh.",
     };
   }
 
   if (mode === "hybrid") {
     return {
       en: "Complete the sentence.",
-      vi: "Hoan thanh cau.",
+      vi: "Hoàn thành câu.",
     };
   }
 
   return {
     en: "Translate the meaning into Korean.",
-    vi: "Dich nghia sang tieng Han.",
+    vi: "Dịch nghĩa sang tiếng Hàn.",
   };
 }
 
@@ -409,7 +409,7 @@ function createFullInputTask(
       acceptedAnswers: [input.sentenceKr],
       placeholder: {
         en: "Type the Korean sentence",
-        vi: "Nhap cau tieng Han",
+        vi: "Nhập câu tiếng Hàn",
       },
       interactionMode: "full_input",
       sentenceKey: input.sentenceKey,

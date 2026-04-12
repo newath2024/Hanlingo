@@ -16,14 +16,14 @@ export default function SidebarBrand({ locale }: SidebarBrandProps) {
       <div className="sidebar-brand-glow" aria-hidden />
       <Link href="/" className="sidebar-brand-card">
         <span className="sidebar-brand__eyebrow">
-          {ui(locale, "Korean learning path", "Lo trinh tieng Han")}
+          {ui(locale, "Korean learning path", "Lộ trình tiếng Hàn")}
         </span>
         <span className="sidebar-brand__wordmark">Hanlingo</span>
         <p className="sidebar-brand__support">
           {ui(
             locale,
             "Focused Korean study with game energy.",
-            "Hoc tieng Han gon, co nhip, co huong.",
+            "Học tiếng Hàn gọn, có nhịp, có hướng.",
           )}
         </p>
       </Link>

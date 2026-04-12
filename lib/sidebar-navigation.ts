@@ -153,8 +153,8 @@ function formatCountBadge(value: number) {
 export const SIDEBAR_STATUS_CARDS: SidebarStatConfig[] = [
   {
     id: "streak",
-    label: { en: "Streak", vi: "Chuoi ngay" },
-    caption: { en: "days in a row", vi: "ngay lien tiep" },
+    label: { en: "Streak", vi: "Chuỗi ngày" },
+    caption: { en: "days in a row", vi: "ngày liên tiếp" },
     iconPath: SIDEBAR_ICON_PATHS.status.streak,
     tone: {
       iconColor: "#9a6013",
@@ -165,8 +165,8 @@ export const SIDEBAR_STATUS_CARDS: SidebarStatConfig[] = [
   },
   {
     id: "todayXp",
-    label: { en: "Today XP", vi: "XP hom nay" },
-    caption: { en: "earned today", vi: "kiem hom nay" },
+    label: { en: "Today XP", vi: "XP hôm nay" },
+    caption: { en: "earned today", vi: "kiếm hôm nay" },
     iconPath: SIDEBAR_ICON_PATHS.status.todayXp,
     tone: {
       iconColor: "#2f8f46",
@@ -180,21 +180,21 @@ export const SIDEBAR_STATUS_CARDS: SidebarStatConfig[] = [
 export const SIDEBAR_NAV_SECTIONS: SidebarNavSectionConfig[] = [
   {
     id: "learning",
-    label: { en: "Learning", vi: "Hoc tap" },
+    label: { en: "Learning", vi: "Học tập" },
     items: [
       {
         id: "learn",
         href: "/",
-        label: { en: "Learn", vi: "Hoc" },
-        mobileLabel: { en: "Learn", vi: "Hoc" },
+        label: { en: "Learn", vi: "Học" },
+        mobileLabel: { en: "Learn", vi: "Học" },
         iconPath: SIDEBAR_ICON_PATHS.navigation.learn,
         tone: SIDEBAR_TONES.learn,
       },
       {
         id: "practice",
         href: "/practice",
-        label: { en: "Practice", vi: "Luyen tap" },
-        mobileLabel: { en: "Practice", vi: "Luyen" },
+        label: { en: "Practice", vi: "Luyện tập" },
+        mobileLabel: { en: "Practice", vi: "Luyện" },
         iconPath: SIDEBAR_ICON_PATHS.navigation.practice,
         tone: SIDEBAR_TONES.practice,
         getBadge: (summary) => {
@@ -204,7 +204,7 @@ export const SIDEBAR_NAV_SECTIONS: SidebarNavSectionConfig[] = [
 
           return {
             text: formatCountBadge(summary.practice.dueMistakeCount),
-            title: { en: "Mistakes to review", vi: "Loi can on" },
+            title: { en: "Mistakes to review", vi: "Lỗi cần ôn" },
           };
         },
       },
@@ -212,20 +212,20 @@ export const SIDEBAR_NAV_SECTIONS: SidebarNavSectionConfig[] = [
   },
   {
     id: "progress",
-    label: { en: "Progress", vi: "Tien do" },
+    label: { en: "Progress", vi: "Tiến độ" },
     items: [
       {
         id: "analytics",
         href: "/analytics",
-        label: { en: "Analytics", vi: "Phan tich" },
-        mobileLabel: { en: "Stats", vi: "Stats" },
+        label: { en: "Analytics", vi: "Phân tích" },
+        mobileLabel: { en: "Stats", vi: "Chỉ số" },
         iconPath: SIDEBAR_ICON_PATHS.navigation.analytics,
         tone: SIDEBAR_TONES.analytics,
       },
       {
         id: "leaderboard",
         href: "/leaderboard",
-        label: { en: "Leaderboard", vi: "Bang xep hang" },
+        label: { en: "Leaderboard", vi: "Bảng xếp hạng" },
         mobileLabel: { en: "Rank", vi: "BXH" },
         iconPath: SIDEBAR_ICON_PATHS.navigation.leaderboard,
         tone: SIDEBAR_TONES.leaderboard,
@@ -236,7 +236,7 @@ export const SIDEBAR_NAV_SECTIONS: SidebarNavSectionConfig[] = [
 
           return {
             text: `#${summary.leaderboard.rank}`,
-            title: { en: "Current rank", vi: "Hang hien tai" },
+            title: { en: "Current rank", vi: "Hạng hiện tại" },
           };
         },
       },
@@ -244,13 +244,13 @@ export const SIDEBAR_NAV_SECTIONS: SidebarNavSectionConfig[] = [
   },
   {
     id: "account",
-    label: { en: "Account", vi: "Tai khoan" },
+    label: { en: "Account", vi: "Tài khoản" },
     items: [
       {
         id: "profile",
         href: "/profile",
-        label: { en: "Profile", vi: "Ho so" },
-        mobileLabel: { en: "Profile", vi: "Ho so" },
+        label: { en: "Profile", vi: "Hồ sơ" },
+        mobileLabel: { en: "Profile", vi: "Hồ sơ" },
         iconPath: SIDEBAR_ICON_PATHS.navigation.profile,
         tone: SIDEBAR_TONES.profile,
       },

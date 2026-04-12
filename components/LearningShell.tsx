@@ -85,10 +85,10 @@ export default function LearningShell({ children }: LearningShellProps) {
             <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-3">
               <div className="min-w-0">
                 <p className="text-xs font-black uppercase tracking-[0.18em] text-muted-foreground">
-                  {ui(locale, "Guided path", "Lo trinh dan huong")}
+                  {ui(locale, "Guided path", "Lộ trình dẫn hướng")}
                 </p>
                 <p className="truncate text-sm font-bold text-foreground">
-                  {ui(locale, "Open the next lesson, then practice what slips.", "Mo bai tiep theo, sau do luyen phan bi truot.")}
+                  {ui(locale, "Open the next lesson, then practice what slips.", "Mở bài tiếp theo, sau đó luyện phần bị trượt.")}
                 </p>
               </div>
 
@@ -98,12 +98,12 @@ export default function LearningShell({ children }: LearningShellProps) {
                   <>
                     <div className="hidden min-w-[120px] text-right sm:block">
                       <p className="text-[0.65rem] font-black uppercase tracking-[0.18em] text-muted-foreground">
-                        {ui(locale, "Signed in", "Dang nhap")}
+                        {ui(locale, "Signed in", "Đăng nhập")}
                       </p>
                       <p className="text-sm font-extrabold text-foreground">@{user.username}</p>
                     </div>
                     <button type="button" onClick={() => void logout()} className="secondary-button py-2">
-                      {ui(locale, "Logout", "Dang xuat")}
+                      {ui(locale, "Logout", "Đăng xuất")}
                     </button>
                   </>
                 ) : null}

@@ -252,19 +252,19 @@ export function getSessionItemTypeLabel(
   interactionMode?: InteractionMode,
 ) {
   if (interactionMode === "word_bank") {
-    return getLocalizedText({ en: "Sentence Builder", vi: "Ghep cau" }, locale);
+    return getLocalizedText({ en: "Sentence Builder", vi: "Ghép câu" }, locale);
   }
 
   if (interactionMode === "hybrid") {
-    return getLocalizedText({ en: "Complete Sentence", vi: "Hoan thanh cau" }, locale);
+    return getLocalizedText({ en: "Complete Sentence", vi: "Hoàn thành câu" }, locale);
   }
 
   if (interactionMode === "full_input") {
-    return getLocalizedText({ en: "Type Sentence", vi: "Nhap cau" }, locale);
+    return getLocalizedText({ en: "Type Sentence", vi: "Nhập câu" }, locale);
   }
 
   if (type === "word_match") {
-    return getLocalizedText({ en: "Word Match", vi: "Noi tu" }, locale);
+    return getLocalizedText({ en: "Word Match", vi: "Nối từ" }, locale);
   }
 
   if (type === "listen_select") {
@@ -272,46 +272,46 @@ export function getSessionItemTypeLabel(
   }
 
   if (type === "translate") {
-    return getLocalizedText({ en: "Translate", vi: "Dich" }, locale);
+    return getLocalizedText({ en: "Translate", vi: "Dịch" }, locale);
   }
 
   if (type === "translation_select") {
-    return getLocalizedText({ en: "Select Translation", vi: "Chon nghia" }, locale);
+    return getLocalizedText({ en: "Select Translation", vi: "Chọn nghĩa" }, locale);
   }
 
   if (type === "arrange_sentence") {
-    return getLocalizedText({ en: "Arrange", vi: "Sap xep" }, locale);
+    return getLocalizedText({ en: "Arrange", vi: "Sắp xếp" }, locale);
   }
 
   if (type === "sentence_build") {
-    return getLocalizedText({ en: "Sentence Builder", vi: "Ghep cau" }, locale);
+    return getLocalizedText({ en: "Sentence Builder", vi: "Ghép câu" }, locale);
   }
 
   if (type === "reorder_sentence") {
-    return getLocalizedText({ en: "Reorder", vi: "Sap xep lai" }, locale);
+    return getLocalizedText({ en: "Reorder", vi: "Sắp xếp lại" }, locale);
   }
 
   if (type === "fill_blank") {
-    return getLocalizedText({ en: "Fill Blank", vi: "Dien khuyet" }, locale);
+    return getLocalizedText({ en: "Fill Blank", vi: "Điền khuyết" }, locale);
   }
 
   if (type === "grammar_select") {
-    return getLocalizedText({ en: "Grammar", vi: "Ngu phap" }, locale);
+    return getLocalizedText({ en: "Grammar", vi: "Ngữ pháp" }, locale);
   }
 
   if (type === "dialogue_reconstruct") {
-    return getLocalizedText({ en: "Dialogue", vi: "Hoi thoai" }, locale);
+    return getLocalizedText({ en: "Dialogue", vi: "Hội thoại" }, locale);
   }
 
   if (type === "dialogue_response") {
-    return getLocalizedText({ en: "Dialogue Response", vi: "Dap hoi thoai" }, locale);
+    return getLocalizedText({ en: "Dialogue Response", vi: "Đáp hội thoại" }, locale);
   }
 
   if (type === "listen_repeat") {
-    return getLocalizedText({ en: "Listen & Repeat", vi: "Nghe va lap lai" }, locale);
+    return getLocalizedText({ en: "Listen & Repeat", vi: "Nghe và lặp lại" }, locale);
   }
 
-  return getLocalizedText({ en: "Speaking", vi: "Noi" }, locale);
+  return getLocalizedText({ en: "Speaking", vi: "Nói" }, locale);
 }
 
 export function canQueueRetry(

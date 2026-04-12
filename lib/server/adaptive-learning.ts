@@ -45,15 +45,15 @@ const SESSION_STORE_TTL_MS = 10 * 60 * 1000;
 const SESSION_LABELS: Record<AdaptiveSessionMode, { en: string; vi: string }> = {
   balanced_progress: {
     en: "Balanced progress session",
-    vi: "Buoi hoc can bang tien do",
+    vi: "Buổi học cân bằng tiến độ",
   },
   focused_review: {
     en: "Focused review",
-    vi: "On tap co trong tam",
+    vi: "Ôn tập có trọng tâm",
   },
   weak_points: {
     en: "Weak points practice",
-    vi: "Luyen tap diem yeu",
+    vi: "Luyện tập điểm yếu",
   },
 };
 
