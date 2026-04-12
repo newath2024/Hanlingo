@@ -1,6 +1,14 @@
 "use client";
 
 import { useSpeechRecognitionSupport } from "@/hooks/useHanlingoSnapshot";
+import {
+  DEFAULT_KOREAN_SPEECH_LANG,
+  configureKoreanSpeechRecognition,
+  getSpeechRecognitionConstructor,
+  speakKoreanText,
+  startKoreanSpeechRecognition,
+  type RecognitionInstance,
+} from "@/lib/speech";
 import type { DialogueLine } from "@/types/lesson";
 import { useEffect, useMemo, useRef, useState } from "react";
 
@@ -24,23 +32,6 @@ type RepeatLineState = {
   chunks: PronunciationChunk[];
   attempts: number;
 };
-
-type RecognitionEventLike = {
-  results: ArrayLike<ArrayLike<{ transcript: string }>>;
-};
-
-type RecognitionInstance = {
-  continuous: boolean;
-  interimResults: boolean;
-  lang: string;
-  onresult: ((event: RecognitionEventLike) => void) | null;
-  onerror: ((event: { error: string }) => void) | null;
-  onend: (() => void) | null;
-  start: () => void;
-  stop: () => void;
-};
-
-type RecognitionConstructor = new () => RecognitionInstance;
 
 function normalizeForMatch(text: string) {
   return text
@@ -222,22 +213,14 @@ export default function RepeatAfterMe({
     : queuePosition === lines.length - 1;
 
   useEffect(() => {
-    const speechWindow = window as Window & {
-      SpeechRecognition?: RecognitionConstructor;
-      webkitSpeechRecognition?: RecognitionConstructor;
-    };
-
-    const Recognition =
-      speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition;
+    const Recognition = getSpeechRecognitionConstructor();
 
     if (!Recognition) {
       return;
     }
 
     const recognition = new Recognition();
-    recognition.continuous = false;
-    recognition.interimResults = true;
-    recognition.lang = "ko-KR";
+    configureKoreanSpeechRecognition(recognition);
 
     recognition.onresult = (event) => {
       let nextTranscript = "";
@@ -315,19 +298,14 @@ export default function RepeatAfterMe({
   }, []);
 
   function handlePlayAudio() {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    if ("speechSynthesis" in window && "SpeechSynthesisUtterance" in window) {
-      window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(currentLine.text);
-      utterance.lang = "ko-KR";
-      utterance.rate = 0.88;
-      utterance.onstart = () => setIsPlaying(true);
-      utterance.onend = () => setIsPlaying(false);
-      utterance.onerror = () => setIsPlaying(false);
-      window.speechSynthesis.speak(utterance);
+    if (
+      speakKoreanText(currentLine.text, {
+        rate: 0.88,
+        onStart: () => setIsPlaying(true),
+        onEnd: () => setIsPlaying(false),
+        onError: () => setIsPlaying(false),
+      })
+    ) {
       return;
     }
 
@@ -367,7 +345,7 @@ export default function RepeatAfterMe({
 
     try {
       setListening(true);
-      recognitionRef.current.start();
+      startKoreanSpeechRecognition(recognitionRef.current);
     } catch {
       setListening(false);
       setErrorMessage("Speech recognition is already running.");
@@ -634,7 +612,9 @@ export default function RepeatAfterMe({
           </div>
 
           <div className="space-y-3 text-center">
-            <p className="korean-display">{currentLine.text}</p>
+            <p className="korean-display" lang={DEFAULT_KOREAN_SPEECH_LANG}>
+              {currentLine.text}
+            </p>
             <p className="text-lg font-bold text-muted-foreground">
               {currentLine.translation}
             </p>

@@ -1,25 +1,15 @@
 "use client";
 
 import { useSpeechRecognitionSupport } from "@/hooks/useHanlingoSnapshot";
+import {
+  DEFAULT_KOREAN_SPEECH_LANG,
+  configureKoreanSpeechRecognition,
+  getSpeechRecognitionConstructor,
+  startKoreanSpeechRecognition,
+  type RecognitionInstance,
+} from "@/lib/speech";
 import type { SpeakingPrompt } from "@/types/lesson";
 import { useEffect, useRef, useState } from "react";
-
-type RecognitionEventLike = {
-  results: ArrayLike<ArrayLike<{ transcript: string }>>;
-};
-
-type RecognitionInstance = {
-  continuous: boolean;
-  interimResults: boolean;
-  lang: string;
-  onresult: ((event: RecognitionEventLike) => void) | null;
-  onerror: ((event: { error: string }) => void) | null;
-  onend: (() => void) | null;
-  start: () => void;
-  stop: () => void;
-};
-
-type RecognitionConstructor = new () => RecognitionInstance;
 
 type SpeakingProps = {
   prompts: SpeakingPrompt[];
@@ -36,22 +26,14 @@ export default function Speaking({ prompts, onComplete }: SpeakingProps) {
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    const speechWindow = window as Window & {
-      SpeechRecognition?: RecognitionConstructor;
-      webkitSpeechRecognition?: RecognitionConstructor;
-    };
-
-    const Recognition =
-      speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition;
+    const Recognition = getSpeechRecognitionConstructor();
 
     if (!Recognition) {
       return;
     }
 
     const recognition = new Recognition();
-    recognition.continuous = false;
-    recognition.interimResults = true;
-    recognition.lang = "ko-KR";
+    configureKoreanSpeechRecognition(recognition);
 
     recognition.onresult = (event) => {
       let nextTranscript = "";
@@ -94,7 +76,7 @@ export default function Speaking({ prompts, onComplete }: SpeakingProps) {
 
     try {
       setListening(true);
-      recognitionRef.current.start();
+      startKoreanSpeechRecognition(recognitionRef.current);
     } catch {
       setListening(false);
       setErrorMessage("Speech recognition is already running.");
@@ -158,7 +140,9 @@ export default function Speaking({ prompts, onComplete }: SpeakingProps) {
           <span className="pill mx-auto bg-accent-cool text-accent-strong">
             {speechSupported ? "Speech recognition ready" : "Manual practice mode"}
           </span>
-          <p className="korean-display">{prompts[currentIndex].prompt}</p>
+          <p className="korean-display" lang={DEFAULT_KOREAN_SPEECH_LANG}>
+            {prompts[currentIndex].prompt}
+          </p>
           <p className="text-base font-bold leading-7 text-muted-foreground">
             {speechSupported
               ? "Use Start speaking if you want a quick transcript, then finish the prompt."

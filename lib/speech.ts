@@ -40,6 +40,8 @@ type AudioPlaybackOptions = {
 
 type FeedbackToneKind = "correct" | "wrong";
 
+export const DEFAULT_KOREAN_SPEECH_LANG = "ko-KR";
+
 const HANGUL_REGEX = /[\u1100-\u11ff\u3130-\u318f\uac00-\ud7af]/;
 const PREFERRED_KOREAN_VOICE_HINTS = [
   "ko-kr",
@@ -93,7 +95,7 @@ export function speakKoreanText(text: string, options: KoreanSpeechOptions = {})
   const utterance = new SpeechSynthesisUtterance(text.trim());
   const selectedVoice = getPreferredKoreanVoice(window.speechSynthesis.getVoices());
 
-  utterance.lang = selectedVoice?.lang ?? "ko-KR";
+  utterance.lang = selectedVoice?.lang ?? DEFAULT_KOREAN_SPEECH_LANG;
   utterance.voice = selectedVoice;
   utterance.rate = options.rate ?? 0.9;
   utterance.pitch = options.pitch ?? 1;
@@ -201,6 +203,17 @@ export function getSpeechRecognitionConstructor() {
   return (
     speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition ?? null
   );
+}
+
+export function configureKoreanSpeechRecognition(recognition: RecognitionInstance) {
+  recognition.continuous = false;
+  recognition.interimResults = true;
+  recognition.lang = DEFAULT_KOREAN_SPEECH_LANG;
+}
+
+export function startKoreanSpeechRecognition(recognition: RecognitionInstance) {
+  configureKoreanSpeechRecognition(recognition);
+  recognition.start();
 }
 
 export function normalizeSpeechText(text: string) {

@@ -5,6 +5,8 @@ import { useSpeechRecognitionSupport } from "@/hooks/useHanlingoSnapshot";
 import { getLocalizedText } from "@/lib/localized";
 import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import {
+  DEFAULT_KOREAN_SPEECH_LANG,
+  configureKoreanSpeechRecognition,
   createSpeechChunks,
   evaluateSpeechChunks,
   extractExpectedSpeech,
@@ -12,6 +14,7 @@ import {
   getSpeechRecognitionConstructor,
   matchesPromptSpeech,
   speakKoreanText,
+  startKoreanSpeechRecognition,
   type RecognitionInstance,
   type SpeechChunk,
 } from "@/lib/speech";
@@ -79,9 +82,7 @@ export default function SessionSpeakingQuestion({
     }
 
     const recognition = new Recognition();
-    recognition.continuous = false;
-    recognition.interimResults = true;
-    recognition.lang = "ko-KR";
+    configureKoreanSpeechRecognition(recognition);
 
     recognition.onresult = (event) => {
       let nextTranscript = "";
@@ -184,7 +185,7 @@ export default function SessionSpeakingQuestion({
 
     try {
       setListening(true);
-      recognitionRef.current.start();
+      startKoreanSpeechRecognition(recognitionRef.current);
     } catch {
       setListening(false);
       setErrorMessage(ui("Speech recognition is already running.", "Nhan dang giong noi dang chay san."));
@@ -283,7 +284,9 @@ export default function SessionSpeakingQuestion({
             <p className="text-base font-bold text-muted-foreground">{prompt}</p>
           </div>
 
-          <p className="korean-display">{isListenRepeat ? item.text : item.koreanText}</p>
+          <p className="korean-display" lang={DEFAULT_KOREAN_SPEECH_LANG}>
+            {isListenRepeat ? item.text : item.koreanText}
+          </p>
 
           {supportText ? (
             <div className="rounded-[1.8rem] bg-card-soft p-5 text-left">
