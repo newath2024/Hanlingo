@@ -27,11 +27,14 @@ function sessionExpiryDate() {
   return new Date(Date.now() + SESSION_DURATION_MS);
 }
 
-function toAuthUser(user: Pick<UserRecord, "id" | "email" | "username">): AuthUser {
+export function toAuthUser(
+  user: Pick<UserRecord, "id" | "email" | "username" | "currentLeague">,
+): AuthUser {
   return {
     id: user.id,
     email: user.email,
     username: user.username,
+    currentLeague: user.currentLeague,
   };
 }
 

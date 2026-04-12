@@ -26,6 +26,7 @@ import {
 import { scheduleNextReview, type ReviewRating } from "@/lib/review";
 
 type SessionCompleteInput = {
+  completionId: string;
   lessonId: string;
   nodeId: string;
   unitId: string;

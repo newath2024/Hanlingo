@@ -90,6 +90,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
   const revealedAdaptiveItemIdsRef = useRef<Set<string>>(new Set());
   const exposureDeltaRef = useRef<Record<string, number>>({});
   const errorPatternDeltaRef = useRef<Record<string, number>>({});
+  const completionIdRef = useRef("");
   const questionStartedAtRef = useRef(0);
   const attemptCountRef = useRef<Record<string, number>>({});
   const attemptQueueRef = useRef<
@@ -141,6 +142,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
     revealedAdaptiveItemIdsRef.current = new Set();
     exposureDeltaRef.current = {};
     errorPatternDeltaRef.current = {};
+    completionIdRef.current = globalThis.crypto.randomUUID();
     questionStartedAtRef.current = Date.now();
     attemptCountRef.current = {};
     attemptQueueRef.current = [];
@@ -410,6 +412,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
       await flushQueuedErrors().catch(() => undefined);
       await flushQueuedAttempts().catch(() => undefined);
       const result = await completeSession({
+        completionId: completionIdRef.current,
         lessonId: node.lessonId,
         nodeId: node.id,
         unitId: unit.id,

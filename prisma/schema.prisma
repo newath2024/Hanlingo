@@ -27,18 +27,46 @@ enum AttemptSourceContext {
   practice_errors
 }
 
+enum LeaderboardLeague {
+  bronze
+  silver
+  gold
+  sapphire
+  ruby
+  emerald
+  amethyst
+  pearl
+  obsidian
+  diamond
+}
+
+enum LeaderboardWeekStatus {
+  active
+  closed
+}
+
+enum LeaderboardActivitySourceType {
+  lesson
+  practice
+  review
+  bonus
+}
+
 model User {
-  id           String       @id @default(cuid())
-  email        String       @unique
-  username     String       @unique
-  passwordHash String
-  sessions     Session[]
-  progress     UserProgress?
-  errors       UserError[]
-  errorFingerprints UserErrorFingerprint[]
-  questionAttempts  UserQuestionAttempt[]
-  createdAt    DateTime     @default(now())
-  updatedAt    DateTime     @updatedAt
+  id                    String                 @id @default(cuid())
+  email                 String                 @unique
+  username              String                 @unique
+  passwordHash          String
+  currentLeague         LeaderboardLeague      @default(bronze)
+  sessions              Session[]
+  progress              UserProgress?
+  errors                UserError[]
+  errorFingerprints     UserErrorFingerprint[]
+  questionAttempts      UserQuestionAttempt[]
+  leaderboardEntries    LeaderboardEntry[]
+  leaderboardActivities LeaderboardActivity[]
+  createdAt             DateTime               @default(now())
+  updatedAt             DateTime               @updatedAt
 }
 
 model Session {
@@ -55,22 +83,22 @@ model Session {
 }
 
 model UserProgress {
-  id                 String   @id @default(cuid())
-  userId             String   @unique
-  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  xp                 Int      @default(0)
-  completedLessons   Json     @default("[]")
-  claimedStepRewards Json     @default("[]")
-  completedNodes     Json     @default("[]")
-  completedUnits     Json     @default("[]")
-  pathVersions       Json     @default("{}")
-  nodeRuns           Json     @default("{}")
-  errorPatternMisses Json     @default("{}")
-  reviews            Json     @default("{}")
-  sentenceExposures  Json     @default("{}")
+  id                  String    @id @default(cuid())
+  userId              String    @unique
+  user                User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  xp                  Int       @default(0)
+  completedLessons    Json      @default("[]")
+  claimedStepRewards  Json      @default("[]")
+  completedNodes      Json      @default("[]")
+  completedUnits      Json      @default("[]")
+  pathVersions        Json      @default("{}")
+  nodeRuns            Json      @default("{}")
+  errorPatternMisses  Json      @default("{}")
+  reviews             Json      @default("{}")
+  sentenceExposures   Json      @default("{}")
   importedFromLocalAt DateTime?
-  createdAt          DateTime @default(now())
-  updatedAt          DateTime @updatedAt
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
 }
 
 model UserError {
@@ -131,4 +159,68 @@ model UserQuestionAttempt {
   @@index([userId, questionId, createdAt])
   @@index([userId, lessonId, createdAt])
   @@index([userId, unitId, createdAt])
+}
+
+model LeaderboardWeek {
+  id        String                @id @default(cuid())
+  key       String                @unique
+  startsAt  DateTime
+  endsAt    DateTime
+  status    LeaderboardWeekStatus
+  groups    LeaderboardGroup[]
+  entries   LeaderboardEntry[]
+  createdAt DateTime              @default(now())
+  updatedAt DateTime              @updatedAt
+}
+
+model LeaderboardGroup {
+  id          String             @id @default(cuid())
+  weekId      String
+  week        LeaderboardWeek    @relation(fields: [weekId], references: [id], onDelete: Cascade)
+  league      LeaderboardLeague
+  groupNumber Int
+  entries     LeaderboardEntry[]
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  @@unique([weekId, league, groupNumber])
+  @@index([weekId, league])
+}
+
+model LeaderboardEntry {
+  id                 String                @id @default(cuid())
+  weekId             String
+  week               LeaderboardWeek       @relation(fields: [weekId], references: [id], onDelete: Cascade)
+  groupId            String
+  group              LeaderboardGroup      @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  userId             String
+  user               User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  league             LeaderboardLeague
+  weeklyXp           Int                   @default(0)
+  rank               Int?
+  lessonsCompleted   Int                   @default(0)
+  practicesCompleted Int                   @default(0)
+  promoted           Boolean               @default(false)
+  demoted            Boolean               @default(false)
+  joinedAt           DateTime              @default(now())
+  updatedAt          DateTime              @default(now())
+  activities         LeaderboardActivity[]
+
+  @@unique([weekId, userId])
+  @@index([groupId, weeklyXp, updatedAt])
+}
+
+model LeaderboardActivity {
+  id         String                        @id @default(cuid())
+  entryId    String
+  entry      LeaderboardEntry              @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User                          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  sourceType LeaderboardActivitySourceType
+  sourceId   String
+  xpDelta    Int
+  createdAt  DateTime                      @default(now())
+
+  @@unique([userId, sourceType, sourceId])
+  @@index([entryId, createdAt])
 }

@@ -50,6 +50,7 @@ export const importLocalProgressSchema = z.object({
 });
 
 export const sessionCompleteSchema = z.object({
+  completionId: z.string().trim().min(1),
   lessonId: z.string().trim().min(1),
   nodeId: z.string().trim().min(1),
   unitId: z.string().trim().min(1),

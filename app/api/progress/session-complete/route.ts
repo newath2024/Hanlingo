@@ -3,6 +3,7 @@ import { sessionCompleteSchema } from "@/lib/api-schemas";
 import { SESSION_COOKIE_NAME } from "@/lib/auth-routes";
 import { createApiErrorResponse } from "@/lib/server/api-error-response";
 import { clearSessionCookie, touchSessionOnResponse } from "@/lib/server/auth";
+import { awardLeaderboardXp } from "@/lib/server/leaderboard";
 import { applySessionCompletion } from "@/lib/server/progress";
 
 export const runtime = "nodejs";
@@ -39,7 +40,23 @@ export async function POST(request: Request) {
       );
     }
 
-    const result = await applySessionCompletion(auth.user.id, parsed.data);
+    const result = await applySessionCompletion(auth.user.id, {
+      lessonId: parsed.data.lessonId,
+      nodeId: parsed.data.nodeId,
+      unitId: parsed.data.unitId,
+      score: parsed.data.score,
+      totalQuestions: parsed.data.totalQuestions,
+      awardedXp: parsed.data.awardedXp,
+      completeUnit: parsed.data.completeUnit,
+      errorPatternMisses: parsed.data.errorPatternMisses,
+      sentenceExposureDeltas: parsed.data.sentenceExposureDeltas,
+    });
+
+    await awardLeaderboardXp({
+      userId: auth.user.id,
+      sourceType: "lesson",
+      sourceId: parsed.data.completionId,
+    });
 
     return NextResponse.json(
       {

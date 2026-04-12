@@ -6,6 +6,7 @@ import {
   applySessionCookie,
   createUserSession,
   normalizeEmail,
+  toAuthUser,
   verifyPassword,
 } from "@/lib/server/auth";
 
@@ -50,11 +51,7 @@ export async function POST(request: Request) {
 
     const session = await createUserSession(user.id);
     const response = NextResponse.json({
-      user: {
-        id: user.id,
-        email: user.email,
-        username: user.username,
-      },
+      user: toAuthUser(user),
     });
 
     applySessionCookie(response, session);

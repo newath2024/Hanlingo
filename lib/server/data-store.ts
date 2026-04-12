@@ -3,7 +3,22 @@ import "server-only";
 import { randomUUID } from "node:crypto";
 import { access, mkdir, open, readFile, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { AttemptSourceContext, ErrorType, FingerprintType, Prisma } from "@prisma/client";
+import {
+  AttemptSourceContext,
+  ErrorType,
+  FingerprintType,
+  LeaderboardActivitySourceType as PrismaLeaderboardActivitySourceType,
+  LeaderboardLeague as PrismaLeaderboardLeague,
+  LeaderboardWeekStatus as PrismaLeaderboardWeekStatus,
+  Prisma,
+} from "@prisma/client";
+import {
+  DEFAULT_LEADERBOARD_LEAGUE,
+  isLeaderboardLeague,
+  type LeaderboardActivitySourceType,
+  type LeaderboardLeague,
+  type LeaderboardWeekStatus,
+} from "@/lib/constants/leaderboard";
 import { createDefaultUserProgressState } from "@/lib/progress-state";
 import { getServerEnv } from "@/lib/server/env";
 import { prisma } from "@/lib/server/prisma";
@@ -26,6 +41,7 @@ export type UserRecord = {
   email: string;
   username: string;
   passwordHash: string;
+  currentLeague: LeaderboardLeague;
   createdAt: Date;
   updatedAt: Date;
 };
@@ -111,12 +127,58 @@ export type UserQuestionAttemptRecord = {
   createdAt: Date;
 };
 
+export type LeaderboardWeekRecord = {
+  id: string;
+  key: string;
+  startsAt: Date;
+  endsAt: Date;
+  status: LeaderboardWeekStatus;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type LeaderboardGroupRecord = {
+  id: string;
+  weekId: string;
+  league: LeaderboardLeague;
+  groupNumber: number;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+export type LeaderboardEntryRecord = {
+  id: string;
+  weekId: string;
+  groupId: string;
+  userId: string;
+  league: LeaderboardLeague;
+  weeklyXp: number;
+  rank: number | null;
+  lessonsCompleted: number;
+  practicesCompleted: number;
+  promoted: boolean;
+  demoted: boolean;
+  joinedAt: Date;
+  updatedAt: Date;
+};
+
+export type LeaderboardActivityRecord = {
+  id: string;
+  entryId: string;
+  userId: string;
+  sourceType: LeaderboardActivitySourceType;
+  sourceId: string;
+  xpDelta: number;
+  createdAt: Date;
+};
+
 type FileStoreShape = {
   users: Array<{
     id: string;
     email: string;
     username: string;
     passwordHash: string;
+    currentLeague?: LeaderboardLeague;
     createdAt: string;
     updatedAt: string;
   }>;
@@ -186,6 +248,47 @@ type FileStoreShape = {
     responseTimeMs: number | null;
     createdAt: string;
   }>;
+  leaderboardWeeks: Array<{
+    id: string;
+    key: string;
+    startsAt: string;
+    endsAt: string;
+    status: LeaderboardWeekStatus;
+    createdAt: string;
+    updatedAt: string;
+  }>;
+  leaderboardGroups: Array<{
+    id: string;
+    weekId: string;
+    league: LeaderboardLeague;
+    groupNumber: number;
+    createdAt: string;
+    updatedAt: string;
+  }>;
+  leaderboardEntries: Array<{
+    id: string;
+    weekId: string;
+    groupId: string;
+    userId: string;
+    league: LeaderboardLeague;
+    weeklyXp: number;
+    rank: number | null;
+    lessonsCompleted: number;
+    practicesCompleted: number;
+    promoted: boolean;
+    demoted: boolean;
+    joinedAt: string;
+    updatedAt: string;
+  }>;
+  leaderboardActivities: Array<{
+    id: string;
+    entryId: string;
+    userId: string;
+    sourceType: LeaderboardActivitySourceType;
+    sourceId: string;
+    xpDelta: number;
+    createdAt: string;
+  }>;
 };
 
 const FILE_STORE_PATH = path.join(process.cwd(), ".local-data", "dev-auth-store.json");
@@ -201,9 +304,18 @@ function isFileStoreEnabled() {
   return process.env.HANLINGO_DEV_FILE_STORE === "true";
 }
 
+function normalizeLeaderboardLeague(value: string | undefined | null): LeaderboardLeague {
+  return value && isLeaderboardLeague(value) ? value : DEFAULT_LEADERBOARD_LEAGUE;
+}
+
+function normalizeLeaderboardWeekStatus(value: string | undefined | null): LeaderboardWeekStatus {
+  return value === "closed" ? "closed" : "active";
+}
+
 function toUserRecord(user: FileStoreShape["users"][number]): UserRecord {
   return {
     ...user,
+    currentLeague: normalizeLeaderboardLeague(user.currentLeague),
     createdAt: new Date(user.createdAt),
     updatedAt: new Date(user.updatedAt),
   };
@@ -252,6 +364,116 @@ function toUserQuestionAttemptRecord(
   return {
     ...record,
     createdAt: new Date(record.createdAt),
+  };
+}
+
+function toLeaderboardWeekRecord(
+  record: FileStoreShape["leaderboardWeeks"][number],
+): LeaderboardWeekRecord {
+  return {
+    ...record,
+    status: normalizeLeaderboardWeekStatus(record.status),
+    startsAt: new Date(record.startsAt),
+    endsAt: new Date(record.endsAt),
+    createdAt: new Date(record.createdAt),
+    updatedAt: new Date(record.updatedAt),
+  };
+}
+
+function toLeaderboardGroupRecord(
+  record: FileStoreShape["leaderboardGroups"][number],
+): LeaderboardGroupRecord {
+  return {
+    ...record,
+    league: normalizeLeaderboardLeague(record.league),
+    createdAt: new Date(record.createdAt),
+    updatedAt: new Date(record.updatedAt),
+  };
+}
+
+function toLeaderboardEntryRecord(
+  record: FileStoreShape["leaderboardEntries"][number],
+): LeaderboardEntryRecord {
+  return {
+    ...record,
+    league: normalizeLeaderboardLeague(record.league),
+    rank: typeof record.rank === "number" ? record.rank : null,
+    joinedAt: new Date(record.joinedAt),
+    updatedAt: new Date(record.updatedAt),
+  };
+}
+
+function toLeaderboardActivityRecord(
+  record: FileStoreShape["leaderboardActivities"][number],
+): LeaderboardActivityRecord {
+  return {
+    ...record,
+    createdAt: new Date(record.createdAt),
+  };
+}
+
+function toPrismaLeaderboardWeekRecord(record: {
+  id: string;
+  key: string;
+  startsAt: Date;
+  endsAt: Date;
+  status: PrismaLeaderboardWeekStatus;
+  createdAt: Date;
+  updatedAt: Date;
+}): LeaderboardWeekRecord {
+  return {
+    ...record,
+    status: record.status as LeaderboardWeekStatus,
+  };
+}
+
+function toPrismaLeaderboardGroupRecord(record: {
+  id: string;
+  weekId: string;
+  league: PrismaLeaderboardLeague;
+  groupNumber: number;
+  createdAt: Date;
+  updatedAt: Date;
+}): LeaderboardGroupRecord {
+  return {
+    ...record,
+    league: record.league as LeaderboardLeague,
+  };
+}
+
+function toPrismaLeaderboardEntryRecord(record: {
+  id: string;
+  weekId: string;
+  groupId: string;
+  userId: string;
+  league: PrismaLeaderboardLeague;
+  weeklyXp: number;
+  rank: number | null;
+  lessonsCompleted: number;
+  practicesCompleted: number;
+  promoted: boolean;
+  demoted: boolean;
+  joinedAt: Date;
+  updatedAt: Date;
+}): LeaderboardEntryRecord {
+  return {
+    ...record,
+    league: record.league as LeaderboardLeague,
+  };
+}
+
+function toPrismaLeaderboardActivityRecord(record: {
+  id: string;
+  entryId: string;
+  userId: string;
+  sourceType: PrismaLeaderboardActivitySourceType;
+  sourceId: string;
+  xpDelta: number;
+  createdAt: Date;
+}): LeaderboardActivityRecord {
+  return {
+    ...record,
+    sourceType: record.sourceType as LeaderboardActivitySourceType,
   };
 }
 
@@ -332,6 +554,10 @@ async function ensureFileStore() {
       errors: [],
       errorFingerprints: [],
       questionAttempts: [],
+      leaderboardWeeks: [],
+      leaderboardGroups: [],
+      leaderboardEntries: [],
+      leaderboardActivities: [],
     };
     await writeFile(FILE_STORE_PATH, JSON.stringify(emptyStore, null, 2), "utf8");
   }
@@ -489,6 +715,10 @@ function normalizeFileStoreShape(value: unknown): FileStoreShape {
       errors: [],
       errorFingerprints: [],
       questionAttempts: [],
+      leaderboardWeeks: [],
+      leaderboardGroups: [],
+      leaderboardEntries: [],
+      leaderboardActivities: [],
     };
   }
 
@@ -504,6 +734,18 @@ function normalizeFileStoreShape(value: unknown): FileStoreShape {
       : [],
     questionAttempts: Array.isArray(candidate.questionAttempts)
       ? candidate.questionAttempts
+      : [],
+    leaderboardWeeks: Array.isArray(candidate.leaderboardWeeks)
+      ? candidate.leaderboardWeeks
+      : [],
+    leaderboardGroups: Array.isArray(candidate.leaderboardGroups)
+      ? candidate.leaderboardGroups
+      : [],
+    leaderboardEntries: Array.isArray(candidate.leaderboardEntries)
+      ? candidate.leaderboardEntries
+      : [],
+    leaderboardActivities: Array.isArray(candidate.leaderboardActivities)
+      ? candidate.leaderboardActivities
       : [],
   };
 }
@@ -611,6 +853,61 @@ export async function findUserById(id: string) {
   return user ? toUserRecord(user) : null;
 }
 
+export async function findUsersByIds(userIds: string[]) {
+  assertEnvLoaded();
+
+  if (userIds.length === 0) {
+    return [] as UserRecord[];
+  }
+
+  if (!isFileStoreEnabled()) {
+    return prisma.user.findMany({
+      where: {
+        id: {
+          in: userIds,
+        },
+      },
+    });
+  }
+
+  const requestedIds = new Set(userIds);
+  const store = await readFileStore();
+
+  return store.users
+    .filter((entry) => requestedIds.has(entry.id))
+    .map(toUserRecord);
+}
+
+export async function updateUserCurrentLeague(
+  userId: string,
+  currentLeague: LeaderboardLeague,
+) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    return prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        currentLeague: currentLeague as PrismaLeaderboardLeague,
+      },
+    });
+  }
+
+  return withFileStoreMutation(async (store) => {
+    const user = store.users.find((entry) => entry.id === userId);
+
+    if (!user) {
+      return null;
+    }
+
+    user.currentLeague = currentLeague;
+    user.updatedAt = new Date().toISOString();
+    return toUserRecord(user);
+  });
+}
+
 export async function createUser(input: {
   email: string;
   username: string;
@@ -657,6 +954,7 @@ export async function createUser(input: {
       email: input.email,
       username: input.username,
       passwordHash: input.passwordHash,
+      currentLeague: DEFAULT_LEADERBOARD_LEAGUE,
       createdAt: now,
       updatedAt: now,
     };
@@ -1409,4 +1707,795 @@ export async function listUserQuestionAttempts(
         new Date(left.createdAt).getTime() - new Date(right.createdAt).getTime(),
     )
     .map(toUserQuestionAttemptRecord);
+}
+
+function toLeaderboardWeekCreateInput(input: {
+  key: string;
+  startsAt: Date;
+  endsAt: Date;
+  status: LeaderboardWeekStatus;
+}) {
+  return {
+    key: input.key,
+    startsAt: input.startsAt,
+    endsAt: input.endsAt,
+    status: input.status as PrismaLeaderboardWeekStatus,
+  };
+}
+
+function toLeaderboardGroupCreateInput(input: {
+  weekId: string;
+  league: LeaderboardLeague;
+  groupNumber: number;
+}) {
+  return {
+    weekId: input.weekId,
+    league: input.league as PrismaLeaderboardLeague,
+    groupNumber: input.groupNumber,
+  };
+}
+
+function toLeaderboardEntryCreateInput(input: {
+  weekId: string;
+  groupId: string;
+  userId: string;
+  league: LeaderboardLeague;
+  weeklyXp?: number;
+  rank?: number | null;
+  lessonsCompleted?: number;
+  practicesCompleted?: number;
+  promoted?: boolean;
+  demoted?: boolean;
+  joinedAt?: Date;
+}) {
+  return {
+    weekId: input.weekId,
+    groupId: input.groupId,
+    userId: input.userId,
+    league: input.league as PrismaLeaderboardLeague,
+    weeklyXp: input.weeklyXp ?? 0,
+    rank: typeof input.rank === "number" ? input.rank : null,
+    lessonsCompleted: input.lessonsCompleted ?? 0,
+    practicesCompleted: input.practicesCompleted ?? 0,
+    promoted: input.promoted ?? false,
+    demoted: input.demoted ?? false,
+    joinedAt: input.joinedAt ?? new Date(),
+  };
+}
+
+function toLeaderboardActivityCreateInput(input: {
+  entryId: string;
+  userId: string;
+  sourceType: LeaderboardActivitySourceType;
+  sourceId: string;
+  xpDelta: number;
+}) {
+  return {
+    entryId: input.entryId,
+    userId: input.userId,
+    sourceType: input.sourceType as PrismaLeaderboardActivitySourceType,
+    sourceId: input.sourceId,
+    xpDelta: input.xpDelta,
+  };
+}
+
+export async function findActiveLeaderboardWeek() {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const record = await prisma.leaderboardWeek.findFirst({
+      where: {
+        status: "active",
+      },
+      orderBy: {
+        startsAt: "desc",
+      },
+    });
+
+    return record ? toPrismaLeaderboardWeekRecord(record) : null;
+  }
+
+  const store = await readFileStore();
+  const record = [...store.leaderboardWeeks]
+    .filter((entry) => normalizeLeaderboardWeekStatus(entry.status) === "active")
+    .sort((left, right) => new Date(right.startsAt).getTime() - new Date(left.startsAt).getTime())[0];
+
+  return record ? toLeaderboardWeekRecord(record) : null;
+}
+
+export async function findLeaderboardWeekById(id: string) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const record = await prisma.leaderboardWeek.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return record ? toPrismaLeaderboardWeekRecord(record) : null;
+  }
+
+  const store = await readFileStore();
+  const record = store.leaderboardWeeks.find((entry) => entry.id === id);
+  return record ? toLeaderboardWeekRecord(record) : null;
+}
+
+export async function findLeaderboardWeekByKey(key: string) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const record = await prisma.leaderboardWeek.findUnique({
+      where: {
+        key,
+      },
+    });
+
+    return record ? toPrismaLeaderboardWeekRecord(record) : null;
+  }
+
+  const store = await readFileStore();
+  const record = store.leaderboardWeeks.find((entry) => entry.key === key);
+  return record ? toLeaderboardWeekRecord(record) : null;
+}
+
+export async function createLeaderboardWeek(input: {
+  key: string;
+  startsAt: Date;
+  endsAt: Date;
+  status: LeaderboardWeekStatus;
+}) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    try {
+      const record = await prisma.leaderboardWeek.create({
+        data: toLeaderboardWeekCreateInput(input),
+      });
+
+      return toPrismaLeaderboardWeekRecord(record);
+    } catch (error) {
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error.code === "P2002"
+      ) {
+        return findLeaderboardWeekByKey(input.key);
+      }
+
+      throw error;
+    }
+  }
+
+  return withFileStoreMutation(async (store) => {
+    const existing = store.leaderboardWeeks.find((entry) => entry.key === input.key);
+
+    if (existing) {
+      return toLeaderboardWeekRecord(existing);
+    }
+
+    const now = new Date().toISOString();
+    const created = {
+      id: randomUUID(),
+      key: input.key,
+      startsAt: input.startsAt.toISOString(),
+      endsAt: input.endsAt.toISOString(),
+      status: input.status,
+      createdAt: now,
+      updatedAt: now,
+    };
+
+    store.leaderboardWeeks.push(created);
+    return toLeaderboardWeekRecord(created);
+  });
+}
+
+export async function updateLeaderboardWeek(
+  id: string,
+  data: {
+    key?: string;
+    startsAt?: Date;
+    endsAt?: Date;
+    status?: LeaderboardWeekStatus;
+  },
+) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const updateData: Prisma.LeaderboardWeekUpdateInput = {};
+
+    if (typeof data.key === "string") {
+      updateData.key = data.key;
+    }
+
+    if (data.startsAt) {
+      updateData.startsAt = data.startsAt;
+    }
+
+    if (data.endsAt) {
+      updateData.endsAt = data.endsAt;
+    }
+
+    if (data.status) {
+      updateData.status = data.status as PrismaLeaderboardWeekStatus;
+    }
+
+    const record = await prisma.leaderboardWeek.update({
+      where: {
+        id,
+      },
+      data: updateData,
+    });
+
+    return toPrismaLeaderboardWeekRecord(record);
+  }
+
+  return withFileStoreMutation(async (store) => {
+    const record = store.leaderboardWeeks.find((entry) => entry.id === id);
+
+    if (!record) {
+      return null;
+    }
+
+    if (typeof data.key === "string") {
+      record.key = data.key;
+    }
+
+    if (data.startsAt) {
+      record.startsAt = data.startsAt.toISOString();
+    }
+
+    if (data.endsAt) {
+      record.endsAt = data.endsAt.toISOString();
+    }
+
+    if (data.status) {
+      record.status = data.status;
+    }
+
+    record.updatedAt = new Date().toISOString();
+    return toLeaderboardWeekRecord(record);
+  });
+}
+
+export async function findLeaderboardGroupById(id: string) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const record = await prisma.leaderboardGroup.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return record ? toPrismaLeaderboardGroupRecord(record) : null;
+  }
+
+  const store = await readFileStore();
+  const record = store.leaderboardGroups.find((entry) => entry.id === id);
+  return record ? toLeaderboardGroupRecord(record) : null;
+}
+
+export async function listLeaderboardGroupsByWeek(weekId: string) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const records = await prisma.leaderboardGroup.findMany({
+      where: {
+        weekId,
+      },
+      orderBy: [
+        {
+          league: "asc",
+        },
+        {
+          groupNumber: "asc",
+        },
+      ],
+    });
+
+    return records.map(toPrismaLeaderboardGroupRecord);
+  }
+
+  const store = await readFileStore();
+
+  return store.leaderboardGroups
+    .filter((entry) => entry.weekId === weekId)
+    .sort((left, right) => {
+      if (left.league !== right.league) {
+        return left.league.localeCompare(right.league);
+      }
+
+      return left.groupNumber - right.groupNumber;
+    })
+    .map(toLeaderboardGroupRecord);
+}
+
+export async function listLeaderboardGroupsByWeekAndLeague(
+  weekId: string,
+  league: LeaderboardLeague,
+) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const records = await prisma.leaderboardGroup.findMany({
+      where: {
+        weekId,
+        league: league as PrismaLeaderboardLeague,
+      },
+      orderBy: {
+        groupNumber: "asc",
+      },
+    });
+
+    return records.map(toPrismaLeaderboardGroupRecord);
+  }
+
+  const store = await readFileStore();
+
+  return store.leaderboardGroups
+    .filter(
+      (entry) =>
+        entry.weekId === weekId && normalizeLeaderboardLeague(entry.league) === league,
+    )
+    .sort((left, right) => left.groupNumber - right.groupNumber)
+    .map(toLeaderboardGroupRecord);
+}
+
+export async function createLeaderboardGroup(input: {
+  weekId: string;
+  league: LeaderboardLeague;
+  groupNumber: number;
+}) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    try {
+      const record = await prisma.leaderboardGroup.create({
+        data: toLeaderboardGroupCreateInput(input),
+      });
+
+      return toPrismaLeaderboardGroupRecord(record);
+    } catch (error) {
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error.code === "P2002"
+      ) {
+        const existing = await prisma.leaderboardGroup.findFirst({
+          where: {
+            weekId: input.weekId,
+            league: input.league as PrismaLeaderboardLeague,
+            groupNumber: input.groupNumber,
+          },
+        });
+
+        return existing ? toPrismaLeaderboardGroupRecord(existing) : null;
+      }
+
+      throw error;
+    }
+  }
+
+  return withFileStoreMutation(async (store) => {
+    const existing = store.leaderboardGroups.find(
+      (entry) =>
+        entry.weekId === input.weekId &&
+        normalizeLeaderboardLeague(entry.league) === input.league &&
+        entry.groupNumber === input.groupNumber,
+    );
+
+    if (existing) {
+      return toLeaderboardGroupRecord(existing);
+    }
+
+    const now = new Date().toISOString();
+    const created = {
+      id: randomUUID(),
+      weekId: input.weekId,
+      league: input.league,
+      groupNumber: input.groupNumber,
+      createdAt: now,
+      updatedAt: now,
+    };
+
+    store.leaderboardGroups.push(created);
+    return toLeaderboardGroupRecord(created);
+  });
+}
+
+export async function findLeaderboardEntryById(id: string) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const record = await prisma.leaderboardEntry.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return record ? toPrismaLeaderboardEntryRecord(record) : null;
+  }
+
+  const store = await readFileStore();
+  const record = store.leaderboardEntries.find((entry) => entry.id === id);
+  return record ? toLeaderboardEntryRecord(record) : null;
+}
+
+export async function findLeaderboardEntryByWeekAndUser(
+  weekId: string,
+  userId: string,
+) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const record = await prisma.leaderboardEntry.findUnique({
+      where: {
+        weekId_userId: {
+          weekId,
+          userId,
+        },
+      },
+    });
+
+    return record ? toPrismaLeaderboardEntryRecord(record) : null;
+  }
+
+  const store = await readFileStore();
+  const record = store.leaderboardEntries.find(
+    (entry) => entry.weekId === weekId && entry.userId === userId,
+  );
+  return record ? toLeaderboardEntryRecord(record) : null;
+}
+
+export async function listLeaderboardEntriesByGroup(groupId: string) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const records = await prisma.leaderboardEntry.findMany({
+      where: {
+        groupId,
+      },
+      orderBy: [
+        {
+          rank: "asc",
+        },
+        {
+          weeklyXp: "desc",
+        },
+        {
+          updatedAt: "asc",
+        },
+      ],
+    });
+
+    return records.map(toPrismaLeaderboardEntryRecord);
+  }
+
+  const store = await readFileStore();
+
+  return store.leaderboardEntries
+    .filter((entry) => entry.groupId === groupId)
+    .sort((left, right) => {
+      const leftRank = typeof left.rank === "number" ? left.rank : Number.MAX_SAFE_INTEGER;
+      const rightRank = typeof right.rank === "number" ? right.rank : Number.MAX_SAFE_INTEGER;
+
+      if (leftRank !== rightRank) {
+        return leftRank - rightRank;
+      }
+
+      if (right.weeklyXp !== left.weeklyXp) {
+        return right.weeklyXp - left.weeklyXp;
+      }
+
+      return new Date(left.updatedAt).getTime() - new Date(right.updatedAt).getTime();
+    })
+    .map(toLeaderboardEntryRecord);
+}
+
+export async function listLeaderboardEntriesByWeek(weekId: string) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const records = await prisma.leaderboardEntry.findMany({
+      where: {
+        weekId,
+      },
+      orderBy: [
+        {
+          groupId: "asc",
+        },
+        {
+          rank: "asc",
+        },
+        {
+          weeklyXp: "desc",
+        },
+      ],
+    });
+
+    return records.map(toPrismaLeaderboardEntryRecord);
+  }
+
+  const store = await readFileStore();
+
+  return store.leaderboardEntries
+    .filter((entry) => entry.weekId === weekId)
+    .sort((left, right) => {
+      if (left.groupId !== right.groupId) {
+        return left.groupId.localeCompare(right.groupId);
+      }
+
+      const leftRank = typeof left.rank === "number" ? left.rank : Number.MAX_SAFE_INTEGER;
+      const rightRank = typeof right.rank === "number" ? right.rank : Number.MAX_SAFE_INTEGER;
+
+      if (leftRank !== rightRank) {
+        return leftRank - rightRank;
+      }
+
+      return right.weeklyXp - left.weeklyXp;
+    })
+    .map(toLeaderboardEntryRecord);
+}
+
+export async function createLeaderboardEntry(input: {
+  weekId: string;
+  groupId: string;
+  userId: string;
+  league: LeaderboardLeague;
+  weeklyXp?: number;
+  rank?: number | null;
+  lessonsCompleted?: number;
+  practicesCompleted?: number;
+  promoted?: boolean;
+  demoted?: boolean;
+  joinedAt?: Date;
+}) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    try {
+      const record = await prisma.leaderboardEntry.create({
+        data: toLeaderboardEntryCreateInput(input),
+      });
+
+      return toPrismaLeaderboardEntryRecord(record);
+    } catch (error) {
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error.code === "P2002"
+      ) {
+        return findLeaderboardEntryByWeekAndUser(input.weekId, input.userId);
+      }
+
+      throw error;
+    }
+  }
+
+  return withFileStoreMutation(async (store) => {
+    const existing = store.leaderboardEntries.find(
+      (entry) => entry.weekId === input.weekId && entry.userId === input.userId,
+    );
+
+    if (existing) {
+      return toLeaderboardEntryRecord(existing);
+    }
+
+    const joinedAt = input.joinedAt ?? new Date();
+    const created = {
+      id: randomUUID(),
+      weekId: input.weekId,
+      groupId: input.groupId,
+      userId: input.userId,
+      league: input.league,
+      weeklyXp: input.weeklyXp ?? 0,
+      rank: typeof input.rank === "number" ? input.rank : null,
+      lessonsCompleted: input.lessonsCompleted ?? 0,
+      practicesCompleted: input.practicesCompleted ?? 0,
+      promoted: input.promoted ?? false,
+      demoted: input.demoted ?? false,
+      joinedAt: joinedAt.toISOString(),
+      updatedAt: joinedAt.toISOString(),
+    };
+
+    store.leaderboardEntries.push(created);
+    return toLeaderboardEntryRecord(created);
+  });
+}
+
+export async function updateLeaderboardEntry(
+  id: string,
+  data: {
+    groupId?: string;
+    league?: LeaderboardLeague;
+    weeklyXp?: number;
+    rank?: number | null;
+    lessonsCompleted?: number;
+    practicesCompleted?: number;
+    promoted?: boolean;
+    demoted?: boolean;
+    joinedAt?: Date;
+    updatedAt?: Date;
+  },
+) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const updateData: Prisma.LeaderboardEntryUpdateInput = {};
+
+    if (typeof data.groupId === "string") {
+      updateData.group = {
+        connect: {
+          id: data.groupId,
+        },
+      };
+    }
+
+    if (data.league) {
+      updateData.league = data.league as PrismaLeaderboardLeague;
+    }
+
+    if (typeof data.weeklyXp === "number") {
+      updateData.weeklyXp = data.weeklyXp;
+    }
+
+    if (typeof data.rank === "number" || data.rank === null) {
+      updateData.rank = data.rank;
+    }
+
+    if (typeof data.lessonsCompleted === "number") {
+      updateData.lessonsCompleted = data.lessonsCompleted;
+    }
+
+    if (typeof data.practicesCompleted === "number") {
+      updateData.practicesCompleted = data.practicesCompleted;
+    }
+
+    if (typeof data.promoted === "boolean") {
+      updateData.promoted = data.promoted;
+    }
+
+    if (typeof data.demoted === "boolean") {
+      updateData.demoted = data.demoted;
+    }
+
+    if (data.joinedAt) {
+      updateData.joinedAt = data.joinedAt;
+    }
+
+    if (data.updatedAt) {
+      updateData.updatedAt = data.updatedAt;
+    }
+
+    const record = await prisma.leaderboardEntry.update({
+      where: {
+        id,
+      },
+      data: updateData,
+    });
+
+    return toPrismaLeaderboardEntryRecord(record);
+  }
+
+  return withFileStoreMutation(async (store) => {
+    const record = store.leaderboardEntries.find((entry) => entry.id === id);
+
+    if (!record) {
+      return null;
+    }
+
+    if (typeof data.groupId === "string") {
+      record.groupId = data.groupId;
+    }
+
+    if (data.league) {
+      record.league = data.league;
+    }
+
+    if (typeof data.weeklyXp === "number") {
+      record.weeklyXp = data.weeklyXp;
+    }
+
+    if (typeof data.rank === "number" || data.rank === null) {
+      record.rank = data.rank;
+    }
+
+    if (typeof data.lessonsCompleted === "number") {
+      record.lessonsCompleted = data.lessonsCompleted;
+    }
+
+    if (typeof data.practicesCompleted === "number") {
+      record.practicesCompleted = data.practicesCompleted;
+    }
+
+    if (typeof data.promoted === "boolean") {
+      record.promoted = data.promoted;
+    }
+
+    if (typeof data.demoted === "boolean") {
+      record.demoted = data.demoted;
+    }
+
+    if (data.joinedAt) {
+      record.joinedAt = data.joinedAt.toISOString();
+    }
+
+    record.updatedAt = (data.updatedAt ?? new Date()).toISOString();
+    return toLeaderboardEntryRecord(record);
+  });
+}
+
+export async function createLeaderboardActivityIfMissing(input: {
+  entryId: string;
+  userId: string;
+  sourceType: LeaderboardActivitySourceType;
+  sourceId: string;
+  xpDelta: number;
+}) {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    try {
+      const record = await prisma.leaderboardActivity.create({
+        data: toLeaderboardActivityCreateInput(input),
+      });
+
+      return {
+        created: true,
+        activity: toPrismaLeaderboardActivityRecord(record),
+      };
+    } catch (error) {
+      if (
+        error instanceof Prisma.PrismaClientKnownRequestError &&
+        error.code === "P2002"
+      ) {
+        const existing = await prisma.leaderboardActivity.findUnique({
+          where: {
+            userId_sourceType_sourceId: {
+              userId: input.userId,
+              sourceType: input.sourceType as PrismaLeaderboardActivitySourceType,
+              sourceId: input.sourceId,
+            },
+          },
+        });
+
+        return {
+          created: false,
+          activity: existing ? toPrismaLeaderboardActivityRecord(existing) : null,
+        };
+      }
+
+      throw error;
+    }
+  }
+
+  return withFileStoreMutation(async (store) => {
+    const existing = store.leaderboardActivities.find(
+      (entry) =>
+        entry.userId === input.userId &&
+        entry.sourceType === input.sourceType &&
+        entry.sourceId === input.sourceId,
+    );
+
+    if (existing) {
+      return {
+        created: false,
+        activity: toLeaderboardActivityRecord(existing),
+      };
+    }
+
+    const created = {
+      id: randomUUID(),
+      entryId: input.entryId,
+      userId: input.userId,
+      sourceType: input.sourceType,
+      sourceId: input.sourceId,
+      xpDelta: input.xpDelta,
+      createdAt: new Date().toISOString(),
+    };
+
+    store.leaderboardActivities.push(created);
+    return {
+      created: true,
+      activity: toLeaderboardActivityRecord(created),
+    };
+  });
 }

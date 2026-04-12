@@ -7,6 +7,7 @@ import {
   touchSessionOnResponse,
 } from "@/lib/server/auth";
 import { completeAdaptiveSession } from "@/lib/server/adaptive-learning";
+import { awardLeaderboardXp } from "@/lib/server/leaderboard";
 
 export const runtime = "nodejs";
 
@@ -41,6 +42,14 @@ export async function POST(request: Request) {
       userId: auth.user.id,
       ...parsed.data,
     });
+
+    if (result.completed) {
+      await awardLeaderboardXp({
+        userId: auth.user.id,
+        sourceType: "practice",
+        sourceId: parsed.data.sessionId,
+      });
+    }
 
     return NextResponse.json(result, { headers: response.headers });
   } catch (error) {
