@@ -391,18 +391,17 @@ function validateCoverage(
   }
 }
 
-function validateQrListeningSections(unit: RuntimeUnit, source: SourceUnit) {
-  const readyAudioAssetIds = new Set(
-    source.workbook.audioAssets
-      .filter((asset) => asset.remoteUrl && !asset.needsReview)
-      .map((asset) => asset.id),
-  );
+function validateQrListeningSections(
+  unit: RuntimeUnit,
+  source: SourceUnit,
+  compileableListeningExerciseIds: Set<string>,
+) {
   const qrExerciseIds = source.workbook.exercises
     .filter(
       (exercise) =>
         !exercise.needsReview &&
         exercise.coverageTags.includes("qr-listening") &&
-        (!exercise.audioAssetId || readyAudioAssetIds.has(exercise.audioAssetId)),
+        compileableListeningExerciseIds.has(exercise.id),
     )
     .map((exercise) => exercise.id);
 
@@ -624,7 +623,7 @@ export async function validateCurriculum(options: ValidateOptions) {
   validateSections(runtimeUnit);
   validateLessonRoles(runtimeUnit);
   validateCoverage(runtimeUnit, reviewedSource, compileableListeningExerciseIds);
-  validateQrListeningSections(runtimeUnit, reviewedSource);
+  validateQrListeningSections(runtimeUnit, reviewedSource, compileableListeningExerciseIds);
   validateErrorPatternKeys(runtimeUnit);
   validateListeningRuntime(runtimeUnit);
   validateImageCardRuntime(runtimeUnit);

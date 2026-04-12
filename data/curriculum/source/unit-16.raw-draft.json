@@ -634,6 +634,16 @@
       "needsReview": true
     },
     {
+      "id": "wb16-qr-hotel-duration-seed",
+      "document": "workbook",
+      "page": 264,
+      "kind": "exercise",
+      "text": "역에서 호텔까지 얼마나 걸려요? 버스를 타고 십오 분쯤 걸려요.",
+      "confidence": 0.98,
+      "sourceItemId": "wb16-qr-hotel-duration",
+      "needsReview": true
+    },
+    {
       "id": "wb16-qr-seoul-bus-number-seed",
       "document": "workbook",
       "page": 269,
@@ -729,20 +739,6 @@
   ],
   "qrDetections": [
     {
-      "id": "workbook-p265-qr-1",
-      "document": "workbook",
-      "page": 265,
-      "qrValue": "http://m.site.naver.com/0Yyb6",
-      "bounds": {
-        "x": 746.6054808854237,
-        "y": 729.6054808854237,
-        "width": 61.02404905608978,
-        "height": 61.338888010608
-      },
-      "needsReview": false,
-      "resolvedUrl": "https://nuri.iksi.or.kr/bookaudio/CyberKoreanCourses_Beginner1/16_02.mp3"
-    },
-    {
       "id": "workbook-p269-qr-1",
       "document": "workbook",
       "page": 269,
@@ -787,6 +783,11 @@
   ],
   "imageCrops": [],
   "pageIssues": [
+    {
+      "document": "workbook",
+      "page": 264,
+      "reason": "Expected a listening QR on this workbook page but none was decoded."
+    },
     {
       "document": "textbook",
       "page": 212,

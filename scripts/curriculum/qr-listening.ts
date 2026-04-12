@@ -350,7 +350,10 @@ export async function extractWorkbookListeningArtifacts(
       (detection) => detection.page === asset.page && detection.qrValue === asset.qrValue,
     );
 
-    if (!hasDetection || !isAudioLikeResource(asset)) {
+    // Manual seeds can provide a verified remote audio URL even when local QR detection misses the page.
+    if (!hasDetection && isAudioLikeResource(asset) && asset.remoteUrl) {
+      asset.needsReview = false;
+    } else if (!hasDetection || !isAudioLikeResource(asset)) {
       asset.needsReview = true;
     } else {
       asset.needsReview = false;

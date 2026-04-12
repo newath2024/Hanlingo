@@ -377,7 +377,7 @@ export const runtimeLessonSchema = z.object({
   focusConcepts: z.array(z.string().min(1)),
   sourceExerciseIds: z.array(z.string().min(1)),
   coverageTags: z.array(z.string().min(1)),
-  tasks: z.array(runtimeTaskSchema).min(4).max(10),
+  tasks: z.array(runtimeTaskSchema).min(2).max(10),
 });
 
 export const runtimeSectionSchema = z.object({

@@ -651,8 +651,8 @@ function lesson(
 ): RuntimeLesson {
   const stableTasks = sortTasks(tasks);
 
-  if (stableTasks.length < 4 || stableTasks.length > 10) {
-    throw new Error(`${lessonId} must contain 4-10 tasks. Received ${stableTasks.length}.`);
+  if (stableTasks.length < 2 || stableTasks.length > 10) {
+    throw new Error(`${lessonId} must contain 2-10 tasks. Received ${stableTasks.length}.`);
   }
 
   return {
@@ -2777,8 +2777,7 @@ function buildUnit16QrLessons(
   totalLessons: number,
 ) {
   const traffic = pickFrom(source.workbook.exercises, "wb16-qr-traffic-jam");
-  const busNumber = pickFrom(source.workbook.exercises, "wb16-qr-seoul-bus-number");
-  const distance = pickFrom(source.workbook.exercises, "wb16-qr-seoul-distance");
+  const hotelDuration = pickFrom(source.workbook.exercises, "wb16-qr-hotel-duration");
   const destination = pickFrom(source.workbook.exercises, "wb16-qr-destination");
 
   const lesson8 = buildListeningLessonFromExercises(
@@ -2788,13 +2787,13 @@ function buildUnit16QrLessons(
     {
       lessonId: "unit-16-lesson-8",
       lessonRole: "workbook_practice",
-      title: text("Nghe QR: ga Seoul", "QR listening: Seoul Station route"),
+      title: text("Nghe QR: kẹt xe và khách sạn", "QR listening: traffic and hotel"),
       summary: text(
-        "T?ch block QR ga Seoul th?nh c?c item nghe atomic: m?i clip ng?n g?n v?i ??ng m?t m?c ti?u.",
-        "Split the Seoul Station QR block into atomic listening items: each short clip maps to one clear goal.",
+        "Tách bài QR trang 264 thành 2 clip ngắn, mỗi clip đi với đúng một câu chọn hình.",
+        "Split the page 264 QR exercise into 2 short clips, each paired with one image-choice question.",
       ),
-      focusConcepts: ["qr-listening", "directions", "bus-number", "distance"],
-      exerciseIds: [traffic.id, busNumber.id, distance.id],
+      focusConcepts: ["qr-listening", "traffic", "hotel", "duration"],
+      exerciseIds: [traffic.id, hotelDuration.id],
     },
     8,
     totalLessons,
