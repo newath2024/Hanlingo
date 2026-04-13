@@ -59,6 +59,7 @@ type SessionItemBase = {
   sentenceKey?: string;
   supportsGloss?: boolean;
   questionType?: GlossQuestionType;
+  glossSegments?: GlossSegment[];
 };
 
 export type LocalizedChoiceSessionItem = SessionItemBase & {
@@ -134,7 +135,6 @@ export type SpeakingSessionItem = SessionItemBase & {
   type: "speaking";
   koreanText: string;
   expectedSpeech: string;
-  glossSegments?: GlossSegment[];
 };
 
 export type ListenRepeatSessionItem = SessionItemBase & {

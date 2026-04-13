@@ -167,6 +167,7 @@ export function createSessionItemFromTask(task: SupportedRuntimeTask): SessionIt
     sentenceKey: task.sentenceKey,
     supportsGloss: task.supportsGloss,
     questionType: task.questionType,
+    glossSegments: task.glossSegments,
   } as const;
 
   if (task.type === "listening") {
@@ -255,7 +256,6 @@ export function createSessionItemFromTask(task: SupportedRuntimeTask): SessionIt
     type: task.type,
     koreanText: task.koreanText,
     expectedSpeech: task.expectedSpeech,
-    glossSegments: task.glossSegments,
   };
 
   return item;

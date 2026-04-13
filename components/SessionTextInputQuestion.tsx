@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppLocale } from "@/hooks/useAppLocale";
-import { getPromptGlossSegments } from "@/lib/gloss";
+import { getPromptGlossData } from "@/lib/gloss";
 import { getLocalizedText } from "@/lib/localized";
 import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import { speakIfKoreanText, speakKoreanText } from "@/lib/speech";
@@ -48,8 +48,10 @@ export default function SessionTextInputQuestion({
   const expectedAnswers = expectsLocalizedMeaning
     ? [meaning]
     : item.acceptedAnswers ?? [];
-  const promptGlossSegments =
-    item.type === "fill_blank" && item.koreanText ? getPromptGlossSegments(item.koreanText) : [];
+  const promptGloss = item.koreanText
+    ? getPromptGlossData(item.koreanText, item.glossSegments)
+    : null;
+  const promptGlossSegments = promptGloss?.segments ?? [];
 
   useEffect(() => {
     return () => {
@@ -204,6 +206,11 @@ export default function SessionTextInputQuestion({
                     text={item.koreanText}
                     locale={locale}
                     segments={promptGlossSegments}
+                    sentenceMeaning={
+                      locale === "vi"
+                        ? promptGloss?.sentenceMeaningVi
+                        : promptGloss?.sentenceMeaningEn
+                    }
                     supportsGloss
                     showSentenceMeaning={false}
                     textClassName="korean-display"

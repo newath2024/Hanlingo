@@ -9,6 +9,7 @@ type KoreanTextWithGlossProps = {
   text: string;
   locale: "en" | "vi";
   segments?: GlossSegment[];
+  sentenceMeaning?: string;
   supportsGloss?: boolean;
   questionType?: GlossQuestionType;
   showSentenceMeaning?: boolean;
@@ -25,6 +26,7 @@ export default function KoreanTextWithGloss({
   text,
   locale,
   segments,
+  sentenceMeaning,
   supportsGloss,
   questionType,
   showSentenceMeaning = true,
@@ -44,10 +46,13 @@ export default function KoreanTextWithGloss({
       ),
     [segments],
   );
-  const sentenceMeaning = useMemo(
-    () => usableSegments.map((segment) => getMeaning(segment, locale)).join(" ").trim(),
-    [locale, usableSegments],
-  );
+  const sentenceMeaningLabel = useMemo(() => {
+    if (sentenceMeaning?.trim()) {
+      return sentenceMeaning.trim();
+    }
+
+    return usableSegments.map((segment) => getMeaning(segment, locale)).join(" ").trim();
+  }, [locale, sentenceMeaning, usableSegments]);
   const glossAllowed = isGlossEnabled({ supportsGloss, questionType });
 
   useEffect(() => {
@@ -198,7 +203,7 @@ export default function KoreanTextWithGloss({
       </div>
 
       <AnimatePresence>
-        {showSentenceMeaning && sentenceOpen && activeIndex === null && sentenceMeaning ? (
+        {showSentenceMeaning && sentenceOpen && activeIndex === null && sentenceMeaningLabel ? (
           <motion.div
             initial={{ opacity: 0, y: 6, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -206,7 +211,7 @@ export default function KoreanTextWithGloss({
             transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
             className="korean-gloss__bubble korean-gloss__bubble-sentence"
           >
-            {sentenceMeaning}
+            {sentenceMeaningLabel}
           </motion.div>
         ) : null}
       </AnimatePresence>

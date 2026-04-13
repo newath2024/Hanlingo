@@ -1,5 +1,28 @@
 import type { GlossQuestionType, GlossSegment } from "@/types/curriculum";
 
+type LocalizedGloss = {
+  meaningEn: string;
+  meaningVi: string;
+};
+
+type GlossResolverContext = {
+  chunk: string;
+  normalizedChunk: string;
+  chunks: string[];
+  index: number;
+};
+
+type ChunkToken = {
+  text: string;
+  normalizedText: string;
+  start: number;
+  end: number;
+};
+
+type GlossResolver = LocalizedGloss | ((context: GlossResolverContext) => LocalizedGloss | null);
+
+const TRAILING_PUNCTUATION = /[.,!?]+$/;
+
 export const GLOSS_ENABLED_TYPES: GlossQuestionType[] = [
   "speaking_prompt",
   "speaking_scaffold",
@@ -19,34 +42,387 @@ export function isGlossEnabled(input: {
   return input.supportsGloss ?? GLOSS_ENABLED_TYPES.includes(input.questionType ?? "active_recall");
 }
 
-export const PROMPT_LEXICAL_GLOSSARY: Record<
-  string,
-  {
-    meaningEn: string;
-    meaningVi: string;
-  }
-> = {
-  "저는": { meaningEn: "I", meaningVi: "tôi" },
-  "저도": { meaningEn: "me too", meaningVi: "tôi cũng" },
-  "학생": { meaningEn: "student", meaningVi: "học sinh" },
-  "회사원": { meaningEn: "office worker", meaningVi: "nhân viên văn phòng" },
-  "의사": { meaningEn: "doctor", meaningVi: "bác sĩ" },
-  "지수": { meaningEn: "Jisoo", meaningVi: "Jisoo" },
-  "민수": { meaningEn: "Minsu", meaningVi: "Minsu" },
+const EXACT_CHUNK_GLOSSARY: Record<string, GlossResolver> = {
   "안녕하세요": { meaningEn: "hello", meaningVi: "xin chào" },
   "반갑습니다": { meaningEn: "nice to meet you", meaningVi: "rất vui được gặp" },
+  "저는": (context) =>
+    hasCopulaPredicateAfter(context.chunks, context.index)
+      ? { meaningEn: "I am", meaningVi: "tôi là" }
+      : { meaningEn: "I (topic)", meaningVi: "tôi (chủ đề)" },
+  "저도": (context) =>
+    hasCopulaPredicateAfter(context.chunks, context.index)
+      ? { meaningEn: "I am too", meaningVi: "tôi cũng là" }
+      : { meaningEn: "me too", meaningVi: "tôi cũng" },
+  "저": { meaningEn: "I / me", meaningVi: "tôi" },
+  "좀": { meaningEn: "a bit", meaningVi: "một chút" },
+  "도와줄": { meaningEn: "help", meaningVi: "giúp" },
+  "수": { meaningEn: "ability / can", meaningVi: "khả năng / có thể" },
+  "있어요": { meaningEn: "there is / have", meaningVi: "có" },
+  "있어요?": { meaningEn: "is there? / do you have?", meaningVi: "có không?" },
+  "지수입니다": { meaningEn: "am Jisu", meaningVi: "là Jisu" },
+  "민수입니다": { meaningEn: "am Minsu", meaningVi: "là Minsu" },
+  "학생입니다": { meaningEn: "am a student", meaningVi: "là học sinh" },
+  "학생이에요": { meaningEn: "am a student", meaningVi: "là học sinh" },
+  "회사원입니다": { meaningEn: "am an office worker", meaningVi: "là nhân viên văn phòng" },
+  "회사원이에요": { meaningEn: "am an office worker", meaningVi: "là nhân viên văn phòng" },
+  "의사입니다": { meaningEn: "am a doctor", meaningVi: "là bác sĩ" },
+  "의사예요": { meaningEn: "am a doctor", meaningVi: "là bác sĩ" },
+  "여기에서": { meaningEn: "from here", meaningVi: "từ đây" },
+  "서울역까지": { meaningEn: "to Seoul Station", meaningVi: "đến ga Seoul" },
+  "어떻게": { meaningEn: "how", meaningVi: "như thế nào" },
+  "가요?": { meaningEn: "do I go?", meaningVi: "đi?" },
+  "정류장에서": { meaningEn: "at the bus stop", meaningVi: "ở bến xe buýt" },
+  "버스를": { meaningEn: "the bus (object)", meaningVi: "xe buýt (tân ngữ)" },
+  "타십시오.": { meaningEn: "please take [it]", meaningVi: "hãy đi / bắt" },
+  "집에서": { meaningEn: "from home", meaningVi: "từ nhà" },
+  "학교까지": { meaningEn: "to school", meaningVi: "đến trường" },
+  "시간이": { meaningEn: "time (subject)", meaningVi: "thời gian (chủ ngữ)" },
+  "얼마나": { meaningEn: "how much / how long", meaningVi: "bao nhiêu / bao lâu" },
+  "걸려요?": { meaningEn: "does it take?", meaningVi: "mất?" },
+  "도서관에서": { meaningEn: "from the library", meaningVi: "từ thư viện" },
+  "식당까지": { meaningEn: "to the cafeteria", meaningVi: "đến nhà ăn" },
+  "타고": { meaningEn: "ride and", meaningVi: "đi / bắt rồi" },
+  "가요.": { meaningEn: "go", meaningVi: "đi" },
+  "지하철역에서": { meaningEn: "from the subway station", meaningVi: "từ ga tàu điện ngầm" },
+  "여행사까지": { meaningEn: "to the travel agency", meaningVi: "đến công ty du lịch" },
+  "걸어가요.": { meaningEn: "walk there", meaningVi: "đi bộ đến" },
+  "먼저": { meaningEn: "first", meaningVi: "trước tiên" },
+  "야채들을": { meaningEn: "the vegetables (object)", meaningVi: "rau củ (tân ngữ)" },
+  "한국": { meaningEn: "Korea / Korean", meaningVi: "Hàn Quốc / tiếng Hàn" },
+  "노래를": { meaningEn: "songs (object)", meaningVi: "bài hát (tân ngữ)" },
+  "많이": { meaningEn: "a lot", meaningVi: "nhiều" },
+  "들으세요.": { meaningEn: "please listen", meaningVi: "hãy nghe" },
+  "친구를": { meaningEn: "a friend (object)", meaningVi: "bạn (tân ngữ)" },
+  "초대하려고": { meaningEn: "to invite", meaningVi: "để mời" },
+  "초대장": { meaningEn: "invitation card", meaningVi: "thiệp mời" },
+  "만들었어요.": { meaningEn: "made [it]", meaningVi: "đã làm" },
+  "안": { meaningEn: "not", meaningVi: "không" },
+  "돼요.": (context) =>
+    previousChunkLooksLikeObligationStem(context.chunks, context.index)
+      ? { meaningEn: "have to / must", meaningVi: "phải" }
+      : { meaningEn: "works / is allowed", meaningVi: "được / ổn" },
+  "돼요?": { meaningEn: "is it okay? / must [I]?", meaningVi: "được không? / có phải?" },
+  "한국어": { meaningEn: "Korean", meaningVi: "tiếng Hàn" },
+  "공부를": { meaningEn: "study (object)", meaningVi: "việc học (tân ngữ)" },
+  "해야": { meaningEn: "must do", meaningVi: "phải làm" },
+  "친구들": { meaningEn: "friends", meaningVi: "bạn bè" },
+  "약속이": { meaningEn: "plans (subject)", meaningVi: "cuộc hẹn (chủ ngữ)" },
+  "만나야": { meaningEn: "must meet", meaningVi: "phải gặp" },
+  "몸이": { meaningEn: "body / health (subject)", meaningVi: "người / sức khỏe (chủ ngữ)" },
+  "좋아서": { meaningEn: "because [it is] good", meaningVi: "vì tốt" },
+  "안좋아서": { meaningEn: "because [I am] not well", meaningVi: "vì không khỏe" },
+  "안좋아요.": { meaningEn: "am not well", meaningVi: "không khỏe" },
+  "병원에": { meaningEn: "to the hospital", meaningVi: "đến bệnh viện" },
+  "가야": { meaningEn: "must go", meaningVi: "phải đi" },
+  "지훈": { meaningEn: "Jihun", meaningVi: "Jihun" },
+  "씨,": { meaningEn: "Mr./Ms.", meaningVi: "anh/chị" },
+  "집들이에서": { meaningEn: "at the housewarming", meaningVi: "ở tiệc tân gia" },
+  "보통": { meaningEn: "usually", meaningVi: "thường" },
+  "뭘": { meaningEn: "what", meaningVi: "gì" },
+  "해요?": { meaningEn: "do?", meaningVi: "làm?" },
+  "직원들이": { meaningEn: "the staff (subject)", meaningVi: "nhân viên (chủ ngữ)" },
+  "친절해요.": { meaningEn: "are kind", meaningVi: "thân thiện" },
+  "음식도": { meaningEn: "food too", meaningVi: "đồ ăn cũng" },
+  "맛있고요.": { meaningEn: "is tasty too", meaningVi: "cũng ngon nữa" },
+  "친구도": { meaningEn: "friends too", meaningVi: "bạn bè cũng" },
+  "사귈": { meaningEn: "make / befriend", meaningVi: "kết bạn" },
+  "있고요.": { meaningEn: "can also [do it]", meaningVi: "cũng có thể" },
+  "내일": { meaningEn: "tomorrow", meaningVi: "ngày mai" },
+  "집들이에": { meaningEn: "to the housewarming", meaningVi: "đến tiệc tân gia" },
+  "사": { meaningEn: "buy", meaningVi: "mua" },
+  "갈까요?": { meaningEn: "shall [we] bring?", meaningVi: "mang đi nhé?" },
+  "세제를": { meaningEn: "detergent (object)", meaningVi: "nước giặt / chất tẩy (tân ngữ)" },
+  "휴지도": { meaningEn: "tissue paper too", meaningVi: "giấy cũng" },
+  "좋고요.": { meaningEn: "is fine too", meaningVi: "cũng ổn nữa" },
+  "그럼": { meaningEn: "then", meaningVi: "vậy thì" },
+  "휴지를": { meaningEn: "tissue paper (object)", meaningVi: "giấy (tân ngữ)" },
+  "갑시다.": { meaningEn: "let's go / let's do it", meaningVi: "hãy cùng" },
+  "죄송하지만": { meaningEn: "sorry, but", meaningVi: "xin lỗi nhưng" },
+  "제가": { meaningEn: "I will", meaningVi: "để tôi" },
+  "도와줄게요.": { meaningEn: "will help", meaningVi: "sẽ giúp" },
 };
 
-export function getPromptGlossSegments(text?: string): GlossSegment[] {
-  if (!text) {
-    return [];
+const BASE_NOUN_GLOSSARY: Record<string, LocalizedGloss> = {
+  저: { meaningEn: "I / me", meaningVi: "tôi" },
+  지수: { meaningEn: "Jisu", meaningVi: "Jisu" },
+  민수: { meaningEn: "Minsu", meaningVi: "Minsu" },
+  학생: { meaningEn: "student", meaningVi: "học sinh" },
+  회사원: { meaningEn: "office worker", meaningVi: "nhân viên văn phòng" },
+  의사: { meaningEn: "doctor", meaningVi: "bác sĩ" },
+  서울역: { meaningEn: "Seoul Station", meaningVi: "ga Seoul" },
+  정류장: { meaningEn: "bus stop", meaningVi: "bến xe buýt" },
+  집: { meaningEn: "home / house", meaningVi: "nhà" },
+  학교: { meaningEn: "school", meaningVi: "trường" },
+  도서관: { meaningEn: "library", meaningVi: "thư viện" },
+  식당: { meaningEn: "cafeteria / restaurant", meaningVi: "nhà ăn" },
+  지하철역: { meaningEn: "subway station", meaningVi: "ga tàu điện ngầm" },
+  여행사: { meaningEn: "travel agency", meaningVi: "công ty du lịch" },
+  병원: { meaningEn: "hospital", meaningVi: "bệnh viện" },
+  친구: { meaningEn: "friend", meaningVi: "bạn" },
+  친구들: { meaningEn: "friends", meaningVi: "bạn bè" },
+  집들이: { meaningEn: "housewarming", meaningVi: "tiệc tân gia" },
+  세제: { meaningEn: "detergent", meaningVi: "nước giặt / chất tẩy" },
+  휴지: { meaningEn: "tissue paper", meaningVi: "giấy" },
+  초대장: { meaningEn: "invitation card", meaningVi: "thiệp mời" },
+  한국어: { meaningEn: "Korean", meaningVi: "tiếng Hàn" },
+  약속: { meaningEn: "plans / appointment", meaningVi: "cuộc hẹn" },
+};
+
+function stripTrailingPunctuation(value: string) {
+  return value.replace(TRAILING_PUNCTUATION, "");
+}
+
+function hasCopulaPredicateAfter(chunks: string[], index: number) {
+  const nextChunk = stripTrailingPunctuation(chunks[index + 1] ?? "");
+  return (
+    nextChunk.endsWith("입니다") ||
+    nextChunk.endsWith("이에요") ||
+    nextChunk.endsWith("예요")
+  );
+}
+
+function previousChunkLooksLikeObligationStem(chunks: string[], index: number) {
+  const previousChunk = stripTrailingPunctuation(chunks[index - 1] ?? "");
+  return previousChunk.endsWith("해야") || previousChunk.endsWith("가야") || previousChunk.endsWith("만나야");
+}
+
+function tokenizeBySpaces(text: string) {
+  const tokens: ChunkToken[] = [];
+  const matcher = /\S+/g;
+
+  for (const match of text.matchAll(matcher)) {
+    const token = match[0] ?? "";
+    const start = match.index ?? 0;
+
+    tokens.push({
+      text: token,
+      normalizedText: stripTrailingPunctuation(token),
+      start,
+      end: start + token.length,
+    });
   }
 
-  return Object.entries(PROMPT_LEXICAL_GLOSSARY)
-    .filter(([token]) => text.includes(token))
-    .map(([textKo, meanings]) => ({
-      textKo,
-      ...meanings,
-    }))
-    .sort((left, right) => text.indexOf(left.textKo) - text.indexOf(right.textKo));
+  return tokens;
+}
+
+function resolveFromExactDictionary(context: GlossResolverContext) {
+  const resolver =
+    EXACT_CHUNK_GLOSSARY[context.chunk] ??
+    EXACT_CHUNK_GLOSSARY[context.normalizedChunk];
+
+  if (!resolver) {
+    return null;
+  }
+
+  return typeof resolver === "function" ? resolver(context) : resolver;
+}
+
+function resolveCopulaChunk(normalizedChunk: string) {
+  for (const ending of ["입니다", "이에요", "예요"]) {
+    if (!normalizedChunk.endsWith(ending) || normalizedChunk.length <= ending.length) {
+      continue;
+    }
+
+    const stem = normalizedChunk.slice(0, -ending.length);
+    const base = BASE_NOUN_GLOSSARY[stem];
+
+    if (!base) {
+      continue;
+    }
+
+    return {
+      meaningEn: `am ${base.meaningEn}`,
+      meaningVi: `là ${base.meaningVi}`,
+    } satisfies LocalizedGloss;
+  }
+
+  return null;
+}
+
+function resolveParticleChunk(normalizedChunk: string) {
+  const particlePatterns = [
+    {
+      suffix: "에서는",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `${base.meaningEn} (topic/location)`,
+        meaningVi: `${base.meaningVi} (chủ đề/địa điểm)`,
+      }),
+    },
+    {
+      suffix: "에서",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `from / at ${base.meaningEn}`,
+        meaningVi: `từ / ở ${base.meaningVi}`,
+      }),
+    },
+    {
+      suffix: "까지",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `to ${base.meaningEn}`,
+        meaningVi: `đến ${base.meaningVi}`,
+      }),
+    },
+    {
+      suffix: "에는",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `at / to ${base.meaningEn}`,
+        meaningVi: `ở / đến ${base.meaningVi}`,
+      }),
+    },
+    {
+      suffix: "에",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `at / in / to ${base.meaningEn}`,
+        meaningVi: `ở / trong / đến ${base.meaningVi}`,
+      }),
+    },
+    {
+      suffix: "은",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `${base.meaningEn} (topic)`,
+        meaningVi: `${base.meaningVi} (chủ đề)`,
+      }),
+    },
+    {
+      suffix: "는",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `${base.meaningEn} (topic)`,
+        meaningVi: `${base.meaningVi} (chủ đề)`,
+      }),
+    },
+    {
+      suffix: "이",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `${base.meaningEn} (subject)`,
+        meaningVi: `${base.meaningVi} (chủ ngữ)`,
+      }),
+    },
+    {
+      suffix: "가",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `${base.meaningEn} (subject)`,
+        meaningVi: `${base.meaningVi} (chủ ngữ)`,
+      }),
+    },
+    {
+      suffix: "을",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `${base.meaningEn} (object)`,
+        meaningVi: `${base.meaningVi} (tân ngữ)`,
+      }),
+    },
+    {
+      suffix: "를",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `${base.meaningEn} (object)`,
+        meaningVi: `${base.meaningVi} (tân ngữ)`,
+      }),
+    },
+    {
+      suffix: "도",
+      build: (base: LocalizedGloss) => ({
+        meaningEn: `${base.meaningEn} too`,
+        meaningVi: `${base.meaningVi} cũng`,
+      }),
+    },
+  ] as const;
+
+  for (const pattern of particlePatterns) {
+    if (!normalizedChunk.endsWith(pattern.suffix) || normalizedChunk.length <= pattern.suffix.length) {
+      continue;
+    }
+
+    const stem = normalizedChunk.slice(0, -pattern.suffix.length);
+    const base = BASE_NOUN_GLOSSARY[stem];
+
+    if (!base) {
+      continue;
+    }
+
+    return pattern.build(base);
+  }
+
+  return null;
+}
+
+function resolveChunkGloss(context: GlossResolverContext) {
+  return (
+    resolveFromExactDictionary(context) ??
+    resolveCopulaChunk(context.normalizedChunk) ??
+    resolveParticleChunk(context.normalizedChunk)
+  );
+}
+
+function getPreferredGloss(chunk: ChunkToken, preferredSegments: GlossSegment[]) {
+  return (
+    preferredSegments.find((segment) => segment.textKo === chunk.text) ??
+    preferredSegments.find((segment) => segment.textKo === chunk.normalizedText) ??
+    null
+  );
+}
+
+function buildSentenceMeaning(segments: GlossSegment[], locale: "en" | "vi") {
+  return segments
+    .map((segment) => (locale === "vi" ? segment.meaningVi : segment.meaningEn).trim())
+    .filter(Boolean)
+    .join(" · ");
+}
+
+export function getPromptGlossData(
+  text?: string,
+  preferredSegments: GlossSegment[] = [],
+) {
+  if (!text) {
+    return {
+      segments: [] as GlossSegment[],
+      sentenceMeaningEn: "",
+      sentenceMeaningVi: "",
+    };
+  }
+
+  const chunkTokens = tokenizeBySpaces(text);
+  const segments = chunkTokens
+    .map((chunk, index) => {
+      const preferredGloss = getPreferredGloss(chunk, preferredSegments);
+
+      if (preferredGloss) {
+        return preferredGloss;
+      }
+
+      const resolvedGloss = resolveChunkGloss({
+        chunk: chunk.text,
+        normalizedChunk: chunk.normalizedText,
+        chunks: chunkTokens.map((token) => token.text),
+        index,
+      });
+
+      return resolvedGloss
+        ? {
+            textKo: chunk.text,
+            ...resolvedGloss,
+          }
+        : null;
+    })
+    .filter((segment): segment is GlossSegment => Boolean(segment))
+    .filter(
+      (segment) =>
+        typeof segment.textKo === "string" &&
+        typeof segment.meaningEn === "string" &&
+        typeof segment.meaningVi === "string" &&
+        segment.textKo.trim() &&
+        (segment.meaningEn.trim() || segment.meaningVi.trim()),
+    );
+
+  return {
+    segments,
+    sentenceMeaningEn: buildSentenceMeaning(segments, "en"),
+    sentenceMeaningVi: buildSentenceMeaning(segments, "vi"),
+  };
+}
+
+export function getPromptGlossSegments(
+  text?: string,
+  preferredSegments: GlossSegment[] = [],
+): GlossSegment[] {
+  return getPromptGlossData(text, preferredSegments).segments;
 }

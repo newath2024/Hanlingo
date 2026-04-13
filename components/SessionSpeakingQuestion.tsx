@@ -2,6 +2,7 @@
 
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { useSpeechRecognitionSupport } from "@/hooks/useHanlingoSnapshot";
+import { getPromptGlossData } from "@/lib/gloss";
 import { getLocalizedText } from "@/lib/localized";
 import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import {
@@ -75,6 +76,8 @@ export default function SessionSpeakingQuestion({
     },
     locale,
   );
+  const speakingGloss =
+    !isListenRepeat ? getPromptGlossData(item.koreanText, item.glossSegments) : null;
 
   function resetCaptureState() {
     setTranscript("");
@@ -291,7 +294,14 @@ export default function SessionSpeakingQuestion({
           <KoreanTextWithGloss
             text={isListenRepeat ? item.text : item.koreanText}
             locale={locale}
-            segments={!isListenRepeat ? item.glossSegments : undefined}
+            segments={!isListenRepeat ? speakingGloss?.segments : undefined}
+            sentenceMeaning={
+              !isListenRepeat
+                ? locale === "vi"
+                  ? speakingGloss?.sentenceMeaningVi
+                  : speakingGloss?.sentenceMeaningEn
+                : undefined
+            }
             supportsGloss={item.supportsGloss}
             questionType={speakingQuestionType}
             textClassName="korean-display"

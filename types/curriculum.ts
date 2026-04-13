@@ -325,6 +325,7 @@ export type RuntimeTaskBase = {
   sentenceKey?: string;
   supportsGloss?: boolean;
   questionType?: GlossQuestionType;
+  glossSegments?: GlossSegment[];
 };
 
 export type WordMatchTask = RuntimeTaskBase & {
@@ -388,7 +389,6 @@ export type SpeakingTask = RuntimeTaskBase & {
   type: "speaking";
   koreanText: string;
   expectedSpeech: string;
-  glossSegments?: GlossSegment[];
 };
 
 export type ListeningTask = RuntimeTaskBase & {

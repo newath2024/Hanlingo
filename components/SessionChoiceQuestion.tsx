@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppLocale } from "@/hooks/useAppLocale";
-import { getPromptGlossSegments } from "@/lib/gloss";
+import { getPromptGlossData } from "@/lib/gloss";
 import { getLocalizedText } from "@/lib/localized";
 import { containerVariants, itemVariants } from "@/lib/practice-motion";
 import {
@@ -178,8 +178,11 @@ export default function SessionChoiceQuestion({
   const selectItem = isSelectItem(item) ? item : null;
   const stringChoiceItem = getStringChoiceItem(item);
   const stringChoices = stringChoiceItem?.choices ?? [];
-  const grammarPromptGlossSegments =
-    item.type === "grammar_select" ? getPromptGlossSegments(item.koreanText) : [];
+  const grammarPromptGloss =
+    item.type === "grammar_select"
+      ? getPromptGlossData(item.koreanText, item.glossSegments)
+      : null;
+  const grammarPromptGlossSegments = grammarPromptGloss?.segments ?? [];
 
   useEffect(() => {
     return () => {
@@ -319,6 +322,11 @@ export default function SessionChoiceQuestion({
                     text={item.koreanText}
                     locale={locale}
                     segments={grammarPromptGlossSegments}
+                    sentenceMeaning={
+                      locale === "vi"
+                        ? grammarPromptGloss?.sentenceMeaningVi
+                        : grammarPromptGloss?.sentenceMeaningEn
+                    }
                     supportsGloss
                     showSentenceMeaning={false}
                     textClassName="korean-display"
