@@ -1336,7 +1336,7 @@ function exerciseToTasks(
         answerText(exercise.answer).replace(".", ""),
         "workbook",
         text(
-          "Chon lai dap an de tranh nham duoi cau hoac danh tu chinh.",
+          "Chọn lại đáp án để tránh nhầm đuôi câu hoặc danh từ chính.",
           "Choose the answer again to avoid mixing up the ending or key noun.",
         ),
         grammarTags,

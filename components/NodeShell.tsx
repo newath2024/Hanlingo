@@ -552,6 +552,13 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
       result.mistakeFingerprint.confidenceScore >= FINGERPRINT_UI_CONFIDENCE_THRESHOLD
         ? getLocalizedText(result.mistakeFingerprint.uiLabel, locale)
         : "";
+    const fingerprintReason =
+      result.mistakeFingerprint &&
+      result.mistakeFingerprint.confidenceScore >= FINGERPRINT_UI_CONFIDENCE_THRESHOLD
+        ? result.mistakeFingerprint.uiReason
+          ? getLocalizedText(result.mistakeFingerprint.uiReason, locale)
+          : result.mistakeFingerprint.shortReason
+        : "";
 
     return {
       id: `${item.id}-${currentIndex}-${result.status}`,
@@ -627,7 +634,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
           : undefined,
       detail: result.detail || undefined,
       fingerprintLabel,
-      fingerprintReason: result.mistakeFingerprint?.shortReason,
+      fingerprintReason,
       explanation: explanation || undefined,
       errorMessage: saveError,
       onContinue: () => void handleAdvance(),

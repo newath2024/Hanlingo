@@ -6,6 +6,7 @@ import {
 } from "@/lib/error-fingerprint-rules";
 import {
   FINGERPRINT_UI_LABELS,
+  getFingerprintUiReason,
   type FingerprintSummary,
   type MistakeAnalysisInput,
   type MistakeAnalysisPayload,
@@ -244,6 +245,7 @@ function buildSummary(
     confidenceScore,
     shortReason,
     uiLabel: FINGERPRINT_UI_LABELS[type],
+    uiReason: getFingerprintUiReason(type, shortReason),
   } satisfies FingerprintSummary;
 }
 

@@ -486,6 +486,13 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
       answer.fingerprint.confidenceScore >= FINGERPRINT_UI_CONFIDENCE_THRESHOLD
         ? getLocalizedText(answer.fingerprint.uiLabel, locale)
         : "";
+    const fingerprintReason =
+      answer?.fingerprint &&
+      answer.fingerprint.confidenceScore >= FINGERPRINT_UI_CONFIDENCE_THRESHOLD
+        ? answer.fingerprint.uiReason
+          ? getLocalizedText(answer.fingerprint.uiReason, locale)
+          : answer.fingerprint.shortReason
+        : "";
 
     return {
       id: `${item.questionId}-${currentIndex}-${result.status}`,
@@ -568,7 +575,7 @@ export default function PracticeSessionShell({ mode }: PracticeSessionShellProps
           </div>
         ) : undefined,
       fingerprintLabel,
-      fingerprintReason: answer?.fingerprint?.shortReason,
+      fingerprintReason,
       explanation: explanation || undefined,
       errorMessage: saveError,
       onContinue: handleAdvance,
