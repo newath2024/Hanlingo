@@ -1,7 +1,8 @@
 import { createHash } from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { ListeningTtsVoice, SourceListeningItem } from "@/types/curriculum";
+import { getRuntimeUnitById } from "@/lib/units";
+import type { ListeningTask, ListeningTtsVoice, SourceListeningItem } from "@/types/curriculum";
 import { loadReviewedSourceUnit } from "@/lib/server/curriculum-source";
 import { getServerEnv } from "@/lib/server/env";
 
@@ -19,6 +20,30 @@ function getListeningItemById(
   itemId: string,
 ) {
   return items.find((item) => item.id === itemId);
+}
+
+function getRuntimeListeningTaskById(
+  unitId: string,
+  itemId: string,
+) {
+  const runtimeUnit = getRuntimeUnitById(unitId);
+
+  if (!runtimeUnit) {
+    return null;
+  }
+
+  for (const lesson of runtimeUnit.lessons) {
+    const task = lesson.tasks.find(
+      (candidate): candidate is ListeningTask =>
+        candidate.type === "listening" && candidate.id === itemId,
+    );
+
+    if (task) {
+      return task;
+    }
+  }
+
+  return null;
 }
 
 function resolveProviderVoice(
@@ -121,7 +146,8 @@ export async function GET(_: Request, context: RouteContext) {
   const { unitId, itemId } = await context.params;
   const source = await loadReviewedSourceUnit(unitId);
   const item = getListeningItemById(source.workbook.listeningItems ?? [], itemId);
-  const ttsConfig = item?.tts;
+  const runtimeTask = item ? null : getRuntimeListeningTaskById(unitId, itemId);
+  const ttsConfig = item?.tts ?? runtimeTask?.tts;
 
   if (!ttsConfig) {
     return new Response("TTS listening item not found.", { status: 404 });
