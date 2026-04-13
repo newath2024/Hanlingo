@@ -1545,7 +1545,7 @@
           }
         },
         {
-          "id": "wb17-match-housewarming-picture-2",
+          "id": "wb17-match-invitation-card-picture-1",
           "prompt": {
             "vi": "Nghe rồi chọn thẻ phù hợp.",
             "en": "Listen and choose the matching card."
@@ -1553,68 +1553,6 @@
           "explanation": {
             "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
             "en": "Hear the word again and choose the matching card to lock sound and image."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "wb17-match-housewarming-picture-2.listen",
-          "supportText": {
-            "vi": "Xem tranh và nối với từ đúng.",
-            "en": "Look at the picture and match it with the correct word."
-          },
-          "audioText": "집들이",
-          "type": "listen_select",
-          "choices": [
-            {
-              "id": "wb17-match-housewarming-picture-2-correct",
-              "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
-              "koreanLabel": "집들이"
-            },
-            {
-              "id": "wb17-match-housewarming-picture-2-d1",
-              "text": {
-                "vi": "thiệp mời",
-                "en": "invitation card"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
-              "koreanLabel": "초대장"
-            },
-            {
-              "id": "wb17-match-housewarming-picture-2-d2",
-              "text": {
-                "vi": "khăn giấy",
-                "en": "tissue paper"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
-              "koreanLabel": "휴지"
-            },
-            {
-              "id": "wb17-match-housewarming-picture-2-d3",
-              "text": {
-                "vi": "nước giặt",
-                "en": "detergent"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
-              "koreanLabel": "세제"
-            }
-          ],
-          "answer": "wb17-match-housewarming-picture-2-correct",
-          "presentation": "image_cards"
-        },
-        {
-          "id": "wb17-match-invitation-card-picture-1",
-          "prompt": {
-            "vi": "Chọn thẻ đúng với ý nghĩa này.",
-            "en": "Choose the card that matches this meaning."
-          },
-          "explanation": {
-            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
-            "en": "Start by matching the image card with the Korean word and meaning together."
           },
           "source": "workbook",
           "stage": "recognition",
@@ -1669,68 +1607,6 @@
           }
         },
         {
-          "id": "wb17-match-invitation-card-picture-2",
-          "prompt": {
-            "vi": "Nghe rồi chọn thẻ phù hợp.",
-            "en": "Listen and choose the matching card."
-          },
-          "explanation": {
-            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
-            "en": "Hear the word again and choose the matching card to lock sound and image."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "wb17-match-invitation-card-picture-2.listen",
-          "supportText": {
-            "vi": "Xem tranh và nối với từ đúng.",
-            "en": "Look at the picture and match it with the correct word."
-          },
-          "audioText": "초대장",
-          "type": "listen_select",
-          "choices": [
-            {
-              "id": "wb17-match-invitation-card-picture-2-correct",
-              "text": {
-                "vi": "thiệp mời",
-                "en": "invitation card"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
-              "koreanLabel": "초대장"
-            },
-            {
-              "id": "wb17-match-invitation-card-picture-2-d1",
-              "text": {
-                "vi": "khăn giấy",
-                "en": "tissue paper"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
-              "koreanLabel": "휴지"
-            },
-            {
-              "id": "wb17-match-invitation-card-picture-2-d2",
-              "text": {
-                "vi": "tiệc tân gia",
-                "en": "housewarming party"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
-              "koreanLabel": "집들이"
-            },
-            {
-              "id": "wb17-match-invitation-card-picture-2-d3",
-              "text": {
-                "vi": "nước giặt",
-                "en": "detergent"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
-              "koreanLabel": "세제"
-            }
-          ],
-          "answer": "wb17-match-invitation-card-picture-2-correct",
-          "presentation": "image_cards"
-        },
-        {
           "id": "wb17-match-tissue-picture-1",
           "prompt": {
             "vi": "Chọn thẻ đúng với ý nghĩa này.",
@@ -1746,7 +1622,7 @@
           "srWeight": 1.1,
           "errorPatternKey": "wb17-match-tissue-picture-1.word-match",
           "type": "word_match",
-          "koreanText": "휴지",
+          "koreanText": "초대장",
           "choices": [
             {
               "id": "wb17-match-tissue-picture-1-correct",
@@ -1760,11 +1636,11 @@
             {
               "id": "wb17-match-tissue-picture-1-d1",
               "text": {
-                "vi": "nước giặt",
-                "en": "detergent"
+                "vi": "tiệc tân gia",
+                "en": "housewarming party"
               },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
-              "koreanLabel": "세제"
+              "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
+              "koreanLabel": "집들이"
             },
             {
               "id": "wb17-match-tissue-picture-1-d2",
@@ -1791,6 +1667,192 @@
             "vi": "khăn giấy",
             "en": "tissue paper"
           }
+        },
+        {
+          "id": "wb17-match-detergent-picture-1",
+          "prompt": {
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
+            "en": "Choose the card that matches this meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.1,
+          "errorPatternKey": "wb17-match-detergent-picture-1.word-match",
+          "type": "word_match",
+          "koreanText": "세제",
+          "choices": [
+            {
+              "id": "wb17-match-detergent-picture-1-correct",
+              "text": {
+                "vi": "nước giặt",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
+            },
+            {
+              "id": "wb17-match-detergent-picture-1-d1",
+              "text": {
+                "vi": "chuẩn bị",
+                "en": "prepare"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
+              "koreanLabel": "준비하다"
+            },
+            {
+              "id": "wb17-match-detergent-picture-1-d2",
+              "text": {
+                "vi": "khăn giấy",
+                "en": "tissue paper"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
+            },
+            {
+              "id": "wb17-match-detergent-picture-1-d3",
+              "text": {
+                "vi": "thiệp mời",
+                "en": "invitation card"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
+            }
+          ],
+          "answer": "wb17-match-detergent-picture-1-correct",
+          "presentation": "image_cards",
+          "questionText": {
+            "vi": "thiệp mời",
+            "en": "invitation card"
+          }
+        },
+        {
+          "id": "wb17-match-housewarming-picture-2",
+          "prompt": {
+            "vi": "Nghe rồi chọn thẻ phù hợp.",
+            "en": "Listen and choose the matching card."
+          },
+          "explanation": {
+            "vi": "Nghe lai tu nay va chon the dung de khoa am va hinh.",
+            "en": "Hear the word again and choose the matching card to lock sound and image."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb17-match-housewarming-picture-2.listen",
+          "supportText": {
+            "vi": "Xem tranh và nối với từ đúng.",
+            "en": "Look at the picture and match it with the correct word."
+          },
+          "audioText": "초대장",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb17-match-housewarming-picture-2-correct",
+              "text": {
+                "vi": "tiệc tân gia",
+                "en": "housewarming party"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-housewarming.svg",
+              "koreanLabel": "집들이"
+            },
+            {
+              "id": "wb17-match-housewarming-picture-2-d1",
+              "text": {
+                "vi": "thiệp mời",
+                "en": "invitation card"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
+            },
+            {
+              "id": "wb17-match-housewarming-picture-2-d2",
+              "text": {
+                "vi": "khăn giấy",
+                "en": "tissue paper"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
+            },
+            {
+              "id": "wb17-match-housewarming-picture-2-d3",
+              "text": {
+                "vi": "nước giặt",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
+            }
+          ],
+          "answer": "wb17-match-housewarming-picture-2-correct",
+          "presentation": "image_cards"
+        },
+        {
+          "id": "wb17-match-invitation-card-picture-2",
+          "prompt": {
+            "vi": "Chọn thẻ đúng với ý nghĩa này.",
+            "en": "Choose the card that matches this meaning."
+          },
+          "explanation": {
+            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
+            "en": "Start by matching the image card with the Korean word and meaning together."
+          },
+          "source": "workbook",
+          "stage": "recognition",
+          "grammarTags": [],
+          "srWeight": 1.15,
+          "errorPatternKey": "wb17-match-invitation-card-picture-2.listen",
+          "supportText": {
+            "vi": "Xem tranh và nối với từ đúng.",
+            "en": "Look at the picture and match it with the correct word."
+          },
+          "audioText": "초대장",
+          "type": "listen_select",
+          "choices": [
+            {
+              "id": "wb17-match-invitation-card-picture-2-correct",
+              "text": {
+                "vi": "khăn giấy",
+                "en": "tissue paper"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
+              "koreanLabel": "휴지"
+            },
+            {
+              "id": "wb17-match-invitation-card-picture-2-d1",
+              "text": {
+                "vi": "nước giặt",
+                "en": "detergent"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
+              "koreanLabel": "세제"
+            },
+            {
+              "id": "wb17-match-invitation-card-picture-2-d2",
+              "text": {
+                "vi": "thiệp mời",
+                "en": "invitation card"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
+              "koreanLabel": "초대장"
+            },
+            {
+              "id": "wb17-match-invitation-card-picture-2-d3",
+              "text": {
+                "vi": "chuẩn bị",
+                "en": "prepare"
+              },
+              "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
+              "koreanLabel": "준비하다"
+            }
+          ],
+          "answer": "wb17-match-invitation-card-picture-2-correct",
+          "presentation": "image_cards"
         },
         {
           "id": "wb17-match-tissue-picture-2",
@@ -1853,68 +1915,6 @@
           ],
           "answer": "wb17-match-tissue-picture-2-correct",
           "presentation": "image_cards"
-        },
-        {
-          "id": "wb17-match-detergent-picture-1",
-          "prompt": {
-            "vi": "Chọn thẻ đúng với ý nghĩa này.",
-            "en": "Choose the card that matches this meaning."
-          },
-          "explanation": {
-            "vi": "Bat dau bang nhan dien hinh anh va chu Han cung luc.",
-            "en": "Start by matching the image card with the Korean word and meaning together."
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.1,
-          "errorPatternKey": "wb17-match-detergent-picture-1.word-match",
-          "type": "word_match",
-          "koreanText": "세제",
-          "choices": [
-            {
-              "id": "wb17-match-detergent-picture-1-correct",
-              "text": {
-                "vi": "nước giặt",
-                "en": "detergent"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-detergent.svg",
-              "koreanLabel": "세제"
-            },
-            {
-              "id": "wb17-match-detergent-picture-1-d1",
-              "text": {
-                "vi": "chuẩn bị",
-                "en": "prepare"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-prepare.svg",
-              "koreanLabel": "준비하다"
-            },
-            {
-              "id": "wb17-match-detergent-picture-1-d2",
-              "text": {
-                "vi": "khăn giấy",
-                "en": "tissue paper"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-tissue.svg",
-              "koreanLabel": "휴지"
-            },
-            {
-              "id": "wb17-match-detergent-picture-1-d3",
-              "text": {
-                "vi": "thiệp mời",
-                "en": "invitation card"
-              },
-              "imageUrl": "/generated/vocab-icons/unit-17/v-invitation-card.svg",
-              "koreanLabel": "초대장"
-            }
-          ],
-          "answer": "wb17-match-detergent-picture-1-correct",
-          "presentation": "image_cards",
-          "questionText": {
-            "vi": "nước giặt",
-            "en": "detergent"
-          }
         },
         {
           "id": "wb17-match-detergent-picture-2",

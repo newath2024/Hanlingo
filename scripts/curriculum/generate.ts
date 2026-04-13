@@ -3741,6 +3741,7 @@ function buildUnit17WorkbookLessons(
           "Keep the full picture-vocabulary block from the workbook instead of trimming it down.",
         ),
         focusConcepts: ["vocab", "housewarming", "tissue", "detergent"],
+        taskOrdering: "interleave_pairs",
         exerciseIds: [
           "wb17-match-housewarming-picture",
           "wb17-match-invitation-card-picture",
