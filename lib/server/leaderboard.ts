@@ -100,6 +100,99 @@ function getZoneStatus(
   return "safe";
 }
 
+type LeaderboardMovementPreview = {
+  entry: LeaderboardEntryRecord & { rank: number };
+  nextLeague: LeaderboardEntryRecord["league"];
+  promoted: boolean;
+  demoted: boolean;
+};
+
+function buildGroupMovementPreview(
+  entries: LeaderboardEntryRecord[],
+): LeaderboardMovementPreview[] {
+  const rankedEntries = sortEntriesForRank(entries).map((entry, index) => ({
+    ...entry,
+    rank: index + 1,
+  }));
+  const { promotionCount, demotionCount } = getLeaderboardMovementCounts(rankedEntries.length);
+  const demotionMinRank = getDemotionMinRank(rankedEntries.length, demotionCount);
+
+  return rankedEntries.map((entry) => {
+    const isPromotionZone = promotionCount > 0 && entry.rank <= promotionCount;
+    const isDemotionZone = demotionMinRank !== null && entry.rank >= demotionMinRank;
+    const nextLeague = isPromotionZone
+      ? getPromotedLeague(entry.league)
+      : isDemotionZone
+        ? getDemotedLeague(entry.league)
+        : entry.league;
+
+    return {
+      entry,
+      nextLeague,
+      promoted: isPromotionZone && nextLeague !== entry.league,
+      demoted: isDemotionZone && nextLeague !== entry.league,
+    };
+  });
+}
+
+async function findOrCreateAvailableGroupForLeague(
+  weekId: string,
+  league: LeaderboardEntryRecord["league"],
+) {
+  const [groups, weekEntries] = await Promise.all([
+    listLeaderboardGroupsByWeekAndLeague(weekId, league),
+    listLeaderboardEntriesByWeek(weekId),
+  ]);
+  const entryCountByGroupId = weekEntries.reduce<Map<string, number>>((map, entry) => {
+    map.set(entry.groupId, (map.get(entry.groupId) ?? 0) + 1);
+    return map;
+  }, new Map());
+
+  let targetGroup =
+    groups.find((group) => (entryCountByGroupId.get(group.id) ?? 0) < LEADERBOARD_TARGET_GROUP_SIZE) ??
+    null;
+
+  if (!targetGroup) {
+    targetGroup = await createLeaderboardGroup({
+      weekId,
+      league,
+      groupNumber: (groups.at(-1)?.groupNumber ?? 0) + 1,
+    });
+  }
+
+  return targetGroup;
+}
+
+async function syncLeaderboardEntryLeague(
+  entry: LeaderboardEntryRecord,
+  targetLeague: LeaderboardEntryRecord["league"],
+) {
+  if (entry.league === targetLeague) {
+    return false;
+  }
+
+  const targetGroup = await findOrCreateAvailableGroupForLeague(entry.weekId, targetLeague);
+
+  if (!targetGroup) {
+    throw new Error("Unable to create a leaderboard group for the corrected league.");
+  }
+
+  const previousGroupId = entry.groupId;
+
+  await updateLeaderboardEntry(entry.id, {
+    groupId: targetGroup.id,
+    league: targetLeague,
+  });
+
+  await recomputeGroupRanks(previousGroupId);
+
+  if (targetGroup.id !== previousGroupId) {
+    await recomputeGroupRanks(targetGroup.id);
+  }
+
+  return true;
+}
+
 export async function createNextLeaderboardWeek(
   referenceWeek?: LeaderboardWeekRecord | null,
   now = new Date(),
@@ -191,26 +284,7 @@ export async function findOrCreateLeaderboardEntryForUser(userId: string) {
     throw new Error("User not found.");
   }
 
-  const [groups, weekEntries] = await Promise.all([
-    listLeaderboardGroupsByWeekAndLeague(week.id, user.currentLeague),
-    listLeaderboardEntriesByWeek(week.id),
-  ]);
-  const entryCountByGroupId = weekEntries.reduce<Map<string, number>>((map, entry) => {
-    map.set(entry.groupId, (map.get(entry.groupId) ?? 0) + 1);
-    return map;
-  }, new Map());
-
-  let targetGroup =
-    groups.find((group) => (entryCountByGroupId.get(group.id) ?? 0) < LEADERBOARD_TARGET_GROUP_SIZE) ??
-    null;
-
-  if (!targetGroup) {
-    targetGroup = await createLeaderboardGroup({
-      weekId: week.id,
-      league: user.currentLeague,
-      groupNumber: (groups.at(-1)?.groupNumber ?? 0) + 1,
-    });
-  }
+  const targetGroup = await findOrCreateAvailableGroupForLeague(week.id, user.currentLeague);
 
   if (!targetGroup) {
     throw new Error("Unable to create a leaderboard group.");
@@ -262,37 +336,158 @@ export async function applyLeagueMovements(weekId: string) {
   const groups = await listLeaderboardGroupsByWeek(weekId);
 
   for (const group of groups) {
-    const entries = sortEntriesForRank(await listLeaderboardEntriesByGroup(group.id)).map(
-      (entry, index) => ({
-        ...entry,
-        rank: index + 1,
-      }),
-    );
-    const { promotionCount, demotionCount } = getLeaderboardMovementCounts(entries.length);
-    const demotionMinRank = getDemotionMinRank(entries.length, demotionCount);
+    const movements = buildGroupMovementPreview(await listLeaderboardEntriesByGroup(group.id));
 
-    for (const entry of entries) {
-      const isPromotionZone = promotionCount > 0 && entry.rank <= promotionCount;
-      const isDemotionZone =
-        demotionMinRank !== null && entry.rank >= demotionMinRank;
-      const nextLeague = isPromotionZone
-        ? getPromotedLeague(entry.league)
-        : isDemotionZone
-          ? getDemotedLeague(entry.league)
-          : entry.league;
-      const promoted = isPromotionZone && nextLeague !== entry.league;
-      const demoted = isDemotionZone && nextLeague !== entry.league;
-
-      await updateLeaderboardEntry(entry.id, {
-        promoted,
-        demoted,
+    for (const movement of movements) {
+      await updateLeaderboardEntry(movement.entry.id, {
+        promoted: movement.promoted,
+        demoted: movement.demoted,
       });
 
-      if (nextLeague !== entry.league) {
-        await updateUserCurrentLeague(entry.userId, nextLeague);
+      if (movement.nextLeague !== movement.entry.league) {
+        await updateUserCurrentLeague(movement.entry.userId, movement.nextLeague);
       }
     }
   }
+}
+
+export type LeaderboardWeekBackfillResult = {
+  week: ReturnType<typeof serializeWeek>;
+  dryRun: boolean;
+  syncActiveWeek: boolean;
+  activeWeek: ReturnType<typeof serializeWeek> | null;
+  totals: {
+    usersNeedingCorrection: number;
+    closedWeekEntriesUpdated: number;
+    currentLeaguesUpdated: number;
+    activeWeekEntriesSynced: number;
+  };
+  changes: Array<{
+    userId: string;
+    rank: number;
+    sourceLeague: LeaderboardEntryRecord["league"];
+    expectedLeague: LeaderboardEntryRecord["league"];
+    promoted: boolean;
+    demoted: boolean;
+    needsClosedWeekFlagUpdate: boolean;
+    needsCurrentLeagueUpdate: boolean;
+    needsActiveWeekSync: boolean;
+    activeWeekEntryLeague: LeaderboardEntryRecord["league"] | null;
+  }>;
+};
+
+export async function backfillLeaderboardWeekMovements(
+  weekId: string,
+  options: {
+    dryRun?: boolean;
+    syncActiveWeek?: boolean;
+    userIds?: string[];
+  } = {},
+): Promise<LeaderboardWeekBackfillResult> {
+  const week = await findLeaderboardWeekById(weekId);
+
+  if (!week) {
+    throw new Error("Leaderboard week not found.");
+  }
+
+  if (week.status !== "closed") {
+    throw new Error("Only closed leaderboard weeks can be backfilled.");
+  }
+
+  await recomputeRanksForWeek(week.id);
+
+  const requestedUserIds = options.userIds?.length ? new Set(options.userIds) : null;
+  const shouldSyncActiveWeek = options.syncActiveWeek !== false;
+  const activeWeek = shouldSyncActiveWeek ? await findActiveLeaderboardWeek() : null;
+  const groups = await listLeaderboardGroupsByWeek(week.id);
+  const changes: LeaderboardWeekBackfillResult["changes"] = [];
+  let closedWeekEntriesUpdated = 0;
+  let currentLeaguesUpdated = 0;
+  let activeWeekEntriesSynced = 0;
+
+  for (const group of groups) {
+    const movements = buildGroupMovementPreview(await listLeaderboardEntriesByGroup(group.id));
+
+    for (const movement of movements) {
+      if (requestedUserIds && !requestedUserIds.has(movement.entry.userId)) {
+        continue;
+      }
+
+      const user = await findUserById(movement.entry.userId);
+      const activeWeekEntry =
+        activeWeek && activeWeek.id !== week.id
+          ? await findLeaderboardEntryByWeekAndUser(activeWeek.id, movement.entry.userId)
+          : null;
+      const needsClosedWeekFlagUpdate =
+        movement.entry.promoted !== movement.promoted ||
+        movement.entry.demoted !== movement.demoted;
+      const needsCurrentLeagueUpdate =
+        movement.nextLeague !== movement.entry.league &&
+        user?.currentLeague !== movement.nextLeague;
+      const needsActiveWeekSync =
+        activeWeekEntry !== null && activeWeekEntry.league !== movement.nextLeague;
+
+      if (
+        !needsClosedWeekFlagUpdate &&
+        !needsCurrentLeagueUpdate &&
+        !needsActiveWeekSync
+      ) {
+        continue;
+      }
+
+      changes.push({
+        userId: movement.entry.userId,
+        rank: movement.entry.rank,
+        sourceLeague: movement.entry.league,
+        expectedLeague: movement.nextLeague,
+        promoted: movement.promoted,
+        demoted: movement.demoted,
+        needsClosedWeekFlagUpdate,
+        needsCurrentLeagueUpdate,
+        needsActiveWeekSync,
+        activeWeekEntryLeague: activeWeekEntry?.league ?? null,
+      });
+
+      if (options.dryRun) {
+        continue;
+      }
+
+      if (needsClosedWeekFlagUpdate) {
+        await updateLeaderboardEntry(movement.entry.id, {
+          promoted: movement.promoted,
+          demoted: movement.demoted,
+        });
+        closedWeekEntriesUpdated += 1;
+      }
+
+      if (needsCurrentLeagueUpdate) {
+        await updateUserCurrentLeague(movement.entry.userId, movement.nextLeague);
+        currentLeaguesUpdated += 1;
+      }
+
+      if (needsActiveWeekSync && activeWeekEntry) {
+        const synced = await syncLeaderboardEntryLeague(activeWeekEntry, movement.nextLeague);
+
+        if (synced) {
+          activeWeekEntriesSynced += 1;
+        }
+      }
+    }
+  }
+
+  return {
+    week: serializeWeek(week),
+    dryRun: options.dryRun ?? false,
+    syncActiveWeek: shouldSyncActiveWeek,
+    activeWeek: activeWeek ? serializeWeek(activeWeek) : null,
+    totals: {
+      usersNeedingCorrection: changes.length,
+      closedWeekEntriesUpdated,
+      currentLeaguesUpdated,
+      activeWeekEntriesSynced,
+    },
+    changes,
+  };
 }
 
 function getLeaderboardReward(sourceType: AwardLeaderboardXpInput["sourceType"]) {

@@ -41,9 +41,17 @@ export function isLeaderboardLeague(value: string): value is LeaderboardLeague {
 }
 
 export function getLeaderboardMovementCounts(participantCount: number) {
-  if (participantCount <= 2) {
+  if (participantCount <= 0) {
     return {
       promotionCount: 0,
+      demotionCount: 0,
+    };
+  }
+
+  // Small groups should still let the leader climb, but never punish the rest.
+  if (participantCount <= 2) {
+    return {
+      promotionCount: 1,
       demotionCount: 0,
     };
   }

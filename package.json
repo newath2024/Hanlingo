@@ -13,6 +13,7 @@
     "prisma:generate": "prisma generate --config prisma.config.ts",
     "prisma:migrate:dev": "prisma migrate dev --config prisma.config.ts",
     "prisma:migrate:deploy": "prisma migrate deploy --config prisma.config.ts",
+    "leaderboard:backfill": "node --conditions=react-server --import tsx scripts/leaderboard/backfill.ts",
     "curriculum:extract": "tsx scripts/curriculum/cli.ts extract --unit 1",
     "curriculum:generate": "tsx scripts/curriculum/cli.ts generate --unit 1",
     "curriculum:validate": "tsx scripts/curriculum/cli.ts validate --unit 1",

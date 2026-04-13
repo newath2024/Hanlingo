@@ -1848,6 +1848,25 @@ export async function findActiveLeaderboardWeek() {
   return record ? toLeaderboardWeekRecord(record) : null;
 }
 
+export async function listLeaderboardWeeks() {
+  assertEnvLoaded();
+
+  if (!isFileStoreEnabled()) {
+    const records = await prisma.leaderboardWeek.findMany({
+      orderBy: {
+        startsAt: "desc",
+      },
+    });
+
+    return records.map(toPrismaLeaderboardWeekRecord);
+  }
+
+  const store = await readFileStore();
+  return store.leaderboardWeeks
+    .map(toLeaderboardWeekRecord)
+    .sort((left, right) => right.startsAt.getTime() - left.startsAt.getTime());
+}
+
 export async function findLeaderboardWeekById(id: string) {
   assertEnvLoaded();
 
