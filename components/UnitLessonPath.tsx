@@ -12,6 +12,7 @@ type UnitLessonPathProps = {
   progress: ProgressState;
   locale: AppLocale;
   currentNodeId: string | null;
+  developerOverride?: boolean;
 };
 
 type PathNodeState = "locked" | "available" | "current" | "completed";
@@ -25,12 +26,13 @@ function getPathNodeState(
   unit: UnitDefinition,
   node: NodeDefinition,
   currentNodeId: string | null,
+  developerOverride = false,
 ): PathNodeState {
   if (isNodeCompleted(progress, node.id)) {
     return "completed";
   }
 
-  if (!isNodeUnlocked(progress, unit, node.id)) {
+  if (!isNodeUnlocked(progress, unit, node.id, developerOverride)) {
     return "locked";
   }
 
@@ -133,6 +135,7 @@ export default function UnitLessonPath({
   progress,
   locale,
   currentNodeId,
+  developerOverride = false,
 }: UnitLessonPathProps) {
   const sectionsWithNodes = unit.sections.reduce<
     Array<{
@@ -184,7 +187,13 @@ export default function UnitLessonPath({
 
             <div className="space-y-0">
               {sectionNodes.map((node, nodeIndex) => {
-                const state = getPathNodeState(progress, unit, node, currentNodeId);
+                const state = getPathNodeState(
+                  progress,
+                  unit,
+                  node,
+                  currentNodeId,
+                  developerOverride,
+                );
                 const tone = getNodeTone(state);
                 const alignsLeft = (startIndex + nodeIndex) % 2 === 0;
                 const hasConnector = nodeIndex < sectionNodes.length - 1;

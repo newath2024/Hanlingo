@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { useAnalyticsOverview } from "@/hooks/useAnalyticsOverview";
 import { useAppLocale } from "@/hooks/useAppLocale";
+import { useDeveloperAccess } from "@/hooks/useDeveloperAccess";
 import { useHanlingoSnapshot } from "@/hooks/useHanlingoSnapshot";
 import { usePracticeOverview } from "@/hooks/usePracticeOverview";
 import { useUserErrorHeatmap } from "@/hooks/useUserErrorHeatmap";
@@ -631,14 +632,15 @@ function CommonMistakesCard({
 
 export default function AnalyticsCoachScreen() {
   const { locale } = useAppLocale();
+  const developerOverride = useDeveloperAccess();
   const { data: analyticsData, isLoading: analyticsLoading, error: analyticsError } = useAnalyticsOverview();
   const { data: practiceData, isLoading: practiceLoading, error: practiceError } = usePracticeOverview();
   const { data: heatmapData, isLoading: heatmapLoading, error: heatmapError } = useUserErrorHeatmap({
     limit: 3,
   });
   const { progress } = useHanlingoSnapshot("analytics-coach", []);
-  const activeUnit = getCurrentUnit(progress);
-  const activeNode = activeUnit ? getCurrentNode(activeUnit, progress) : null;
+  const activeUnit = getCurrentUnit(progress, developerOverride);
+  const activeNode = activeUnit ? getCurrentNode(activeUnit, progress, developerOverride) : null;
   const hasLearningHistory =
     (analyticsData?.totalAttempts ?? 0) > 0 ||
     progress.completedNodes.length > 0 ||

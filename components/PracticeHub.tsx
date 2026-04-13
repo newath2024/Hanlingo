@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo } from "react";
 import { useAppLocale } from "@/hooks/useAppLocale";
+import { useDeveloperAccess } from "@/hooks/useDeveloperAccess";
 import { useHanlingoSnapshot } from "@/hooks/useHanlingoSnapshot";
 import { usePracticeOverview } from "@/hooks/usePracticeOverview";
 import { getLocalizedText } from "@/lib/localized";
@@ -19,10 +20,11 @@ function formatPercent(value: number) {
 
 export default function PracticeHub() {
   const { locale } = useAppLocale();
+  const developerOverride = useDeveloperAccess();
   const { progress } = useHanlingoSnapshot("practice-hub", []);
   const { data, isLoading, error } = usePracticeOverview();
-  const activeUnit = getCurrentUnit(progress);
-  const activeNode = activeUnit ? getCurrentNode(activeUnit, progress) : null;
+  const activeUnit = getCurrentUnit(progress, developerOverride);
+  const activeNode = activeUnit ? getCurrentNode(activeUnit, progress, developerOverride) : null;
 
   const suggestedDrills = useMemo(() => {
     const drills: Array<{

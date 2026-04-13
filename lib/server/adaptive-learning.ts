@@ -91,6 +91,7 @@ const FINGERPRINT_PRIORITY: Record<string, number> = {
 
 type AdaptiveSessionOptions = {
   userId: string;
+  developerOverride?: boolean;
   mode: AdaptiveSessionMode;
   targetUnitId?: string;
   targetLessonId?: string;
@@ -188,6 +189,7 @@ function clamp(value: number, minimum: number, maximum: number) {
 function getAdaptiveCacheKey(options: AdaptiveSessionOptions) {
   return JSON.stringify({
     userId: options.userId,
+    developerOverride: options.developerOverride ?? false,
     mode: options.mode,
     targetUnitId: options.targetUnitId ?? null,
     targetLessonId: options.targetLessonId ?? null,
@@ -248,14 +250,15 @@ function getDominantFingerprintType(fingerprintCounts: Record<string, number>) {
 
 function getProgressionContext(
   progress: Awaited<ReturnType<typeof getUserProgress>>,
+  developerOverride = false,
   targetUnitId?: string,
 ) {
-  const activeUnit = getCurrentUnit(progress);
+  const activeUnit = getCurrentUnit(progress, developerOverride);
   const targetUnit = targetUnitId ? getRuntimeUnitById(targetUnitId) : null;
   const unlockedTargetUnit =
-    targetUnit && isUnitUnlocked(progress, targetUnit.id) ? targetUnit : null;
+    targetUnit && isUnitUnlocked(progress, targetUnit.id, developerOverride) ? targetUnit : null;
   const effectiveUnit = unlockedTargetUnit ?? activeUnit;
-  const currentNode = effectiveUnit ? getCurrentNode(effectiveUnit, progress) : null;
+  const currentNode = effectiveUnit ? getCurrentNode(effectiveUnit, progress, developerOverride) : null;
 
   return {
     activeUnitId: effectiveUnit?.id,
@@ -984,7 +987,10 @@ function cleanupStoredSessions() {
 async function buildAdaptiveContext(options: AdaptiveSessionOptions): Promise<AdaptiveContext> {
   const now = new Date();
   const progress = await getUserProgress(options.userId);
-  const unlockedEntries = listUnlockedRuntimeTaskEntries(progress);
+  const unlockedEntries = listUnlockedRuntimeTaskEntries(
+    progress,
+    options.developerOverride ?? false,
+  );
   const unlockedQuestionIds = new Set(unlockedEntries.map((entry) => entry.questionId));
   const existingErrors = await listUserErrors(options.userId);
   const relevantQuestionIds = [
@@ -1026,7 +1032,11 @@ async function buildAdaptiveContext(options: AdaptiveSessionOptions): Promise<Ad
 
   const { targetAggregates, skillAggregates, unitAggregates } = buildAggregateMaps(questionSignals);
   const unitIndexById = new Map(runtimeUnitCatalog.map((unit, index) => [unit.id, index]));
-  const progressionContext = getProgressionContext(progress, options.targetUnitId);
+  const progressionContext = getProgressionContext(
+    progress,
+    options.developerOverride ?? false,
+    options.targetUnitId,
+  );
 
   return {
     userId: options.userId,

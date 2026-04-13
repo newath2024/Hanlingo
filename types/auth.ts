@@ -5,4 +5,5 @@ export type AuthUser = {
   email: string;
   username: string;
   currentLeague: LeaderboardLeague;
+  isDeveloper: boolean;
 };

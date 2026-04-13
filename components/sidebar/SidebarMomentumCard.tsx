@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import MaskedStatusIcon from "@/components/MaskedStatusIcon";
+import { useDeveloperAccess } from "@/hooks/useDeveloperAccess";
 import { useUserProgress } from "@/hooks/useUserProgress";
 import { getLocalizedText } from "@/lib/localized";
 import { SIDEBAR_ICON_PATHS } from "@/lib/sidebar-navigation";
@@ -158,7 +159,8 @@ export default function SidebarMomentumCard({
   isLoading,
 }: SidebarMomentumCardProps) {
   const { progress, isLoading: isProgressLoading } = useUserProgress();
-  const destination = getSidebarContinueTarget(progress);
+  const developerOverride = useDeveloperAccess();
+  const destination = getSidebarContinueTarget(progress, developerOverride);
   const goalProgress = getSidebarGoalProgress(summary?.todayXp, SIDEBAR_DAILY_GOAL_XP);
   const momentumState = getSidebarMomentumState(summary, isLoading, SIDEBAR_DAILY_GOAL_XP);
   const destinationReady = !isProgressLoading;

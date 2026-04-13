@@ -3,6 +3,7 @@
 import Link from "next/link";
 import UnitLessonPath from "@/components/UnitLessonPath";
 import { useAppLocale } from "@/hooks/useAppLocale";
+import { useDeveloperAccess } from "@/hooks/useDeveloperAccess";
 import { useHanlingoSnapshot } from "@/hooks/useHanlingoSnapshot";
 import { getLocalizedText } from "@/lib/localized";
 import {
@@ -26,11 +27,14 @@ function ui(locale: AppLocale, en: string, vi: string) {
 
 export default function UnitScreen({ unit }: UnitScreenProps) {
   const { locale } = useAppLocale();
+  const developerOverride = useDeveloperAccess();
   const { progress, isLoading, error } = useHanlingoSnapshot(unit.id, getUnitWords(unit));
-  const unitUnlocked = isUnitUnlocked(progress, unit.id);
-  const currentUnit = getCurrentUnit(progress);
+  const unitUnlocked = isUnitUnlocked(progress, unit.id, developerOverride);
+  const currentUnit = getCurrentUnit(progress, developerOverride);
   const previousUnit = getPreviousUnit(unit.id);
-  const currentNode = unitUnlocked ? getCurrentNode(unit, progress) ?? unit.nodes[0] ?? null : null;
+  const currentNode = unitUnlocked
+    ? getCurrentNode(unit, progress, developerOverride) ?? unit.nodes[0] ?? null
+    : null;
   const completedNodeCount = getCompletedNodeCount(progress, unit);
   const progressPercent =
     unit.nodes.length > 0 ? Math.round((completedNodeCount / unit.nodes.length) * 100) : 0;
@@ -224,6 +228,7 @@ export default function UnitScreen({ unit }: UnitScreenProps) {
             progress={progress}
             locale={locale}
             currentNodeId={currentNode?.id ?? null}
+            developerOverride={developerOverride}
           />
         </div>
       </section>

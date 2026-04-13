@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useAppLocale } from "@/hooks/useAppLocale";
 import { useAuth } from "@/hooks/useAuth";
+import { useDeveloperAccess } from "@/hooks/useDeveloperAccess";
 import { useHanlingoSnapshot } from "@/hooks/useHanlingoSnapshot";
 import { getLocalizedText } from "@/lib/localized";
 import {
@@ -26,13 +27,14 @@ type LearnUnitCardProps = {
   locale: AppLocale;
   unit: UnitDefinition;
   progress: ProgressState;
+  developerOverride: boolean;
 };
 
-function LearnUnitCard({ locale, unit, progress }: LearnUnitCardProps) {
+function LearnUnitCard({ locale, unit, progress, developerOverride }: LearnUnitCardProps) {
   const completedNodeCount = getCompletedNodeCount(progress, unit);
   const unitCompleted = isUnitCompleted(progress, unit.id);
-  const unitUnlocked = isUnitUnlocked(progress, unit.id);
-  const currentNode = unitUnlocked ? getCurrentNode(unit, progress) : null;
+  const unitUnlocked = isUnitUnlocked(progress, unit.id, developerOverride);
+  const currentNode = unitUnlocked ? getCurrentNode(unit, progress, developerOverride) : null;
   const previousUnit = getPreviousUnit(unit.id);
   const progressPercent =
     unit.nodes.length > 0 ? Math.round((completedNodeCount / unit.nodes.length) * 100) : 0;
@@ -137,9 +139,12 @@ function LearnUnitCard({ locale, unit, progress }: LearnUnitCardProps) {
 export default function HomePage() {
   const { locale } = useAppLocale();
   const { user } = useAuth();
+  const developerOverride = useDeveloperAccess();
   const { progress, isLoading, error } = useHanlingoSnapshot("home-overview", []);
-  const activeUnit = getCurrentUnit(progress);
-  const continueNode = activeUnit ? getCurrentNode(activeUnit, progress) ?? activeUnit.nodes[0] : null;
+  const activeUnit = getCurrentUnit(progress, developerOverride);
+  const continueNode = activeUnit
+    ? getCurrentNode(activeUnit, progress, developerOverride) ?? activeUnit.nodes[0]
+    : null;
   const completedNodeCount = activeUnit ? getCompletedNodeCount(progress, activeUnit) : 0;
   const activeProgressPercent =
     activeUnit && activeUnit.nodes.length > 0
@@ -153,7 +158,9 @@ export default function HomePage() {
           .sort((left, right) => left.unitNumber - right.unitNumber),
       ]
     : [...unitCatalog];
-  const unlockedUnitCount = unitCatalog.filter((unit) => isUnitUnlocked(progress, unit.id)).length;
+  const unlockedUnitCount = unitCatalog.filter((unit) =>
+    isUnitUnlocked(progress, unit.id, developerOverride),
+  ).length;
 
   return (
     <main className="shell-page">
@@ -274,6 +281,7 @@ export default function HomePage() {
                 locale={locale}
                 unit={unit}
                 progress={progress}
+                developerOverride={developerOverride}
               />
             ))}
           </div>

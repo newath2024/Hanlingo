@@ -46,6 +46,7 @@ export async function GET(request: Request) {
 
     const result = await generateAdaptiveSession({
       userId: auth.user.id,
+      developerOverride: auth.user.isDeveloper,
       mode: parsed.data.mode,
       targetUnitId: parsed.data.targetUnitId,
       targetLessonId: parsed.data.targetLessonId,

@@ -1,6 +1,7 @@
 "use client";
 
 import { useAppLocale } from "@/hooks/useAppLocale";
+import { useDeveloperAccess } from "@/hooks/useDeveloperAccess";
 import { useUserProgress } from "@/hooks/useUserProgress";
 import { analyzeMistake, summarizeFingerprint } from "@/lib/error-fingerprint-analysis";
 import { getLocalizedText, getLocalizedValue } from "@/lib/localized";
@@ -81,6 +82,7 @@ function getWeakReasonLabel(locale: "en" | "vi", reason: WeakSessionItem["reason
 
 function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
   const { locale } = useAppLocale();
+  const developerOverride = useDeveloperAccess();
   const {
     progress,
     isLoading: progressLoading,
@@ -134,7 +136,7 @@ function HydratedNodeShell({ unit, node, lesson }: NodeShellProps) {
   const currentItem = sessionItems[currentIndex];
   const isLocked =
     !progressLoading &&
-    getNodeState(progress, unit, node.id) === "locked" &&
+    getNodeState(progress, unit, node.id, developerOverride) === "locked" &&
     !isNodeCompleted(progress, node.id);
   const nextNode = getNextNode(unit, node.id);
   const ui = (en: string, vi: string) => getLocalizedText({ en, vi }, locale);

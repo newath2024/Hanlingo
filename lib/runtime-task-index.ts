@@ -120,8 +120,13 @@ export function resolveHeatmapMetadataForQuestion(questionId: string): RuntimeHe
   return runtimeTaskMetadataMap.get(questionId) ?? null;
 }
 
-export function listUnlockedRuntimeTaskEntries(progress: ProgressState) {
-  return runtimeTaskEntries.filter((entry) => isNodeUnlocked(progress, entry.unit, entry.node.id));
+export function listUnlockedRuntimeTaskEntries(
+  progress: ProgressState,
+  developerOverride = false,
+) {
+  return runtimeTaskEntries.filter((entry) =>
+    isNodeUnlocked(progress, entry.unit, entry.node.id, developerOverride),
+  );
 }
 
 export function inferRuntimeTaskErrorType(task: RuntimeTask): ErrorType {

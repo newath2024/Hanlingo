@@ -145,11 +145,19 @@ export function getPreviousUnit(unitId: string) {
   return unitCatalog[unitIndex - 1] ?? null;
 }
 
-export function isUnitUnlocked(progress: ProgressState, unitId: string) {
+export function isUnitUnlocked(
+  progress: ProgressState,
+  unitId: string,
+  developerOverride = false,
+) {
   const unit = getUnitById(unitId);
 
   if (!unit) {
     return false;
+  }
+
+  if (developerOverride) {
+    return true;
   }
 
   const previousUnit = getPreviousUnit(unitId);
@@ -161,10 +169,10 @@ export function isUnitUnlocked(progress: ProgressState, unitId: string) {
   return isUnitCompleted(progress, previousUnit.id);
 }
 
-export function getCurrentUnit(progress: ProgressState) {
+export function getCurrentUnit(progress: ProgressState, developerOverride = false) {
   return (
     unitCatalog.find(
-      (unit) => isUnitUnlocked(progress, unit.id) && !isUnitCompleted(progress, unit.id),
+      (unit) => isUnitUnlocked(progress, unit.id, developerOverride) && !isUnitCompleted(progress, unit.id),
     ) ??
     unitCatalog[0] ??
     null
@@ -179,6 +187,7 @@ export function isNodeUnlocked(
   progress: ProgressState,
   unit: UnitDefinition,
   nodeId: string,
+  developerOverride = false,
 ) {
   const node = unit.nodes.find((candidate) => candidate.id === nodeId);
 
@@ -186,7 +195,11 @@ export function isNodeUnlocked(
     return false;
   }
 
-  if (!isUnitUnlocked(progress, unit.id)) {
+  if (developerOverride) {
+    return true;
+  }
+
+  if (!isUnitUnlocked(progress, unit.id, developerOverride)) {
     return false;
   }
 
@@ -202,20 +215,27 @@ export function getNodeState(
   progress: ProgressState,
   unit: UnitDefinition,
   nodeId: string,
+  developerOverride = false,
 ): NodeState {
   if (isNodeCompleted(progress, nodeId)) {
     return "completed";
   }
 
-  return isNodeUnlocked(progress, unit, nodeId) ? "current" : "locked";
+  return isNodeUnlocked(progress, unit, nodeId, developerOverride) ? "current" : "locked";
 }
 
 export function getCompletedNodeCount(progress: ProgressState, unit: UnitDefinition) {
   return unit.nodes.filter((node) => isNodeCompleted(progress, node.id)).length;
 }
 
-export function getCurrentNode(unit: UnitDefinition, progress: ProgressState) {
-  return unit.nodes.find((node) => getNodeState(progress, unit, node.id) === "current") ?? null;
+export function getCurrentNode(
+  unit: UnitDefinition,
+  progress: ProgressState,
+  developerOverride = false,
+) {
+  return (
+    unit.nodes.find((node) => getNodeState(progress, unit, node.id, developerOverride) === "current") ?? null
+  );
 }
 
 export function getNextNode(unit: UnitDefinition, nodeId: string) {

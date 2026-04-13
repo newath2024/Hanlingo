@@ -28,9 +28,14 @@ export type SidebarGoalProgress = {
   hasStarted: boolean;
 };
 
-export function getSidebarContinueTarget(progress: UserProgressState): SidebarContinueTarget {
-  const activeUnit = getCurrentUnit(progress);
-  const activeNode = activeUnit ? getCurrentNode(activeUnit, progress) ?? activeUnit.nodes[0] : null;
+export function getSidebarContinueTarget(
+  progress: UserProgressState,
+  developerOverride = false,
+): SidebarContinueTarget {
+  const activeUnit = getCurrentUnit(progress, developerOverride);
+  const activeNode = activeUnit
+    ? getCurrentNode(activeUnit, progress, developerOverride) ?? activeUnit.nodes[0]
+    : null;
   const completedNodeCount = activeUnit ? getCompletedNodeCount(progress, activeUnit) : 0;
   const progressPercent =
     activeUnit && activeUnit.nodes.length > 0

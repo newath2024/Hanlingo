@@ -13,6 +13,7 @@ import {
   type UserRecord,
   updateSessionExpiry,
 } from "@/lib/server/data-store";
+import { isDeveloperEmail } from "@/lib/developer-access";
 import { getServerEnv } from "@/lib/server/env";
 import type { AuthUser } from "@/types/auth";
 
@@ -35,6 +36,7 @@ export function toAuthUser(
     email: user.email,
     username: user.username,
     currentLeague: user.currentLeague,
+    isDeveloper: isDeveloperEmail(user.email),
   };
 }
 
