@@ -229,14 +229,14 @@ export default function SessionVocabImageChoiceQuestion({
                   }`}
                 >
                   <div className="flex h-full flex-col">
-                    <div className="relative h-40 overflow-hidden bg-[linear-gradient(180deg,#fff7da_0%,#f3f9f0_100%)] sm:h-44">
+                    <div className="relative aspect-square overflow-hidden bg-[radial-gradient(circle_at_top,#fff8de_0%,#f7f2e5_58%,#eff6ea_100%)]">
                       {option.imageUrl ? (
                         <Image
                           src={option.imageUrl}
                           alt={meaningLabel}
                           fill
                           sizes="(max-width: 768px) 45vw, 18rem"
-                          className="object-cover p-4"
+                          className="object-contain p-3 sm:p-4"
                         />
                       ) : null}
                     </div>

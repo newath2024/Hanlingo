@@ -1,6 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 192" fill="none">
-  <rect width="256" height="192" rx="36" fill="#F3F8FF"/>
-  <rect x="72" y="90" width="112" height="52" rx="18" fill="#2D9CDB"/>
-  <path d="M110 90c0-20 12-34 30-34 20 0 34 16 34 40 0 18-10 30-26 34" stroke="#FFF" stroke-linecap="round" stroke-width="10"/>
-  <path d="M96 142h80" stroke="#1F442A" stroke-linecap="round" stroke-width="8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <rect width="256" height="256" rx="56" fill="#F7F1E8"/>
+  <path
+    d="M128 56C148 56 162 72 160 92L154 138H102L96 92C94 72 108 56 128 56Z"
+    fill="#FFF8DC"
+    stroke="#355A45"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="10"
+  />
+  <rect
+    x="64"
+    y="126"
+    width="128"
+    height="66"
+    rx="24"
+    fill="#A9D7F2"
+    stroke="#355A45"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="10"
+  />
+  <rect
+    x="104"
+    y="132"
+    width="48"
+    height="16"
+    rx="8"
+    fill="#F7F1E8"
+    stroke="#355A45"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="10"
+  />
+  <path
+    d="M84 172H172"
+    stroke="#355A45"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="10"
+  />
 </svg>
