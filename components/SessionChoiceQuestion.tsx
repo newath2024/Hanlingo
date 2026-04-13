@@ -165,6 +165,7 @@ export default function SessionChoiceQuestion({
   const supportText = item.supportText ? getLocalizedText(item.supportText, locale) : "";
   const replayText = getPromptReplayText(item);
   const isVocabQuestion = isKoreanVocabQuestion(item);
+  const canShowInlineReplay = isVocabQuestion && "koreanText" in item && Boolean(item.koreanText);
   const hasAudio =
     ("audioUrl" in item && Boolean(item.audioUrl)) ||
     ("audioText" in item && Boolean(item.audioText)) ||
@@ -295,9 +296,17 @@ export default function SessionChoiceQuestion({
               {getInstruction(locale, item)}
             </h3>
           </div>
-          {hasAudio && !isVocabQuestion ? (
-            <button type="button" onClick={() => void handlePlayAudio()} className="secondary-button">
-              {isPlaying ? ui("Playing...", "Đang phát...") : ui("Play audio", "Phát audio")}
+          {hasAudio && !canShowInlineReplay ? (
+            <button
+              type="button"
+              onClick={() => void handlePlayAudio()}
+              className="secondary-button min-w-[10rem] shrink-0 justify-center whitespace-nowrap"
+            >
+              {isPlaying
+                ? ui("Playing...", "Đang phát...")
+                : isVocabQuestion
+                  ? ui("Replay audio", "Nghe lại")
+                  : ui("Play audio", "Phát audio")}
             </button>
           ) : (
             <span className="pill bg-card-strong text-foreground">
@@ -334,7 +343,7 @@ export default function SessionChoiceQuestion({
                 ) : (
                   <p className="korean-display">{item.koreanText}</p>
                 )}
-                {isVocabQuestion ? (
+                {canShowInlineReplay ? (
                   <button
                     type="button"
                     onClick={() => void handlePlayAudio()}
