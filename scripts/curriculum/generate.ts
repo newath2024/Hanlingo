@@ -3610,7 +3610,7 @@ function buildUnit17QrLessons(
     ),
   ];
 
-  const lesson9Tasks = [
+  let lesson9Tasks = [
     compileListeningItem(
       source.unitId,
       {
@@ -3749,17 +3749,103 @@ function buildUnit17QrLessons(
     totalLessons,
   );
 
+  lesson9Tasks = [
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-housewarming-time-choice",
+        sourceExerciseIds: [partyTime.id],
+        tts: {
+          text: "내일 수환 씨 집들이가 몇 시예요? 저녁 7시예요.",
+          voice: "ko-KR",
+          speed: 0.9,
+        },
+        type: "multiple_choice",
+        prompt: text(
+          "Nghe hội thoại và chọn giờ diễn ra tiệc tân gia.",
+          "Listen to the dialogue and choose the housewarming time.",
+        ),
+        questionText: text("Tiệc tân gia diễn ra lúc mấy giờ?", "What time is the housewarming?"),
+        transcriptKo: "A: 내일 수환 씨 집들이가 몇 시예요?\nB: 저녁 7시예요.",
+        translation: text(
+          "A: Ngày mai tiệc tân gia của Suhwan mấy giờ?\nB: 7 giờ tối.",
+          "A: What time is Suhwan's housewarming tomorrow?\nB: It's at 7 PM.",
+        ),
+        contextGroupId: "u17-qr-housewarming-time",
+        contextTitle: text("Giờ tiệc tân gia", "Housewarming time"),
+        contextSummary: text(
+          "Nghe đoạn hội thoại ngắn rồi chọn mốc giờ đúng.",
+          "Listen to the short dialogue and choose the correct time.",
+        ),
+        choices: [
+          { id: "u17-time-6pm", text: text("6 PM", "6 PM") },
+          { id: "u17-time-7pm", text: text("7 PM", "7 PM") },
+          { id: "u17-time-8pm", text: text("8 PM", "8 PM") },
+        ],
+        correctChoiceId: "u17-time-7pm",
+        coverageTags: ["qr-listening", "time", "housewarming"],
+        difficulty: "easy",
+        pages: partyTime.pages,
+        sourceRef: partyTime.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-housewarming-item-choice",
+        sourceExerciseIds: [buyGifts.id],
+        tts: {
+          text: "그런데 집들이에 뭘 사가야 돼요? 보통 휴지를 사가요. 세제도 괜찮고요. 그럼 세제를 선물합시다. 제가 사갈까요? 좋아요. 그럼 수환 씨 집에서 봐요.",
+          voice: "ko-KR",
+          speed: 0.9,
+        },
+        type: "multiple_choice",
+        prompt: text(
+          "Nghe hội thoại và chọn món quà họ chốt sẽ mang theo.",
+          "Listen to the dialogue and choose the final gift they decide to bring.",
+        ),
+        questionText: text("Cuối cùng họ quyết định mang gì?", "What do they finally decide to bring?"),
+        transcriptKo:
+          "A: 그런데 집들이에 뭘 사가야 돼요?\nB: 보통 휴지를 사가요. 세제도 괜찮고요.\nA: 그럼 세제를 선물합시다.\nB: 제가 사갈까요?\nA: 좋아요. 그럼 수환 씨 집에서 봐요.",
+        translation: text(
+          "A: Nhưng mang gì đến tiệc tân gia thì được?\nB: Thường mang khăn giấy. Nước giặt cũng ổn.\nA: Vậy tặng nước giặt nhé.\nB: Để tôi mua mang theo nhé?\nA: Được, vậy gặp ở nhà Suhwan nhé.",
+          "A: But what should we bring to the housewarming?\nB: People usually bring tissue paper. Detergent is okay too.\nA: Then let's give detergent.\nB: Shall I buy and bring it?\nA: Sounds good. Then see you at Suhwan's house.",
+        ),
+        contextGroupId: "u17-qr-housewarming-item",
+        contextTitle: text("Quà mang theo", "Final gift"),
+        contextSummary: text(
+          "Chọn món quà được chốt ở quyết định cuối cùng, không chọn gợi ý trung gian.",
+          "Choose the item from the final decision, not an earlier suggestion.",
+        ),
+        choices: [
+          { id: "u17-item-detergent", text: text("nước giặt", "detergent") },
+          { id: "u17-item-tissue", text: text("khăn giấy", "tissue paper") },
+          { id: "u17-item-flowers", text: text("hoa", "flowers") },
+        ],
+        correctChoiceId: "u17-item-detergent",
+        coverageTags: ["qr-listening", "gifts", "housewarming", "response"],
+        difficulty: "easy",
+        pages: buyGifts.pages,
+        sourceRef: buyGifts.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+  ];
+
   const lesson9 = lesson(
     "unit-17-lesson-9",
     "workbook_practice",
-    text("Nghe QR: qua mang theo", "QR listening: gifts and response"),
+    text("Nghe QR: giờ và quà mang theo", "QR listening: time and final gift"),
     text(
-      "Giu lesson qua tan gia o dang atomic va de warning migration bao ro day van la legacy content chua co clip authoring.",
-      "Keep the gift lesson atomic and let migration warnings make it explicit that this is still legacy content without clip authoring.",
+      "Tách bài nghe này thành hai mục tiêu độc lập: một bài hỏi giờ diễn ra tiệc tân gia và một bài hỏi món quà được chốt cuối cùng.",
+      "Split this listening lesson into two independent goals: one asks about the housewarming time and one asks about the final gift choice.",
     ),
-    ["qr-listening", "gifts", "housewarming", "response"],
-    [buyGifts.id],
-    Array.from(new Set([...buyGifts.coverageTags, "response"])),
+    ["qr-listening", "time", "gifts", "housewarming"],
+    [partyTime.id, buyGifts.id],
+    ["qr-listening", "time", "gifts", "housewarming", "response"],
     lesson9Tasks,
     9,
     totalLessons,

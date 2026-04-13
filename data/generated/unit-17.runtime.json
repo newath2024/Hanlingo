@@ -3048,12 +3048,12 @@
       "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Nghe QR: qua mang theo",
-        "en": "QR listening: gifts and response"
+        "vi": "Nghe QR: giờ và quà mang theo",
+        "en": "QR listening: time and final gift"
       },
       "summary": {
-        "vi": "Giu lesson qua tan gia o dang atomic va de warning migration bao ro day van la legacy content chua co clip authoring.",
-        "en": "Keep the gift lesson atomic and let migration warnings make it explicit that this is still legacy content without clip authoring."
+        "vi": "Tách bài nghe này thành hai mục tiêu độc lập: một bài hỏi giờ diễn ra tiệc tân gia và một bài hỏi món quà được chốt cuối cùng.",
+        "en": "Split this listening lesson into two independent goals: one asks about the housewarming time and one asks about the final gift choice."
       },
       "difficulty": {
         "vi": "Nhớ lại và xây câu",
@@ -3061,237 +3061,153 @@
       },
       "focusConcepts": [
         "qr-listening",
+        "time",
         "gifts",
-        "housewarming",
-        "response"
+        "housewarming"
       ],
       "sourceExerciseIds": [
+        "wb17-qr-party-time",
         "wb17-qr-buy-gifts"
       ],
       "coverageTags": [
         "qr-listening",
+        "time",
         "gifts",
         "housewarming",
         "response"
       ],
       "tasks": [
         {
-          "id": "u17-qr-buy-gifts-choice",
+          "id": "u17-qr-housewarming-time-choice",
           "prompt": {
-            "vi": "Nghe hội thoại QR và chọn những thứ Lisa sẽ mua mang đến.",
-            "en": "Listen to the QR dialogue and choose what Lisa will bring."
+            "vi": "Nghe hội thoại và chọn giờ diễn ra tiệc tân gia.",
+            "en": "Listen to the dialogue and choose the housewarming time."
           },
           "explanation": {
-            "vi": "Lisa neun mueoseul sa gayo?",
-            "en": "What will Lisa bring?"
+            "vi": "Nghe đoạn hội thoại ngắn rồi chọn mốc giờ đúng.",
+            "en": "Listen to the short dialogue and choose the correct time."
           },
           "source": "workbook",
           "stage": "recognition",
           "grammarTags": [],
           "srWeight": 1.15,
-          "errorPatternKey": "u17-qr-buy-gifts-choice.listening",
-          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
+          "errorPatternKey": "u17-qr-housewarming-time-choice.listening",
+          "audioUrl": "/api/audio/tts/17/u17-qr-housewarming-time-choice",
           "type": "listening",
           "listeningType": "multiple_choice",
-          "questionText": {
-            "vi": "Lisa neun mueoseul sa gayo?",
-            "en": "What will Lisa bring?"
+          "tts": {
+            "text": "내일 수환 씨 집들이가 몇 시예요? 저녁 7시예요.",
+            "voice": "ko-KR",
+            "speed": 0.9
           },
-          "contextGroupId": "u17-qr-housewarming-dialogue",
+          "questionText": {
+            "vi": "Tiệc tân gia diễn ra lúc mấy giờ?",
+            "en": "What time is the housewarming?"
+          },
+          "transcriptKo": "A: 내일 수환 씨 집들이가 몇 시예요?\nB: 저녁 7시예요.",
+          "translation": {
+            "vi": "A: Ngày mai tiệc tân gia của Suhwan mấy giờ?\nB: 7 giờ tối.",
+            "en": "A: What time is Suhwan's housewarming tomorrow?\nB: It's at 7 PM."
+          },
+          "contextGroupId": "u17-qr-housewarming-time",
           "contextTitle": {
-            "vi": "Qua mang theo",
-            "en": "Bring-a-gift"
+            "vi": "Giờ tiệc tân gia",
+            "en": "Housewarming time"
+          },
+          "contextSummary": {
+            "vi": "Nghe đoạn hội thoại ngắn rồi chọn mốc giờ đúng.",
+            "en": "Listen to the short dialogue and choose the correct time."
           },
           "choices": [
             {
-              "id": "wb17-qr-buy-gifts-flowers",
+              "id": "u17-time-6pm",
               "text": {
-                "vi": "hoa",
-                "en": "flowers"
+                "vi": "6 PM",
+                "en": "6 PM"
               }
             },
             {
-              "id": "wb17-qr-buy-gifts-tissue-detergent",
+              "id": "u17-time-7pm",
               "text": {
-                "vi": "khăn giấy và nước giặt",
-                "en": "tissue paper and detergent"
+                "vi": "7 PM",
+                "en": "7 PM"
               }
             },
             {
-              "id": "wb17-qr-buy-gifts-invitation-card",
+              "id": "u17-time-8pm",
               "text": {
-                "vi": "thiệp mời",
-                "en": "invitation card"
+                "vi": "8 PM",
+                "en": "8 PM"
               }
             }
           ],
-          "correctChoiceId": "wb17-qr-buy-gifts-tissue-detergent"
+          "correctChoiceId": "u17-time-7pm"
         },
         {
-          "id": "u17-qr-detergent-fill",
+          "id": "u17-qr-housewarming-item-choice",
           "prompt": {
-            "vi": "Nghe lai roi dien mon qua dau tien duoc nhac toi.",
-            "en": "Listen again and fill in the first gift item named."
+            "vi": "Nghe hội thoại và chọn món quà họ chốt sẽ mang theo.",
+            "en": "Listen to the dialogue and choose the final gift they decide to bring."
           },
           "explanation": {
-            "vi": "botong ___ reul sa gago, hyujido sa gayo.",
-            "en": "People usually bring ___ and tissue paper."
+            "vi": "Chọn món quà được chốt ở quyết định cuối cùng, không chọn gợi ý trung gian.",
+            "en": "Choose the item from the final decision, not an earlier suggestion."
           },
           "source": "workbook",
-          "stage": "construction",
+          "stage": "recognition",
           "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "u17-qr-detergent-fill.listening",
-          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
+          "srWeight": 1.15,
+          "errorPatternKey": "u17-qr-housewarming-item-choice.listening",
+          "audioUrl": "/api/audio/tts/17/u17-qr-housewarming-item-choice",
           "type": "listening",
-          "listeningType": "fill_blank",
-          "questionText": {
-            "vi": "botong ___ reul sa gago, hyujido sa gayo.",
-            "en": "People usually bring ___ and tissue paper."
+          "listeningType": "multiple_choice",
+          "tts": {
+            "text": "그런데 집들이에 뭘 사가야 돼요? 보통 휴지를 사가요. 세제도 괜찮고요. 그럼 세제를 선물합시다. 제가 사갈까요? 좋아요. 그럼 수환 씨 집에서 봐요.",
+            "voice": "ko-KR",
+            "speed": 0.9
           },
-          "contextGroupId": "u17-qr-housewarming-dialogue",
+          "questionText": {
+            "vi": "Cuối cùng họ quyết định mang gì?",
+            "en": "What do they finally decide to bring?"
+          },
+          "transcriptKo": "A: 그런데 집들이에 뭘 사가야 돼요?\nB: 보통 휴지를 사가요. 세제도 괜찮고요.\nA: 그럼 세제를 선물합시다.\nB: 제가 사갈까요?\nA: 좋아요. 그럼 수환 씨 집에서 봐요.",
+          "translation": {
+            "vi": "A: Nhưng mang gì đến tiệc tân gia thì được?\nB: Thường mang khăn giấy. Nước giặt cũng ổn.\nA: Vậy tặng nước giặt nhé.\nB: Để tôi mua mang theo nhé?\nA: Được, vậy gặp ở nhà Suhwan nhé.",
+            "en": "A: But what should we bring to the housewarming?\nB: People usually bring tissue paper. Detergent is okay too.\nA: Then let's give detergent.\nB: Shall I buy and bring it?\nA: Sounds good. Then see you at Suhwan's house."
+          },
+          "contextGroupId": "u17-qr-housewarming-item",
           "contextTitle": {
-            "vi": "Qua mang theo",
-            "en": "Bring-a-gift"
+            "vi": "Quà mang theo",
+            "en": "Final gift"
+          },
+          "contextSummary": {
+            "vi": "Chọn món quà được chốt ở quyết định cuối cùng, không chọn gợi ý trung gian.",
+            "en": "Choose the item from the final decision, not an earlier suggestion."
           },
           "choices": [
             {
-              "id": "u17-detergent",
+              "id": "u17-item-detergent",
               "text": {
-                "vi": "세제",
+                "vi": "nước giặt",
                 "en": "detergent"
               }
             },
             {
-              "id": "u17-flowers",
+              "id": "u17-item-tissue",
               "text": {
-                "vi": "꽃",
+                "vi": "khăn giấy",
+                "en": "tissue paper"
+              }
+            },
+            {
+              "id": "u17-item-flowers",
+              "text": {
+                "vi": "hoa",
                 "en": "flowers"
               }
-            },
-            {
-              "id": "u17-card",
-              "text": {
-                "vi": "초대장",
-                "en": "invitation card"
-              }
             }
           ],
-          "correctText": "세제",
-          "acceptedAnswers": [
-            "세제"
-          ]
-        },
-        {
-          "id": "u17-qr-bring-fill",
-          "prompt": {
-            "vi": "Nghe lai roi hoan thanh cau de nghi mang qua den.",
-            "en": "Listen again and complete the offer-to-bring line."
-          },
-          "explanation": {
-            "vi": "geureom hyujihago seje reul jega ___?",
-            "en": "Then shall I ___ tissue paper and detergent?"
-          },
-          "source": "workbook",
-          "stage": "construction",
-          "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "u17-qr-bring-fill.listening",
-          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
-          "type": "listening",
-          "listeningType": "fill_blank",
-          "questionText": {
-            "vi": "geureom hyujihago seje reul jega ___?",
-            "en": "Then shall I ___ tissue paper and detergent?"
-          },
-          "contextGroupId": "u17-qr-housewarming-dialogue",
-          "contextTitle": {
-            "vi": "Qua mang theo",
-            "en": "Bring-a-gift"
-          },
-          "choices": [
-            {
-              "id": "u17-bring",
-              "text": {
-                "vi": "사 갈까요",
-                "en": "bring / buy and bring"
-              }
-            },
-            {
-              "id": "u17-eat",
-              "text": {
-                "vi": "먹을까요",
-                "en": "eat"
-              }
-            },
-            {
-              "id": "u17-go",
-              "text": {
-                "vi": "갈까요",
-                "en": "go"
-              }
-            }
-          ],
-          "correctText": "사 갈까요",
-          "acceptedAnswers": [
-            "사 갈까요"
-          ]
-        },
-        {
-          "id": "u17-qr-gifts-order",
-          "prompt": {
-            "vi": "Nghe lai roi sap xep cau ve cac mon qua nen mang theo.",
-            "en": "Listen again and order the line about what gifts to bring."
-          },
-          "explanation": {
-            "vi": "Thuong thi mang nuoc giat va khan giay.",
-            "en": "Usually people bring detergent and tissue paper."
-          },
-          "source": "workbook",
-          "stage": "construction",
-          "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "u17-qr-gifts-order.listening",
-          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
-          "type": "listening",
-          "listeningType": "order_step",
-          "questionText": {
-            "vi": "Thuong thi mang nuoc giat va khan giay.",
-            "en": "Usually people bring detergent and tissue paper."
-          },
-          "contextGroupId": "u17-qr-housewarming-dialogue",
-          "contextTitle": {
-            "vi": "Qua mang theo",
-            "en": "Bring-a-gift"
-          },
-          "choices": [
-            {
-              "id": "u17-gifts-usually",
-              "text": {
-                "vi": "보통",
-                "en": "usually"
-              }
-            },
-            {
-              "id": "u17-gifts-detergent",
-              "text": {
-                "vi": "세제를 사 가고",
-                "en": "bring detergent"
-              }
-            },
-            {
-              "id": "u17-gifts-tissue",
-              "text": {
-                "vi": "휴지도 사 가요",
-                "en": "bring tissue paper too"
-              }
-            }
-          ],
-          "correctOrderChoiceIds": [
-            "u17-gifts-usually",
-            "u17-gifts-detergent",
-            "u17-gifts-tissue"
-          ]
+          "correctChoiceId": "u17-item-detergent"
         }
       ]
     },
