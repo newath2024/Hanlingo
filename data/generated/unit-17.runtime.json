@@ -2643,12 +2643,12 @@
       "sectionOrder": 4,
       "lessonRole": "workbook_practice",
       "title": {
-        "vi": "Nghe QR: gio va hen gap",
-        "en": "QR listening: time and meetup"
+        "vi": "Nghe QR: ghép câu hội thoại tân gia",
+        "en": "QR listening: housewarming dialogue reorder"
       },
       "summary": {
-        "vi": "Giu lesson nay o dang listening atomic du source van dang di qua legacy full-audio adapter.",
-        "en": "Keep this lesson in atomic listening form even while the source still runs through the legacy full-audio adapter."
+        "vi": "Chuyển hội thoại tân gia 5 câu thành 5 bài nghe-sắp xếp từ bằng TTS, mỗi câu là một bài riêng và không tách hoặc gộp câu.",
+        "en": "Turn the fixed five-sentence housewarming dialogue into five TTS-backed word reorder items, one exercise per sentence with no sentence splitting or merging."
       },
       "difficulty": {
         "vi": "Nhớ lại và xây câu",
@@ -2656,236 +2656,388 @@
       },
       "focusConcepts": [
         "qr-listening",
+        "build-sentence",
         "housewarming",
         "time",
-        "meetup"
+        "gifts",
+        "dialogue"
       ],
       "sourceExerciseIds": [
-        "wb17-qr-party-time"
+        "wb17-qr-party-time",
+        "wb17-qr-buy-gifts"
       ],
       "coverageTags": [
         "qr-listening",
         "housewarming",
         "time",
-        "meetup"
+        "gifts",
+        "build-sentence",
+        "dialogue-reorder"
       ],
       "tasks": [
         {
-          "id": "u17-qr-party-time-choice",
+          "id": "u17-qr-housewarming-q1-order",
           "prompt": {
-            "vi": "Nghe hội thoại QR và chọn giờ diễn ra tiệc tân gia.",
-            "en": "Listen to the QR dialogue and choose the housewarming time."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "explanation": {
-            "vi": "Jipdeuri ga myeot siyeyo?",
-            "en": "What time is the housewarming?"
-          },
-          "source": "workbook",
-          "stage": "recognition",
-          "grammarTags": [],
-          "srWeight": 1.15,
-          "errorPatternKey": "u17-qr-party-time-choice.listening",
-          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
-          "type": "listening",
-          "listeningType": "multiple_choice",
-          "questionText": {
-            "vi": "Jipdeuri ga myeot siyeyo?",
-            "en": "What time is the housewarming?"
-          },
-          "contextGroupId": "u17-qr-housewarming-dialogue",
-          "contextTitle": {
-            "vi": "Tiec tan gia",
-            "en": "Housewarming"
-          },
-          "choices": [
-            {
-              "id": "wb17-qr-party-time-six-pm",
-              "text": {
-                "vi": "6 giờ tối",
-                "en": "6 PM"
-              }
-            },
-            {
-              "id": "wb17-qr-party-time-seven-pm",
-              "text": {
-                "vi": "7 giờ tối",
-                "en": "7 PM"
-              }
-            },
-            {
-              "id": "wb17-qr-party-time-eight-pm",
-              "text": {
-                "vi": "8 giờ tối",
-                "en": "8 PM"
-              }
-            }
-          ],
-          "correctChoiceId": "wb17-qr-party-time-six-pm"
-        },
-        {
-          "id": "u17-qr-party-time-fill",
-          "prompt": {
-            "vi": "Nghe lai roi dien gio bat dau cua tiec.",
-            "en": "Listen again and fill in the party time."
-          },
-          "explanation": {
-            "vi": "jipdeuri ga ___ siyeyo.",
-            "en": "The housewarming is at ___."
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
           },
           "source": "workbook",
           "stage": "construction",
           "grammarTags": [],
           "srWeight": 1.75,
-          "errorPatternKey": "u17-qr-party-time-fill.listening",
-          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
-          "type": "listening",
-          "listeningType": "fill_blank",
-          "questionText": {
-            "vi": "jipdeuri ga ___ siyeyo.",
-            "en": "The housewarming is at ___."
-          },
-          "contextGroupId": "u17-qr-housewarming-dialogue",
-          "contextTitle": {
-            "vi": "Tiec tan gia",
-            "en": "Housewarming"
-          },
-          "choices": [
-            {
-              "id": "u17-time-6",
-              "text": {
-                "vi": "여섯",
-                "en": "six"
-              }
-            },
-            {
-              "id": "u17-time-7",
-              "text": {
-                "vi": "일곱",
-                "en": "seven"
-              }
-            },
-            {
-              "id": "u17-time-8",
-              "text": {
-                "vi": "여덟",
-                "en": "eight"
-              }
-            }
-          ],
-          "correctText": "여섯",
-          "acceptedAnswers": [
-            "여섯"
-          ]
-        },
-        {
-          "id": "u17-qr-meetup-fill",
-          "prompt": {
-            "vi": "Nghe lai roi hoan thanh cau hen gap cuoi doan thoai.",
-            "en": "Listen again and complete the closing meetup line."
-          },
-          "explanation": {
-            "vi": "geureom syaowi ssi jibeseo ___.",
-            "en": "Then let's ___ at Xiaowei's home."
-          },
-          "source": "workbook",
-          "stage": "construction",
-          "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "u17-qr-meetup-fill.listening",
-          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
-          "type": "listening",
-          "listeningType": "fill_blank",
-          "questionText": {
-            "vi": "geureom syaowi ssi jibeseo ___.",
-            "en": "Then let's ___ at Xiaowei's home."
-          },
-          "contextGroupId": "u17-qr-housewarming-dialogue",
-          "contextTitle": {
-            "vi": "Tiec tan gia",
-            "en": "Housewarming"
-          },
-          "choices": [
-            {
-              "id": "u17-meet",
-              "text": {
-                "vi": "만나요",
-                "en": "meet"
-              }
-            },
-            {
-              "id": "u17-buy",
-              "text": {
-                "vi": "사요",
-                "en": "buy"
-              }
-            },
-            {
-              "id": "u17-help",
-              "text": {
-                "vi": "도와요",
-                "en": "help"
-              }
-            }
-          ],
-          "correctText": "만나요",
-          "acceptedAnswers": [
-            "만나요"
-          ]
-        },
-        {
-          "id": "u17-qr-meetup-order",
-          "prompt": {
-            "vi": "Nghe lai roi sap xep cau hen gap theo dung thu tu.",
-            "en": "Listen again and order the meetup line correctly."
-          },
-          "explanation": {
-            "vi": "Vay thi gap o nha Xiaowei.",
-            "en": "Then let's meet at Xiaowei's home."
-          },
-          "source": "workbook",
-          "stage": "construction",
-          "grammarTags": [],
-          "srWeight": 1.75,
-          "errorPatternKey": "u17-qr-meetup-order.listening",
-          "audioUrl": "/api/audio/17/wb17-qr-dialogue-audio",
+          "errorPatternKey": "u17-qr-housewarming-q1-order.listening",
+          "audioUrl": "/api/audio/tts/17/u17-qr-housewarming-q1-order",
           "type": "listening",
           "listeningType": "order_step",
-          "questionText": {
-            "vi": "Vay thi gap o nha Xiaowei.",
-            "en": "Then let's meet at Xiaowei's home."
+          "tts": {
+            "text": "내일 서우 씨 집들이가 몇 시예요?",
+            "voice": "ko-KR",
+            "speed": 0.9
           },
-          "contextGroupId": "u17-qr-housewarming-dialogue",
-          "contextTitle": {
-            "vi": "Tiec tan gia",
-            "en": "Housewarming"
+          "transcriptKo": "내일 서우 씨 집들이가 몇 시예요?",
+          "translation": {
+            "vi": "Ngày mai tiệc tân gia của Seowoo mấy giờ?",
+            "en": "What time is Seowoo's housewarming tomorrow?"
           },
           "choices": [
             {
-              "id": "u17-order-geureom",
+              "id": "u17-q1-time",
               "text": {
-                "vi": "그럼",
-                "en": "then"
+                "vi": "몇 시예요",
+                "en": "몇 시예요"
               }
             },
             {
-              "id": "u17-order-house",
+              "id": "u17-q1-tomorrow",
               "text": {
-                "vi": "샤오위 씨 집에서",
-                "en": "at Xiaowei's home"
+                "vi": "내일",
+                "en": "내일"
               }
             },
             {
-              "id": "u17-order-meet",
+              "id": "u17-q1-seowoo",
               "text": {
-                "vi": "만나요",
-                "en": "meet"
+                "vi": "서우 씨",
+                "en": "서우 씨"
+              }
+            },
+            {
+              "id": "u17-q1-housewarming",
+              "text": {
+                "vi": "집들이가",
+                "en": "집들이가"
               }
             }
           ],
           "correctOrderChoiceIds": [
-            "u17-order-geureom",
-            "u17-order-house",
-            "u17-order-meet"
+            "u17-q1-tomorrow",
+            "u17-q1-seowoo",
+            "u17-q1-housewarming",
+            "u17-q1-time"
+          ]
+        },
+        {
+          "id": "u17-qr-housewarming-q2-order",
+          "prompt": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "explanation": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "u17-qr-housewarming-q2-order.listening",
+          "audioUrl": "/api/audio/tts/17/u17-qr-housewarming-q2-order",
+          "type": "listening",
+          "listeningType": "order_step",
+          "tts": {
+            "text": "저녁 6시예요. 그런데 집들이에 뭘 사가야 돼요?",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
+          "transcriptKo": "저녁 6시예요. 그런데 집들이에 뭘 사가야 돼요?",
+          "translation": {
+            "vi": "Buổi tối là 6 giờ. Nhưng phải mang gì đến tiệc tân gia đây?",
+            "en": "It's 6 in the evening. But what should we bring to the housewarming?"
+          },
+          "choices": [
+            {
+              "id": "u17-q2-however",
+              "text": {
+                "vi": "그런데",
+                "en": "그런데"
+              }
+            },
+            {
+              "id": "u17-q2-evening",
+              "text": {
+                "vi": "저녁",
+                "en": "저녁"
+              }
+            },
+            {
+              "id": "u17-q2-six",
+              "text": {
+                "vi": "6시예요",
+                "en": "6시예요"
+              }
+            },
+            {
+              "id": "u17-q2-party",
+              "text": {
+                "vi": "집들이에",
+                "en": "집들이에"
+              }
+            },
+            {
+              "id": "u17-q2-need-bring",
+              "text": {
+                "vi": "사가야 돼요",
+                "en": "사가야 돼요"
+              }
+            },
+            {
+              "id": "u17-q2-what",
+              "text": {
+                "vi": "뭘",
+                "en": "뭘"
+              }
+            }
+          ],
+          "correctOrderChoiceIds": [
+            "u17-q2-evening",
+            "u17-q2-six",
+            "u17-q2-however",
+            "u17-q2-party",
+            "u17-q2-what",
+            "u17-q2-need-bring"
+          ]
+        },
+        {
+          "id": "u17-qr-housewarming-q3-order",
+          "prompt": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "explanation": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "u17-qr-housewarming-q3-order.listening",
+          "audioUrl": "/api/audio/tts/17/u17-qr-housewarming-q3-order",
+          "type": "listening",
+          "listeningType": "order_step",
+          "tts": {
+            "text": "보통 세배를 사가요. 휴지도 괜찮고.",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
+          "transcriptKo": "보통 세배를 사가요. 휴지도 괜찮고.",
+          "translation": {
+            "vi": "Thường thì mang sebae. Khăn giấy cũng ổn.",
+            "en": "Usually people bring sebae. Tissue paper is okay too."
+          },
+          "choices": [
+            {
+              "id": "u17-q3-tissue-too",
+              "text": {
+                "vi": "휴지도",
+                "en": "휴지도"
+              }
+            },
+            {
+              "id": "u17-q3-usually",
+              "text": {
+                "vi": "보통",
+                "en": "보통"
+              }
+            },
+            {
+              "id": "u17-q3-okay-and",
+              "text": {
+                "vi": "괜찮고",
+                "en": "괜찮고"
+              }
+            },
+            {
+              "id": "u17-q3-sebae",
+              "text": {
+                "vi": "세배를",
+                "en": "세배를"
+              }
+            },
+            {
+              "id": "u17-q3-bring",
+              "text": {
+                "vi": "사가요",
+                "en": "사가요"
+              }
+            }
+          ],
+          "correctOrderChoiceIds": [
+            "u17-q3-usually",
+            "u17-q3-sebae",
+            "u17-q3-bring",
+            "u17-q3-tissue-too",
+            "u17-q3-okay-and"
+          ]
+        },
+        {
+          "id": "u17-qr-housewarming-q4-order",
+          "prompt": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "explanation": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "u17-qr-housewarming-q4-order.listening",
+          "audioUrl": "/api/audio/tts/17/u17-qr-housewarming-q4-order",
+          "type": "listening",
+          "listeningType": "order_step",
+          "tts": {
+            "text": "그럼 휴지를 사가합시다. 제가 사갈까요?",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
+          "transcriptKo": "그럼 휴지를 사가합시다. 제가 사갈까요?",
+          "translation": {
+            "vi": "Vậy thì mang khăn giấy đi. Tôi sẽ mang nhé?",
+            "en": "Then let's bring tissue paper. Shall I bring it?"
+          },
+          "choices": [
+            {
+              "id": "u17-q4-i",
+              "text": {
+                "vi": "제가",
+                "en": "제가"
+              }
+            },
+            {
+              "id": "u17-q4-then",
+              "text": {
+                "vi": "그럼",
+                "en": "그럼"
+              }
+            },
+            {
+              "id": "u17-q4-tissue",
+              "text": {
+                "vi": "휴지를",
+                "en": "휴지를"
+              }
+            },
+            {
+              "id": "u17-q4-shall-bring",
+              "text": {
+                "vi": "사갈까요",
+                "en": "사갈까요"
+              }
+            },
+            {
+              "id": "u17-q4-bring-lets",
+              "text": {
+                "vi": "사가합시다",
+                "en": "사가합시다"
+              }
+            }
+          ],
+          "correctOrderChoiceIds": [
+            "u17-q4-then",
+            "u17-q4-tissue",
+            "u17-q4-bring-lets",
+            "u17-q4-i",
+            "u17-q4-shall-bring"
+          ]
+        },
+        {
+          "id": "u17-qr-housewarming-q5-order",
+          "prompt": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "explanation": {
+            "vi": "문장을 순서대로 만드세요.",
+            "en": "문장을 순서대로 만드세요."
+          },
+          "source": "workbook",
+          "stage": "construction",
+          "grammarTags": [],
+          "srWeight": 1.75,
+          "errorPatternKey": "u17-qr-housewarming-q5-order.listening",
+          "audioUrl": "/api/audio/tts/17/u17-qr-housewarming-q5-order",
+          "type": "listening",
+          "listeningType": "order_step",
+          "tts": {
+            "text": "좋아요. 그럼 서우 씨 집에서 자요.",
+            "voice": "ko-KR",
+            "speed": 0.9
+          },
+          "transcriptKo": "좋아요. 그럼 서우 씨 집에서 자요.",
+          "translation": {
+            "vi": "Được. Vậy thì ngủ ở nhà Seowoo.",
+            "en": "Okay. Then sleep at Seowoo's house."
+          },
+          "choices": [
+            {
+              "id": "u17-q5-seowoo",
+              "text": {
+                "vi": "서우 씨",
+                "en": "서우 씨"
+              }
+            },
+            {
+              "id": "u17-q5-good",
+              "text": {
+                "vi": "좋아요",
+                "en": "좋아요"
+              }
+            },
+            {
+              "id": "u17-q5-sleep",
+              "text": {
+                "vi": "자요",
+                "en": "자요"
+              }
+            },
+            {
+              "id": "u17-q5-then",
+              "text": {
+                "vi": "그럼",
+                "en": "그럼"
+              }
+            },
+            {
+              "id": "u17-q5-house",
+              "text": {
+                "vi": "집에서",
+                "en": "집에서"
+              }
+            }
+          ],
+          "correctOrderChoiceIds": [
+            "u17-q5-good",
+            "u17-q5-then",
+            "u17-q5-seowoo",
+            "u17-q5-house",
+            "u17-q5-sleep"
           ]
         }
       ]

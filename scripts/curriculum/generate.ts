@@ -3397,20 +3397,6 @@ function buildUnit17QrLessons(
 ) {
   const partyTime = pickFrom(source.workbook.exercises, "wb17-qr-party-time");
   const buyGifts = pickFrom(source.workbook.exercises, "wb17-qr-buy-gifts");
-  const dialogueAsset = audioAssetsById.get(partyTime.audioAssetId ?? "");
-
-  if (!isReadyAudioAsset(dialogueAsset)) {
-    throw new Error("Unit 17 QR dialogue audio must be available.");
-  }
-
-  const partyChoices = (partyTime.options ?? []).map((option) => ({
-    id: `${partyTime.id}-${option.id}`,
-    text: option.label ?? text(option.id, option.id),
-  }));
-  const partyCorrectChoiceId = (() => {
-    const correctOption = partyTime.options?.find((option) => option.correct);
-    return correctOption ? `${partyTime.id}-${correctOption.id}` : undefined;
-  })();
   const giftChoices = (buyGifts.options ?? []).map((option) => ({
     id: `${buyGifts.id}-${option.id}`,
     text: option.label ?? text(option.id, option.id),
@@ -3420,117 +3406,204 @@ function buildUnit17QrLessons(
     return correctOption ? `${buyGifts.id}-${correctOption.id}` : undefined;
   })();
 
+  const reorderPrompt = text("문장을 순서대로 만드세요.", "문장을 순서대로 만드세요.");
+  const lesson8SourceExerciseIds = [partyTime.id, buyGifts.id];
+  const lesson8CoverageTags = Array.from(
+    new Set([...partyTime.coverageTags, ...buyGifts.coverageTags, "build-sentence", "dialogue-reorder"]),
+  );
+
   const lesson8Tasks = [
     compileListeningItem(
       source.unitId,
       {
-        id: "u17-qr-party-time-choice",
-        sourceExerciseIds: [partyTime.id],
-        audioAssetId: partyTime.audioAssetId ?? "",
-        type: "multiple_choice",
-        prompt: partyTime.prompt,
-        questionText: text("Jipdeuri ga myeot siyeyo?", "What time is the housewarming?"),
-        contextGroupId: "u17-qr-housewarming-dialogue",
-        contextTitle: text("Tiec tan gia", "Housewarming"),
-        choices: partyChoices,
-        correctChoiceId: partyCorrectChoiceId,
-        coverageTags: partyTime.coverageTags,
-        difficulty: "easy",
-        pages: partyTime.pages,
-        sourceRef: partyTime.sourceRef,
-        needsReview: false,
-      },
-      audioAssetsById,
-    ),
-    compileListeningItem(
-      source.unitId,
-      {
-        id: "u17-qr-party-time-fill",
-        sourceExerciseIds: [partyTime.id],
-        audioAssetId: partyTime.audioAssetId ?? "",
-        type: "fill_blank",
-        prompt: text(
-          "Nghe lai roi dien gio bat dau cua tiec.",
-          "Listen again and fill in the party time.",
-        ),
-        questionText: text("jipdeuri ga ___ siyeyo.", "The housewarming is at ___."),
-        contextGroupId: "u17-qr-housewarming-dialogue",
-        contextTitle: text("Tiec tan gia", "Housewarming"),
-        correctText: "여섯",
-        acceptedAnswers: ["여섯"],
-        choices: [
-          { id: "u17-time-6", text: text("여섯", "six") },
-          { id: "u17-time-7", text: text("일곱", "seven") },
-          { id: "u17-time-8", text: text("여덟", "eight") },
-        ],
-        coverageTags: partyTime.coverageTags,
-        difficulty: "easy",
-        pages: partyTime.pages,
-        sourceRef: partyTime.sourceRef,
-        needsReview: false,
-      },
-      audioAssetsById,
-    ),
-    compileListeningItem(
-      source.unitId,
-      {
-        id: "u17-qr-meetup-fill",
-        sourceExerciseIds: [partyTime.id],
-        audioAssetId: partyTime.audioAssetId ?? "",
-        type: "fill_blank",
-        prompt: text(
-          "Nghe lai roi hoan thanh cau hen gap cuoi doan thoai.",
-          "Listen again and complete the closing meetup line.",
-        ),
-        questionText: text("geureom syaowi ssi jibeseo ___.", "Then let's ___ at Xiaowei's home."),
-        contextGroupId: "u17-qr-housewarming-dialogue",
-        contextTitle: text("Tiec tan gia", "Housewarming"),
-        correctText: "만나요",
-        acceptedAnswers: ["만나요"],
-        choices: [
-          { id: "u17-meet", text: text("만나요", "meet") },
-          { id: "u17-buy", text: text("사요", "buy") },
-          { id: "u17-help", text: text("도와요", "help") },
-        ],
-        coverageTags: [...partyTime.coverageTags, "meetup"],
-        difficulty: "easy",
-        pages: partyTime.pages,
-        sourceRef: partyTime.sourceRef,
-        needsReview: false,
-      },
-      audioAssetsById,
-    ),
-    compileListeningItem(
-      source.unitId,
-      {
-        id: "u17-qr-meetup-order",
-        sourceExerciseIds: [partyTime.id],
-        audioAssetId: partyTime.audioAssetId ?? "",
+        id: "u17-qr-housewarming-q1-order",
+        sourceExerciseIds: lesson8SourceExerciseIds,
+        tts: {
+          text: "내일 서우 씨 집들이가 몇 시예요?",
+          voice: "ko-KR",
+          speed: 0.9,
+        },
         type: "order_step",
-        prompt: text(
-          "Nghe lai roi sap xep cau hen gap theo dung thu tu.",
-          "Listen again and order the meetup line correctly.",
+        prompt: reorderPrompt,
+        transcriptKo: "내일 서우 씨 집들이가 몇 시예요?",
+        translation: text(
+          "Ngày mai tiệc tân gia của Seowoo mấy giờ?",
+          "What time is Seowoo's housewarming tomorrow?",
         ),
-        questionText: text(
-          "Vay thi gap o nha Xiaowei.",
-          "Then let's meet at Xiaowei's home.",
-        ),
-        contextGroupId: "u17-qr-housewarming-dialogue",
-        contextTitle: text("Tiec tan gia", "Housewarming"),
         choices: [
-          { id: "u17-order-geureom", text: text("그럼", "then") },
-          { id: "u17-order-house", text: text("샤오위 씨 집에서", "at Xiaowei's home") },
-          { id: "u17-order-meet", text: text("만나요", "meet") },
+          { id: "u17-q1-time", text: text("몇 시예요", "몇 시예요") },
+          { id: "u17-q1-tomorrow", text: text("내일", "내일") },
+          { id: "u17-q1-seowoo", text: text("서우 씨", "서우 씨") },
+          { id: "u17-q1-housewarming", text: text("집들이가", "집들이가") },
         ],
         correctOrderChoiceIds: [
-          "u17-order-geureom",
-          "u17-order-house",
-          "u17-order-meet",
+          "u17-q1-tomorrow",
+          "u17-q1-seowoo",
+          "u17-q1-housewarming",
+          "u17-q1-time",
         ],
-        coverageTags: [...partyTime.coverageTags, "meetup"],
+        coverageTags: lesson8CoverageTags,
         difficulty: "medium",
         pages: partyTime.pages,
         sourceRef: partyTime.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-housewarming-q2-order",
+        sourceExerciseIds: lesson8SourceExerciseIds,
+        tts: {
+          text: "저녁 6시예요. 그런데 집들이에 뭘 사가야 돼요?",
+          voice: "ko-KR",
+          speed: 0.9,
+        },
+        type: "order_step",
+        prompt: reorderPrompt,
+        transcriptKo: "저녁 6시예요. 그런데 집들이에 뭘 사가야 돼요?",
+        translation: text(
+          "Buổi tối là 6 giờ. Nhưng phải mang gì đến tiệc tân gia đây?",
+          "It's 6 in the evening. But what should we bring to the housewarming?",
+        ),
+        choices: [
+          { id: "u17-q2-however", text: text("그런데", "그런데") },
+          { id: "u17-q2-evening", text: text("저녁", "저녁") },
+          { id: "u17-q2-six", text: text("6시예요", "6시예요") },
+          { id: "u17-q2-party", text: text("집들이에", "집들이에") },
+          { id: "u17-q2-need-bring", text: text("사가야 돼요", "사가야 돼요") },
+          { id: "u17-q2-what", text: text("뭘", "뭘") },
+        ],
+        correctOrderChoiceIds: [
+          "u17-q2-evening",
+          "u17-q2-six",
+          "u17-q2-however",
+          "u17-q2-party",
+          "u17-q2-what",
+          "u17-q2-need-bring",
+        ],
+        coverageTags: lesson8CoverageTags,
+        difficulty: "medium",
+        pages: partyTime.pages,
+        sourceRef: partyTime.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-housewarming-q3-order",
+        sourceExerciseIds: lesson8SourceExerciseIds,
+        tts: {
+          text: "보통 세배를 사가요. 휴지도 괜찮고.",
+          voice: "ko-KR",
+          speed: 0.9,
+        },
+        type: "order_step",
+        prompt: reorderPrompt,
+        transcriptKo: "보통 세배를 사가요. 휴지도 괜찮고.",
+        translation: text(
+          "Thường thì mang sebae. Khăn giấy cũng ổn.",
+          "Usually people bring sebae. Tissue paper is okay too.",
+        ),
+        choices: [
+          { id: "u17-q3-tissue-too", text: text("휴지도", "휴지도") },
+          { id: "u17-q3-usually", text: text("보통", "보통") },
+          { id: "u17-q3-okay-and", text: text("괜찮고", "괜찮고") },
+          { id: "u17-q3-sebae", text: text("세배를", "세배를") },
+          { id: "u17-q3-bring", text: text("사가요", "사가요") },
+        ],
+        correctOrderChoiceIds: [
+          "u17-q3-usually",
+          "u17-q3-sebae",
+          "u17-q3-bring",
+          "u17-q3-tissue-too",
+          "u17-q3-okay-and",
+        ],
+        coverageTags: lesson8CoverageTags,
+        difficulty: "medium",
+        pages: buyGifts.pages,
+        sourceRef: buyGifts.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-housewarming-q4-order",
+        sourceExerciseIds: lesson8SourceExerciseIds,
+        tts: {
+          text: "그럼 휴지를 사가합시다. 제가 사갈까요?",
+          voice: "ko-KR",
+          speed: 0.9,
+        },
+        type: "order_step",
+        prompt: reorderPrompt,
+        transcriptKo: "그럼 휴지를 사가합시다. 제가 사갈까요?",
+        translation: text(
+          "Vậy thì mang khăn giấy đi. Tôi sẽ mang nhé?",
+          "Then let's bring tissue paper. Shall I bring it?",
+        ),
+        choices: [
+          { id: "u17-q4-i", text: text("제가", "제가") },
+          { id: "u17-q4-then", text: text("그럼", "그럼") },
+          { id: "u17-q4-tissue", text: text("휴지를", "휴지를") },
+          { id: "u17-q4-shall-bring", text: text("사갈까요", "사갈까요") },
+          { id: "u17-q4-bring-lets", text: text("사가합시다", "사가합시다") },
+        ],
+        correctOrderChoiceIds: [
+          "u17-q4-then",
+          "u17-q4-tissue",
+          "u17-q4-bring-lets",
+          "u17-q4-i",
+          "u17-q4-shall-bring",
+        ],
+        coverageTags: lesson8CoverageTags,
+        difficulty: "medium",
+        pages: buyGifts.pages,
+        sourceRef: buyGifts.sourceRef,
+        needsReview: false,
+      },
+      audioAssetsById,
+    ),
+    compileListeningItem(
+      source.unitId,
+      {
+        id: "u17-qr-housewarming-q5-order",
+        sourceExerciseIds: lesson8SourceExerciseIds,
+        tts: {
+          text: "좋아요. 그럼 서우 씨 집에서 자요.",
+          voice: "ko-KR",
+          speed: 0.9,
+        },
+        type: "order_step",
+        prompt: reorderPrompt,
+        transcriptKo: "좋아요. 그럼 서우 씨 집에서 자요.",
+        translation: text(
+          "Được. Vậy thì ngủ ở nhà Seowoo.",
+          "Okay. Then sleep at Seowoo's house.",
+        ),
+        choices: [
+          { id: "u17-q5-seowoo", text: text("서우 씨", "서우 씨") },
+          { id: "u17-q5-good", text: text("좋아요", "좋아요") },
+          { id: "u17-q5-sleep", text: text("자요", "자요") },
+          { id: "u17-q5-then", text: text("그럼", "그럼") },
+          { id: "u17-q5-house", text: text("집에서", "집에서") },
+        ],
+        correctOrderChoiceIds: [
+          "u17-q5-good",
+          "u17-q5-then",
+          "u17-q5-seowoo",
+          "u17-q5-house",
+          "u17-q5-sleep",
+        ],
+        coverageTags: lesson8CoverageTags,
+        difficulty: "medium",
+        pages: buyGifts.pages,
+        sourceRef: buyGifts.sourceRef,
         needsReview: false,
       },
       audioAssetsById,
@@ -3663,14 +3736,14 @@ function buildUnit17QrLessons(
   const lesson8 = lesson(
     "unit-17-lesson-8",
     "workbook_practice",
-    text("Nghe QR: gio va hen gap", "QR listening: time and meetup"),
+    text("Nghe QR: ghép câu hội thoại tân gia", "QR listening: housewarming dialogue reorder"),
     text(
-      "Giu lesson nay o dang listening atomic du source van dang di qua legacy full-audio adapter.",
-      "Keep this lesson in atomic listening form even while the source still runs through the legacy full-audio adapter.",
+      "Chuyển hội thoại tân gia 5 câu thành 5 bài nghe-sắp xếp từ bằng TTS, mỗi câu là một bài riêng và không tách hoặc gộp câu.",
+      "Turn the fixed five-sentence housewarming dialogue into five TTS-backed word reorder items, one exercise per sentence with no sentence splitting or merging.",
     ),
-    ["qr-listening", "housewarming", "time", "meetup"],
-    [partyTime.id],
-    Array.from(new Set([...partyTime.coverageTags, "meetup"])),
+    ["qr-listening", "build-sentence", "housewarming", "time", "gifts", "dialogue"],
+    [partyTime.id, buyGifts.id],
+    lesson8CoverageTags,
     lesson8Tasks,
     8,
     totalLessons,
