@@ -140,6 +140,52 @@ const EXACT_CHUNK_GLOSSARY: Record<string, GlossResolver> = {
   "죄송하지만": { meaningEn: "sorry, but", meaningVi: "xin lỗi nhưng" },
   "제가": { meaningEn: "I will", meaningVi: "để tôi" },
   "도와줄게요.": { meaningEn: "will help", meaningVi: "sẽ giúp" },
+  "학생": { meaningEn: "student", meaningVi: "học sinh" },
+  "지연": { meaningEn: "Jiyeon", meaningVi: "Jiyeon" },
+  "잘": { meaningEn: "well", meaningVi: "khỏe / tốt" },
+  "지냈어요?": { meaningEn: "have you been?", meaningVi: "dạo này thế nào?" },
+  "어떤": { meaningEn: "what kind of", meaningVi: "loại nào / gì" },
+  "메일": { meaningEn: "email", meaningVi: "email / thư điện tử" },
+  "주세요.": { meaningEn: "please give/send [it]", meaningVi: "hãy gửi / cho tôi nhé" },
+  "네,": { meaningEn: "yes,", meaningVi: "vâng," },
+  "그래서": { meaningEn: "so / therefore", meaningVi: "vì vậy / cho nên" },
+  "재미있어요.": { meaningEn: "it is fun", meaningVi: "thú vị" },
+  "봐요.": { meaningEn: "see you / let's see", meaningVi: "gặp nhé / xem nhé" },
+  "가깝습니다.": { meaningEn: "is close", meaningVi: "thì gần" },
+  "가까워요.": { meaningEn: "is close", meaningVi: "gần" },
+  "봅시다.": { meaningEn: "let's see", meaningVi: "hãy xem nào" },
+  "한번": { meaningEn: "once / first", meaningVi: "một lần / thử" },
+  "한": { meaningEn: "one", meaningVi: "một" },
+  "세": { meaningEn: "three", meaningVi: "ba" },
+  "시간": { meaningEn: "hours", meaningVi: "tiếng / giờ" },
+  "이": { meaningEn: "this", meaningVi: "này" },
+  "사람이": { meaningEn: "the person (subject)", meaningVi: "người này (chủ ngữ)" },
+  "이용하지": { meaningEn: "do not use", meaningVi: "không sử dụng" },
+  "않은": { meaningEn: "not used", meaningVi: "không dùng" },
+  "바로": { meaningEn: "directly", meaningVi: "trực tiếp" },
+  "가지": { meaningEn: "go", meaningVi: "đi" },
+  "않아서": { meaningEn: "because [it] does not", meaningVi: "vì không..." },
+  "가고": { meaningEn: "go and / want to go", meaningVi: "đi và / muốn đi" },
+  "싶어요.": { meaningEn: "want to", meaningVi: "muốn" },
+  "운동하러": { meaningEn: "to exercise", meaningVi: "để tập thể dục" },
+  "먹다": { meaningEn: "to eat", meaningVi: "ăn" },
+  "만들다": { meaningEn: "to make", meaningVi: "làm / tạo" },
+  "번": { meaningEn: "time / occurrence", meaningVi: "lần" },
+  "갔습니다.": { meaningEn: "went", meaningVi: "đã đi" },
+  "여기에": { meaningEn: "here / in here", meaningVi: "ở đây / vào đây" },
+  "저기": { meaningEn: "over there", meaningVi: "đằng kia" },
+  "100번": { meaningEn: "number 100", meaningVi: "số 100" },
+  "3호선을": { meaningEn: "Line 3 (object)", meaningVi: "tuyến số 3 (tân ngữ)" },
+  "준비하다": { meaningEn: "to prepare", meaningVi: "chuẩn bị" },
+  "수영": { meaningEn: "swimming", meaningVi: "bơi" },
+  "모자도": { meaningEn: "hat too", meaningVi: "mũ cũng" },
+  "가져가야": { meaningEn: "must bring", meaningVi: "phải mang theo" },
+  "해요.": { meaningEn: "do / have to do", meaningVi: "làm / phải làm" },
+  "구경해요.": { meaningEn: "look around", meaningVi: "tham quan / ngắm" },
+  "같이": { meaningEn: "together", meaningVi: "cùng nhau" },
+  "식사도": { meaningEn: "meal too", meaningVi: "bữa ăn cũng" },
+  "하고요.": { meaningEn: "do too / and also do", meaningVi: "cũng làm / và cũng" },
+  "도와줄까요?": { meaningEn: "shall I help?", meaningVi: "để tôi giúp nhé?" },
 };
 
 const BASE_NOUN_GLOSSARY: Record<string, LocalizedGloss> = {
@@ -166,6 +212,25 @@ const BASE_NOUN_GLOSSARY: Record<string, LocalizedGloss> = {
   초대장: { meaningEn: "invitation card", meaningVi: "thiệp mời" },
   한국어: { meaningEn: "Korean", meaningVi: "tiếng Hàn" },
   약속: { meaningEn: "plans / appointment", meaningVi: "cuộc hẹn" },
+  버스: { meaningEn: "bus", meaningVi: "xe buýt" },
+  지하철: { meaningEn: "subway", meaningVi: "tàu điện ngầm" },
+  역: { meaningEn: "station", meaningVi: "ga / trạm" },
+  음식: { meaningEn: "food", meaningVi: "món ăn / đồ ăn" },
+  메일: { meaningEn: "email", meaningVi: "email / thư điện tử" },
+  메시지: { meaningEn: "message", meaningVi: "tin nhắn" },
+  서울: { meaningEn: "Seoul", meaningVi: "Seoul" },
+  부산역: { meaningEn: "Busan Station", meaningVi: "ga Busan" },
+  서면역: { meaningEn: "Seomyeon Station", meaningVi: "ga Seomyeon" },
+  경주: { meaningEn: "Gyeongju", meaningVi: "Gyeongju" },
+  공원: { meaningEn: "park", meaningVi: "công viên" },
+  회사: { meaningEn: "company / office", meaningVi: "công ty / văn phòng" },
+  박물관: { meaningEn: "museum", meaningVi: "bảo tàng" },
+  비행기: { meaningEn: "airplane", meaningVi: "máy bay" },
+  기차: { meaningEn: "train", meaningVi: "tàu hỏa" },
+  교통수단: { meaningEn: "means of transportation", meaningVi: "phương tiện giao thông" },
+  자전거: { meaningEn: "bicycle", meaningVi: "xe đạp" },
+  한국: { meaningEn: "Korea", meaningVi: "Hàn Quốc" },
+  말하기: { meaningEn: "speaking", meaningVi: "nói / kỹ năng nói" },
 };
 
 function stripTrailingPunctuation(value: string) {
@@ -345,11 +410,16 @@ function resolveParticleChunk(normalizedChunk: string) {
   return null;
 }
 
+function resolveBaseNounChunk(normalizedChunk: string) {
+  return BASE_NOUN_GLOSSARY[normalizedChunk] ?? null;
+}
+
 function resolveChunkGloss(context: GlossResolverContext) {
   return (
     resolveFromExactDictionary(context) ??
     resolveCopulaChunk(context.normalizedChunk) ??
-    resolveParticleChunk(context.normalizedChunk)
+    resolveParticleChunk(context.normalizedChunk) ??
+    resolveBaseNounChunk(context.normalizedChunk)
   );
 }
 
